@@ -1,0 +1,195 @@
+{
+ "id": "trunk_passive_invivo.shojaei2018.load_holding_trunk_bending_stiffness",
+ "title": "Trunk bending stiffness in upright passive flexion while holding 3.5-7 kg loads (active muscle)",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "active_trunk_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (T10-S1; moment about S1)"
+ ],
+ "condition": "holding 3.5 or 7 kg below/above the harness rod (ACTIVE muscle, increased EMG)",
+ "quantity": {
+  "name": "average trunk bending stiffness Kb = (ME - MS)/(thetaE - thetaS)",
+  "definition": "secant stiffness over each interval (0-10% and quartiles) of the imposed flexion (70% of active lumbar range) during the flexion phase; moment about S1 from the harness-rod load cell",
+  "unit": "Nm/rad"
+ },
+ "source": {
+  "short": "Shojaei 2018",
+  "authors": "Shojaei I, Suri C, van Dieen JH, Bazrgari B",
+  "year": 2018,
+  "journal": "J Biomech 77:163-170",
+  "doi": "10.1016/j.jbiomech.2018.07.005",
+  "n": 20,
+  "sample": "20 asymptomatic young adults, gender-balanced (10 M: 178.0 (6.2) cm, 78.9 (12.0) kg, BMI 24.8; 10 F: 164.7 (5.1) cm, 67.1 (7.0) kg, BMI 24.7), age 18-30 y",
+  "age": "18-30 y",
+  "sex": "10 M, 10 F",
+  "height_cm": 171.4,
+  "weight_kg": 73.0
+ },
+ "protocol": {
+  "summary": "Rigid metal frame: pelvis/legs on a platform rotated about the S1 level (height adjusted per subject), thorax restrained at the harness-connecting rod with inline load cell; legs rotated to 70% of each subject's active lumbar flexion range (from a free bending test with IMUs on T10 and S1) and returned. Moment = rod force x distance from harness to platform axis (S1). Six tests: 2 without hand load (baseline) and 4 holding 3.5 or 7 kg at a fixed horizontal distance below or above the rod (equilibrium vs stability demand). EMG (4 back, 4 abdominal sites) in microvolts.",
+  "how_to_simulate": [
+   "Upright model, thorax fixed at the harness level, pelvis+legs rotated about S1 to 70% of the model's lumbar flexion range",
+   "Hold 3.5 or 7 kg in the hands at a fixed horizontal distance in front of the lower back with muscle activation solved for equilibrium/stability (e.g. stability-constrained optimisation or EMG-driven), then compute trunk stiffness including active muscle short-range stiffness",
+   "Compute secant stiffness over 0-10% and each quartile of the imposed range and compare"
+  ],
+  "subject_model": {
+   "sex": "10 M / 10 F",
+   "age": "18-30",
+   "height_cm": 171.4,
+   "weight_kg": 73.0,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 (mean of male and female means; derived)"
+  },
+  "notes": "ACTIVE: includes muscle stiffness from load-holding co-activation; never pool with passive tests. Same lab/apparatus as Shojaei 2016 and Toosizadeh 2012."
+ },
+ "data": [
+  {
+   "x": "0-10%",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "loading condition (mean of 4 load-holding conditions: 3.5/7 kg, low/high)",
+   "mean": 80.1,
+   "sd": 35.5,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 1.398,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "0-10%",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "change vs baseline",
+   "mean": 60,
+   "sd": null,
+   "n": 20,
+   "unit": "%",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "1st quartile (0-25%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "loading condition (mean of 4 load-holding conditions: 3.5/7 kg, low/high)",
+   "mean": 72.3,
+   "sd": 41.3,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 1.262,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "1st quartile (0-25%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "change vs baseline",
+   "mean": 49,
+   "sd": null,
+   "n": 20,
+   "unit": "%",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "2nd quartile (25-50%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "loading condition (mean of 4 load-holding conditions: 3.5/7 kg, low/high)",
+   "mean": 62.9,
+   "sd": 39.4,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 1.098,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "2nd quartile (25-50%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "change vs baseline",
+   "mean": 10,
+   "sd": null,
+   "n": 20,
+   "unit": "%",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "3rd quartile (50-75%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "loading condition (mean of 4 load-holding conditions: 3.5/7 kg, low/high)",
+   "mean": 69.9,
+   "sd": 49.1,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 1.22,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "3rd quartile (50-75%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "change vs baseline",
+   "mean": 28,
+   "sd": null,
+   "n": 20,
+   "unit": "%",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "4th quartile (75-100%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "loading condition (mean of 4 load-holding conditions: 3.5/7 kg, low/high)",
+   "mean": 114.8,
+   "sd": 42.5,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 2.004,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "4th quartile (75-100%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "change vs baseline",
+   "mean": 25,
+   "sd": null,
+   "n": 20,
+   "unit": "%",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Tables 1-2 (p.167)",
+  "method": "table",
+  "uncertainty": "tabulated (0.1 Nm/rad)",
+  "checked": true,
+  "check_notes": "All values re-read from pdftotext of Tables 1-2 (clean layout); baseline identical in both tables."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__active_trunk_bending_stiffness__lumbar__upright_frame_load_holding_3p5_7kg__quartiles_70pct_rom",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "active muscle"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.shojaei2018.baseline_upright_trunk_bending_stiffness"
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "id": "trunk_passive_invivo.gombatto2008.passive_lateral_bending_elastic_energy_prone",
+ "title": "In vivo passive lumbar lateral bending elastic energy (area under torque-angle curve), prone, people with and without LBP",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_moment_angle",
+ "region": "lumbar",
+ "levels": [
+  "lumbar region (L1-S2)"
+ ],
+ "condition": "passive (opposing EO/ES < 2% MVIC for > 0.3 s), prone",
+ "quantity": {
+  "name": "passive elastic energy in lateral bending",
+  "definition": "area under the exponential fit (McGill 1994) of torque vs lumbar-region angle from start of movement to maximum lumbar excursion; torque = force (transducers on the cradle guide) x moment arm from the S2 marker (axis) to the force line of action; lumbar-region angle = L1-S2 marker vector relative to the pelvic superior-inferior axis; greater/lesser side identified per subject",
+  "unit": "Nm·deg"
+ },
+ "source": {
+  "short": "Gombatto 2008",
+  "authors": "Gombatto SP, Klaesner JW, Norton BJ, Minor SD, Van Dillen LR",
+  "year": 2008,
+  "journal": "Clin Biomech 23:986-995",
+  "doi": "10.1016/j.clinbiomech.2008.05.006",
+  "n": 41,
+  "sample": "41 people: 19 without LBP (10 M, 9 F; 30.32 (8.45) y; 70.21 (15.10) kg; 169.21 (9.62) cm; BMI 24.24) and 22 with LBP of the Rotation-with-Extension subgroup (8 M, 14 F; 31.23 (9.43) y; 68.71 (11.71) kg; 169.20 (9.10) cm)",
+  "age": "no LBP 30.32 (8.45) y; LBP 31.23 (9.43) y",
+  "sex": "18 M, 23 F",
+  "height_cm": 169.21,
+  "weight_kg": 70.21
+ },
+ "protocol": {
+  "summary": "Prone on a passive movement device: pelvis and legs on a fixed table (iliac crests at table edge, neutral pelvic rotation), L4 centred between table and air-bearing cradle supporting the trunk to L3, strapped; neutral = L1, L4, S2 collinear (within 1 deg). Examiner moved the cradle into lateral bending at ~1.9 deg/s (metronome) to end range; 3 practice + 3 recorded trials per side; EMG of EO and lumbar ES (opposing muscles < 2% MVIC).",
+  "how_to_simulate": [
+   "Prone (horizontal) model, pelvis and legs fixed, trunk on a frictionless support, lumbar spine neutral",
+   "Set muscle activations to zero; laterally bend the lumbar region (L1 relative to pelvis/S2) to the model's end range to each side",
+   "Compute the passive moment about the S2 axis vs lumbar-region angle, fit an exponential, integrate to the maximum angle (Nm·deg) and compare with the no-LBP group (side means and between-side difference)"
+  ],
+  "subject_model": {
+   "sex": "mixed (10 M, 9 F)",
+   "age": 30.3,
+   "height_cm": 169.21,
+   "weight_kg": 70.21,
+   "disc_area_mm2": null,
+   "source": "Table 1, no-LBP group"
+  },
+  "notes": "Extensibility (max excursion) not significantly different between groups; its values are not tabulated. Figure 4 shows mean (95% CI); sd derived as CI half-width/t(0.975,n-1)*sqrt(n). Watt 2022 used this study (controls) in the lateral-bending synthesis."
+ },
+ "data": [
+  {
+   "x": "side of greater passive elastic energy",
+   "series": "no LBP",
+   "load": "passive lateral bending to end range, prone",
+   "mean": 117.6,
+   "sd": 46.7,
+   "ci95_low": 95.6,
+   "ci95_high": 140.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19,
+   "unit": "Nm·deg",
+   "source_detail": "digitised Fig 4"
+  },
+  {
+   "x": "side of lesser passive elastic energy",
+   "series": "no LBP",
+   "load": "passive lateral bending to end range, prone",
+   "mean": 88.5,
+   "sd": 37.4,
+   "ci95_low": 70.9,
+   "ci95_high": 107.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19,
+   "unit": "Nm·deg",
+   "source_detail": "digitised Fig 4"
+  },
+  {
+   "x": "side of greater passive elastic energy",
+   "series": "Rotation-with-Extension LBP (pathology)",
+   "load": "passive lateral bending to end range, prone",
+   "mean": 128.1,
+   "sd": 54.5,
+   "ci95_low": 104.4,
+   "ci95_high": 152.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 22,
+   "unit": "Nm·deg",
+   "source_detail": "digitised Fig 4"
+  },
+  {
+   "x": "side of lesser passive elastic energy",
+   "series": "Rotation-with-Extension LBP (pathology)",
+   "load": "passive lateral bending to end range, prone",
+   "mean": 78.8,
+   "sd": 44.5,
+   "ci95_low": 59.3,
+   "ci95_high": 98.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 22,
+   "unit": "Nm·deg",
+   "source_detail": "digitised Fig 4"
+  },
+  {
+   "x": "between-side difference in passive elastic energy",
+   "series": "no LBP",
+   "mean": 29.23,
+   "sd": 21.36,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19,
+   "unit": "Nm·deg",
+   "source_detail": "text p.7"
+  },
+  {
+   "x": "between-side difference in passive elastic energy",
+   "series": "Rotation-with-Extension LBP (pathology)",
+   "mean": 49.52,
+   "sd": 35.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 22,
+   "unit": "Nm·deg",
+   "source_detail": "text p.7"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4 (PMC manuscript p.16; mean and 95% CI) and Results text p.7",
+  "method": "digitised_figure",
+  "uncertainty": "+-1 Nm·deg for means and CI limits (pixel analysis at 300 dpi: 6.6 px per Nm·deg)",
+  "checked": true,
+  "check_notes": "Calibrated on 5 tick marks located left of the frame line (an initial pass used the wrong axis column and was redone). Check: digitised between-side differences 29.1 (no LBP) and 49.3 (LBP) vs text 29.23 and 49.52 Nm·deg; CI midpoints match bar tops within 0.5."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__passive_lateral_bending_elastic_energy__lumbar__relaxed_prone__end_range",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "lateral bending",
+  "pathology",
+  "low back pain"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.watt2022.meta_analysis_lateral_bending_stiffness_by_quartile"
+ ]
+}

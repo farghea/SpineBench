@@ -1,0 +1,188 @@
+{
+ "id": "muscle_geometry.bayoglu2017a.muscle_mass.whole.quadratus_lumborum.M_cadaver",
+ "title": "Bayoglu 2017a: muscle mass of quadratus lumborum at whole (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "quadratus_lumborum",
+ "muscle_as_reported": "Quadratus lumborum",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "muscle_mass",
+  "definition": "muscle mass",
+  "unit": "g"
+ },
+ "source": {
+  "short": "Bayoglu 2017a",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 53:111-119 (lumbar dataset)",
+  "doi": "10.1016/j.jbiomech.2017.01.009",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model muscle mass per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. "
+ },
+ "data": [
+  {
+   "x": "Quadratus lumborum #1 (Pelvis -> L3)",
+   "side": "unilateral",
+   "mean": 2.48,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "2.48 g",
+   "origin": "Pelvis",
+   "insertion": "L3"
+  },
+  {
+   "x": "Quadratus lumborum #2 (Pelvis -> L2)",
+   "side": "unilateral",
+   "mean": 0.89,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.89 g",
+   "origin": "Pelvis",
+   "insertion": "L2"
+  },
+  {
+   "x": "Quadratus lumborum #3 (Pelvis -> L2)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "4.00 g",
+   "origin": "Pelvis",
+   "insertion": "L2"
+  },
+  {
+   "x": "Quadratus lumborum #4 (Pelvis -> L1)",
+   "side": "unilateral",
+   "mean": 3.06,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "3.06 g",
+   "origin": "Pelvis",
+   "insertion": "L1"
+  },
+  {
+   "x": "Quadratus lumborum #5 (L3 -> R12)",
+   "side": "unilateral",
+   "mean": 4.85,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "4.85 g",
+   "origin": "L3",
+   "insertion": "R12"
+  },
+  {
+   "x": "Quadratus lumborum #6 (Pelvis -> L3)",
+   "side": "unilateral",
+   "mean": 1.99,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "1.99 g",
+   "origin": "Pelvis",
+   "insertion": "L3"
+  },
+  {
+   "x": "Quadratus lumborum #7 (Pelvis -> L2)",
+   "side": "unilateral",
+   "mean": 3.07,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "3.07 g",
+   "origin": "Pelvis",
+   "insertion": "L2"
+  },
+  {
+   "x": "Quadratus lumborum #8 (Pelvis -> R12)",
+   "side": "unilateral",
+   "mean": 7.81,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "7.81 g",
+   "origin": "Pelvis",
+   "insertion": "R12"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__muscle_mass__whole_quadratus_lumborum__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "muscle_mass",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017b"
+ ]
+}

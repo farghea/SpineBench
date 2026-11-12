@@ -1,0 +1,116 @@
+{
+ "id": "muscle_geometry.zwambag2014.sarcomere_length.whole.psoas.mixed_cadaver",
+ "title": "Zwambag 2014: sarcomere length of psoas major at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "psoas",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "laser diffraction of fixed fibre bundles",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle and attachment level",
+  "posture_detail": "cadaver in approximately neutral spine posture"
+ },
+ "quantity": {
+  "name": "sarcomere_length",
+  "definition": "sarcomere length (micrometres)",
+  "unit": "um"
+ },
+ "source": {
+  "short": "Zwambag 2014",
+  "authors": "Zwambag DP, Ricketts TA, Brown SHM",
+  "year": 2014,
+  "journal": "J Biomech 47:3087-3093",
+  "doi": "10.1016/j.jbiomech.2014.06.030",
+  "n": 7,
+  "sample": "7 cadaveric donors (6 M, 1 F); age 77 (8.5) y; psoas minor present in 3",
+  "age": "77 (8.5) y",
+  "sex": "6M/1F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Put the model in neutral lumbar posture (cadaver lying, approximately neutral).",
+   "Compute sarcomere length = fibre length / optimal fibre length x optimal sarcomere length (state the value used, e.g. 2.7-2.8 um) for the listed fascicles.",
+   "Compare with mean ± SE (n=7)."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": 77,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 7,
+   "source": "catalog / Methods"
+  },
+  "notes": "Mean ± standard error (stored in \"se\"). Table 4 (modelled lengths; caption says mm, means um) and Table 2 (literature rotations) are not data."
+ },
+ "data": [
+  {
+   "x": "all sites",
+   "side": "unspecified",
+   "mean": 3.41,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "as_reported": "3.41 (SE 0.07) um",
+   "se": 0.07
+  },
+  {
+   "x": "L1",
+   "side": "unspecified",
+   "mean": 3.36,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "as_reported": "3.36 (SE 0.09) um",
+   "se": 0.09
+  },
+  {
+   "x": "L4",
+   "side": "unspecified",
+   "mean": 3.46,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "as_reported": "3.46 (SE 0.1) um",
+   "se": 0.1
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 3 re-read from text (unambiguous rows)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__sarcomere_length__whole_psoas__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "sarcomere_length",
+  "cadaver",
+  "architecture"
+ ]
+}

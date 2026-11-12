@@ -459,11 +459,19 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": null,
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.jorgensen2001.regression.L3-L5.all_trunk.mixed_supine.coronal_centroid_distance",
+  "muscle_geometry.jorgensen2001.regression.L3-L5.all_trunk.mixed_supine.sagittal_centroid_distance",
+  "muscle_geometry.marras2001.regression.max_level.all_trunk.mixed_supine.csa_fibre_corrected_max"
+ ],
  "tags": [
   "muscle_geometry",
   "regression",
   "sample:osu_mri_30",
   "regression"
+ ],
+ "shared_sample_papers": [
+  "jorgensen2001",
+  "marras2001"
  ]
 }

@@ -1,0 +1,213 @@
+{
+ "id": "muscle_geometry.bogduk1992.moment_arm.L5-S1.psoas.M_radiograph_erect",
+ "title": "Bogduk 1992: moment arm of psoas major at L5-S1 (M, radiograph_erect)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "moment_arm",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "M_radiograph_erect",
+ "muscle": "psoas",
+ "muscle_as_reported": "psoas major fascicles (origin: vertebral body VB, transverse process TP, intervertebral disc IVD)",
+ "sex": "M",
+ "posture": "radiograph_erect",
+ "imaging": {
+  "modality": "lateral radiographs (magnification corrected x1/1.62) with fascicle lines constructed from cadaver anatomy",
+  "plane": "sagittal projection",
+  "slice_thickness_mm": null,
+  "level_definition": "instantaneous axis of rotation of each lumbar motion segment",
+  "posture_detail": ""
+ },
+ "quantity": {
+  "name": "moment_arm",
+  "definition": "true moment arm: perpendicular distance from the joint/segment rotation axis (or instantaneous axis) to the muscle line of action; sagittal-plane flexion(+)/extension(-) moment arm: perpendicular distance from the fascicle line of action to the instantaneous axis of rotation (IAR) of the segment, on radiograph tracings",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Bogduk 1992",
+  "authors": "Bogduk N, Pearcy M, Hadfield G",
+  "year": 1992,
+  "journal": "Clin Biomech 7:109-119",
+  "doi": "",
+  "n": 10,
+  "sample": "10 adult males (radiographs) + 3 cadavers (6 psoas muscles); lateral flexion-extension radiographs of 10 adult males; fascicle anatomy from dissection of 3 embalmed cadavers",
+  "age": "",
+  "sex": "M (radiographs)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model lumbar spine in erect standing (match the radiographic posture; no hip flexion in flexed/extended).",
+   "For each psoas fascicle crossing L5-S1, compute the sagittal moment arm about the L5-S1 axis of rotation (IAR; if the model uses a fixed joint centre, use it and note the difference) = -dL/dtheta or the perpendicular distance.",
+   "Sign: + flexion (fascicle anterior to the axis), - extension. Compare each fascicle with mean ± SD (n=10)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 10,
+   "source": "10 adult males (radiographs); demographics not given"
+  },
+  "notes": "True moment arms (geometric, about the segmental IAR). Moments in the table (multiples of K) are derived and not stored. Fascicle line-of-action orientation (Tables 4, 6, 8) not stored."
+ },
+ "data": [
+  {
+   "x": "fascicle L1 VB",
+   "side": "unilateral",
+   "mean": 29.0,
+   "sd": 15.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "29 (15) mm",
+   "fascicle_origin": "L1 VB"
+  },
+  {
+   "x": "fascicle L1 TP",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 31.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "24 (31) mm",
+   "fascicle_origin": "L1 TP"
+  },
+  {
+   "x": "fascicle L1-L2 IVD",
+   "side": "unilateral",
+   "mean": 31.0,
+   "sd": 14.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "31 (14) mm",
+   "fascicle_origin": "L1-L2 IVD"
+  },
+  {
+   "x": "fascicle L2 TP",
+   "side": "unilateral",
+   "mean": 22.0,
+   "sd": 14.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "22 (14) mm",
+   "fascicle_origin": "L2 TP"
+  },
+  {
+   "x": "fascicle L2-L3 IVD",
+   "side": "unilateral",
+   "mean": 31.0,
+   "sd": 13.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "31 (13) mm",
+   "fascicle_origin": "L2-L3 IVD"
+  },
+  {
+   "x": "fascicle L3 TP",
+   "side": "unilateral",
+   "mean": 22.0,
+   "sd": 12.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "22 (12) mm",
+   "fascicle_origin": "L3 TP"
+  },
+  {
+   "x": "fascicle L3-L4 IVD",
+   "side": "unilateral",
+   "mean": 30.0,
+   "sd": 10.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "30 (10) mm",
+   "fascicle_origin": "L3-L4 IVD"
+  },
+  {
+   "x": "fascicle L4 TP",
+   "side": "unilateral",
+   "mean": 17.0,
+   "sd": 10.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "17 (10) mm",
+   "fascicle_origin": "L4 TP"
+  },
+  {
+   "x": "fascicle L4-L5 IVD",
+   "side": "unilateral",
+   "mean": 23.0,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "23 (8) mm",
+   "fascicle_origin": "L4-L5 IVD"
+  },
+  {
+   "x": "fascicle L5 TP",
+   "side": "unilateral",
+   "mean": 6.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 (7) mm",
+   "fascicle_origin": "L5 TP"
+  },
+  {
+   "x": "fascicle L5 VB",
+   "side": "unilateral",
+   "mean": 11.0,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "11 (6) mm",
+   "fascicle_origin": "L5 VB"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All Ma/SD cells read from the rendered Table 3 (pp.114-117); text layer misaligned the L5-S1 column."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__moment_arm__l5_s1_psoas__m_radiograph_erect__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "moment_arm",
+  "radiograph",
+  "true moment arm",
+  "in vivo geometry"
+ ]
+}

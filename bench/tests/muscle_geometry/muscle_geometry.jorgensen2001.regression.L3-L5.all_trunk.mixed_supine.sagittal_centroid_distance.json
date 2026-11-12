@@ -1333,12 +1333,20 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": null,
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.hwang2016.regression.T12-S1.all_trunk.mixed_supine.centroid_distance_polynomial",
+  "muscle_geometry.hwang2016.regression.T8-L5.all_trunk.mixed_supine.csa_fibre_corrected_polynomial",
+  "muscle_geometry.marras2001.regression.max_level.all_trunk.mixed_supine.csa_fibre_corrected_max"
+ ],
  "tags": [
   "muscle_geometry",
   "regression",
   "sample:osu_mri_30",
   "regression",
   "erratum"
+ ],
+ "shared_sample_papers": [
+  "hwang2016",
+  "marras2001"
  ]
 }

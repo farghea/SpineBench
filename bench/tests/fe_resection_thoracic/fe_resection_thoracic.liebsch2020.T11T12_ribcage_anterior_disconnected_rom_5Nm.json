@@ -85,7 +85,7 @@
   "template": true,
   "rule": "model within [min,max] of specimens (median as target)"
  },
- "combine_group": "fe_resection_thoracic__rom__T11-T12__ribcage_anterior_disconnected__5Nm",
+ "combine_group": "fe_resection_thoracic__rom__t11_t12__ribcage_anterior_disconnected__5nm",
  "tags": [
   "thoracic",
   "in vitro",
@@ -116,5 +116,10 @@
   ],
   "cumulative": true
  },
- "specimen_levels": "C7-L1"
+ "specimen_levels": "C7-L1",
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2018.* / liebsch2019.* (>=6 of 8 donors match by age range, height, BMI)",
+  "fe_rom_thoracic.liebsch2022spinej.* and Liebsch 2020 Spine J (monosegments = the 48 FSUs of donors 26-33)",
+  "fe_rom_thoracic.wilke2025.* (pooled)"
+ ]
 }

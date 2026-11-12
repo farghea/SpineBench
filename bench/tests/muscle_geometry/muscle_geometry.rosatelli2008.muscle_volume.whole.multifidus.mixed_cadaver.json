@@ -1,0 +1,300 @@
+{
+ "id": "muscle_geometry.rosatelli2008.muscle_volume.whole.multifidus.mixed_cadaver",
+ "title": "Rosatelli 2008: muscle volume of multifidus at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "multifidus",
+ "muscle_as_reported": "lumbar multifidus (LMT) by spinous-process level of origin and layer (superficial/intermediate/deep)",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "micro-dissection + 3-D digitisation (MicroScribe)",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per lumbar level of origin (spinous process L1-L5) and region",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "muscle_volume",
+  "definition": "muscle volume",
+  "unit": "cm3"
+ },
+ "source": {
+  "short": "Rosatelli 2008",
+  "authors": "Rosatelli AL, Ravichandiran K, Agur AM",
+  "year": 2008,
+  "journal": "Clin Anat 21:539-546",
+  "doi": "10.1002/ca.20659",
+  "n": 10,
+  "sample": "10 formalin-embalmed cadavers (9 M, 1 F); age 80 (SD 11) y; 3-D digitisation of up to 1400 fibre bundles per specimen (lumbar multifidus, one side)",
+  "age": "80 (11) y",
+  "sex": "9M/1F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Group the model multifidus fascicles by spinous process of origin (L1-L5) and depth layer.",
+   "Compare the model muscle volume per group with the measured mean ± SD."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": 80,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 10,
+   "source": "catalog/abstract"
+  },
+  "notes": "Dispersion printed as ± (taken as SD). Segment-level rows (by insertion) of Tables 2-4 not stored; level and region means only. The intermediate layer is absent at L5."
+ },
+ "data": [
+  {
+   "x": "superficial L1",
+   "side": "unilateral",
+   "mean": 6.7,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6.7 ± 0.5 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": "L1"
+  },
+  {
+   "x": "superficial L2",
+   "side": "unilateral",
+   "mean": 7.9,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "7.9 ± 1.9 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": "L2"
+  },
+  {
+   "x": "superficial L3",
+   "side": "unilateral",
+   "mean": 7.0,
+   "sd": 1.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "7.0 ± 1.7 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": "L3"
+  },
+  {
+   "x": "superficial L4",
+   "side": "unilateral",
+   "mean": 3.7,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "3.7 ± 0.4 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": "L4"
+  },
+  {
+   "x": "superficial L5",
+   "side": "unilateral",
+   "mean": 2.8,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.8 ± 0.3 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": "L5"
+  },
+  {
+   "x": "superficial (region mean)",
+   "side": "unilateral",
+   "mean": 5.6,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5.6 ± 2.3 ml (cm3)",
+   "region_layer": "superficial",
+   "origin_level": null
+  },
+  {
+   "x": "intermediate L1",
+   "side": "unilateral",
+   "mean": 1.7,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.7 ± 0.4 ml (cm3)",
+   "region_layer": "intermediate",
+   "origin_level": "L1"
+  },
+  {
+   "x": "intermediate L2",
+   "side": "unilateral",
+   "mean": 1.9,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.9 ± 0.3 ml (cm3)",
+   "region_layer": "intermediate",
+   "origin_level": "L2"
+  },
+  {
+   "x": "intermediate L3",
+   "side": "unilateral",
+   "mean": 1.5,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.5 ± 0.3 ml (cm3)",
+   "region_layer": "intermediate",
+   "origin_level": "L3"
+  },
+  {
+   "x": "intermediate L4",
+   "side": "unilateral",
+   "mean": 1.8,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.8 ± 0.5 ml (cm3)",
+   "region_layer": "intermediate",
+   "origin_level": "L4"
+  },
+  {
+   "x": "intermediate (region mean)",
+   "side": "unilateral",
+   "mean": 1.7,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.7 ± 0.4 ml (cm3)",
+   "region_layer": "intermediate",
+   "origin_level": null
+  },
+  {
+   "x": "deep L1",
+   "side": "unilateral",
+   "mean": 0.5,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.5 ± 0.1 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": "L1"
+  },
+  {
+   "x": "deep L2",
+   "side": "unilateral",
+   "mean": 0.6,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.6 ± 0.2 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": "L2"
+  },
+  {
+   "x": "deep L3",
+   "side": "unilateral",
+   "mean": 0.6,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.6 ± 0.2 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": "L3"
+  },
+  {
+   "x": "deep L4",
+   "side": "unilateral",
+   "mean": 0.5,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.5 ± 0.1 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": "L4"
+  },
+  {
+   "x": "deep L5",
+   "side": "unilateral",
+   "mean": 1.3,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "1.3 ± 0.1 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": "L5"
+  },
+  {
+   "x": "deep (region mean)",
+   "side": "unilateral",
+   "mean": 0.7,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.7 ± 0.3 ml (cm3)",
+   "region_layer": "deep",
+   "origin_level": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 4 (level means)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 3 checked on rendered p.543; Tables 2, 4, 5 re-read from text (\"6\" = \"±\")."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__muscle_volume__whole_multifidus__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "muscle_volume",
+  "cadaver",
+  "architecture"
+ ]
+}

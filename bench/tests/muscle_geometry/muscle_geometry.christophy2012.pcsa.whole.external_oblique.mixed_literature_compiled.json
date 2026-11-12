@@ -1,0 +1,90 @@
+{
+ "id": "muscle_geometry.christophy2012.pcsa.whole.external_oblique.mixed_literature_compiled",
+ "title": "Christophy 2012: pcsa of external oblique at whole (mixed, literature_compiled)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_literature_compiled_compiled",
+ "muscle": "external_oblique",
+ "muscle_as_reported": "EO",
+ "sex": "mixed",
+ "posture": "literature_compiled",
+ "imaging": {
+  "modality": "literature compilation",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "muscle group, one side (sum over model fascicles)",
+  "posture_detail": ""
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Christophy 2012",
+  "authors": "Christophy M, Faruk Senan NA, Lotz JC, O'Reilly OM",
+  "year": 2012,
+  "journal": "Biomech Model Mechanobiol 11:19-34",
+  "doi": "10.1007/s10237-011-0290-6",
+  "n": 0,
+  "sample": "0 (model; literature-compiled parameters); OpenSim lumbar spine model; muscle parameters compiled from dissection studies (one side)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Sum the PCSA of all model fascicles of the group (one side) and compare. This is a compiled reference, not an independent measurement."
+  ],
+  "subject_model": {
+   "sex": "unspecified",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": null,
+   "source": "compiled"
+  },
+  "notes": "Literature-compiled: do not pool with the original sources (kept in a separate __compiled combine group). Table 2 also lists other studies: Marras 2001 right male \"PCSA\" (QL 526, RA 905, LD 2174, IO 1026, EO 1006, Psoas 1949, ES 2595 mm2) - EO 1006 disagrees with Marras 2001 Table 3 (10.60 cm2 = 1060 mm2), probably a transcription error in Christophy; Delp 2001 (QL 120 = distal part only, RA 260, ES 1000 = LT 590 + IL 410, i.e. without spinalis). Per-fascicle Table 1 (238 fascicles) not extracted (multi-format rows)."
+ },
+ "data": [
+  {
+   "x": "EO group total (model, one side)",
+   "side": "unilateral",
+   "mean": 1575.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "as_reported": "1,575 mm2",
+   "traced_to": "Stokes & Gardner-Morse 1999 [S] (sum of 6 components 1575 mm2 - matches)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (and Table 1 source keys)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 re-read; RA/EO/IO values traced to Stokes 1999 and confirmed equal."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__whole_external_oblique__mixed_literature_compiled_compiled__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "literature compiled",
+  "model parameters"
+ ]
+}

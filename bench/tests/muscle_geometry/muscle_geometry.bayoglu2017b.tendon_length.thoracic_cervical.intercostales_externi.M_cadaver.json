@@ -1,0 +1,162 @@
+{
+ "id": "muscle_geometry.bayoglu2017b.tendon_length.thoracic_cervical.intercostales_externi.M_cadaver",
+ "title": "Bayoglu 2017b: tendon length of external intercostals at thoracic_cervical (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "thoracic",
+ "levels": [
+  "thoracic_cervical"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "intercostales_externi",
+ "muscle_as_reported": "Intercostales externi",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "tendon_length",
+  "definition": "tendon length",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Bayoglu 2017b",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 58:52-63 (thoracic/cervical dataset)",
+  "doi": "10.1016/j.jbiomech.2017.04.003",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model tendon length per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. "
+ },
+ "data": [
+  {
+   "x": "Intercostales externi #1 (R2 -> R1)",
+   "side": "unilateral",
+   "mean": 6.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "6.7 mm",
+   "origin": "R2",
+   "insertion": "R1"
+  },
+  {
+   "x": "Intercostales externi #2 (R2 -> R1)",
+   "side": "unilateral",
+   "mean": 14.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "14.7 mm",
+   "origin": "R2",
+   "insertion": "R1"
+  },
+  {
+   "x": "Intercostales externi #3 (R2 -> R1)",
+   "side": "unilateral",
+   "mean": 15.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "15.5 mm",
+   "origin": "R2",
+   "insertion": "R1"
+  },
+  {
+   "x": "Intercostales externi #4 (R6 -> R5)",
+   "side": "unilateral",
+   "mean": 15.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "15.8 mm",
+   "origin": "R6",
+   "insertion": "R5"
+  },
+  {
+   "x": "Intercostales externi #5 (R6 -> R5)",
+   "side": "unilateral",
+   "mean": 15.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "15.2 mm",
+   "origin": "R6",
+   "insertion": "R5"
+  },
+  {
+   "x": "Intercostales externi #6 (R10 -> R9)",
+   "side": "unilateral",
+   "mean": 10.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "10.3 mm",
+   "origin": "R10",
+   "insertion": "R9"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__tendon_length__thoracic_cervical_intercostales_externi__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "tendon_length",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017a"
+ ]
+}

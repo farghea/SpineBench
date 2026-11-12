@@ -1,0 +1,257 @@
+{
+ "id": "trunk_passive_invivo.shojaei2018.baseline_upright_trunk_bending_stiffness",
+ "title": "Baseline (no hand load) trunk bending stiffness over quartiles of lumbar flexion, upright frame with pelvis rotated",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (T10-S1; moment about S1)"
+ ],
+ "condition": "upright, no hand load; background muscle tone present (EMG reported in microvolts, not verified relaxed)",
+ "quantity": {
+  "name": "average trunk bending stiffness Kb = (ME - MS)/(thetaE - thetaS)",
+  "definition": "secant stiffness over each interval (0-10% and quartiles) of the imposed flexion (70% of active lumbar range) during the flexion phase; moment about S1 from the harness-rod load cell",
+  "unit": "Nm/rad"
+ },
+ "source": {
+  "short": "Shojaei 2018",
+  "authors": "Shojaei I, Suri C, van Dieen JH, Bazrgari B",
+  "year": 2018,
+  "journal": "J Biomech 77:163-170",
+  "doi": "10.1016/j.jbiomech.2018.07.005",
+  "n": 20,
+  "sample": "20 asymptomatic young adults, gender-balanced (10 M: 178.0 (6.2) cm, 78.9 (12.0) kg, BMI 24.8; 10 F: 164.7 (5.1) cm, 67.1 (7.0) kg, BMI 24.7), age 18-30 y",
+  "age": "18-30 y",
+  "sex": "10 M, 10 F",
+  "height_cm": 171.4,
+  "weight_kg": 73.0
+ },
+ "protocol": {
+  "summary": "Rigid metal frame: pelvis/legs on a platform rotated about the S1 level (height adjusted per subject), thorax restrained at the harness-connecting rod with inline load cell; legs rotated to 70% of each subject's active lumbar flexion range (from a free bending test with IMUs on T10 and S1) and returned. Moment = rod force x distance from harness to platform axis (S1). Six tests: 2 without hand load (baseline) and 4 holding 3.5 or 7 kg at a fixed horizontal distance below or above the rod (equilibrium vs stability demand). EMG (4 back, 4 abdominal sites) in microvolts.",
+  "how_to_simulate": [
+   "Upright model, thorax fixed at the harness level, pelvis+legs rotated about S1 to 70% of the model's lumbar flexion range",
+   "Set muscle activations to zero (or to the model's resting tone) and compute the moment about S1 vs lumbar flexion",
+   "Compute secant stiffness over 0-10% and each quartile of the imposed range and compare"
+  ],
+  "subject_model": {
+   "sex": "10 M / 10 F",
+   "age": "18-30",
+   "height_cm": 171.4,
+   "weight_kg": 73.0,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 (mean of male and female means; derived)"
+  },
+  "notes": "Watt 2022 used this baseline as passive flexion stiffness (standing) in its meta-analysis. Muscle relaxation not EMG-verified (EMG not normalised), so treat as upright 'quasi-passive'; separate combine group from side-lying relaxed tests. Same lab/apparatus as Shojaei 2016 and Toosizadeh 2012."
+ },
+ "data": [
+  {
+   "x": "0-10%",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline, no load in hands",
+   "mean": 50.0,
+   "sd": 28.7,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.873,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "1st quartile (0-25%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline, no load in hands",
+   "mean": 48.4,
+   "sd": 30.1,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.845,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "2nd quartile (25-50%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline, no load in hands",
+   "mean": 57.0,
+   "sd": 37.8,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.995,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "3rd quartile (50-75%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline, no load in hands",
+   "mean": 54.7,
+   "sd": 46.4,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.955,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "4th quartile (75-100%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline, no load in hands",
+   "mean": 91.8,
+   "sd": 40.2,
+   "n": 20,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 1.602,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "0-10%",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline back muscle activity (EMG, not normalised)",
+   "mean": 31.6,
+   "sd": 8.0,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "1st quartile (0-25%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline back muscle activity (EMG, not normalised)",
+   "mean": 30.9,
+   "sd": 9.5,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "2nd quartile (25-50%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline back muscle activity (EMG, not normalised)",
+   "mean": 32.7,
+   "sd": 10.1,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "3rd quartile (50-75%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline back muscle activity (EMG, not normalised)",
+   "mean": 30.0,
+   "sd": 8.6,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "4th quartile (75-100%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline back muscle activity (EMG, not normalised)",
+   "mean": 31.5,
+   "sd": 9.1,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "0-10%",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline abdominal muscle activity (EMG, not normalised)",
+   "mean": 49.5,
+   "sd": 14.1,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "1st quartile (0-25%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline abdominal muscle activity (EMG, not normalised)",
+   "mean": 50.3,
+   "sd": 13.0,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "2nd quartile (25-50%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline abdominal muscle activity (EMG, not normalised)",
+   "mean": 48.6,
+   "sd": 13.6,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "3rd quartile (50-75%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline abdominal muscle activity (EMG, not normalised)",
+   "mean": 49.2,
+   "sd": 13.6,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "4th quartile (75-100%)",
+   "x_unit": "interval of 70% lumbar flexion range",
+   "series": "baseline abdominal muscle activity (EMG, not normalised)",
+   "mean": 50.9,
+   "sd": 12.1,
+   "n": 20,
+   "unit": "microvolt",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Tables 1-2 (p.167)",
+  "method": "table",
+  "uncertainty": "tabulated (0.1 Nm/rad)",
+  "checked": true,
+  "check_notes": "All values re-read from pdftotext of Tables 1-2 (clean layout); baseline identical in both tables."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__trunk_bending_stiffness_baseline__lumbar__upright_frame_pelvis_rotated_no_load__quartiles_70pct_rom",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "upright"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.shojaei2018.load_holding_trunk_bending_stiffness",
+  "trunk_passive_invivo.watt2022.meta_analysis_flexion_stiffness_by_quartile"
+ ]
+}

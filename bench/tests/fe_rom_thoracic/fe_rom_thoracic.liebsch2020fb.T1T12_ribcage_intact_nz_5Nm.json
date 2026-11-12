@@ -81,7 +81,7 @@
   "template": true,
   "rule": "model within [min,max] of specimens (median as target)"
  },
- "combine_group": "fe_rom_thoracic__nz__T1-T12__ribcage_intact__5Nm",
+ "combine_group": "fe_rom_thoracic__nz__t1_t12__ribcage_intact__5nm",
  "tags": [
   "thoracic",
   "in vitro",
@@ -103,5 +103,8 @@
   "preload": "none",
   "device": "spine tester (Wilke 1994) + optical tracking, 3 markers per vertebra"
  },
- "specimen_levels": "C7-L1"
+ "specimen_levels": "C7-L1",
+ "shared_sample_with": [
+  "fe_rom_thoracic.wilke2025.*_ribcage_intact_* (pooled as Liebsch 2020c)"
+ ]
 }

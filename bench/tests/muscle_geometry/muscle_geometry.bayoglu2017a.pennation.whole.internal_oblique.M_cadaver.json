@@ -1,0 +1,162 @@
+{
+ "id": "muscle_geometry.bayoglu2017a.pennation.whole.internal_oblique.M_cadaver",
+ "title": "Bayoglu 2017a: pennation of internal oblique at whole (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "internal_oblique",
+ "muscle_as_reported": "Obliquus internus abdominis",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "pennation",
+  "definition": "pennation angle",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Bayoglu 2017a",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 53:111-119 (lumbar dataset)",
+  "doi": "10.1016/j.jbiomech.2017.01.009",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model pennation per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. "
+ },
+ "data": [
+  {
+   "x": "Obliquus internus abdominis #1 (Pelvis -> R11)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "R11"
+  },
+  {
+   "x": "Obliquus internus abdominis #2 (Pelvis -> R10)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "R10"
+  },
+  {
+   "x": "Obliquus internus abdominis #3 (Pelvis -> Linea alba)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "Linea alba"
+  },
+  {
+   "x": "Obliquus internus abdominis #4 (Pelvis -> Linea alba)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "Linea alba"
+  },
+  {
+   "x": "Obliquus internus abdominis #5 (Pelvis -> Linea alba)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "Linea alba"
+  },
+  {
+   "x": "Obliquus internus abdominis #6 (Pelvis -> Linea alba)",
+   "side": "unilateral",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0 deg",
+   "origin": "Pelvis",
+   "insertion": "Linea alba"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pennation__whole_internal_oblique__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pennation",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017b"
+ ]
+}

@@ -1,0 +1,93 @@
+{
+ "id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_5Nm_ax50n",
+ "title": "T1-T12 AR ROM after anterior rib cage removal (Watkins 2005, secondary)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "long segment with rib cage, stepwise reduction",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_anterior_removed",
+ "quantity": {
+  "name": "ROM",
+  "definition": "overall T1-T12 ROM (full range), mean (SD not reported in secondary sources)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Watkins 2005",
+  "authors": "Watkins R 4th, Watkins R 3rd, Williams L, Ahlbrand S, Garcia R, Karamanian A, Sharp L, Vo C, Hedman T",
+  "year": 2005,
+  "journal": "Spine 30:1283-1286",
+  "doi": "",
+  "n": 10,
+  "sample": "10 human T1-T12 thoracic spines with rib cage and sternum (values via secondary sources)",
+  "age": "55-91 y (mean 72 per Mannen 2015 Table 3)",
+  "sex": "6 F, 4 M (per Liebsch & Wilke 2022 Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 2 Nm in FE and LB, 5 Nm + 50 N axial preload in AR (automated test machine); stepwise: intact, transverse sternal fracture, anterior rib cage removal up to rib stumps.",
+  "how_to_simulate": [
+   "Model T1-T12 with rib cage and sternum; apply the resection of this step",
+   "Apply pure moment (2 Nm FE/LB; 5 Nm AR with 50 N axial compressive preload) at T1, T12 fixed",
+   "Report T1-T12 full-range rotation"
+  ],
+  "subject_model": null,
+  "notes": "PDF of Watkins 2005 not in download folder; values taken from secondary sources (see extraction.from). Ranges from Mannen 2015 Table 3."
+ },
+ "data": [
+  {
+   "x": "AR_total",
+   "load": "5 Nm + 50 N axial",
+   "mean": 33.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Liebsch & Wilke 2022 review text (section 3.6)",
+  "method": "text",
+  "uncertainty": "as printed in secondary source",
+  "checked": true,
+  "check_notes": "Cross-consistent: intact 7.93/10.36/23.03 (Mannen Table 3) = 7.9/10.4/23.0 (Liebsch & Wilke text)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_resection_thoracic__rom__t1_t12__ribcage_anterior_removed__5nm_ax50n",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "secondary_from_review",
+  "long segment"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "rib stumps with costovertebral/costotransverse joints only"
+ },
+ "loading": {
+  "moment_Nm": "2 (FE, LB) / 5 (AR)",
+  "rate": "not stated",
+  "cycles": "not stated",
+  "branch": "peak",
+  "preload": "none (FE, LB); 50 N axial (AR)",
+  "device": "automated test machine"
+ },
+ "resection": {
+  "step_index": 2,
+  "step_name": "rib cage removed up to rib stumps (costovertebral/costotransverse joints kept)",
+  "sequence": [
+   "intact rib cage",
+   "transverse sternal fracture at the sternomanubrial junction",
+   "rib cage removed up to rib stumps (costovertebral/costotransverse joints kept)"
+  ],
+  "cumulative": true
+ }
+}

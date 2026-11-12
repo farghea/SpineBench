@@ -1,0 +1,103 @@
+{
+ "id": "fe_rom_thoracic.rahm2019.T5T6_ribcage_intact_rom_5Nm",
+ "title": "T5-T6 ROM inside C7-L2 rib cage specimen, intact (Rahm 2019)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "segment within long specimen",
+ "region": "thoracic",
+ "levels": [
+  "T5-T6"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "segmental rotation range at +/-5 Nm (full range), 3rd cycle, Optotrak",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Rahm 2019",
+  "authors": "Rahm MD, Brooks DM, Harris JA, Hart RA, Hughes JL, Ferrick BJ, Bucklen BS",
+  "year": 2019,
+  "journal": "Clin Biomech 70:217-222",
+  "doi": "10.1016/j.clinbiomech.2019.10.008",
+  "n": 5,
+  "sample": "5 fresh-frozen human C7-L2 spines with intact rib cage incl. intercostal muscles",
+  "age": "64.4 +/- 6.2 y",
+  "sex": "3 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "C7-L2 with intact rib cage potted at C7 and L2; quasi-static pure moments +/-5 Nm at 1.5 deg/s, 3 cycles (3rd analysed), FE/LB/AR; then T4-L2 instrumentation, 18000 FE cycles, stepwise rib removal.",
+  "how_to_simulate": [
+   "Model C7-L2 with full rib cage (incl. intercostal muscles); fix L2",
+   "Apply pure moments +/-5 Nm at C7, no preload",
+   "Report T5-T6 rotation range"
+  ],
+  "subject_model": null,
+  "notes": "T4-T5 and T5-T6 are instrumented after step 0; only the intact baseline is extracted for them."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": 1.3,
+   "sd": 0.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": 1.5,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": 2.4,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Re-read from text layer; intact T4-T5/T5-T6 also stated in Results text (1.8/2.5/2.9, 1.3/1.5/2.4)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__rom__t5_t6__ribcage_intact__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "segment_in_long_specimen"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "full rib cage with sternum and intercostal muscles"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1.5 deg/s",
+  "cycles": "3, 3rd analysed",
+  "branch": "peak",
+  "preload": "none",
+  "device": "6-DOF spine tester, Optotrak Certus"
+ },
+ "specimen_levels": "C7-L2"
+}

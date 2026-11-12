@@ -1,0 +1,162 @@
+{
+ "id": "muscle_geometry.bayoglu2017b.pcsa.thoracic_cervical.transversus_thoracis.M_cadaver",
+ "title": "Bayoglu 2017b: pcsa of transversus thoracis at thoracic_cervical (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "thoracic",
+ "levels": [
+  "thoracic_cervical"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "transversus_thoracis",
+ "muscle_as_reported": "Transversus thoracis",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Bayoglu 2017b",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 58:52-63 (thoracic/cervical dataset)",
+  "doi": "10.1016/j.jbiomech.2017.04.003",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model pcsa per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. PCSA = mass/(density x lfo); optimal fibre length normalised to 2.8 um."
+ },
+ "data": [
+  {
+   "x": "Transversus thoracis #1 (R2 -> Sternum)",
+   "side": "unilateral",
+   "mean": 16.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.16 cm2",
+   "origin": "R2",
+   "insertion": "Sternum"
+  },
+  {
+   "x": "Transversus thoracis #2 (R3 -> Sternum)",
+   "side": "unilateral",
+   "mean": 15.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.15 cm2",
+   "origin": "R3",
+   "insertion": "Sternum"
+  },
+  {
+   "x": "Transversus thoracis #3 (R4 -> Sternum)",
+   "side": "unilateral",
+   "mean": 19.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.19 cm2",
+   "origin": "R4",
+   "insertion": "Sternum"
+  },
+  {
+   "x": "Transversus thoracis #4 (R5 -> Sternum)",
+   "side": "unilateral",
+   "mean": 15.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.15 cm2",
+   "origin": "R5",
+   "insertion": "Sternum"
+  },
+  {
+   "x": "Transversus thoracis #5 (R5 -> Sternum)",
+   "side": "unilateral",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.05 cm2",
+   "origin": "R5",
+   "insertion": "Sternum"
+  },
+  {
+   "x": "Transversus thoracis #6 (R6 -> Sternum)",
+   "side": "unilateral",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.05 cm2",
+   "origin": "R6",
+   "insertion": "Sternum"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__thoracic_cervical_transversus_thoracis__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017a"
+ ]
+}

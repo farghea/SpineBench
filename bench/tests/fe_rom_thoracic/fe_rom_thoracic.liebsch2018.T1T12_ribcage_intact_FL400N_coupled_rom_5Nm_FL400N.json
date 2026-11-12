@@ -111,7 +111,7 @@
   "template": true,
   "rule": "model within [min,max] of specimens (median as target)"
  },
- "combine_group": "fe_rom_thoracic__coupled_rom__T1-T12__ribcage_intact_FL400N__5Nm_FL400N",
+ "combine_group": "fe_rom_thoracic__coupled_rom__t1_t12__ribcage_intact_fl400n__5nm_fl400n",
  "tags": [
   "thoracic",
   "in vitro",
@@ -134,5 +134,10 @@
   "preload": "400 N follower load (40 kg dead weight, cables through lateral screws at estimated ICR of each vertebra, C7-L1)",
   "device": "spine tester with gantry and balancing weights; Vicon MX13 12 cameras (<0.1 deg)"
  },
- "specimen_levels": "C7-L1"
+ "specimen_levels": "C7-L1",
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2019.* (same 8 specimens, stated)",
+  "fe_resection_thoracic.liebsch2020.* (>=6 of 8 donors match by age/height/BMI)",
+  "fe_rom_thoracic.wilke2025.*_ribcage_intact_* (pooled)"
+ ]
 }

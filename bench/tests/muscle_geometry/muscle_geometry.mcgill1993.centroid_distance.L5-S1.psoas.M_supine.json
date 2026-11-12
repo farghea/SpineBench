@@ -116,7 +116,10 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": "muscle_geometry__centroid_distance__l5_s1_psoas__m_supine__no_load",
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.santaguida1995.centroid_distance.L5-S1.psoas.M_supine",
+  "muscle_geometry.santaguida1995.csa_fibre_corrected.L5-S1.psoas.M_supine"
+ ],
  "tags": [
   "muscle_geometry",
   "centroid_distance",
@@ -124,5 +127,8 @@
   "MRI",
   "supine",
   "sample:waterloo_mri_15"
+ ],
+ "shared_sample_papers": [
+  "santaguida1995"
  ]
 }

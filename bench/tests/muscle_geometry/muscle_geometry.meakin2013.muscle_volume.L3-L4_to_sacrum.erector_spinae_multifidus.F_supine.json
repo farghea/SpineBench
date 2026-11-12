@@ -1,0 +1,93 @@
+{
+ "id": "muscle_geometry.meakin2013.muscle_volume.L3-L4_to_sacrum.erector_spinae_multifidus.F_supine",
+ "title": "Meakin 2013: muscle volume of paraspinal / lumbar extensor mass at L3-L4_to_sacrum (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4_to_sacrum"
+ ],
+ "condition": "F_supine",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "lumbar extensor muscles (iliocostalis, longissimus, multifidus; possibly rotatores, interspinales, intertransversarii); macroscopic fat excluded",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI T1 axial, 4 mm slices (9 mm effective spacing)",
+  "plane": "axial slices approximately parallel to the L3/L4 disc, summed caudally",
+  "slice_thickness_mm": 4,
+  "level_definition": "volume caudal to the L3/L4 disc (L3/L4 to last caudal slice with extensor muscle)",
+  "posture_detail": "supine"
+ },
+ "quantity": {
+  "name": "muscle_volume",
+  "definition": "muscle volume",
+  "unit": "cm3"
+ },
+ "source": {
+  "short": "Meakin 2013",
+  "authors": "Meakin JR, Fulford J, Seymour R, Welsman JR, Knapp KM",
+  "year": 2013,
+  "journal": "J Anat 222:608-614",
+  "doi": "10.1111/joa.12047",
+  "n": 42,
+  "sample": "42 women; female volunteers (5 with current back pain); age 50 (13) y, height 165 (7) cm, median mass 70 kg (IQR 18)",
+  "age": "50 (13) y",
+  "sex": "42F",
+  "height_cm": 165,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine with lower lumbar curvature (L4-S1 endplate angle) ~30 deg.",
+   "Integrate the anatomical CSA of all model posterior paraspinal elements from the L3/L4 disc plane caudally (volume).",
+   "Compare with 281 ± 49 cm3."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 50,
+   "height_cm": 165,
+   "weight_kg": 70,
+   "disc_area_mm2": null,
+   "n": 42,
+   "source": "Results text (mass = median); hL4S1 lordosis 30 (7) deg"
+  },
+  "notes": "Includes the 5 subjects with current back pain (whose volume was smaller). Correlations (Table 2) not stored."
+ },
+ "data": [
+  {
+   "x": "lower lumbar extensor volume",
+   "side": "unspecified",
+   "mean": 281.0,
+   "sd": 49.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "as_reported": "281 cm3 (SD 49)",
+   "note": "side not stated (outline of \"the lumbar extensor muscles\"; Fig. 1)"
+  }
+ ],
+ "extraction": {
+  "from": "Abstract / Results text",
+  "method": "text",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Values re-read from abstract and results."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__muscle_volume__l3_l4_to_sacrum_erector_spinae_multifidus__f_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "muscle_volume",
+  "in vivo",
+  "MRI",
+  "supine"
+ ]
+}

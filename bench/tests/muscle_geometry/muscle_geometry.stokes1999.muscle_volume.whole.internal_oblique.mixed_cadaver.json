@@ -1,0 +1,97 @@
+{
+ "id": "muscle_geometry.stokes1999.muscle_volume.whole.internal_oblique.mixed_cadaver",
+ "title": "Stokes 1999: muscle volume of internal oblique at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "internal_oblique",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "Visible Human cryosection images (8-point integration of muscle volumes)",
+  "plane": "transverse sections",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle split into 6 straight-line components",
+  "posture_detail": "cadaver (Visible Human), scaled to standing spine geometry"
+ },
+ "quantity": {
+  "name": "muscle_volume",
+  "definition": "muscle volume",
+  "unit": "cm3"
+ },
+ "source": {
+  "short": "Stokes 1999",
+  "authors": "Stokes IAF, Gardner-Morse M",
+  "year": 1999,
+  "journal": "J Biomech 32:311-316",
+  "doi": "",
+  "n": 2,
+  "sample": "2 Visible Human data sets (1 M, 1 F); abdominal muscle volumes reconstructed from Visible Human male and female cross-sections, geometry scaled to the mean spine of 4 young healthy adults (stereo-radiographs)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 2,
+   "source": "Visible Human male + female (scaled)"
+  },
+  "notes": "Side not stated (presumably one side). mm3 -> cm3."
+ },
+ "data": [
+  {
+   "x": "Visible Human female",
+   "side": "unspecified",
+   "mean": 93.407,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "93407 mm3"
+  },
+  {
+   "x": "Visible Human male",
+   "side": "unspecified",
+   "mean": 138.794,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "138794 mm3"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 re-read from text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__muscle_volume__whole_internal_oblique__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "muscle_volume",
+  "visible human"
+ ]
+}

@@ -1,0 +1,118 @@
+{
+ "id": "fe_resection_thoracic.lubelski2014.T7T11_laminectomy_facetectomy_unilat_rom_5Nm",
+ "title": "T7-T11 ROM after facetectomy at T8-T9 (with rib cage) (Lubelski 2014)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "decompression with rib cage",
+ "region": "thoracic",
+ "levels": [
+  "T7-T11"
+ ],
+ "condition": "laminectomy_facetectomy_unilat",
+ "quantity": {
+  "name": "ROM",
+  "definition": "intrinsic T7-T11 rotation range (bilateral, full range) at peak +/-5 Nm, robot-controlled pure moment, ISB coordinate system",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Lubelski 2014",
+  "authors": "Lubelski D, Healy AT, Mageswaran P, Benzel EC, Mroz TE",
+  "year": 2014,
+  "journal": "Spine J 14:2216-2223",
+  "doi": "10.1016/j.spinee.2014.03.026",
+  "sample": "10 fresh-frozen human C7-L1 thoracic torsos with sternum, ribs and all articulations (decompression at T8-T9)",
+  "age": "median 60.5 y (43-70); per specimen 62, 43, 69, 69, 57, 70, 69, 56, 55, 59",
+  "sex": "4 M, 6 F",
+  "height_cm": "169 (152-185)",
+  "weight_kg": "77 (50-113)",
+  "n": 7
+ },
+ "protocol": {
+  "summary": "C7-L1 torso with sternum and rib cage; C7-T1 and T12-L1 potted; KUKA robot applies pure moments +/-5 Nm in FE, LB, AR with active minimisation of off-axis loads (unconstrained coupled motion), preconditioned; Optotrak smart markers on spinous processes. Sequential decompression at T8-T9.",
+  "how_to_simulate": [
+   "Model C7-L1 with full rib cage and sternum; fix the caudal end",
+   "Apply cumulative resection at T8-T9 up to this step (see resection.sequence)",
+   "Apply pure moment +/-5 Nm (no preload) in FE, LB, AR",
+   "Report T7-T11 rotation range"
+  ],
+  "subject_model": null,
+  "notes": "Intrinsic segment measured only in a subset (7 specimens). '6' in the text layer = '+/-'."
+ },
+ "data": [
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": 18.18,
+   "sd": 8.01,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": 8.55,
+   "sd": 3.52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": 11.82,
+   "sd": 5.55,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 / Table 5 (intrinsic)",
+  "method": "table",
+  "uncertainty": "as printed (0.01 deg)",
+  "checked": true,
+  "check_notes": "Parsed from text layer; global T8-T9 values identical in Lubelski Tables 2 and 4, intrinsic in Tables 3 and 5."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_resection_thoracic__rom__t7_t11_intrinsic__laminectomy_facetectomy_unilat_at_t8_t9__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "resection",
+  "segment_in_long_specimen"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "full rib cage with sternum; costovertebral/costotransverse joints except where removed by the costotransversectomy step"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "robot, continuous (rate not stated)",
+  "cycles": "preconditioned; peak of test cycle",
+  "branch": "peak moment",
+  "preload": "none",
+  "device": "KUKA industrial robot + ATI Gamma F/T sensor, Optotrak"
+ },
+ "resection": {
+  "step_index": 2,
+  "step_name": "Facetectomy",
+  "sequence": [
+   "intact",
+   "laminectomy T8-T9 (TT8-T9 levels, SIL removed)",
+   "+ unilateral (right) facetectomy T8-T9",
+   "+ unilateral costotransversectomy (transverse process, pedicle, 3-4 cm rib with its articulations)",
+   "(+ pedicle screw fusion - not extracted)"
+  ],
+  "cumulative": true
+ },
+ "specimen_levels": "C7-L1",
+ "resection_level": "T8-T9"
+}

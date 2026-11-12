@@ -1,0 +1,279 @@
+{
+ "id": "muscle_geometry.bayoglu2017a.fascicle_length.whole.multifidus.M_cadaver",
+ "title": "Bayoglu 2017a: fascicle length of multifidus at whole (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "multifidus",
+ "muscle_as_reported": "Multifidus",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "fascicle_length",
+  "definition": "fascicle/fibre length as measured (raw, not sarcomere-normalised)",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Bayoglu 2017a",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 53:111-119 (lumbar dataset)",
+  "doi": "10.1016/j.jbiomech.2017.01.009",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model fascicle length per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. "
+ },
+ "data": [
+  {
+   "x": "Multifidus #1 (Sacrum -> L5)",
+   "side": "unilateral",
+   "mean": 55.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "55.0 mm",
+   "origin": "Sacrum",
+   "insertion": "L5"
+  },
+  {
+   "x": "Multifidus #2 (Sacrum -> L5)",
+   "side": "unilateral",
+   "mean": 47.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "47.0 mm",
+   "origin": "Sacrum",
+   "insertion": "L5"
+  },
+  {
+   "x": "Multifidus #3 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 51.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "51.7 mm",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #4 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 42.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "42.7 mm",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #5 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 42.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "42.0 mm",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #6 (Sacrum -> L3)",
+   "side": "unilateral",
+   "mean": 38.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "38.6 mm",
+   "origin": "Sacrum",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #7 (L5 -> L3)",
+   "side": "unilateral",
+   "mean": 34.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "34.1 mm",
+   "origin": "L5",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #8 (L5 -> L3)",
+   "side": "unilateral",
+   "mean": 27.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "27.5 mm",
+   "origin": "L5",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #9 (Pelvis -> L2)",
+   "side": "unilateral",
+   "mean": 59.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "59.9 mm",
+   "origin": "Pelvis",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #10 (Sacrum -> L2)",
+   "side": "unilateral",
+   "mean": 57.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "57.7 mm",
+   "origin": "Sacrum",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #11 (L4 -> L2)",
+   "side": "unilateral",
+   "mean": 44.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "44.5 mm",
+   "origin": "L4",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #12 (Pelvis -> L1)",
+   "side": "unilateral",
+   "mean": 83.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "83.4 mm",
+   "origin": "Pelvis",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #13 (L5 -> L1)",
+   "side": "unilateral",
+   "mean": 72.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "72.7 mm",
+   "origin": "L5",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #14 (L4 -> L1)",
+   "side": "unilateral",
+   "mean": 57.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "57.3 mm",
+   "origin": "L4",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #15 (L3 -> L1)",
+   "side": "unilateral",
+   "mean": 30.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "30.0 mm",
+   "origin": "L3",
+   "insertion": "L1"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__fascicle_length__whole_multifidus__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "fascicle_length",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017b"
+ ]
+}

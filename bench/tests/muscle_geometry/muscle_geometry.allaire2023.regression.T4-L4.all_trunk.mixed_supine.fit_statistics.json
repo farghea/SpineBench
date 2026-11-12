@@ -1393,7 +1393,14 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": null,
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.ACSA",
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.APd",
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.CSA",
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.MAX",
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.MAY",
+  "muscle_geometry.anderson2012.regression.T6-L5.all_trunk.mixed_supine.MLd"
+ ],
  "tags": [
   "muscle_geometry",
   "regression",
@@ -1401,5 +1408,8 @@
   "sample:framingham_mdct",
   "CT",
   "supine"
+ ],
+ "shared_sample_papers": [
+  "anderson2012"
  ]
 }

@@ -1,0 +1,290 @@
+{
+ "id": "muscle_geometry.bayoglu2017a.pcsa.whole.multifidus.M_cadaver",
+ "title": "Bayoglu 2017a: pcsa of multifidus at whole (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "multifidus",
+ "muscle_as_reported": "Multifidus",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Bayoglu 2017a",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 53:111-119 (lumbar dataset)",
+  "doi": "10.1016/j.jbiomech.2017.01.009",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model pcsa per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. PCSA = mass/(density x lfo); optimal fibre length normalised to 2.8 um."
+ },
+ "data": [
+  {
+   "x": "Multifidus #1 (Sacrum -> L5)",
+   "side": "unilateral",
+   "mean": 7.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.07 cm2",
+   "origin": "Sacrum",
+   "insertion": "L5"
+  },
+  {
+   "x": "Multifidus #2 (Sacrum -> L5)",
+   "side": "unilateral",
+   "mean": 8.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.08 cm2",
+   "origin": "Sacrum",
+   "insertion": "L5"
+  },
+  {
+   "x": "Multifidus #3 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 64.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.64 cm2",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #4 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 54.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.54 cm2",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #5 (Sacrum -> L4)",
+   "side": "unilateral",
+   "mean": 17.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.17 cm2",
+   "origin": "Sacrum",
+   "insertion": "L4"
+  },
+  {
+   "x": "Multifidus #6 (Sacrum -> L3)",
+   "side": "unilateral",
+   "mean": 133.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "1.33 cm2",
+   "origin": "Sacrum",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #7 (L5 -> L3)",
+   "side": "unilateral",
+   "mean": 66.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.66 cm2",
+   "origin": "L5",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #8 (L5 -> L3)",
+   "side": "unilateral",
+   "mean": 30.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.30 cm2",
+   "origin": "L5",
+   "insertion": "L3"
+  },
+  {
+   "x": "Multifidus #9 (Pelvis -> L2)",
+   "side": "unilateral",
+   "mean": 85.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.85 cm2",
+   "origin": "Pelvis",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #10 (Sacrum -> L2)",
+   "side": "unilateral",
+   "mean": 85.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.85 cm2",
+   "origin": "Sacrum",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #11 (L4 -> L2)",
+   "side": "unilateral",
+   "mean": 26.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.26 cm2",
+   "origin": "L4",
+   "insertion": "L2"
+  },
+  {
+   "x": "Multifidus #12 (Pelvis -> L1)",
+   "side": "unilateral",
+   "mean": 74.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.74 cm2",
+   "origin": "Pelvis",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #13 (L5 -> L1)",
+   "side": "unilateral",
+   "mean": 76.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.76 cm2",
+   "origin": "L5",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #14 (L4 -> L1)",
+   "side": "unilateral",
+   "mean": 48.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.48 cm2",
+   "origin": "L4",
+   "insertion": "L1"
+  },
+  {
+   "x": "Multifidus #15 (L3 -> L1)",
+   "side": "unilateral",
+   "mean": 34.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.34 cm2",
+   "origin": "L3",
+   "insertion": "L1"
+  },
+  {
+   "x": "muscle total (Table 2, present study)",
+   "side": "unilateral",
+   "mean": 808.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "8.08 cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__whole_multifidus__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017b"
+ ]
+}

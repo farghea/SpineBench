@@ -1,0 +1,158 @@
+{
+ "id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade1_nz_5Nm",
+ "title": "Thoracic FSU NZ by disc degeneration grade 1, pooled levels (Liebsch 2022)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "FSU by degeneration grade",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2..T11-T12 pooled"
+ ],
+ "condition": "fsu_costovertebral_grade1",
+ "quantity": {
+  "name": "NZ",
+  "definition": "NZ (turning point of moment-angle curve) per direction, 3rd cycle; boxplot statistics: median (solid line), mean (dashed), q1/q3 (box), min/max (whisker caps). pct_vs_grade0/1 = relative changes printed in the figure.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2022 Spine J",
+  "authors": "Liebsch C, Wilke HJ",
+  "year": 2022,
+  "journal": "Spine J 22:1913-1921",
+  "doi": "10.1016/j.spinee.2022.06.010",
+  "n": 60,
+  "sample": "60 of 95 human thoracic FSUs (T1-T2..T11-T12 pooled, 33 donors) with disc degeneration grade 1 (Liebsch x-ray grading; 0 none, 1 mild, 2 moderate); FSUs with costovertebral and costotransverse joints and >=2 cm ribs",
+  "age": "56 +/- 8 y (37-80), whole collective",
+  "sex": "whole collective: 18 M / 15 F donors; 67 FSUs male, 28 female",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Monosegmental thoracic FSUs (rib heads, costovertebral/costotransverse joints, >=2 cm ribs), pure moments in FE, LB, AR at 1 deg/s, 3.5 cycles (3rd evaluated). 47 FSUs (donors 1-25) were loaded to 7.5 Nm and 48 FSUs (donors 26-33) to 5 Nm; ROM evaluated at 5 Nm for all.",
+  "how_to_simulate": [
+   "Model a thoracic FSU with costovertebral/costotransverse joints and 2 cm rib stumps, disc properties per degeneration grade",
+   "Fix caudal vertebra, apply pure moment to 5 Nm (or 7.5 Nm, read at 5 Nm), no preload",
+   "Report rotation at 5 Nm (and NZ) per direction"
+  ],
+  "subject_model": null,
+  "notes": "Pooled over all thoracic levels. Overlap: the 48 FSUs of donors 26-33 = Liebsch 2020 Spine J FSUs (= monosegments of the Liebsch 2020 rib cage specimens); the 47 FSUs of donors 1-25 (7.5 Nm) are probably from the Wilke 2017 series. Both feed Wilke 2025. Printed % changes were only partly reproduced from the digitised lines (medians vs means ambiguous) - see check_notes."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": 0.58,
+   "sd": null,
+   "min": 0.04,
+   "max": 1.26,
+   "median": 0.51,
+   "n": 60,
+   "q1": 0.33,
+   "q3": 0.72,
+   "pct_vs_grade0": -30
+  },
+  {
+   "x": "LB_left",
+   "load": "5 Nm",
+   "mean": 0.87,
+   "sd": null,
+   "min": 0.06,
+   "max": 1.99,
+   "median": 0.78,
+   "n": 60,
+   "q1": 0.54,
+   "q3": 1.12,
+   "pct_vs_grade0": -25
+  },
+  {
+   "x": "AR_left",
+   "load": "5 Nm",
+   "mean": 0.62,
+   "sd": null,
+   "min": 0.04,
+   "max": 1.67,
+   "median": 0.57,
+   "n": 60,
+   "q1": 0.29,
+   "q3": 0.88,
+   "pct_vs_grade0": -20
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm",
+   "mean": 0.6,
+   "sd": null,
+   "min": 0.04,
+   "max": 1.55,
+   "median": 0.67,
+   "n": 60,
+   "q1": 0.3,
+   "q3": 0.87,
+   "pct_vs_grade0": -41
+  },
+  {
+   "x": "LB_right",
+   "load": "5 Nm",
+   "mean": 0.8,
+   "sd": null,
+   "min": 0.06,
+   "max": 1.84,
+   "median": 0.76,
+   "n": 60,
+   "q1": 0.43,
+   "q3": 1.13,
+   "pct_vs_grade0": -27
+  },
+  {
+   "x": "AR_right",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.05,
+   "max": 1.71,
+   "median": 0.7,
+   "n": 60,
+   "q1": 0.32,
+   "q3": 0.9,
+   "pct_vs_grade0": -15
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4 (ROM), Fig 5 (NZ)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 deg ROM (19.9 px/deg), +/-0.05 deg NZ (41 px/deg); solid-vs-dashed line assignment uncertain where lines are close",
+  "checked": true,
+  "check_notes": "Automated detection of box borders, solid/dashed lines and whisker caps; NZ extension grade 2 median corrected manually (coincides with q1). Printed % changes are reproduced better by the dashed lines in some panels (e.g. left AR) - treat median/mean labels with caution."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__nz__t1_t2_t11_t12_pooled__fsu_costovertebral_grade1__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "FSU",
+  "Ulm",
+  "degeneration",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "rib heads with costovertebral and costotransverse joints, >=2 cm ribs"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5, 3rd evaluated",
+  "branch": "value at 5 Nm",
+  "preload": "none",
+  "device": "Ulm spine tester"
+ },
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2020spinej (48 FSUs identical)",
+  "fe_resection_thoracic.liebsch2020.*_monoseg_with_ribs_* (same FSUs)",
+  "fe_rom_thoracic.wilke2017.* (probable, donors 1-25)",
+  "fe_rom_thoracic.wilke2025.*_fsu_costovertebral_* (pooled)"
+ ]
+}

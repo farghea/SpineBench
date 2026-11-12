@@ -1,0 +1,214 @@
+{
+ "id": "muscle_geometry.bayoglu2017b.pcsa.thoracic_cervical.levatores_costarum.M_cadaver",
+ "title": "Bayoglu 2017b: pcsa of levatores costarum at thoracic_cervical (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "thoracic",
+ "levels": [
+  "thoracic_cervical"
+ ],
+ "condition": "M_cadaver",
+ "muscle": "levatores_costarum",
+ "muscle_as_reported": "Levatores costarum",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction + optical tracking of attachments",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per muscle-tendon element",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Bayoglu 2017b",
+  "authors": "Bayoglu R, Geeraedts L, Groenen KHJ, Verdonschot N, Koopman B, Homminga J",
+  "year": 2017,
+  "journal": "J Biomech 58:52-63 (thoracic/cervical dataset)",
+  "doi": "10.1016/j.jbiomech.2017.04.003",
+  "n": 1,
+  "sample": "1 embalmed cadaver; one embalmed male cadaver, 79 y, 154 cm, 51 kg (Alzheimer; L5 fused to sacrum); one body side; same cadaver for lumbar (2017a) and thoracic/cervical (2017b) datasets",
+  "age": "79 y",
+  "sex": "M",
+  "height_cm": 154,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Match model elements to the listed elements by origin/insertion bones.",
+   "Compare the model pcsa per element (and the muscle total/mean where given)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 79,
+   "height_cm": 154,
+   "weight_kg": 51,
+   "disc_area_mm2": null,
+   "n": 1,
+   "source": "Bayoglu 2017a section 2.1"
+  },
+  "notes": "Per-element values from Table 1 (element #, origin/insertion bone kept; 3-D attachment coordinates NOT stored because minus signs are lost in the PDF text layer - take them from the paper/supplement). Single specimen: no SD across subjects. PCSA = mass/(density x lfo); optimal fibre length normalised to 2.8 um."
+ },
+ "data": [
+  {
+   "x": "Levatores costarum #1 (T2 -> R3)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.04 cm2",
+   "origin": "T2",
+   "insertion": "R3"
+  },
+  {
+   "x": "Levatores costarum #3 (T3 -> R4)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.04 cm2",
+   "origin": "T3",
+   "insertion": "R4"
+  },
+  {
+   "x": "Levatores costarum #4 (T4 -> R5)",
+   "side": "unilateral",
+   "mean": 9.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.09 cm2",
+   "origin": "T4",
+   "insertion": "R5"
+  },
+  {
+   "x": "Levatores costarum #5 (T5 -> R6)",
+   "side": "unilateral",
+   "mean": 2.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.02 cm2",
+   "origin": "T5",
+   "insertion": "R6"
+  },
+  {
+   "x": "Levatores costarum #6 (T6 -> R7)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.04 cm2",
+   "origin": "T6",
+   "insertion": "R7"
+  },
+  {
+   "x": "Levatores costarum #7 (T7 -> R8)",
+   "side": "unilateral",
+   "mean": 2.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.02 cm2",
+   "origin": "T7",
+   "insertion": "R8"
+  },
+  {
+   "x": "Levatores costarum #8 (T8 -> R9)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.04 cm2",
+   "origin": "T8",
+   "insertion": "R9"
+  },
+  {
+   "x": "Levatores costarum #9 (T9 -> R10)",
+   "side": "unilateral",
+   "mean": 4.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.04 cm2",
+   "origin": "T9",
+   "insertion": "R10"
+  },
+  {
+   "x": "Levatores costarum #11 (T10 -> R11)",
+   "side": "unilateral",
+   "mean": 11.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.11 cm2",
+   "origin": "T10",
+   "insertion": "R11"
+  },
+  {
+   "x": "Levatores costarum #13 (T11 -> R12)",
+   "side": "unilateral",
+   "mean": 8.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "0.08 cm2",
+   "origin": "T11",
+   "insertion": "R12"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Rows parsed from the layout text with a strict regex (19 fields per row), spot-checked against the rendered Table 1 (p.114)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__thoracic_cervical_levatores_costarum__m_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "cadaver",
+  "architecture",
+  "single specimen",
+  "sample:bayoglu_cadaver"
+ ],
+ "shared_sample_papers": [
+  "bayoglu2017a"
+ ]
+}

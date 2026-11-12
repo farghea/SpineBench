@@ -116,7 +116,9 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": "muscle_geometry__centroid_distance__l1_psoas__f_supine__no_load",
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.marras2001.csa_fibre_corrected.L1.psoas.F_supine"
+ ],
  "tags": [
   "muscle_geometry",
   "centroid_distance",
@@ -124,5 +126,9 @@
   "in vivo",
   "MRI",
   "supine"
+ ],
+ "shared_sample_papers": [
+  "hwang2016",
+  "marras2001"
  ]
 }

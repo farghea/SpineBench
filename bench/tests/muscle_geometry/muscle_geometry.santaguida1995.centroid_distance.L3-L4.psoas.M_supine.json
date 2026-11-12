@@ -92,7 +92,10 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": "muscle_geometry__centroid_distance__l3_l4_psoas__m_supine__no_load",
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.mcgill1993.centroid_distance.L3-L4.psoas.M_supine",
+  "muscle_geometry.mcgill1993.csa_anatomical.L3-L4.psoas.M_supine"
+ ],
  "tags": [
   "muscle_geometry",
   "centroid_distance",
@@ -100,5 +103,8 @@
   "MRI",
   "supine",
   "sample:waterloo_mri_15"
+ ],
+ "shared_sample_papers": [
+  "mcgill1993"
  ]
 }

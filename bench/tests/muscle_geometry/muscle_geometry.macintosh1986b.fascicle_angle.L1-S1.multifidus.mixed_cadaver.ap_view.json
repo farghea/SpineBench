@@ -1,0 +1,201 @@
+{
+ "id": "muscle_geometry.macintosh1986b.fascicle_angle.L1-S1.multifidus.mixed_cadaver.ap_view",
+ "title": "Macintosh 1986b: fascicle angle of multifidus at L1-S1 (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "line_of_action",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1"
+ ],
+ "condition": "mixed_cadaver_ap_view",
+ "muscle": "multifidus",
+ "muscle_as_reported": "lumbar multifidus fascicles (IC = iliac crest, Sa = sacrum)",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection maps on cadaver radiographs",
+  "plane": "AP and lateral projections",
+  "slice_thickness_mm": null,
+  "level_definition": "",
+  "posture_detail": ""
+ },
+ "quantity": {
+  "name": "fascicle_angle",
+  "definition": "fascicle orientation angle (state reference plane/axis in definition_note); angle to the vertical line through the spinous processes in the antero-posterior radiograph (frontal-plane obliquity)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Macintosh 1986b",
+  "authors": "Macintosh JE, Bogduk N",
+  "year": 1986,
+  "journal": "Clin Biomech 1:205-213",
+  "doi": "",
+  "n": 5,
+  "sample": "5 cadaveric lumbar columns + radiographs of 26 living subjects; fascicle maps from cadaver dissection projected on AP and lateral radiograph tracings (cadaver n=5, clinical n=26)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Project each model multifidus fascicle (origin vertebra -> insertion) onto the frontal (AP view) or sagittal (lateral view) plane.",
+   "Measure its angle to the stated reference line (vertical spinous-process line for AP; line perpendicular to the posterior vertebral-body surface through the pedicle for lateral).",
+   "Compare per fascicle with mean ± SD."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 5,
+   "source": "not reported"
+  },
+  "notes": "Fascicle labels: vertebra of origin - attachment. In Table 2 the fourth L1 fascicle row is listed against \"IC\" (iliac crest) instead of \"Sa\". The \"overall mean\" column (pooled) not stored. Table 3 force components are derived from angles (not stored)."
+ },
+ "data": [
+  {
+   "x": "multifidus fascicle L1-L4 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 14.8,
+   "sd": 0.84,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "14.8 (0.84) deg"
+  },
+  {
+   "x": "multifidus fascicle L1-L5 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 15.0,
+   "sd": 0.71,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "15.0 (0.71) deg"
+  },
+  {
+   "x": "multifidus fascicle L1-S1 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 12.6,
+   "sd": 0.55,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "12.6 (0.55) deg"
+  },
+  {
+   "x": "multifidus fascicle L1-Sa (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 16.6,
+   "sd": 0.89,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "16.6 (0.89) deg"
+  },
+  {
+   "x": "multifidus fascicle L2-L5 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 18.8,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "18.8 (1.1) deg"
+  },
+  {
+   "x": "multifidus fascicle L2-S1 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 18.0,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "18.0 (1.0) deg"
+  },
+  {
+   "x": "multifidus fascicle L2-IC (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 20.0,
+   "sd": 1.58,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "20.0 (1.58) deg"
+  },
+  {
+   "x": "multifidus fascicle L3-S1 (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 23.2,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "23.2 (1.1) deg"
+  },
+  {
+   "x": "multifidus fascicle L3-Sa (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 19.6,
+   "sd": 0.89,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "19.6 (0.89) deg"
+  },
+  {
+   "x": "multifidus fascicle L4-Sa (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 15.6,
+   "sd": 0.89,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "15.6 (0.89) deg"
+  },
+  {
+   "x": "multifidus fascicle L5-Sa (rostral-caudal attachment)",
+   "side": "unspecified",
+   "mean": 5.4,
+   "sd": 1.52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "5.4 (1.52) deg"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 1 verified on rendered p.208 (text layer mis-ordered rows L5/S1)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__fascicle_angle__l1_s1_multifidus__mixed_cadaver_ap_view__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "fascicle_angle",
+  "line of action",
+  "radiograph"
+ ]
+}

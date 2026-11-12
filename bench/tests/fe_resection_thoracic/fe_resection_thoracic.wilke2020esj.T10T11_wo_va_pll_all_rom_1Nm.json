@@ -1,0 +1,131 @@
+{
+ "id": "fe_resection_thoracic.wilke2020esj.T10T11_wo_va_pll_all_rom_1Nm",
+ "title": "T10-T11 FSU ROM at 1 Nm, step 7 w/o ALL (Wilke 2020 ESJ)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "FSU stepwise resection",
+ "region": "thoracic",
+ "levels": [
+  "T10-T11"
+ ],
+ "condition": "wo_va_pll_all",
+ "quantity": {
+  "name": "ROM",
+  "definition": "rotation at the peak moment in one direction (flexion, extension, right LB, left AR), last of 3.5 cycles; bar height in figure (statistic not stated in text - probably median, data non-normal); whiskers not extracted",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Wilke 2020 ESJ",
+  "authors": "Wilke HJ, Grundler S, Ottardi C, Mathew CE, Schlager B, Liebsch C",
+  "year": 2020,
+  "journal": "Eur Spine J 29:179-185",
+  "doi": "10.1007/s00586-019-06196-7",
+  "n": 6,
+  "sample": "6 human T10-T11 FSUs without ribs (donors 1-3, 5, 6, 9: F57, F57, M55, F65, F50, F54); 18 FSUs from 9 donors in total",
+  "age": "56.3 (50-65) y",
+  "sex": "5 F, 1 M",
+  "height_cm": null,
+  "weight_kg": null,
+  "bmd": "77 +/- 27 mgHA/cm3 (all donors)"
+ },
+ "protocol": {
+  "summary": "Monosegmental FSUs without ribs/costovertebral joints, half-embedded in PMMA; pure moments +/-1 Nm and +/-2.5 Nm (low to avoid damage) in FE, LB, AR at 1 deg/s, 3.5 cycles (last evaluated); Vicon optical tracking; cumulative resection posterior to anterior.",
+  "how_to_simulate": [
+   "Model the FSU without ribs; remove structures cumulatively up to this step (resection.sequence)",
+   "Fix caudal vertebra, apply pure moment +/-1 Nm to cranial vertebra, no preload",
+   "Report rotation at peak moment in flexion, extension, right LB and left AR"
+  ],
+  "subject_model": null,
+  "notes": "no failures reported. Text check (intact, 2.5 Nm, full ranges T2-T3/T6-T7/T10-T11): FE 3.9/3.0/2.7, LB 4.7/5.3/3.8, AR 4.9/5.1/4.2 deg - reproduced by doubling the digitised one-sided values within 0.1-0.3 deg. NZ and coupled motions only in supplementary material (not available)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.77,
+   "n": 6
+  },
+  {
+   "x": "extension",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.03,
+   "n": 6
+  },
+  {
+   "x": "LB_right",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.11,
+   "n": 6
+  },
+  {
+   "x": "AR_left",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.7,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 deg (automated bar-top detection, 15.1-15.3 px/deg at 200 dpi, raster figure)",
+  "checked": true,
+  "check_notes": "Calibrated on y-axis ticks (T10-T11 panel recalibrated on baseline row because tick labels interfered); intact values cross-checked against text totals; T2-T3 flexion intact->w/o NUC +189 % vs text +184 %."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_resection_thoracic__rom__t10_t11__wo_va_pll_all__1nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "FSU",
+  "Ulm",
+  "resection",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "none (rib structures not included)"
+ },
+ "loading": {
+  "moment_Nm": 1,
+  "rate": "1 deg/s",
+  "cycles": "3.5, last evaluated",
+  "branch": "peak moment per direction",
+  "preload": "none",
+  "device": "Ulm spine tester, Vicon MX13"
+ },
+ "resection": {
+  "step_index": 7,
+  "step_name": "w/o ALL",
+  "sequence": [
+   "intact FSU (no ribs)",
+   "- supraspinous ligament",
+   "- interspinous ligament",
+   "- flaval ligament",
+   "- facet joint capsules",
+   "- vertebral arch (posterior bony elements)",
+   "- posterior longitudinal ligament",
+   "- anterior longitudinal ligament",
+   "- nucleus pulposus (left-sided nucleotomy)"
+  ],
+  "cumulative": true
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "id": "muscle_geometry.brown2011.pcsa.whole.rectus_abdominis.mixed_cadaver",
+ "title": "Brown 2011: pcsa of rectus abdominis at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "RA whole and regions",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle and regions (1 = most superior/anterior)",
+  "posture_detail": "cadaver, neutral spine"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Brown 2011",
+  "authors": "Brown SHM, Ward SR, Cook MS, Lieber RL",
+  "year": 2011,
+  "journal": "Spine 36(5):355-362",
+  "doi": "10.1097/BRS.0b013e3181d12ed7",
+  "n": 11,
+  "sample": "11 formaldehyde-fixed cadavers (5 M, 6 F); elderly donors: M 71.8 (17.9) y, 174.8 cm, 67.8 kg; F 82.7 (14.5) y, 165.6 cm, 63.1 kg",
+  "age": "M 71.8, F 82.7 y",
+  "sex": "5M/6F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Sum the PCSA (or F_max / specific tension) of all model elements of rectus abdominis, one side (or the named fascicle).",
+   "Compare with the cadaveric mean +/- SD; note specific tension and fibre-length normalisation used by the source."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 11,
+   "source": "Methods (5 M: 71.8 y, 174.8 cm, 67.8 kg; 6 F: 82.7 y, 165.6 cm, 63.1 kg)"
+  },
+  "notes": "Table 1 reports mean ± SEM (n=11): SEM stored in \"se\", sd empty. Regional PCSAs do not sum to whole-muscle PCSA in all cases (whole RA PCSA = largest region?). Model-predicted sarcomere operating ranges (Figs 4-5) not stored."
+ },
+ "data": [
+  {
+   "x": "RA whole",
+   "side": "unilateral",
+   "mean": 280.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "as_reported": "2.8 ± 0.4 cm2 (mean ± SEM)",
+   "se": 40.0
+  },
+  {
+   "x": "RA1",
+   "side": "unilateral",
+   "mean": 170.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "as_reported": "1.7 ± 0.2 cm2 (mean ± SEM)",
+   "se": 20.0
+  },
+  {
+   "x": "RA2",
+   "side": "unilateral",
+   "mean": 230.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "as_reported": "2.3 ± 0.4 cm2 (mean ± SEM)",
+   "se": 40.0
+  },
+  {
+   "x": "RA3",
+   "side": "unilateral",
+   "mean": 210.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "as_reported": "2.1 ± 0.3 cm2 (mean ± SEM)",
+   "se": 30.0
+  },
+  {
+   "x": "RA4",
+   "side": "unilateral",
+   "mean": 220.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "as_reported": "2.2 ± 0.3 cm2 (mean ± SEM)",
+   "se": 30.0
+  },
+  {
+   "x": "RA5 (n=1)",
+   "side": "unilateral",
+   "mean": 500.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "as_reported": "5.0 ± None cm2 (mean ± SEM)",
+   "se": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 1 rows re-read from text (single-line rows)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__whole_rectus_abdominis__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "cadaver",
+  "architecture"
+ ]
+}

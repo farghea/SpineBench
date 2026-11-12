@@ -1,0 +1,89 @@
+{
+ "id": "muscle_geometry.stokes1999.pcsa.whole.rectus_abdominis.mixed_cadaver",
+ "title": "Stokes 1999: pcsa of rectus abdominis at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "Visible Human cryosection images (8-point integration of muscle volumes)",
+  "plane": "transverse sections",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle split into 6 straight-line components",
+  "posture_detail": "cadaver (Visible Human), scaled to standing spine geometry"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated); PCSA = reconstructed muscle (partial) volume / muscle length (fibres assumed parallel to the component line)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Stokes 1999",
+  "authors": "Stokes IAF, Gardner-Morse M",
+  "year": 1999,
+  "journal": "J Biomech 32:311-316",
+  "doi": "",
+  "n": 2,
+  "sample": "2 Visible Human data sets (1 M, 1 F); abdominal muscle volumes reconstructed from Visible Human male and female cross-sections, geometry scaled to the mean spine of 4 young healthy adults (stereo-radiographs)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Sum/compare the PCSA of model abdominal-wall elements (one side) with the component values and totals."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 2,
+   "source": "Visible Human male + female (scaled)"
+  },
+  "notes": "Table 3 attachment coordinates (X forward, Y left, Z up, origin S1; left side) are not stored here; Table 4 (rib-cage wrapping muscles) is web-only. Transversus abdominis was not represented as straight-line components. Vertebral centre coordinates (Table 1, mean of 4 subjects) not muscle geometry. Volumes (Table 2): EO 171030/220053, IO 93407/138794, TrA 78616/96512, RA 152095/161878 mm3 (F/M)."
+ },
+ "data": [
+  {
+   "x": "component RecAb",
+   "side": "left",
+   "mean": 567.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "as_reported": "567.0 mm2 (printed \"mm\")"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 (+ Discussion totals)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "PCSA column re-read from text; units printed \"mm\" (superscript lost) = mm2."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__whole_rectus_abdominis__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "visible human",
+  "architecture"
+ ]
+}

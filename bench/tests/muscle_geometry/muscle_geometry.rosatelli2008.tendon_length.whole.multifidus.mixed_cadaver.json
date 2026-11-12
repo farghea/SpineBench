@@ -1,0 +1,222 @@
+{
+ "id": "muscle_geometry.rosatelli2008.tendon_length.whole.multifidus.mixed_cadaver",
+ "title": "Rosatelli 2008: tendon length of multifidus at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "multifidus",
+ "muscle_as_reported": "lumbar multifidus (LMT) by spinous-process level of origin and layer (superficial/intermediate/deep)",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "micro-dissection + 3-D digitisation (MicroScribe)",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "per lumbar level of origin (spinous process L1-L5) and region",
+  "posture_detail": "embalmed cadaver"
+ },
+ "quantity": {
+  "name": "tendon_length",
+  "definition": "tendon length",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Rosatelli 2008",
+  "authors": "Rosatelli AL, Ravichandiran K, Agur AM",
+  "year": 2008,
+  "journal": "Clin Anat 21:539-546",
+  "doi": "10.1002/ca.20659",
+  "n": 10,
+  "sample": "10 formalin-embalmed cadavers (9 M, 1 F); age 80 (SD 11) y; 3-D digitisation of up to 1400 fibre bundles per specimen (lumbar multifidus, one side)",
+  "age": "80 (11) y",
+  "sex": "9M/1F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Group the model multifidus fascicles by spinous process of origin (L1-L5) and depth layer.",
+   "Compare the model tendon length per group with the measured mean ± SD."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": 80,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 10,
+   "source": "catalog/abstract"
+  },
+  "notes": "Dispersion printed as ± (taken as SD). Segment-level rows (by insertion) of Tables 2-4 not stored; level and region means only. The intermediate layer is absent at L5."
+ },
+ "data": [
+  {
+   "x": "superficial L1",
+   "side": "unilateral",
+   "mean": 27.0,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.7 ± 0.8 cm",
+   "region_layer": "superficial",
+   "origin_level": "L1"
+  },
+  {
+   "x": "superficial L2",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.4 ± 0.9 cm",
+   "region_layer": "superficial",
+   "origin_level": "L2"
+  },
+  {
+   "x": "superficial L3",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.4 ± 0.8 cm",
+   "region_layer": "superficial",
+   "origin_level": "L3"
+  },
+  {
+   "x": "superficial L4",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.4 ± 0.8 cm",
+   "region_layer": "superficial",
+   "origin_level": "L4"
+  },
+  {
+   "x": "superficial L5",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.4 ± 0.7 cm",
+   "region_layer": "superficial",
+   "origin_level": "L5"
+  },
+  {
+   "x": "superficial (region mean)",
+   "side": "unilateral",
+   "mean": 24.0,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.4 ± 0.1 cm",
+   "region_layer": "superficial",
+   "origin_level": null
+  },
+  {
+   "x": "intermediate L1",
+   "side": "unilateral",
+   "mean": 20.0,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.0 ± 0.9 cm",
+   "region_layer": "intermediate",
+   "origin_level": "L1"
+  },
+  {
+   "x": "intermediate L2",
+   "side": "unilateral",
+   "mean": 21.0,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.1 ± 0.6 cm",
+   "region_layer": "intermediate",
+   "origin_level": "L2"
+  },
+  {
+   "x": "intermediate L3",
+   "side": "unilateral",
+   "mean": 20.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.0 ± 0.7 cm",
+   "region_layer": "intermediate",
+   "origin_level": "L3"
+  },
+  {
+   "x": "intermediate L4",
+   "side": "unilateral",
+   "mean": 33.0,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "3.3 ± 0.9 cm",
+   "region_layer": "intermediate",
+   "origin_level": "L4"
+  },
+  {
+   "x": "intermediate (region mean)",
+   "side": "unilateral",
+   "mean": 23.0,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.3 ± 0.6 cm",
+   "region_layer": "intermediate",
+   "origin_level": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 5",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 3 checked on rendered p.543; Tables 2, 4, 5 re-read from text (\"6\" = \"±\")."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__tendon_length__whole_multifidus__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "tendon_length",
+  "cadaver",
+  "architecture"
+ ]
+}

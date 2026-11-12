@@ -88,7 +88,12 @@
   "rule": "|model - mean| <= 1 SD"
  },
  "combine_group": "muscle_geometry__centroid_distance__l2_l3_erector_spinae_multifidus__m_lateral_recumbent_flex0__no_load",
- "shared_sample_with": [],
+ "shared_sample_with": [
+  "muscle_geometry.jorgensen2003a.csa_fibre_corrected.L2-L3.erector_spinae_multifidus.M_lateral_recumbent.flex0",
+  "muscle_geometry.jorgensen2003a.csa_fibre_corrected.L2-L3.erector_spinae_multifidus.M_lateral_recumbent.flex15",
+  "muscle_geometry.jorgensen2003a.csa_fibre_corrected.L2-L3.erector_spinae_multifidus.M_lateral_recumbent.flex30",
+  "muscle_geometry.jorgensen2003a.csa_fibre_corrected.L2-L3.erector_spinae_multifidus.M_lateral_recumbent.flex45"
+ ],
  "tags": [
   "muscle_geometry",
   "centroid_distance",
@@ -97,5 +102,8 @@
   "MRI",
   "lateral recumbent",
   "torso flexion"
+ ],
+ "shared_sample_papers": [
+  "jorgensen2003a"
  ]
 }

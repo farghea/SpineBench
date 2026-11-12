@@ -1,0 +1,83 @@
+{
+ "id": "fe_rom_thoracic.oxland1992.T11T12_fsu_no_ribs_coupled_rom_7.5Nm",
+ "title": "T11-T12 coupled rotations at 7.5 Nm (Oxland 1992)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "coupled motion",
+ "region": "thoracic",
+ "levels": [
+  "T11-T12"
+ ],
+ "condition": "fsu_no_ribs",
+ "quantity": {
+  "name": "coupled ROM",
+  "definition": "coupled rotation at 7.5 Nm primary moment (mean +/- SD); text also states all other coupled rotations < 0.2-0.4 deg",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Oxland 1992",
+  "authors": "Oxland TR, Lin RM, Panjabi MM",
+  "year": 1992,
+  "journal": "J Orthop Res 10(4):573-580 (DOI not printed in PDF)",
+  "doi": "",
+  "n": 11,
+  "sample": "11 fresh-frozen human T11-L1 three-vertebra specimens, all non-ligamentous soft tissue removed",
+  "age": "mean 53 y (range illegible in scan); age/sex unknown for 3",
+  "sex": "M:F 3:5 (of the 8 known)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T11 and L1 potted; pure moments (FE, bilateral AR, bilateral LB) in 4 equal steps to 7.5 Nm by pneumatic actuators, 3 load-unload cycles with 30 s creep per step; stereophotogrammetry on 3rd cycle; Euler angles (average of 6 permutations).",
+  "how_to_simulate": [
+   "Model T11-L1 (two motion segments), no rib cage (floating-rib status not stated); fix L1",
+   "Apply pure moment up to 7.5 Nm to T11 in each direction, no preload, quasi-static",
+   "Report T11-T12 and T12-L1 rotation at 7.5 Nm (one direction) after 30 s creep"
+  ],
+  "subject_model": null,
+  "notes": "NZ (Fig 6) and load-displacement curves (Figs 2-4) not digitised. Coupled values given in text."
+ },
+ "data": [
+  {
+   "x": "AR_one_side -> LB (same side)",
+   "load": "7.5 Nm",
+   "mean": 0.4,
+   "sd": 0.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Coupled LB under AR to same side 0.4 +/- 0.7 at both levels; T12-L1 coupled flexion 0.2 +/- 0.9."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__coupled_rom__t11_t12__fsu_no_ribs__7_5nm",
+ "tags": [
+  "thoracolumbar",
+  "in vitro",
+  "FSU",
+  "coupled"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "none stated"
+ },
+ "loading": {
+  "moment_Nm": 7.5,
+  "rate": "quasi-static",
+  "cycles": "3",
+  "branch": "peak",
+  "preload": "none",
+  "device": "pneumatic"
+ },
+ "specimen_levels": "T11-L1"
+}

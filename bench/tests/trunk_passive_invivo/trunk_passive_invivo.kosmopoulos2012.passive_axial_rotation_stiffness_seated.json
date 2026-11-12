@@ -1,0 +1,156 @@
+{
+ "id": "trunk_passive_invivo.kosmopoulos2012.passive_axial_rotation_stiffness_seated",
+ "title": "In vivo passive thoracolumbar axial rotation stiffness, seated with pelvis fixed, right vs left and male vs female",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "thoracolumbar (shoulders vs pelvis)"
+ ],
+ "condition": "seated, passive (relaxation not EMG-verified)",
+ "quantity": {
+  "name": "axial rotational stiffness",
+  "definition": "slope of the linear regression of applied moment vs measured axial rotation (potentiometer on the shoulder-harness pulley) over 6 moment levels 3.7-22.0 Nm; shoulders rotated relative to the fixed pelvis/lower limbs (thoracolumbar spine incl. thorax)",
+  "unit": "Nm/rad"
+ },
+ "source": {
+  "short": "Kosmopoulos 2012",
+  "authors": "Kosmopoulos V, Lopez JA, McCain J, Kumar S",
+  "year": 2012,
+  "journal": "Open Spine J 4:1-4",
+  "doi": "10.2174/1876532701204010001",
+  "n": 18,
+  "sample": "18 young asymptomatic volunteers (9 M: 21.1 (2.6) y, 79.4 (18.1) kg, 173.6 (7.6) cm, BMI 26.5; 9 F: 20.8 (2.0) y, 65.5 (12.1) kg, 163.1 (4.7) cm, BMI 24.7)",
+  "age": "M 21.1 (2.6), F 20.8 (2.0) y",
+  "sex": "9 M, 9 F",
+  "height_cm": 168.4,
+  "weight_kg": 72.5
+ },
+ "protocol": {
+  "summary": "Axial Rotation Tester (AROT): seated upright, lower extremities from the hips down fixed by four Velcro belts; a shoulder harness rigidly attached to an overhead pulley (35 cm diameter) loaded by a cable and dead weights to apply moments of 3.7, 7.3, 11.0, 14.7, 18.4 and 22.0 Nm bilaterally in random order; device minimises flexion/extension while allowing axial rotation and coupled lateral flexion.",
+  "how_to_simulate": [
+   "Seated model, pelvis and lower limbs fixed; shoulder girdle/upper thorax rotated about the vertical spinal axis, flexion/extension constrained, lateral bending free",
+   "Set muscle activations to zero",
+   "Apply axial moments of 3.7-22.0 Nm to the upper thorax and record the rotation relative to the pelvis; fit the slope (Nm/rad) and compare (both directions)"
+  ],
+  "subject_model": {
+   "sex": "9 M / 9 F",
+   "age": 21.0,
+   "height_cm": 168.4,
+   "weight_kg": 72.5,
+   "disc_area_mm2": null,
+   "source": "Table 1 (mean of male and female means; derived)"
+  },
+  "notes": "Rotation measured at the shoulders, so it includes thoracic and lumbar axial rotation (thoracolumbar). Linear fit R2 ~0.96. Watt 2022 used this study in its axial-rotation synthesis (values converted to Nm/deg). No EMG monitoring reported."
+ },
+ "data": [
+  {
+   "x": "right axial rotation",
+   "series": "all",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 20.3,
+   "sd": 5.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.354,
+   "sd_Nm_per_deg": 0.101
+  },
+  {
+   "x": "left axial rotation",
+   "series": "all",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 17.4,
+   "sd": 4.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.304,
+   "sd_Nm_per_deg": 0.086
+  },
+  {
+   "x": "right axial rotation",
+   "series": "males",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 22.6,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.394,
+   "sd_Nm_per_deg": 0.105
+  },
+  {
+   "x": "right axial rotation",
+   "series": "females",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 17.9,
+   "sd": 4.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.312,
+   "sd_Nm_per_deg": 0.082
+  },
+  {
+   "x": "left axial rotation",
+   "series": "males",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 19.6,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.342,
+   "sd_Nm_per_deg": 0.087
+  },
+  {
+   "x": "left axial rotation",
+   "series": "females",
+   "load": "dead-weight moments 3.7-22.0 Nm (6 levels, random order)",
+   "mean": 15.3,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "unit": "Nm/rad",
+   "mean_Nm_per_deg": 0.267,
+   "sd_Nm_per_deg": 0.07
+  }
+ ],
+ "extraction": {
+  "from": "Abstract, Results text p.2; Table 1 p.1-2",
+  "method": "text",
+  "uncertainty": "as reported (0.1 Nm/rad)",
+  "checked": true,
+  "check_notes": "Values re-read in text: right 20.3 +-5.8, left 17.4 +-4.9; M right 22.6 +-6.0, F right 17.9 +-4.7, M left 19.6 +-5.0, F left 15.3 +-4.0 Nm/rad. Nm/deg derived."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__passive_axial_rotation_stiffness__thoracolumbar__seated_pelvis_fixed__3p7_22nm",
+ "tags": [
+  "thoracolumbar",
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "axial rotation"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.watt2022.meta_analysis_axial_rotation_stiffness_by_quartile"
+ ]
+}

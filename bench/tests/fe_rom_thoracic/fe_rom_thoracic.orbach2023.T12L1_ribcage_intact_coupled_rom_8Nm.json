@@ -1,0 +1,290 @@
+{
+ "id": "fe_rom_thoracic.orbach2023.T12L1_ribcage_intact_coupled_rom_8Nm",
+ "title": "T12-L1 primary and coupled rotations, whole spine with rib cage at 8 Nm (Orbach 2023)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "whole spine with rib cage, coupled motion",
+ "region": "thoracic",
+ "levels": [
+  "T12-L1"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "primary and coupled ROM",
+  "definition": "signed Euler rotation of the region (T1 vs T12 or T12 vs L1) at +/-8 Nm, 3rd cycle; sign convention: flexion, right LB and left AR positive; x = '<primary direction> -> <measured axis>' or '(primary)'; median with Q1/Q3",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Orbach 2023",
+  "authors": "Orbach MR, Mahoney J, Bucklen BS, Balasubramanian S",
+  "year": 2023,
+  "journal": "JOR Spine (2023) e1257",
+  "doi": "10.1002/jsp2.1257",
+  "n": 7,
+  "sample": "7 fresh-frozen human T1(T3/T4)-L5 spines with intact rib cage; T12-L1 data from 7 specimens (specimens 4 and 5 lack T1-T3/T4)",
+  "age": "70.3 +/- 11.3 y (59-87); per specimen 87, 64, 79, 80, 62, 61, 59",
+  "sex": "2 M, 5 F",
+  "height_cm": "167.7 (160.0-175.3)",
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T1-L5 (two specimens T3-L5/T4-L5) with rib cage, potted at both ends; 6-DOF spine simulator, pure unconstrained moments +/-8 Nm, 1 deg/s, 3 cycles (3rd analysed); Optotrak markers on T1 pot, T12, L1, L5 pot.",
+  "how_to_simulate": [
+   "Model T1-L5 with full rib cage; fix L5",
+   "Apply pure moments +/-8 Nm at T1 in FE, LB, AR, no preload",
+   "Report T12-L1 rotations about all three axes at peak moment of each direction"
+  ],
+  "subject_model": null,
+  "notes": "Thoracic medians (n=5) include whole T1-T12; lumbar L1-L5 region in the same table not extracted (lumbar group)."
+ },
+ "data": [
+  {
+   "x": "flexion (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.3,
+   "n": 7,
+   "q1": 1.0,
+   "q3": 1.9
+  },
+  {
+   "x": "flexion -> LB",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.6,
+   "n": 7,
+   "q1": -0.7,
+   "q3": 0.2
+  },
+  {
+   "x": "flexion -> AR",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.6,
+   "n": 7,
+   "q1": -1.0,
+   "q3": 1.6
+  },
+  {
+   "x": "LB_right -> FE",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.8,
+   "n": 7,
+   "q1": -1.2,
+   "q3": -0.3
+  },
+  {
+   "x": "LB_right (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.3,
+   "n": 7,
+   "q1": 1.2,
+   "q3": 1.8
+  },
+  {
+   "x": "LB_right -> AR",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.5,
+   "n": 7,
+   "q1": -0.2,
+   "q3": 0.6
+  },
+  {
+   "x": "AR_left -> FE",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.8,
+   "n": 7,
+   "q1": -2.6,
+   "q3": -0.5
+  },
+  {
+   "x": "AR_left -> LB",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.2,
+   "n": 7,
+   "q1": -0.5,
+   "q3": 0.4
+  },
+  {
+   "x": "AR_left (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.0,
+   "n": 7,
+   "q1": 0.6,
+   "q3": 7.1
+  },
+  {
+   "x": "extension (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -1.0,
+   "n": 7,
+   "q1": -1.3,
+   "q3": -0.6
+  },
+  {
+   "x": "extension -> LB",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.8,
+   "n": 7,
+   "q1": 0.4,
+   "q3": 1.3
+  },
+  {
+   "x": "extension -> AR",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.9,
+   "n": 7,
+   "q1": -0.1,
+   "q3": 1.6
+  },
+  {
+   "x": "LB_left -> FE",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.4,
+   "n": 7,
+   "q1": -0.1,
+   "q3": 0.5
+  },
+  {
+   "x": "LB_left (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -1.0,
+   "n": 7,
+   "q1": -1.2,
+   "q3": -0.7
+  },
+  {
+   "x": "LB_left -> AR",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.5,
+   "n": 7,
+   "q1": -0.6,
+   "q3": 0.2
+  },
+  {
+   "x": "AR_right -> FE",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.3,
+   "n": 7,
+   "q1": 0.8,
+   "q3": 1.6
+  },
+  {
+   "x": "AR_right -> LB",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.6,
+   "n": 7,
+   "q1": -0.9,
+   "q3": -0.5
+  },
+  {
+   "x": "AR_right (primary)",
+   "load": "8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.7,
+   "n": 7,
+   "q1": -1.4,
+   "q3": 0.3
+  }
+ ],
+ "extraction": {
+  "from": "Appendix Table A1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Minus signs lost in the text layer; all signs read from the rendered table image (page 10)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__coupled_rom__t12_l1__ribcage_intact__8nm",
+ "tags": [
+  "thoracolumbar",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "coupled"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "entire rib cage (sternum, costal cartilage, ribs) with the whole thoracolumbar spine"
+ },
+ "loading": {
+  "moment_Nm": 8,
+  "rate": "1 deg/s",
+  "cycles": "3, 3rd analysed",
+  "branch": "peak",
+  "preload": "none",
+  "device": "6-DOF spine motion simulator with air bearings; Optotrak Certus"
+ },
+ "specimen_levels": "T1-L5"
+}
