@@ -1,219 +1,219 @@
 {
- "id": "kinematics.narimani2018.rom_lateral_bending",
- "title": "Trunk, thoracic, lumbar and pelvis maximal lateral bending, IMU",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "thoracic rotation & lateral bending",
- "region": "whole",
- "levels": [
-  "T1",
-  "T1-T12",
-  "T1-T5",
-  "T5-T12",
-  "T12-S1",
-  "pelvis"
- ],
- "condition": "healthy, standing, upright to maximal left/right lateral bending",
- "quantity": {
-  "name": "range of lateral bending",
-  "definition": "Primary rotation at maximal voluntary motion relative to relaxed upright; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, T1-T5, T5-T12, T1-T12 relative rotations; absolute values",
-  "unit": "deg"
- },
- "source": {
-  "short": "Narimani 2018",
-  "authors": "Narimani M, Arjmand N",
-  "year": 2018,
-  "journal": "J Biomech 69:169-174",
-  "doi": "10.1016/j.jbiomech.2018.01.017",
-  "n": 22,
-  "sample": "22 males; 22 young healthy male students, no recent back/hip/knee complications",
-  "age": "24.8 (SD 1.0), range 24-28 y",
-  "sex": "male",
-  "height_cm": "178.0 (SD 5.4), range 165-190",
-  "weight_kg": "71.5 (SD 10.0), range 50-92"
- },
- "protocol": {
-  "summary": "Maximal voluntary primary RoMs in standing measured with 4 inertial sensors.",
-  "how_to_use": [
-   "For a trunk (T1) lateral bend, distribute it ~50% thoracic (mostly T5-T12), ~35% lumbar, ~20% pelvis (left: 24.5/16.4/11.0 of 48.8 deg; right: 26.5/18.3/9.3 of 50.7 deg; sums exceed T1 because rotations are not strictly additive).",
-   "Add coupled same-side thoracic twist / opposite-side lumbar twist from the coupled_rom test if needed."
+  "id": "kinematics.narimani2018.rom_lateral_bending",
+  "title": "Trunk, thoracic, lumbar and pelvis maximal lateral bending, IMU",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending",
+  "region": "whole",
+  "levels": [
+    "T1",
+    "T1-T12",
+    "T1-T5",
+    "T5-T12",
+    "T12-S1",
+    "pelvis"
   ],
-  "measurement": {
-   "method": "IMU",
-   "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes",
-   "posture": "standing, feet shoulder-width, knees extended",
-   "task": "slow (4-5 s) maximal voluntary flexion, extension, left/right lateral bending, left/right axial rotation from relaxed upright, 3 trials"
+  "condition": "healthy, standing, upright to maximal left/right lateral bending",
+  "quantity": {
+    "name": "range of lateral bending",
+    "definition": "Primary rotation at maximal voluntary motion relative to relaxed upright; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, T1-T5, T5-T12, T1-T12 relative rotations; absolute values",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 48.8,
-   "sd": 9.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "trunk (T1)"
+  "source": {
+    "short": "Narimani 2018",
+    "authors": "Narimani M, Arjmand N",
+    "year": 2018,
+    "journal": "J Biomech 69:169-174",
+    "doi": "10.1016/j.jbiomech.2018.01.017",
+    "n": 22,
+    "sample": "22 males; 22 young healthy male students, no recent back/hip/knee complications",
+    "age": "24.8 (SD 1.0), range 24-28 y",
+    "sex": "male",
+    "height_cm": "178.0 (SD 5.4), range 165-190",
+    "weight_kg": "71.5 (SD 10.0), range 50-92"
   },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 50.7,
-   "sd": 9.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "trunk (T1)"
+  "protocol": {
+    "summary": "Maximal voluntary primary RoMs in standing measured with 4 inertial sensors.",
+    "how_to_use": [
+      "For a trunk (T1) lateral bend, distribute it ~50% thoracic (mostly T5-T12), ~35% lumbar, ~20% pelvis (left: 24.5/16.4/11.0 of 48.8 deg; right: 26.5/18.3/9.3 of 50.7 deg; sums exceed T1 because rotations are not strictly additive).",
+      "Add coupled same-side thoracic twist / opposite-side lumbar twist from the coupled_rom test if needed."
+    ],
+    "measurement": {
+      "method": "IMU",
+      "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes",
+      "posture": "standing, feet shoulder-width, knees extended",
+      "task": "slow (4-5 s) maximal voluntary flexion, extension, left/right lateral bending, left/right axial rotation from relaxed upright, 3 trials"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": ""
   },
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 24.5,
-   "sd": 7.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T12"
+  "data": [
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 48.8,
+      "sd": 9.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "trunk (T1)"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 50.7,
+      "sd": 9.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "trunk (T1)"
+    },
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 24.5,
+      "sd": 7.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T12"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 26.5,
+      "sd": 6.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T12"
+    },
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 6.3,
+      "sd": 3.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T5"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 6.6,
+      "sd": 4.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T5"
+    },
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 18.4,
+      "sd": 6.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T5-T12"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 21.0,
+      "sd": 5.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T5-T12"
+    },
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 16.4,
+      "sd": 7.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "lumbar (T12-S1)"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 18.3,
+      "sd": 5.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "lumbar (T12-S1)"
+    },
+    {
+      "x": "left lateral bending",
+      "load": null,
+      "mean": 11.0,
+      "sd": 4.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "pelvis"
+    },
+    {
+      "x": "right lateral bending",
+      "load": null,
+      "mean": 9.3,
+      "sd": 6.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "pelvis"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (segments; bold primary values) and Table 2 (trunk T1)",
+    "method": "table",
+    "uncertainty": "as printed (0.1 deg)",
+    "checked": true,
+    "check_notes": "Rotated Table 1 re-read at 300 dpi; primary values cross-checked against Table 2 and abstract (all identical)."
   },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 26.5,
-   "sd": 6.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T12"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 6.3,
-   "sd": 3.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T5"
-  },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 6.6,
-   "sd": 4.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T5"
-  },
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 18.4,
-   "sd": 6.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T5-T12"
-  },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 21.0,
-   "sd": 5.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T5-T12"
-  },
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 16.4,
-   "sd": 7.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "lumbar (T12-S1)"
-  },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 18.3,
-   "sd": 5.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "lumbar (T12-S1)"
-  },
-  {
-   "x": "left lateral bending",
-   "load": null,
-   "mean": 11.0,
-   "sd": 4.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "pelvis"
-  },
-  {
-   "x": "right lateral bending",
-   "load": null,
-   "mean": 9.3,
-   "sd": 6.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "pelvis"
-  }
- ],
- "extraction": {
-  "from": "Table 1 (segments; bold primary values) and Table 2 (trunk T1)",
-  "method": "table",
-  "uncertainty": "as printed (0.1 deg)",
-  "checked": true,
-  "check_notes": "Rotated Table 1 re-read at 300 dpi; primary values cross-checked against Table 2 and abstract (all identical)."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__range_of_lateral_bending__trunk-thoracic-lumbar-pelvis__healthy_standing__max_lateral_bending",
- "shared_sample_with": [
-  "kinematics.narimani2018.rom_flexion_trunk",
-  "kinematics.narimani2018.rom_flexion_lumbar",
-  "kinematics.narimani2018.rom_flexion_pelvis",
-  "kinematics.narimani2018.rom_flexion_thoracic",
-  "kinematics.narimani2018.rom_extension_trunk",
-  "kinematics.narimani2018.rom_extension_lumbar",
-  "kinematics.narimani2018.rom_extension_pelvis",
-  "kinematics.narimani2018.rom_extension_thoracic",
-  "kinematics.narimani2018.rom_axial_rotation",
-  "kinematics.narimani2018.coupled_rom",
-  "kinematics.narimani2018.lp_ratio_flexion",
-  "kinematics.narimani2018.lp_ratio_extension"
- ],
- "tags": [
-  "in vivo",
-  "IMU",
-  "standing",
-  "healthy",
-  "male only",
-  "young adults"
- ]
+  "combine_group": "kinematics__range_of_lateral_bending__trunk_thoracic_lumbar_pelvis__healthy_standing__max_lateral_bending",
+  "shared_sample_with": [
+    "kinematics.narimani2018.rom_flexion_trunk",
+    "kinematics.narimani2018.rom_flexion_lumbar",
+    "kinematics.narimani2018.rom_flexion_pelvis",
+    "kinematics.narimani2018.rom_flexion_thoracic",
+    "kinematics.narimani2018.rom_extension_trunk",
+    "kinematics.narimani2018.rom_extension_lumbar",
+    "kinematics.narimani2018.rom_extension_pelvis",
+    "kinematics.narimani2018.rom_extension_thoracic",
+    "kinematics.narimani2018.rom_axial_rotation",
+    "kinematics.narimani2018.coupled_rom",
+    "kinematics.narimani2018.lp_ratio_flexion",
+    "kinematics.narimani2018.lp_ratio_extension"
+  ],
+  "tags": [
+    "in vivo",
+    "IMU",
+    "standing",
+    "healthy",
+    "male only",
+    "young adults"
+  ]
 }

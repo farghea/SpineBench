@@ -31,13 +31,13 @@
   "summary": "As sato1999.L4L5_standing; forward flexion defined by 5 deg local L4/L5 flexion.",
   "how_to_simulate": [
    "Scale the model to the Sato cohort mean (protocol.subject_model)",
-   "Posture: flex the trunk until the L4-L5 intersegmental flexion is 5 deg (50.8 deg trunk flexion with the user's validated rhythm, targets_msk.json sato_flexed); arms hanging",
+   "Posture: flex the trunk until the L4-L5 intersegmental flexion is 5 deg (50.8 deg trunk flexion with the Ghezelbash lab validated rhythm, Ghezelbash lab validation targets sato_flexed); arms hanging",
    "Hand load: none",
    "Output: L4-L5 compression F; th = 5 deg",
    "Convert with Ghezelbash 2016 Eq. 6: P = F / A, A = 1585 mm2 (V05 mean); compare with data[0].mean"
   ],
   "subject_model": {
-   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; targets_msk.json: male); V05 Table 2 prints '-' (sex not given)",
+   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; Ghezelbash lab validation targets: male); V05 Table 2 prints '-' (sex not given)",
    "age": 24.5,
    "age_range": [
     22,
@@ -54,7 +54,7 @@
     1340,
     1890
    ],
-   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The user's targets_msk.json (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
+   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The Ghezelbash lab validation targets (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
    "per_subject": [
     {
      "no": 1,
@@ -139,8 +139,8 @@
    ],
    "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Flexion definition (5 deg at L4/L5) from Sato Table 2 as quoted by Guenther & Moerl 2021 (via targets_msk.json)."
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Flexion definition (5 deg at L4/L5) from Sato Table 2 as quoted by Guenther & Moerl 2021 (via Ghezelbash lab validation targets)."
  },
  "data": [
   {
@@ -152,7 +152,7 @@
    "max": 1.49,
    "median": null,
    "n": 8,
-   "src": "mean: Sato 1999 Table 2 via targets_msk.json; SD: targets (Ghezelbash 2020 Fig 4a individual values, 1.333 +/- 0.223); min/max: my digitisation of G2020 Fig S2-3a"
+   "src": "mean: Sato 1999 Table 2 via Ghezelbash lab validation targets; SD: targets (Ghezelbash 2020 Fig 4a individual values, 1.333 +/- 0.223); min/max: my digitisation of G2020 Fig S2-3a"
   },
   {
    "x": "flexed, subject No. 1",
@@ -244,10 +244,10 @@
   }
  ],
  "extraction": {
-  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (sato_flexed), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows digitised from Ghezelbash 2020 J Biomech accepted manuscript Fig S2-3a (file 'Mitutoyo Digital Caliper ... DDE14R52L.PDF', p.40)",
+  "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (sato_flexed), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows digitised from Ghezelbash 2020 J Biomech accepted manuscript Fig S2-3a (file 'Mitutoyo Digital Caliper ... DDE14R52L.PDF', p.40)",
   "method": "digitised_figure",
   "uncertainty": "cohort mean secondary; per-subject +/-0.01 MPa (pixel measurement, 300 dpi; bar outline mid-line)",
-  "checked": "via user's targets",
+  "checked": "via Ghezelbash lab validation targets",
   "check_notes": "Mean of my 8 digitised values 1.323 MPa, SD 0.222 - matches targets 1.333 +/- 0.223 and the primary 1.32. Digitisation accuracy checked on the upright bars of the same figure against V05's printed values (<=0.02 MPa)."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__flexed_l4l5_5deg__none",
@@ -264,6 +264,6 @@
  "pass_rule": {
   "template": false,
   "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
  }
 }

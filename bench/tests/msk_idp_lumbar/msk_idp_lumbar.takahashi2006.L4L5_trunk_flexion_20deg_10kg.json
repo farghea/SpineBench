@@ -34,7 +34,7 @@
    "Posture: standing, 20 deg trunk flexion (forward bending); arms hanging",
    "Hand load: 10 kg total, 5 kg in each hand, arms hanging at the sides",
    "Output: L4-L5 compression F and L4-L5 intersegmental flexion th",
-   "Convert with Ghezelbash 2016 Eq. 6: P = F / A with A = 1970 mm2 (V05 mean) - or 1910 mm2 as in targets_msk.json (Fasser 2021); compare with data[0].mean"
+   "Convert with Ghezelbash 2016 Eq. 6: P = F / A with A = 1970 mm2 (V05 mean) - or 1910 mm2 as in Ghezelbash lab validation targets (Fasser 2021); compare with data[0].mean"
   ],
   "subject_model": {
    "sex": "male",
@@ -55,7 +55,7 @@
     2120
    ],
    "source": "Means computed here from V05 Table 2 (3 men: 26 y/70 kg/170 cm/18.8 cm2; 26 y/70 kg/180 cm/21.2 cm2; 24 y/77 kg/178 cm/19.1 cm2). Bruno 2015 Table 3: 3M, BM 72 kg, HT 176 cm, ages 24-26.",
-   "disc_area_discrepancy": "targets_msk.json (subjects.takahashi) uses 1910 (1730-2120) mm2 from Fasser 2021 Suppl. Table S1 (not verified by the user). V05 Table 2 gives 18.8, 21.2, 19.1 cm2 (mean 19.7 cm2 = 1970 mm2, range 1880-2120). Use 1970 mm2 if following V05; difference 3%.",
+   "disc_area_discrepancy": "Ghezelbash lab validation targets (subjects.takahashi) uses 1910 (1730-2120) mm2 from Fasser 2021 Suppl. Table S1 (not verified by the user). V05 Table 2 gives 18.8, 21.2, 19.1 cm2 (mean 19.7 cm2 = 1970 mm2, range 1880-2120). Use 1970 mm2 if following V05; difference 3%.",
    "per_subject": [
     {
      "no": 1,
@@ -83,7 +83,7 @@
     }
    ]
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
   "notes": "Task set and hand load (5 kg in each hand at the side) confirmed by Bruno 2015 J Biomech Eng Table 3 (M01.pdf). Only group means are published (V05: 'only mean published')."
  },
  "data": [
@@ -102,10 +102,10 @@
   }
  ],
  "extraction": {
-  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (tak_flex20_10kg; digitised from Ghezelbash 2020 J Biomech Fig 4a), original Takahashi et al. 2006 Spine 31:18 (figures)",
+  "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (tak_flex20_10kg; digitised from Ghezelbash 2020 J Biomech Fig 4a), original Takahashi et al. 2006 Spine 31:18 (figures)",
   "method": "digitised_figure",
   "uncertainty": "+/-0.01 MPa (digitisation) on top of the secondary-source uncertainty",
-  "checked": "via user's targets",
+  "checked": "via Ghezelbash lab validation targets",
   "check_notes": "Original PDF not available. Independently re-digitised the same measured bar in Ghezelbash 2020 Fig S2-3a (accepted manuscript p.40, 300 dpi): 1.16 vs targets 1.166 MPa (diff 0.006 MPa, within the +/-0.01 MPa + bar-outline width)."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__trunk_flexion_20deg__5kg_each_hand_at_sides",
@@ -129,6 +129,6 @@
  "pass_rule": {
   "template": false,
   "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
  }
 }

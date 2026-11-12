@@ -1,122 +1,122 @@
 {
- "id": "kinematics.zhou2016.lp_crp",
- "title": "Lumbopelvic continuous relative phase (crp) in halves of trunk flexion and return (13 young males)",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "lumbopelvic rhythm",
- "region": "lumbar",
- "levels": [
-  "L1-S1",
-  "pelvis"
- ],
- "condition": "healthy males, standing, paced trunk flexion and return to upright, unloaded",
- "quantity": {
-  "name": "lumbopelvic continuous relative phase (CRP)",
-  "definition": "mean absolute difference of lumbar and pelvic phase angles (phase plane of normalised angle and velocity, arctan), averaged over each half of the motion; 0 = in phase",
-  "unit": "rad"
- },
- "source": {
-  "short": "Zhou 2016",
-  "authors": "Zhou J, Ning X, Fathallah F",
-  "year": 2016,
-  "journal": "Clin Biomech 32:274-279",
-  "doi": "10.1016/j.clinbiomech.2015.10.012",
-  "n": 13,
-  "sample": "13 healthy male students, no previous trunk or lower-extremity injury",
-  "age": "24.2 (SD 3.4) y",
-  "sex": "male",
-  "height_cm": "175.1 (SD 5.3)",
-  "weight_kg": "75.2 (SD 5.9)"
- },
- "protocol": {
-  "summary": "Lumbar (L1-S1) and pelvic (S1) sagittal angles were tracked during paced flexion and return; CRP and its variability were computed for the first and second halves (by range of motion) of each direction (Table 2).",
-  "how_to_use": [
-   "Use as a timing/coordination check of a prescribed lumbopelvic rhythm, not as an angle share: CRP ~0.78 rad in early flexion (lumbar leads, out of phase) falling to ~0.19 rad in late flexion (in phase).",
-   "Return (extension) is the reverse: in phase near full flexion (0.15 rad), out of phase near upright (0.60 rad) - do not mirror the flexion rhythm for the return.",
-   "To compare a model input, compute CRP from the prescribed lumbar and pelvis angle-time curves (normalise angle and velocity to [-1,1], phase = atan2(velocity, angle), CRP = |phase_lumbar - phase_pelvis|) and average over each half.",
-   "Pair with an angle-share source (e.g. kinematics.tafazzol2014.lp_ratio_flexion / lp_ratio_return) to set the actual magnitudes."
+  "id": "kinematics.zhou2016.lp_crp",
+  "title": "Lumbopelvic continuous relative phase (crp) in halves of trunk flexion and return (13 young males)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm",
+  "region": "lumbar",
+  "levels": [
+    "L1-S1",
+    "pelvis"
   ],
-  "measurement": {
-   "method": "electromagnetic sensors",
-   "device": "Motion Star (Ascension) skin sensors over L1 and S1 spinous processes; lumbar = L1-S1 sagittal angle, pelvis = S1 sagittal rotation",
-   "posture": "standing, feet shoulder-width apart, knees fully extended",
-   "task": "3 repetitions of metronome-paced full trunk flexion and extension (return to upright), unloaded"
+  "condition": "healthy males, standing, paced trunk flexion and return to upright, unloaded",
+  "quantity": {
+    "name": "lumbopelvic continuous relative phase (CRP)",
+    "definition": "mean absolute difference of lumbar and pelvic phase angles (phase plane of normalised angle and velocity, arctan), averaged over each half of the motion; 0 = in phase",
+    "unit": "rad"
   },
-  "equations": [
-   "phase = arctan(normalised velocity / normalised displacement)",
-   "CRP = |phase_lumbar - phase_pelvis|",
-   "CRP variability = SD of CRP within the half-motion"
+  "source": {
+    "short": "Zhou 2016",
+    "authors": "Zhou J, Ning X, Fathallah F",
+    "year": 2016,
+    "journal": "Clin Biomech 32:274-279",
+    "doi": "10.1016/j.clinbiomech.2015.10.012",
+    "n": 13,
+    "sample": "13 healthy male students, no previous trunk or lower-extremity injury",
+    "age": "24.2 (SD 3.4) y",
+    "sex": "male",
+    "height_cm": "175.1 (SD 5.3)",
+    "weight_kg": "75.2 (SD 5.9)"
+  },
+  "protocol": {
+    "summary": "Lumbar (L1-S1) and pelvic (S1) sagittal angles were tracked during paced flexion and return; CRP and its variability were computed for the first and second halves (by range of motion) of each direction (Table 2).",
+    "how_to_use": [
+      "Use as a timing/coordination check of a prescribed lumbopelvic rhythm, not as an angle share: CRP ~0.78 rad in early flexion (lumbar leads, out of phase) falling to ~0.19 rad in late flexion (in phase).",
+      "Return (extension) is the reverse: in phase near full flexion (0.15 rad), out of phase near upright (0.60 rad) - do not mirror the flexion rhythm for the return.",
+      "To compare a model input, compute CRP from the prescribed lumbar and pelvis angle-time curves (normalise angle and velocity to [-1,1], phase = atan2(velocity, angle), CRP = |phase_lumbar - phase_pelvis|) and average over each half.",
+      "Pair with an angle-share source (e.g. kinematics.tafazzol2014.lp_ratio_flexion / lp_ratio_return) to set the actual magnitudes."
+    ],
+    "measurement": {
+      "method": "electromagnetic sensors",
+      "device": "Motion Star (Ascension) skin sensors over L1 and S1 spinous processes; lumbar = L1-S1 sagittal angle, pelvis = S1 sagittal rotation",
+      "posture": "standing, feet shoulder-width apart, knees fully extended",
+      "task": "3 repetitions of metronome-paced full trunk flexion and extension (return to upright), unloaded"
+    },
+    "equations": [
+      "phase = arctan(normalised velocity / normalised displacement)",
+      "CRP = |phase_lumbar - phase_pelvis|",
+      "CRP variability = SD of CRP within the half-motion"
+    ],
+    "subject_model": null,
+    "notes": "Halves defined by range of motion (SEQUENCE). Paper pairs E1 with F2 and E2 with F1 (first half of extension = near full flexion), confirming 'extension' is the return from flexion. Whole-motion CRP by direction (Fig 3) and interaction plots (Figs 4-5) not extracted (figures only; whole-motion values not tabulated)."
+  },
+  "data": [
+    {
+      "x": "first half of flexion (upright -> mid-range)",
+      "load": null,
+      "mean": 0.7779,
+      "sd": 0.059,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 13,
+      "phase": "flexion"
+    },
+    {
+      "x": "second half of flexion (mid-range -> full flexion)",
+      "load": null,
+      "mean": 0.1934,
+      "sd": 0.029,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 13,
+      "phase": "flexion"
+    },
+    {
+      "x": "first half of extension/return (full flexion -> mid-range)",
+      "load": null,
+      "mean": 0.1526,
+      "sd": 0.019,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 13,
+      "phase": "return/extension"
+    },
+    {
+      "x": "second half of extension/return (mid-range -> upright)",
+      "load": null,
+      "mean": 0.6035,
+      "sd": 0.089,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 13,
+      "phase": "return/extension"
+    }
   ],
-  "subject_model": null,
-  "notes": "Halves defined by range of motion (SEQUENCE). Paper pairs E1 with F2 and E2 with F1 (first half of extension = near full flexion), confirming 'extension' is the return from flexion. Whole-motion CRP by direction (Fig 3) and interaction plots (Figs 4-5) not extracted (figures only; whole-motion values not tabulated)."
- },
- "data": [
-  {
-   "x": "first half of flexion (upright -> mid-range)",
-   "load": null,
-   "mean": 0.7779,
-   "sd": 0.059,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 13,
-   "phase": "flexion"
+  "extraction": {
+    "from": "Table 2",
+    "method": "table",
+    "uncertainty": "exact (as printed, 4 decimals)",
+    "checked": true,
+    "check_notes": "Rechecked all 8 values against Table 2 (layout text: row '1st' 0.7779 (0.059) 0.7621 (0.062) 0.1526 (0.019) 0.1303 (0.019); row '2st' [sic] 0.1934 (0.029) 0.1168 (0.028) 0.6035 (0.089) 0.2759 (0.033); columns Flexion CRP, Flexion CRP variability, Extension CRP, Extension CRP variability). Consistent with text (flexion 1st > 2nd; extension 1st < 2nd)."
   },
-  {
-   "x": "second half of flexion (mid-range -> full flexion)",
-   "load": null,
-   "mean": 0.1934,
-   "sd": 0.029,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 13,
-   "phase": "flexion"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "first half of extension/return (full flexion -> mid-range)",
-   "load": null,
-   "mean": 0.1526,
-   "sd": 0.019,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 13,
-   "phase": "return/extension"
-  },
-  {
-   "x": "second half of extension/return (mid-range -> upright)",
-   "load": null,
-   "mean": 0.6035,
-   "sd": 0.089,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 13,
-   "phase": "return/extension"
-  }
- ],
- "extraction": {
-  "from": "Table 2",
-  "method": "table",
-  "uncertainty": "exact (as printed, 4 decimals)",
-  "checked": true,
-  "check_notes": "Rechecked all 8 values against Table 2 (layout text: row '1st' 0.7779 (0.059) 0.7621 (0.062) 0.1526 (0.019) 0.1303 (0.019); row '2st' [sic] 0.1934 (0.029) 0.1168 (0.028) 0.6035 (0.089) 0.2759 (0.033); columns Flexion CRP, Flexion CRP variability, Extension CRP, Extension CRP variability). Consistent with text (flexion 1st > 2nd; extension 1st < 2nd)."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__lp_crp__lumbar-pelvis__healthy_standing__flexion_and_return_halves",
- "tags": [
-  "in vivo",
-  "electromagnetic sensors",
-  "standing",
-  "healthy",
-  "male only",
-  "young adults",
-  "sagittal",
-  "coordination timing"
- ],
- "shared_sample_with": []
+  "combine_group": "kinematics__lp_crp__lumbar_pelvis__healthy_standing__flexion_and_return_halves",
+  "tags": [
+    "in vivo",
+    "electromagnetic sensors",
+    "standing",
+    "healthy",
+    "male only",
+    "young adults",
+    "sagittal",
+    "coordination timing"
+  ],
+  "shared_sample_with": []
 }

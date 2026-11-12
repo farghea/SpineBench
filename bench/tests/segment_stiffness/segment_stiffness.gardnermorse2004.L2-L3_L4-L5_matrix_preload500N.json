@@ -420,7 +420,7 @@
   "method": "table",
   "uncertainty": "tabulated values (3 significant figures); converted from N, mm, rad",
   "checked": true,
-  "check_notes": "All values re-read from rendered Table 1 image (pdftotext dropped minus signs: k16, k35, k45 are negative in the printed table). Conversion: N/rad -> N/deg x(pi/180); N·mm/rad -> Nm/deg /(1000*180/pi). Native values kept in data[].native. SD derived from SE x sqrt(n)."
+  "check_notes": "All values re-read from rendered Table 1 image (pdftotext dropped minus signs: k16, k35, k45 are negative in the printed table). Conversion: N/rad -> N/deg x(pi/180); N·mm/rad -> Nm/deg /(1000*180/pi). Native values kept in data[].native. SD derived from SE x sqrt(n). | verified 2026-11-12 independent check: OK (Table 1 p.209 500 N block re-read incl. minus signs on rendered page; SE->SD and unit conversions recomputed)"
  },
  "pass_rule": {
   "template": true,

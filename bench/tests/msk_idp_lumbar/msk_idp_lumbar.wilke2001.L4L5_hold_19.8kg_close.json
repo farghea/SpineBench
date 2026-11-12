@@ -1,121 +1,121 @@
 {
- "id": "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
- "title": "Wilke volunteer: L4-L5 IDP holding a 19.8 kg crate close to the body",
- "layer": "outcome",
- "category": "msk_idp_lumbar",
- "subcategory": "L4-L5 in vivo, single subject",
- "region": "lumbar",
- "levels": [
-  "L4-L5"
- ],
- "condition": "upright standing, 19.8 kg crate held close to the chest",
- "quantity": {
-  "name": "IDP",
-  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture",
-  "unit": "MPa"
- },
- "source": {
-  "short": "Wilke 2001 (data of Wilke 1999)",
-  "authors": "Wilke HJ, Neef P, Hinz B, Seidel H, Claes L",
-  "year": 2001,
-  "journal": "Clin Biomech 16 Suppl 1:S111-S126",
-  "doi": "10.1016/S0268-0033(00)00103-0",
-  "n": 1,
-  "sample": "1 subject (male volunteer); 1 healthy male volunteer (orthopaedist), non-degenerated L4-L5 disc; telemetric piezoresistive transducer (1.5 mm) in the nucleus; original measurements Wilke et al. 1999 Spine 24:755",
-  "age": "45",
-  "sex": "M",
-  "height_cm": 174,
-  "weight_kg": 70
- },
- "protocol": {
-  "summary": "Single healthy male volunteer, telemetric pressure transducer in L4-L5 nucleus, ~24 h recording at 300 Hz; postures/exercises self-performed; values are the peak or plateau of the recorded pressure curve.",
-  "how_to_simulate": [
-   "Scale the model to the subject in protocol.subject_model (sex, age, height, body mass; see weight_which_applies)",
-   "Posture: Upright standing; upper arms vertical, elbows flexed so the crate centre is ~25 cm anterior to the L5-S1 disc (Arjmand 2009 Clin Biomech Fig 1; Malakoutian 2022 Sec 2.4 via targets_msk.json)",
-   "Hand load: 19.8 kg crate (300 x 400 x 300 mm) in both hands at chest level, ~25 cm anterior to L5-S1",
-   "Output: L4-L5 disc compression F (axial, along the disc-normal / upper-vertebra axis) and L4-L5 intersegmental flexion th relative to upright standing",
-   "Convert with Ghezelbash 2016 BMMB Eq. 6: P = F / A with A = 1800 mm2 (Wilke 2001); IDP = Eq. 6(P, th) (see protocol.notes); compare with data[].mean"
+  "id": "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
+  "title": "Wilke volunteer: L4-L5 IDP holding a 19.8 kg crate close to the body",
+  "layer": "outcome",
+  "category": "msk_idp_lumbar",
+  "subcategory": "L4-L5 in vivo, single subject",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5"
   ],
-  "subject_model": {
-   "sex": "male",
-   "age": 45,
-   "height_cm": 174,
-   "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
-   "weight_kg": 70,
-   "weight_kg_anthropometry": 72,
-   "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
-   "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the user's targets_msk.json (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
-   "disc_area_mm2": 1800,
-   "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
-   "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
-   "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
+  "condition": "upright standing, 19.8 kg crate held close to the chest",
+  "quantity": {
+    "name": "IDP",
+    "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture",
+    "unit": "MPa"
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": ""
- },
- "data": [
-  {
-   "x": "holding 19.8 kg crate close to the body at chest level",
-   "load": "19.8 kg, ~25 cm anterior to L5-S1",
-   "mean": 1.0,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1,
-   "alt_values": [
-    {
-     "value": 1.1,
-     "source": "Wilke 2001 abstract 'lifting a 20 kg weight ... close to the body 1.1 MPa' (a lifting task); Wilke 1999 as used in targets_msk.json wilke_close_19.8kg (measured_mpa 1.1); Rohlmann 2001 Ergonomics p.789 '220%' of 0.50 MPa"
-    }
-   ],
-   "crosscheck": {
-    "U01 Fig 5 'Load Close' (digitised here)": 1.0,
-    "G2020 Fig S2-3a 'Upright+20kg Close'": 1.0,
-    "targets secondary / crosscheck": [
-     1.009,
-     1.0
+  "source": {
+    "short": "Wilke 2001 (data of Wilke 1999)",
+    "authors": "Wilke HJ, Neef P, Hinz B, Seidel H, Claes L",
+    "year": 2001,
+    "journal": "Clin Biomech 16 Suppl 1:S111-S126",
+    "doi": "10.1016/S0268-0033(00)00103-0",
+    "n": 1,
+    "sample": "1 subject (male volunteer); 1 healthy male volunteer (orthopaedist), non-degenerated L4-L5 disc; telemetric piezoresistive transducer (1.5 mm) in the nucleus; original measurements Wilke et al. 1999 Spine 24:755",
+    "age": "45",
+    "sex": "M",
+    "height_cm": 174,
+    "weight_kg": 70
+  },
+  "protocol": {
+    "summary": "Single healthy male volunteer, telemetric pressure transducer in L4-L5 nucleus, ~24 h recording at 300 Hz; postures/exercises self-performed; values are the peak or plateau of the recorded pressure curve.",
+    "how_to_simulate": [
+      "Scale the model to the subject in protocol.subject_model (sex, age, height, body mass; see weight_which_applies)",
+      "Posture: Upright standing; upper arms vertical, elbows flexed so the crate centre is ~25 cm anterior to the L5-S1 disc (Arjmand 2009 Clin Biomech Fig 1; Malakoutian 2022 Sec 2.4 via Ghezelbash lab validation targets)",
+      "Hand load: 19.8 kg crate (300 x 400 x 300 mm) in both hands at chest level, ~25 cm anterior to L5-S1",
+      "Output: L4-L5 disc compression F (axial, along the disc-normal / upper-vertebra axis) and L4-L5 intersegmental flexion th relative to upright standing",
+      "Convert with Ghezelbash 2016 BMMB Eq. 6: P = F / A with A = 1800 mm2 (Wilke 2001); IDP = Eq. 6(P, th) (see protocol.notes); compare with data[].mean"
     ],
-    "Arjmand 2009 Table 3 footnote 'Measurement: 1 MPa (Wilke et al., 2001)'": 1.0
-   }
+    "subject_model": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
+      "weight_kg": 70,
+      "weight_kg_anthropometry": 72,
+      "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
+      "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the Ghezelbash lab validation targets (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
+      "disc_area_mm2": 1800,
+      "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
+      "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
+      "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
+    },
+    "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+    "notes": ""
+  },
+  "data": [
+    {
+      "x": "holding 19.8 kg crate close to the body at chest level",
+      "load": "19.8 kg, ~25 cm anterior to L5-S1",
+      "mean": 1.0,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "alt_values": [
+        {
+          "value": 1.1,
+          "source": "Wilke 2001 abstract 'lifting a 20 kg weight ... close to the body 1.1 MPa' (a lifting task); Wilke 1999 as used in Ghezelbash lab validation targets wilke_close_19.8kg (measured_mpa 1.1); Rohlmann 2001 Ergonomics p.789 '220%' of 0.50 MPa"
+        }
+      ],
+      "crosscheck": {
+        "U01 Fig 5 'Load Close' (digitised here)": 1.0,
+        "G2020 Fig S2-3a 'Upright+20kg Close'": 1.0,
+        "targets secondary / crosscheck": [
+          1.009,
+          1.0
+        ],
+        "Arjmand 2009 Table 3 footnote 'Measurement: 1 MPa (Wilke et al., 2001)'": 1.0
+      }
+    }
+  ],
+  "extraction": {
+    "from": "Wilke 2001 p.S116 ('Holding the case close to the body at chest level produced a pressure of about 1.0 MPa', Fig 3(d)); posture distance from Arjmand et al. 2009 Clin Biomech (Arjmand2009CB.pdf) Fig 1 (25 cm)",
+    "method": "text",
+    "uncertainty": "'about 1.0 MPa'; 1.0 vs 1.1 MPa depending on source (see alt_values)",
+    "checked": true,
+    "check_notes": "DISCREPANCY flagged: Wilke 2001 Results give ~1.0 MPa for holding at chest level; its abstract's 1.1 MPa is 'lifting ... close to the body'; Rohlmann 2001 gives 220% (=1.1). The Ghezelbash lab validation targets uses 1.1 MPa. U01 and G2020 figures plot 1.0. Kept 1.0 as mean (the holding task) with 1.1 as alt_value."
+  },
+  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__standing__19_8kg_held_close",
+  "tags": [
+    "lumbar",
+    "in vivo",
+    "IDP",
+    "single subject",
+    "Wilke volunteer"
+  ],
+  "shared_sample_with": [
+    "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
+    "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
+    "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg",
+    "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
+    "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
+    "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
+    "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
+    "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+    "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+    "msk_idp_lumbar.wilke2001.L4L5_lying",
+    "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing"
+  ],
+  "pass_rule": {
+    "template": false,
+    "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+    "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
   }
- ],
- "extraction": {
-  "from": "Wilke 2001 p.S116 ('Holding the case close to the body at chest level produced a pressure of about 1.0 MPa', Fig 3(d)); posture distance from Arjmand et al. 2009 Clin Biomech (Arjmand2009CB.pdf) Fig 1 (25 cm)",
-  "method": "text",
-  "uncertainty": "'about 1.0 MPa'; 1.0 vs 1.1 MPa depending on source (see alt_values)",
-  "checked": true,
-  "check_notes": "DISCREPANCY flagged: Wilke 2001 Results give ~1.0 MPa for holding at chest level; its abstract's 1.1 MPa is 'lifting ... close to the body'; Rohlmann 2001 gives 220% (=1.1). The user's targets_msk.json uses 1.1 MPa. U01 and G2020 figures plot 1.0. Kept 1.0 as mean (the holding task) with 1.1 as alt_value."
- },
- "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__standing__19p8kg_held_close",
- "tags": [
-  "lumbar",
-  "in vivo",
-  "IDP",
-  "single subject",
-  "Wilke volunteer"
- ],
- "shared_sample_with": [
-  "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
-  "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
-  "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg",
-  "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
-  "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
-  "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
-  "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
-  "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
-  "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
-  "msk_idp_lumbar.wilke2001.L4L5_lying",
-  "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing"
- ],
- "pass_rule": {
-  "template": false,
-  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
- }
 }

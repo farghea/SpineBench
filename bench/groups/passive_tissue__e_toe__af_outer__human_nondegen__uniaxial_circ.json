@@ -1,12 +1,17 @@
 {
- "id": "passive_tissue__e_toe__af_outer__human_nondegen__uniaxial_circ",
- "title": "e toe - af outer, human nondegen, uniaxial circ",
- "quantity": "toe-region modulus E0",
- "unit": "MPa",
- "condition": "human_nondegen",
- "tests": [
-  "passive_tissue.elliottsetton2001.AF_outer_circ_E_toe",
-  "passive_tissue.oconnell2009.AF_outer_circ_E_toe_nondegen"
- ],
- "notes": "Papers: Elliott 2001, O'Connell 2009. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies)."
+  "id": "passive_tissue__e_toe__af_outer__human_nondegen__uniaxial_circ",
+  "title": "e toe - af outer, human nondegen, uniaxial circ",
+  "description": "",
+  "notes": "Papers: Elliott 2001, O'Connell 2009. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies).",
+  "tests": [
+    "passive_tissue.elliottsetton2001.AF_outer_circ_E_toe",
+    "passive_tissue.oconnell2009.AF_outer_circ_E_toe_nondegen"
+  ],
+  "studies": [
+    "Elliott 2001",
+    "O'Connell 2009"
+  ],
+  "units": [
+    "MPa"
+  ]
 }

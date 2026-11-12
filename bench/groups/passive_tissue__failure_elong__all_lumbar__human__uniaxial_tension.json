@@ -1,12 +1,17 @@
 {
- "id": "passive_tissue__failure_elong__all_lumbar__human__uniaxial_tension",
- "title": "failure elong - all lumbar, human, uniaxial tension",
- "quantity": "failure elongation",
- "unit": "mm",
- "condition": "human",
- "tests": [
-  "passive_tissue.chazal1985.ALL_lumbar_failure_elongation",
-  "passive_tissue.pintar1992.ALL_failure_elongation"
- ],
- "notes": "Papers: Chazal 1985, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies)."
+  "id": "passive_tissue__failure_elong__all_lumbar__human__uniaxial_tension",
+  "title": "failure elong - all lumbar, human, uniaxial tension",
+  "description": "",
+  "notes": "Papers: Chazal 1985, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies).",
+  "tests": [
+    "passive_tissue.chazal1985.ALL_lumbar_failure_elongation",
+    "passive_tissue.pintar1992.ALL_failure_elongation"
+  ],
+  "studies": [
+    "Chazal 1985",
+    "Pintar 1992"
+  ],
+  "units": [
+    "mm"
+  ]
 }

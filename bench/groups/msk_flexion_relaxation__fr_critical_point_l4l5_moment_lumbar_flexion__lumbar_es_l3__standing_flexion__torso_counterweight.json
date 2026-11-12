@@ -1,12 +1,19 @@
 {
- "id": "msk_flexion_relaxation__fr_critical_point_l4l5_moment_lumbar_flexion__lumbar_es_l3__standing_flexion__torso_counterweight",
- "title": "fr_critical_point_l4l5_moment_lumbar_flexion | lumbar_es_l3 | standing_flexion | torso_counterweight",
- "quantity": "critical point of lumbar ES inactivation",
- "unit": "Nm / deg",
- "condition": "standing flexion; 0, 5, 10, 15 lb counterweight pulling the torso up at T5",
- "tests": [
-  "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
-  "msk_flexion_relaxation.zwambag2020.l4l5_demand_at_fr"
- ],
- "notes": "Pooled across: zwambag2016, zwambag2020. Check shared_sample_with before pooling; weight by n. Relative quantity - never pool with absolute values."
+  "id": "msk_flexion_relaxation__fr_critical_point_l4l5_moment_lumbar_flexion__lumbar_es_l3__standing_flexion__torso_counterweight",
+  "title": "Fr critical point l4l5 moment lumbar flexion · Lumbar es l3 · Standing flexion · Torso counterweight",
+  "description": "",
+  "notes": "Pooled across: zwambag2016, zwambag2020. Check shared_sample_with before pooling; weight by n. Relative quantity - never pool with absolute values.",
+  "tests": [
+    "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
+    "msk_flexion_relaxation.zwambag2020.l4l5_demand_at_fr"
+  ],
+  "studies": [
+    "Zwambag 2016",
+    "Zwambag 2020"
+  ],
+  "units": [
+    "Nm",
+    "Nm / deg"
+  ],
+  "warning": "mixed units: Nm, Nm / deg"
 }

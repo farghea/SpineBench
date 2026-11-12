@@ -244,3 +244,9 @@ ol.steps li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 }
 .xchips { margin-top: 18px; display: flex; flex-direction: column; gap: 6px; }
 td { max-width: 340px; }
+
+details.fold{margin:6px 0 14px;font-size:.9em}
+details.fold>summary{cursor:pointer;color:var(--ink-2);list-style:none;user-select:none}
+details.fold>summary::before{content:"\25B8  "}
+details.fold[open]>summary::before{content:"\25BE  "}
+details.fold[open]>summary{margin-bottom:8px}

@@ -1,557 +1,557 @@
 {
- "id": "kinematics.fujimori2014.segmental_lb_rom",
- "title": "Thoracic segmental lateral bending ROM T1-T2 to T12-L1 (supine CT, maximal active bending)",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "thoracic rotation & lateral bending",
- "region": "thoracic",
- "levels": [
-  "T1-T2",
-  "T2-T3",
-  "T3-T4",
-  "T4-T5",
-  "T5-T6",
-  "T6-T7",
-  "T7-T8",
-  "T8-T9",
-  "T9-T10",
-  "T10-T11",
-  "T11-T12",
-  "T12-L1"
- ],
- "condition": "healthy, supine, active maximal lateral bending (one side, from neutral)",
- "quantity": {
-  "name": "segmental lateral bending ROM",
-  "definition": "rotation about the AP axis of each vertebra relative to the inferior adjacent vertebra, neutral to maximal bend on one side (SRS axes, Euler X-Y-Z)",
-  "unit": "deg"
- },
- "source": {
-  "short": "Fujimori 2014",
-  "authors": "Fujimori T, Iwasaki M, Nagamoto Y, Matsuo Y, Ishii T, Sugiura T, Kashii M, Murase T, Sugamoto K, Yoshikawa H",
-  "year": 2014,
-  "journal": "Spine J 14(9):1991-1999",
-  "doi": "10.1016/j.spinee.2013.11.054",
-  "n": 15,
-  "sample": "15 males; 15 healthy male volunteers, no spinal disorder/surgery/lung disease, scoliosis <5 deg (13 of 15 also in Fujimori 2012 axial-rotation study)",
-  "age": "32.8 (SD 1.6) y",
-  "sex": "male",
-  "height_cm": "173.1 (SD 5.7)",
-  "weight_kg": "70.9 (SD 8.4)"
- },
- "protocol": {
-  "summary": "CT in neutral and right/left maximal supine lateral bending; segmental Euler angles by voxel registration (RMSE 0.21 deg in LB).",
-  "how_to_use": [
-   "For a thoracic lateral bend of θ (T1 relative to L1, max one side ≈15.6 deg), distribute it per level in proportion to the 'mean of right and left' values (lower T10-L1 ≈36%, middle-lower ≈25%, upper ≈23%, middle-upper ≈16%).",
-   "Use right/left rows only when side asymmetry matters (no significant difference, p≥0.2).",
-   "Values are supine and submaximal vs standing; scale up if the standing thoracic LB (e.g. Narimani 2018 T1-T12 ≈25 deg) is the target."
+  "id": "kinematics.fujimori2014.segmental_lb_rom",
+  "title": "Thoracic segmental lateral bending ROM T1-T2 to T12-L1 (supine CT, maximal active bending)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending",
+  "region": "thoracic",
+  "levels": [
+    "T1-T2",
+    "T2-T3",
+    "T3-T4",
+    "T4-T5",
+    "T5-T6",
+    "T6-T7",
+    "T7-T8",
+    "T8-T9",
+    "T9-T10",
+    "T10-T11",
+    "T11-T12",
+    "T12-L1"
   ],
-  "measurement": {
-   "method": "CT",
-   "device": "low-dose CT (GE LightSpeed), 0.625 mm slices; voxel-based registration of each vertebra, Euler angles X-Y-Z relative to inferior vertebra",
-   "posture": "supine, arms behind head",
-   "task": "active maximal trunk lateral bending to right and left within comfort (no defined moment)"
+  "condition": "healthy, supine, active maximal lateral bending (one side, from neutral)",
+  "quantity": {
+    "name": "segmental lateral bending ROM",
+    "definition": "rotation about the AP axis of each vertebra relative to the inferior adjacent vertebra, neutral to maximal bend on one side (SRS axes, Euler X-Y-Z)",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "T1-T2",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
+  "source": {
+    "short": "Fujimori 2014",
+    "authors": "Fujimori T, Iwasaki M, Nagamoto Y, Matsuo Y, Ishii T, Sugiura T, Kashii M, Murase T, Sugamoto K, Yoshikawa H",
+    "year": 2014,
+    "journal": "Spine J 14(9):1991-1999",
+    "doi": "10.1016/j.spinee.2013.11.054",
+    "n": 15,
+    "sample": "15 males; 15 healthy male volunteers, no spinal disorder/surgery/lung disease, scoliosis <5 deg (13 of 15 also in Fujimori 2012 axial-rotation study)",
+    "age": "32.8 (SD 1.6) y",
+    "sex": "male",
+    "height_cm": "173.1 (SD 5.7)",
+    "weight_kg": "70.9 (SD 8.4)"
   },
-  {
-   "x": "T2-T3",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
+  "protocol": {
+    "summary": "CT in neutral and right/left maximal supine lateral bending; segmental Euler angles by voxel registration (RMSE 0.21 deg in LB).",
+    "how_to_use": [
+      "For a thoracic lateral bend of θ (T1 relative to L1, max one side ≈15.6 deg), distribute it per level in proportion to the 'mean of right and left' values (lower T10-L1 ≈36%, middle-lower ≈25%, upper ≈23%, middle-upper ≈16%).",
+      "Use right/left rows only when side asymmetry matters (no significant difference, p≥0.2).",
+      "Values are supine and submaximal vs standing; scale up if the standing thoracic LB (e.g. Narimani 2018 T1-T12 ≈25 deg) is the target."
+    ],
+    "measurement": {
+      "method": "CT",
+      "device": "low-dose CT (GE LightSpeed), 0.625 mm slices; voxel-based registration of each vertebra, Euler angles X-Y-Z relative to inferior vertebra",
+      "posture": "supine, arms behind head",
+      "task": "active maximal trunk lateral bending to right and left within comfort (no defined moment)"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": ""
   },
-  {
-   "x": "T3-T4",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
+  "data": [
+    {
+      "x": "T1-T2",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T2-T3",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T3-T4",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T4-T5",
+      "load": null,
+      "mean": 0.9,
+      "sd": 0.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T5-T6",
+      "load": null,
+      "mean": 0.8,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T6-T7",
+      "load": null,
+      "mean": 1.1,
+      "sd": 1.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T7-T8",
+      "load": null,
+      "mean": 1.7,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T8-T9",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T9-T10",
+      "load": null,
+      "mean": 1.6,
+      "sd": 0.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T10-T11",
+      "load": null,
+      "mean": 1.8,
+      "sd": 0.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T11-T12",
+      "load": null,
+      "mean": 2.3,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T12-L1",
+      "load": null,
+      "mean": 2.2,
+      "sd": 0.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "mean of right and left"
+    },
+    {
+      "x": "T1-T2",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T2-T3",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T3-T4",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T4-T5",
+      "load": null,
+      "mean": 0.7,
+      "sd": 0.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T5-T6",
+      "load": null,
+      "mean": 0.9,
+      "sd": 0.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T6-T7",
+      "load": null,
+      "mean": 1.2,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T7-T8",
+      "load": null,
+      "mean": 1.9,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T8-T9",
+      "load": null,
+      "mean": 1.0,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T9-T10",
+      "load": null,
+      "mean": 1.5,
+      "sd": 0.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T10-T11",
+      "load": null,
+      "mean": 1.6,
+      "sd": 0.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T11-T12",
+      "load": null,
+      "mean": 2.2,
+      "sd": 0.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T12-L1",
+      "load": null,
+      "mean": 2.4,
+      "sd": 0.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "T1-T2",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T2-T3",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T3-T4",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T4-T5",
+      "load": null,
+      "mean": 1.1,
+      "sd": 0.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T5-T6",
+      "load": null,
+      "mean": 0.8,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T6-T7",
+      "load": null,
+      "mean": 1.3,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T7-T8",
+      "load": null,
+      "mean": 1.4,
+      "sd": 1.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T8-T9",
+      "load": null,
+      "mean": 1.5,
+      "sd": 1.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T9-T10",
+      "load": null,
+      "mean": 1.6,
+      "sd": 0.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T10-T11",
+      "load": null,
+      "mean": 1.9,
+      "sd": 0.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T11-T12",
+      "load": null,
+      "mean": 2.5,
+      "sd": 1.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T12-L1",
+      "load": null,
+      "mean": 2.1,
+      "sd": 0.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    },
+    {
+      "x": "T1 relative to L1",
+      "load": null,
+      "mean": 15.6,
+      "sd": 6.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "one side (mean of right and left)"
+    },
+    {
+      "x": "upper T1-T4 share of total thoracic LB ROM",
+      "load": null,
+      "mean": 23.0,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "unit": "%"
+    },
+    {
+      "x": "middle-upper T4-T7 share of total thoracic LB ROM",
+      "load": null,
+      "mean": 15.7,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "unit": "%"
+    },
+    {
+      "x": "middle-lower T7-T10 share of total thoracic LB ROM",
+      "load": null,
+      "mean": 25.4,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "unit": "%"
+    },
+    {
+      "x": "lower T10-L1 share of total thoracic LB ROM",
+      "load": null,
+      "mean": 35.9,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "unit": "%"
+    },
+    {
+      "x": "mean of all segments",
+      "load": null,
+      "mean": 1.5,
+      "sd": 1.1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "right side"
+    },
+    {
+      "x": "mean of all segments",
+      "load": null,
+      "mean": 1.5,
+      "sd": 1.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15,
+      "group": "left side"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (mean of sides, % per part), Table 2 (right/left), abstract (T1-L1)",
+    "method": "table",
+    "uncertainty": "as printed (0.1 deg)",
+    "checked": true,
+    "check_notes": "Tables re-read from 250 dpi page images (pdftotext dropped minus signs; none occur in the LB columns). Abstract per-level values identical to Table 1. | verified 2026-11-12 sign check: OK (Table 1 p3, Table 2/Fig 3 p4 images: all values and signs match, incl. negative coupled AR T3-T4, FE T10-L1, SI and AP translations)"
   },
-  {
-   "x": "T4-T5",
-   "load": null,
-   "mean": 0.9,
-   "sd": 0.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "T5-T6",
-   "load": null,
-   "mean": 0.8,
-   "sd": 1.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T6-T7",
-   "load": null,
-   "mean": 1.1,
-   "sd": 1.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T7-T8",
-   "load": null,
-   "mean": 1.7,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T8-T9",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T9-T10",
-   "load": null,
-   "mean": 1.6,
-   "sd": 0.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T10-T11",
-   "load": null,
-   "mean": 1.8,
-   "sd": 0.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T11-T12",
-   "load": null,
-   "mean": 2.3,
-   "sd": 1.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T12-L1",
-   "load": null,
-   "mean": 2.2,
-   "sd": 0.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "mean of right and left"
-  },
-  {
-   "x": "T1-T2",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T2-T3",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T3-T4",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T4-T5",
-   "load": null,
-   "mean": 0.7,
-   "sd": 0.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T5-T6",
-   "load": null,
-   "mean": 0.9,
-   "sd": 0.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T6-T7",
-   "load": null,
-   "mean": 1.2,
-   "sd": 1.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T7-T8",
-   "load": null,
-   "mean": 1.9,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T8-T9",
-   "load": null,
-   "mean": 1.0,
-   "sd": 1.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T9-T10",
-   "load": null,
-   "mean": 1.5,
-   "sd": 0.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T10-T11",
-   "load": null,
-   "mean": 1.6,
-   "sd": 0.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T11-T12",
-   "load": null,
-   "mean": 2.2,
-   "sd": 0.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T12-L1",
-   "load": null,
-   "mean": 2.4,
-   "sd": 0.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "T1-T2",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T2-T3",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T3-T4",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T4-T5",
-   "load": null,
-   "mean": 1.1,
-   "sd": 0.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T5-T6",
-   "load": null,
-   "mean": 0.8,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T6-T7",
-   "load": null,
-   "mean": 1.3,
-   "sd": 1.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T7-T8",
-   "load": null,
-   "mean": 1.4,
-   "sd": 1.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T8-T9",
-   "load": null,
-   "mean": 1.5,
-   "sd": 1.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T9-T10",
-   "load": null,
-   "mean": 1.6,
-   "sd": 0.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T10-T11",
-   "load": null,
-   "mean": 1.9,
-   "sd": 0.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T11-T12",
-   "load": null,
-   "mean": 2.5,
-   "sd": 1.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T12-L1",
-   "load": null,
-   "mean": 2.1,
-   "sd": 0.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  },
-  {
-   "x": "T1 relative to L1",
-   "load": null,
-   "mean": 15.6,
-   "sd": 6.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "one side (mean of right and left)"
-  },
-  {
-   "x": "upper T1-T4 share of total thoracic LB ROM",
-   "load": null,
-   "mean": 23.0,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "unit": "%"
-  },
-  {
-   "x": "middle-upper T4-T7 share of total thoracic LB ROM",
-   "load": null,
-   "mean": 15.7,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "unit": "%"
-  },
-  {
-   "x": "middle-lower T7-T10 share of total thoracic LB ROM",
-   "load": null,
-   "mean": 25.4,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "unit": "%"
-  },
-  {
-   "x": "lower T10-L1 share of total thoracic LB ROM",
-   "load": null,
-   "mean": 35.9,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "unit": "%"
-  },
-  {
-   "x": "mean of all segments",
-   "load": null,
-   "mean": 1.5,
-   "sd": 1.1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "right side"
-  },
-  {
-   "x": "mean of all segments",
-   "load": null,
-   "mean": 1.5,
-   "sd": 1.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15,
-   "group": "left side"
-  }
- ],
- "extraction": {
-  "from": "Table 1 (mean of sides, % per part), Table 2 (right/left), abstract (T1-L1)",
-  "method": "table",
-  "uncertainty": "as printed (0.1 deg)",
-  "checked": true,
-  "check_notes": "Tables re-read from 250 dpi page images (pdftotext dropped minus signs; none occur in the LB columns). Abstract per-level values identical to Table 1."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__segmental_rom__thoracic_T1-L1__supine_CT__lateral_bending",
- "shared_sample_with": [
-  "kinematics.fujimori2014.lb_coupled_motion"
- ],
- "tags": [
-  "in vivo",
-  "CT",
-  "supine",
-  "healthy",
-  "male only",
-  "segmental",
-  "rib cage intact"
- ]
+  "combine_group": "kinematics__segmental_rom__thoracic_t1_l1__supine_ct__lateral_bending",
+  "shared_sample_with": [
+    "kinematics.fujimori2014.lb_coupled_motion"
+  ],
+  "tags": [
+    "in vivo",
+    "CT",
+    "supine",
+    "healthy",
+    "male only",
+    "segmental",
+    "rib cage intact"
+  ]
 }

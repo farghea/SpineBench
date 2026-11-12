@@ -1,90 +1,90 @@
 {
- "id": "passive_tissue.duprey2010.CVJ_rom_0p1Nm",
- "title": "Duprey 2010 costovertebral joint range of motion between -0.1 and +0.1 Nm",
- "layer": "property",
- "category": "passive_tissue",
- "subcategory": "costovertebral_joint",
- "region": "thoracic",
- "levels": [
-  "ribs 2-10"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "range of motion",
-  "definition": "angle change between -0.1 and +0.1 Nm (torsion: twice the 0 to 0.1 Nm range)",
-  "unit": "deg"
- },
- "source": {
-  "short": "Duprey 2010",
-  "authors": "Duprey S, Subit D, Guillemot H, Kent RW",
-  "year": 2010,
-  "journal": "Med Eng Phys 32:222-227",
-  "doi": "10.1016/j.medengphy.2009.12.001",
-  "n": 15,
-  "sample": "15 costovertebral joint samples (ribs 2-10) from 3 male PMHS",
-  "age": "59, 79, 74 y",
-  "sex": "3 male",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Costovertebral joint (costocentral + costotransverse) with vertebra potted; rod along the rib cervical axis; forces applied on the rod to create rotation about X (rib neck axis, torsion via rack and pinion), Y (normal to transverse-process facet; cranial-caudal flexion) and Z (ventral-dorsal flexion); quasi-static ~3 mm/s; moment = force x lever arm; characteristic average and corridors by Lessley et al. method; ROM = angle change between -0.1 and +0.1 Nm (torsion: 2 x 0-0.1 Nm).",
-  "how_to_simulate": [
-   "Fix the vertebra; apply moments to the rib about the rib-neck axis (X), Y and Z axes as defined (origin at costocentral joint centre)",
-   "Load quasi-statically to ~0.1-0.6 Nm",
-   "Compare moment-angle response with the characteristic average and corridor polynomials; report ROM between -0.1 and +0.1 Nm"
+  "id": "passive_tissue.duprey2010.CVJ_rom_0p1Nm",
+  "title": "Duprey 2010 costovertebral joint range of motion between -0.1 and +0.1 Nm",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costovertebral_joint",
+  "region": "thoracic",
+  "levels": [
+    "ribs 2-10"
   ],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "X torsion",
-   "load": "",
-   "mean": 16.9,
-   "sd": 6.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15
+  "condition": "intact",
+  "quantity": {
+    "name": "range of motion",
+    "definition": "angle change between -0.1 and +0.1 Nm (torsion: twice the 0 to 0.1 Nm range)",
+    "unit": "deg"
   },
-  {
-   "x": "Y cranial-caudal flexion",
-   "load": "",
-   "mean": 4.5,
-   "sd": 1.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15
+  "source": {
+    "short": "Duprey 2010",
+    "authors": "Duprey S, Subit D, Guillemot H, Kent RW",
+    "year": 2010,
+    "journal": "Med Eng Phys 32:222-227",
+    "doi": "10.1016/j.medengphy.2009.12.001",
+    "n": 15,
+    "sample": "15 costovertebral joint samples (ribs 2-10) from 3 male PMHS",
+    "age": "59, 79, 74 y",
+    "sex": "3 male",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "Z ventral-dorsal flexion",
-   "load": "",
-   "mean": 2.6,
-   "sd": 2.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 15
-  }
- ],
- "extraction": {
-  "from": "Results text (and Fig 7)",
-  "method": "text",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "All-sample averages from Results text. Comparable in definition to Lemosse 1998 MLS (+-0.1 Nm) - see lemosse1998 neutral_zone tests (different group because axes/definitions differ slightly)."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
- },
- "combine_group": "passive_tissue__rom_0p1nm__cvj_thoracic__human__moment_3axes",
- "tags": [
-  "human",
-  "in vitro",
-  "costovertebral joint",
-  "thoracic"
- ]
+  "protocol": {
+    "summary": "Costovertebral joint (costocentral + costotransverse) with vertebra potted; rod along the rib cervical axis; forces applied on the rod to create rotation about X (rib neck axis, torsion via rack and pinion), Y (normal to transverse-process facet; cranial-caudal flexion) and Z (ventral-dorsal flexion); quasi-static ~3 mm/s; moment = force x lever arm; characteristic average and corridors by Lessley et al. method; ROM = angle change between -0.1 and +0.1 Nm (torsion: 2 x 0-0.1 Nm).",
+    "how_to_simulate": [
+      "Fix the vertebra; apply moments to the rib about the rib-neck axis (X), Y and Z axes as defined (origin at costocentral joint centre)",
+      "Load quasi-statically to ~0.1-0.6 Nm",
+      "Compare moment-angle response with the characteristic average and corridor polynomials; report ROM between -0.1 and +0.1 Nm"
+    ],
+    "subject_model": null,
+    "notes": ""
+  },
+  "data": [
+    {
+      "x": "X torsion",
+      "load": "",
+      "mean": 16.9,
+      "sd": 6.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15
+    },
+    {
+      "x": "Y cranial-caudal flexion",
+      "load": "",
+      "mean": 4.5,
+      "sd": 1.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15
+    },
+    {
+      "x": "Z ventral-dorsal flexion",
+      "load": "",
+      "mean": 2.6,
+      "sd": 2.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 15
+    }
+  ],
+  "extraction": {
+    "from": "Results text (and Fig 7)",
+    "method": "text",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "All-sample averages from Results text. Comparable in definition to Lemosse 1998 MLS (+-0.1 Nm) - see lemosse1998 neutral_zone tests (different group because axes/definitions differ slightly)."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+  },
+  "combine_group": "passive_tissue__rom_0_1nm__cvj_thoracic__human__moment_3axes",
+  "tags": [
+    "human",
+    "in vitro",
+    "costovertebral joint",
+    "thoracic"
+  ]
 }

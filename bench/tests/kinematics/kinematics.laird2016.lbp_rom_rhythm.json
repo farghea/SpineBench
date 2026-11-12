@@ -1,268 +1,268 @@
 {
- "id": "kinematics.laird2016.lbp_rom_rhythm",
- "title": "Chronic LBP group: peak ROM and lumbar share (IMU) - not for healthy pooling",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "lumbopelvic rhythm",
- "region": "lumbar",
- "levels": [
-  "T12",
-  "T12-S2",
-  "S2"
- ],
- "condition": "chronic low back pain, standing",
- "quantity": {
-  "name": "range of motion and lumbar share",
-  "definition": "Trunk = T12 sensor angle; pelvis = S2 sensor angle; lumbar = trunk - pelvis (T12 relative to S2). Values = mean (between-subject SD) of the average of 3 test sessions.",
-  "unit": "deg or %"
- },
- "source": {
-  "short": "Laird 2016",
-  "authors": "Laird RA, Kent P, Keating JL",
-  "year": 2016,
-  "journal": "BMC Musculoskelet Disord 17:403",
-  "doi": "10.1186/s12891-016-1250-1",
-  "n": 30,
-  "sample": "30 chronic LBP (50% F); adults with chronic LBP >12 weeks, pain >2/10 (NRS 4.5), RMDQ 6.2",
-  "age": "NoLBP 35.5 (SD 12.4) y; LBP 45.8 (SD 11.6) y (groups differ, p=.001)",
-  "sex": "NoLBP 42% female",
-  "height_cm": null,
-  "weight_kg": "BMI NoLBP 24.4 (SD 3.1), LBP 24.1 (SD 5.6) kg/m2"
- },
- "protocol": {
-  "summary": "LBP group values from Tables 2-3 (average of 3 tests).",
-  "how_to_use": [
-   "Use only for patient-specific (chronic LBP) models or sensitivity runs: LBP subjects use more pelvis in flexion (pelvic 60.8 vs 54.8 deg; lumbar share 45.8 vs 51.3%).",
-   "LBP group was ~10 y older than the NoLBP group, so the difference is confounded by age."
+  "id": "kinematics.laird2016.lbp_rom_rhythm",
+  "title": "Chronic LBP group: peak ROM and lumbar share (IMU) - not for healthy pooling",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm",
+  "region": "lumbar",
+  "levels": [
+    "T12",
+    "T12-S2",
+    "S2"
   ],
-  "measurement": {
-   "method": "IMU",
-   "device": "ViMove (DorsaVi) wireless IMUs on skin over T12 and S2 spinous processes, ~20 Hz",
-   "posture": "standing",
-   "task": "5 repetitions each of max flexion, extension, left/right lateral flexion (reps 2-5 averaged); 3 test sessions (2 raters same day, 1 rater 7-14 d later)"
+  "condition": "chronic low back pain, standing",
+  "quantity": {
+    "name": "range of motion and lumbar share",
+    "definition": "Trunk = T12 sensor angle; pelvis = S2 sensor angle; lumbar = trunk - pelvis (T12 relative to S2). Values = mean (between-subject SD) of the average of 3 test sessions.",
+    "unit": "deg or %"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": "MDC90 (different-day, same rater) given per value as mdc90_days: use as the expected test-retest band for robustness runs. Total sample stated as n=63 in abstract but Table 1 lists 32 NoLBP + 30 LBP; Table 4 lists n per movement (NoLBP flexion 32, extension 31, lordosis/lateral 33)."
- },
- "data": [
-  {
-   "x": "standing",
-   "load": null,
-   "mean": -27.8,
-   "sd": 11.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "segment": "lumbar lordosis (T12-S2)"
+  "source": {
+    "short": "Laird 2016",
+    "authors": "Laird RA, Kent P, Keating JL",
+    "year": 2016,
+    "journal": "BMC Musculoskelet Disord 17:403",
+    "doi": "10.1186/s12891-016-1250-1",
+    "n": 30,
+    "sample": "30 chronic LBP (50% F); adults with chronic LBP >12 weeks, pain >2/10 (NRS 4.5), RMDQ 6.2",
+    "age": "NoLBP 35.5 (SD 12.4) y; LBP 45.8 (SD 11.6) y (groups differ, p=.001)",
+    "sex": "NoLBP 42% female",
+    "height_cm": null,
+    "weight_kg": "BMI NoLBP 24.4 (SD 3.1), LBP 24.1 (SD 5.6) kg/m2"
   },
-  {
-   "x": "max flexion",
-   "load": null,
-   "mean": 110.1,
-   "sd": 13.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "trunk (T12)",
-   "phase": "flexion"
+  "protocol": {
+    "summary": "LBP group values from Tables 2-3 (average of 3 tests).",
+    "how_to_use": [
+      "Use only for patient-specific (chronic LBP) models or sensitivity runs: LBP subjects use more pelvis in flexion (pelvic 60.8 vs 54.8 deg; lumbar share 45.8 vs 51.3%).",
+      "LBP group was ~10 y older than the NoLBP group, so the difference is confounded by age."
+    ],
+    "measurement": {
+      "method": "IMU",
+      "device": "ViMove (DorsaVi) wireless IMUs on skin over T12 and S2 spinous processes, ~20 Hz",
+      "posture": "standing",
+      "task": "5 repetitions each of max flexion, extension, left/right lateral flexion (reps 2-5 averaged); 3 test sessions (2 raters same day, 1 rater 7-14 d later)"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": "MDC90 (different-day, same rater) given per value as mdc90_days: use as the expected test-retest band for robustness runs. Total sample stated as n=63 in abstract but Table 1 lists 32 NoLBP + 30 LBP; Table 4 lists n per movement (NoLBP flexion 32, extension 31, lordosis/lateral 33)."
   },
-  {
-   "x": "max flexion",
-   "load": null,
-   "mean": 50.2,
-   "sd": 11.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar (T12-S2)",
-   "phase": "flexion"
+  "data": [
+    {
+      "x": "standing",
+      "load": null,
+      "mean": -27.8,
+      "sd": 11.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "segment": "lumbar lordosis (T12-S2)"
+    },
+    {
+      "x": "max flexion",
+      "load": null,
+      "mean": 110.1,
+      "sd": 13.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "trunk (T12)",
+      "phase": "flexion"
+    },
+    {
+      "x": "max flexion",
+      "load": null,
+      "mean": 50.2,
+      "sd": 11.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar (T12-S2)",
+      "phase": "flexion"
+    },
+    {
+      "x": "max flexion",
+      "load": null,
+      "mean": 60.8,
+      "sd": 13.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "pelvic (S2)",
+      "phase": "flexion"
+    },
+    {
+      "x": "max extension",
+      "load": null,
+      "mean": 26.9,
+      "sd": 7.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 28,
+      "segment": "trunk (T12)",
+      "phase": "extension"
+    },
+    {
+      "x": "max extension",
+      "load": null,
+      "mean": 15.2,
+      "sd": 8.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 28,
+      "segment": "lumbar (T12-S2)",
+      "phase": "extension"
+    },
+    {
+      "x": "max extension",
+      "load": null,
+      "mean": 11.9,
+      "sd": 8.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 28,
+      "segment": "pelvic (S2)",
+      "phase": "extension"
+    },
+    {
+      "x": "max left lateral flexion",
+      "load": null,
+      "mean": 29.9,
+      "sd": 6.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "trunk (T12)"
+    },
+    {
+      "x": "max left lateral flexion",
+      "load": null,
+      "mean": 24.1,
+      "sd": 5.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar (T12-S2)"
+    },
+    {
+      "x": "max left lateral flexion",
+      "load": null,
+      "mean": 6.0,
+      "sd": 3.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "pelvic (S2)"
+    },
+    {
+      "x": "max right lateral flexion",
+      "load": null,
+      "mean": 28.8,
+      "sd": 5.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "trunk (T12)"
+    },
+    {
+      "x": "max right lateral flexion",
+      "load": null,
+      "mean": 22.3,
+      "sd": 5.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar (T12-S2)"
+    },
+    {
+      "x": "max right lateral flexion",
+      "load": null,
+      "mean": 6.4,
+      "sd": 3.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "pelvic (S2)"
+    },
+    {
+      "x": "flexion",
+      "load": null,
+      "mean": 45.8,
+      "sd": 8.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar share %",
+      "unit": "%"
+    },
+    {
+      "x": "extension",
+      "load": null,
+      "mean": 56.9,
+      "sd": 33.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 28,
+      "segment": "lumbar share %",
+      "unit": "%"
+    },
+    {
+      "x": "left lateral flexion",
+      "load": null,
+      "mean": 80.6,
+      "sd": 9.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar share %",
+      "unit": "%"
+    },
+    {
+      "x": "right lateral flexion",
+      "load": null,
+      "mean": 78.3,
+      "sd": 10.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 32,
+      "segment": "lumbar share %",
+      "unit": "%"
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 / Table 3 (column 'Average for all 3 Tests' and intra-rater MDC90)",
+    "method": "table",
+    "uncertainty": "exact",
+    "checked": true,
+    "check_notes": "Re-read from layout text of Tables 2-3; left lateral flexion averages printed with negative sign (direction) - stored as magnitudes. n per movement from Table 4 (flexion 32, extension 28, lateral 32); standing lordosis n left null."
   },
-  {
-   "x": "max flexion",
-   "load": null,
-   "mean": 60.8,
-   "sd": 13.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "pelvic (S2)",
-   "phase": "flexion"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "max extension",
-   "load": null,
-   "mean": 26.9,
-   "sd": 7.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 28,
-   "segment": "trunk (T12)",
-   "phase": "extension"
-  },
-  {
-   "x": "max extension",
-   "load": null,
-   "mean": 15.2,
-   "sd": 8.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 28,
-   "segment": "lumbar (T12-S2)",
-   "phase": "extension"
-  },
-  {
-   "x": "max extension",
-   "load": null,
-   "mean": 11.9,
-   "sd": 8.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 28,
-   "segment": "pelvic (S2)",
-   "phase": "extension"
-  },
-  {
-   "x": "max left lateral flexion",
-   "load": null,
-   "mean": 29.9,
-   "sd": 6.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "trunk (T12)"
-  },
-  {
-   "x": "max left lateral flexion",
-   "load": null,
-   "mean": 24.1,
-   "sd": 5.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar (T12-S2)"
-  },
-  {
-   "x": "max left lateral flexion",
-   "load": null,
-   "mean": 6.0,
-   "sd": 3.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "pelvic (S2)"
-  },
-  {
-   "x": "max right lateral flexion",
-   "load": null,
-   "mean": 28.8,
-   "sd": 5.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "trunk (T12)"
-  },
-  {
-   "x": "max right lateral flexion",
-   "load": null,
-   "mean": 22.3,
-   "sd": 5.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar (T12-S2)"
-  },
-  {
-   "x": "max right lateral flexion",
-   "load": null,
-   "mean": 6.4,
-   "sd": 3.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "pelvic (S2)"
-  },
-  {
-   "x": "flexion",
-   "load": null,
-   "mean": 45.8,
-   "sd": 8.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar share %",
-   "unit": "%"
-  },
-  {
-   "x": "extension",
-   "load": null,
-   "mean": 56.9,
-   "sd": 33.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 28,
-   "segment": "lumbar share %",
-   "unit": "%"
-  },
-  {
-   "x": "left lateral flexion",
-   "load": null,
-   "mean": 80.6,
-   "sd": 9.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar share %",
-   "unit": "%"
-  },
-  {
-   "x": "right lateral flexion",
-   "load": null,
-   "mean": 78.3,
-   "sd": 10.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 32,
-   "segment": "lumbar share %",
-   "unit": "%"
-  }
- ],
- "extraction": {
-  "from": "Table 2 / Table 3 (column 'Average for all 3 Tests' and intra-rater MDC90)",
-  "method": "table",
-  "uncertainty": "exact",
-  "checked": true,
-  "check_notes": "Re-read from layout text of Tables 2-3; left lateral flexion averages printed with negative sign (direction) - stored as magnitudes. n per movement from Table 4 (flexion 32, extension 28, lateral 32); standing lordosis n left null."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__rom_and_lumbar_share__lumbar-pelvis__chronic_lbp_standing__max_range",
- "tags": [
-  "in vivo",
-  "IMU",
-  "standing",
-  "patients",
-  "chronic LBP",
-  "both sexes"
- ],
- "shared_sample_with": []
+  "combine_group": "kinematics__rom_and_lumbar_share__lumbar_pelvis__chronic_lbp_standing__max_range",
+  "tags": [
+    "in vivo",
+    "IMU",
+    "standing",
+    "patients",
+    "chronic LBP",
+    "both sexes"
+  ],
+  "shared_sample_with": []
 }

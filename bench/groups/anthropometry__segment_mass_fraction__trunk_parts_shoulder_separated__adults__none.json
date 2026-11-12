@@ -1,12 +1,15 @@
 {
- "id": "anthropometry__segment_mass_fraction__trunk_parts_shoulder_separated__adults__none",
- "title": "segment mass fraction / trunk parts shoulder separated / adults / none",
- "quantity": "segment mass",
- "unit": "kg",
- "condition": "adults / none",
- "tests": [
-  "anthropometry.erdmann1997.trunk_part_mass",
-  "anthropometry.erdmann2020.five_part_trunk_mass"
- ],
- "notes": "input layer (not graded). Sources: Erdmann & Kowalczyk 2020, Erdmann 1997. Overlapping samples inside this group (do not double count): anthropometry.erdmann1997.trunk_part_mass"
+  "id": "anthropometry__segment_mass_fraction__trunk_parts_shoulder_separated__adults__none",
+  "title": "Segment mass fraction · Trunk parts shoulder separated · Adults",
+  "description": "",
+  "notes": "input layer (not graded). Sources: Erdmann & Kowalczyk 2020, Erdmann 1997. Overlapping samples inside this group (do not double count): anthropometry.erdmann1997.trunk_part_mass",
+  "tests": [
+    "anthropometry.erdmann2020.five_part_trunk_mass"
+  ],
+  "studies": [
+    "Erdmann & Kowalczyk 2020"
+  ],
+  "units": [
+    "% body mass"
+  ]
 }

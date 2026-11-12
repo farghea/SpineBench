@@ -1,158 +1,158 @@
 {
- "id": "kinematics.pan2018.review_thoracic_shape_rom",
- "title": "Pooled thoracic kyphosis and ROM ranges with age trends (systematic review)",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "thoracic rotation & lateral bending",
- "region": "thoracic",
- "levels": [
-  "T1-T12"
- ],
- "condition": "asymptomatic adults, mostly standing, compiled from 45 in vivo studies",
- "quantity": {
-  "name": "approximate pooled thoracic kyphosis, primary ROM and age trends",
-  "definition": "review-level approximate values (abstract/discussion), not a formal meta-analysis; ROM to one side, non-radiological devices, standing",
-  "unit": "deg"
- },
- "source": {
-  "short": "Pan 2018",
-  "authors": "Pan F, Firouzabadi A, Reitmaier S, Zander T, Schmidt H",
-  "year": 2018,
-  "journal": "J Biomech 78:21-35",
-  "doi": "10.1016/j.jbiomech.2018.07.041",
-  "n": 45,
-  "sample": "systematic review of 45 in vivo studies (n = number of studies, not subjects)",
-  "age": "adults (study-dependent)",
-  "sex": "mixed",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Secondary compilation; use only as a plausibility envelope for thoracic inputs.",
-  "how_to_use": [
-   "Check that model thoracic inputs fall near these envelopes: standing T1-T12 kyphosis ~40 deg (radiological) / ~34 deg (skin devices); one-sided ROM AR ~40, LB ~26, flexion ~21, extension ~13 deg.",
-   "For age sensitivity add ~3 deg kyphosis per decade (mainly T5-T12) and remove ~5 deg ROM per decade (sitting data, O'Gorman & Jull 1987).",
-   "Do not pool with primary-study tests (would double count their subjects)."
+  "id": "kinematics.pan2018.review_thoracic_shape_rom",
+  "title": "Pooled thoracic kyphosis and ROM ranges with age trends (systematic review)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending",
+  "region": "thoracic",
+  "levels": [
+    "T1-T12"
   ],
-  "measurement": {
-   "method": "review (mixed: radiograph, CT, MRI, skin markers, IMU, electromagnetic, inclinometer)",
-   "device": "various",
-   "posture": "mostly standing",
-   "task": "various"
+  "condition": "asymptomatic adults, mostly standing, compiled from 45 in vivo studies",
+  "quantity": {
+    "name": "approximate pooled thoracic kyphosis, primary ROM and age trends",
+    "definition": "review-level approximate values (abstract/discussion), not a formal meta-analysis; ROM to one side, non-radiological devices, standing",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "T1-T12 kyphosis, standing, radiological devices",
-   "load": null,
-   "mean": 40,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
+  "source": {
+    "short": "Pan 2018",
+    "authors": "Pan F, Firouzabadi A, Reitmaier S, Zander T, Schmidt H",
+    "year": 2018,
+    "journal": "J Biomech 78:21-35",
+    "doi": "10.1016/j.jbiomech.2018.07.041",
+    "n": 45,
+    "sample": "systematic review of 45 in vivo studies (n = number of studies, not subjects)",
+    "age": "adults (study-dependent)",
+    "sex": "mixed",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "T1-T12 kyphosis, standing, non-radiological devices",
-   "load": null,
-   "mean": 34,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
+  "protocol": {
+    "summary": "Secondary compilation; use only as a plausibility envelope for thoracic inputs.",
+    "how_to_use": [
+      "Check that model thoracic inputs fall near these envelopes: standing T1-T12 kyphosis ~40 deg (radiological) / ~34 deg (skin devices); one-sided ROM AR ~40, LB ~26, flexion ~21, extension ~13 deg.",
+      "For age sensitivity add ~3 deg kyphosis per decade (mainly T5-T12) and remove ~5 deg ROM per decade (sitting data, O'Gorman & Jull 1987).",
+      "Do not pool with primary-study tests (would double count their subjects)."
+    ],
+    "measurement": {
+      "method": "review (mixed: radiograph, CT, MRI, skin markers, IMU, electromagnetic, inclinometer)",
+      "device": "various",
+      "posture": "mostly standing",
+      "task": "various"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": ""
   },
-  {
-   "x": "axial rotation ROM, standing, non-radiological",
-   "load": null,
-   "mean": 40,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
+  "data": [
+    {
+      "x": "T1-T12 kyphosis, standing, radiological devices",
+      "load": null,
+      "mean": 40,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "T1-T12 kyphosis, standing, non-radiological devices",
+      "load": null,
+      "mean": 34,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "axial rotation ROM, standing, non-radiological",
+      "load": null,
+      "mean": 40,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "lateral bending ROM, standing, non-radiological",
+      "load": null,
+      "mean": 26,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "flexion ROM, standing, non-radiological",
+      "load": null,
+      "mean": 21,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "extension ROM, standing, non-radiological",
+      "load": null,
+      "mean": 13,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "pooled"
+    },
+    {
+      "x": "kyphosis change per decade of age",
+      "load": null,
+      "mean": 3,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "age trend",
+      "unit": "deg/decade"
+    },
+    {
+      "x": "ROM change per decade of age (all planes, sitting)",
+      "load": null,
+      "mean": -5,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "group": "age trend",
+      "unit": "deg/decade"
+    }
+  ],
+  "extraction": {
+    "from": "Abstract; Discussion; Section 3.4 (age)",
+    "method": "text",
+    "uncertainty": "values are 'approximately' as stated by the authors (±1 deg)",
+    "checked": true,
+    "check_notes": "Values re-read in abstract and Discussion (identical). Per-study tables (Tables 1-5) not extracted; primary studies are extracted separately where available."
   },
-  {
-   "x": "lateral bending ROM, standing, non-radiological",
-   "load": null,
-   "mean": 26,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "flexion ROM, standing, non-radiological",
-   "load": null,
-   "mean": 21,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
-  },
-  {
-   "x": "extension ROM, standing, non-radiological",
-   "load": null,
-   "mean": 13,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "pooled"
-  },
-  {
-   "x": "kyphosis change per decade of age",
-   "load": null,
-   "mean": 3,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "age trend",
-   "unit": "deg/decade"
-  },
-  {
-   "x": "ROM change per decade of age (all planes, sitting)",
-   "load": null,
-   "mean": -5,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "group": "age trend",
-   "unit": "deg/decade"
-  }
- ],
- "extraction": {
-  "from": "Abstract; Discussion; Section 3.4 (age)",
-  "method": "text",
-  "uncertainty": "values are 'approximately' as stated by the authors (±1 deg)",
-  "checked": true,
-  "check_notes": "Values re-read in abstract and Discussion (identical). Per-study tables (Tables 1-5) not extracted; primary studies are extracted separately where available."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__pooled_review__thoracic_T1-T12__healthy_adults__kyphosis_rom_age_trend",
- "shared_sample_with": [],
- "tags": [
-  "review",
-  "in vivo",
-  "thoracic",
-  "age effect"
- ]
+  "combine_group": "kinematics__pooled_review__thoracic_t1_t12__healthy_adults__kyphosis_rom_age_trend",
+  "shared_sample_with": [],
+  "tags": [
+    "review",
+    "in vivo",
+    "thoracic",
+    "age effect"
+  ]
 }

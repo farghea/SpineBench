@@ -1,83 +1,83 @@
 {
- "id": "kinematics.tafazzol2014.rof_thoracic_T5L1",
- "title": "Peak T5-L1 flexion rotation at full forward flexion",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "lumbopelvic rhythm",
- "region": "thoracic",
- "levels": [
-  "T5-L1"
- ],
- "condition": "healthy, standing, maximal forward flexion",
- "quantity": {
-  "name": "range of flexion",
-  "definition": "T5 relative to L1 at full voluntary flexion",
-  "unit": "deg"
- },
- "source": {
-  "short": "Tafazzol 2014",
-  "authors": "Tafazzol A, Arjmand N, Shirazi-Adl A, Parnianpour M",
-  "year": 2014,
-  "journal": "Clin Biomech 29(1):7-13",
-  "doi": "10.1016/j.clinbiomech.2013.10.021",
-  "n": 8,
-  "sample": "8 males; 8 young asymptomatic males (file G06.pdf)",
-  "age": "25.3 (SD 1.3) y",
-  "sex": "male",
-  "height_cm": "180.7 (SD 5.8)",
-  "weight_kg": "80.1 (SD 6.3)"
- },
- "protocol": {
-  "measurement": {
-   "method": "IMU",
-   "device": "Xsens MTx inertial/magnetic sensors on spinous processes of T5, L1, S1",
-   "posture": "standing, feet shoulder-width, knees extended",
-   "task": "slow self-paced maximal forward flexion from upright and return to upright, 3 trials, no load, sagittal plane"
+  "id": "kinematics.tafazzol2014.rof_thoracic_T5L1",
+  "title": "Peak T5-L1 flexion rotation at full forward flexion",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm",
+  "region": "thoracic",
+  "levels": [
+    "T5-L1"
+  ],
+  "condition": "healthy, standing, maximal forward flexion",
+  "quantity": {
+    "name": "range of flexion",
+    "definition": "T5 relative to L1 at full voluntary flexion",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": "Table 1 also lists per-subject values; time to full flexion 5.2 (SD 0.7) s.",
-  "summary": "Peak voluntary forward flexion rotations from upright standing, 8 young males, IMU (Table 1).",
-  "how_to_use": [
-   "Use 8.3 deg (SD 1) as the T5-L1 contribution at full voluntary trunk flexion (trunk T5 = 121 deg).",
-   "At full flexion the trunk decomposes as pelvis 53.0 + lumbar 60.2 + T5-L1 8.3 deg (sum 121.5 vs 121 measured).",
-   "For intermediate angles use the L/P tables (kinematics.tafazzol2014.lp_ratio_flexion / lp_ratio_return)."
-  ]
- },
- "data": [
-  {
-   "x": "full voluntary flexion",
-   "load": null,
-   "mean": 8.3,
-   "sd": 1,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "flexion",
-   "segment": "T5-L1"
-  }
- ],
- "extraction": {
-  "from": "Table 1 (and abstract)",
-  "method": "table",
-  "uncertainty": "exact",
-  "checked": true,
-  "check_notes": "Rechecked against Table 1 mean (SD) row and abstract."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__range_of_flexion__thoracic_t5-l1__healthy_standing__max_forward_flexion",
- "tags": [
-  "in vivo",
-  "IMU",
-  "standing",
-  "healthy",
-  "male only",
-  "young adults",
-  "sagittal"
- ],
- "shared_sample_with": []
+  "source": {
+    "short": "Tafazzol 2014",
+    "authors": "Tafazzol A, Arjmand N, Shirazi-Adl A, Parnianpour M",
+    "year": 2014,
+    "journal": "Clin Biomech 29(1):7-13",
+    "doi": "10.1016/j.clinbiomech.2013.10.021",
+    "n": 8,
+    "sample": "8 males; 8 young asymptomatic males (file G06.pdf)",
+    "age": "25.3 (SD 1.3) y",
+    "sex": "male",
+    "height_cm": "180.7 (SD 5.8)",
+    "weight_kg": "80.1 (SD 6.3)"
+  },
+  "protocol": {
+    "measurement": {
+      "method": "IMU",
+      "device": "Xsens MTx inertial/magnetic sensors on spinous processes of T5, L1, S1",
+      "posture": "standing, feet shoulder-width, knees extended",
+      "task": "slow self-paced maximal forward flexion from upright and return to upright, 3 trials, no load, sagittal plane"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": "Table 1 also lists per-subject values; time to full flexion 5.2 (SD 0.7) s.",
+    "summary": "Peak voluntary forward flexion rotations from upright standing, 8 young males, IMU (Table 1).",
+    "how_to_use": [
+      "Use 8.3 deg (SD 1) as the T5-L1 contribution at full voluntary trunk flexion (trunk T5 = 121 deg).",
+      "At full flexion the trunk decomposes as pelvis 53.0 + lumbar 60.2 + T5-L1 8.3 deg (sum 121.5 vs 121 measured).",
+      "For intermediate angles use the L/P tables (kinematics.tafazzol2014.lp_ratio_flexion / lp_ratio_return)."
+    ]
+  },
+  "data": [
+    {
+      "x": "full voluntary flexion",
+      "load": null,
+      "mean": 8.3,
+      "sd": 1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "flexion",
+      "segment": "T5-L1"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (and abstract)",
+    "method": "table",
+    "uncertainty": "exact",
+    "checked": true,
+    "check_notes": "Rechecked against Table 1 mean (SD) row and abstract."
+  },
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
+  },
+  "combine_group": "kinematics__range_of_flexion__thoracic_t5_l1__healthy_standing__max_forward_flexion",
+  "tags": [
+    "in vivo",
+    "IMU",
+    "standing",
+    "healthy",
+    "male only",
+    "young adults",
+    "sagittal"
+  ],
+  "shared_sample_with": []
 }

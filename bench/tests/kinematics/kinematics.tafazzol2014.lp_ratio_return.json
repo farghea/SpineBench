@@ -1,299 +1,299 @@
 {
- "id": "kinematics.tafazzol2014.lp_ratio_return",
- "title": "Lumbopelvic ratio L/P during return from full flexion to upright (per 10% of extension and per 30 deg trunk interval)",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "lumbopelvic rhythm",
- "region": "lumbar",
- "levels": [
-  "L1-S1",
-  "pelvis"
- ],
- "condition": "healthy, standing, return (backward extension) from full flexion",
- "quantity": {
-  "name": "lumbopelvic ratio L/P",
-  "definition": "Pelvis P = S1 sensor rotation vs global; thorax T = T5 sensor rotation vs global; lumbar L = L1 relative to S1; all relative to upright standing. L/P = total lumbar rotation / total pelvis rotation from upright (cumulative), not interval increments, unless stated. Interval 0-10% of extension = first 10% of the return, starting at full flexion.",
-  "unit": "ratio"
- },
- "source": {
-  "short": "Tafazzol 2014",
-  "authors": "Tafazzol A, Arjmand N, Shirazi-Adl A, Parnianpour M",
-  "year": 2014,
-  "journal": "Clin Biomech 29(1):7-13",
-  "doi": "10.1016/j.clinbiomech.2013.10.021",
-  "n": 8,
-  "sample": "8 males; 8 young asymptomatic males (file G06.pdf)",
-  "age": "25.3 (SD 1.3) y",
-  "sex": "male",
-  "height_cm": "180.7 (SD 5.8)",
-  "weight_kg": "80.1 (SD 6.3)"
- },
- "protocol": {
-  "summary": "Same trials as flexion; L/P per 10% interval of the backward (return) movement (Table 3) and per 30 deg trunk-angle interval (Fig 5b).",
-  "how_to_use": [
-   "For the return phase, take the fraction of the return completed (0% = full flexion, 100% = upright) and read L/P from Table 3.",
-   "Distribute: pelvis = trunk_pelvis_lumbar/(1+L/P), lumbar = L/P * pelvis (cumulative angles from upright).",
-   "Note the pelvis leads early in the return (L/P ~1.07 at start) and the lumbar spine finishes it (L/P ~2.90 near upright): do not reuse the flexion table for lifting-up phases.",
-   "In trunk-angle terms (Fig 5b, total-based) L/P = 1.23 at 90-120 deg rising to 2.86 at 0-30 deg."
+  "id": "kinematics.tafazzol2014.lp_ratio_return",
+  "title": "Lumbopelvic ratio L/P during return from full flexion to upright (per 10% of extension and per 30 deg trunk interval)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm",
+  "region": "lumbar",
+  "levels": [
+    "L1-S1",
+    "pelvis"
   ],
-  "measurement": {
-   "method": "IMU",
-   "device": "Xsens MTx inertial/magnetic sensors on spinous processes of T5, L1, S1",
-   "posture": "standing, feet shoulder-width, knees extended",
-   "task": "slow self-paced maximal forward flexion from upright and return to upright, 3 trials, no load, sagittal plane"
+  "condition": "healthy, standing, return (backward extension) from full flexion",
+  "quantity": {
+    "name": "lumbopelvic ratio L/P",
+    "definition": "Pelvis P = S1 sensor rotation vs global; thorax T = T5 sensor rotation vs global; lumbar L = L1 relative to S1; all relative to upright standing. L/P = total lumbar rotation / total pelvis rotation from upright (cumulative), not interval increments, unless stated. Interval 0-10% of extension = first 10% of the return, starting at full flexion.",
+    "unit": "ratio"
   },
-  "equations": [
-   "L/P = L / P (total rotations from upright)"
+  "source": {
+    "short": "Tafazzol 2014",
+    "authors": "Tafazzol A, Arjmand N, Shirazi-Adl A, Parnianpour M",
+    "year": 2014,
+    "journal": "Clin Biomech 29(1):7-13",
+    "doi": "10.1016/j.clinbiomech.2013.10.021",
+    "n": 8,
+    "sample": "8 males; 8 young asymptomatic males (file G06.pdf)",
+    "age": "25.3 (SD 1.3) y",
+    "sex": "male",
+    "height_cm": "180.7 (SD 5.8)",
+    "weight_kg": "80.1 (SD 6.3)"
+  },
+  "protocol": {
+    "summary": "Same trials as flexion; L/P per 10% interval of the backward (return) movement (Table 3) and per 30 deg trunk-angle interval (Fig 5b).",
+    "how_to_use": [
+      "For the return phase, take the fraction of the return completed (0% = full flexion, 100% = upright) and read L/P from Table 3.",
+      "Distribute: pelvis = trunk_pelvis_lumbar/(1+L/P), lumbar = L/P * pelvis (cumulative angles from upright).",
+      "Note the pelvis leads early in the return (L/P ~1.07 at start) and the lumbar spine finishes it (L/P ~2.90 near upright): do not reuse the flexion table for lifting-up phases.",
+      "In trunk-angle terms (Fig 5b, total-based) L/P = 1.23 at 90-120 deg rising to 2.86 at 0-30 deg."
+    ],
+    "measurement": {
+      "method": "IMU",
+      "device": "Xsens MTx inertial/magnetic sensors on spinous processes of T5, L1, S1",
+      "posture": "standing, feet shoulder-width, knees extended",
+      "task": "slow self-paced maximal forward flexion from upright and return to upright, 3 trials, no load, sagittal plane"
+    },
+    "equations": [
+      "L/P = L / P (total rotations from upright)"
+    ],
+    "subject_model": null,
+    "notes": "Fig 5b x-axis is trunk flexion range during the return."
+  },
+  "data": [
+    {
+      "x": "0-10% of return",
+      "load": null,
+      "mean": 1.07,
+      "sd": 0.22,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "10-20% of return",
+      "load": null,
+      "mean": 1.31,
+      "sd": 0.24,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "20-30% of return",
+      "load": null,
+      "mean": 1.57,
+      "sd": 0.24,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "30-40% of return",
+      "load": null,
+      "mean": 1.79,
+      "sd": 0.24,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "40-50% of return",
+      "load": null,
+      "mean": 1.98,
+      "sd": 0.21,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "50-60% of return",
+      "load": null,
+      "mean": 2.14,
+      "sd": 0.21,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "60-70% of return",
+      "load": null,
+      "mean": 2.31,
+      "sd": 0.17,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "70-80% of return",
+      "load": null,
+      "mean": 2.51,
+      "sd": 0.16,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "80-90% of return",
+      "load": null,
+      "mean": 2.71,
+      "sd": 0.14,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "90-100% of return",
+      "load": null,
+      "mean": 2.9,
+      "sd": 0.11,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, % of full return"
+    },
+    {
+      "x": "trunk 90-120 deg",
+      "load": null,
+      "mean": 1.23,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, trunk angle interval",
+      "source_where": "text/abstract + Fig 5b"
+    },
+    {
+      "x": "trunk 60-90 deg",
+      "load": null,
+      "mean": 1.88,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, trunk angle interval",
+      "source_where": "Fig 5b digitised"
+    },
+    {
+      "x": "trunk 30-60 deg",
+      "load": null,
+      "mean": 2.33,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, trunk angle interval",
+      "source_where": "Fig 5b digitised"
+    },
+    {
+      "x": "trunk 0-30 deg",
+      "load": null,
+      "mean": 2.86,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "total, trunk angle interval",
+      "source_where": "text/abstract + Fig 5b"
+    },
+    {
+      "x": "trunk 90-120 deg",
+      "load": null,
+      "mean": 0.34,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "incremental, trunk angle interval",
+      "source_where": "Fig 5b digitised"
+    },
+    {
+      "x": "trunk 60-90 deg",
+      "load": null,
+      "mean": 1.01,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "incremental, trunk angle interval",
+      "source_where": "Fig 5b digitised"
+    },
+    {
+      "x": "trunk 30-60 deg",
+      "load": null,
+      "mean": 1.73,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "incremental, trunk angle interval",
+      "source_where": "Fig 5b digitised"
+    },
+    {
+      "x": "trunk 0-30 deg",
+      "load": null,
+      "mean": 2.86,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 8,
+      "phase": "return/extension",
+      "basis": "incremental, trunk angle interval",
+      "source_where": "Fig 5b digitised (marker overlaps total)"
+    }
   ],
-  "subject_model": null,
-  "notes": "Fig 5b x-axis is trunk flexion range during the return."
- },
- "data": [
-  {
-   "x": "0-10% of return",
-   "load": null,
-   "mean": 1.07,
-   "sd": 0.22,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
+  "extraction": {
+    "from": "Table 3; abstract/text; Fig 5b",
+    "method": "table + digitised_figure",
+    "uncertainty": "table exact; Fig 5b digitised +-0.03",
+    "checked": true,
+    "check_notes": "Table values copied as printed. Fig 5 values digitised by pixel-centroid of markers on a 200 dpi render (axis ticks 0.4 apart = 46 px); digitised endpoints reproduce the text values (flexion 2.51/1.34, return 2.86/1.23) within 0.01."
   },
-  {
-   "x": "10-20% of return",
-   "load": null,
-   "mean": 1.31,
-   "sd": 0.24,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "20-30% of return",
-   "load": null,
-   "mean": 1.57,
-   "sd": 0.24,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "30-40% of return",
-   "load": null,
-   "mean": 1.79,
-   "sd": 0.24,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "40-50% of return",
-   "load": null,
-   "mean": 1.98,
-   "sd": 0.21,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "50-60% of return",
-   "load": null,
-   "mean": 2.14,
-   "sd": 0.21,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "60-70% of return",
-   "load": null,
-   "mean": 2.31,
-   "sd": 0.17,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "70-80% of return",
-   "load": null,
-   "mean": 2.51,
-   "sd": 0.16,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "80-90% of return",
-   "load": null,
-   "mean": 2.71,
-   "sd": 0.14,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "90-100% of return",
-   "load": null,
-   "mean": 2.9,
-   "sd": 0.11,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, % of full return"
-  },
-  {
-   "x": "trunk 90-120 deg",
-   "load": null,
-   "mean": 1.23,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, trunk angle interval",
-   "source_where": "text/abstract + Fig 5b"
-  },
-  {
-   "x": "trunk 60-90 deg",
-   "load": null,
-   "mean": 1.88,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, trunk angle interval",
-   "source_where": "Fig 5b digitised"
-  },
-  {
-   "x": "trunk 30-60 deg",
-   "load": null,
-   "mean": 2.33,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, trunk angle interval",
-   "source_where": "Fig 5b digitised"
-  },
-  {
-   "x": "trunk 0-30 deg",
-   "load": null,
-   "mean": 2.86,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "total, trunk angle interval",
-   "source_where": "text/abstract + Fig 5b"
-  },
-  {
-   "x": "trunk 90-120 deg",
-   "load": null,
-   "mean": 0.34,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "incremental, trunk angle interval",
-   "source_where": "Fig 5b digitised"
-  },
-  {
-   "x": "trunk 60-90 deg",
-   "load": null,
-   "mean": 1.01,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "incremental, trunk angle interval",
-   "source_where": "Fig 5b digitised"
-  },
-  {
-   "x": "trunk 30-60 deg",
-   "load": null,
-   "mean": 1.73,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "incremental, trunk angle interval",
-   "source_where": "Fig 5b digitised"
-  },
-  {
-   "x": "trunk 0-30 deg",
-   "load": null,
-   "mean": 2.86,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 8,
-   "phase": "return/extension",
-   "basis": "incremental, trunk angle interval",
-   "source_where": "Fig 5b digitised (marker overlaps total)"
-  }
- ],
- "extraction": {
-  "from": "Table 3; abstract/text; Fig 5b",
-  "method": "table + digitised_figure",
-  "uncertainty": "table exact; Fig 5b digitised +-0.03",
-  "checked": true,
-  "check_notes": "Table values copied as printed. Fig 5 values digitised by pixel-centroid of markers on a 200 dpi render (axis ticks 0.4 apart = 46 px); digitised endpoints reproduce the text values (flexion 2.51/1.34, return 2.86/1.23) within 0.01."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__lp_ratio__lumbar-pelvis__healthy_standing__return_by_interval",
- "tags": [
-  "in vivo",
-  "IMU",
-  "standing",
-  "healthy",
-  "male only",
-  "young adults",
-  "sagittal"
- ],
- "shared_sample_with": []
+  "combine_group": "kinematics__lp_ratio__lumbar_pelvis__healthy_standing__return_by_interval",
+  "tags": [
+    "in vivo",
+    "IMU",
+    "standing",
+    "healthy",
+    "male only",
+    "young adults",
+    "sagittal"
+  ],
+  "shared_sample_with": []
 }

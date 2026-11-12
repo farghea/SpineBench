@@ -1,200 +1,200 @@
 {
- "id": "kinematics.vergari2022.spinopelvic_vs_lung_volume_osas",
- "title": "Spinal curvature and pelvic tilt at RV, FRC, TLC in OSAS patients (standing)",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "standing spinopelvic alignment",
- "region": "whole",
- "levels": [
-  "T1-T12",
-  "L1-L5",
-  "pelvis"
- ],
- "condition": "in vivo, standing, RV/FRC/TLC, obstructive sleep apnea patients",
- "quantity": {
-  "name": "spinopelvic parameters vs lung volume",
-  "definition": "as healthy test; OSAS patients",
-  "unit": "deg"
- },
- "source": {
-  "short": "Vergari 2022",
-  "authors": "Vergari C, Skalli W, Clavel L, Demuynck M, Valentin R, Sandoz B, Similowski T, Attali V",
-  "year": 2022,
-  "journal": "Comput Biol Med 144:105343",
-  "doi": "10.1016/j.compbiomed.2022.105343",
-  "n": 11,
-  "sample": "11 OSAS patients (7 M, 4 F); moderate-to-severe obstructive sleep apnea syndrome patients (AHI 32 [28; 45]/h)",
-  "age": "53 [52; 62] y",
-  "sex": "7 M / 4 F",
-  "height_cm": "170 [160; 180]",
-  "weight_kg": "79 [73; 91]",
-  "bmi": null
- },
- "protocol": {
-  "summary": "Same protocol as healthy subjects.",
-  "how_to_use": [
-   "Use only for patient-specific (OSAS) robustness checks: higher kyphosis at rest (median 62 deg) with larger FRC->TLC kyphosis decrease (~16 deg).",
-   "Do not pool with healthy normative inputs."
+  "id": "kinematics.vergari2022.spinopelvic_vs_lung_volume_osas",
+  "title": "Spinal curvature and pelvic tilt at RV, FRC, TLC in OSAS patients (standing)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "standing spinopelvic alignment",
+  "region": "whole",
+  "levels": [
+    "T1-T12",
+    "L1-L5",
+    "pelvis"
   ],
-  "measurement": {
-   "method": "EOS biplanar radiograph",
-   "device": "EOS low-dose slot-scanning biplanar X-ray; 3D reconstruction of T1-L5, ribs 1-10 and acetabula (statistical model + manual adjustment)",
-   "posture": "free-standing, elbows fully flexed, fingers on cheekbones",
-   "task": "acquisitions at FRC (normal breathing, reference), RV (full exhalation apnea) and TLC (full inhalation apnea), spirometer-checked"
+  "condition": "in vivo, standing, RV/FRC/TLC, obstructive sleep apnea patients",
+  "quantity": {
+    "name": "spinopelvic parameters vs lung volume",
+    "definition": "as healthy test; OSAS patients",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": "Median [Q1; Q3]. Only kyphosis changed significantly (TLC<RV, p<0.001)."
- },
- "data": [
-  {
-   "x": "T1-T12 kyphosis RV",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 67.6,
-   "n": 11,
-   "q1": 55,
-   "q3": 75,
-   "phase": "RV",
-   "group": "OSAS patients"
+  "source": {
+    "short": "Vergari 2022",
+    "authors": "Vergari C, Skalli W, Clavel L, Demuynck M, Valentin R, Sandoz B, Similowski T, Attali V",
+    "year": 2022,
+    "journal": "Comput Biol Med 144:105343",
+    "doi": "10.1016/j.compbiomed.2022.105343",
+    "n": 11,
+    "sample": "11 OSAS patients (7 M, 4 F); moderate-to-severe obstructive sleep apnea syndrome patients (AHI 32 [28; 45]/h)",
+    "age": "53 [52; 62] y",
+    "sex": "7 M / 4 F",
+    "height_cm": "170 [160; 180]",
+    "weight_kg": "79 [73; 91]",
+    "bmi": null
   },
-  {
-   "x": "T1-T12 kyphosis FRC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 62.2,
-   "n": 11,
-   "q1": 49,
-   "q3": 70,
-   "phase": "FRC",
-   "group": "OSAS patients"
+  "protocol": {
+    "summary": "Same protocol as healthy subjects.",
+    "how_to_use": [
+      "Use only for patient-specific (OSAS) robustness checks: higher kyphosis at rest (median 62 deg) with larger FRC->TLC kyphosis decrease (~16 deg).",
+      "Do not pool with healthy normative inputs."
+    ],
+    "measurement": {
+      "method": "EOS biplanar radiograph",
+      "device": "EOS low-dose slot-scanning biplanar X-ray; 3D reconstruction of T1-L5, ribs 1-10 and acetabula (statistical model + manual adjustment)",
+      "posture": "free-standing, elbows fully flexed, fingers on cheekbones",
+      "task": "acquisitions at FRC (normal breathing, reference), RV (full exhalation apnea) and TLC (full inhalation apnea), spirometer-checked"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": "Median [Q1; Q3]. Only kyphosis changed significantly (TLC<RV, p<0.001)."
   },
-  {
-   "x": "T1-T12 kyphosis TLC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 46.5,
-   "n": 11,
-   "q1": 45,
-   "q3": 66,
-   "phase": "TLC",
-   "group": "OSAS patients"
+  "data": [
+    {
+      "x": "T1-T12 kyphosis RV",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 67.6,
+      "n": 11,
+      "q1": 55,
+      "q3": 75,
+      "phase": "RV",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "T1-T12 kyphosis FRC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 62.2,
+      "n": 11,
+      "q1": 49,
+      "q3": 70,
+      "phase": "FRC",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "T1-T12 kyphosis TLC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 46.5,
+      "n": 11,
+      "q1": 45,
+      "q3": 66,
+      "phase": "TLC",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "L1-L5 lordosis RV",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": -41.7,
+      "n": 11,
+      "q1": -48,
+      "q3": -35,
+      "phase": "RV",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "L1-L5 lordosis FRC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": -44.6,
+      "n": 11,
+      "q1": -47,
+      "q3": -38,
+      "phase": "FRC",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "L1-L5 lordosis TLC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": -40.2,
+      "n": 11,
+      "q1": -47,
+      "q3": -34,
+      "phase": "TLC",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "pelvic tilt RV",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 14.5,
+      "n": 11,
+      "q1": 12,
+      "q3": 20,
+      "phase": "RV",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "pelvic tilt FRC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 15.8,
+      "n": 11,
+      "q1": 12,
+      "q3": 22,
+      "phase": "FRC",
+      "group": "OSAS patients"
+    },
+    {
+      "x": "pelvic tilt TLC",
+      "load": null,
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 16.7,
+      "n": 11,
+      "q1": 12,
+      "q3": 20,
+      "phase": "TLC",
+      "group": "OSAS patients"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1",
+    "method": "table",
+    "uncertainty": "exact (table)",
+    "checked": true,
+    "check_notes": "Re-read from layout text."
   },
-  {
-   "x": "L1-L5 lordosis RV",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": -41.7,
-   "n": 11,
-   "q1": -48,
-   "q3": -35,
-   "phase": "RV",
-   "group": "OSAS patients"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "L1-L5 lordosis FRC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": -44.6,
-   "n": 11,
-   "q1": -47,
-   "q3": -38,
-   "phase": "FRC",
-   "group": "OSAS patients"
-  },
-  {
-   "x": "L1-L5 lordosis TLC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": -40.2,
-   "n": 11,
-   "q1": -47,
-   "q3": -34,
-   "phase": "TLC",
-   "group": "OSAS patients"
-  },
-  {
-   "x": "pelvic tilt RV",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 14.5,
-   "n": 11,
-   "q1": 12,
-   "q3": 20,
-   "phase": "RV",
-   "group": "OSAS patients"
-  },
-  {
-   "x": "pelvic tilt FRC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 15.8,
-   "n": 11,
-   "q1": 12,
-   "q3": 22,
-   "phase": "FRC",
-   "group": "OSAS patients"
-  },
-  {
-   "x": "pelvic tilt TLC",
-   "load": null,
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 16.7,
-   "n": 11,
-   "q1": 12,
-   "q3": 20,
-   "phase": "TLC",
-   "group": "OSAS patients"
-  }
- ],
- "extraction": {
-  "from": "Table 1",
-  "method": "table",
-  "uncertainty": "exact (table)",
-  "checked": true,
-  "check_notes": "Re-read from layout text."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__spinopelvic_vs_lung_volume__t1-l5_pelvis__standing_eos__breathing_osas_patients",
- "shared_sample_with": [],
- "tags": [
-  "in vivo",
-  "EOS biplanar radiograph",
-  "standing",
-  "breathing",
-  "rib cage",
-  "patients",
-  "OSAS",
-  "spinopelvic"
- ]
+  "combine_group": "kinematics__spinopelvic_vs_lung_volume__t1_l5_pelvis__standing_eos__breathing_osas_patients",
+  "shared_sample_with": [],
+  "tags": [
+    "in vivo",
+    "EOS biplanar radiograph",
+    "standing",
+    "breathing",
+    "rib cage",
+    "patients",
+    "OSAS",
+    "spinopelvic"
+  ]
 }

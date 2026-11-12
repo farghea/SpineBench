@@ -31,7 +31,7 @@
   "weight_kg": 73.0
  },
  "protocol": {
-  "summary": "Needle pressure transducer in mid (T6-T7 or T7-T8) and lower (T9-T10 or T10-T11) thoracic discs of 6 volunteers; standing postures and hand loads. Level and needle orientation had no significant effect; highest pressure holding 10 kg in each hand (abstract via targets_msk.json).",
+  "summary": "Needle pressure transducer in mid (T6-T7 or T7-T8) and lower (T9-T10 or T10-T11) thoracic discs of 6 volunteers; standing postures and hand loads. Level and needle orientation had no significant effect; highest pressure holding 10 kg in each hand (abstract via Ghezelbash lab validation targets).",
   "how_to_simulate": [
    "Scale the model to the Polga subject (protocol.subject_model: male, 33 y, 178 cm, 73 kg; Bruno 2015 Table 3)",
    "Posture: standing, 30 deg trunk flexion, arms hanging",
@@ -48,16 +48,16 @@
    ],
    "height_cm": 178.0,
    "weight_kg": 73.0,
-   "source": "Bruno et al. 2015 J Biomech Eng 137:081003 Table 3 (file M01.pdf, verified): Polga et al. 4M 2W, BM 73 kg, HT 178 cm, ages 19-47. Age 33 = midpoint used in targets_msk.json (subjects.polga). Original Polga et al. 2004 Spine 29:1320 not available.",
+   "source": "Bruno et al. 2015 J Biomech Eng 137:081003 Table 3 (file M01.pdf, verified): Polga et al. 4M 2W, BM 73 kg, HT 178 cm, ages 19-47. Age 33 = midpoint used in Ghezelbash lab validation targets (subjects.polga). Original Polga et al. 2004 Spine 29:1320 not available.",
    "disc_area_mm2": {
     "T6-T7": 663,
     "T7-T8": 663,
     "T9-T10": 897,
     "T10-T11": 897
    },
-   "disc_area_source": "targets_msk.json (subjects.polga): in vivo CT vertebral endplate CSA of Kishimoto et al. 2016 J Orthop Res 34:1418 as used for Polga's data by Schmid et al. 2020 J Biomech 99:109536: T7-8 7.1 / 5.7 cm2 (M/F), T10-11 9.6 / 7.7 cm2, weighted 4 M : 2 F -> mid 6.63 cm2, lower 8.97 cm2. Bruno 2015 instead measured vertebral CSA on their own CT of matched subjects (values not tabulated)."
+   "disc_area_source": "Ghezelbash lab validation targets (subjects.polga): in vivo CT vertebral endplate CSA of Kishimoto et al. 2016 J Orthop Res 34:1418 as used for Polga's data by Schmid et al. 2020 J Biomech 99:109536: T7-8 7.1 / 5.7 cm2 (M/F), T10-11 9.6 / 7.7 cm2, weighted 4 M : 2 F -> mid 6.63 cm2, lower 8.97 cm2. Bruno 2015 instead measured vertebral CSA on their own CT of matched subjects (values not tabulated)."
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A). For thoracic discs no thoracic-specific relation exists; the user's validation applies Eq. 6 unchanged with th = the segment's flexion (Bruno 2015 and Schmid 2020 likewise applied the lumbar factor).",
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A). For thoracic discs no thoracic-specific relation exists; the Ghezelbash lab validation applies Eq. 6 unchanged with th = the segment's flexion (Bruno 2015 and Schmid 2020 likewise applied the lumbar factor).",
   "notes": "Thoracic discs show ~0.2-0.3 MPa even prone/unloaded (Polga 2004 via Wilke 2020, MSK_VALIDATION.md), which compression-based models do not reproduce. Level groups: mid = T6-T7 or T7-T8; lower = T9-T10 or T10-T11 (each volunteer measured at one disc per group)."
  },
  "data": [
@@ -85,11 +85,11 @@
   }
  ],
  "extraction": {
-  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (idp_thoracic.tasks 'polga_flex30'; digitised from Schmid et al. 2020 J Biomech 99:109536 Figs A2-A3, which plot Polga's mean and range), original Polga et al. 2004 Spine 29:1320",
+  "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (idp_thoracic.tasks 'polga_flex30'; digitised from Schmid et al. 2020 J Biomech 99:109536 Figs A2-A3, which plot Polga's mean and range), original Polga et al. 2004 Spine 29:1320",
   "method": "digitised_figure",
-  "uncertainty": "+/-0.02 MPa (targets_msk.json: two readings agree within 0.02 MPa)",
-  "checked": "via user's targets",
-  "check_notes": "Original Polga PDF and Schmid 2020 not in the download folder; values copied verbatim from targets_msk.json and re-compared. Standing cross-checked against Dreischarf 2016 V05 text (~1.0 / ~0.9 MPa): OK. Per-level n not given (6 volunteers overall)."
+  "uncertainty": "+/-0.02 MPa (Ghezelbash lab validation targets: two readings agree within 0.02 MPa)",
+  "checked": "via Ghezelbash lab validation targets",
+  "check_notes": "Original Polga PDF and Schmid 2020 not in the download folder; values copied verbatim from Ghezelbash lab validation targets and re-compared. Standing cross-checked against Dreischarf 2016 V05 text (~1.0 / ~0.9 MPa): OK. Per-level n not given (6 volunteers overall)."
  },
  "combine_group": "msk_idp_thoracic__idp_abs__t6_t8_t9_t11__trunk_flexion_30deg__none",
  "shared_sample_with": [
@@ -111,6 +111,6 @@
  "pass_rule": {
   "template": false,
   "rule": "per task: model inside the measured range (min-max of the 6 volunteers) or within 0.26 x measured; pooled Polga tasks: Pearson r >= 0.80 and regression slope 95% CI contains 1",
-  "source": "targets_msk.json tolerance_policy.idp_thoracic_aggregate (Bruno 2015 obtained r = 0.87, slope CI 0.99-1.97)"
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_thoracic_aggregate (Bruno 2015 obtained r = 0.87, slope CI 0.99-1.97)"
  }
 }

@@ -1,13 +1,19 @@
 {
- "id": "passive_tissue__failure_stress__all_lumbar__human__uniaxial_tension",
- "title": "failure stress - all lumbar, human, uniaxial tension",
- "quantity": "failure stress",
- "unit": "MPa",
- "condition": "human",
- "tests": [
-  "passive_tissue.chazal1985.ALL_lumbar_failure_stress",
-  "passive_tissue.neumann1992.ALL_failure_stress",
-  "passive_tissue.pintar1992.ALL_failure_stress"
- ],
- "notes": "Papers: Chazal 1985, Neumann 1992, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies)."
+  "id": "passive_tissue__failure_stress__all_lumbar__human__uniaxial_tension",
+  "title": "failure stress - all lumbar, human, uniaxial tension",
+  "description": "",
+  "notes": "Papers: Chazal 1985, Neumann 1992, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies).",
+  "tests": [
+    "passive_tissue.chazal1985.ALL_lumbar_failure_stress",
+    "passive_tissue.neumann1992.ALL_failure_stress",
+    "passive_tissue.pintar1992.ALL_failure_stress"
+  ],
+  "studies": [
+    "Chazal 1985",
+    "Neumann 1992",
+    "Pintar 1992"
+  ],
+  "units": [
+    "MPa"
+  ]
 }

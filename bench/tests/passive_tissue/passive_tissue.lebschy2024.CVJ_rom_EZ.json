@@ -1,148 +1,148 @@
 {
- "id": "passive_tissue.lebschy2024.CVJ_rom_EZ",
- "title": "Lebschy 2024 costovertebral articulation torsional ROM normalised range",
- "layer": "property",
- "category": "passive_tissue",
- "subcategory": "costovertebral_joint",
- "region": "thoracic",
- "levels": [
-  "ribs 2, 4, 6, 8"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "torsional ROM normalised range",
-  "definition": "rotation between -0.002 and +0.002 Nm/kg body mass",
-  "unit": "deg"
- },
- "source": {
-  "short": "Lebschy 2024",
-  "authors": "Lebschy C, Gradischar A, Krach W, Krall M, Fediuk M, Krall A, Lindenmann J, Smolle-Juttner F, Hammer N, Beyer B, Smolle J, Schafer U",
-  "year": 2024,
-  "journal": "J Biomech 163:111923",
-  "doi": "10.1016/j.jbiomech.2023.111923",
-  "n": 7,
-  "sample": "7 costovertebral articulation samples (rib + 2 adjacent vertebrae, ribs II, IV, VI, VIII) from 2 fresh unembalmed male cadavers (same donors K25, K35 as Gradischar 2022)",
-  "age": "60 and 83 y",
-  "sex": "2 male",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Rib with its two articulating vertebrae (ligaments intact), refrigerated 5-7 C; vertebrae fixed; torsion about the rib rotation axis by a dead weight -5 N then pulling the rib end to +5 N at 0.29 deg/s (moment = F x rib lever lF, angle = atan(s/lF)); tension up to 28 N in local longitudinal, sagittal and transverse directions; 3 repetitions, 2nd and 3rd used. ROM NZ = rotation between -0.1 and +0.1 Nm; ROM EZ = rotation between -0.002 and +0.002 Nm/kg body mass.",
-  "how_to_simulate": [
-   "Fix both vertebrae; apply a force at the rib end (lever lF per sample) to create torsion about the rib rotation axis",
-   "Report rotation between -0.1 and +0.1 Nm; apply 28 N tension in 3 directions and report displacement"
+  "id": "passive_tissue.lebschy2024.CVJ_rom_EZ",
+  "title": "Lebschy 2024 costovertebral articulation torsional ROM normalised range",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costovertebral_joint",
+  "region": "thoracic",
+  "levels": [
+    "ribs 2, 4, 6, 8"
   ],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "L1A2R (lF 90 mm)",
-   "load": "",
-   "mean": 20.5,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "condition": "intact",
+  "quantity": {
+    "name": "torsional ROM normalised range",
+    "definition": "rotation between -0.002 and +0.002 Nm/kg body mass",
+    "unit": "deg"
   },
-  {
-   "x": "L1A4R (lF 165 mm)",
-   "load": "",
-   "mean": 13.6,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "source": {
+    "short": "Lebschy 2024",
+    "authors": "Lebschy C, Gradischar A, Krach W, Krall M, Fediuk M, Krall A, Lindenmann J, Smolle-Juttner F, Hammer N, Beyer B, Smolle J, Schafer U",
+    "year": 2024,
+    "journal": "J Biomech 163:111923",
+    "doi": "10.1016/j.jbiomech.2023.111923",
+    "n": 7,
+    "sample": "7 costovertebral articulation samples (rib + 2 adjacent vertebrae, ribs II, IV, VI, VIII) from 2 fresh unembalmed male cadavers (same donors K25, K35 as Gradischar 2022)",
+    "age": "60 and 83 y",
+    "sex": "2 male",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "L2A4L (lF 130 mm)",
-   "load": "",
-   "mean": 25.9,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "protocol": {
+    "summary": "Rib with its two articulating vertebrae (ligaments intact), refrigerated 5-7 C; vertebrae fixed; torsion about the rib rotation axis by a dead weight -5 N then pulling the rib end to +5 N at 0.29 deg/s (moment = F x rib lever lF, angle = atan(s/lF)); tension up to 28 N in local longitudinal, sagittal and transverse directions; 3 repetitions, 2nd and 3rd used. ROM NZ = rotation between -0.1 and +0.1 Nm; ROM EZ = rotation between -0.002 and +0.002 Nm/kg body mass.",
+    "how_to_simulate": [
+      "Fix both vertebrae; apply a force at the rib end (lever lF per sample) to create torsion about the rib rotation axis",
+      "Report rotation between -0.1 and +0.1 Nm; apply 28 N tension in 3 directions and report displacement"
+    ],
+    "subject_model": null,
+    "notes": ""
   },
-  {
-   "x": "L1A6R (lF 180 mm)",
-   "load": "",
-   "mean": 12.8,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "data": [
+    {
+      "x": "L1A2R (lF 90 mm)",
+      "load": "",
+      "mean": 20.5,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L1A4R (lF 165 mm)",
+      "load": "",
+      "mean": 13.6,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L2A4L (lF 130 mm)",
+      "load": "",
+      "mean": 25.9,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L1A6R (lF 180 mm)",
+      "load": "",
+      "mean": 12.8,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L2A6L (lF 222 mm)",
+      "load": "",
+      "mean": 16.8,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L1A8R (lF 250 mm)",
+      "load": "",
+      "mean": 8.4,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "L2A8L (lF 181 mm)",
+      "load": "",
+      "mean": 19.9,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "median (reported)",
+      "load": "",
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": 16.8,
+      "n": 7
+    }
+  ],
+  "extraction": {
+    "from": "Table 2",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Table 2 text layer (digital PDF), median row as printed. Same two donors as Gradischar 2022 (costal cartilage) - shared donors."
   },
-  {
-   "x": "L2A6L (lF 222 mm)",
-   "load": "",
-   "mean": 16.8,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "pass_rule": {
+    "template": true,
+    "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
   },
-  {
-   "x": "L1A8R (lF 250 mm)",
-   "load": "",
-   "mean": 8.4,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "L2A8L (lF 181 mm)",
-   "load": "",
-   "mean": 19.9,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "median (reported)",
-   "load": "",
-   "mean": null,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": 16.8,
-   "n": 7
-  }
- ],
- "extraction": {
-  "from": "Table 2",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Table 2 text layer (digital PDF), median row as printed. Same two donors as Gradischar 2022 (costal cartilage) - shared donors."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
- },
- "combine_group": "passive_tissue__rom_0p002nm_per_kg__cvj_thoracic__human__moment_torsion_rib_axis",
- "tags": [
-  "human",
-  "in vitro",
-  "costovertebral joint",
-  "thoracic"
- ],
- "shared_sample_with": [
-  "passive_tissue.gradischar2022.costal_cartilage_EB1",
-  "passive_tissue.gradischar2022.costal_cartilage_EB2",
-  "passive_tissue.gradischar2022.costal_cartilage_EB3",
-  "passive_tissue.gradischar2022.costal_cartilage_EB4",
-  "passive_tissue.gradischar2022.costal_cartilage_EZ",
-  "passive_tissue.gradischar2022.costal_cartilage_GT1",
-  "passive_tissue.gradischar2022.costal_cartilage_GT2"
- ]
+  "combine_group": "passive_tissue__rom_0_002nm_per_kg__cvj_thoracic__human__moment_torsion_rib_axis",
+  "tags": [
+    "human",
+    "in vitro",
+    "costovertebral joint",
+    "thoracic"
+  ],
+  "shared_sample_with": [
+    "passive_tissue.gradischar2022.costal_cartilage_EB1",
+    "passive_tissue.gradischar2022.costal_cartilage_EB2",
+    "passive_tissue.gradischar2022.costal_cartilage_EB3",
+    "passive_tissue.gradischar2022.costal_cartilage_EB4",
+    "passive_tissue.gradischar2022.costal_cartilage_EZ",
+    "passive_tissue.gradischar2022.costal_cartilage_GT1",
+    "passive_tissue.gradischar2022.costal_cartilage_GT2"
+  ]
 }

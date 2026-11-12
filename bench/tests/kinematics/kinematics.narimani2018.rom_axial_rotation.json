@@ -1,219 +1,219 @@
 {
- "id": "kinematics.narimani2018.rom_axial_rotation",
- "title": "Trunk, thoracic, lumbar and pelvis maximal axial rotation (standing, pelvis free), IMU",
- "layer": "input",
- "category": "kinematics",
- "subcategory": "thoracic rotation & lateral bending",
- "region": "whole",
- "levels": [
-  "T1",
-  "T1-T12",
-  "T1-T5",
-  "T5-T12",
-  "T12-S1",
-  "pelvis"
- ],
- "condition": "healthy, standing (pelvis unconstrained), upright to maximal left/right axial rotation",
- "quantity": {
-  "name": "range of axial rotation",
-  "definition": "Primary rotation at maximal voluntary motion relative to relaxed upright; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, T1-T5, T5-T12, T1-T12 relative rotations; absolute values",
-  "unit": "deg"
- },
- "source": {
-  "short": "Narimani 2018",
-  "authors": "Narimani M, Arjmand N",
-  "year": 2018,
-  "journal": "J Biomech 69:169-174",
-  "doi": "10.1016/j.jbiomech.2018.01.017",
-  "n": 22,
-  "sample": "22 males; 22 young healthy male students, no recent back/hip/knee complications",
-  "age": "24.8 (SD 1.0), range 24-28 y",
-  "sex": "male",
-  "height_cm": "178.0 (SD 5.4), range 165-190",
-  "weight_kg": "71.5 (SD 10.0), range 50-92"
- },
- "protocol": {
-  "summary": "Maximal voluntary primary RoMs in standing measured with 4 inertial sensors.",
-  "how_to_use": [
-   "For a standing trunk twist, distribute T1 rotation ~48-50% thoracic, ~37-46% pelvis, ~11-12% lumbar (left 33.5/31.6/7.5 of 69.2; right 37.1/27.2/9.2 of 73.7 deg).",
-   "Pelvis is free in standing; for seated/pelvis-fixed twists use seated data instead."
+  "id": "kinematics.narimani2018.rom_axial_rotation",
+  "title": "Trunk, thoracic, lumbar and pelvis maximal axial rotation (standing, pelvis free), IMU",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending",
+  "region": "whole",
+  "levels": [
+    "T1",
+    "T1-T12",
+    "T1-T5",
+    "T5-T12",
+    "T12-S1",
+    "pelvis"
   ],
-  "measurement": {
-   "method": "IMU",
-   "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes",
-   "posture": "standing, feet shoulder-width, knees extended",
-   "task": "slow (4-5 s) maximal voluntary flexion, extension, left/right lateral bending, left/right axial rotation from relaxed upright, 3 trials"
+  "condition": "healthy, standing (pelvis unconstrained), upright to maximal left/right axial rotation",
+  "quantity": {
+    "name": "range of axial rotation",
+    "definition": "Primary rotation at maximal voluntary motion relative to relaxed upright; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, T1-T5, T5-T12, T1-T12 relative rotations; absolute values",
+    "unit": "deg"
   },
-  "equations": [],
-  "subject_model": null,
-  "notes": ""
- },
- "data": [
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 69.2,
-   "sd": 14.9,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "trunk (T1)"
+  "source": {
+    "short": "Narimani 2018",
+    "authors": "Narimani M, Arjmand N",
+    "year": 2018,
+    "journal": "J Biomech 69:169-174",
+    "doi": "10.1016/j.jbiomech.2018.01.017",
+    "n": 22,
+    "sample": "22 males; 22 young healthy male students, no recent back/hip/knee complications",
+    "age": "24.8 (SD 1.0), range 24-28 y",
+    "sex": "male",
+    "height_cm": "178.0 (SD 5.4), range 165-190",
+    "weight_kg": "71.5 (SD 10.0), range 50-92"
   },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 73.7,
-   "sd": 17.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "trunk (T1)"
+  "protocol": {
+    "summary": "Maximal voluntary primary RoMs in standing measured with 4 inertial sensors.",
+    "how_to_use": [
+      "For a standing trunk twist, distribute T1 rotation ~48-50% thoracic, ~37-46% pelvis, ~11-12% lumbar (left 33.5/31.6/7.5 of 69.2; right 37.1/27.2/9.2 of 73.7 deg).",
+      "Pelvis is free in standing; for seated/pelvis-fixed twists use seated data instead."
+    ],
+    "measurement": {
+      "method": "IMU",
+      "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes",
+      "posture": "standing, feet shoulder-width, knees extended",
+      "task": "slow (4-5 s) maximal voluntary flexion, extension, left/right lateral bending, left/right axial rotation from relaxed upright, 3 trials"
+    },
+    "equations": [],
+    "subject_model": null,
+    "notes": ""
   },
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 33.5,
-   "sd": 10.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T12"
+  "data": [
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 69.2,
+      "sd": 14.9,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "trunk (T1)"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 73.7,
+      "sd": 17.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "trunk (T1)"
+    },
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 33.5,
+      "sd": 10.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T12"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 37.1,
+      "sd": 11.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T12"
+    },
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 8.8,
+      "sd": 5.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T5"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 17.2,
+      "sd": 6.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T1-T5"
+    },
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 24.3,
+      "sd": 8.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T5-T12"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 19.5,
+      "sd": 9.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "T5-T12"
+    },
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 7.5,
+      "sd": 4.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "lumbar (T12-S1)"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 9.2,
+      "sd": 7.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "lumbar (T12-S1)"
+    },
+    {
+      "x": "left axial rotation",
+      "load": null,
+      "mean": 31.6,
+      "sd": 12.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "pelvis"
+    },
+    {
+      "x": "right axial rotation",
+      "load": null,
+      "mean": 27.2,
+      "sd": 12.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "segment": "pelvis"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (segments; bold primary values) and Table 2 (trunk T1)",
+    "method": "table",
+    "uncertainty": "as printed (0.1 deg)",
+    "checked": true,
+    "check_notes": "Rotated Table 1 re-read at 300 dpi; primary values cross-checked against Table 2 and abstract (all identical)."
   },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 37.1,
-   "sd": 11.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T12"
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
   },
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 8.8,
-   "sd": 5.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T5"
-  },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 17.2,
-   "sd": 6.6,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T1-T5"
-  },
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 24.3,
-   "sd": 8.8,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T5-T12"
-  },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 19.5,
-   "sd": 9.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "T5-T12"
-  },
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 7.5,
-   "sd": 4.5,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "lumbar (T12-S1)"
-  },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 9.2,
-   "sd": 7.3,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "lumbar (T12-S1)"
-  },
-  {
-   "x": "left axial rotation",
-   "load": null,
-   "mean": 31.6,
-   "sd": 12.5,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "pelvis"
-  },
-  {
-   "x": "right axial rotation",
-   "load": null,
-   "mean": 27.2,
-   "sd": 12.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 22,
-   "segment": "pelvis"
-  }
- ],
- "extraction": {
-  "from": "Table 1 (segments; bold primary values) and Table 2 (trunk T1)",
-  "method": "table",
-  "uncertainty": "as printed (0.1 deg)",
-  "checked": true,
-  "check_notes": "Rotated Table 1 re-read at 300 dpi; primary values cross-checked against Table 2 and abstract (all identical)."
- },
- "pass_rule": {
-  "template": false,
-  "rule": "input data – not graded; use for robustness checks"
- },
- "combine_group": "kinematics__range_of_axial_rotation__trunk-thoracic-lumbar-pelvis__healthy_standing__max_axial_rotation",
- "shared_sample_with": [
-  "kinematics.narimani2018.rom_flexion_trunk",
-  "kinematics.narimani2018.rom_flexion_lumbar",
-  "kinematics.narimani2018.rom_flexion_pelvis",
-  "kinematics.narimani2018.rom_flexion_thoracic",
-  "kinematics.narimani2018.rom_extension_trunk",
-  "kinematics.narimani2018.rom_extension_lumbar",
-  "kinematics.narimani2018.rom_extension_pelvis",
-  "kinematics.narimani2018.rom_extension_thoracic",
-  "kinematics.narimani2018.rom_lateral_bending",
-  "kinematics.narimani2018.coupled_rom",
-  "kinematics.narimani2018.lp_ratio_flexion",
-  "kinematics.narimani2018.lp_ratio_extension"
- ],
- "tags": [
-  "in vivo",
-  "IMU",
-  "standing",
-  "healthy",
-  "male only",
-  "young adults"
- ]
+  "combine_group": "kinematics__range_of_axial_rotation__trunk_thoracic_lumbar_pelvis__healthy_standing__max_axial_rotation",
+  "shared_sample_with": [
+    "kinematics.narimani2018.rom_flexion_trunk",
+    "kinematics.narimani2018.rom_flexion_lumbar",
+    "kinematics.narimani2018.rom_flexion_pelvis",
+    "kinematics.narimani2018.rom_flexion_thoracic",
+    "kinematics.narimani2018.rom_extension_trunk",
+    "kinematics.narimani2018.rom_extension_lumbar",
+    "kinematics.narimani2018.rom_extension_pelvis",
+    "kinematics.narimani2018.rom_extension_thoracic",
+    "kinematics.narimani2018.rom_lateral_bending",
+    "kinematics.narimani2018.coupled_rom",
+    "kinematics.narimani2018.lp_ratio_flexion",
+    "kinematics.narimani2018.lp_ratio_extension"
+  ],
+  "tags": [
+    "in vivo",
+    "IMU",
+    "standing",
+    "healthy",
+    "male only",
+    "young adults"
+  ]
 }

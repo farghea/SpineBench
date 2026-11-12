@@ -205,6 +205,25 @@ def group_title(gid, category=""):
     return " · ".join(out) or humanize(gid)
 
 
+
+def group_n(members):
+    """Total n of a group: each study counted once (its largest n); studies that share
+    subjects with another member study (shared_sample_with) are counted only once."""
+    per = {}
+    for t in members:
+        k = str(t["source"].get("short"))
+        per[k] = max(per.get(k, 0), parse_n(t["source"].get("n")) or 0)
+    ids = {t["id"]: str(t["source"].get("short")) for t in members}
+    seen, total = set(), 0
+    for t in members:
+        k = str(t["source"].get("short"))
+        if k in seen: continue
+        linked = {ids[i] for i in (t.get("shared_sample_with") or []) if i in ids} - {k}
+        if linked & seen:
+            seen.add(k); continue
+        seen.add(k); total += per[k]
+    return total
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tests", default=str(ROOT / "bench" / "tests"))
@@ -286,7 +305,7 @@ def main():
             "quantity": q.get("name", ""), "unit": q.get("unit", ""), "levels": levels,
             "tests": [t["id"] for t in members],
             "studies": len({str(t["source"].get("short")) for t in members}),
-            "n_total": sum(parse_n(t["source"].get("n")) or 0 for t in members),
+            "n_total": group_n(members),
             "years": [int(min(years)), int(max(years))] if years else [],
             "example": all(t.get("example") for t in members),
         })

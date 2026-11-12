@@ -44,13 +44,13 @@
    "weight_kg": 70,
    "weight_kg_anthropometry": 72,
    "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
-   "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the user's targets_msk.json (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
+   "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the Ghezelbash lab validation targets (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
    "disc_area_mm2": 1800,
    "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
    "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
    "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
   "notes": "Secondary: the trunk lateral-bending angles are U01's reconstruction of Wilke's measurement; same measurement as L4L5_lateral_bending_vs_lumbar_angle (do not pool both)."
  },
  "data": [
@@ -82,7 +82,7 @@
   "method": "digitised_figure",
   "uncertainty": "+/-0.01 MPa (pixel measurement at 300 dpi, 147.7 px/MPa); error-marker ends +/-0.02 MPa",
   "checked": true,
-  "check_notes": "Bar tops measured at side columns (avoiding the centred error marker): 0.494 and 0.515 MPa. Ghezelbash 2020 Fig 4c (Wilke lateral-bending curve) consistent (~0.5 MPa at 10-20 deg). Not in targets_msk.json."
+  "check_notes": "Bar tops measured at side columns (avoiding the centred error marker): 0.494 and 0.515 MPa. Ghezelbash 2020 Fig 4c (Wilke lateral-bending curve) consistent (~0.5 MPa at 10-20 deg). Not in Ghezelbash lab validation targets."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__trunk_lateral_bending__none",
  "tags": [
@@ -113,6 +113,6 @@
  "pass_rule": {
   "template": false,
   "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
  }
 }

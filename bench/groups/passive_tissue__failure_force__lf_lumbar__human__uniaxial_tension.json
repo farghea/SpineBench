@@ -1,12 +1,17 @@
 {
- "id": "passive_tissue__failure_force__lf_lumbar__human__uniaxial_tension",
- "title": "failure force - lf lumbar, human, uniaxial tension",
- "quantity": "failure force",
- "unit": "N",
- "condition": "human",
- "tests": [
-  "passive_tissue.chazal1985.LF_lumbar_failure_force",
-  "passive_tissue.pintar1992.LF_failure_force"
- ],
- "notes": "Papers: Chazal 1985, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies)."
+  "id": "passive_tissue__failure_force__lf_lumbar__human__uniaxial_tension",
+  "title": "failure force - lf lumbar, human, uniaxial tension",
+  "description": "",
+  "notes": "Papers: Chazal 1985, Pintar 1992. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies).",
+  "tests": [
+    "passive_tissue.chazal1985.LF_lumbar_failure_force",
+    "passive_tissue.pintar1992.LF_failure_force"
+  ],
+  "studies": [
+    "Chazal 1985",
+    "Pintar 1992"
+  ],
+  "units": [
+    "N"
+  ]
 }

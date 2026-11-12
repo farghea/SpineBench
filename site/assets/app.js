@@ -666,7 +666,11 @@
     if (!rows.length) return '<div class="empty">No data rows.</div>';
     var q = t.quantity || {}, u = q.unit ? ' (' + q.unit + ')' : '';
     var has = function (k) { return rows.some(function (r) { return r[k] != null && r[k] !== ''; }); };
-    var extra = uniq([].concat.apply([], rows.map(function (r) { return Object.keys(r); }))).filter(function (k) { return STD.indexOf(k) < 0 && has(k); });
+    var allExtra = uniq([].concat.apply([], rows.map(function (r) { return Object.keys(r); }))).filter(function (k) { return STD.indexOf(k) < 0 && has(k); });
+    // keep the table short: nested objects and long free-text annotations stay in the JSON/CSV download
+    var bulky = function (k) { return rows.some(function (r) { var v = r[k]; return v != null && (typeof v === 'object' || String(v).length > 40); }); };
+    var extra = allExtra.filter(function (k) { return !bulky(k); });
+    var hiddenCols = allExtra.filter(bulky);
     var cols = [];
     if (has('x')) cols.push(['x', q.x_name ? q.x_name + (q.x_unit ? ' (' + q.x_unit + ')' : '') : 'Case', 0]);
     if (has('series')) cols.push(['series', 'Series', 0]);
@@ -681,7 +685,8 @@
           return '<td' + (c[2] ? ' class="r"' : '') + '>' + esc(s) + '</td>';
         }).join('') + '</tr>';
       }).join('') + '</tbody></table></div>' +
-      (rows.length > 15 ? '<div class="btns" style="margin-top:10px"><button type="button" class="btn" data-more>Show all ' + rows.length + ' rows</button></div>' : '');
+      (rows.length > 15 ? '<div class="btns" style="margin-top:10px"><button type="button" class="btn" data-more>Show all ' + rows.length + ' rows</button></div>' : '') +
+      (hiddenCols.length ? '<p class="muted" style="margin-top:8px;font-size:.85em">Notes per row (' + esc(hiddenCols.map(human).join(', ')) + ') are in the JSON download.</p>' : '');
   }
   var SUBJ = { sex: ['Sex', ''], age: ['Age', 'y'], age_years: ['Age', 'y'], height_cm: ['Height', 'cm'], weight_kg: ['Weight', 'kg'], mass_kg: ['Mass', 'kg'],
     bmi: ['BMI', ''], disc_area_mm2: ['Disc area', 'mm²'], disc_area_cm2: ['Disc area', 'cm²'] };
@@ -696,7 +701,7 @@
         else rest.push('<dt>' + esc(human(k)) + '</dt><dd>' + esc(typeof v === 'object' ? JSON.stringify(v) : v) + '</dd>');
       });
       html += '<h3 style="margin-bottom:8px">Subject</h3>' + (cells.length ? '<div class="subject">' + cells.join('') + '</div>' : '') +
-        (rest.length ? '<dl class="kv" style="margin-bottom:14px">' + rest.join('') + '</dl>' : '');
+        (rest.length ? '<details class="fold"><summary>Where these values come from</summary><dl class="kv">' + rest.join('') + '</dl></details>' : '');
     } else if (typeof sm === 'string' && sm) {
       html += '<p style="margin-bottom:12px"><b>Subject:</b> ' + esc(sm) + '</p>';
     }
@@ -705,7 +710,7 @@
     else if (typeof steps === 'string' && steps) html += '<p>' + esc(steps) + '</p>';
     else if (!pr.summary) html += '<p class="muted">No protocol given.</p>';
     if (pass && pass.rule) html += '<div class="rule"><b>Pass rule' + (pass.template ? ' (proposed)' : '') + ':</b> ' + esc(pass.rule) + '</div>';
-    if (pr.notes) html += '<p class="note">' + esc(pr.notes) + '</p>';
+    if (pr.notes) html += '<details class="fold"><summary>Protocol notes</summary><p class="note">' + esc(pr.notes) + '</p></details>';
     return html + '</section>';
   }
   function citation(t) {
@@ -727,7 +732,7 @@
       '</dl><div class="cite-box" style="margin-top:12px">' + esc(citation(t)) + '</div><div class="btns" style="margin-top:8px"><button type="button" class="btn" data-copy>Copy reference</button></div></section>' +
       '<section class="panel"><h2>Extraction</h2><dl class="kv">' +
       row('From', esc(ex.from) || '<span class="muted">not given</span>') + row('Method', esc(methodLabel(ex.method))) +
-      row('Uncertainty', esc(ex.uncertainty)) + row('Status', chk) + row('Notes', esc(ex.check_notes)) + row('Test id', '<span class="mono">' + esc(t.id) + '</span>') +
+      row('Uncertainty', esc(ex.uncertainty)) + row('Status', chk) + (ex.check_notes ? row('Notes', '<details class="fold"><summary>Check notes</summary>' + esc(ex.check_notes) + '</details>') : '') + row('Test id', '<span class="mono">' + esc(t.id) + '</span>') +
       '</dl></section>';
   }
   function copyText(text, btn) {
@@ -766,7 +771,15 @@
     setTitle(G.title);
     var pal = palette();
     var slabels = studyLabels(tests);
-    var studies = tests.map(function (t, i) { return { t: t, key: t.id, label: slabels[i], color: pal[i % 12], model: buildModel(t) }; });
+    // individual-subject / per-specimen rows stay on the test page; the comparison uses group-level rows
+    var PER = /\b(subject|participant|specimen|donor|patient)\s*(no\.?\s*)?#?\d+\b|^(s|p|wp|sp)\d+$/i;
+    var forGroup = function (t) {
+      var rows = (t.data || []).filter(function (r) { return r && typeof r === 'object'; });
+      var keep = rows.filter(function (r) { return !PER.test(str(r.x)) && !r.per_subject && !r.per_specimen; });
+      if (!keep.length || keep.length === rows.length) return t;
+      var c = {}; Object.keys(t).forEach(function (k) { c[k] = t[k]; }); c.data = keep; return c;
+    };
+    var studies = tests.map(function (t, i) { return { t: t, key: t.id, label: slabels[i], color: pal[i % 12], model: buildModel(forGroup(t)) }; });
     var shortsAll = tests.map(function (t) { return (t.source || {}).short; });
     var dupStudy = shortsAll.length !== uniq(shortsAll).length;
     var kind = studies.length ? studies[0].model.kind : 'bar';
@@ -780,6 +793,18 @@
     var years = G.years.length ? G.years[0] + (G.years[1] !== G.years[0] ? '-' + G.years[1] : '') : '?';
 
     var labels = [], labelUnit = {}, labelText = {};
+    // every study gives one value for the group's single condition -> pool them on one bar
+    var oneEach = kind === 'bar' && plotted.length > 1 && plotted.every(function (s) {
+      return s.model.labels.length === 1 && s.model.series.length === 1; });
+    if (oneEach) {
+      var common = conds[0] || G.quantity || 'value';
+      plotted.forEach(function (s) {
+        var l0 = s.model.labels[0];
+        s.model.labelText = {}; s.model.labelUnit = (function (o) { var u = {}; u[common] = o[l0]; return u; })(s.model.labelUnit);
+        s.model.labelText[common] = common; s.model.labels = [common];
+        s.model.series[0].key = ''; s.model.series[0].label = '';
+      });
+    }
     if (kind === 'bar') {
       plotted.forEach(function (s) {
         s.vals = {};

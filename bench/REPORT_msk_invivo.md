@@ -1,12 +1,12 @@
 # REPORT: msk_invivo (msk_idp_lumbar, msk_idp_thoracic, msk_implant_loads, msk_flexion_relaxation)
 
-79 tests, 74 groups, ~1,300 points (~15% digitised). Sato/Takahashi/Polga tests: checked = "via user's targets" (original PDFs not in donwload/).
+79 tests, 74 groups, ~1,300 points (~15% digitised). Sato/Takahashi/Polga tests: checked = "via Ghezelbash lab validation targets" (original PDFs not in donwload/).
 
 ## IDP (30 lumbar, 9 thoracic)
 Every test: subject_model (sex, age, height, weight, disc area + source of each), how_to_simulate, idp_conversion (Ghezelbash 2016 Eq. 6; Nachemson F/(0.66A) as sensitivity alternative).
 - **Wilke 2001** (16 tests): male, 45 y, 174 cm, **70 kg during IDP** (72 kg at anthropometry kept as weight_kg_anthropometry), disc 1800 mm² (MRI). Relative IDP (Rohlmann 2001 Ergonomics) 27 rows as % standing.
 - **Sato 1999**: 8 per-subject rows (V05 Table 2, re-assembled from split cells), disc mean 1585 mm² (1340–1890); flexed-5° values digitised from Ghezelbash 2020 (mean 1.323, SD 0.222).
-- **Takahashi 2006** (8 tasks), **Polga 2004** (8 tasks × mid/lower thoracic): from targets_msk.json; Takahashi re-digitised from Ghezelbash 2020, agrees within 0.012 MPa. Polga 73 kg / 178 cm confirmed in Bruno 2015 Table 3.
+- **Takahashi 2006** (8 tasks), **Polga 2004** (8 tasks × mid/lower thoracic): from Ghezelbash lab validation targets; Takahashi re-digitised from Ghezelbash 2020, agrees within 0.012 MPa. Polga 73 kg / 178 cm confirmed in Bruno 2015 Table 3.
 - Nachemson L4-L5/L3-L4 and Schultz 1982 (corrected early-transducer values, separate groups); Meir 2007 intraoperative (thoracic, own group).
 Cross-study groups: standing relaxed L4-L5 (Wilke, Sato, Takahashi); trunk flexion 10°/30° (Wilke, Takahashi).
 

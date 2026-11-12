@@ -11,7 +11,7 @@
  "condition": "intact",
  "quantity": {
   "name": "facet force",
-  "definition": "facet contact force by bilateral extra-articular strain (EAS) technique, left and right facets separately, mean +/- SD (negative = EAS output below zero)",
+  "definition": "facet contact force by bilateral extra-articular strain (EAS) technique, left and right facets separately, mean +/- SD as printed in the review; the review's signs are the reverse of the primary Zhu 2008 Table 1 (primary: positive = tensile, negative = compressive), i.e. here positive = compressive",
   "unit": "N"
  },
  "source": {
@@ -20,7 +20,7 @@
   "year": 2020,
   "journal": "J Biomech 102:109441",
   "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 2008,
+  "n": 10,
   "sample": "not stated in review (see primary: Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290)); human cadaveric lumbar specimens of Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290), as compiled in Ghezelbash et al. 2020 Table 2",
   "age": "",
   "sex": "",
@@ -34,7 +34,7 @@
    "Report left and right L3-L4 facet contact force"
   ],
   "subject_model": null,
-  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290)."
+  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290)."
  },
  "data": [
   {
@@ -131,7 +131,7 @@
   "method": "table",
   "uncertainty": "as printed",
   "checked": true,
-  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | verified 2026-11-12 by independent check: source.n 2008 -> 10 (n had been filled with the primary paper's year; primary Zhu 2008 used 10 specimens, Zhu2008.pdf Methods/Table 1). Values match review Table 2 p.5. quantity.definition corrected: review signs are opposite to primary Zhu 2008 Table 1 (primary flexion +19/+32 tensile, extension -35/-22 compressive)."
  },
  "pass_rule": {
   "template": true,

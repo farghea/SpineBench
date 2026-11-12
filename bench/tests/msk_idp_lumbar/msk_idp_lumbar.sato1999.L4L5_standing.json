@@ -37,7 +37,7 @@
    "Convert with Ghezelbash 2016 Eq. 6: P = F / A, A = 1585 mm2 (cohort mean, V05) or the subject's own area; compare with data[0].mean (cohort) or the per-subject rows"
   ],
   "subject_model": {
-   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; targets_msk.json: male); V05 Table 2 prints '-' (sex not given)",
+   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; Ghezelbash lab validation targets: male); V05 Table 2 prints '-' (sex not given)",
    "age": 24.5,
    "age_range": [
     22,
@@ -54,7 +54,7 @@
     1340,
     1890
    ],
-   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The user's targets_msk.json (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
+   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The Ghezelbash lab validation targets (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
    "per_subject": [
     {
      "no": 1,
@@ -139,8 +139,8 @@
    ],
    "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Sato's abstract reports loads from pressure x MRI disc area: standing 800 N, prone 144 N (targets_msk.json primary_source_check)."
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Sato's abstract reports loads from pressure x MRI disc area: standing 800 N, prone 144 N (Ghezelbash lab validation targets primary_source_check)."
  },
  "data": [
   {
@@ -152,7 +152,7 @@
    "max": 0.75,
    "median": null,
    "n": 8,
-   "src": "mean: Sato 1999 Table 2 (quoted by Guenther & Moerl 2021, via targets_msk.json); SD: 8 individual values in Ghezelbash 2020 Fig 4a (targets_msk.json, 0.547 +/- 0.179); min/max: V05 Table 2"
+   "src": "mean: Sato 1999 Table 2 (quoted by Guenther & Moerl 2021, via Ghezelbash lab validation targets); SD: 8 individual values in Ghezelbash 2020 Fig 4a (Ghezelbash lab validation targets, 0.547 +/- 0.179); min/max: V05 Table 2"
   },
   {
    "x": "upright standing, subject No. 1",
@@ -252,11 +252,11 @@
   }
  ],
  "extraction": {
-  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (sato_stand), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows from Dreischarf 2016 J Biomech (V05) Table 2 p.836 (page image)",
+  "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (sato_stand), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows from Dreischarf 2016 J Biomech (V05) Table 2 p.836 (page image)",
   "method": "table",
   "uncertainty": "cohort mean/SD secondary; per-subject values as printed in V05 (2 decimals)",
-  "checked": "via user's targets",
-  "check_notes": "Cohort mean/SD exist only in targets_msk.json (original PDF not available). Per-subject rows checked against the V05 Table 2 page image: mean of the 8 = 0.536 MPa, SD 0.176 MPa - consistent with 0.54 / 0.179. Independently re-digitised Ghezelbash 2020 Fig S2-3a 'Upright-Sub 1..8' (digitised_G2020 field): agree with V05 within 0.02 MPa (Sub 6: 0.70 vs 0.68). Subject numbering in G2020 matches V05."
+  "checked": "via Ghezelbash lab validation targets",
+  "check_notes": "Cohort mean/SD exist only in Ghezelbash lab validation targets (original PDF not available). Per-subject rows checked against the V05 Table 2 page image: mean of the 8 = 0.536 MPa, SD 0.176 MPa - consistent with 0.54 / 0.179. Independently re-digitised Ghezelbash 2020 Fig S2-3a 'Upright-Sub 1..8' (digitised_G2020 field): agree with V05 within 0.02 MPa (Sub 6: 0.70 vs 0.68). Subject numbering in G2020 matches V05. | verified 2026-11-12 independent check: PARTIAL - per-subject values match V05 Table p.836 (0.44/0.75/0.46/0.71/0.56/0.68/0.47/0.22; mean 0.536, sample SD 0.176); cohort mean 0.54 and SD 0.179 come from secondary sources and could not be verified against Sato 1999 (primary PDF not in donwload/). Values left unchanged."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__standing_relaxed__none",
  "shared_sample_with": [
@@ -272,6 +272,6 @@
  "pass_rule": {
   "template": false,
   "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
  }
 }
