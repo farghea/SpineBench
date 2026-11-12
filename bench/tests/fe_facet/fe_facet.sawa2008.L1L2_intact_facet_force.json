@@ -1,0 +1,138 @@
+{
+ "id": "fe_facet.sawa2008.L1L2_intact_facet_force",
+ "title": "L1-L2 facet force under 7.5 Nm pure moments (strain gauges + neural network)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet force",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet contact load magnitude (compressive) at 7.5 Nm, mean +- SD, n=6 specimens; FL/EX values not split by side",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Sawa 2008",
+  "authors": "Sawa AGU, Crawford NR",
+  "year": 2008,
+  "journal": "J Biomech 41:2647-2653",
+  "doi": "10.1016/j.jbiomech.2008.06.010",
+  "n": "6 specimens (human cadaveric T12-L2)",
+  "sample": "6 fresh-frozen human cadaveric T12-L2 segments screened for degeneration; facet loads at L1-L2 (gauges on L2 superior facets)",
+  "age": "median 58 (range 40-82)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T12-L2 specimens, end vertebrae potted in fixture cups; pure moments 7.5 Nm in FL, EX, right/left AR, right/left LB (standard flexibility test, Crawford 1995): 3 preconditioning cycles at peak load, then quasi-static 1.5 Nm increments to 7.5 Nm, each held 45 s; no preload; facet capsules intact.",
+  "how_to_simulate": [
+   "Fix L2 (caudal cup); T12 cranial cup free, unconstrained",
+   "Apply pure moment up to 7.5 Nm in flexion, extension, axial rotation and lateral bending (one side), no preload",
+   "Report L1-L2 facet contact force at 7.5 Nm: for AR and LB separately for the contralateral and ipsilateral facet"
+  ],
+  "subject_model": null,
+  "notes": "Method: four-gauge strain pads on lateral L2 superior articular processes (extra-articular, capsule intact); specimen-specific neural-network models (NeuralWorks Predict) trained on post hoc calibration loads 5-125 N at up to 12 points per facet; load RMSD < 11 N (Table 1). Strain gauges cannot measure tension; values are compressive contact loads."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 46.1,
+   "sd": 41.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "note": "text"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": 51.5,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "note": "text"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 70.3,
+   "sd": 43.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "side": "contralateral_facet",
+   "note": "text"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 25.9,
+   "sd": 23.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "side": "ipsilateral_facet",
+   "note": "digitised Fig 3"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 30.5,
+   "sd": 29.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "side": "contralateral_facet",
+   "note": "digitised Fig 3"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 34.9,
+   "sd": 44.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "side": "ipsilateral_facet",
+   "note": "digitised Fig 3"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (FL, EX, AR contralateral); Fig 3 bars (AR ipsilateral, LB both sides)",
+  "method": "digitised_figure",
+  "uncertainty": "+-1 N (digitised; axis 4.56 px/N at 200 dpi; 7 bars with text values matched to within 0.2 N)",
+  "checked": true,
+  "check_notes": "Digitised all 9 bars by pixel scan (x0=604 px, 140 N=1242 px). Text-reported bars re-digitised as check: FL 46.1/41.3 (text 46.1+-41.3), EX 51.4/39.1 (51.5+-39.0), AR contra 70.2/43.2 (70.3+-43.2), CF upright 45.4 (11.4% of 400 N = 45.6), CF FL 46.5/41.9 (46.6+-41.9), CF EX 75.3/39.0 (75.4+-39.0). Text values used where given."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_force__L1-L2__intact__7.5Nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "strain gauges",
+  "neural network",
+  "human"
+ ]
+}

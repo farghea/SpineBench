@@ -1,0 +1,103 @@
+{
+ "id": "passive_tissue.wolny2024.CL_failure_elongation",
+ "title": "Wolny 2024 thoracic CL failure elongation",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "Th1-Th12",
+  "Th1-Th6",
+  "Th7-Th12"
+ ],
+ "condition": "cadaveric (elderly donors)",
+ "quantity": {
+  "name": "failure elongation",
+  "definition": "elongation at failure point",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Wolny 2024",
+  "authors": "Wolny R, Wiczenbach T, Andrzejewska AJ, Spodnik JH",
+  "year": 2024,
+  "journal": "J Mech Behav Biomed Mater 151:106404",
+  "doi": "10.1016/j.jmbbm.2024.106404",
+  "n": "4 thoracic spines (body donors); 17 ALL, 19 PLL, 31 CL, 17 LF, 16 ISL+SSL bone-ligament-bone samples",
+  "sample": "human thoracic ligaments Th1-Th12, BLB samples",
+  "age": "72-90 y (77.75+-8.26)",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ligament-bone samples (frozen -20 C, thawed in saline), bones reinforced and potted in PMMA cups; preload 5 N at 0.5 /s, 60 s relaxation; preconditioning 60 cycles at 10% strain, 1 Hz, 60 s rest; tension at constant strain rate 0.5 /s to rupture; environmental chamber 36.6 C, >=95% humidity. Failure = point where further elongation gives no force increase. Transition points I/II = start/end of linear region (<1% deviation between polynomial fit and linear approximation).",
+  "how_to_simulate": [
+   "Model the thoracic ligament as a bone-ligament-bone unit with the measured initial length/width (Table 1)",
+   "Apply 5 N preload, then tension at strain rate 0.5 /s to failure",
+   "Report force-elongation (or first Piola-Kirchhoff stress = F/A0 vs stretch) at transition points I, II and failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Th1-Th12",
+   "load": "",
+   "mean": 2.02,
+   "sd": 0.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Th1-Th6",
+   "load": "",
+   "mean": 1.87,
+   "sd": 0.83,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "digitised from Fig 7D bar (mean) and error-bar top (mean+SD); n per subsystem not reported"
+  },
+  {
+   "x": "Th7-Th12",
+   "load": "",
+   "mean": 2.05,
+   "sd": 0.85,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "digitised from Fig 7D bar (mean) and error-bar top (mean+SD); n per subsystem not reported"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (Th1-Th12); Fig 7 (subsystems, digitised)",
+  "method": "table + digitised_figure",
+  "uncertainty": "table: as printed; digitised subsystem rows +/-0.1 mm (mean), SD +/- 2x that",
+  "checked": true,
+  "check_notes": "Table values from text layer of publisher PDF (digital, clean); cross-checked row/column alignment manually. Subsystem rows digitised at 200 dpi by colour segmentation of bars (y calibrated on axis ticks); Th1-Th12 table value lies between the two subsystem means for all ligaments (consistency check passed); error-bar tops checked visually; legend-overlapping bars re-measured on the centre-column dark run."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_elong__CL_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "CL"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.wiczenbach2025.CL_L0",
+  "passive_tissue.wiczenbach2025.CL_width",
+  "passive_tissue.wiczenbach2025.CL_thickness",
+  "passive_tissue.wiczenbach2025.CL_A0",
+  "passive_tissue.wiczenbach2025.CL_stretch_points",
+  "passive_tissue.wiczenbach2025.CL_stress_points"
+ ]
+}

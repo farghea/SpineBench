@@ -1,0 +1,104 @@
+{
+ "id": "fe_resection_lumbar.ghezelbash2020b.lumbar_adams1980_load_sharing_secondary",
+ "title": "Load sharing at lumbar motion segments - Adams M, Hutton W, Stott J 1980 (The resistance to flexion of the lumbar intervertebral joint) (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "lumbar motion segments"
+ ],
+ "condition": "intact -> successive resection",
+ "quantity": {
+  "name": "load sharing",
+  "definition": "share (%) of the resisting flexion moment by disc vs ligaments (sum of capsular, flavum and supra/interspinous) from successive resection; mean +/- SD for disc",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Adams M, Hutton W, Stott J 1980 (The resistance to flexion of the lumbar intervertebral joint))",
+  "sample": "human cadaveric lumbar specimens of Adams M, Hutton W, Stott J 1980 (The resistance to flexion of the lumbar intervertebral joint), as compiled in Ghezelbash et al. 2020 Table 1",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Flexion to full / half of the elastic-limit flexion; successive resection; contributions in % of resisting moment.",
+  "how_to_simulate": [
+   "Flex the motion segment to the full (or half) flexion angle",
+   "Remove structures successively and compute the % of resisting moment carried by disc and by the posterior ligaments"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Adams M, Hutton W, Stott J 1980 (The resistance to flexion of the lumbar intervertebral joint)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "full forward flexion moment",
+   "mean": 29,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "structure": "disc"
+  },
+  {
+   "x": "flexion",
+   "load": "full forward flexion moment",
+   "mean": 71,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "structure": "ligaments (capsular+flavum+supra/interspinous)"
+  },
+  {
+   "x": "flexion",
+   "load": "half forward flexion moment",
+   "mean": 38,
+   "sd": 13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "structure": "disc"
+  },
+  {
+   "x": "flexion",
+   "load": "half forward flexion moment",
+   "mean": 61,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "structure": "ligaments (capsular+flavum+supra/interspinous)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (load-sharing contributions, in vitro and FE)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 1 image (page 4, 200 dpi); footnote symbols checked (dagger = disc sectioned, # = posterior elements dissected, double dagger = sum of capsular, flavum and supra/interspinous ligaments, || = capsular ligaments)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "secondary__fe_resection_lumbar__moment_contribution__lumbar_pooled__flexion_full",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "load sharing",
+  "successive resection"
+ ]
+}

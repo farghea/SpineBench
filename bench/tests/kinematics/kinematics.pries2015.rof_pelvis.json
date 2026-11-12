@@ -1,0 +1,228 @@
+{
+ "id": "kinematics.pries2015.rof_pelvis",
+ "title": "Full pelvic (sacral) range of flexion at maximal forward flexion, by sex and age",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "pelvis",
+ "levels": [
+  "pelvis/sacrum"
+ ],
+ "condition": "healthy, standing, maximal forward flexion",
+ "quantity": {
+  "name": "pelvic (sacral) range of flexion",
+  "definition": "angle at maximal flexion minus angle in relaxed standing. Lumbar angle = sum of Epionics segments lordotic in standing (lordosis negative, kyphosis positive); sacrum orientation = accelerometer angle vs gravity (pelvis surrogate). Full RoF = value at max (lumbar+sacrum) minus standing. Phase L/P = incremental lumbar change / incremental sacral change over 0-33% (early), 33-66% (middle), 66-100% (late) of total flexion (sum of both angles).",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Pries 2015",
+  "authors": "Pries E, Dreischarf M, Bashkuev M, Putzier M, Schmidt H",
+  "year": 2015,
+  "journal": "J Biomech 48(12):3080-3087",
+  "doi": "10.1016/j.jbiomech.2015.07.030",
+  "n": "309 subjects (134 M, 175 F)",
+  "sample": "asymptomatic volunteers, BMI<26, age 20-75 (subset of the Consmuller 2012 cohort of 429); age groups 20-35 (n=155), 36-50 (n=100), >50 (n=54) (file K02_Pries2015.pdf)",
+  "age": "38.4 (SD 14.0) y; range 20-75",
+  "sex": "134 M / 175 F",
+  "height_cm": "173.0 (SD 9.5); F 167.4, M 180.3",
+  "weight_kg": "67.5 (SD 10.1); F 61.4, M 75.5"
+ },
+ "protocol": {
+  "summary": "Full pelvic (sacral) RoF in 309 asymptomatic adults (Epionics), entire cohort (Table 1), by sex (Table 3) and sex x age (Table 2).",
+  "how_to_use": [
+   "Use as the end-of-range pelvic (sacral) rotation for a subject of matching sex/age (mean, SD).",
+   "Aging: lumbar RoF falls (~-9 deg males, -6.5 deg females, 20-35 vs >50) while pelvic RoF rises (+12.8 deg males, +3.0 deg females); the change comes from the standing start posture, not the end posture.",
+   "Females use ~14 deg more pelvic rotation than males at equal lumbar RoF."
+  ],
+  "measurement": {
+   "method": "skin-surface strain sensor (Epionics)",
+   "device": "Epionics SPINE: 2 paravertebral strain-gauge strips (12 x 2.5 cm segments) 7.5 cm lateral of midline + tri-axial accelerometer at PSIS level (sacrum orientation)",
+   "posture": "standing, knees extended",
+   "task": "5 x maximal upper-body forward flexion from relaxed standing at preferred speed"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Age-group x sex n not reported (age groups total 155/100/54)."
+ },
+ "data": [
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 72.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 309,
+   "phase": "flexion",
+   "group": "entire cohort",
+   "source_where": "Table 1"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 64.1,
+   "sd": 15.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 134,
+   "phase": "flexion",
+   "group": "males",
+   "source_where": "Table 3"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 78.3,
+   "sd": 14.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 175,
+   "phase": "flexion",
+   "group": "females",
+   "source_where": "Table 3"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 70.1,
+   "sd": 17.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "entire cohort 20-35"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 72.7,
+   "sd": 14.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "entire cohort 36-50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 77.1,
+   "sd": 16.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "entire cohort >50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 59.8,
+   "sd": 14.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "males 20-35"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 65.8,
+   "sd": 13.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "males 36-50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 72.6,
+   "sd": 16.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "males >50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 77.9,
+   "sd": 14.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "females 20-35"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 77.6,
+   "sd": 13.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "females 36-50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 80.9,
+   "sd": 16.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "phase": "flexion",
+   "group": "females >50"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1, Table 3, Table 2",
+  "method": "table",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "All values re-read from rendered Table 2 and layout text of Table 3."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__pelvis__healthy_standing__max_forward_flexion",
+ "tags": [
+  "in vivo",
+  "Epionics skin-surface sensor",
+  "standing",
+  "healthy",
+  "both sexes",
+  "age effect",
+  "sex effect",
+  "sagittal"
+ ],
+ "shared_sample_with": [
+  "kinematics.consmuller2012.rof_lumbar",
+  "kinematics.consmuller2012.roe_lumbar",
+  "kinematics.consmuller2012.lordosis_velocity",
+  "kinematics.dreischarf2014.rof_lumbar_total",
+  "kinematics.dreischarf2014.rof_lumbar_segmental",
+  "kinematics.dreischarf2014.roe_lumbar_total",
+  "kinematics.dreischarf2014.roe_lumbar_segmental",
+  "kinematics.dreischarf2014.lordosis_standing"
+ ]
+}

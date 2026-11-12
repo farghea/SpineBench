@@ -1,0 +1,378 @@
+{
+ "id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+ "title": "Lumbar motion segment principal displacement under compression and shear (86, 145, 400 N), posterior elements intact vs destroyed",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "shear_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (L1-L2 to L5-S1, mixed)"
+ ],
+ "condition": "intact and posterior elements destroyed",
+ "quantity": {
+  "name": "principal displacement under force (flexibility)",
+  "definition": "mean principal translation of the superior vertebral body centre in the load direction, 15 s after the load increment. Inferior vertebra clamped, superior fixture unconstrained; displacements and rotations of the centre of the SUPERIOR vertebral body (6 dial gauges). Shear dead weights applied horizontally near the centre of the superior vertebral body, i.e. acting on the disc centre through a mean moment arm of 3.4 cm (shear is therefore accompanied by a bending moment of ~0.034 m x F).",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Berkson 1979",
+  "authors": "Berkson MH, Nachemson A, Schultz AB",
+  "year": 1979,
+  "journal": "J Biomech Eng 101:53-57",
+  "doi": "",
+  "n": "42 lumbar motion segments intact (abstract: 43); 18 of them retested with posterior elements destroyed",
+  "sample": "fresh human cadaver lumbar motion segments (autopsy <12 h), tested at room temperature, 100% humidity",
+  "age": "mean 43 y (cadavers)",
+  "sex": "not reported in this part (see Part III, Nachemson 1979)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Compression preload 400 N by pneumatic cylinder (4 x 100 N or single step); dead-weight shear up to 205 N in >=3 steps in anterior, right-lateral or posterior direction (fixture rotated 0/90/180 deg), with 400 N compressive preload; 15 s creep before readings. All soft-tissue connections between posterior elements then excised in the first 18 specimens and tests repeated.",
+  "how_to_simulate": [
+   "Fix the inferior vertebra; leave the superior vertebra free; output = displacement of the centre of the superior vertebral body",
+   "Compression: apply 400 N axial force in 100 N steps (report 86, 145 and 400 N)",
+   "Shear: with the 400 N compressive preload, apply horizontal anterior, posterior or right-lateral force at the level of the superior vertebral body centre (3.4 cm above the disc centre) in steps to 145 N",
+   "Read principal displacement 15 s after each increment; repeat with all posterior soft-tissue connections cut (posterior elements destroyed) and compare"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate/reference: Inferior vertebra clamped, superior fixture unconstrained; displacements and rotations of the centre of the SUPERIOR vertebral body (6 dial gauges). Shear dead weights applied horizontally near the centre of the superior vertebral body, i.e. acting on the disc centre through a mean moment arm of 3.4 cm (shear is therefore accompanied by a bending moment of ~0.034 m x F). Shear tests are under the 400 N compressive preload (Methods; also stated by Tencer 1982 and Gardner-Morse 2004 when citing this study). Compression values at 86 and 145 N are interpolated (no SD). Intradiscal pressures in the same Table 1 belong to the IDP category (not extracted here). Part I (Schultz 1979) reports moments on the same specimens."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "series": "posterior elements intact",
+   "load": "86 N compression",
+   "mean": 0.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.011,
+    "sd": null,
+    "unit": "cm"
+   },
+   "note": "interpolated value (Table 1 footnote a)"
+  },
+  {
+   "x": "compression",
+   "series": "posterior elements destroyed",
+   "load": "86 N compression",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.01,
+    "sd": null,
+    "unit": "cm"
+   },
+   "note": "interpolated value (Table 1 footnote a)"
+  },
+  {
+   "x": "compression",
+   "series": "posterior elements intact",
+   "load": "145 N compression",
+   "mean": 0.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.018,
+    "sd": null,
+    "unit": "cm"
+   },
+   "note": "interpolated value (Table 1 footnote a)"
+  },
+  {
+   "x": "compression",
+   "series": "posterior elements destroyed",
+   "load": "145 N compression",
+   "mean": 0.19,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.019,
+    "sd": null,
+    "unit": "cm"
+   },
+   "note": "interpolated value (Table 1 footnote a)"
+  },
+  {
+   "x": "compression",
+   "series": "posterior elements intact",
+   "load": "400 N compression",
+   "mean": 0.51,
+   "sd": 0.24,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.051,
+    "sd": 0.024,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "compression",
+   "series": "posterior elements destroyed",
+   "load": "400 N compression",
+   "mean": 0.5,
+   "sd": 0.26,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.05,
+    "sd": 0.026,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior shear",
+   "series": "posterior elements intact",
+   "load": "86 N posterior shear",
+   "mean": 0.59,
+   "sd": 0.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.059,
+    "sd": 0.029,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior shear",
+   "series": "posterior elements destroyed",
+   "load": "86 N posterior shear",
+   "mean": 0.84,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.084,
+    "sd": 0.03,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior shear",
+   "series": "posterior elements intact",
+   "load": "145 N posterior shear",
+   "mean": 0.85,
+   "sd": 0.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.085,
+    "sd": 0.082,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior shear",
+   "series": "posterior elements destroyed",
+   "load": "145 N posterior shear",
+   "mean": 1.24,
+   "sd": 0.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.124,
+    "sd": 0.021,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "anterior shear",
+   "series": "posterior elements intact",
+   "load": "86 N anterior shear",
+   "mean": 0.6,
+   "sd": 0.24,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.06,
+    "sd": 0.024,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "anterior shear",
+   "series": "posterior elements destroyed",
+   "load": "86 N anterior shear",
+   "mean": 0.94,
+   "sd": 0.26,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.094,
+    "sd": 0.026,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "anterior shear",
+   "series": "posterior elements intact",
+   "load": "145 N anterior shear",
+   "mean": 1.21,
+   "sd": 0.38,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.121,
+    "sd": 0.038,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "anterior shear",
+   "series": "posterior elements destroyed",
+   "load": "145 N anterior shear",
+   "mean": 1.42,
+   "sd": 0.46,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.142,
+    "sd": 0.046,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "right lateral shear",
+   "series": "posterior elements intact",
+   "load": "86 N right lateral shear",
+   "mean": 0.67,
+   "sd": 0.48,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.067,
+    "sd": 0.048,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "right lateral shear",
+   "series": "posterior elements destroyed",
+   "load": "86 N right lateral shear",
+   "mean": 0.76,
+   "sd": 0.27,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.076,
+    "sd": 0.027,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "right lateral shear",
+   "series": "posterior elements intact",
+   "load": "145 N right lateral shear",
+   "mean": 1.0,
+   "sd": 0.39,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.1,
+    "sd": 0.039,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "right lateral shear",
+   "series": "posterior elements destroyed",
+   "load": "145 N right lateral shear",
+   "mean": 1.11,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.111,
+    "sd": 0.05,
+    "unit": "cm"
+   }
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.54)",
+  "method": "table",
+  "uncertainty": "tabulated to 0.001 cm (0.01 mm)",
+  "checked": true,
+  "check_notes": "All values re-read from the rendered Table 1 image; converted cm -> mm (x10), native kept."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "segment_stiffness__principal_displacement_compression_shear__lumbar_FSU__intact_vs_posterior_elements_destroyed__400N_preload",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "shear",
+  "compression",
+  "posterior elements removed",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.berkson1979.lumbar_FSU_coupled_motions_400N_compression_145N_shear"
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo chronic low back pain",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "tags": [
+  "in vivo",
+  "MVC",
+  "standing",
+  "B200 Isostation",
+  "male",
+  "LBP",
+  "patients"
+ ],
+ "source": {
+  "short": "Ng 2002",
+  "authors": "Ng JK-F, Richardson CA, Parnianpour M, Kippers V",
+  "year": 2002,
+  "journal": "J Orthop Res 20:112-121",
+  "doi": "10.1016/S0736-0266(01)00067-5",
+  "sex": "M",
+  "n": "12 subjects (12 M), chronic LBP patients",
+  "sample": "right-handed male chronic/recurrent LBP patients, pain-free or minimal pain at testing; LBP duration 6.0±4.4 yr",
+  "age": "28.3±6.7",
+  "height_cm": "177±8 (1.77±0.08 m)",
+  "weight_kg": "72.1±9.3"
+ },
+ "id": "msk_mvc_coupled.ng2002.mvc_moments_6dir_lbp",
+ "title": "Maximal isometric trunk moments in 6 directions, standing (B200 Isostation), chronic LBP patients",
+ "subcategory": "primary MVC moments",
+ "quantity": {
+  "name": "primary moment at MVC",
+  "definition": "mean maximal isometric torque (stable 3 s of 5-s MVC) about dynamometer axes",
+  "unit": "Nm"
+ },
+ "protocol": {
+  "summary": "Erect standing in a B200 Isostation triaxial dynamometer locked in 3 planes, L5-S1 interspinous space aligned with its flexion/extension axis; pelvis and lower legs stabilised (pelvic restraint, thigh and knee straps); torso fixed by chest restraint and thoracic pad; arms folded across chest. MVCs (5 s, randomised, 2 min rest) in flexion, extension, R/L lateral flexion, R/L axial rotation with visual feedback and verbal encouragement; then R/L axial rotation at 70, 50, 30% MVC to a visual target. Mean of stable 3 s; baseline (relaxed standing in device) subtracted. Same lab/protocol as Ng 2001.",
+  "how_to_simulate": [
+   "Upright standing, pelvis and legs fixed, thorax restrained by chest pad",
+   "Maximal voluntary exertion in flexion, extension, R/L lateral bending, R/L axial rotation",
+   "Compare predicted maximal primary moment at L5-S1 with mean ± SD"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 28.3,
+   "height_cm": 177,
+   "weight_kg": 72.1,
+   "disc_area_mm2": null,
+   "source": "Table 1 (back pain patients)"
+  },
+  "notes": "Reference: B200 axes, flexion/extension axis at L5-S1 interspinous space. No significant strength difference patients vs controls. Coupled moments during the flexion/extension/lateral MVCs not reported."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "component": "primary",
+   "sex": "M",
+   "mean": 119.4,
+   "sd": 31.0,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "extension",
+   "component": "primary",
+   "sex": "M",
+   "mean": 160.1,
+   "sd": 36.4,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "lateral_bend_right",
+   "component": "primary",
+   "sex": "M",
+   "mean": 124.7,
+   "sd": 24.6,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "lateral_bend_left",
+   "component": "primary",
+   "sex": "M",
+   "mean": 130.1,
+   "sd": 22.5,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "component": "primary",
+   "sex": "M",
+   "mean": 71.2,
+   "sd": 23.6,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "component": "primary",
+   "sex": "M",
+   "mean": 76.6,
+   "sd": 13.9,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 1",
+  "method": "digitised_figure",
+  "uncertainty": "±3 Nm (bar chart, 0.93 px/Nm at 200 dpi, ticks every 50 Nm)",
+  "checked": true,
+  "check_notes": "Pixel digitisation of bar tops and one-sided SD caps (200 dpi); re-digitised at 300 dpi: control extension 180.7/27.1 vs 180.4/27.8, patient flexion cap 150.7 vs 150.4 Nm."
+ },
+ "combine_group": null
+}

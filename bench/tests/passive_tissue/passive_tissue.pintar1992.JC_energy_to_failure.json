@@ -1,0 +1,126 @@
+{
+ "id": "passive_tissue.pintar1992.JC_energy_to_failure",
+ "title": "Pintar 1992 lumbar JC energy to failure by level",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact (healthy cadaveric)",
+ "quantity": {
+  "name": "energy to failure",
+  "definition": "area under force-deformation curve up to failure (peak load)",
+  "unit": "J"
+ },
+ "source": {
+  "short": "Pintar 1992",
+  "authors": "Pintar FA, Yoganandan N, Myers T, Elhagediab A, Sances A Jr",
+  "year": 1992,
+  "journal": "J Biomech 25(11):1351-1356",
+  "doi": "",
+  "n": "132 ligament samples from 38 fresh cadavers (mechanics, data of Myklebust et al. 1988); geometry from 8 additional cadavers",
+  "sample": "human cadaveric lumbar ligaments T12-S1 (ALL, PLL, JC, LF, ISL, SSL), in situ isolation tests to failure",
+  "age": "geometry cadavers 31-80 y (mean 63); mechanics cadavers not reported here",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "In situ isolation tensile tests to failure of bone-ligament-bone preparations (Myklebust et al. 1988 protocol; linear ramp displacement; rate not restated in this note). Failure = peak load. Stiffness = slope of least-squares line over the most linear portion of force-deformation curve. Failure stress = failure force / CSA (CSA from cryomicrotome images of 8 separate, anthropometrically matched cadavers); failure strain = failure deformation / original length (Table 1 definitions).",
+  "how_to_simulate": [
+   "Model the joint (facet) capsule as in the FE/MSK model (bone-ligament-bone, original length per Table 1: 16.4 mm mean)",
+   "Isolate the ligament (other structures removed) and apply uniaxial elongation along its line of action to failure",
+   "Report the requested quantity per level (stiffness = slope of most linear part of force-deformation)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T12-L1",
+   "load": "",
+   "mean": 1.55,
+   "sd": 0.55,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L1-L2",
+   "load": "",
+   "mean": 4.18,
+   "sd": 2.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L2-L3",
+   "load": "",
+   "mean": 3.5,
+   "sd": 1.61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L3-L4",
+   "load": "",
+   "mean": 2.35,
+   "sd": 1.88,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L4-L5",
+   "load": "",
+   "mean": 2.05,
+   "sd": 0.99,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L5-S1",
+   "load": "",
+   "mean": 2.54,
+   "sd": 1.31,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed (1 decimal)",
+  "checked": true,
+  "check_notes": "Table 2 re-read from 150-dpi page render (OCR errors corrected: LF L1-L2 stiffness SD 7.8, LF L4-L5 stiffness 27.2+-12.2, ALL L4-L5 energy SD 7.99, SSL L2-L3 energy SD 5.77, ISL L5-S1 energy 0.78). Per-level n not reported (132 samples over 6 ligaments x 6 levels). doi not printed in PDF."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_energy__CL_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "JC"
+ ]
+}

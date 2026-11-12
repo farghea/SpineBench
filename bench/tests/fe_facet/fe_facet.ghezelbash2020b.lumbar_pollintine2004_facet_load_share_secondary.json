@@ -1,0 +1,80 @@
+{
+ "id": "fe_facet.ghezelbash2020b.lumbar_pollintine2004_facet_load_share_secondary",
+ "title": "Facet load share at lumbar (variable) - Pollintine P, Dolan P, Tobias JH, Adams MA 2004 (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (variable)"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet load share",
+  "definition": "% of compressive force transmitted via the neural arc, mean +/- SD (stress profilometry)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Pollintine P, Dolan P, Tobias JH, Adams MA 2004)",
+  "sample": "human cadaveric lumbar specimens of Pollintine P, Dolan P, Tobias JH, Adams MA 2004, as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Stress profilometry; neural arc load share.",
+  "how_to_simulate": [
+   "Apply 2 kN compression with 2 deg extension or 6-12 deg flexion",
+   "Compute % of compression through the neural arc"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Pollintine P, Dolan P, Tobias JH, Adams MA 2004."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "2 kN compression + 2 deg extension",
+   "mean": 8,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "flexion",
+   "load": "2 kN compression + 6-12 deg flexion",
+   "mean": 2,
+   "sd": 3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_load_share__lumbar_pooled__intact__2kN",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet load share",
+  "stress profilometry"
+ ]
+}

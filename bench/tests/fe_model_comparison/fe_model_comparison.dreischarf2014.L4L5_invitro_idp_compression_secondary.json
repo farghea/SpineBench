@@ -1,0 +1,91 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L4L5_invitro_idp_compression_secondary",
+ "title": "L4-L5 nucleus pressure vs axial compression, in vitro reference (Brinckmann & Grootenboer 1991, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vitro reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute intradiscal (nucleus) pressure vs axial compressive force; median and range of 5 L4-L5 segments at 0, 300 and 1000 N (Fig 2d)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "5 specimens (L4-L5 segments, Brinckmann & Grootenboer 1991)",
+  "sample": "human cadaveric L4-L5 motion segments, 5 (primary: Brinckmann P, Grootenboer H 1991, Spine 16:641-646)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Axial compression 0-1000 N on L4-L5 segments; in the FE comparison compression applied as follower load (Section 2.4) to L1-L5 models.",
+  "how_to_simulate": [
+   "Apply compression 0-1000 N (follower load in multi-segment models) with no moment",
+   "Read nucleus pressure in the L4-L5 disc",
+   "Compare at 0, 300, 1000 N"
+  ],
+  "subject_model": null,
+  "notes": "Absolute IDP. Median line slope ~0.9 kPa/N (dashed line in Fig 2d, intercept ~0.04 MPa). Lower bound at 0 N not resolvable (at or near 0). Dreischarf text: 6 of 7 models within in vitro range at 1000 N; model 5 has 0.13 MPa offset at 0 N. Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "0 N",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": 0.08,
+   "median": 0.03,
+   "n": 5
+  },
+  {
+   "x": "compression",
+   "load": "300 N",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 0.46,
+   "median": 0.31,
+   "n": 5
+  },
+  {
+   "x": "compression",
+   "load": "1000 N",
+   "mean": null,
+   "sd": null,
+   "min": 0.66,
+   "max": 1.38,
+   "median": 0.94,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2d (black markers = median, red bars = range)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 MPa (1 px = 0.013 MPa)",
+  "checked": true,
+  "check_notes": "Axis: top frame row 27.5 = 1.5 MPa, x-axis row 142 = 0; gridlines at 0.25-MPa steps confirmed at rows 123, 104, 85, 66. Markers re-read: 300 N rows 117-120 (0.31), 1000 N rows 68-72 (0.94); dashed median line points (53 N, 0.085) and (968 N, 0.910) interpolate to 0.31 at 300 N and 0.94 at 1000 N - consistent."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max at 300 and 1000 N"
+ },
+ "combine_group": "secondary__fe_idp_invitro__idp_abs__L4-L5__intact__compression",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "IDP",
+  "compression"
+ ]
+}

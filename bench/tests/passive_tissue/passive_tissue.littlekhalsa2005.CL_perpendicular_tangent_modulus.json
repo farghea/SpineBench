@@ -1,0 +1,115 @@
+{
+ "id": "passive_tissue.littlekhalsa2005.CL_perpendicular_tangent_modulus",
+ "title": "Little & Khalsa 2005 lumbar facet capsule tangent modulus, perpendicular to fibres",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "non-degenerate cadaveric",
+ "quantity": {
+  "name": "tangent modulus",
+  "definition": "tangent modulus: slope of most linear portion of engineering stress vs first principal strain (ramp to given strain)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Little 2005",
+  "authors": "Little JS, Khalsa PS",
+  "year": 2005,
+  "journal": "J Biomech Eng 127(1):15-24",
+  "doi": "",
+  "n": "35 facet capsules from 8 lumbar spines (ramp tests: 25 parallel = 5 per level L1-L2..L5-S1, 10 perpendicular; dynamic subset 15 parallel)",
+  "sample": "human lumbar facet joint capsule (L1-L2 to L5-S1), isolated capsule with bony attachments (parallel) or glued to acrylic plates (perpendicular)",
+  "age": "59+-5.3 y",
+  "sex": "2 F, 6 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of isolated capsule in PBS bath (pH 7.4, room temperature); preload 0.1 N defines resting length; preconditioning 6 cycles to 50% strain at 15%/s with 300 s holds; ramp-hold trials to 10, 20, 30, 40, 50% grip strain at 15%/s held 300 s (rate 1-15%/s had no effect on modulus); first principal strain by optical image correlation; parallel specimens 6.08+-2.58 mm long, 11.59+-2.87 mm wide, 1.88+-0.94 mm thick; perpendicular 6.83+-1.45 x 7.11+-2.45 x 2.51+-1.66 mm. Tangent modulus = slope of linear portion of engineering stress vs first principal strain; viscous (peak) and elastic (after 300 s) moduli = secant from (0,0).",
+  "how_to_simulate": [
+   "Model a capsule strip (approx. 6 mm long, 11.6 mm wide, 1.9 mm thick) loaded parallel or perpendicular to the medial-lateral collagen direction",
+   "Precondition, then ramp to 10-50% grip strain at 15%/s (hold 300 s for elastic values)",
+   "Report engineering stress vs first principal strain in the central region; compute tangent / secant moduli as defined"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "perpendicular, ramp strain 10%",
+   "load": "ramp to 10%",
+   "mean": 0.39,
+   "sd": 0.32,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, ramp strain 20%",
+   "load": "ramp to 20%",
+   "mean": 2.51,
+   "sd": 2.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, ramp strain 30%",
+   "load": "ramp to 30%",
+   "mean": 3.97,
+   "sd": 3.66,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, ramp strain 40%",
+   "load": "ramp to 40%",
+   "mean": 2.26,
+   "sd": 1.32,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, ramp strain 50%",
+   "load": "ramp to 50%",
+   "mean": 2.76,
+   "sd": 1.32,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 values (text-extracted, matches PMC author manuscript layout). doi not printed (author manuscript)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__E_tangent_vs_strain__CL_lumbar__human__uniaxial_tension_perpendicular",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "facet capsule"
+ ]
+}

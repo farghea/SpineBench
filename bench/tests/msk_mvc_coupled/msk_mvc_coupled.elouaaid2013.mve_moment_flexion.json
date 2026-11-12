@@ -1,0 +1,129 @@
+{
+ "id": "msk_mvc_coupled.elouaaid2013.mve_moment_flexion",
+ "title": "Maximal isometric trunk flexion moment at L5-S1 (semi-seated dynamometer), males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "primary_MVC_moment",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "isometric maximal flexion exertion against a harness, semi-seated, feet/knees/pelvis stabilised",
+ "quantity": {
+  "name": "maximal resistant moment at L5-S1",
+  "definition": "mean±SD of maximal flexion moment at L5-S1 over 12 subjects (magnitude); plus measured moments of the 4 modelled subjects (Table 1). Coupled moments not reported.",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "El Ouaaid 2013",
+  "authors": "El Ouaaid Z, Shirazi-Adl A, Plamondon A, Lariviere C",
+  "year": 2013,
+  "journal": "J Biomech 46:2228-2235",
+  "doi": "10.1016/j.jbiomech.2013.06.018",
+  "n": "12 healthy males (4 modelled)",
+  "sample": "healthy male university students, no back pain history, in vivo",
+  "age": "not reported (university students)",
+  "sex": "M",
+  "height_cm": "177.67±3.03",
+  "weight_kg": "72.98±3.87"
+ },
+ "protocol": {
+  "summary": "Trunk dynamometer with three triaxial AMTI MC6-6-1000 force platforms on a steel frame stabilising feet, knees and pelvis (similar to Lariviere 2009); semi-seated position; 10-s maximal pushes against a harness (3 trials extension, 2 flexion, 2 per side lateral and axial); moments at L5-S1 recorded at 128 Hz. Harness-trunk contact: anterior-directed force at T8 in extension; force normal to sternum at T6 in flexion.",
+  "how_to_simulate": [
+   "Semi-seated posture, pelvis fixed; trunk flexed forward; prescribed rotations from upright standing: +15 deg (extension) at S1 and -11 deg at T12, T12-S1 difference partitioned 8/14/16/22/25/15% from T12-L1 to L5-S1.",
+   "Apply the harness reaction (T6, normal to sternum) with magnitude producing the measured L5-S1 moment; add upper-body gravity scaled to body weight.",
+   "Compare model maximal moment (or required max muscle stress / saturation) with data; use Table 1 individual moments for subject-specific runs."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": null,
+   "height_cm": 177.67,
+   "weight_kg": 72.98,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 (mean of 12); per-subject body weights for 4 modelled subjects in Table 1 (68, 76, 68.3, 72.8 kg)"
+  },
+  "notes": "Flexion < extension (p=0.0005). Same IRSST lab/dynamometer as Ghezelbash 2018 but a different cohort (12 males). Paper's model also assumed IAP up to 25 kPa (flexion) / 10 kPa (extension)."
+ },
+ "data": [
+  {
+   "x": "flexion MVE",
+   "component": "primary_flexion_moment",
+   "sex": "M",
+   "mean": 151.1,
+   "sd": 37.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "flexion MVE",
+   "component": "primary_flexion_moment",
+   "sex": "M",
+   "subject": "subject 1 (BW 68 kg)",
+   "mean": 117,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "flexion MVE",
+   "component": "primary_flexion_moment",
+   "sex": "M",
+   "subject": "subject 2 (BW 76 kg)",
+   "mean": 123,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "flexion MVE",
+   "component": "primary_flexion_moment",
+   "sex": "M",
+   "subject": "subject 3 (BW 68.3 kg)",
+   "mean": 158,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "flexion MVE",
+   "component": "primary_flexion_moment",
+   "sex": "M",
+   "subject": "subject 4 (BW 72.8 kg)",
+   "mean": 161,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Results 3.1 text (mean±SD); Table 1 (4 subjects)",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Text values checked against Fig 3 moment bars (digitised flexion ~151, extension ~242 Nm on right axis) and Table 1 re-read from rendered page."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_mvc_coupled__primary_moment__L5-S1__semi_seated__flexion_male",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "MVC",
+  "MVE",
+  "semi-seated",
+  "dynamometer",
+  "male"
+ ]
+}

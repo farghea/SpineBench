@@ -1,0 +1,184 @@
+{
+ "id": "kinematics.nairn2014.regional_twist_by_posture",
+ "title": "Upper/mid/lower thoracic axial twist ROM at max twist and with neutral vs flexed lumbar spine (standing)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic rotation & lateral bending",
+ "region": "thoracic",
+ "levels": [
+  "upper-thoracic T1-T4",
+  "mid-thoracic T5-T8",
+  "lower-thoracic T9-T12"
+ ],
+ "condition": "healthy, standing, maximal right twist and combined lumbar posture / thoracic twist",
+ "quantity": {
+  "name": "regional thoracic axial twist ROM",
+  "definition": "axial angle change between proximal and distal marker plates of each region, upright to held right-twist posture",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Nairn 2014",
+  "authors": "Nairn BC, Drake JDM",
+  "year": 2014,
+  "journal": "Hum Mov Sci 37:1-11",
+  "doi": "10.1016/j.humov.2014.06.003",
+  "n": "13 males",
+  "sample": "13 right-handed males free of neck, back and shoulder pain for >= 1 year (university population)",
+  "age": "23.6 (SD 2.1) y",
+  "sex": "male",
+  "height_cm": "182 (SD 8)",
+  "weight_kg": "84.3 (SD 13.9)"
+ },
+ "protocol": {
+  "summary": "Max twist ≈ evenly shared (11.8/15.2/11.2 deg); lumbar flexion reduces mid-thoracic twist by ~5 deg.",
+  "how_to_use": [
+   "For standing maximal twist distribute thoracic axial rotation ≈ 31% T1-T4, 40% T5-T8, 29% T9-T12.",
+   "When the lumbar spine is pre-flexed (~50%), reduce mid-thoracic twist by ~5 deg (15.0 -> 10.0 deg).",
+   "Right twist only."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "Vicon MX 50 Hz; rigid 3-marker plates on spinous processes defining T1-T4, T5-T8, T9-T12 and L1-PSIS segments; regional angle between proximal and distal plates",
+   "posture": "standing, knees straight",
+   "task": "max forward flexion; max right axial twist; ~50% lumbar flexion or neutral lumbar combined with thoracic flexion (chin to chest) or right thoracic twist; 5 s hold"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 11.82,
+   "sd": 6.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max right twist",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 15.21,
+   "sd": 5.18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max right twist",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 11.21,
+   "sd": 5.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max right twist",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 9.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-twisted",
+   "source_of_value": "digitised Fig"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 14.98,
+   "sd": 6.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-twisted",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 6.65,
+   "sd": 4.57,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-twisted",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 11.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-twisted",
+   "source_of_value": "digitised Fig"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 10.01,
+   "sd": 3.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-twisted",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 7.16,
+   "sd": 5.48,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-twisted",
+   "source_of_value": "Results text"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (7 of 9 values with SD); Fig 3 (upper-thoracic bars of the two combined postures)",
+  "method": "text",
+  "uncertainty": "text values as printed; 2 digitised means ±0.2 deg",
+  "checked": true,
+  "check_notes": "Fig 3 calibrated on the 7 text means (reproduced within 0.07 deg). Fig 3 error bars do NOT match the text SDs (e.g. max-twist upper thoracic: whisker ≈3.2 deg vs text SD 6.70), so SDs of the 2 digitised bars are left null."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__regional_rom__thoracic_regions__healthy_standing__axial_rotation_by_lumbar_posture",
+ "shared_sample_with": [
+  "kinematics.nairn2014.regional_flexion_by_posture"
+ ],
+ "tags": [
+  "in vivo",
+  "skin markers",
+  "optical",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "regional"
+ ]
+}

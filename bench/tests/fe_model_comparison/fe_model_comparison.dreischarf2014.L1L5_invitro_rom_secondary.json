@@ -1,0 +1,94 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_invitro_rom_secondary",
+ "title": "L1-L5 total ROM under 7.5 Nm pure moments, in vitro reference (Rohlmann 2001b, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vitro reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "total L1-L5 rotation over the full motion range (flexion+extension, left+right lateral bending, left+right axial rotation) at +/-7.5 Nm pure moment, no preload; median and range (min-max) of 10 specimens as re-plotted by Dreischarf 2014 Fig 2a (red bars)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "10 specimens (L1-L5, from Rohlmann et al. 2001b Spine 26:E557)",
+  "sample": "human cadaveric L1-L5 lumbar spines, 10 specimens (primary: Rohlmann A, Neller S, Claes L, Bergmann G, Wilke HJ 2001, Spine 26:E557-E561)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm in flexion/extension, lateral bending, axial rotation (Wilke 1998 recommendations); no follower preload for this comparison; L1-L5 total rotation. Rate/cycles not restated in Dreischarf 2014 (see primary Rohlmann 2001b).",
+  "how_to_simulate": [
+   "Model L1-L5 osseoligamentous spine, fix L5 (all DOF) - Dreischarf: 6 of 8 models fixed L5; 2 models included L5-S1 fixed at S1",
+   "Apply unconstrained pure moment 7.5 Nm to L1 in each direction, no preload",
+   "Report total L1-L5 rotation summed over both directions (flexion+extension, left+right LB, left+right AR)"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data: values re-plotted from Rohlmann 2001b; use the primary when available. Text of Dreischarf 2014: in vitro medians differ from FE-model medians by ~2 deg (FE), ~1 deg (LB), ~5 deg (AR). Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 23.9,
+   "max": 37.3,
+   "median": 31.2,
+   "n": 10
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 23.1,
+   "max": 44.2,
+   "median": 34.1,
+   "n": 10
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 10.1,
+   "max": 19.0,
+   "median": 11.5,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2a (red bars, in vitro median and range)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-1 deg (1 px = 0.41 deg)",
+  "checked": true,
+  "check_notes": "Axis calibrated on gridlines (rows 43=45 deg ... 92=25 deg, 2.46 px/deg). Re-digitised bar tops by column scan: FE 31.2, LB 34.1, AR 11.3-11.7 (outline) -> 11.5. Consistency check: text says FE medians differ from in vitro by ~2 (FE 34 vs 31.2), ~1 (LB 35 vs 34.1), ~5 deg (AR 17 vs 11.5) - consistent."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max (PASS); also compare with 8-model range (fe_model_comparison.dreischarf2014.L1L5_models_rom_pure_moment)"
+ },
+ "combine_group": "secondary__fe_rom_lumbar_multi__rom__L1-L5_total__intact__7.5Nm",
+ "shared_sample_with": [
+  "rohlmann2001b: primary source of these 10 specimens (Spine 26:E557, not in bench PDFs)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "multi-segment",
+  "pure moment"
+ ]
+}

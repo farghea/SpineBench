@@ -1,0 +1,80 @@
+{
+ "id": "msk_mvc_coupled.mcgill1991.axial_torque_plus30deg_ccw_male",
+ "title": "Peak isometric axial twisting torque, standing, trunk pre-rotation +30°, ccw effort, males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "primary_MVC_moment",
+ "region": "whole",
+ "levels": [
+  "vertical dynamometer axis (not L5-S1)"
+ ],
+ "condition": "maximal isometric axial twist ccw, trunk pre-rotated +30°, standing with pelvis fixed",
+ "quantity": {
+  "name": "peak axial torque",
+  "definition": "peak axial torque about the vertical Cybex axis during maximal isometric twisting; mean (SD) over subjects x 3 trials",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "McGill 1991",
+  "authors": "McGill SM",
+  "year": 1991,
+  "journal": "J Orthop Res 9(1):91-103",
+  "doi": "10.1002/jor.1100090112",
+  "n": "15 subjects in Table 3 (10 M, 5 F); 11 M + 5 F in MVC-normalisation part",
+  "sample": "healthy university students, no LBP for >=1 year, in vivo",
+  "age": "M 21.2±8.5 y; F 24±1.9 y",
+  "sex": "10M, 5F",
+  "height_cm": "M 173.5±7.7; F 159±4.2",
+  "weight_kg": "M 71.4±7.7; F 53.3±6.7"
+ },
+ "protocol": {
+  "summary": "Standing; pelvis fixed (ASIS rigid fixator + adjustable belt); upper-torso jig harness clamped at shoulder level (handles for arm position) connected through a ~0.6 m telescopic shaft with two universal joints to a Cybex II head mounted overhead with vertical axle: trunk free in all directions except axial rotation, so only axial torque about the vertical dynamometer axis is measured (no coupled moments recorded). 3 trials per condition, slow build-up to peak at ~4 s.",
+  "how_to_simulate": [
+   "Upright standing, pelvis fixed; thorax rotated +30° relative to the pelvis (0 = neutral).",
+   "Apply a pure axial torque to the thorax at shoulder level (ccw); no restraint of flexion/lateral bending (universal joints).",
+   "Compare model maximal axial torque (or required max muscle stress) with data; the model's coupled moments should be ~0 externally (free harness)."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 21.2,
+   "height_cm": 173.5,
+   "weight_kg": 71.4,
+   "disc_area_mm2": null,
+   "source": "Table 1 (10 men)"
+  },
+  "notes": "Direction naming: cw/ccw as printed. From the right-side muscle pattern (right IO and latissimus agonists in cw, right EO agonist in ccw), cw corresponds to twisting the trunk to the right (right axial rotation) - inferred, not stated. '+30°' = trunk pre-rotated in the cw direction (Table 3 footnote). SD pooled across 3 trials per subject (n obs = 30 M / 15 F)."
+ },
+ "data": [
+  {
+   "x": "+30° ccw twist",
+   "component": "primary_axial_torque",
+   "sex": "M",
+   "mean": 96,
+   "sd": 18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed (1 Nm)",
+  "checked": true,
+  "check_notes": "Compared with rendered Table 3 (PDF p.7)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "MVC",
+  "axial rotation",
+  "standing",
+  "male"
+ ]
+}

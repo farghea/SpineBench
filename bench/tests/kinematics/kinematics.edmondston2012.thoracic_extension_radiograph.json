@@ -1,0 +1,101 @@
+{
+ "id": "kinematics.edmondston2012.thoracic_extension_radiograph",
+ "title": "Standing thoracic kyphosis and extension range (radiographic Cobb)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "thoracic",
+ "levels": [
+  "T3-T11"
+ ],
+ "condition": "healthy, standing (arms elevated 70 deg on support for neutral), maximal thoracic extension with arms fully elevated",
+ "quantity": {
+  "name": "thoracic kyphosis and range of extension",
+  "definition": "Cobb angle T3-T11; range = neutral kyphosis minus kyphosis at extreme extension",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Edmondston 2012",
+  "authors": "Edmondston SJ, Christensen MM, Keller S, Steigen LB, Barclay L",
+  "year": 2012,
+  "journal": "J Manipulative Physiol Ther 35(3):203-208",
+  "doi": "10.1016/j.jmpt.2012.01.008",
+  "n": "14 males",
+  "sample": "14 asymptomatic male university staff/students, no thoracolumbar scoliosis, chronic respiratory disorder or recent spinal pain",
+  "age": "30.2 (SD 7) y; range 19-48 y (Table 1)",
+  "sex": "male",
+  "height_cm": "175, range 160-189",
+  "weight_kg": "74.7, range 63.0-100.2"
+ },
+ "protocol": {
+  "summary": "Neutral and end-range extension thoracic kyphosis in standing; radiographic and photographic methods on the same subjects (r = 0.69 between methods).",
+  "how_to_use": [
+   "Use ~12 deg (SD 9) as the standing thoracic extension range beyond neutral kyphosis; distribute it over T3-T11 (radiograph) or T1-T12.",
+   "Larger neutral kyphosis -> larger extension range (r = 0.71): scale the range with the subject's kyphosis if known.",
+   "End-range extension posture here includes full arm elevation and backward reach."
+  ],
+  "measurement": {
+   "method": "radiograph",
+   "device": "lateral thoracic digital radiographs (Shimadzu RADspeed / AGFA CR), Cobb angle T3 superior endplate to T11 inferior endplate",
+   "posture": "standing",
+   "task": "neutral standing and maximal active thoracic extension (reach up and bend backward)"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "kyphosis, neutral standing",
+   "load": null,
+   "mean": 42.1,
+   "sd": 13.4,
+   "min": 20.3,
+   "max": 66.3,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "kyphosis at extreme of extension",
+   "load": null,
+   "mean": 30,
+   "sd": 9.5,
+   "min": 12.5,
+   "max": 44.8,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "range of extension (neutral minus extreme)",
+   "load": null,
+   "mean": 12,
+   "sd": 8.9,
+   "min": 0.4,
+   "max": 26.4,
+   "median": null,
+   "n": 14
+  }
+ ],
+ "extraction": {
+  "from": "Table 2; abstract",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 values re-read; range means agree with abstract (12.0 ± 8.9 radiograph, 12.4 ± 4.1 photograph; abstract rounds ranges to 0-26 and 8-23 deg)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_extension__thoracic__healthy_standing__max_extension",
+ "shared_sample_with": [
+  "kinematics.edmondston2012.thoracic_extension_photograph"
+ ],
+ "tags": [
+  "in vivo",
+  "standing",
+  "healthy",
+  "male only",
+  "radiograph"
+ ]
+}

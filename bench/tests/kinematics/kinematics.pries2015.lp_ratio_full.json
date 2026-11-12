@@ -1,0 +1,193 @@
+{
+ "id": "kinematics.pries2015.lp_ratio_full",
+ "title": "Whole-range lumbopelvic ratio (lumbar RoF / pelvic RoF) at full forward flexion, by sex and age",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (Epionics S1-S6)",
+  "pelvis/sacrum"
+ ],
+ "condition": "healthy, standing, maximal forward flexion",
+ "quantity": {
+  "name": "lumbopelvic ratio L/P (full flexion)",
+  "definition": "full lumbar RoF / full pelvic (sacral) RoF from standing to max flexion. Lumbar angle = sum of Epionics segments lordotic in standing (lordosis negative, kyphosis positive); sacrum orientation = accelerometer angle vs gravity (pelvis surrogate). Full RoF = value at max (lumbar+sacrum) minus standing. Phase L/P = incremental lumbar change / incremental sacral change over 0-33% (early), 33-66% (middle), 66-100% (late) of total flexion (sum of both angles).",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Pries 2015",
+  "authors": "Pries E, Dreischarf M, Bashkuev M, Putzier M, Schmidt H",
+  "year": 2015,
+  "journal": "J Biomech 48(12):3080-3087",
+  "doi": "10.1016/j.jbiomech.2015.07.030",
+  "n": "309 subjects (134 M, 175 F)",
+  "sample": "asymptomatic volunteers, BMI<26, age 20-75 (subset of the Consmuller 2012 cohort of 429); age groups 20-35 (n=155), 36-50 (n=100), >50 (n=54) (file K02_Pries2015.pdf)",
+  "age": "38.4 (SD 14.0) y; range 20-75",
+  "sex": "134 M / 175 F",
+  "height_cm": "173.0 (SD 9.5); F 167.4, M 180.3",
+  "weight_kg": "67.5 (SD 10.1); F 61.4, M 75.5"
+ },
+ "protocol": {
+  "summary": "Whole-range L/P at maximal flexion; entire cohort from Table 1 (ratio of mean RoFs), sex medians Table 3, sex x age medians Table 2.",
+  "how_to_use": [
+   "At full flexion split lumbar+pelvis motion as lumbar = L/P/(1+L/P); entire cohort 0.72 -> lumbar 42%, pelvis 58% (skin-surface lumbar angle, sacral accelerometer).",
+   "Use the sex/age medians to adapt the end-of-range split: males 20-35 0.91 down to 0.65 for males >50; females ~0.65-0.70 at all ages.",
+   "For the time course within flexion use lp_ratio_phases (the ratio is not constant)."
+  ],
+  "measurement": {
+   "method": "skin-surface strain sensor (Epionics)",
+   "device": "Epionics SPINE: 2 paravertebral strain-gauge strips (12 x 2.5 cm segments) 7.5 cm lateral of midline + tri-axial accelerometer at PSIS level (sacrum orientation)",
+   "posture": "standing, knees extended",
+   "task": "5 x maximal upper-body forward flexion from relaxed standing at preferred speed"
+  },
+  "equations": [
+   "L/P_full = lumbar RoF / pelvic RoF"
+  ],
+  "subject_model": null,
+  "notes": "Table 1 entire-cohort value 0.72 equals 52.1/72.1 (ratio of means); sex/age values are medians (range). Note Epionics pelvic RoF (72 deg) is larger and L/P smaller than marker/IMU studies with T12/L1-S1 lumbar definitions (e.g. Tafazzol 1.14)."
+ },
+ "data": [
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": 0.72,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 309,
+   "phase": "flexion",
+   "group": "entire cohort",
+   "stat": "ratio of mean RoFs (Table 1)"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.21,
+   "max": 2.57,
+   "median": 0.81,
+   "n": 134,
+   "phase": "flexion",
+   "group": "males"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.17,
+   "max": 1.48,
+   "median": 0.68,
+   "n": 175,
+   "phase": "flexion",
+   "group": "females"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.21,
+   "max": 2.57,
+   "median": 0.91,
+   "n": null,
+   "phase": "flexion",
+   "group": "males 20-35"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.26,
+   "max": 1.5,
+   "median": 0.77,
+   "n": null,
+   "phase": "flexion",
+   "group": "males 36-50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.27,
+   "max": 1.57,
+   "median": 0.65,
+   "n": null,
+   "phase": "flexion",
+   "group": "males >50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.29,
+   "max": 1.48,
+   "median": 0.69,
+   "n": null,
+   "phase": "flexion",
+   "group": "females 20-35"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.26,
+   "max": 1.2,
+   "median": 0.7,
+   "n": null,
+   "phase": "flexion",
+   "group": "females 36-50"
+  },
+  {
+   "x": "full flexion",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 0.17,
+   "max": 1.24,
+   "median": 0.65,
+   "n": null,
+   "phase": "flexion",
+   "group": "females >50"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (current study row), Table 3, Table 2",
+  "method": "table",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "Rechecked against rendered Tables 2-3; abstract states decrease 0.80 to 0.65 with age (cohort)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__lp_ratio__lumbar-pelvis__healthy_standing__flexion_whole_range",
+ "tags": [
+  "in vivo",
+  "Epionics skin-surface sensor",
+  "standing",
+  "healthy",
+  "both sexes",
+  "age effect",
+  "sex effect",
+  "sagittal"
+ ],
+ "shared_sample_with": [
+  "kinematics.consmuller2012.rof_lumbar",
+  "kinematics.consmuller2012.roe_lumbar",
+  "kinematics.consmuller2012.lordosis_velocity",
+  "kinematics.dreischarf2014.rof_lumbar_total",
+  "kinematics.dreischarf2014.rof_lumbar_segmental",
+  "kinematics.dreischarf2014.roe_lumbar_total",
+  "kinematics.dreischarf2014.roe_lumbar_segmental",
+  "kinematics.dreischarf2014.lordosis_standing"
+ ]
+}

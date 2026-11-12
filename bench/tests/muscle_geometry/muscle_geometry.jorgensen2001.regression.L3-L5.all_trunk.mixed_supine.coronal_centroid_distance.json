@@ -1,0 +1,2504 @@
+{
+ "id": "muscle_geometry.jorgensen2001.regression.L3-L5.all_trunk.mixed_supine.coronal_centroid_distance",
+ "title": "Jorgensen 2001: sex-specific regressions of coronal-plane centroid distance (\"moment-arm\") on anthropometry, L3-L5",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L3",
+  "L4",
+  "L5"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips GyroScan, spin echo T1 (TR 240, TE 12)",
+  "plane": "transverse slices perpendicular to the table (scanner axial), through approximate centres of vertebral bodies T8-S1",
+  "slice_thickness_mm": 10,
+  "level_definition": "mid-vertebral-body level (T8..S1)",
+  "posture_detail": "supine, knees extended, hands across abdomen"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Jorgensen 2001",
+  "authors": "Jorgensen MJ, Marras WS, Granata KP, Wiand JW",
+  "year": 2001,
+  "journal": "Clin Biomech 16:182-193 (erratum Clin Biomech 16:547)",
+  "doi": "10.1016/S0268-0033(00)00087-5",
+  "n": "30 healthy subjects (20 F, 10 M)",
+  "sample": "young healthy volunteers, no activity-limiting back pain",
+  "age": "F 25.0 (7.2), M 26.4 (5.5) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Significant linear regressions (best 3-4 per muscle/side/sex/level) of MRI centroid distances (cm) on external anthropometry.",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "ERRATUM applied: TDICH, TWICH, TDXPH, TWXPH, TCIRH are divided by height in cm (cm/cm), not m. HT is not defined in Table 2; cm inferred. Equations predict cm. Sagittal equations predict signed values (posterior negative)."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD R F L3 15.58 -2.24 HTDWT 0.419 0.87 0.0050",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "15.58 - 2.24*HTDWT",
+   "coefficients": {
+    "intercept": 15.58,
+    "HTDWT": -2.24
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.419,
+   "see": 0.87,
+   "p": 0.005,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD R F L3 2.5 18.9 WTDHT 0.396 0.89 0.0068",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "2.5 + 18.9*WTDHT",
+   "coefficients": {
+    "intercept": 2.5,
+    "WTDHT": 18.9
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.396,
+   "see": 0.89,
+   "p": 0.0068,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD R F L3 3.45 0.27 BMI 0.381 0.90 0.0083",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "3.45 + 0.27*BMI",
+   "coefficients": {
+    "intercept": 3.45,
+    "BMI": 0.27
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.381,
+   "see": 0.9,
+   "p": 0.0083,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD L F L3 0.6 18.8 TCIRH 0.328 1.07 0.0130",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "0.6 + 18.8*TCIRH",
+   "coefficients": {
+    "intercept": 0.6,
+    "TCIRH": 18.8
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.328,
+   "see": 1.07,
+   "p": 0.013,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD L F L3 15.3 -2.07 HTDWT 0.317 0.97 0.0150",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "15.3 - 2.07*HTDWT",
+   "coefficients": {
+    "intercept": 15.3,
+    "HTDWT": -2.07
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.317,
+   "see": 0.97,
+   "p": 0.015,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 LD L F L3 3.93 0.25 BMI 0.308 0.98 0.0169",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "3.93 + 0.25*BMI",
+   "coefficients": {
+    "intercept": 3.93,
+    "BMI": 0.25
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.308,
+   "see": 0.98,
+   "p": 0.0169,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 LD L M L3 17.2 -6.06 TCIRW 0.725 0.49 0.0018",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "17.2 - 6.06*TCIRW",
+   "coefficients": {
+    "intercept": 17.2,
+    "TCIRW": -6.06
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.725,
+   "see": 0.49,
+   "p": 0.0018,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 LD L M L3 16.1 -2.5 HTDWT 0.717 0.45 0.0020",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "16.1 - 2.5*HTDWT",
+   "coefficients": {
+    "intercept": 16.1,
+    "HTDWT": -2.5
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.717,
+   "see": 0.45,
+   "p": 0.002,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES R F L3 1.99 0.024 WT 0.198 0.32 0.0493",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "1.99 + 0.024*WT",
+   "coefficients": {
+    "intercept": 1.99,
+    "WT": 0.024
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.198,
+   "see": 0.32,
+   "p": 0.0493,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES R F L3 2.05 0.014 HTWT 0.230 0.31 0.0326",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.05 + 0.014*HTWT",
+   "coefficients": {
+    "intercept": 2.05,
+    "HTWT": 0.014
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.23,
+   "see": 0.31,
+   "p": 0.0326,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES R M L3 6.14 -2.1 TCIRW 0.806 0.12 0.0004",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "6.14 - 2.1*TCIRW",
+   "coefficients": {
+    "intercept": 6.14,
+    "TCIRW": -2.1
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.806,
+   "see": 0.12,
+   "p": 0.0004,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES R M L3 6.0 -5.7 TWICW 0.790 0.13 0.0006",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "6 - 5.7*TWICW",
+   "coefficients": {
+    "intercept": 6.0,
+    "TWICW": -5.7
+   },
+   "predictor_units": {
+    "TWICW": "cm/kg"
+   },
+   "r2": 0.79,
+   "see": 0.13,
+   "p": 0.0006,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES R M L3 2.16 3.73 WTDHT 0.661 0.16 0.0042",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "2.16 + 3.73*WTDHT",
+   "coefficients": {
+    "intercept": 2.16,
+    "WTDHT": 3.73
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.661,
+   "see": 0.16,
+   "p": 0.0042,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES L F L3 2.44 0.011 HTWT 0.211 0.27 0.0415",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.44 + 0.011*HTWT",
+   "coefficients": {
+    "intercept": 2.44,
+    "HTWT": 0.011
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.211,
+   "see": 0.27,
+   "p": 0.0415,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES L M L3 5.76 -1.6 TCIRW 0.672 0.13 0.0037",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "5.76 - 1.6*TCIRW",
+   "coefficients": {
+    "intercept": 5.76,
+    "TCIRW": -1.6
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.672,
+   "see": 0.13,
+   "p": 0.0037,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES L M L3 5.7 -4.42 TWICW 0.662 0.13 0.0042",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "5.7 - 4.42*TWICW",
+   "coefficients": {
+    "intercept": 5.7,
+    "TWICW": -4.42
+   },
+   "predictor_units": {
+    "TWICW": "cm/kg"
+   },
+   "r2": 0.662,
+   "see": 0.13,
+   "p": 0.0042,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES L M L3 5.35 -0.6 HTDWT 0.555 0.15 0.0135",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "5.35 - 0.6*HTDWT",
+   "coefficients": {
+    "intercept": 5.35,
+    "HTDWT": -0.6
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.555,
+   "see": 0.15,
+   "p": 0.0135,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 RA L M L3 -2.15 0.24 BMI 0.546 0.53 0.0146",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-2.15 + 0.24*BMI",
+   "coefficients": {
+    "intercept": -2.15,
+    "BMI": 0.24
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.546,
+   "see": 0.53,
+   "p": 0.0146,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L3 5.9 13.9 WTDHT 0.491 0.55 0.0006",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "5.9 + 13.9*WTDHT",
+   "coefficients": {
+    "intercept": 5.9,
+    "WTDHT": 13.9
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.491,
+   "see": 0.55,
+   "p": 0.0006,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L3 15.5 -1.6 HTDWT 0.484 0.55 0.0007",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "15.5 - 1.6*HTDWT",
+   "coefficients": {
+    "intercept": 15.5,
+    "HTDWT": -1.6
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.484,
+   "see": 0.55,
+   "p": 0.0007,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L3 6.49 0.20 BMI 0.455 0.57 0.0011",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "6.49 + 0.2*BMI",
+   "coefficients": {
+    "intercept": 6.49,
+    "BMI": 0.2
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.455,
+   "see": 0.57,
+   "p": 0.0011,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L3 1.15 0.066 HT 0.710 0.41 0.0022",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "1.15 + 0.066*HT",
+   "coefficients": {
+    "intercept": 1.15,
+    "HT": 0.066
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.71,
+   "see": 0.41,
+   "p": 0.0022,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L3 10.0 0.02 HTWT 0.690 0.42 0.0029",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "10 + 0.02*HTWT",
+   "coefficients": {
+    "intercept": 10.0,
+    "HTWT": 0.02
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.69,
+   "see": 0.42,
+   "p": 0.0029,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L3 9.34 0.043 WT 0.649 0.45 0.0049",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "9.34 + 0.043*WT",
+   "coefficients": {
+    "intercept": 9.34,
+    "WT": 0.043
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.649,
+   "see": 0.45,
+   "p": 0.0049,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L3 3.48 0.26 TWXP 0.272 0.83 0.0183",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.48 + 0.26*TWXP",
+   "coefficients": {
+    "intercept": 3.48,
+    "TWXP": 0.26
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.272,
+   "see": 0.83,
+   "p": 0.0183,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L3 15.0 -1.52 HTDWT 0.269 0.83 0.0192",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "15 - 1.52*HTDWT",
+   "coefficients": {
+    "intercept": 15.0,
+    "HTDWT": -1.52
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.269,
+   "see": 0.83,
+   "p": 0.0192,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L3 6.2 12.4 WTDHT 0.248 0.84 0.0255",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "6.2 + 12.4*WTDHT",
+   "coefficients": {
+    "intercept": 6.2,
+    "WTDHT": 12.4
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.248,
+   "see": 0.84,
+   "p": 0.0255,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L3 4.84 16.6 WTDHT 0.830 0.45 0.0002",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "4.84 + 16.6*WTDHT",
+   "coefficients": {
+    "intercept": 4.84,
+    "WTDHT": 16.6
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.83,
+   "see": 0.45,
+   "p": 0.0002,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L3 20.1 -3.45 HTDWT 0.818 0.46 0.0003",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "20.1 - 3.45*HTDWT",
+   "coefficients": {
+    "intercept": 20.1,
+    "HTDWT": -3.45
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.818,
+   "see": 0.46,
+   "p": 0.0003,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L3 2.09 0.4 BMI 0.801 0.48 0.0005",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "2.09 + 0.4*BMI",
+   "coefficients": {
+    "intercept": 2.09,
+    "BMI": 0.4
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.801,
+   "see": 0.48,
+   "p": 0.0005,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L3 0.97 0.42 BMI 0.677 0.67 0.0001",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "0.97 + 0.42*BMI",
+   "coefficients": {
+    "intercept": 0.97,
+    "BMI": 0.42
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.677,
+   "see": 0.67,
+   "p": 0.0001,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L3 1.26 24.2 WTDHT 0.609 0.74 0.0001",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "1.26 + 24.2*WTDHT",
+   "coefficients": {
+    "intercept": 1.26,
+    "WTDHT": 24.2
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.609,
+   "see": 0.74,
+   "p": 0.0001,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L3 17.7 -2.77 HTDWT 0.595 0.75 0.0002",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "17.7 - 2.77*HTDWT",
+   "coefficients": {
+    "intercept": 17.7,
+    "HTDWT": -2.77
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.595,
+   "see": 0.75,
+   "p": 0.0002,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L3 0.45 0.43 BMI 0.481 1.03 0.0014",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "0.45 + 0.43*BMI",
+   "coefficients": {
+    "intercept": 0.45,
+    "BMI": 0.43
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.481,
+   "see": 1.03,
+   "p": 0.0014,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L3 17.4 -2.77 HTDWT 0.403 1.10 0.0047",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "17.4 - 2.77*HTDWT",
+   "coefficients": {
+    "intercept": 17.4,
+    "HTDWT": -2.77
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.403,
+   "see": 1.1,
+   "p": 0.0047,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L3 1.1 23.8 WTDHT 0.398 1.11 0.0050",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "1.1 + 23.8*WTDHT",
+   "coefficients": {
+    "intercept": 1.1,
+    "WTDHT": 23.8
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.398,
+   "see": 1.11,
+   "p": 0.005,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO L M L3 -21.5 188.3 TWICH 0.504 1.03 0.0322",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-21.5 + 188.3*TWICH",
+   "coefficients": {
+    "intercept": -21.5,
+    "TWICH": 188.3
+   },
+   "predictor_units": {
+    "TWICH": "cm/cm (erratum)"
+   },
+   "r2": 0.504,
+   "see": 1.03,
+   "p": 0.0322,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L3 0.41 0.11 TWXP 0.531 0.22 0.0169",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "0.41 + 0.11*TWXP",
+   "coefficients": {
+    "intercept": 0.41,
+    "TWXP": 0.11
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.531,
+   "see": 0.22,
+   "p": 0.0169,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L3 -0.2 0.02 HT 0.496 0.23 0.0229",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-0.2 + 0.02*HT",
+   "coefficients": {
+    "intercept": -0.2,
+    "HT": 0.02
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.496,
+   "see": 0.23,
+   "p": 0.0229,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L3 0.7 0.1 TWXP 0.412 0.25 0.0456",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "0.7 + 0.1*TWXP",
+   "coefficients": {
+    "intercept": 0.7,
+    "TWXP": 0.1
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.412,
+   "see": 0.25,
+   "p": 0.0456,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 QL L M L3 0.83 0.18 TWIC 0.401 0.54 0.0492",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "0.83 + 0.18*TWIC",
+   "coefficients": {
+    "intercept": 0.83,
+    "TWIC": 0.18
+   },
+   "predictor_units": {
+    "TWIC": "cm"
+   },
+   "r2": 0.401,
+   "see": 0.54,
+   "p": 0.0492,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 QL L M L3 0.46 0.174 TWTR 0.412 0.54 0.0453",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L3",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "0.46 + 0.174*TWTR",
+   "coefficients": {
+    "intercept": 0.46,
+    "TWTR": 0.174
+   },
+   "predictor_units": {
+    "TWTR": "cm"
+   },
+   "r2": 0.412,
+   "see": 0.54,
+   "p": 0.0453,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES R F L4 2.27 0.02 WT 0.200 0.26 0.0478",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.27 + 0.02*WT",
+   "coefficients": {
+    "intercept": 2.27,
+    "WT": 0.02
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.2,
+   "see": 0.26,
+   "p": 0.0478,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES R F L4 2.33 0.011 HTWT 0.229 0.26 0.0328",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.33 + 0.011*HTWT",
+   "coefficients": {
+    "intercept": 2.33,
+    "HTWT": 0.011
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.229,
+   "see": 0.26,
+   "p": 0.0328,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES L F L4 -0.82 0.026 HT 0.259 0.27 0.0219",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-0.82 + 0.026*HT",
+   "coefficients": {
+    "intercept": -0.82,
+    "HT": 0.026
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.259,
+   "see": 0.27,
+   "p": 0.0219,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES L F L4 2.096 0.024 WT 0.259 0.27 0.0219",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.096 + 0.024*WT",
+   "coefficients": {
+    "intercept": 2.096,
+    "WT": 0.024
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.259,
+   "see": 0.27,
+   "p": 0.0219,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 ES L F L4 2.05 0.015 HTWT 0.350 0.25 0.0060",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "2.05 + 0.015*HTWT",
+   "coefficients": {
+    "intercept": 2.05,
+    "HTWT": 0.015
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.35,
+   "see": 0.25,
+   "p": 0.006,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES L M L4 2.9 -5.6 TWICW 0.525 0.22 0.0178",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "2.9 - 5.6*TWICW",
+   "coefficients": {
+    "intercept": 2.9,
+    "TWICW": -5.6
+   },
+   "predictor_units": {
+    "TWICW": "cm/kg"
+   },
+   "r2": 0.525,
+   "see": 0.22,
+   "p": 0.0178,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 ES L M L4 6.1 -2.1 TCIRW 0.567 0.21 0.0119",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "6.1 - 2.1*TCIRW",
+   "coefficients": {
+    "intercept": 6.1,
+    "TCIRW": -2.1
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.567,
+   "see": 0.21,
+   "p": 0.0119,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 RA L M L4 -5.44 0.278 TWXP 0.443 0.67 0.0357",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-5.44 + 0.278*TWXP",
+   "coefficients": {
+    "intercept": -5.44,
+    "TWXP": 0.278
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.443,
+   "see": 0.67,
+   "p": 0.0357,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 RA L M L4 -6.94 57.0 TWXPH 0.400 0.70 0.0497",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-6.94 + 57*TWXPH",
+   "coefficients": {
+    "intercept": -6.94,
+    "TWXPH": 57.0
+   },
+   "predictor_units": {
+    "TWXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.4,
+   "see": 0.7,
+   "p": 0.0497,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L4 3.96 0.27 TWXP 0.355 0.69 0.0056",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.96 + 0.27*TWXP",
+   "coefficients": {
+    "intercept": 3.96,
+    "TWXP": 0.27
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.355,
+   "see": 0.69,
+   "p": 0.0056,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L4 6.93 0.073 WT 0.312 0.72 0.0105",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "6.93 + 0.073*WT",
+   "coefficients": {
+    "intercept": 6.93,
+    "WT": 0.073
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.312,
+   "see": 0.72,
+   "p": 0.0105,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO R F L4 6.83 12.34 WTDHT 0.310 0.72 0.0108",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "6.83 + 12.34*WTDHT",
+   "coefficients": {
+    "intercept": 6.83,
+    "WTDHT": 12.34
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.31,
+   "see": 0.72,
+   "p": 0.0108,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L4 1.22 0.066 HT 0.771 0.34 0.0008",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "1.22 + 0.066*HT",
+   "coefficients": {
+    "intercept": 1.22,
+    "HT": 0.066
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.771,
+   "see": 0.34,
+   "p": 0.0008,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L4 10.0 0.05 HTWT 0.749 0.36 0.0012",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "10 + 0.05*HTWT",
+   "coefficients": {
+    "intercept": 10.0,
+    "HTWT": 0.05
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.749,
+   "see": 0.36,
+   "p": 0.0012,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO R M L4 4.86 0.261 TWIC 0.736 0.37 0.0015",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "4.86 + 0.261*TWIC",
+   "coefficients": {
+    "intercept": 4.86,
+    "TWIC": 0.261
+   },
+   "predictor_units": {
+    "TWIC": "cm"
+   },
+   "r2": 0.736,
+   "see": 0.37,
+   "p": 0.0015,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L4 4.58 0.23 TWXP 0.232 0.81 0.0316",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "4.58 + 0.23*TWXP",
+   "coefficients": {
+    "intercept": 4.58,
+    "TWXP": 0.23
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.232,
+   "see": 0.81,
+   "p": 0.0316,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L4 14.6 -1.32 HTDWT 0.224 0.82 0.0349",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "14.6 - 1.32*HTDWT",
+   "coefficients": {
+    "intercept": 14.6,
+    "HTDWT": -1.32
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.224,
+   "see": 0.82,
+   "p": 0.0349,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 EO L F L4 6.96 11.0 WTDHT 0.215 0.82 0.0396",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "6.96 + 11*WTDHT",
+   "coefficients": {
+    "intercept": 6.96,
+    "WTDHT": 11.0
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.215,
+   "see": 0.82,
+   "p": 0.0396,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L4 6.93 0.066 WT 0.897 0.32 0.0001",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "6.93 + 0.066*WT",
+   "coefficients": {
+    "intercept": 6.93,
+    "WT": 0.066
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.897,
+   "see": 0.32,
+   "p": 0.0001,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L4 5.13 15.6 WTDHT 0.891 0.32 0.0001",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "5.13 + 15.6*WTDHT",
+   "coefficients": {
+    "intercept": 5.13,
+    "WTDHT": 15.6
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.891,
+   "see": 0.32,
+   "p": 0.0001,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 EO L M L4 19.44 -3.24 HTDWT 0.883 0.33 0.0001",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "19.44 - 3.24*HTDWT",
+   "coefficients": {
+    "intercept": 19.44,
+    "HTDWT": -3.24
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.883,
+   "see": 0.33,
+   "p": 0.0001,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L4 3.49 0.247 TWXP 0.308 0.71 0.0169",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "3.49 + 0.247*TWXP",
+   "coefficients": {
+    "intercept": 3.49,
+    "TWXP": 0.247
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.308,
+   "see": 0.71,
+   "p": 0.0169,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L4 4.25 12.7 TCIRH 0.305 0.66 0.0214",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "4.25 + 12.7*TCIRH",
+   "coefficients": {
+    "intercept": 4.25,
+    "TCIRH": 12.7
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.305,
+   "see": 0.66,
+   "p": 0.0214,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO R F L4 6.14 11.4 WTDHT 0.258 0.73 0.0312",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "6.14 + 11.4*WTDHT",
+   "coefficients": {
+    "intercept": 6.14,
+    "WTDHT": 11.4
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.258,
+   "see": 0.73,
+   "p": 0.0312,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO R M L4 5.2 0.2 TWIC 0.502 0.48 0.0219",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "5.2 + 0.2*TWIC",
+   "coefficients": {
+    "intercept": 5.2,
+    "TWIC": 0.2
+   },
+   "predictor_units": {
+    "TWIC": "cm"
+   },
+   "r2": 0.502,
+   "see": 0.48,
+   "p": 0.0219,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO R M L4 3.4 0.045 HT 0.411 0.52 0.0456",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "3.4 + 0.045*HT",
+   "coefficients": {
+    "intercept": 3.4,
+    "HT": 0.045
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.411,
+   "see": 0.52,
+   "p": 0.0456,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L4 4.87 0.236 BMI 0.404 0.67 0.0046",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "4.87 + 0.236*BMI",
+   "coefficients": {
+    "intercept": 4.87,
+    "BMI": 0.236
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.404,
+   "see": 0.67,
+   "p": 0.0046,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L4 14.3 -1.55 HTDWT 0.346 0.70 0.0102",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "14.3 - 1.55*HTDWT",
+   "coefficients": {
+    "intercept": 14.3,
+    "HTDWT": -1.55
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.346,
+   "see": 0.7,
+   "p": 0.0102,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 IO L F L4 5.1 13.54 WTDHT 0.353 0.69 0.0093",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "5.1 + 13.54*WTDHT",
+   "coefficients": {
+    "intercept": 5.1,
+    "WTDHT": 13.54
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.353,
+   "see": 0.69,
+   "p": 0.0093,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO L M L4 16.4 -2.57 HTDWT 0.744 0.43 0.0013",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "16.4 - 2.57*HTDWT",
+   "coefficients": {
+    "intercept": 16.4,
+    "HTDWT": -2.57
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.744,
+   "see": 0.43,
+   "p": 0.0013,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO L M L4 5.1 12.3 WTDHT 0.745 0.43 0.0013",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "5.1 + 12.3*WTDHT",
+   "coefficients": {
+    "intercept": 5.1,
+    "WTDHT": 12.3
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.745,
+   "see": 0.43,
+   "p": 0.0013,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 IO L M L4 6.68 0.05 WT 0.700 0.46 0.0025",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "6.68 + 0.05*WT",
+   "coefficients": {
+    "intercept": 6.68,
+    "WT": 0.05
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.7,
+   "see": 0.46,
+   "p": 0.0025,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L4 0.856 0.117 TWXP 0.472 0.27 0.0282",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "0.856 + 0.117*TWXP",
+   "coefficients": {
+    "intercept": 0.856,
+    "TWXP": 0.117
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.472,
+   "see": 0.27,
+   "p": 0.0282,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L4 0.358 0.024 HT 0.411 0.28 0.0459",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "0.358 + 0.024*HT",
+   "coefficients": {
+    "intercept": 0.358,
+    "HT": 0.024
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.411,
+   "see": 0.28,
+   "p": 0.0459,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L4 1.04 0.1 TWTR 0.419 0.29 0.0432",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "1.04 + 0.1*TWTR",
+   "coefficients": {
+    "intercept": 1.04,
+    "TWTR": 0.1
+   },
+   "predictor_units": {
+    "TWTR": "cm"
+   },
+   "r2": 0.419,
+   "see": 0.29,
+   "p": 0.0432,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L4 0.693 0.114 TWXP 0.407 0.30 0.0472",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "0.693 + 0.114*TWXP",
+   "coefficients": {
+    "intercept": 0.693,
+    "TWXP": 0.114
+   },
+   "predictor_units": {
+    "TWXP": "cm"
+   },
+   "r2": 0.407,
+   "see": 0.3,
+   "p": 0.0472,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L4 -0.43 0.025 HT 0.398 0.30 0.0506",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-0.43 + 0.025*HT",
+   "coefficients": {
+    "intercept": -0.43,
+    "HT": 0.025
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.398,
+   "see": 0.3,
+   "p": 0.0506,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 QL L F L4 -2.148 0.054 HT 0.223 0.64 0.0481",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "-2.148 + 0.054*HT",
+   "coefficients": {
+    "intercept": -2.148,
+    "HT": 0.054
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.223,
+   "see": 0.64,
+   "p": 0.0481,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 QL L F L4 9.99 -6.58 TWICW 0.223 0.64 0.0478",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L4",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "9.99 - 6.58*TWICW",
+   "coefficients": {
+    "intercept": 9.99,
+    "TWICW": -6.58
+   },
+   "predictor_units": {
+    "TWICW": "cm/kg"
+   },
+   "r2": 0.223,
+   "see": 0.64,
+   "p": 0.0478,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 RA R F L5 -1.18 3.75 TCIRW 0.221 0.83 0.0421",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-1.18 + 3.75*TCIRW",
+   "coefficients": {
+    "intercept": -1.18,
+    "TCIRW": 3.75
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.221,
+   "see": 0.83,
+   "p": 0.0421,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 RA R M L5 15.1 -63.9 TWICH 0.516 0.38 0.0193",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "15.1 - 63.9*TWICH",
+   "coefficients": {
+    "intercept": 15.1,
+    "TWICH": -63.9
+   },
+   "predictor_units": {
+    "TWICH": "cm/cm (erratum)"
+   },
+   "r2": 0.516,
+   "see": 0.38,
+   "p": 0.0193,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 RA L M L5 -3.08 0.25 BMI 0.502 0.60 0.0218",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-3.08 + 0.25*BMI",
+   "coefficients": {
+    "intercept": -3.08,
+    "BMI": 0.25
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.502,
+   "see": 0.6,
+   "p": 0.0218,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L5 1.15 0.02 HT 0.418 0.27 0.0435",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "1.15 + 0.02*HT",
+   "coefficients": {
+    "intercept": 1.15,
+    "HT": 0.02
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.418,
+   "see": 0.27,
+   "p": 0.0435,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS R M L5 2.3 0.085 TWTR 0.399 0.27 0.0501",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "2.3 + 0.085*TWTR",
+   "coefficients": {
+    "intercept": 2.3,
+    "TWTR": 0.085
+   },
+   "predictor_units": {
+    "TWTR": "cm"
+   },
+   "r2": 0.399,
+   "see": 0.27,
+   "p": 0.0501,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "6 PS L F L5 6.3 -1.35 TCIRW 0.209 0.31 0.0494",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "6.3 - 1.35*TCIRW",
+   "coefficients": {
+    "intercept": 6.3,
+    "TCIRW": -1.35
+   },
+   "predictor_units": {
+    "TCIRW": "cm/kg"
+   },
+   "r2": 0.209,
+   "see": 0.31,
+   "p": 0.0494,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L5 -0.92 0.2 TWIC 0.814 0.22 0.0004",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-0.92 + 0.2*TWIC",
+   "coefficients": {
+    "intercept": -0.92,
+    "TWIC": 0.2
+   },
+   "predictor_units": {
+    "TWIC": "cm"
+   },
+   "r2": 0.814,
+   "see": 0.22,
+   "p": 0.0004,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L5 -3.31 0.05 HT 0.787 0.24 0.0006",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-3.31 + 0.05*HT",
+   "coefficients": {
+    "intercept": -3.31,
+    "HT": 0.05
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.787,
+   "see": 0.24,
+   "p": 0.0006,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "6 PS L M L5 3.13 0.01 HTWT 0.681 0.29 0.0033",
+   "predicted": "coronal (ML) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "3.13 + 0.01*HTWT",
+   "coefficients": {
+    "intercept": 3.13,
+    "HTWT": 0.01
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.681,
+   "see": 0.29,
+   "p": 0.0033,
+   "output_unit": "cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 6 + Erratum (Clin Biomech 16:547)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "All equations checked on rendered pages 187-189 (rotated tables); row-to-muscle assignment for male column taken from the image, not the layout text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_mri_30",
+  "regression",
+  "erratum"
+ ]
+}

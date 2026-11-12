@@ -1,0 +1,134 @@
+{
+ "id": "msk_emg_posture.koopman2020b.static_bending_L5S1_moment_noexo",
+ "title": "Net L5/S1 moment in static forward bending at six hand heights, no exoskeleton (luggage handlers)",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "static posture net moment (inverse dynamics)",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo, healthy, WITHOUT exoskeleton",
+ "quantity": {
+  "name": "L5S1 net flexion-extension moment (ML5S1_total)",
+  "definition": "bottom-up inverse dynamics, average over hold; mean ± SD (error bars assumed SD)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Koopman 2020b",
+  "authors": "Koopman AS, Näf M, Baltrusch SJ, Kingma I, Rodriguez-Guerrero C, Babič J, de Looze MP, van Dieën JH",
+  "year": 2020,
+  "journal": "J Biomech 105:109795",
+  "doi": "10.1016/j.jbiomech.2020.109795",
+  "n": 10,
+  "sample": "10 healthy male luggage handlers (KLM)",
+  "age": "46.4 ± 8.7 yr",
+  "sex": "male",
+  "height_cm": 175,
+  "weight_kg": 83.6
+ },
+ "protocol": {
+  "summary": "Static forward bending, arms vertically down, hands at 6 heights relative to upright hand height: 100% (upright), 95%, 80%, 60%, 20%, 0% (touching floor); knees straight (slight flexion allowed if floor not reachable); ~5 s hold; no hand load; WITHOUT exoskeleton condition only. Average values over hold.",
+  "how_to_simulate": [
+   "Scale model to a 175 cm, 83.6 kg male; no hand load",
+   "Impose static postures at the 6 hand heights; lumbar flexion WITHOUT ~1/31/42/55/64/67 deg (SD ~12/10/9/8/8)",
+   "Compare net L5-S1 extension moment"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 46.4,
+   "height_cm": 175,
+   "weight_kg": 83.6,
+   "disc_area_mm2": null,
+   "source": "Koopman 2020b Methods 2.2 (mean of 10 males; 1.75 ± 0.07 m, 83.6 ± 16.2 kg)"
+  },
+  "notes": "Lumbar flexion (WITHOUT, digitised Fig. 3): 100% ~1, 95% 31.4±11.6, 80% 42.3±9.7, 60% 54.9±9.0, 20% 63.7±8.3, 0% 67.4±7.9 deg."
+ },
+ "data": [
+  {
+   "x": "hand height 100%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 21,
+   "sd": 22,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "hand height 95%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 99,
+   "sd": 33,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "hand height 80%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 115,
+   "sd": 28,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "hand height 60%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 125,
+   "sd": 33,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "hand height 20%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 123,
+   "sd": 38,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "hand height 0%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 115,
+   "sd": 44,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Fig. 3 'Total moment L5S1' WITHOUT bars",
+  "method": "digitised_figure",
+  "uncertainty": "±2 Nm (mean), ±3 Nm (SD)",
+  "checked": true,
+  "check_notes": "Digitised with outline correction (bar edge = line centre); first raw pass 19.7/98.3/114.0/124.0/121.4/113.5, corrected 20.7/99.3/115.1/125.1/122.5/114.6 -> rounded. Text: 8.1 Nm = 8.1% reduction implies ~100 Nm average, consistent."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_emg_posture__L5S1_moment__static_forward_bending_hand_heights_no_load",
+ "tags": [
+  "in vivo",
+  "inverse dynamics",
+  "static",
+  "forward bending",
+  "older workers"
+ ]
+}

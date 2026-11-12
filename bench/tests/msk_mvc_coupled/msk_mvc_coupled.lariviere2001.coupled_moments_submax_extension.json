@@ -1,0 +1,202 @@
+{
+ "id": "msk_mvc_coupled.lariviere2001.coupled_moments_submax_extension",
+ "title": "Coupled lateral-bending and axial-rotation moments at L5/S1 during 20-80% MVC extension ramps (upright), males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "coupled_moments_submaximal",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "static extension ramp contractions 0-100% MVC with visual feedback of extension moment only (1D), upright standing",
+ "quantity": {
+  "name": "L5/S1 moments during extension effort",
+  "definition": "Mext, |Mlat| and |Mrot| at L5/S1 at 20/40/60/80% of extension MVC, averaged over three ramp trials; lateral and axial values converted to absolute values before averaging",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Lariviere 2001",
+  "authors": "Lariviere C, Gagnon D, Gravel D, Arsenault AB, Dumas JP, Goyette M, Loisel P",
+  "year": 2001,
+  "journal": "Clin Biomech 16:80-83",
+  "doi": "10.1016/S0268-0033(00)00068-1",
+  "n": "14 healthy males",
+  "sample": "healthy males, no back problem in preceding 6 months, in vivo",
+  "age": "33±11 y",
+  "sex": "M",
+  "height_cm": "177±5",
+  "weight_kg": "73±13"
+ },
+ "protocol": {
+  "summary": "Static triaxial dynamometer: subject stands erect, knees held in extension (pad), feet stabilised by wooden blocks, pelvis stabilised by a sacral pad and two pads over the ASIS; force platform (AMTI MC6-6-1000) at shoulder level contacted by an upper-back pad; trunk assumed vertical; moments computed at the L5/S1 joint centre (located from ASIS/PSIS: 50% of ASIS-PSIS distance from PSIS, 15 mm above). Three 7-s ramp contractions (0-100% MVC) following a moving target with a 10% tolerance band; 90 s rest.",
+  "how_to_simulate": [
+   "Upright standing, pelvis fixed, trunk vertical.",
+   "Apply extension moments of 51.5, 101.7, 152.1, 202.0 Nm at L5/S1 via an upper-back (shoulder-level) contact.",
+   "If the model predicts out-of-plane moments (e.g. with asymmetric muscle recruitment or contact), compare |lateral| and |axial| L5/S1 moments with data; otherwise use as the coupled-moment envelope (tolerance mean+2SD given in paper)."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 33,
+   "height_cm": 177,
+   "weight_kg": 73,
+   "disc_area_mm2": null,
+   "source": "Methods text (mean of 14 males)"
+  },
+  "notes": "Coupled moments are absolute (unsigned) values - not comparable to signed means (e.g. Ghezelbash 2018). Paper's tolerance limits (mean+2SD): lateral 2.7/5.3/9.5/19.4 Nm, axial 1.7/3.6/8.9/15.2 Nm."
+ },
+ "data": [
+  {
+   "x": "20% extension MVC",
+   "component": "primary_extension_moment",
+   "sex": "M",
+   "mean": 51.5,
+   "sd": 10.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "40% extension MVC",
+   "component": "primary_extension_moment",
+   "sex": "M",
+   "mean": 101.7,
+   "sd": 20.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "60% extension MVC",
+   "component": "primary_extension_moment",
+   "sex": "M",
+   "mean": 152.1,
+   "sd": 32.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "80% extension MVC",
+   "component": "primary_extension_moment",
+   "sex": "M",
+   "mean": 202.0,
+   "sd": 41.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "20% extension MVC",
+   "component": "coupled_lateral_bending_moment_abs",
+   "sex": "M",
+   "mean": 0.9,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "40% extension MVC",
+   "component": "coupled_lateral_bending_moment_abs",
+   "sex": "M",
+   "mean": 1.8,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "60% extension MVC",
+   "component": "coupled_lateral_bending_moment_abs",
+   "sex": "M",
+   "mean": 3.3,
+   "sd": 3.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "80% extension MVC",
+   "component": "coupled_lateral_bending_moment_abs",
+   "sex": "M",
+   "mean": 6.2,
+   "sd": 6.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "20% extension MVC",
+   "component": "coupled_axial_rotation_moment_abs",
+   "sex": "M",
+   "mean": 0.9,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "40% extension MVC",
+   "component": "coupled_axial_rotation_moment_abs",
+   "sex": "M",
+   "mean": 1.8,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "60% extension MVC",
+   "component": "coupled_axial_rotation_moment_abs",
+   "sex": "M",
+   "mean": 3.7,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "80% extension MVC",
+   "component": "coupled_axial_rotation_moment_abs",
+   "sex": "M",
+   "mean": 6.1,
+   "sd": 4.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 Nm)",
+  "checked": true,
+  "check_notes": "Table 1 re-read; 80% values match abstract (6.2±6.6, 6.1±4.5); mean+2SD reproduces paper's tolerance limits within rounding."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model coupled |M| within mean+2SD (paper's tolerance)"
+ },
+ "combine_group": "msk_mvc_coupled__coupled_moment_abs__L5-S1__upright_standing__extension_submax",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "coupled moments",
+  "extension",
+  "submaximal",
+  "upright standing",
+  "male"
+ ]
+}

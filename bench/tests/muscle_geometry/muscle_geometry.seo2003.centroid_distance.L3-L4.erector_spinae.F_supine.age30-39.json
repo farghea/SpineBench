@@ -1,0 +1,95 @@
+{
+ "id": "muscle_geometry.seo2003.centroid_distance.L3-L4.erector_spinae.F_supine.age30-39",
+ "title": "Seo 2003: centroid distance of erector spinae at L3-L4 (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "F_supine",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "MALES",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (Hitachi MRP-20)",
+  "plane": "transverse cross-sectional image at L3/4 (orientation relative to disc not stated)",
+  "slice_thickness_mm": null,
+  "level_definition": "L3/4 (disc level)",
+  "posture_detail": "supine (Discussion)"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm; AP distance between ellipse centres (long/short axis intersection) of muscle and vertebral body; mean of right and left",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Seo 2003",
+  "authors": "Seo A, Lee JH, Kusaka Y",
+  "year": 2003,
+  "journal": "J Occup Health 45:197-201",
+  "doi": "10.1539/joh.45.197",
+  "n": "250 subjects (152 M, 98 F)",
+  "sample": "healthy Japanese volunteers without back-pain treatment, age 15-75",
+  "age": "M 36.2 (13.1), F 39.7 (9.9) y",
+  "sex": "152M/98F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a transverse plane at the L3/L4 level.",
+   "Take the PCSA-weighted centroid of erector spinae (each side) in that plane and its AP offset from the vertebral body centre.",
+   "Average right and left and compare (+ anterior / - posterior). Centroid distance, not a moment arm."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": "age30-39",
+   "height_cm": 155.7,
+   "weight_kg": 53.8,
+   "disc_area_mm2": null,
+   "n": 32,
+   "source": "Table 1 (height SD 4.8, weight SD 5.0)"
+  },
+  "notes": "Paper does not say whether multifidus is included in \"erector spinae\" (size ~24 cm2/side in men suggests the whole paraspinal mass). Authors call it moment arm length. cm -> mm."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "both_mean",
+   "mean": -48.7,
+   "sd": 3.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 32,
+   "as_reported": "4.87 (0.35) cm",
+   "note": "sign set negative (posterior)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 1 single-line rows, unambiguous in text; re-read all values."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L3-L4__erector_spinae__F_supine__age30-39",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "supine",
+  "age classes"
+ ]
+}

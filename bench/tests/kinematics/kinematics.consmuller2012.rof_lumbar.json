@@ -1,0 +1,118 @@
+{
+ "id": "kinematics.consmuller2012.rof_lumbar",
+ "title": "Lumbar lordosis range of flexion by age (Epionics, 429 volunteers)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (Epionics lordotic segments)"
+ ],
+ "condition": "healthy, standing, maximal flexion",
+ "quantity": {
+  "name": "lumbar range of flexion",
+  "definition": "Change of lumbar lordosis angle (sum of segments lordotic in standing) between upright standing and maximal flexion (RoM flexion) or maximal extension (RoM extension); the paper's wording ('difference of the lordosis angle at maximum flexion and maximum extension respectively') is read as each relative to standing, consistent with Dreischarf 2014 on the same device.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Consmuller 2012",
+  "authors": "Consmuller T, Rohlmann A, Weinland D, Druschel C, Duda GN, Taylor WR",
+  "year": 2012,
+  "journal": "PLoS One 7(11):e50135",
+  "doi": "10.1371/journal.pone.0050135",
+  "n": "429 subjects (198 M, 231 F)",
+  "sample": "asymptomatic volunteers aged 20-75 (no LBP in 6 months, no spinal surgery); age classes 20-35 (n=189), 36-50 (n=146), 51-75 (n=94); no BMI exclusion",
+  "age": "F 40.0 (SD 15.2) y, M 39.3 (SD 13.6) y; range 20-75",
+  "sex": "198 M / 231 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Lumbar lordosis RoM in flexion by age class, 429 asymptomatic adults, Epionics SPINE (Table 1).",
+  "how_to_use": [
+   "Use as the lumbar contribution at maximal flexion for a subject of matching age class.",
+   "Age reduces lumbar RoM (flexion 54.0 -> 45.1 deg; extension 29.7 -> 19.5 deg from 20-35 to 51-75 y).",
+   "This sample includes BMI>26 subjects and fully contains the Dreischarf 2014 and Pries 2015 samples: prefer those for sex-specific values and do not pool."
+  ],
+  "measurement": {
+   "method": "skin-surface strain sensor (Epionics)",
+   "device": "Epionics SPINE strain-gauge strips 5 cm lateral of midline, lowest segment at PSIS; 50 Hz",
+   "posture": "standing, knees extended",
+   "task": "5 x maximal flexion and 5 x maximal extension at preferred speed"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Same Charite/Epionics volunteer database: Consmuller 2012 = all 429; Dreischarf 2014 = 323 with BMI<26; Pries 2015 = 309 (BMI<26 and valid sacral accelerometer). Do not pool these as independent samples."
+ },
+ "data": [
+  {
+   "x": "max flexion",
+   "load": null,
+   "mean": 54.0,
+   "sd": 9.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 189,
+   "phase": "flexion",
+   "group": "20-35"
+  },
+  {
+   "x": "max flexion",
+   "load": null,
+   "mean": 50.3,
+   "sd": 10.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 146,
+   "phase": "flexion",
+   "group": "36-50"
+  },
+  {
+   "x": "max flexion",
+   "load": null,
+   "mean": 45.1,
+   "sd": 12.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 94,
+   "phase": "flexion",
+   "group": "51-75"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "'6' in text extraction is the +- glyph; values re-read from layout text of Table 1."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__lumbar__healthy_standing__max_forward_flexion",
+ "tags": [
+  "in vivo",
+  "Epionics skin-surface sensor",
+  "standing",
+  "healthy",
+  "both sexes",
+  "age effect",
+  "sagittal"
+ ],
+ "shared_sample_with": [
+  "kinematics.pries2015.lp_ratio_phases",
+  "kinematics.pries2015.lp_ratio_full",
+  "kinematics.pries2015.rof_lumbar",
+  "kinematics.pries2015.rof_pelvis",
+  "kinematics.pries2015.lumbar_sacrum_posture",
+  "kinematics.dreischarf2014.rof_lumbar_total",
+  "kinematics.dreischarf2014.rof_lumbar_segmental",
+  "kinematics.dreischarf2014.roe_lumbar_total",
+  "kinematics.dreischarf2014.roe_lumbar_segmental",
+  "kinematics.dreischarf2014.lordosis_standing"
+ ]
+}

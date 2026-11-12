@@ -1,0 +1,241 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_models_idp_combined",
+ "title": "FE-model range of intradiscal pressure under combined compression + moment (Dreischarf 2014 part 2)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "FE model range (not experimental)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact, combined loading",
+ "quantity": {
+  "name": "IDP (FE model predictions)",
+  "definition": "nucleus pressure per disc predicted by 6 models (5 in flexion): median and min-max across models. NOT experimental data.",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "6 FE models (5 for flexion)",
+  "sample": "six of the eight L1-L5 FE models",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Same combined loads as Table 3 (flexion 1175 N + 7.5 Nm; extension 500 N + 7.5 Nm; LB 700 N + 7.8 Nm; AR 720 N + 5.5 Nm).",
+  "how_to_simulate": [
+   "Fix L5",
+   "Apply follower compression + moment on L1 per Table 3",
+   "Read nucleus pressure in each disc L1-L2..L4-L5"
+  ],
+  "subject_model": null,
+  "notes": "Only L4-L5 has an in vivo comparator (Wilke 2001, one subject: flexion 1.6, extension 0.59, LB 0.59, AR 0.63 MPa). Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 1.19,
+   "max": 1.96,
+   "median": 1.64,
+   "n": 5,
+   "level": "L1-L2"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 1.13,
+   "max": 1.94,
+   "median": 1.39,
+   "n": 5,
+   "level": "L2-L3"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 1.06,
+   "max": 1.62,
+   "median": 1.33,
+   "n": 5,
+   "level": "L3-L4"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 1.01,
+   "max": 1.58,
+   "median": 1.24,
+   "n": 5,
+   "level": "L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.23,
+   "max": 1.02,
+   "median": 0.55,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.17,
+   "max": 0.86,
+   "median": 0.51,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.16,
+   "max": 0.91,
+   "median": 0.47,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.13,
+   "max": 0.95,
+   "median": 0.49,
+   "n": 6,
+   "level": "L4-L5"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.38,
+   "max": 1.05,
+   "median": 0.83,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.28,
+   "max": 1.04,
+   "median": 0.73,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.25,
+   "max": 0.89,
+   "median": 0.65,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 0.93,
+   "median": 0.6,
+   "n": 6,
+   "level": "L4-L5"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.37,
+   "max": 1.19,
+   "median": 0.7,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.3,
+   "max": 1.17,
+   "median": 0.64,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.27,
+   "max": 0.99,
+   "median": 0.61,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.22,
+   "max": 0.99,
+   "median": 0.6,
+   "n": 6,
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4a-d (FE-median bar and model bars)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 MPa (flexion +/-0.03)",
+  "checked": true,
+  "check_notes": "Automated bar-top scan; FE-median bar equals median of model bars in all 16 cases (within 0.01-0.02 MPa)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "PASS = inside model range and within max(0.15 MPa, 25%) of in vivo at L4-L5; MARGINAL = one"
+ },
+ "combine_group": "fe_model_comparison__idp_abs__L1-L5_segmental__combined_loads__Dreischarf_Table3",
+ "tags": [
+  "lumbar",
+  "fe_model_range",
+  "model comparison",
+  "IDP",
+  "combined loading",
+  "not experimental"
+ ]
+}

@@ -1,0 +1,2476 @@
+{
+ "id": "muscle_geometry.marras2001.regression.max_level.all_trunk.mixed_supine.csa_fibre_corrected_max",
+ "title": "Marras 2001: sex-specific regressions of maximum fibre-corrected CSA (\"PCSA\") on anthropometry",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "max_level"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips GyroScan, T1 spin echo",
+  "plane": "transverse slices perpendicular to the scan table through approximate vertebral body centres T8-S1; areas then fibre-angle corrected (dot product with literature fibre directions)",
+  "slice_thickness_mm": 10,
+  "level_definition": "mid-vertebral-body level",
+  "posture_detail": "supine, hips and knees extended"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Marras 2001",
+  "authors": "Marras WS, Jorgensen MJ, Granata KP, Wiand B",
+  "year": 2001,
+  "journal": "Clin Biomech 16:38-46",
+  "doi": "10.1016/S0268-0033(00)00046-2",
+  "n": "30 healthy subjects (20 F, 10 M)",
+  "sample": "young healthy volunteers (same 30 subjects/MRI scans as Jorgensen 2001)",
+  "age": "F 25.0 (7.2), M 26.4 (5.5) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "Predictor units per Table 4 (TDTWXPH uses height in m; the Jorgensen 2001 erratum does not concern this table). \"Male vs Female\" column = P of a sex indicator in hierarchical regression."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD avg F 0.4402 -7.647 0.041 TDTWXP 0.38 3.87 0.0039",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-7.647 + 0.041*TDTWXP",
+   "coefficients": {
+    "intercept": -7.647,
+    "TDTWXP": 0.041
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.38,
+   "see": 3.87,
+   "p": 0.0039,
+   "p_male_vs_female": 0.4402,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD avg F 0.6084 -5.42 5.98 TDTWXPH 0.35 3.95 0.0059",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-5.42 + 5.98*TDTWXPH",
+   "coefficients": {
+    "intercept": -5.42,
+    "TDTWXPH": 5.98
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.35,
+   "see": 3.95,
+   "p": 0.0059,
+   "p_male_vs_female": 0.6084,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD avg M 0.2734 5.565 0.106 HTWT 0.49 3.45 0.0245",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "5.565 + 0.106*HTWT",
+   "coefficients": {
+    "intercept": 5.565,
+    "HTWT": 0.106
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.49,
+   "see": 3.45,
+   "p": 0.0245,
+   "p_male_vs_female": 0.2734,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD avg M 0.3265 1.588 0.238 Weight 0.48 3.47 0.0254",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "1.588 + 0.238*Weight",
+   "coefficients": {
+    "intercept": 1.588,
+    "Weight": 0.238
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.48,
+   "see": 3.47,
+   "p": 0.0254,
+   "p_male_vs_female": 0.3265,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD avg M 0.3033 -4.12 54.68 WTDHT 0.45 3.58 0.0334",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "-4.12 + 54.68*WTDHT",
+   "coefficients": {
+    "intercept": -4.12,
+    "WTDHT": 54.68
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.45,
+   "see": 3.58,
+   "p": 0.0334,
+   "p_male_vs_female": 0.3033,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD R F 0.2509 -8.24 0.043 TDTWXP 0.40 3.95 0.0029",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-8.24 + 0.043*TDTWXP",
+   "coefficients": {
+    "intercept": -8.24,
+    "TDTWXP": 0.043
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.4,
+   "see": 3.95,
+   "p": 0.0029,
+   "p_male_vs_female": 0.2509,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD R F 0.3464 -5.82 6.32 TDTWXPH 0.37 4.05 0.0048",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-5.82 + 6.32*TDTWXPH",
+   "coefficients": {
+    "intercept": -5.82,
+    "TDTWXPH": 6.32
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.37,
+   "see": 4.05,
+   "p": 0.0048,
+   "p_male_vs_female": 0.3464,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD R M 0.1731 7.43 0.101 HTWT 0.51 3.16 0.0206",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "7.43 + 0.101*HTWT",
+   "coefficients": {
+    "intercept": 7.43,
+    "HTWT": 0.101
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.51,
+   "see": 3.16,
+   "p": 0.0206,
+   "p_male_vs_female": 0.1731,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD R M 0.2372 3.44 0.229 Weight 0.52 3.13 0.0194",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "3.44 + 0.229*Weight",
+   "coefficients": {
+    "intercept": 3.44,
+    "Weight": 0.229
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.52,
+   "see": 3.13,
+   "p": 0.0194,
+   "p_male_vs_female": 0.2372,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD R M 0.2604 -2.59 53.84 WTDHT 0.50 3.18 0.0219",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "-2.59 + 53.84*WTDHT",
+   "coefficients": {
+    "intercept": -2.59,
+    "WTDHT": 53.84
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.5,
+   "see": 3.18,
+   "p": 0.0219,
+   "p_male_vs_female": 0.2604,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD L F 0.5708 -7.05 0.038 TDTWXP 0.35 3.89 0.0062",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-7.05 + 0.038*TDTWXP",
+   "coefficients": {
+    "intercept": -7.05,
+    "TDTWXP": 0.038
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.35,
+   "see": 3.89,
+   "p": 0.0062,
+   "p_male_vs_female": 0.5708,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "LD L F 0.8092 -5.02 5.64 TDTWXPH 0.32 3.96 0.0088",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "F",
+   "equation": "-5.02 + 5.64*TDTWXPH",
+   "coefficients": {
+    "intercept": -5.02,
+    "TDTWXPH": 5.64
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.32,
+   "see": 3.96,
+   "p": 0.0088,
+   "p_male_vs_female": 0.8092,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD L M 0.5708 -4.65 0.032 TDTWXP 0.48 3.91 0.0265",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "-4.65 + 0.032*TDTWXP",
+   "coefficients": {
+    "intercept": -4.65,
+    "TDTWXP": 0.032
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.48,
+   "see": 3.91,
+   "p": 0.0265,
+   "p_male_vs_female": 0.5708,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD L M 0.3391 3.7 0.111 HTWT 0.43 4.11 0.0410",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "3.7 + 0.111*HTWT",
+   "coefficients": {
+    "intercept": 3.7,
+    "HTWT": 0.111
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.43,
+   "see": 4.11,
+   "p": 0.041,
+   "p_male_vs_female": 0.3391,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "LD L M 0.4199 -0.265 0.247 Weight 0.41 4.15 0.0450",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "-0.265 + 0.247*Weight",
+   "coefficients": {
+    "intercept": -0.265,
+    "Weight": 0.247
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.41,
+   "see": 4.15,
+   "p": 0.045,
+   "p_male_vs_female": 0.4199,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES avg F 0.0041 -9.92 0.45 Weight 0.66 2.12 0.0008",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-9.92 + 0.45*Weight",
+   "coefficients": {
+    "intercept": -9.92,
+    "Weight": 0.45
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.66,
+   "see": 2.12,
+   "p": 0.0008,
+   "p_male_vs_female": 0.0041,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES avg F 0.0075 40.97 -8.59 HTDWT 0.61 2.30 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "40.97 - 8.59*HTDWT",
+   "coefficients": {
+    "intercept": 40.97,
+    "HTDWT": -8.59
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.61,
+   "see": 2.3,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0075,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES avg F 0.0162 -10.95 77.4 WTDHT 0.68 2.07 0.001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-10.95 + 77.4*WTDHT",
+   "coefficients": {
+    "intercept": -10.95,
+    "WTDHT": 77.4
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.68,
+   "see": 2.07,
+   "p": 0.001,
+   "p_male_vs_female": 0.0162,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES avg M 0.0041 8.07 0.225 Weight 0.54 2.95 0.0162",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "8.07 + 0.225*Weight",
+   "coefficients": {
+    "intercept": 8.07,
+    "Weight": 0.225
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.54,
+   "see": 2.95,
+   "p": 0.0162,
+   "p_male_vs_female": 0.0041,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES avg M 0.0075 52.18 -11.69 HTDWT 0.59 2.78 0.0097",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "52.18 - 11.69*HTDWT",
+   "coefficients": {
+    "intercept": 52.18,
+    "HTDWT": -11.69
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.59,
+   "see": 2.78,
+   "p": 0.0097,
+   "p_male_vs_female": 0.0075,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES avg M 0.0162 1.47 54.22 WTDHT 0.55 2.90 0.0139",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "1.47 + 54.22*WTDHT",
+   "coefficients": {
+    "intercept": 1.47,
+    "WTDHT": 54.22
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.55,
+   "see": 2.9,
+   "p": 0.0139,
+   "p_male_vs_female": 0.0162,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES R F 0.0025 -12.34 0.492 Weight 0.69 2.19 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-12.34 + 0.492*Weight",
+   "coefficients": {
+    "intercept": -12.34,
+    "Weight": 0.492
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.69,
+   "see": 2.19,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0025,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES R F 0.0221 43.72 -9.54 HTDWT 0.65 2.32 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "43.72 - 9.54*HTDWT",
+   "coefficients": {
+    "intercept": 43.72,
+    "HTDWT": -9.54
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.65,
+   "see": 2.32,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0221,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES R F 0.0139 -13.78 85.55 WTDHT 0.72 2.07 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-13.78 + 85.55*WTDHT",
+   "coefficients": {
+    "intercept": -13.78,
+    "WTDHT": 85.55
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.72,
+   "see": 2.07,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0139,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES R M 0.0025 9.27 0.209 Weight 0.47 3.12 0.0283",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "9.27 + 0.209*Weight",
+   "coefficients": {
+    "intercept": 9.27,
+    "Weight": 0.209
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.47,
+   "see": 3.12,
+   "p": 0.0283,
+   "p_male_vs_female": 0.0025,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES R M 0.0221 50.7 -11.04 HTDWT 0.53 2.94 0.0166",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "50.7 - 11.04*HTDWT",
+   "coefficients": {
+    "intercept": 50.7,
+    "HTDWT": -11.04
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.53,
+   "see": 2.94,
+   "p": 0.0166,
+   "p_male_vs_female": 0.0221,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES R M 0.0139 2.83 51.16 WTDHT 0.50 3.04 0.0225",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "2.83 + 51.16*WTDHT",
+   "coefficients": {
+    "intercept": 2.83,
+    "WTDHT": 51.16
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.5,
+   "see": 3.04,
+   "p": 0.0225,
+   "p_male_vs_female": 0.0139,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES L F 0.0077 -7.51 0.408 Weight 0.61 2.15 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-7.51 + 0.408*Weight",
+   "coefficients": {
+    "intercept": -7.51,
+    "Weight": 0.408
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.61,
+   "see": 2.15,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0077,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES L F 0.0027 38.21 -7.65 HTDWT 0.54 2.34 0.0002",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "38.21 - 7.65*HTDWT",
+   "coefficients": {
+    "intercept": 38.21,
+    "HTDWT": -7.65
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.54,
+   "see": 2.34,
+   "p": 0.0002,
+   "p_male_vs_female": 0.0027,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "ES L F 0.0171 -8.12 69.25 WTDHT 0.61 2.15 0.0001",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-8.12 + 69.25*WTDHT",
+   "coefficients": {
+    "intercept": -8.12,
+    "WTDHT": 69.25
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.61,
+   "see": 2.15,
+   "p": 0.0001,
+   "p_male_vs_female": 0.0171,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES L M 0.0077 6.86 0.24 Weight 0.58 2.87 0.0103",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "6.86 + 0.24*Weight",
+   "coefficients": {
+    "intercept": 6.86,
+    "Weight": 0.24
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.58,
+   "see": 2.87,
+   "p": 0.0103,
+   "p_male_vs_female": 0.0077,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES L M 0.0027 53.65 -12.34 HTDWT 0.62 2.72 0.0065",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "53.65 - 12.34*HTDWT",
+   "coefficients": {
+    "intercept": 53.65,
+    "HTDWT": -12.34
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.62,
+   "see": 2.72,
+   "p": 0.0065,
+   "p_male_vs_female": 0.0027,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "ES L M 0.0171 0.106 57.28 WTDHT 0.59 2.85 0.0098",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "0.106 + 57.28*WTDHT",
+   "coefficients": {
+    "intercept": 0.106,
+    "WTDHT": 57.28
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.59,
+   "see": 2.85,
+   "p": 0.0098,
+   "p_male_vs_female": 0.0171,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA avg F 0.2729 -2.676 0.018 TDTWXP 0.38 1.73 0.0040",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.676 + 0.018*TDTWXP",
+   "coefficients": {
+    "intercept": -2.676,
+    "TDTWXP": 0.018
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.38,
+   "see": 1.73,
+   "p": 0.004,
+   "p_male_vs_female": 0.2729,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA avg F 0.3525 -2.716 0.429 BMI 0.25 1.90 0.0245",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.716 + 0.429*BMI",
+   "coefficients": {
+    "intercept": -2.716,
+    "BMI": 0.429
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.25,
+   "see": 1.9,
+   "p": 0.0245,
+   "p_male_vs_female": 0.3525,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA avg F 0.4734 -2.5 2.935 TDTWXPH 0.42 1.67 0.0019",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.5 + 2.935*TDTWXPH",
+   "coefficients": {
+    "intercept": -2.5,
+    "TDTWXPH": 2.935
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.42,
+   "see": 1.67,
+   "p": 0.0019,
+   "p_male_vs_female": 0.4734,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA avg M 0.6904 -1.662 0.134 Weight 0.61 1.52 0.0078",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-1.662 + 0.134*Weight",
+   "coefficients": {
+    "intercept": -1.662,
+    "Weight": 0.134
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.61,
+   "see": 1.52,
+   "p": 0.0078,
+   "p_male_vs_female": 0.6904,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA avg M 0.1334 24.14 -6.73 HTDWT 0.62 1.49 0.0068",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "24.14 - 6.73*HTDWT",
+   "coefficients": {
+    "intercept": 24.14,
+    "HTDWT": -6.73
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.62,
+   "see": 1.49,
+   "p": 0.0068,
+   "p_male_vs_female": 0.1334,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA avg M 0.6113 -5.37 31.9 WTDHT 0.61 1.52 0.0079",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-5.37 + 31.9*WTDHT",
+   "coefficients": {
+    "intercept": -5.37,
+    "WTDHT": 31.9
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.61,
+   "see": 1.52,
+   "p": 0.0079,
+   "p_male_vs_female": 0.6113,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA R F 0.3244 -2.5 0.018 TDTWXP 0.38 1.66 0.0036",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.5 + 0.018*TDTWXP",
+   "coefficients": {
+    "intercept": -2.5,
+    "TDTWXP": 0.018
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.38,
+   "see": 1.66,
+   "p": 0.0036,
+   "p_male_vs_female": 0.3244,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA R F 0.2729 -2.56 0.412 BMI 0.24 1.84 0.0295",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.56 + 0.412*BMI",
+   "coefficients": {
+    "intercept": -2.56,
+    "BMI": 0.412
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.24,
+   "see": 1.84,
+   "p": 0.0295,
+   "p_male_vs_female": 0.2729,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA R F 0.5809 -2.23 2.81 TDTWXPH 0.42 1.61 0.0020",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.23 + 2.81*TDTWXPH",
+   "coefficients": {
+    "intercept": -2.23,
+    "TDTWXPH": 2.81
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.42,
+   "see": 1.61,
+   "p": 0.002,
+   "p_male_vs_female": 0.5809,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA R M 0.6864 -1.392 0.131 Weight 0.58 1.58 0.0108",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-1.392 + 0.131*Weight",
+   "coefficients": {
+    "intercept": -1.392,
+    "Weight": 0.131
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.58,
+   "see": 1.58,
+   "p": 0.0108,
+   "p_male_vs_female": 0.6864,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA R M 0.1165 23.84 6.6 HTDWT 0.60 1.55 0.0090",
+   "note": "printed '23.84 + 6.6HTDWT'; the corresponding average and left equations have negative slopes (-6.73, -6.87), so '+' is probably a misprint for '-'; kept as printed",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "23.84 + 6.6*HTDWT",
+   "coefficients": {
+    "intercept": 23.84,
+    "HTDWT": 6.6
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.6,
+   "see": 1.55,
+   "p": 0.009,
+   "p_male_vs_female": 0.1165,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA R M 0.6059 -5.04 31.18 WTDHT 0.58 1.58 0.0106",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-5.04 + 31.18*WTDHT",
+   "coefficients": {
+    "intercept": -5.04,
+    "WTDHT": 31.18
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.58,
+   "see": 1.58,
+   "p": 0.0106,
+   "p_male_vs_female": 0.6059,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA L F 0.2404 -2.85 0.019 TDTWXP 0.36 1.86 0.0053",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.85 + 0.019*TDTWXP",
+   "coefficients": {
+    "intercept": -2.85,
+    "TDTWXP": 0.019
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.36,
+   "see": 1.86,
+   "p": 0.0053,
+   "p_male_vs_female": 0.2404,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA L F 0.4377 -3.22 0.457 BMI 0.26 2.00 0.0231",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-3.22 + 0.457*BMI",
+   "coefficients": {
+    "intercept": -3.22,
+    "BMI": 0.457
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.26,
+   "see": 2.0,
+   "p": 0.0231,
+   "p_male_vs_female": 0.4377,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "RA L F 0.3841 -2.78 3.06 TDTWXPH 0.41 1.78 0.0023",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "-2.78 + 3.06*TDTWXPH",
+   "coefficients": {
+    "intercept": -2.78,
+    "TDTWXPH": 3.06
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.41,
+   "see": 1.78,
+   "p": 0.0023,
+   "p_male_vs_female": 0.3841,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA L M 0.6829 -1.93 0.137 Weight 0.63 1.49 0.0063",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-1.93 + 0.137*Weight",
+   "coefficients": {
+    "intercept": -1.93,
+    "Weight": 0.137
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.63,
+   "see": 1.49,
+   "p": 0.0063,
+   "p_male_vs_female": 0.6829,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA L M 0.1514 24.44 -6.87 HTDWT 0.63 1.48 0.0058",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "24.44 - 6.87*HTDWT",
+   "coefficients": {
+    "intercept": 24.44,
+    "HTDWT": -6.87
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.63,
+   "see": 1.48,
+   "p": 0.0058,
+   "p_male_vs_female": 0.1514,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "RA L M 0.5739 -5.7 32.62 WTDHT 0.62 1.50 0.0066",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-5.7 + 32.62*WTDHT",
+   "coefficients": {
+    "intercept": -5.7,
+    "WTDHT": 32.62
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.62,
+   "see": 1.5,
+   "p": 0.0066,
+   "p_male_vs_female": 0.5739,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO avg F 0.1393 3.158 0.008 TDTWXP 0.28 0.93 0.0162",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.158 + 0.008*TDTWXP",
+   "coefficients": {
+    "intercept": 3.158,
+    "TDTWXP": 0.008
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.28,
+   "see": 0.93,
+   "p": 0.0162,
+   "p_male_vs_female": 0.1393,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO avg F 0.0272 3.51 1.18 TDTWXPH 0.27 0.94 0.0183",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.51 + 1.18*TDTWXPH",
+   "coefficients": {
+    "intercept": 3.51,
+    "TDTWXPH": 1.18
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.27,
+   "see": 0.94,
+   "p": 0.0183,
+   "p_male_vs_female": 0.0272,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "EO avg M 0.1393 1.2 0.013 TDTWXP 0.44 1.67 0.0380",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "1.2 + 0.013*TDTWXP",
+   "coefficients": {
+    "intercept": 1.2,
+    "TDTWXP": 0.013
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.44,
+   "see": 1.67,
+   "p": 0.038,
+   "p_male_vs_female": 0.1393,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO R F 0.2251 3.1 0.008 TDTWXP 0.29 0.97 0.0151",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.1 + 0.008*TDTWXP",
+   "coefficients": {
+    "intercept": 3.1,
+    "TDTWXP": 0.008
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.29,
+   "see": 0.97,
+   "p": 0.0151,
+   "p_male_vs_female": 0.2251,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO R F 0.0505 3.554 1.217 TDTWXPH 0.27 0.99 0.0202",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.554 + 1.217*TDTWXPH",
+   "coefficients": {
+    "intercept": 3.554,
+    "TDTWXPH": 1.217
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.27,
+   "see": 0.99,
+   "p": 0.0202,
+   "p_male_vs_female": 0.0505,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO R F 0.0414 2.03 14.87 WTDHT 0.25 1.00 0.0241",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "2.03 + 14.87*WTDHT",
+   "coefficients": {
+    "intercept": 2.03,
+    "WTDHT": 14.87
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.25,
+   "see": 1.0,
+   "p": 0.0241,
+   "p_male_vs_female": 0.0414,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO L F 0.1069 3.22 0.007 TDTWXP 0.22 1.03 0.0365",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.22 + 0.007*TDTWXP",
+   "coefficients": {
+    "intercept": 3.22,
+    "TDTWXP": 0.007
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.22,
+   "see": 1.03,
+   "p": 0.0365,
+   "p_male_vs_female": 0.1069,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "EO L F 0.0247 3.462 1.144 TDTWXPH 0.23 1.03 0.0345",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "F",
+   "equation": "3.462 + 1.144*TDTWXPH",
+   "coefficients": {
+    "intercept": 3.462,
+    "TDTWXPH": 1.144
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.23,
+   "see": 1.03,
+   "p": 0.0345,
+   "p_male_vs_female": 0.0247,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "EO L M 0.1069 0.315 0.014 TDTWXP 0.47 1.72 0.0297",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "0.315 + 0.014*TDTWXP",
+   "coefficients": {
+    "intercept": 0.315,
+    "TDTWXP": 0.014
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.47,
+   "see": 1.72,
+   "p": 0.0297,
+   "p_male_vs_female": 0.1069,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "IO avg F 0.0396 2.586 0.007 TDTWXP 0.23 1.01 0.0316",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "2.586 + 0.007*TDTWXP",
+   "coefficients": {
+    "intercept": 2.586,
+    "TDTWXP": 0.007
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.23,
+   "see": 1.01,
+   "p": 0.0316,
+   "p_male_vs_female": 0.0396,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "IO avg F 0.0069 2.65 1.21 TDTWXPH 0.26 0.99 0.0213",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "2.65 + 1.21*TDTWXPH",
+   "coefficients": {
+    "intercept": 2.65,
+    "TDTWXPH": 1.21
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.26,
+   "see": 0.99,
+   "p": 0.0213,
+   "p_male_vs_female": 0.0069,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO avg M 0.0032 2.574 0.055 HTWT 0.61 1.41 0.0078",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "2.574 + 0.055*HTWT",
+   "coefficients": {
+    "intercept": 2.574,
+    "HTWT": 0.055
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.61,
+   "see": 1.41,
+   "p": 0.0078,
+   "p_male_vs_female": 0.0032,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO avg M 0.0048 0.387 0.125 Weight 0.62 1.39 0.0071",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "0.387 + 0.125*Weight",
+   "coefficients": {
+    "intercept": 0.387,
+    "Weight": 0.125
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.62,
+   "see": 1.39,
+   "p": 0.0071,
+   "p_male_vs_female": 0.0048,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO avg M 0.0017 -3.03 29.72 WTDHT 0.61 1.41 0.0075",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-3.03 + 29.72*WTDHT",
+   "coefficients": {
+    "intercept": -3.03,
+    "WTDHT": 29.72
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.61,
+   "see": 1.41,
+   "p": 0.0075,
+   "p_male_vs_female": 0.0017,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "IO R F 0.1169 1.662 0.009 TDTWXP 0.24 1.19 0.0278",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "1.662 + 0.009*TDTWXP",
+   "coefficients": {
+    "intercept": 1.662,
+    "TDTWXP": 0.009
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.24,
+   "see": 1.19,
+   "p": 0.0278,
+   "p_male_vs_female": 0.1169,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "IO R F 0.0013 0.337 0.276 BMI 0.27 1.17 0.0197",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "0.337 + 0.276*BMI",
+   "coefficients": {
+    "intercept": 0.337,
+    "BMI": 0.276
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.27,
+   "see": 1.17,
+   "p": 0.0197,
+   "p_male_vs_female": 0.0013,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "IO R F 0.0290 1.6 1.514 TDTWXPH 0.29 1.15 0.0144",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "1.6 + 1.514*TDTWXPH",
+   "coefficients": {
+    "intercept": 1.6,
+    "TDTWXPH": 1.514
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.29,
+   "see": 1.15,
+   "p": 0.0144,
+   "p_male_vs_female": 0.029,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO R M 0.0127 2.986 0.052 HTWT 0.50 1.62 0.0215",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "2.986 + 0.052*HTWT",
+   "coefficients": {
+    "intercept": 2.986,
+    "HTWT": 0.052
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.5,
+   "see": 1.62,
+   "p": 0.0215,
+   "p_male_vs_female": 0.0127,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO R M 0.0245 1.01 0.116 Weight 0.51 1.62 0.0212",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "1.01 + 0.116*Weight",
+   "coefficients": {
+    "intercept": 1.01,
+    "Weight": 0.116
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.51,
+   "see": 1.62,
+   "p": 0.0212,
+   "p_male_vs_female": 0.0245,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO R M 0.0172 -2.02 27.16 WTDHT 0.49 1.65 0.0244",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-2.02 + 27.16*WTDHT",
+   "coefficients": {
+    "intercept": -2.02,
+    "WTDHT": 27.16
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.49,
+   "see": 1.65,
+   "p": 0.0244,
+   "p_male_vs_female": 0.0172,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO L M 0.0039 2.162 0.059 HTWT 0.56 1.65 0.0122",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "2.162 + 0.059*HTWT",
+   "coefficients": {
+    "intercept": 2.162,
+    "HTWT": 0.059
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.56,
+   "see": 1.65,
+   "p": 0.0122,
+   "p_male_vs_female": 0.0039,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO L M 0.0037 -0.233 0.135 Weight 0.58 1.63 0.0103",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-0.233 + 0.135*Weight",
+   "coefficients": {
+    "intercept": -0.233,
+    "Weight": 0.135
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.58,
+   "see": 1.63,
+   "p": 0.0103,
+   "p_male_vs_female": 0.0037,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "IO L M 0.0009 -4.05 32.29 WTDHT 0.58 1.62 0.0100",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-4.05 + 32.29*WTDHT",
+   "coefficients": {
+    "intercept": -4.05,
+    "WTDHT": 32.29
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.58,
+   "see": 1.62,
+   "p": 0.01,
+   "p_male_vs_female": 0.0009,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "PS avg M 0.0001 5.36 0.019 TDTWXP 0.49 2.47 0.0344",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "5.36 + 0.019*TDTWXP",
+   "coefficients": {
+    "intercept": 5.36,
+    "TDTWXP": 0.019
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.49,
+   "see": 2.47,
+   "p": 0.0344,
+   "p_male_vs_female": 0.0001,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "PS R M 0.0001 3.07 0.022 TDTWXP 0.46 2.78 0.0313",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "3.07 + 0.022*TDTWXP",
+   "coefficients": {
+    "intercept": 3.07,
+    "TDTWXP": 0.022
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.46,
+   "see": 2.78,
+   "p": 0.0313,
+   "p_male_vs_female": 0.0001,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "PS L M 0.0001 7.65 0.016 TDTWXP 0.41 2.27 0.0468",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "7.65 + 0.016*TDTWXP",
+   "coefficients": {
+    "intercept": 7.65,
+    "TDTWXP": 0.016
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.41,
+   "see": 2.27,
+   "p": 0.0468,
+   "p_male_vs_female": 0.0001,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL avg F 0.0164 0.328 0.004 TDTWXP 0.43 0.36 0.0017",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "0.328 + 0.004*TDTWXP",
+   "coefficients": {
+    "intercept": 0.328,
+    "TDTWXP": 0.004
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.43,
+   "see": 0.36,
+   "p": 0.0017,
+   "p_male_vs_female": 0.0164,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL avg F 0.0023 0.555 0.623 TDTWXPH 0.40 0.37 0.0028",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "0.555 + 0.623*TDTWXPH",
+   "coefficients": {
+    "intercept": 0.555,
+    "TDTWXPH": 0.623
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.4,
+   "see": 0.37,
+   "p": 0.0028,
+   "p_male_vs_female": 0.0023,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL avg F 0.0019 -0.11 7.28 WTDHT 0.35 0.39 0.0061",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "-0.11 + 7.28*WTDHT",
+   "coefficients": {
+    "intercept": -0.11,
+    "WTDHT": 7.28
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.35,
+   "see": 0.39,
+   "p": 0.0061,
+   "p_male_vs_female": 0.0019,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL R F 0.0001 -0.168 0.114 BMI 0.43 0.34 0.0017",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "-0.168 + 0.114*BMI",
+   "coefficients": {
+    "intercept": -0.168,
+    "BMI": 0.114
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.43,
+   "see": 0.34,
+   "p": 0.0017,
+   "p_male_vs_female": 0.0001,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL R F 0.0001 4.62 -0.82 HTDWT 0.38 0.35 0.0041",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "4.62 - 0.82*HTDWT",
+   "coefficients": {
+    "intercept": 4.62,
+    "HTDWT": -0.82
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.38,
+   "see": 0.35,
+   "p": 0.0041,
+   "p_male_vs_female": 0.0001,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL R F 0.0009 -0.38 7.483 WTDHT 0.43 0.34 0.0017",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "-0.38 + 7.483*WTDHT",
+   "coefficients": {
+    "intercept": -0.38,
+    "WTDHT": 7.483
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.43,
+   "see": 0.34,
+   "p": 0.0017,
+   "p_male_vs_female": 0.0009,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL L F 0.0657 0.095 0.005 TDTWXP 0.39 0.48 0.0034",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "0.095 + 0.005*TDTWXP",
+   "coefficients": {
+    "intercept": 0.095,
+    "TDTWXP": 0.005
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.39,
+   "see": 0.48,
+   "p": 0.0034,
+   "p_male_vs_female": 0.0657,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL L F 0.0130 None 0.418 TDTWXPH 0.34 0.49 0.0066",
+   "note": "printed '0.418TDTWXPH' with no intercept (misprint or zero intercept)",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "+ 0.418*TDTWXPH",
+   "coefficients": {
+    "intercept": null,
+    "TDTWXPH": 0.418
+   },
+   "predictor_units": {
+    "TDTWXPH": "cm2/m"
+   },
+   "r2": 0.34,
+   "see": 0.49,
+   "p": 0.0066,
+   "p_male_vs_female": 0.013,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "QL L F 0.0077 0.162 7.07 WTDHT 0.20 0.54 0.0457",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "F",
+   "equation": "0.162 + 7.07*WTDHT",
+   "coefficients": {
+    "intercept": 0.162,
+    "WTDHT": 7.07
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.2,
+   "see": 0.54,
+   "p": 0.0457,
+   "p_male_vs_female": 0.0077,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "QL L M 0.0657 -2.68 0.011 TDTWXP 0.41 1.51 0.0457",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "-2.68 + 0.011*TDTWXP",
+   "coefficients": {
+    "intercept": -2.68,
+    "TDTWXP": 0.011
+   },
+   "predictor_units": {
+    "TDTWXP": "cm2"
+   },
+   "r2": 0.41,
+   "see": 1.51,
+   "p": 0.0457,
+   "p_male_vs_female": 0.0657,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "QL L M 0.0240 -0.387 0.041 HTWT 0.44 1.47 0.0369",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "-0.387 + 0.041*HTWT",
+   "coefficients": {
+    "intercept": -0.387,
+    "HTWT": 0.041
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.44,
+   "see": 1.47,
+   "p": 0.0369,
+   "p_male_vs_female": 0.024,
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "QL L M 0.0237 -1.8 0.09 Weight 0.42 1.50 0.0425",
+   "predicted": "\"PCSA\" = largest fibre-angle-corrected ACSA (Table 3)",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "-1.8 + 0.09*Weight",
+   "coefficients": {
+    "intercept": -1.8,
+    "Weight": 0.09
+   },
+   "predictor_units": {
+    "Weight": "kg"
+   },
+   "r2": 0.42,
+   "see": 1.5,
+   "p": 0.0425,
+   "p_male_vs_female": 0.0237,
+   "output_unit": "cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 4 (predictor definitions) and Table 5",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All rows verified on rendered pages 44-45 (rotated); male-column row assignment taken from the image."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_mri_30",
+  "regression"
+ ]
+}

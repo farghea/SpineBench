@@ -1,0 +1,128 @@
+{
+ "id": "anthropometry.pearsall1994.trunk_segment_com",
+ "title": "Longitudinal COM of trunk segments of living males by MRI",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T4/5-pubis"
+ ],
+ "condition": "living adult males, MRI",
+ "quantity": {
+  "name": "segment COM (longitudinal)",
+  "definition": "CM position along segment long axis as % of segment length from the proximal (superior) end",
+  "unit": "% segment length"
+ },
+ "source": {
+  "short": "Pearsall 1994",
+  "authors": "Pearsall DJ, Reid JG, Ross R",
+  "year": 1994,
+  "journal": "Ann Biomed Eng 22:692-706",
+  "doi": "",
+  "n": "26 males",
+  "sample": "26 living adult males, MRI (Philips 1.5 T), prone, arms above head; 10-mm slices every 50 mm",
+  "age": "40.5 ± 14.4 y",
+  "sex": "male",
+  "height_cm": 174.5,
+  "weight_kg": 87.3,
+  "notes": "height SD 5.7 cm; body mass SD 16.8 kg (range 56.4-129 kg); BMI 28.6 ± 4.8 (range 19.7-39.3). DOI not printed in PDF (likely 10.1007/BF02368294 – verify)."
+ },
+ "protocol": {
+  "summary": "Longitudinal CM positions of thorax, abdomen, pelvis and whole trunk (CMPC); trunk also as % of suprasternal notch–symphysis distance (CMPC*).",
+  "how_to_use": [
+   "Place thorax/abdomen/pelvis COM at 51.5/49.0/44.7 % of each segment's length from its superior boundary.",
+   "Place whole-trunk COM at 53.0 % of the suprasternal notch–pubic symphysis distance from the notch.",
+   "Antero-posterior COM offsets are not given here; use Pearsall 1996 (CT) for COM anterior to vertebral centroids."
+  ],
+  "measurement": {
+   "method": "MRI",
+   "device": "Philips Gyroscan 1.5 T; tissue densities assigned per pixel (cortical bone 1.8, cancellous 1.1, viscera/muscle/blood 1.06, adipose 0.96, lung 0.25 g/cc)",
+   "posture": "prone recumbent, arms above head",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Thorax = suprasternal notch (~T4/5) to xiphoid (~T9); abdomen = xiphoid to umbilicus (~L3/4); pelvis = umbilicus to pubic symphysis/greater trochanter (incl. perineum, excl. thighs); trunk = sum. Boundaries follow Zatsiorsky & Seluyanov gamma-scan definitions (thus close to de Leva UPT/MPT/LPT)."
+ },
+ "data": [
+  {
+   "x": "CM_%segment_length_from_proximal",
+   "load": null,
+   "mean": 51.5,
+   "sd": 2.0,
+   "min": 49.0,
+   "max": 57.0,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "% segment length"
+  },
+  {
+   "x": "CM_%segment_length_from_proximal",
+   "load": null,
+   "mean": 49.0,
+   "sd": 1.1,
+   "min": 47.0,
+   "max": 51.0,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "% segment length"
+  },
+  {
+   "x": "CM_%segment_length_from_proximal",
+   "load": null,
+   "mean": 44.7,
+   "sd": 1.6,
+   "min": 41.0,
+   "max": 48.0,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "% segment length"
+  },
+  {
+   "x": "CM_%segment_length_from_proximal",
+   "load": null,
+   "mean": 48.0,
+   "sd": 0.9,
+   "min": 49.7,
+   "max": 46.4,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "% segment length"
+  },
+  {
+   "x": "CM_%suprasternal_notch_to_symphysis",
+   "load": null,
+   "mean": 53.0,
+   "sd": 0.9,
+   "min": 51.3,
+   "max": 55.1,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "% distance suprasternal notch-pubic symphysis"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "none (tabulated)",
+  "checked": true,
+  "check_notes": "Checked against rendered Table 1 (p.697). Trunk CMPC min 49.7 and max 46.4 are printed inverted/inconsistent with mean 48.0 – kept as printed."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_com__trunk_subsegments__adults__-",
+ "tags": [
+  "in vivo",
+  "MRI",
+  "male",
+  "adults"
+ ]
+}

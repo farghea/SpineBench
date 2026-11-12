@@ -1,0 +1,311 @@
+{
+ "id": "fe_resection_lumbar.heuer2007a.L4L5_woSSL",
+ "title": "L4-L5 ROM after cumulative resection step 1: w/o supraspinous ligament (Heuer 2007a)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "stepwise resection",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "cumulative resection step 1 of 8: w/o supraspinous ligament",
+ "quantity": {
+  "name": "ROM",
+  "definition": "one-sided rotation at peak moment, absolute deg (not % intact), related to intact neutral posture via lordosis-angle offset; median over specimens",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Heuer 2007a",
+  "authors": "Heuer F, Schmidt H, Klezl Z, Claes L, Wilke HJ",
+  "year": 2007,
+  "journal": "J Biomech 40:271-280",
+  "doi": "10.1016/j.jbiomech.2006.01.007",
+  "n": "8 human cadaveric L4-L5 FSUs evaluated (two further specimens failed at 10 Nm flexion after posterior-element removal and were excluded); n=3 at 10 Nm for stages w/oFC to w/oNUC",
+  "sample": "fresh-frozen human L4-L5 segments, no bony defects, low degeneration (Mimura grade <2)",
+  "age": "median 52 (range 38-59)",
+  "sex": "4 M / 4 F (per Heuer 2007b, same specimens)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure unconstrained moments 1, 2.5, 5, 7.5, 10 Nm in flexion/extension, right/left lateral bending, left/right axial rotation; 1.0 deg/s; 2.5 load cycles, first 1.5 = preconditioning, last cycle evaluated; no preload during testing (15 min 500 N axial compression before testing to reduce water content). Ulm spine tester (Wilke 1994): L5 caudal end potted in PMMA and fixed; L4 cranial end potted and attached to gimbal free in all 5 other DOF. Rotations by potentiometers in gimbal.",
+  "how_to_simulate": [
+   "Fix the inferior (caudal) half of L5; leave L4 free in all DOF (no follower or axial preload)",
+   "Apply pure moments of 1, 2.5, 5, 7.5 and 10 Nm to L4 in flexion, extension, right lateral bending and left axial rotation",
+   "Report L4 rotation relative to L5 at each peak moment (loading branch of the evaluated cycle), one-sided from the neutral posture of the intact specimen",
+   "Compare with medians; tabulated directions are flexion, extension, right lateral bending and left axial rotation only"
+  ],
+  "subject_model": null,
+  "notes": "ROM = maximal rotation at the applied moment in one direction, related to a median neutral position (mid-point of NZ intersections averaged over the 5 moments) and, for defect stages, offset by the lordosis-angle change so all stages share the intact starting posture (Fig. 3). Coupled motions not evaluated (stated in Discussion). Resection order: INTACT -> w/oSSL -> w/oISL -> w/oFL -> w/oFC -> w/oVA -> w/oPLL -> w/oALL -> w/oNUC (cumulative). Absolute values (deg), not % intact."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.79,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "flexion",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.53,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.47,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.55,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "flexion",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 7.36,
+   "n": 8,
+   "moment_Nm": 10.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "extension",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.79,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "extension",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.09,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.44,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 4.45,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "extension",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.23,
+   "n": 8,
+   "moment_Nm": 10.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.75,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.06,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 4.68,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.66,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.83,
+   "n": 8,
+   "moment_Nm": 10.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.39,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.05,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.04,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.91,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "1 w/oSSL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.66,
+   "n": 8,
+   "moment_Nm": 10.0,
+   "step": "1 w/oSSL"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Parsed from text layer, compared with table printout. n=3 at 10 Nm for w/oFC..w/oNUC from 'n=3' bracket in Figs 4-5/7-8 and Results text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "sign of change vs previous step correct and |model-median| <= max(0.5 deg, 25%)"
+ },
+ "combine_group": "fe_resection_lumbar__rom__L4-L5__heuer2007_stepwise_woSSL__7.5Nm",
+ "shared_sample_with": [
+  "fe_idp_invitro.heuer2007b.L4L5_intact",
+  "heuer2007b: same 8 L4-L5 specimens (IDP, translations)",
+  "wilke2025: Heuer 2007a/b listed in Wilke 2025 Table 4 (n=8 L4-L5) - pooled into Wilke 2025 L4-L5 data",
+  "kettler2011: Ulm database 7.5 Nm lumbar segments of ~2000-2010 likely include these specimens (not itemised)",
+  "schmidt2007: Fig 6 re-plots this group's intact and w/oSSL&ISL flexion/extension at 7.5 Nm"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "L4-L5",
+  "resection",
+  "median"
+ ]
+}

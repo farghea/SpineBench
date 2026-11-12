@@ -1,0 +1,181 @@
+{
+ "id": "msk_emg_posture.lariviere2024.emg_raw_RA_load_position",
+ "title": "RA raw surface EMG vs load position (P1-P4) and load (0 vs ~10% BW), upright holding",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "upright static load holding EMG (non-normalised)",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "quantity": {
+  "name": "raw surface EMG amplitude (non-normalised)",
+  "definition": "EMG band-pass 30-450 Hz, rectified, 2.5 Hz low-pass envelope, averaged over central 1 s of ~3-s hold; NOT normalised (MVC replaced by submaximal ramp calibration); group mean across 31 participants, bilateral (side handling not stated)",
+  "unit": "uV"
+ },
+ "source": {
+  "short": "Larivière 2024",
+  "authors": "Larivière C, Eskandari AH, Mecheri H, Ghezelbash F, Gagnon D, Shirazi-Adl A",
+  "year": 2024,
+  "journal": "J Biomech 162:111867",
+  "doi": "10.1016/j.jbiomech.2023.111867",
+  "n": "31 subjects (17M, 14F; 19 healthy, 12 chronic LBP)",
+  "sample": "healthy controls + chronic LBP, pooled in the EMG figures (IRSST/PhareSST manuscript; file U08_Lariviere2023.pdf)",
+  "age": "healthy 36±13 y (21-60); CLBP 42±13 y (23-68)",
+  "sex": "17M, 14F",
+  "height_cm": "healthy 171±11; CLBP 169±9",
+  "weight_kg": "healthy 69.0±13.7; CLBP 73.2±10.3"
+ },
+ "protocol": {
+  "summary": "Upright static holding of dumbbells (or light sticks) with both hands in 4 positions (Crommert 2011 / Larivière 2019 protocol): Height-study P1 vs P2 vs P3, Distance-study P2 vs P4; load 6 kg (F) / 7 kg (M) total.",
+  "how_to_simulate": [
+   "Upright standing; arm/load positions per Fig 1 schematic: P1 arms hanging at sides, P2 hands at shoulders, P3 arms straight overhead, P4 arms straight forward at shoulder height (positions read from Fig 1 drawing)",
+   "Hand load 0 (sticks) or 3+3 kg (female) / 3.5+3.5 kg (male)",
+   "Compare RELATIVE changes in predicted RA activation across positions/loads (absolute uV not comparable to model activation)"
+  ],
+  "subject_model": {
+   "sex": "mixed 17M/14F",
+   "age": "healthy 36, CLBP 42 y",
+   "height_cm": "healthy 171, CLBP 169",
+   "weight_kg": "healthy 69.0, CLBP 73.2",
+   "disc_area_mm2": null,
+   "source": "Larivière 2024 Table 1 (no pooled values given)"
+  },
+  "notes": "Mixed healthy + CLBP sample; no SDs shown. Model force panels (middle/right of Figs 4-5) are model outputs, not data. LG, MF, IO EMG only in supplementary Figs 3S/4S (not extracted - not in PDF). Position geometry only shown graphically (Fig 1); no distances given. Note: these positions differ from Larivière 2019 P1-P3, do not pool."
+ },
+ "data": [
+  {
+   "x": "Height-study (Fig 5): P1 (arms hanging at the sides, loads at hip level)",
+   "load": "no load (light sticks)",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.33,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Height-study (Fig 5): P1 (arms hanging at the sides, loads at hip level)",
+   "load": "3+3 kg (F) / 3.5+3.5 kg (M), ~10% BW",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.47,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Height-study (Fig 5): P2 (loads held at the shoulders, elbows flexed)",
+   "load": "no load (light sticks)",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.25,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Height-study (Fig 5): P2 (loads held at the shoulders, elbows flexed)",
+   "load": "3+3 kg (F) / 3.5+3.5 kg (M), ~10% BW",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.38,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Height-study (Fig 5): P3 (arms extended overhead)",
+   "load": "no load (light sticks)",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.41,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Height-study (Fig 5): P3 (arms extended overhead)",
+   "load": "3+3 kg (F) / 3.5+3.5 kg (M), ~10% BW",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.78,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Distance-study (Fig 4): P2 (loads held at the shoulders, elbows flexed)",
+   "load": "no load (light sticks)",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.25,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Distance-study (Fig 4): P2 (loads held at the shoulders, elbows flexed)",
+   "load": "3+3 kg (F) / 3.5+3.5 kg (M), ~10% BW",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.38,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Distance-study (Fig 4): P4 (arms extended forward horizontally at shoulder height)",
+   "load": "no load (light sticks)",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 1.26,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  },
+  {
+   "x": "Distance-study (Fig 4): P4 (arms extended forward horizontally at shoulder height)",
+   "load": "3+3 kg (F) / 3.5+3.5 kg (M), ~10% BW",
+   "site": "bilateral rectus abdominis (McGill 1991 placement)",
+   "mean": 2.04,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 31
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5 (Height-study, manuscript p.28) and Fig 4 (Distance-study, p.27), left column",
+  "method": "digitised_figure",
+  "uncertainty": "IC ±0.1 uV; RA ±0.01 uV; EO ±0.03 uV (marker centres at 300 dpi; partly hidden open circles located from their visible edge, ±0.05 uV extra)",
+  "checked": true,
+  "check_notes": "Colour-segmented marker centres calibrated on y-ticks; visual re-read e.g. IC P4 load ≈12.5, EO P3 load ≈3.0 - agree. Open (no-load) circles partly under red markers at P1/P2 located from their bottom edge (radius 11.5 px)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "trend only: sign and relative magnitude of load and position effects"
+ },
+ "combine_group": "msk_emg_posture__emg_raw__rectus_abdominis__upright_hold_P1-P4_0_vs_10pctBW",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "raw EMG",
+  "upright",
+  "load position",
+  "CLBP mixed",
+  "digitised",
+  "IRSST"
+ ]
+}

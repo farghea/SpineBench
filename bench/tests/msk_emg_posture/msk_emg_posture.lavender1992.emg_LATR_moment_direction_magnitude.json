@@ -1,0 +1,281 @@
+{
+ "id": "msk_emg_posture.lavender1992.emg_LATR_moment_direction_magnitude",
+ "title": "LATR normalised EMG vs external moment direction (0-180 deg) and magnitude (10-50 Nm), upright",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "upright posture, asymmetric external moments via harness (co-contraction)",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "in vivo healthy",
+ "quantity": {
+  "name": "normalised EMG (baseline-subtracted)",
+  "definition": "RMS EMG (300 ms analogue RMS, 20-600 Hz) averaged over 10 s, NEMG = (test - baseline)/(max - baseline) x 100, baseline = relaxed upright stance in apparatus, max = greatest value in 4 upright isometric MVCs (flexion, extension, twist L, twist R); mean across subjects",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Lavender 1992",
+  "authors": "Lavender SA, Tsuang YH, Andersson GBJ, Hafezi A, Shin CC",
+  "year": 1992,
+  "journal": "J Orthop Res 10(5):691-700",
+  "doi": "10.1002/jor.1100100511",
+  "n": "10 male subjects",
+  "sample": "healthy men, no back pain history (file E04.pdf)",
+  "age": "20-36 y",
+  "sex": "10M",
+  "height_cm": "177.5 (range 164.2-188.9)",
+  "weight_kg": "77.8 (range 59.5-90.9)"
+ },
+ "protocol": {
+  "summary": "Upright standing, pelvis strapped to a board; external moments of 10, 20, 30, 40, 50 Nm about L3/L4 applied via a chest-level harness (front: nipple line; rear: lower tip of scapula; side over right upper arm) by horizontal cables/pulleys with weights; directions 0 (anterior pull) to 180 deg (posterior pull) in 30 deg steps toward the subject's RIGHT; load adjusted to each subject's harness-to-L3/L4 vertical lever arm; 35 trials, 10-s holds, 90-s rest.",
+  "how_to_simulate": [
+   "Upright neutral standing, pelvis fixed",
+   "Apply a horizontal force at chest/scapula-tip height, magnitude = M / (vertical distance harness to L3-L4 disc), producing external moment M = 10-50 Nm about L3/L4",
+   "Direction 0 deg = force pulling anteriorly (external flexion moment), 90 deg = pulling to the subject's right (right lateral bending moment), 180 deg = pulling posteriorly (extension moment); intermediate angles = vector sums",
+   "Compare predicted activation of the LATR fascicles under the electrode (right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline) with NEMG; where only a range is given, model should fall within it"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": "20-36 y (mean not given)",
+   "height_cm": 177.5,
+   "weight_kg": 77.8,
+   "disc_area_mm2": null,
+   "source": "Lavender 1992 Methods (also trunk breadth 29.9 cm, depth 21.3 cm)"
+  },
+  "notes": "Methods state 10 subjects but Results text says 'mean values across the 19 subjects' (and Eq 1 indexes j = 1..19) - inconsistency in paper; n=10 used (Methods). NEMG is baseline-subtracted so can be slightly negative/zero. SDs not reported. Directions only to the right side; authors claim symmetry from pilot data."
+ },
+ "data": [
+  {
+   "x": "moment direction 0 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 0 deg",
+   "load": "40 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 3.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 0 deg",
+   "load": "20-30 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 0.7,
+   "max": 1.5,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 0 deg",
+   "load": "10 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 30 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 4.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 30 deg",
+   "load": "10-40 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 1.6,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 60 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 60 deg",
+   "load": "40 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 3.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 60 deg",
+   "load": "10-30 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 0.3,
+   "max": 1.7,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 90 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 6.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 90 deg",
+   "load": "30-40 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 2.6,
+   "max": 3.8,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 90 deg",
+   "load": "20 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 1.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 90 deg",
+   "load": "10 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 0.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 120 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 4.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 120 deg",
+   "load": "10-40 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 3.0,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 150 deg",
+   "load": "all magnitudes 10-50 Nm (curves overlap near baseline)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 2.4,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 180 deg",
+   "load": "50 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 5.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 180 deg",
+   "load": "20-40 Nm (curves not separable)",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": null,
+   "sd": null,
+   "min": 1.3,
+   "max": 2.5,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "moment direction 180 deg",
+   "load": "10 Nm",
+   "site": "right latissimus dorsi, muscle belly at T7, ~13-15 cm lateral to midline",
+   "mean": 0.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2C (scanned figure)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.5 %MVC for separable markers (scanned line plot, 300 dpi, axis 0-30 calibrated on frame lines, 15.7 px/%); overlapping near-baseline curves given as min-max ranges",
+  "checked": true,
+  "check_notes": "Marker positions from pixel column scans at each direction (plus columns just outside the frame at 0/180 deg to avoid axis lines; x-marker arms averaged). Independent re-measurement on a separate crop (Fig 3B, 150 and 180 deg) by pixel profile reproduced values within 0.2 (e.g. EXOL 150 deg: 24.2/17.8/11.1/6.8/3.9; 180 deg 20 Nm 6.0 vs 5.9). Magnitude identity assigned by marker symbol and monotonic ordering; values where curves overlap near baseline reported only as min-max ranges."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 2 %MVC (no SD reported) or within the given min-max range; direction of recruitment change with moment direction reproduced"
+ },
+ "combine_group": "msk_emg_posture__emg__latissimus_dorsi_T7_right__upright_harness_moment_0-180deg_10-50Nm",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "upright",
+  "asymmetric moment",
+  "co-contraction",
+  "%MVC",
+  "digitised",
+  "males"
+ ]
+}

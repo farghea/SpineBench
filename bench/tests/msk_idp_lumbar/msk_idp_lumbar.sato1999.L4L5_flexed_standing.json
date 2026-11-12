@@ -1,0 +1,269 @@
+{
+ "id": "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
+ "title": "Sato 1999: L4-L5 IDP standing flexed forward (L4/L5 flexed 5 deg), 8 healthy subjects",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L4-L5 in vivo, cohort",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "standing, flexed forward until L4/L5 is flexed 5 deg, no hand load",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Sato 1999",
+  "authors": "Sato K, Kikuchi S, Yonezawa T",
+  "year": 1999,
+  "journal": "Spine 24:2468-2474",
+  "doi": "10.1097/00007632-199912010-00008",
+  "n": "8 healthy subjects (men)",
+  "sample": "8 healthy volunteers without back problems (plus 28 patients not used here), L4-L5",
+  "age": "24.5 (22-29)",
+  "sex": "M",
+  "height_cm": 173.4,
+  "weight_kg": 72.6
+ },
+ "protocol": {
+  "summary": "As sato1999.L4L5_standing; forward flexion defined by 5 deg local L4/L5 flexion.",
+  "how_to_simulate": [
+   "Scale the model to the Sato cohort mean (protocol.subject_model)",
+   "Posture: flex the trunk until the L4-L5 intersegmental flexion is 5 deg (50.8 deg trunk flexion with the user's validated rhythm, targets_msk.json sato_flexed); arms hanging",
+   "Hand load: none",
+   "Output: L4-L5 compression F; th = 5 deg",
+   "Convert with Ghezelbash 2016 Eq. 6: P = F / A, A = 1585 mm2 (V05 mean); compare with data[0].mean"
+  ],
+  "subject_model": {
+   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; targets_msk.json: male); V05 Table 2 prints '-' (sex not given)",
+   "age": 24.5,
+   "age_range": [
+    22,
+    29
+   ],
+   "height_cm": 173.4,
+   "weight_kg": 72.6,
+   "weight_range_kg": [
+    60,
+    94
+   ],
+   "disc_area_mm2": 1585,
+   "disc_area_range_mm2": [
+    1340,
+    1890
+   ],
+   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The user's targets_msk.json (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
+   "per_subject": [
+    {
+     "no": 1,
+     "age": 26,
+     "weight_kg": 72,
+     "height_cm": 168,
+     "bmi": 25.5,
+     "disc_area_mm2": 1690,
+     "idp_standing_mpa": 0.44,
+     "v05_compression_N": 487
+    },
+    {
+     "no": 2,
+     "age": 24,
+     "weight_kg": 74,
+     "height_cm": 168,
+     "bmi": 26.2,
+     "disc_area_mm2": 1420,
+     "idp_standing_mpa": 0.75,
+     "v05_compression_N": 703
+    },
+    {
+     "no": 3,
+     "age": 22,
+     "weight_kg": 65,
+     "height_cm": 181,
+     "bmi": 19.8,
+     "disc_area_mm2": 1460,
+     "idp_standing_mpa": 0.46,
+     "v05_compression_N": 442
+    },
+    {
+     "no": 4,
+     "age": 24,
+     "weight_kg": 94,
+     "height_cm": 181,
+     "bmi": 28.7,
+     "disc_area_mm2": 1340,
+     "idp_standing_mpa": 0.71,
+     "v05_compression_N": 624
+    },
+    {
+     "no": 5,
+     "age": 23,
+     "weight_kg": 66,
+     "height_cm": 177,
+     "bmi": 21.1,
+     "disc_area_mm2": 1540,
+     "idp_standing_mpa": 0.56,
+     "v05_compression_N": 572
+    },
+    {
+     "no": 6,
+     "age": 24,
+     "weight_kg": 60,
+     "height_cm": 166,
+     "bmi": 21.8,
+     "disc_area_mm2": 1600,
+     "idp_standing_mpa": 0.68,
+     "v05_compression_N": 721
+    },
+    {
+     "no": 7,
+     "age": 24,
+     "weight_kg": 66,
+     "height_cm": 172,
+     "bmi": 22.3,
+     "disc_area_mm2": 1740,
+     "idp_standing_mpa": 0.47,
+     "v05_compression_N": 545
+    },
+    {
+     "no": 8,
+     "age": 29,
+     "weight_kg": 84,
+     "height_cm": 174,
+     "bmi": 27.7,
+     "disc_area_mm2": 1890,
+     "idp_standing_mpa": 0.22,
+     "v05_compression_N": 268
+    }
+   ],
+   "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Flexion definition (5 deg at L4/L5) from Sato Table 2 as quoted by Guenther & Moerl 2021 (via targets_msk.json)."
+ },
+ "data": [
+  {
+   "x": "flexed forward (L4/L5 5 deg), cohort mean (n=8)",
+   "load": "none",
+   "mean": 1.32,
+   "sd": 0.223,
+   "min": 0.9,
+   "max": 1.49,
+   "median": null,
+   "n": 8,
+   "src": "mean: Sato 1999 Table 2 via targets_msk.json; SD: targets (Ghezelbash 2020 Fig 4a individual values, 1.333 +/- 0.223); min/max: my digitisation of G2020 Fig S2-3a"
+  },
+  {
+   "x": "flexed, subject No. 1",
+   "load": "none",
+   "mean": 1.35,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 2",
+   "load": "none",
+   "mean": 1.402,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 3",
+   "load": "none",
+   "mean": 1.482,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 4",
+   "load": "none",
+   "mean": 1.494,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 5",
+   "load": "none",
+   "mean": 1.471,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 6",
+   "load": "none",
+   "mean": 1.43,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 7",
+   "load": "none",
+   "mean": 1.052,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  },
+  {
+   "x": "flexed, subject No. 8",
+   "load": "none",
+   "mean": 0.904,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+  }
+ ],
+ "extraction": {
+  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (sato_flexed), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows digitised from Ghezelbash 2020 J Biomech accepted manuscript Fig S2-3a (file 'Mitutoyo Digital Caliper ... DDE14R52L.PDF', p.40)",
+  "method": "digitised_figure",
+  "uncertainty": "cohort mean secondary; per-subject +/-0.01 MPa (pixel measurement, 300 dpi; bar outline mid-line)",
+  "checked": "via user's targets",
+  "check_notes": "Mean of my 8 digitised values 1.323 MPa, SD 0.222 - matches targets 1.333 +/- 0.223 and the primary 1.32. Digitisation accuracy checked on the upright bars of the same figure against V05's printed values (<=0.02 MPa)."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs__L4-L5__flexed_L4L5_5deg__none",
+ "shared_sample_with": [
+  "msk_idp_lumbar.sato1999.L4L5_standing"
+ ],
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "cohort",
+  "healthy"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

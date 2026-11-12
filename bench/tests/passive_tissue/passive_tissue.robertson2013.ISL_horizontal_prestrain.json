@@ -1,0 +1,92 @@
+{
+ "id": "passive_tissue.robertson2013.ISL_horizontal_prestrain",
+ "title": "Robertson 2013 in situ pre-strain, ISL horizontal",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracolumbar",
+ "levels": [
+  "T1-S1"
+ ],
+ "condition": "neutral posture, no load",
+ "quantity": {
+  "name": "pre-strain",
+  "definition": "in situ strain in neutral posture relative to excised stress-free length (marker based), direction: ISL horizontal",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Robertson 2013",
+  "authors": "Robertson DJ, Von Forell GA, Alsup J, Bowden AE",
+  "year": 2013,
+  "journal": "J Mech Behav Biomed Mater 23:44-52",
+  "doi": "",
+  "n": "71 ligaments (30 ALL, 27 SSL, 14 ISL) from 3 cadaveric T1-S1 spines; +10 ligaments (4 ALL, 3 ISL, 3 SSL) for the 444 N test",
+  "sample": "human thoracolumbar ALL, SSL, ISL in situ (neutral posture fixed with pedicle screws/plates)",
+  "age": "29, 42, 73 y",
+  "sex": "2 F, 1 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Spine placed in neutral posture and fixed posterolaterally (plates + pedicle screws); tattoo-ink optical markers on ALL (12), ISL (4), SSL (2); calibrated photographs in situ, then each ligament excised and allowed to reach stress-free state and re-photographed; pre-strain = (in situ length - free length)/free length between markers. Room temperature, isotonic saline mist. Load test: single-level FSUs potted, 444 N compressive follower-type load through centre of rotation, photographs with/without load.",
+  "how_to_simulate": [
+   "Set the model in neutral posture with no external load",
+   "Compute ligament strain relative to its stress-free (slack) length along the stated direction (ALL longitudinal/transverse over disc and over bone; SSL along fibres; ISL vertical and horizontal)",
+   "Compare with the measured pre-strain (negative = slack)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "total (T1-S1)",
+   "load": "",
+   "mean": 0.2,
+   "sd": 14.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "lumbar (T12-S1)",
+   "load": "",
+   "mean": 3.7,
+   "sd": 11.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9
+  },
+  {
+   "x": "thoracic (T1-T12)",
+   "load": "",
+   "mean": -6.0,
+   "sd": 19.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 read from 200-dpi render (values match; ISL horizontal total printed '.2'). Rows: total, lumbar, thoracic (different n). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__prestrain__ISL_horizontal__human__in_situ_neutral",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "lumbar",
+  "ISL"
+ ]
+}

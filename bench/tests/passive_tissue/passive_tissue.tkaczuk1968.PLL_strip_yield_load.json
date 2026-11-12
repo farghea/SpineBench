@@ -1,0 +1,230 @@
+{
+ "id": "passive_tissue.tkaczuk1968.PLL_strip_yield_load",
+ "title": "Tkaczuk 1968 lumbar PLL standard strip (1 mm2) yield load",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1",
+  "L2",
+  "L3",
+  "L4",
+  "L5"
+ ],
+ "condition": "autopsy",
+ "quantity": {
+  "name": "yield load",
+  "definition": "yield load of standard dumb-bell strip (2 x 0.5 mm mid-section = 1 mm2), 9 mm clamp distance; numerically, N per mm2 = MPa",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Tkaczuk 1968",
+  "authors": "Tkaczuk H",
+  "year": 1968,
+  "journal": "Acta Orthop Scand 39(Suppl 115):1-69",
+  "doi": "10.3109/ort.1968.39.suppl-115.01",
+  "n": "74 lumbar spines (autopsy, 1 day-92 y), 484 ALL/PLL samples overall; failure tests: 14 full-width segments from 3 spines (Table VII) and 26 standard strips from 3 spines (Table VIII)",
+  "sample": "human lumbar anterior and posterior longitudinal ligaments, autopsy",
+  "age": "failure tests: 26-64 y",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Dumb-bell strips cut to standard mid-section 2 mm wide x 0.5 mm thick (area 1 mm2), 9 mm clamp distance, loaded to failure in high-humidity chamber, ~5 mm/min; 26 of 30 retained.",
+  "how_to_simulate": [
+   "Model a standard ligament strip 2 x 0.5 mm cross-section, 9 mm gauge",
+   "Pull to failure",
+   "Report yield and failure load (1 kg on 1 mm2 = 9.81 MPa)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "spine 66 (55 y) L2 disc",
+   "load": "",
+   "mean": 15.69,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.6 kg"
+  },
+  {
+   "x": "spine 66 (55 y) L3",
+   "load": "",
+   "mean": 20.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "2.1 kg"
+  },
+  {
+   "x": "spine 66 (55 y) L4",
+   "load": "",
+   "mean": 17.65,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.8 kg"
+  },
+  {
+   "x": "spine 66 (55 y) L5",
+   "load": "",
+   "mean": 19.61,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "2.0 kg"
+  },
+  {
+   "x": "spine 74 (64 y) L1",
+   "load": "",
+   "mean": 15.69,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.6 kg"
+  },
+  {
+   "x": "spine 74 (64 y) L2 disc",
+   "load": "",
+   "mean": 18.63,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.9 kg"
+  },
+  {
+   "x": "spine 74 (64 y) L4",
+   "load": "",
+   "mean": 16.67,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.7 kg"
+  },
+  {
+   "x": "spine 74 (64 y) L5",
+   "load": "",
+   "mean": 17.65,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.8 kg"
+  },
+  {
+   "x": "spine 73 (26 y) L1",
+   "load": "",
+   "mean": 15.69,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.6 kg"
+  },
+  {
+   "x": "spine 73 (26 y) L2 disc",
+   "load": "",
+   "mean": 16.67,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.7 kg"
+  },
+  {
+   "x": "spine 73 (26 y) L3",
+   "load": "",
+   "mean": 18.63,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.9 kg"
+  },
+  {
+   "x": "spine 73 (26 y) L4",
+   "load": "",
+   "mean": 17.65,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "1.8 kg"
+  },
+  {
+   "x": "spine 73 (26 y) L5",
+   "load": "",
+   "mean": 20.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "2.1 kg"
+  },
+  {
+   "x": "reported total average",
+   "load": "",
+   "mean": 17.75,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "orig": "1.81 kg",
+   "note": "= stress in MPa x 1 mm2 strip area"
+  },
+  {
+   "x": "SD of the 13 strips (computed by extractor)",
+   "load": "",
+   "mean": 17.8,
+   "sd": 1.74,
+   "min": 15.69,
+   "max": 20.59,
+   "median": null,
+   "n": 13
+  }
+ ],
+ "extraction": {
+  "from": "Table VIII",
+  "method": "table",
+  "uncertainty": "as printed (0.1 kg)",
+  "checked": true,
+  "check_notes": "Tables read from 150-dpi page renders (OCR matched). Loads converted kg -> N (x9.80665); original in 'orig'. Strip area 1 mm2, so failure load in N equals nominal failure stress in MPa (ALL ~20.8 MPa, PLL ~19.4 MPa) - derived equivalence, not stated as stress by the author. Per-spine subgroup means printed in table were checked against row values."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__yield_force__PLL_lumbar__human__uniaxial_tension_strip_1mm2",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "PLL"
+ ]
+}

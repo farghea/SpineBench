@@ -1,0 +1,128 @@
+{
+ "id": "muscle_geometry.jorgensen2001.centroid_distance.L2.erector_spinae_multifidus.F_supine",
+ "title": "Jorgensen 2001: centroid distance of paraspinal / lumbar extensor mass at L2 (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L2"
+ ],
+ "condition": "F_supine",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "R./L. Er. Spinae (erector spinae group)",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips GyroScan, spin echo T1 (TR 240, TE 12)",
+  "plane": "transverse slices perpendicular to the table (scanner axial), through approximate centres of vertebral bodies T8-S1",
+  "slice_thickness_mm": 10,
+  "level_definition": "mid-vertebral-body level (T8..S1)",
+  "posture_detail": "supine, knees extended, hands across abdomen"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Jorgensen 2001",
+  "authors": "Jorgensen MJ, Marras WS, Granata KP, Wiand JW",
+  "year": 2001,
+  "journal": "Clin Biomech 16:182-193 (erratum Clin Biomech 16:547)",
+  "doi": "10.1016/S0268-0033(00)00087-5",
+  "n": "30 healthy subjects (20 F, 10 M)",
+  "sample": "young healthy volunteers, no activity-limiting back pain",
+  "age": "F 25.0 (7.2), M 26.4 (5.5) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Supine MRI, 10-mm T1 axial slices through vertebral body centres T8-S1; area centroids of muscles and vertebral body; distances in sagittal (AP) and coronal (ML) directions, adjusted for the angle between spinous process and vertebral body centroid; mean of three observations.",
+  "how_to_simulate": [
+   "Pose the model supine (as in the MRI: lying, knees extended); use the vertebral-body centroid at mid-height of L2 as origin.",
+   "Cut a transverse plane perpendicular to the body long axis (scanner axial, NOT parallel to the endplate) through the centre of the L2 vertebral body.",
+   "For each side, take the force-weighted (PCSA or Fmax weighted) mean intersection point of all model er. spinae paths with that plane.",
+   "Report AP (signed, + anterior of the vertebral-body centroid) and ML (unsigned) distances; compare right and left separately with the measured mean +/- SD (or average L/R for a symmetric model).",
+   "This is a centroid offset, not a moment arm; for this paper sagittal = AP, coronal = ML."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 25.0,
+   "height_cm": 165.5,
+   "weight_kg": 57.9,
+   "disc_area_mm2": null,
+   "n": 20,
+   "source": "Table 1 (SD: age 7.2, height 5.9, weight 6.4; trunk depth/width at iliac crest 19.8/28.0 cm, at xyphoid 18.4/27.0 cm)"
+  },
+  "notes": "Erector spinae group: multifidus is not listed separately; Hwang 2016 (same dataset) describes the erector spinae group as including the transversospinalis, so the outline is taken as the whole paraspinal mass (ES + multifidus). Authors call these \"moment-arms\"; they are centroid distances. Values converted cm -> mm (x10)."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": -48.0,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "-4.8 (0.4) cm [Table 4]"
+  },
+  {
+   "x": "ML",
+   "side": "right",
+   "mean": 35.0,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "3.5 (0.3) cm [Table 3]"
+  },
+  {
+   "x": "AP",
+   "side": "left",
+   "mean": -51.0,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "-5.1 (0.6) cm [Table 4]"
+  },
+  {
+   "x": "ML",
+   "side": "left",
+   "mean": 35.0,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "3.5 (0.3) cm [Table 3]"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 (coronal/ML) and Table 4 (sagittal/AP)",
+  "method": "table",
+  "uncertainty": "table values to 0.1 cm (1 mm)",
+  "checked": true,
+  "check_notes": "Column (level) of every value confirmed on rendered pages 185-186 (layout text misaligned blank cells). Signs as printed (posterior negative)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L2__erector_spinae_multifidus__F_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "sample:osu_mri_30",
+  "in vivo",
+  "MRI",
+  "supine"
+ ]
+}

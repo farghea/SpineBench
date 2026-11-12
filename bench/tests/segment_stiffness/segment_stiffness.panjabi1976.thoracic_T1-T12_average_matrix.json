@@ -1,0 +1,495 @@
+{
+ "id": "segment_stiffness.panjabi1976.thoracic_T1-T12_average_matrix",
+ "title": "Thoracic motion segment 6x6 stiffness matrix (average of T1-T2 to T11-T12), positive and negative loads",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "stiffness_matrix_6dof",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2 to T11-T12 (average)"
+ ],
+ "condition": "intact, no preload, rib heads retained",
+ "quantity": {
+  "name": "6x6 stiffness matrix (from inverted flexibility)",
+  "definition": "Right-hand Cartesian system (Panjabi et al. 1974), fixed in space, origin at the centre of the UPPER vertebral body under no load; lower vertebra rigidly fixed. Fig 1: y axial (upward), z antero-posterior, x lateral; DOF 1-3 = translations along x, y, z; 4-6 = rotations about x (flexion-extension), y (axial rotation), z (lateral bending). Stiffness matrix obtained by INVERTING the measured 6x6 flexibility matrix (sagittal symmetry assumed: 12 non-zero coefficients). Values at 100 N force or 5 Nm moment; K+ from positive load components, K- from negative.",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Panjabi 1976",
+  "authors": "Panjabi MM, Brand RA Jr, White AA III",
+  "year": 1976,
+  "journal": "J Biomech 9:185-192",
+  "doi": "10.1016/0021-9290(76)90003-8",
+  "n": "11 thoracic motion segments, one per level T1-T2 ... T11-T12, from 5 fresh cadaver spines",
+  "sample": "fresh human cadaveric thoracic motion segments with intervening ligaments and rib heads/necks (ribs cut proximal to the transverse articulation)",
+  "age": "not reported",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Load control, one load component at a time applied to the upper vertebra via a threaded rod through the vertebral body centre: forces 1 kp initial then increments of 3 kp up to 16 kp (~157 N); moments by 1 kp couples on 10 or 15 cm arms in 1 kp increments up to 6 kp; displacements read 4 min after each load (dial gauges, 3 steel balls); 100% humidity, 22 C; no preload.",
+  "how_to_simulate": [
+   "Model a thoracic motion segment (two vertebrae, disc, ligaments, rib heads/necks only; no rib cage); fix the lower vertebra, reference point = centre of the upper vertebral body",
+   "Apply each of the 6 load components separately, positive and negative, without preload: forces up to 100 N, moments up to 5 Nm",
+   "Record all 6 displacements at 100 N / 5 Nm to build the 6x6 flexibility matrix, invert it to get the stiffness matrix (do NOT take reciprocals of flexibility terms)",
+   "Compare the 12 non-zero terms (converted to N/mm, N/deg, Nm/deg) with the level-averaged values"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate system: Right-hand Cartesian system (Panjabi et al. 1974), fixed in space, origin at the centre of the UPPER vertebral body under no load; lower vertebra rigidly fixed. Fig 1: y axial (upward), z antero-posterior, x lateral; DOF 1-3 = translations along x, y, z; 4-6 = rotations about x (flexion-extension), y (axial rotation), z (lateral bending). Stiffness matrix obtained by INVERTING the measured 6x6 flexibility matrix (sagittal symmetry assumed: 12 non-zero coefficients). Values at 100 N force or 5 Nm moment; K+ from positive load components, K- from negative. Per-level main and coupling flexibility coefficients are plotted in Figs 7-8 (not extracted; text: small variation along levels for main coefficients). No SD given. Specimens kept at 100% humidity (not immersed)."
+ },
+ "data": [
+  {
+   "x": "K11",
+   "row": "fx lateral force",
+   "col": "x translation (lateral)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 110.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 110.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.011"
+   }
+  },
+  {
+   "x": "K15",
+   "row": "fx lateral force",
+   "col": "rotation about y (axial rotation)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 10.12,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": 580.0,
+    "unit": "N/rad",
+    "printed": "1e4 x 0.058"
+   }
+  },
+  {
+   "x": "K16",
+   "row": "fx lateral force",
+   "col": "rotation about z (lateral bending)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 2.618,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": 150.0,
+    "unit": "N/rad",
+    "printed": "1e4 x 0.015"
+   }
+  },
+  {
+   "x": "K22",
+   "row": "fy axial force",
+   "col": "y translation (axial)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 780.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 780.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.078"
+   }
+  },
+  {
+   "x": "K23",
+   "row": "fy axial force",
+   "col": "z translation (A-P)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 50.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 50.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.005"
+   }
+  },
+  {
+   "x": "K24",
+   "row": "fy axial force",
+   "col": "rotation about x (flexion-extension)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": -13.26,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": -760.0,
+    "unit": "N/rad",
+    "printed": "1e4 x -0.076"
+   }
+  },
+  {
+   "x": "K33",
+   "row": "fz A-P force",
+   "col": "z translation (A-P)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 100.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 100.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.01"
+   }
+  },
+  {
+   "x": "K34",
+   "row": "fz A-P force",
+   "col": "rotation about x (flexion-extension)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": -28.62,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": -1640.0,
+    "unit": "N/rad",
+    "printed": "1e4 x -0.164"
+   }
+  },
+  {
+   "x": "K44",
+   "row": "mu_x flexion-extension moment",
+   "col": "rotation about x (flexion-extension)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 2.653,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 152000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 15.2"
+   }
+  },
+  {
+   "x": "K55",
+   "row": "mu_y axial torque",
+   "col": "rotation about y (axial rotation)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 2.67,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 153000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 15.3"
+   }
+  },
+  {
+   "x": "K56",
+   "row": "mu_y axial torque",
+   "col": "rotation about z (lateral bending)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": -0.1403,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": -8040.000000000001,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x -0.804"
+   }
+  },
+  {
+   "x": "K66",
+   "row": "mu_z lateral bending moment",
+   "col": "rotation about z (lateral bending)",
+   "load": "positive load components (K+), at 100 N / 5 Nm",
+   "mean": 2.583,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 148000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 14.8"
+   }
+  },
+  {
+   "x": "K11",
+   "row": "fx lateral force",
+   "col": "x translation (lateral)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 110.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 110.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.011"
+   }
+  },
+  {
+   "x": "K15",
+   "row": "fx lateral force",
+   "col": "rotation about y (axial rotation)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 10.82,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": 620.0,
+    "unit": "N/rad",
+    "printed": "1e4 x 0.062"
+   }
+  },
+  {
+   "x": "K16",
+   "row": "fx lateral force",
+   "col": "rotation about z (lateral bending)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 28.62,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": 1640.0,
+    "unit": "N/rad",
+    "printed": "1e4 x 0.164"
+   }
+  },
+  {
+   "x": "K22",
+   "row": "fy axial force",
+   "col": "y translation (axial)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 1240.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 1240.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.124"
+   }
+  },
+  {
+   "x": "K23",
+   "row": "fy axial force",
+   "col": "z translation (A-P)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": -20.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": -20.0,
+    "unit": "N/mm",
+    "printed": "1e4 x -0.002"
+   }
+  },
+  {
+   "x": "K24",
+   "row": "fy axial force",
+   "col": "rotation about x (flexion-extension)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": -12.74,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": -730.0,
+    "unit": "N/rad",
+    "printed": "1e4 x -0.073"
+   }
+  },
+  {
+   "x": "K33",
+   "row": "fz A-P force",
+   "col": "z translation (A-P)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 100.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/mm",
+   "native": {
+    "mean": 100.0,
+    "unit": "N/mm",
+    "printed": "1e4 x 0.01"
+   }
+  },
+  {
+   "x": "K34",
+   "row": "fz A-P force",
+   "col": "rotation about x (flexion-extension)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": -27.23,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "N/deg",
+   "native": {
+    "mean": -1560.0,
+    "unit": "N/rad",
+    "printed": "1e4 x -0.156"
+   }
+  },
+  {
+   "x": "K44",
+   "row": "mu_x flexion-extension moment",
+   "col": "rotation about x (flexion-extension)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 3.246,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 186000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 18.6"
+   }
+  },
+  {
+   "x": "K55",
+   "row": "mu_y axial torque",
+   "col": "rotation about y (axial rotation)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 2.531,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 145000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 14.5"
+   }
+  },
+  {
+   "x": "K56",
+   "row": "mu_y axial torque",
+   "col": "rotation about z (lateral bending)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 0.03491,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 2000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 0.2"
+   }
+  },
+  {
+   "x": "K66",
+   "row": "mu_z lateral bending moment",
+   "col": "rotation about z (lateral bending)",
+   "load": "negative load components (K-), at 100 N / 5 Nm",
+   "mean": 3.438,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 197000.0,
+    "unit": "N·mm/rad",
+    "printed": "1e4 x 19.7"
+   }
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.190); axes Fig 1 and eq. 1 (p.186)",
+  "method": "table",
+  "uncertainty": "tabulated to 2-3 significant figures (x1e4); no SD",
+  "checked": true,
+  "check_notes": "All 24 stiffness values re-read from the rendered Table 1 image (pdftotext unusable). Cross-check: Edwards 1987 Table 3 quotes Panjabi K+ as Kyy 780 N/mm, Kzz 100, Ktt 152000 N·mm/rad, Kyz 50, consistent with K22, K33, K44, K23 here. Converted N/rad -> N/deg, N·mm/rad -> Nm/deg."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "diagonal terms within a factor 1.5 of the mean (no SD reported); off-diagonal sign and order of magnitude"
+ },
+ "combine_group": "segment_stiffness__stiffness_matrix_6dof__thoracic_FSU__intact__preload_0N",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "human",
+  "FSU",
+  "stiffness matrix",
+  "passive"
+ ]
+}

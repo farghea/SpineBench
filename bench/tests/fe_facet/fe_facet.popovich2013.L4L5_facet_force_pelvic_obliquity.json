@@ -1,0 +1,143 @@
+{
+ "id": "fe_facet.popovich2013.L4L5_facet_force_pelvic_obliquity",
+ "title": "Right L4-L5 facet force under 10 Nm pure moments and simulated pelvic obliquity",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet force",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact (capsules incised for sensor); pure moment and pelvic-obliquity combined loading",
+ "quantity": {
+  "name": "facet force",
+  "definition": "peak normal force in the right L4-L5 facet joint (FlexiForce A-201 piezoresistive sensor), mean +- SD, n=8; LB = ipsilateral (right) bending, AR = contralateral (left) rotation",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Popovich 2013",
+  "authors": "Popovich JM Jr, Welcher JB, Hedman TP, Tawackoli W, Anand N, Chen TC, Kulig K",
+  "year": 2013,
+  "journal": "Spine J 13:1581-1589",
+  "doi": "10.1016/j.spinee.2013.04.011",
+  "n": "8 specimens (7 L1-sacrum, 1 L3-sacrum); measurements at L4-L5",
+  "sample": "8 fresh-frozen human lumbosacral spines (7 L1-S, 1 L3-S) without gross deformity or major degeneration",
+  "age": "mean 58.6 +- 22.2",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bose Kinematic Spine Testing Device; specimens potted in polyurethane with L4 superior endplate horizontal; pure moments +-10 Nm at 1 deg/s; 5 preconditioning cycles then 3 recorded cycles, 2nd cycle analysed; no preload. Conditions: flexion/extension, lateral bending, axial rotation, and simulated pelvic obliquity = sacrum tilted left 5 deg or 10 deg (lumbar spine in right lateral bending) followed by +-10 Nm axial rotation.",
+  "how_to_simulate": [
+   "Fix sacrum (cranial end loaded; L1 or L3 free); no preload",
+   "Apply pure moment +-10 Nm in FL/EX, LB, AR; for pelvic obliquity tilt the sacrum 5 or 10 deg to the left in the frontal plane, then apply +-10 Nm axial rotation",
+   "Report peak normal contact force in the right L4-L5 facet (ipsilateral LB, contralateral AR)"
+  ],
+  "subject_model": null,
+  "notes": "Method: FlexiForce A-201 (Tekscan) force sensor inserted through incised right L4-L5 capsule, overlaid with Fuji Prescale film (placement check) and Kapton tape; calibrated on a materials tester, linear interpolation; only normal force measured; only right facet recorded."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "10 Nm",
+   "mean": 26.8,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "text"
+  },
+  {
+   "x": "extension",
+   "load": "10 Nm",
+   "mean": 32.4,
+   "sd": 10.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "digitised Fig 5"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "10 Nm (ipsilateral, right)",
+   "mean": 50.8,
+   "sd": 31.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "digitised Fig 5"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "10 Nm (contralateral, left)",
+   "mean": 95.8,
+   "sd": 29.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "digitised Fig 5"
+  },
+  {
+   "x": "pelvic_obliquity_5deg_plus_axial_rotation",
+   "load": "sacrum 5 deg left tilt + 10 Nm contralateral AR",
+   "mean": 110.7,
+   "sd": 28.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "digitised Fig 5"
+  },
+  {
+   "x": "pelvic_obliquity_10deg_plus_axial_rotation",
+   "load": "sacrum 10 deg left tilt + 10 Nm contralateral AR",
+   "mean": 124.0,
+   "sd": 30.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "side": "right_facet",
+   "note": "text"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (flexion, 10 deg LB+ROT); Fig 5 (others)",
+  "method": "digitised_figure",
+  "uncertainty": "+-1 N mean, +-1 N SD (pixel scan at 300 dpi, 3.09 px/N)",
+  "checked": true,
+  "check_notes": "Bars and whiskers digitised by pixel scan (bar top = first fully dark row; whisker traced up from bar top). Re-digitised text-reported bars: FL 26.9+-16.2 (text 26.8+-16.1), 10deg 124.3+-30.1 (124.0+-30.2). Text values used where available."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_force__L4-L5__intact__10Nm",
+ "shared_sample_with": [
+  "fe_idp_invitro.popovich2013.L4L5_idp_pelvic_obliquity"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "FlexiForce",
+  "combined loading",
+  "human"
+ ]
+}

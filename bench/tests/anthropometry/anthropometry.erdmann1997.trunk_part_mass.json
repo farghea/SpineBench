@@ -1,0 +1,188 @@
+{
+ "id": "anthropometry.erdmann1997.trunk_part_mass",
+ "title": "Trunk part masses (thorax, abdomen, pelvis, shoulder girdle) of adult males by CT",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [],
+ "condition": "male patients, CT",
+ "quantity": {
+  "name": "segment mass",
+  "definition": "mean mass of trunk parts (kg, text) and rounded % body mass of body parts (Fig 10A, combining this study's trunk data with literature data for other segments)",
+  "unit": "kg"
+ },
+ "source": {
+  "short": "Erdmann 1997",
+  "authors": "Erdmann WS",
+  "year": 1997,
+  "journal": "J Biomech 30(7):679-688",
+  "doi": "10.1016/S0021-9290(97)00013-4",
+  "n": "15 male patients (each scanned for one trunk portion only: 5 subjects per portion)",
+  "sample": "male patients of the Institute of Radiology and Radiotherapy, Medical University Gdansk; CT 8-mm layers",
+  "age": "20-40 y (mean 31.7, SD 4.7)",
+  "sex": "male",
+  "height_cm": null,
+  "weight_kg": null,
+  "notes": "DOI derived from printed PII S0021-9290(97)00013-4. Subject body mass/height not reported in extracted text."
+ },
+ "protocol": {
+  "summary": "CT-based geometric and inertial data of the trunk divided into thorax, abdomen, pelvis and shoulders; tissue composition.",
+  "how_to_use": [
+   "For models that separate the shoulder girdle from the thorax, use thorax 11 %, abdomen 16 %, pelvis 11 % and each shoulder 5 % of body mass (Fig 10A, integers).",
+   "Absolute means (thorax 8.1, abdomen 11.4, pelvis 8.0, shoulder girdle 8.0 kg) need the (unreported) body mass to be normalised – use the % values instead.",
+   "Treat as low-precision (n=5 per portion, integers in Fig 10A)."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "CT, 8-mm layers; tissue-specific densities; trunk modelled as non-circular right frusta between anthropometric landmarks",
+   "posture": "supine (CT)",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Real trunk = thorax (TH) + abdomen (AB) + pelvis (PE); shoulder girdle (SG) = right + left shoulder (SH) – shoulders separated from the thorax; viscera-trunk = AB + PE; whole trunk = real trunk + shoulder girdle. Boundaries are anthropometric landmarks (Fig 1); the thorax here EXCLUDES the shoulder girdle, unlike Pearsall/de Leva."
+ },
+ "data": [
+  {
+   "x": "mass_kg",
+   "load": null,
+   "mean": 8.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "segment": "thorax",
+   "unit": "kg"
+  },
+  {
+   "x": "mass_kg",
+   "load": null,
+   "mean": 11.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "segment": "abdomen",
+   "unit": "kg"
+  },
+  {
+   "x": "mass_kg",
+   "load": null,
+   "mean": 8.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "segment": "pelvis",
+   "unit": "kg"
+  },
+  {
+   "x": "mass_kg",
+   "load": null,
+   "mean": 8.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "segment": "shoulder girdle (both shoulders)",
+   "unit": "kg"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "thorax",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 16,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "abdomen",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "pelvis",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "shoulder (each side)",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "head",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM_fig10",
+   "load": null,
+   "mean": 3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "neck",
+   "unit": "% body mass"
+  }
+ ],
+ "extraction": {
+  "from": "text p.684 (absolute masses); Fig 10A p.687 (relative %)",
+  "method": "text",
+  "uncertainty": "absolute masses: as printed (0.1 kg); Fig 10A values are printed integer labels (±0.5 % rounding)",
+  "checked": true,
+  "check_notes": "Re-read text (Inertial quantities, p.684) and Fig 10A labels at 150 dpi. Fig 10A labels sum to 100 % with hand = 1 % (label partly obscured: 'HA 1'). Text OCR '8.0 ke.' = 8.0 kg. No numeric tables exist in this PDF despite catalog note; COM data are only in Figs 6-8 (not digitised: complex nomograms)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_mass_fraction__trunk_parts_shoulder_separated__adults__-",
+ "tags": [
+  "in vivo",
+  "CT",
+  "male",
+  "young adults",
+  "patients",
+  "small n"
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "id": "msk_idp_lumbar.nachemson1964.L4L5_standing_v05",
+ "title": "Nachemson & Morris 1964: L4-L5 IDP in standing (corrected, via Dreischarf 2016)",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L4-L5 in vivo, early transducer (corrected)",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "relaxed upright standing",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo IDP in standing; CORRECTED early-transducer value (original - 0.25 MPa, Nachemson's retrospective correction for transducer self-heating) as tabulated by Dreischarf 2016; original value in 'original_mpa'",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Nachemson & Morris 1964 (via Dreischarf 2016)",
+  "authors": "Nachemson A, Morris JM (tabulated by Dreischarf M, Shirazi-Adl A, Arjmand N, Rohlmann A, Schmidt H)",
+  "year": 1964,
+  "journal": "J Bone Joint Surg Am 46:1077 / Acta Orthop Scand Suppl 43 (table: J Biomech 49:833-845, 2016)",
+  "doi": "10.1016/j.jbiomech.2015.12.038",
+  "n": "4 subjects (4M, patients)",
+  "sample": "4 male patients with low-back pain/sciatica",
+  "age": "43-52",
+  "sex": "M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Early liquid/piezo needle transducer measurements in standing; values as corrected and tabulated in Dreischarf et al. 2016 review.",
+  "how_to_simulate": [
+   "Scale the model to each subject (protocol.subject_model.per_subject: sex, age, height, weight)",
+   "Posture: relaxed upright standing, arms hanging; no hand load",
+   "Output: L4-L5 compression F (and flexion th = 0)",
+   "Convert with Ghezelbash 2016 Eq. 6 using the subject's L4-L5 disc area (per_subject.disc_area_mm2); compare with data[].mean (corrected)"
+  ],
+  "subject_model": {
+   "per_subject": [
+    {
+     "id": "No. 8 (1964a,b)",
+     "age": 49,
+     "sex": "m",
+     "weight_kg": 67,
+     "height_cm": 163,
+     "bmi": 25.2,
+     "disc_area_mm2": 1780,
+     "history": "compression fracture of L4, 18 yrs intermittent LBP"
+    },
+    {
+     "id": "No. 16 (1964a,b)",
+     "age": 52,
+     "sex": "m",
+     "weight_kg": 75,
+     "height_cm": 175,
+     "bmi": 24.6,
+     "disc_area_mm2": 2160,
+     "history": "LBP, left leg and foot pains for 2.5 yrs after a fall"
+    },
+    {
+     "id": "No. 6 (1964b)",
+     "age": 49,
+     "sex": "m",
+     "weight_kg": 94,
+     "height_cm": 183,
+     "bmi": 28.1,
+     "disc_area_mm2": 2060,
+     "history": "sciatica 2 mo, myelogram neg."
+    },
+    {
+     "id": "No. 8 (1964b)",
+     "age": 43,
+     "sex": "m",
+     "weight_kg": 74,
+     "height_cm": 176,
+     "bmi": 23.9,
+     "disc_area_mm2": 1980,
+     "history": "LBP 2 mo, back to work 3 w after discharge"
+    }
+   ],
+   "source": "Dreischarf 2016 (V05) Table 2"
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Patients (LBP), not healthy. Early transducer: use corrected values; do not pool with modern measurements (Wilke, Sato, Takahashi)."
+ },
+ "data": [
+  {
+   "x": "standing, subject No. 8 (1964a,b)",
+   "load": "none",
+   "mean": 0.61,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.86,
+   "v05_compression_N": 720
+  },
+  {
+   "x": "standing, subject No. 16 (1964a,b)",
+   "load": "none",
+   "mean": 0.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.84,
+   "v05_compression_N": 846
+  },
+  {
+   "x": "standing, subject No. 6 (1964b)",
+   "load": "none",
+   "mean": 0.67,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.92,
+   "v05_compression_N": 913
+  },
+  {
+   "x": "standing, subject No. 8 (1964b)",
+   "load": "none",
+   "mean": 0.34,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.59,
+   "v05_compression_N": 442
+  }
+ ],
+ "extraction": {
+  "from": "Dreischarf 2016 J Biomech 49:833 (V05) Table 2 p.836 (page image)",
+  "method": "table",
+  "uncertainty": "values as printed (2 decimals); correction of -0.25 MPa (range 0.2-0.3) is itself uncertain",
+  "checked": true,
+  "check_notes": "Each row compared against the rendered table image; compressive forces reproduce 0.66 x IDP x area."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs_corrected__L4-L5__standing_relaxed__none",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "early transducer",
+  "corrected",
+  "secondary (review table)"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

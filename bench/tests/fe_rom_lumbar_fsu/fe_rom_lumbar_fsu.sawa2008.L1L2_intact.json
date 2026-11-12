@@ -1,0 +1,96 @@
+{
+ "id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
+ "title": "L1-L2 ROM at 7.5 Nm (T12-L2 specimens)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_fsu",
+ "subcategory": "intact",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "L1-L2 intervertebral rotation at 7.5 Nm (FL-EX total; LB and AR one side), quasi-static, mean +- SD, n=6",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Sawa 2008",
+  "authors": "Sawa AGU, Crawford NR",
+  "year": 2008,
+  "journal": "J Biomech 41:2647-2653",
+  "doi": "10.1016/j.jbiomech.2008.06.010",
+  "n": "6 specimens (human cadaveric T12-L2)",
+  "sample": "6 fresh-frozen human cadaveric T12-L2 segments screened for degeneration; facet loads at L1-L2 (gauges on L2 superior facets)",
+  "age": "median 58 (range 40-82)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T12-L2 specimens, end vertebrae potted in fixture cups; pure moments 7.5 Nm in FL, EX, right/left AR, right/left LB (standard flexibility test, Crawford 1995): 3 preconditioning cycles at peak load, then quasi-static 1.5 Nm increments to 7.5 Nm, each held 45 s; no preload; facet capsules intact.",
+  "how_to_simulate": [
+   "Fix L2; apply pure moments to T12, no preload",
+   "Apply 7.5 Nm in FL/EX, LB and AR",
+   "Report L1-L2 rotation: flexion+extension total, lateral bending and axial rotation one side"
+  ],
+  "subject_model": null,
+  "notes": "Method: four-gauge strain pads on lateral L2 superior articular processes (extra-articular, capsule intact); specimen-specific neural-network models (NeuralWorks Predict) trained on post hoc calibration loads 5-125 N at up to 12 points per facet; load RMSD < 11 N (Table 1). Strain gauges cannot measure tension; values are compressive contact loads."
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "7.5 Nm",
+   "mean": 7.2,
+   "sd": 0.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 3.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 1.3,
+   "sd": 0.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2"
+  }
+ ],
+ "extraction": {
+  "from": "Results text p.2648",
+  "method": "text",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "Read from rendered page (pdftotext had garbled +- and degree signs)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_fsu__rom__L1-L2__intact__7.5Nm",
+ "shared_sample_with": [
+  "fe_facet.sawa2008.L1L2_intact_facet_force"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "FSU",
+  "human"
+ ]
+}

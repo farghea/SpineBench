@@ -1,0 +1,164 @@
+{
+ "id": "segment_stiffness.tencer1982.lumbar_joint_intact_flexibility_single_loads",
+ "title": "Lumbar intervertebral joint principal flexibility (displacement/load ratio), intact, single principal loads",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "stiffness_diagonal",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "intact, no preload, nucleus pressurised to 626 kPa",
+ "quantity": {
+  "name": "displacement/load ratio f_ii (inverse of average stiffness)",
+  "definition": "f_ii = mean over load increments of (incremental displacement in load direction / incremental load), averaged over specimens. Load/displacement coordinate system with origin O_L at the intersection of the disc mid-transverse plane and the line joining the two vertebral body centres (NOT the vertebral body centre); Z along that centre line (axial compression +Fz), Y in the plane of symmetry (antero-posterior, +Fy anterior shear), X lateral (+Fx right lateral shear); rotations G (flexion-extension about X), B (lateral bending about Y; CCW = -B), A (axial rotation about Z; CW = +A). Lower member fixed, upper member unconstrained (loads by pulleys/dead weights).",
+  "unit": "mixed (mm/N, deg/Nm)"
+ },
+ "source": {
+  "short": "Tencer 1982",
+  "authors": "Tencer AF, Ahmed AM, Burke DL",
+  "year": 1982,
+  "journal": "J Biomech Eng 104:193-201",
+  "doi": "",
+  "n": "14 lumbar intervertebral joints (L2-3 and L4-5) from 8 cadavers (7 M, 1 F)",
+  "sample": "human cadaveric lumbar joints, disc grade 1-2, radiographically normal except one hypoplastic L5",
+  "age": "16-57 y (57, 18, 33, 16, 53, 57, 37, 48)",
+  "sex": "7 M, 1 F (donors)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Max principal loads (Table 3): 90 N right lateral/anterior/posterior shear, 823 N axial compression, 11.2 Nm flexion and extension, 14.7 Nm CCW lateral bending, 12.9 Nm CW axial torque; applied in 3 ~equal steps (readings 1 min after steps 1-2, 2 min after step 3). Nucleus pressurised to 626 kPa by water injection before testing (simulating reclining in vivo pressure); 4 conditioning cycles of +-axial torsion at max torque.",
+  "how_to_simulate": [
+   "Model an L2-L3 or L4-L5 joint; fix the lower vertebra; define the load/output point at the disc centre O_L (mid-disc on the line joining the vertebral body centres), Z along that line",
+   "Pressurise/pre-stress the nucleus to ~0.63 MPa if the model allows (paper injected water to 626 kPa); no external preload",
+   "Apply each principal load alone in 3 equal steps to 90 N shear, 823 N compression, 11.2 Nm flexion/extension, 14.7 Nm lateral bending, 12.9 Nm axial torque, upper vertebra otherwise free",
+   "Compute the displacement/load ratio of each step in the load direction (mm/N or deg/Nm) and average over the 3 steps; compare with the mean +- SD"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate system: Load/displacement coordinate system with origin O_L at the intersection of the disc mid-transverse plane and the line joining the two vertebral body centres (NOT the vertebral body centre); Z along that centre line (axial compression +Fz), Y in the plane of symmetry (antero-posterior, +Fy anterior shear), X lateral (+Fx right lateral shear); rotations G (flexion-extension about X), B (lateral bending about Y; CCW = -B), A (axial rotation about Z; CW = +A). Lower member fixed, upper member unconstrained (loads by pulleys/dead weights). Flexibility (not stiffness) reported; 1/f gives an average secant-like stiffness, e.g. flexion 1/0.737 = 1.36 Nm/deg."
+ },
+ "data": [
+  {
+   "x": "right lateral shear (Fx)",
+   "displacement": "R lateral translation +X",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.007,
+   "sd": 0.005,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "mm/N"
+  },
+  {
+   "x": "anterior shear (Fy)",
+   "displacement": "A-P translation +Y",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.022,
+   "sd": 0.008,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "mm/N"
+  },
+  {
+   "x": "posterior shear (-Fy)",
+   "displacement": "A-P translation -Y",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.011,
+   "sd": 0.013,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "mm/N"
+  },
+  {
+   "x": "axial compression (Fz)",
+   "displacement": "axial translation Z",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.002,
+   "sd": 0.002,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "mm/N"
+  },
+  {
+   "x": "flexion (Tx)",
+   "displacement": "flexion rotation G",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.737,
+   "sd": 0.204,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg/Nm"
+  },
+  {
+   "x": "extension (-Tx)",
+   "displacement": "extension rotation G",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.483,
+   "sd": 0.226,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg/Nm"
+  },
+  {
+   "x": "CCW lateral bending (-Ty)",
+   "displacement": "lateral rotation -B",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.57,
+   "sd": 0.196,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg/Nm"
+  },
+  {
+   "x": "CW axial torque (Tz)",
+   "displacement": "axial rotation +A",
+   "load": "averaged over 3 load increments up to max load, no preload",
+   "mean": 0.197,
+   "sd": 0.097,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg/Nm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 4 circled values (diagonal) and their SD (p.197); loads Table 3; specimens Tables 1-2",
+  "method": "table",
+  "uncertainty": "tabulated to 3 decimals",
+  "checked": true,
+  "check_notes": "Values re-read from rendered Table 4 image (pdftotext unusable). n=14 from Table 2 (test 1 total)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "segment_stiffness__principal_flexibility_single_load__lumbar_FSU__intact__no_preload",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "flexibility",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.tencer1982.lumbar_joint_intact_coupled_ratios_single_loads",
+  "segment_stiffness.tencer1982.lumbar_joint_preload_displacement_ratio_Rc"
+ ]
+}

@@ -1,0 +1,273 @@
+{
+ "id": "fe_resection_thoracic.liebsch2017.T1T12_ribcage_removed_coupled_rom_2Nm",
+ "title": "T1-T12 primary and coupled rotations, without rib cage (Liebsch 2017)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "coupled motion",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_removed",
+ "quantity": {
+  "name": "coupled ROM",
+  "definition": "T1-T12 rotation in one direction at 2 Nm in a given primary loading direction; x = '<primary load> -> <coupled rotation>' (rotation magnitude, mean+/-SD); x without arrow = primary rotation in that direction. Blank cells in Table 3 not reported (omitted).",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2017",
+  "authors": "Liebsch C, Graf N, Appelt K, Wilke HJ",
+  "year": 2017,
+  "journal": "PLoS One",
+  "doi": "10.1371/journal.pone.0178733",
+  "n": 6,
+  "sample": "6 fresh-frozen human C7-L1 thoracic spines with entire rib cage (sternum, costal cartilage, ribs, intercostal muscles)",
+  "age": "mean 56 y (range 50-65)",
+  "sex": "1 M, 5 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "C7 and L1 half-embedded in PMMA (screws in endplates; C7-T1 disc fixed with screws); L1 in angle flange at 20 deg (4 specimens) or 30 deg (2 hyperkyphotic). Pure moments +/-2 Nm at C7, FE/LB/AR, 1 deg/s (AR 0.5 deg/s), 3.5 cycles, last cycle; no preload. ROM of T1-T12 from optical markers on each vertebra.",
+  "how_to_simulate": [
+   "Fix L1 (caudal) and leave C7-T1 rigid; apply pure moment +/-2 Nm to C7 in FE, LB, AR without preload",
+   "Model the rib cage structures present at this step (see ribcage.intact_structures)",
+   "Report T1-T12 rotations about all three axes at peak moment of each one-sided load direction"
+  ],
+  "subject_model": null,
+  "notes": "Table 3 lists e.g. 'coupled ax. rot. left' under 'Lat. bend. right' = 4.6 deg; mapping kept exactly as printed."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "2 Nm",
+   "mean": 8.5,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  },
+  {
+   "x": "LB_left -> flexion",
+   "load": "2 Nm",
+   "mean": 0.3,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_right -> flexion",
+   "load": "2 Nm",
+   "mean": 0.4,
+   "sd": 1.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "extension",
+   "load": "2 Nm",
+   "mean": 8.4,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  },
+  {
+   "x": "AR_left -> extension",
+   "load": "2 Nm",
+   "mean": 0.1,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_right -> extension",
+   "load": "2 Nm",
+   "mean": 1.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "flexion -> LB_left",
+   "load": "2 Nm",
+   "mean": 0.2,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_left",
+   "load": "2 Nm",
+   "mean": 11.8,
+   "sd": 3.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  },
+  {
+   "x": "AR_left -> LB_left",
+   "load": "2 Nm",
+   "mean": 2.2,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "extension -> LB_right",
+   "load": "2 Nm",
+   "mean": 0.2,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_right",
+   "load": "2 Nm",
+   "mean": 11.8,
+   "sd": 3.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  },
+  {
+   "x": "AR_right -> LB_right",
+   "load": "2 Nm",
+   "mean": 2.2,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "extension -> AR_left",
+   "load": "2 Nm",
+   "mean": 1.2,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_right -> AR_left",
+   "load": "2 Nm",
+   "mean": 6.4,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_left",
+   "load": "2 Nm",
+   "mean": 23.5,
+   "sd": 8.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  },
+  {
+   "x": "flexion -> AR_right",
+   "load": "2 Nm",
+   "mean": 1.6,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_left -> AR_right",
+   "load": "2 Nm",
+   "mean": 6.3,
+   "sd": 3.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_right",
+   "load": "2 Nm",
+   "mean": 23.5,
+   "sd": 8.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "note": "primary motion, one direction"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Column placement verified on rendered page 8 image (text layer columns ambiguous)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__coupled_rom__T1-T12__ribcage_removed__2Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "coupled",
+  "Ulm"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "all rib heads removed: ligamentous spine C7-L1 only"
+ },
+ "loading": {
+  "moment_Nm": 2,
+  "rate": "1.0 deg/s FE and LB, 0.5 deg/s AR",
+  "cycles": "3.5 cycles per plane, last (3rd) cycle evaluated",
+  "branch": "maximum deflection at +/-2 Nm of last cycle",
+  "preload": "none",
+  "device": "custom spine tester, Vicon MX13 6 cameras (0.1 mm / 0.1 deg)"
+ },
+ "resection": {
+  "step_index": 5,
+  "step_name": "W/o RC",
+  "sequence": [
+   "intact",
+   "no_intercostal_muscles",
+   "median_sternotomy",
+   "no_anterior_ribcage (rib stumps kept)",
+   "no_right_rib_heads_6-8",
+   "no_rib_heads (isolated spine)"
+  ],
+  "cumulative": true
+ }
+}

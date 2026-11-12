@@ -1,0 +1,299 @@
+{
+ "id": "kinematics.tafazzol2014.lp_ratio_flexion",
+ "title": "Lumbopelvic ratio L/P during forward flexion (per 10% of full flexion and per 30 deg trunk interval)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1",
+  "pelvis"
+ ],
+ "condition": "healthy, standing, forward flexion",
+ "quantity": {
+  "name": "lumbopelvic ratio L/P",
+  "definition": "Pelvis P = S1 sensor rotation vs global; thorax T = T5 sensor rotation vs global; lumbar L = L1 relative to S1; all relative to upright standing. L/P = total lumbar rotation / total pelvis rotation from upright (cumulative), not interval increments, unless stated.",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Tafazzol 2014",
+  "authors": "Tafazzol A, Arjmand N, Shirazi-Adl A, Parnianpour M",
+  "year": 2014,
+  "journal": "Clin Biomech 29(1):7-13",
+  "doi": "10.1016/j.clinbiomech.2013.10.021",
+  "n": "8 males",
+  "sample": "8 young asymptomatic males (file G06.pdf)",
+  "age": "25.3 (SD 1.3) y",
+  "sex": "male",
+  "height_cm": "180.7 (SD 5.8)",
+  "weight_kg": "80.1 (SD 6.3)"
+ },
+ "protocol": {
+  "summary": "8 young males flexed forward slowly to maximum from upright standing; IMUs at T5, L1, S1 gave pelvis, lumbar and thorax rotation; L/P computed per 10% interval of full trunk flexion (Table 2) and per 30 deg trunk-angle interval (Fig 5a, total-based and incremental-based).",
+  "how_to_use": [
+   "Normalise the target trunk flexion angle by the subject's full trunk (T5) flexion (mean 121 deg) and pick the matching 10% interval from Table 2.",
+   "Split the pelvis+lumbar part of trunk rotation as pelvis = (T - T5_L1)/(1+L/P), lumbar = L/P * pelvis; T5-L1 adds ~8.3 deg at full flexion (scale linearly if needed).",
+   "Remember L/P here is cumulative (total L / total P from upright); for incremental (interval) distribution use the 'incremental' Fig 5a values.",
+   "Use the separate return test (lp_ratio_return) for the extension phase - the rhythm is not symmetric.",
+   "Use per-subject spread (SD 0.13-0.21) for robustness runs; data are young males only."
+  ],
+  "measurement": {
+   "method": "IMU",
+   "device": "Xsens MTx inertial/magnetic sensors on spinous processes of T5, L1, S1",
+   "posture": "standing, feet shoulder-width, knees extended",
+   "task": "slow self-paced maximal forward flexion from upright and return to upright, 3 trials, no load, sagittal plane"
+  },
+  "equations": [
+   "L/P = L / P (total rotations from upright)"
+  ],
+  "subject_model": null,
+  "notes": "L5-S1 loads in Fig 4 are model outputs (not extracted). Per-subject L/P in Table 2 available if individual robustness runs are wanted."
+ },
+ "data": [
+  {
+   "x": "0-10% full flexion",
+   "load": null,
+   "mean": 2.57,
+   "sd": 0.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "10-20% full flexion",
+   "load": null,
+   "mean": 2.52,
+   "sd": 0.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "20-30% full flexion",
+   "load": null,
+   "mean": 2.35,
+   "sd": 0.16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "30-40% full flexion",
+   "load": null,
+   "mean": 2.24,
+   "sd": 0.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "40-50% full flexion",
+   "load": null,
+   "mean": 2.11,
+   "sd": 0.19,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "50-60% full flexion",
+   "load": null,
+   "mean": 1.97,
+   "sd": 0.18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "60-70% full flexion",
+   "load": null,
+   "mean": 1.82,
+   "sd": 0.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "70-80% full flexion",
+   "load": null,
+   "mean": 1.6,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "80-90% full flexion",
+   "load": null,
+   "mean": 1.35,
+   "sd": 0.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "90-100% full flexion",
+   "load": null,
+   "mean": 1.14,
+   "sd": 0.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, % of full trunk flexion"
+  },
+  {
+   "x": "trunk 0-30 deg",
+   "load": null,
+   "mean": 2.51,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, trunk angle interval",
+   "source_where": "text/abstract + Fig 5a"
+  },
+  {
+   "x": "trunk 30-60 deg",
+   "load": null,
+   "mean": 2.21,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, trunk angle interval",
+   "source_where": "Fig 5a digitised"
+  },
+  {
+   "x": "trunk 60-90 deg",
+   "load": null,
+   "mean": 1.83,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, trunk angle interval",
+   "source_where": "Fig 5a digitised"
+  },
+  {
+   "x": "trunk 90-120 deg",
+   "load": null,
+   "mean": 1.34,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "total, trunk angle interval",
+   "source_where": "text/abstract + Fig 5a"
+  },
+  {
+   "x": "trunk 0-30 deg",
+   "load": null,
+   "mean": 2.51,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "incremental, trunk angle interval",
+   "source_where": "Fig 5a digitised (marker overlaps total)"
+  },
+  {
+   "x": "trunk 30-60 deg",
+   "load": null,
+   "mean": 1.63,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "incremental, trunk angle interval",
+   "source_where": "Fig 5a digitised"
+  },
+  {
+   "x": "trunk 60-90 deg",
+   "load": null,
+   "mean": 0.92,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "incremental, trunk angle interval",
+   "source_where": "Fig 5a digitised"
+  },
+  {
+   "x": "trunk 90-120 deg",
+   "load": null,
+   "mean": 0.32,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "phase": "flexion",
+   "basis": "incremental, trunk angle interval",
+   "source_where": "Fig 5a digitised (overlaps Rose 1988 marker)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2; abstract/text; Fig 5a",
+  "method": "table + digitised_figure",
+  "uncertainty": "table exact; Fig 5a digitised +-0.03",
+  "checked": true,
+  "check_notes": "Table values copied as printed. Fig 5 values digitised by pixel-centroid of markers on a 200 dpi render (axis ticks 0.4 apart = 46 px); digitised endpoints reproduce the text values (flexion 2.51/1.34, return 2.86/1.23) within 0.01."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__lp_ratio__lumbar-pelvis__healthy_standing__flexion_by_interval",
+ "tags": [
+  "in vivo",
+  "IMU",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "sagittal"
+ ]
+}

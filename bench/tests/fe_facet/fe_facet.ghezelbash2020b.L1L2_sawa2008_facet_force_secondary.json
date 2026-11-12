@@ -1,0 +1,129 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L1L2_sawa2008_facet_force_secondary",
+ "title": "Facet force at L1-L2 - Sawa AGU, Crawford NR 2008 (J Biomech 41:2647) (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet load from extra-articular strain gauges + neural network; mean +/- SD; flexion/extension = mean of facets; AR and LB split ipsilateral/contralateral",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Sawa AGU, Crawford NR 2008 (J Biomech 41:2647))",
+  "sample": "human cadaveric lumbar specimens of Sawa AGU, Crawford NR 2008 (J Biomech 41:2647), as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm; facet force estimated from extra-articular strain gauges.",
+  "how_to_simulate": [
+   "Apply 7.5 Nm pure moment",
+   "Report facet force at L1-L2 (mean of both facets in flexion/extension; ipsi/contralateral in AR and LB)"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Sawa AGU, Crawford NR 2008 (J Biomech 41:2647)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 46.1,
+   "sd": 41.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "mean of facets"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": 51.5,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "mean of facets"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 70.3,
+   "sd": 43.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "ipsilateral"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 31.3,
+   "sd": 33.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "contralateral"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 30.6,
+   "sd": 29.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "contralateral"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 32.0,
+   "sd": 44.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "ipsilateral"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__L1-L2__intact__7.5Nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force",
+  "strain gauge"
+ ],
+ "shared_sample_with": [
+  "sawa2008: primary (fe_facet tests from Sawa2008.pdf, other fork)"
+ ]
+}

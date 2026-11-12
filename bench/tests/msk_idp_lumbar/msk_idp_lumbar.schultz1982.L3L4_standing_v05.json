@@ -1,0 +1,94 @@
+{
+ "id": "msk_idp_lumbar.schultz1982.L3L4_standing_v05",
+ "title": "Schultz 1982: L3-L4 IDP in relaxed standing (via Dreischarf 2016)",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L3-L4 in vivo, cohort",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "relaxed upright standing",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture; group mean",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Schultz 1982 (via Dreischarf 2016)",
+  "authors": "Schultz A, Andersson G, Ortengren R, Haderspeck K, Nachemson A (tabulated by Dreischarf M et al.)",
+  "year": 1982,
+  "journal": "J Bone Joint Surg Am 64:713-720 (table: J Biomech 49:833-845, 2016)",
+  "doi": "10.1016/j.jbiomech.2015.12.038",
+  "n": "4 subjects (1M, 3F)",
+  "sample": "4 volunteers without LBP history, L3-L4",
+  "age": "21.8 (19-23)",
+  "sex": "1M/3F",
+  "height_cm": 174,
+  "weight_kg": 63
+ },
+ "protocol": {
+  "summary": "Needle IDP in standing (group mean only in V05).",
+  "how_to_simulate": [
+   "Scale the model to the cohort mean (female-majority: 21.8 y, 174 cm, 63 kg)",
+   "Posture: relaxed upright standing, arms hanging; no hand load",
+   "Output: L3-L4 compression F, th = 0",
+   "Convert with Ghezelbash 2016 Eq. 6; disc area not given in V05 (use a size-scaled L3-L4 area and state it)"
+  ],
+  "subject_model": {
+   "sex": "3 F / 1 M",
+   "age": 21.8,
+   "age_range": [
+    19,
+    23
+   ],
+   "height_cm": 174,
+   "height_range": [
+    165,
+    189
+   ],
+   "weight_kg": 63,
+   "weight_range": [
+    56,
+    76
+   ],
+   "bmi": 20.8,
+   "disc_area_mm2": null,
+   "source": "V05 Table 1"
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Bruno 2015 Table 3 lists Schultz et al. as 3W 1M, BM 63 kg, HT 174 cm, ages 19-23 (consistent)."
+ },
+ "data": [
+  {
+   "x": "relaxed standing (group mean)",
+   "load": "none",
+   "mean": 0.27,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4
+  }
+ ],
+ "extraction": {
+  "from": "Dreischarf 2016 (V05) Table 1 p.835 (page image)",
+  "method": "table",
+  "uncertainty": "value as printed",
+  "checked": true,
+  "check_notes": "Checked against the table image and Bruno 2015 Table 3 subject descriptors."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs__L3-L4__standing_relaxed__none",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "cohort",
+  "secondary (review table)"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

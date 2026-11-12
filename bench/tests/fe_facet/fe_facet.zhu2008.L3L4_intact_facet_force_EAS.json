@@ -1,0 +1,265 @@
+{
+ "id": "fe_facet.zhu2008.L3L4_intact_facet_force_EAS",
+ "title": "L3-L4 facet contact force at 7.5 Nm, bilateral extra-articular strain (EAS) method",
+ "subcategory": "facet contact force",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "intact (posterior L3-L4 capsules cut for Tekscan)",
+ "quantity": {
+  "name": "facet contact force",
+  "definition": "resultant normal facet joint contact force per facet (left/right) at 7.5 Nm, bilateral EAS strain-gauge model calibrated by direct indentation; mean, SD (n=10), min/max over per-specimen values; negative = compressive, positive = tensile",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Zhu 2008",
+  "authors": "Zhu QA, Park YB, Sjovold SG, Niosi CA, Wilson DC, Cripton PA, Oxland TR",
+  "year": 2008,
+  "journal": "Proc Inst Mech Eng H 222:171-184",
+  "doi": "10.1243/09544119JEIM290",
+  "n": "10 specimens (human cadaveric L2-L5)",
+  "sample": "10 fresh-frozen human cadaveric L2-L5 lumbar spines; facet forces at the L3-L4 joints (gauges on L3 inferior facets)",
+  "age": "mean 77 (range 70-88)",
+  "sex": "6 M, 3 F, 1 unknown",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L2-L5 specimens, L2 and L5 potted in dental stone (L3-L4 disc horizontal), all ligaments/capsules/discs intact except posterior L3-L4 capsules cut for Tekscan sensors; pure moment +-7.5 Nm, 3 cycles each of flexion-extension, bilateral lateral bending, bilateral axial torsion, ~2 deg/s, unconstrained (custom spine tester); no preload; peak facet contact force at peak moment; cycle used for evaluation not stated.",
+  "how_to_simulate": [
+   "Fix L5 (caudal potting); leave L2-L5 otherwise unconstrained; posterior L3-L4 capsules cut (Tekscan) - capsules remain for EAS but were cut in this test",
+   "Apply pure moment +-7.5 Nm to L2 in flexion, extension, left/right lateral bending and left/right axial rotation, no preload",
+   "Report resultant normal contact force in left and right L3-L4 facet joints at peak moment (compressive negative, tensile positive)",
+   "For lateral bending and axial rotation compare the maximum compressive force in each facet during the bilateral test"
+  ],
+  "subject_model": null,
+  "notes": "Method: 10 uniaxial strain gauges on posterior surface of L3 inferior facets, bilateral (strain-coupled) cantilever-plate model, least-squares calibration on 16-25 indentation points per facet. EAS accuracy ~20% (direct) and ~30% (disarticulated); repeatability CV 5% in axial rotation. Soft-tissue artefact (virtual facet load after facetectomy, separate 6 L3-S1 specimens, Table 4) r.m.s. 34 N flexion, 35 N extension, 20 N LB, 12 N AR - so flexion/extension/LB EAS values carry large error; authors recommend use only in axial rotation. Abstract averages L/R: AR 71+-25, EX 27+-35, LB 25+-28 N compressive, flexion tensile 25+-45 N."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 19,
+   "sd": 45,
+   "min": -50,
+   "max": 101,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    57,
+    23,
+    -5,
+    30,
+    37,
+    -34,
+    101,
+    -11,
+    -50,
+    39
+   ],
+   "note": "flexion mean = sum of tensile and compressive forces"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 32,
+   "sd": 47,
+   "min": -32,
+   "max": 115,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -32,
+    39,
+    115,
+    21,
+    52,
+    -7,
+    31,
+    30,
+    -22,
+    96
+   ],
+   "note": "flexion mean = sum of tensile and compressive forces"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": -35,
+   "sd": 32,
+   "min": -105,
+   "max": -4,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    -105,
+    -10,
+    -52,
+    -47,
+    -38,
+    -7,
+    -23,
+    -8,
+    -4,
+    -56
+   ],
+   "note": ""
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": -22,
+   "sd": 38,
+   "min": -95,
+   "max": 38,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -28,
+    -2,
+    -53,
+    -51,
+    38,
+    -11,
+    -95,
+    -22,
+    -14,
+    16
+   ],
+   "note": ""
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": -15,
+   "sd": 16,
+   "min": -51,
+   "max": 7,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    -51,
+    -8,
+    -27,
+    -5,
+    -16,
+    7,
+    -27,
+    -15,
+    -4,
+    -4
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": -35,
+   "sd": 34,
+   "min": -105,
+   "max": -4,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -105,
+    -20,
+    -82,
+    -29,
+    -18,
+    -4,
+    -50,
+    -9,
+    -7,
+    -28
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": -64,
+   "sd": 21,
+   "min": -94,
+   "max": -31,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    -62,
+    -59,
+    -61,
+    -78,
+    -42,
+    -82,
+    -46,
+    -94,
+    -89,
+    -31
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": -78,
+   "sd": 28,
+   "min": -134,
+   "max": -47,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -60,
+    -47,
+    -73,
+    -50,
+    -101,
+    -59,
+    -98,
+    -134,
+    -64,
+    -92
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (per specimen, mean, SD)",
+  "method": "table",
+  "uncertainty": "exact (table); minus signs read from rendered page because pdftotext renders minus as '2'",
+  "checked": true,
+  "check_notes": "Signs read from rendered page image; recomputed column means from per-specimen values: all match published means (19,32,-35,-22,-15,-35,-64,-78) within rounding. min/max are taken from the per-specimen rows. Catalog said L2-L3 and L4-L5; actual measured joint is L3-L4 (exp 1); L4-L5 only for virtual loads (exp 2)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max per facet (axial rotation graded; flexion/extension/LB reported only given method error)"
+ },
+ "combine_group": "fe_facet__facet_force__L3-L4__intact__7.5Nm",
+ "shared_sample_with": [
+  "fe_facet.zhu2008.L3L4_intact_facet_force_Tekscan"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "EAS strain gauges",
+  "human"
+ ]
+}

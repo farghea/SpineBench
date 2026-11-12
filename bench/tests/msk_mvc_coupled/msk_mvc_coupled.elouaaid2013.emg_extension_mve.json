@@ -1,0 +1,149 @@
+{
+ "id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+ "title": "Normalised EMG of 6 trunk muscles (L/R averaged) during maximal extension exertion (semi-seated), males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "EMG_at_MVE",
+ "region": "lumbar",
+ "levels": [
+  "L1",
+  "L3",
+  "L5"
+ ],
+ "condition": "isometric maximal extension exertion, semi-seated dynamometer",
+ "quantity": {
+  "name": "normalised EMG at MVE",
+  "definition": "maximal RMS (non-overlapping windows, 30-450 Hz band-pass) of the trial, divided by the maximum of that muscle over all trials in all directions (flex, ext, lateral, axial) for each subject; left and right averaged (no significant side difference)",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "El Ouaaid 2013",
+  "authors": "El Ouaaid Z, Shirazi-Adl A, Plamondon A, Lariviere C",
+  "year": 2013,
+  "journal": "J Biomech 46:2228-2235",
+  "doi": "10.1016/j.jbiomech.2013.06.018",
+  "n": "12 healthy males (4 modelled)",
+  "sample": "healthy male university students, no back pain history, in vivo",
+  "age": "not reported (university students)",
+  "sex": "M",
+  "height_cm": "177.67±3.03",
+  "weight_kg": "72.98±3.87"
+ },
+ "protocol": {
+  "summary": "Trunk dynamometer with three triaxial AMTI MC6-6-1000 force platforms on a steel frame stabilising feet, knees and pelvis (similar to Lariviere 2009); semi-seated position; 10-s maximal pushes against a harness (3 trials extension, 2 flexion, 2 per side lateral and axial); moments at L5-S1 recorded at 128 Hz. Harness-trunk contact: anterior-directed force at T8 in extension; force normal to sternum at T6 in flexion. 12 bilateral Delsys DE-2.3 surface electrodes, 1024 Hz.",
+  "how_to_simulate": [
+   "Simulate the extension MVE as in msk_mvc_coupled.elouaaid2013.mve_moment_extension (semi-seated, harness load giving the measured L5-S1 moment).",
+   "Normalise each model muscle's active force by its maximum over simulated MVEs in all directions (or by PCSA x max stress).",
+   "Compare activation of LGPT (L1, 3 cm), ICPT (L3, 6 cm), MF (L5, 2 cm), RA, EO, IO with the means (agonists ~64-87%, antagonists ~9-24%)."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": null,
+   "height_cm": 177.67,
+   "weight_kg": 72.98,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 (mean of 12); per-subject body weights for 4 modelled subjects in Table 1 (68, 76, 68.3, 72.8 kg)"
+  },
+  "notes": "Agonist values quoted in text; antagonist values digitised from Fig 3. Electrode sites per Methods 2.1 (De Foa 1989; McGill 1991). The paper's text writes 'ILPT' for the iliocostalis value (Fig 3 label ICPT)."
+ },
+ "data": [
+  {
+   "x": "extension MVE",
+   "site": "longissimus, ~3 cm lateral to midline at L1 (left/right averaged)",
+   "muscle": "LGPT",
+   "side": "bilateral mean",
+   "mean": 80.5,
+   "sd": 16.1,
+   "source_of_value": "text",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension MVE",
+   "site": "iliocostalis, ~6 cm lateral to midline at L3 (left/right averaged)",
+   "muscle": "ICPT",
+   "side": "bilateral mean",
+   "mean": 63.5,
+   "sd": 15.9,
+   "source_of_value": "text",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension MVE",
+   "site": "multifidus, ~2 cm lateral to midline at L5 (left/right averaged)",
+   "muscle": "MF",
+   "side": "bilateral mean",
+   "mean": 83.5,
+   "sd": 10.4,
+   "source_of_value": "text",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension MVE",
+   "site": "rectus abdominis, ~3 cm lateral to midline above umbilicus (left/right averaged)",
+   "muscle": "RA",
+   "side": "bilateral mean",
+   "mean": 8.9,
+   "sd": 7.3,
+   "source_of_value": "digitised",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension MVE",
+   "site": "external oblique, ~10 cm lateral to midline above umbilicus, aligned with fibres (left/right averaged)",
+   "muscle": "EO",
+   "side": "bilateral mean",
+   "mean": 23.9,
+   "sd": 13.4,
+   "source_of_value": "digitised",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension MVE",
+   "site": "internal oblique, ~2 cm below and 7 cm medial to ASIS (left/right averaged)",
+   "muscle": "IO",
+   "side": "bilateral mean",
+   "mean": 17.8,
+   "sd": 8.9,
+   "source_of_value": "digitised",
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  }
+ ],
+ "extraction": {
+  "from": "Results 3.1 text (agonists); Fig 3 (antagonists, digitised)",
+  "method": "text+digitised_figure",
+  "uncertainty": "text values exact; digitised ±1 %MVC (mean), ±1 %MVC (SD); digitised means corrected by -0.5% for outline bias found on the 6 text-reported bars",
+  "checked": true,
+  "check_notes": "Pixel digitisation at 250 dpi; the same procedure reproduced the six text-reported agonist means within +0.2..+0.7% and SDs within 0.5%, so antagonist values carry ~±1% uncertainty. Note text order 'IO, EO and RA reached 73.6, 87.0, 75.1' matches Fig 3 (RA~75, EO~87, IO~74)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD per muscle"
+ },
+ "combine_group": "msk_mvc_coupled__emg_at_mvc__LGPT-L1_ICPT-L3_MF-L5_abdominals__semi_seated_extension",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "EMG",
+  "MVE",
+  "semi-seated",
+  "male"
+ ]
+}

@@ -1,0 +1,184 @@
+{
+ "id": "kinematics.nairn2014.regional_flexion_by_posture",
+ "title": "Upper/mid/lower thoracic flexion ROM at max flexion and with neutral vs flexed lumbar spine (standing)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "thoracic",
+ "levels": [
+  "upper-thoracic T1-T4",
+  "mid-thoracic T5-T8",
+  "lower-thoracic T9-T12"
+ ],
+ "condition": "healthy, standing, maximal flexion and combined lumbar/thoracic flexion postures",
+ "quantity": {
+  "name": "regional thoracic flexion ROM",
+  "definition": "sagittal angle change between proximal and distal marker plates of each region, upright to held posture",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Nairn 2014",
+  "authors": "Nairn BC, Drake JDM",
+  "year": 2014,
+  "journal": "Hum Mov Sci 37:1-11",
+  "doi": "10.1016/j.humov.2014.06.003",
+  "n": "13 males",
+  "sample": "13 right-handed males free of neck, back and shoulder pain for >= 1 year (university population)",
+  "age": "23.6 (SD 2.1) y",
+  "sex": "male",
+  "height_cm": "182 (SD 8)",
+  "weight_kg": "84.3 (SD 13.9)"
+ },
+ "protocol": {
+  "summary": "At max forward flexion thoracic flexion is concentrated in T9-T12 (35 deg) vs T5-T8 (12) and T1-T4 (4); lower thoracic flexion grows with lumbar flexion.",
+  "how_to_use": [
+   "For full standing forward flexion allocate thoracic flexion ≈ 69% to T9-T12, 23% to T5-T8, 8% to T1-T4 (35.3/11.8/4.3 deg).",
+   "For thoracic 'slump' (chin to chest) with neutral lumbar spine use a more even split (~9-15 deg per region).",
+   "Skin-plate regional angles; lower-thoracic value may include some thoracolumbar motion."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "Vicon MX 50 Hz; rigid 3-marker plates on spinous processes defining T1-T4, T5-T8, T9-T12 and L1-PSIS segments; regional angle between proximal and distal plates",
+   "posture": "standing, knees straight",
+   "task": "max forward flexion; max right axial twist; ~50% lumbar flexion or neutral lumbar combined with thoracic flexion (chin to chest) or right thoracic twist; 5 s hold"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 4.29,
+   "sd": 3.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max flexion",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 11.76,
+   "sd": 6.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max flexion",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 35.34,
+   "sd": 7.83,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "max flexion",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 9.7,
+   "sd": 3.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-flexed",
+   "source_of_value": "digitised Fig"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 9.2,
+   "sd": 5.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-flexed",
+   "source_of_value": "digitised Fig"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 14.6,
+   "sd": 10.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-neutral, thoracic-flexed",
+   "source_of_value": "digitised Fig"
+  },
+  {
+   "x": "upper-thoracic T1-T4",
+   "load": null,
+   "mean": 9.3,
+   "sd": 4.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-flexed",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "mid-thoracic T5-T8",
+   "load": null,
+   "mean": 10.08,
+   "sd": 5.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-flexed",
+   "source_of_value": "Results text"
+  },
+  {
+   "x": "lower-thoracic T9-T12",
+   "load": null,
+   "mean": 24.91,
+   "sd": 8.22,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "phase": "lumbar-flexed (~50%), thoracic-flexed",
+   "source_of_value": "Results text"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (6 of 9 means with SD); Fig 2 (lumbar-neutral thoracic-flexed bars)",
+  "method": "text",
+  "uncertainty": "text values as printed; digitised values ±0.2 deg (mean) and ±0.2 deg (SD)",
+  "checked": true,
+  "check_notes": "Fig 2 calibrated on the 6 text values (bar tops reproduce them within 0.08 deg, SD whiskers within 0.13 deg) before reading the 3 lumbar-neutral thoracic-flexed bars."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__regional_rom__thoracic_regions__healthy_standing__flexion_by_lumbar_posture",
+ "shared_sample_with": [
+  "kinematics.nairn2014.regional_twist_by_posture"
+ ],
+ "tags": [
+  "in vivo",
+  "skin markers",
+  "optical",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "regional"
+ ]
+}

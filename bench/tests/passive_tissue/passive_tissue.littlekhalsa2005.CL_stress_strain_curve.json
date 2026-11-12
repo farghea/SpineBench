@@ -1,0 +1,292 @@
+{
+ "id": "passive_tissue.littlekhalsa2005.CL_stress_strain_curve",
+ "title": "Little & Khalsa 2005 lumbar facet capsule mean stress-strain relations (parallel / perpendicular)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "non-degenerate cadaveric",
+ "quantity": {
+  "name": "stress-strain curve",
+  "definition": "engineering stress vs first principal strain; points EVALUATED by the extractor from the authors' published regressions of the mean data (R2 0.97-0.99), within tested range 10-50% strain",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Little 2005",
+  "authors": "Little JS, Khalsa PS",
+  "year": 2005,
+  "journal": "J Biomech Eng 127(1):15-24",
+  "doi": "",
+  "n": "35 facet capsules from 8 lumbar spines (ramp tests: 25 parallel = 5 per level L1-L2..L5-S1, 10 perpendicular; dynamic subset 15 parallel)",
+  "sample": "human lumbar facet joint capsule (L1-L2 to L5-S1), isolated capsule with bony attachments (parallel) or glued to acrylic plates (perpendicular)",
+  "age": "59+-5.3 y",
+  "sex": "2 F, 6 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of isolated capsule in PBS bath (pH 7.4, room temperature); preload 0.1 N defines resting length; preconditioning 6 cycles to 50% strain at 15%/s with 300 s holds; ramp-hold trials to 10, 20, 30, 40, 50% grip strain at 15%/s held 300 s (rate 1-15%/s had no effect on modulus); first principal strain by optical image correlation; parallel specimens 6.08+-2.58 mm long, 11.59+-2.87 mm wide, 1.88+-0.94 mm thick; perpendicular 6.83+-1.45 x 7.11+-2.45 x 2.51+-1.66 mm. Tangent modulus = slope of linear portion of engineering stress vs first principal strain; viscous (peak) and elastic (after 300 s) moduli = secant from (0,0).",
+  "how_to_simulate": [
+   "Model a capsule strip (approx. 6 mm long, 11.6 mm wide, 1.9 mm thick) loaded parallel or perpendicular to the medial-lateral collagen direction",
+   "Precondition, then ramp to 10-50% grip strain at 15%/s (hold 300 s for elastic values)",
+   "Report engineering stress vs first principal strain in the central region; compute tangent / secant moduli as defined"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "parallel, viscous (peak) stress: 0.0034 exp(10.35 e)",
+   "x_value": 10.0,
+   "load": "",
+   "mean": 0.0096,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "parallel, elastic (300 s) stress: 0.0030 exp(10.09 e)",
+   "x_value": 10.0,
+   "load": "",
+   "mean": 0.0082,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular, viscous stress: 2.02 e - 0.1732",
+   "x_value": 10.0,
+   "load": "",
+   "mean": 0.0288,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, elastic stress: 1.04 e - 0.097",
+   "x_value": 10.0,
+   "load": "",
+   "mean": 0.007,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "parallel, viscous (peak) stress: 0.0034 exp(10.35 e)",
+   "x_value": 20.0,
+   "load": "",
+   "mean": 0.0269,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "parallel, elastic (300 s) stress: 0.0030 exp(10.09 e)",
+   "x_value": 20.0,
+   "load": "",
+   "mean": 0.0226,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular, viscous stress: 2.02 e - 0.1732",
+   "x_value": 20.0,
+   "load": "",
+   "mean": 0.2308,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, elastic stress: 1.04 e - 0.097",
+   "x_value": 20.0,
+   "load": "",
+   "mean": 0.111,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "parallel, viscous (peak) stress: 0.0034 exp(10.35 e)",
+   "x_value": 30.0,
+   "load": "",
+   "mean": 0.0759,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "parallel, elastic (300 s) stress: 0.0030 exp(10.09 e)",
+   "x_value": 30.0,
+   "load": "",
+   "mean": 0.0619,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular, viscous stress: 2.02 e - 0.1732",
+   "x_value": 30.0,
+   "load": "",
+   "mean": 0.4328,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, elastic stress: 1.04 e - 0.097",
+   "x_value": 30.0,
+   "load": "",
+   "mean": 0.215,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "parallel, viscous (peak) stress: 0.0034 exp(10.35 e)",
+   "x_value": 40.0,
+   "load": "",
+   "mean": 0.2135,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "parallel, elastic (300 s) stress: 0.0030 exp(10.09 e)",
+   "x_value": 40.0,
+   "load": "",
+   "mean": 0.1698,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular, viscous stress: 2.02 e - 0.1732",
+   "x_value": 40.0,
+   "load": "",
+   "mean": 0.6348,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, elastic stress: 1.04 e - 0.097",
+   "x_value": 40.0,
+   "load": "",
+   "mean": 0.319,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "parallel, viscous (peak) stress: 0.0034 exp(10.35 e)",
+   "x_value": 50.0,
+   "load": "",
+   "mean": 0.6011,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "parallel, elastic (300 s) stress: 0.0030 exp(10.09 e)",
+   "x_value": 50.0,
+   "load": "",
+   "mean": 0.4657,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular, viscous stress: 2.02 e - 0.1732",
+   "x_value": 50.0,
+   "load": "",
+   "mean": 0.8368,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "perpendicular, elastic stress: 1.04 e - 0.097",
+   "x_value": 50.0,
+   "load": "",
+   "mean": 0.423,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Results text (regression equations; Figs 4-5)",
+  "method": "text",
+  "uncertainty": "regression evaluated; no SD (see Table 1 moduli for spread)",
+  "checked": true,
+  "check_notes": "Equations from Results: sV=0.0034 exp(10.35 e1) R2=0.99; sE=0.0030 exp(10.09 e1) R2=0.99; perpendicular sV=2.02 e1-0.1732, sE=1.04 e1-0.097. Evaluated by extractor. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__stress_strain_curve__CL_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "facet capsule",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "first principal strain",
+  "x_unit": "%",
+  "y_name": "stress",
+  "y_unit": "MPa"
+ }
+}

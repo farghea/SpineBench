@@ -1,0 +1,150 @@
+{
+ "id": "passive_tissue.tkaczuk1968.ALL_fullwidth_failure_load",
+ "title": "Tkaczuk 1968 lumbar ALL full-width segment failure load",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L3",
+  "L4",
+  "L5"
+ ],
+ "condition": "autopsy",
+ "quantity": {
+  "name": "failure load",
+  "definition": "load at tear (failure) of full-width ligament segment clamped over 10 mm (no bony attachments)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Tkaczuk 1968",
+  "authors": "Tkaczuk H",
+  "year": 1968,
+  "journal": "Acta Orthop Scand 39(Suppl 115):1-69",
+  "doi": "10.3109/ort.1968.39.suppl-115.01",
+  "n": "74 lumbar spines (autopsy, 1 day-92 y), 484 ALL/PLL samples overall; failure tests: 14 full-width segments from 3 spines (Table VII) and 26 standard strips from 3 spines (Table VIII)",
+  "sample": "human lumbar anterior and posterior longitudinal ligaments, autopsy",
+  "age": "failure tests: 26-64 y",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Full-dimension ligament segments (vertebral-body or disc level) clamped directly with 10 mm clamp distance, loaded to tearing; high-humidity chamber; loading rate 0.5-50 mm/min, most tests 5 mm/min (Alwetron machine, 50 kg load cell). Yield load = load at yield point; failure load = load at tear. Samples slipping or tearing at clamps rejected (14 of 22 retained).",
+  "how_to_simulate": [
+   "Model a full-width ALL or PLL segment clamped over 10 mm length (no bone)",
+   "Pull to failure at ~5 mm/min",
+   "Report yield and failure loads"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "spine 67 (36 y) L5",
+   "load": "",
+   "mean": 627.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "64 kg"
+  },
+  {
+   "x": "spine 67 (36 y) L4 disc",
+   "load": "",
+   "mean": 225.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "23 kg"
+  },
+  {
+   "x": "spine 68 (36 y) L5",
+   "load": "",
+   "mean": 529.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "54 kg"
+  },
+  {
+   "x": "spine 68 (36 y) L4 disc",
+   "load": "",
+   "mean": 215.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "22 kg"
+  },
+  {
+   "x": "spine 72 (58 y) L5",
+   "load": "",
+   "mean": 313.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "32 kg"
+  },
+  {
+   "x": "spine 72 (58 y) L4 disc",
+   "load": "",
+   "mean": 196.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "20 kg"
+  },
+  {
+   "x": "spine 72 (58 y) L3 disc",
+   "load": "",
+   "mean": 205.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "21 kg"
+  },
+  {
+   "x": "mean of segments (computed by extractor)",
+   "load": "",
+   "mean": 330.6,
+   "sd": 176.0,
+   "min": 196.1,
+   "max": 627.6,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Table VII",
+  "method": "table",
+  "uncertainty": "as printed (kg, integer/0.5)",
+  "checked": true,
+  "check_notes": "Tables read from 150-dpi page renders (OCR matched). Loads converted kg -> N (x9.80665); original in 'orig'. Mean/SD computed by extractor. Clamped ligament (no bone) - not pooled with bone-ligament-bone failure forces."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_force__ALL_lumbar__human__uniaxial_tension_clamped_segment",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ALL"
+ ]
+}

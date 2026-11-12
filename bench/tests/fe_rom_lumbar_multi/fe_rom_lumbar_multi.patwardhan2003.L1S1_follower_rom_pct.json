@@ -1,0 +1,175 @@
+{
+ "id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom_pct",
+ "title": "Total L1-sacrum flexion-extension ROM under follower preload, % of 0 N value",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "follower preload",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1"
+ ],
+ "condition": "intact, follower preload 0-1200 N",
+ "quantity": {
+  "name": "ROM normalised",
+  "definition": "total sagittal ROM (8 Nm flex / 6 Nm ext) as % of the same specimen's 0 N preload ROM; mean (SD)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Patwardhan 2003",
+  "authors": "Patwardhan AG, Havey RM, Carandang G, Simonds J, Voronov LI, Ghanayem AJ, Meade KP, Gavin TM, Paxinos O",
+  "year": 2003,
+  "journal": "J Orthop Res 21:540-546",
+  "doi": "10.1016/S0736-0266(02)00202-4",
+  "n": "21 cadaveric L1-sacrum spines (neutral path); 15 of them also with flexed path",
+  "sample": "human cadaver ligamentous lumbar spines L1-sacrum, mild-moderate degeneration, no bridging osteophytes",
+  "age": "mean 51.6 (SD 14.6) y",
+  "sex": "16 M, 4 F, 1 unknown",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L1 and sacrum potted; neutral posture = top cup ~15 deg extension at 0 N/0 Nm. Flexion-extension moments applied by water flowing into bags on loading arms on the top cup, continuous cycling between 8 Nm flexion and 6 Nm extension (rate 2.8-3.1 Nm/min flexion, 2.2-2.5 Nm/min extension), >= 2 full cycles recorded (analysed cycle not stated). Follower preload 0/200/400/800/1200 N via bilateral cables through guides on L2-sacrum to a hanger; path optimised either for the neutral posture (min lordosis change, 21 specimens) or for a forward-flexed posture at 2/3 of baseline flexion ROM (15 specimens). 5 min between preload increments; load cell under sacrum; Optotrak motion of each vertebra relative to sacrum.",
+  "how_to_simulate": [
+   "Model L1-sacrum; fix the sacrum; L1 free with moments applied at the top (L1) cup; start from the specimen's neutral posture",
+   "Apply a follower preload (0, 200, 400, 800, 1200 N) whose line of action passes through each segment's flexion-extension ICR / tangent to the lordotic curve (neutral-posture path); optionally the flexed-posture path",
+   "Apply flexion to 8 Nm and extension to 6 Nm under each preload",
+   "Report total sagittal ROM of L1 relative to the sacrum (full flexion to full extension) and the bilinear flexibility coefficients a1 (low flexion moments), a3 (low extension moments), a1/a2, a3/a4"
+  ],
+  "notes": "ROM = total L1-sacrum rotation from 8 Nm flexion to 6 Nm extension (not per level). Order of preloads not randomised; 0 N ROM repeated at end in 14 specimens was 8% larger than at start. Per-level ROM not reported.",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 0 N follower (neutral path)",
+   "mean": 100,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 200 N follower (neutral path)",
+   "mean": 97.7,
+   "sd": 3.87,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 400 N follower (neutral path)",
+   "mean": 94.2,
+   "sd": 6.63,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 800 N follower (neutral path)",
+   "mean": 85.3,
+   "sd": 14.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 1200 N follower (neutral path)",
+   "mean": 74.6,
+   "sd": 18.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 0 N follower (flexed path)",
+   "mean": 100,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 200 N follower (flexed path)",
+   "mean": 96.3,
+   "sd": 3.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 400 N follower (flexed path)",
+   "mean": 94.0,
+   "sd": 5.57,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 800 N follower (flexed path)",
+   "mean": 89.0,
+   "sd": 10.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 1200 N follower (flexed path)",
+   "mean": 85.2,
+   "sd": 13.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read Table 1 from the page image (OCR noisy): all 10 means and SDs confirmed. Text: 25% decrease 53->39 deg (neutral), 15% 56->49 (flexed) consistent."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_multi__rom_pct_preload0__L1-S1_total__intact_follower__8Nm_flex_6Nm_ext",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "follower load",
+  "normalised"
+ ]
+}

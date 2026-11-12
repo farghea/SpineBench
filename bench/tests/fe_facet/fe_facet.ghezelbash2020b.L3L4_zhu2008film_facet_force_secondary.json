@@ -1,0 +1,152 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L3L4_zhu2008film_facet_force_secondary",
+ "title": "Facet force at L3-L4 - Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290) (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet contact force by pressure-sensitive film (Tekscan), left and right facets, mean +/- SD",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290))",
+  "sample": "human cadaveric lumbar specimens of Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290), as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm; Tekscan pressure film inserted into the facet joints.",
+  "how_to_simulate": [
+   "Apply 7.5 Nm pure moment",
+   "Report left and right L3-L4 facet contact force"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Zhu Q et al. 2008 (Proc IMechE H, doi 10.1243/09544119JEIM290)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 2,
+   "sd": 5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 4,
+   "sd": 4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": 13,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": 14,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 11,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": 16,
+   "sd": 13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 56,
+   "sd": 17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": 55,
+   "sd": 18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__L3-L4__intact__7.5Nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force",
+  "pressure film"
+ ],
+ "shared_sample_with": [
+  "zhu2008: primary (other fork)",
+  "fe_facet.ghezelbash2020b.L3L4_zhu2008eas_facet_force_secondary (same specimens)"
+ ]
+}

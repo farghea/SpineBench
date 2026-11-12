@@ -1,0 +1,319 @@
+{
+ "id": "anthropometry.erdmann1997.trunk_part_density",
+ "title": "Density of trunk parts and tissue groups of adult males by CT",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [],
+ "condition": "male patients, CT",
+ "quantity": {
+  "name": "segment density",
+  "definition": "mean density of trunk parts; also of unchangeable (bone, organs, lung, gut) and changeable (muscle, fat, skin) tissue groups",
+  "unit": "g/cm³"
+ },
+ "source": {
+  "short": "Erdmann 1997",
+  "authors": "Erdmann WS",
+  "year": 1997,
+  "journal": "J Biomech 30(7):679-688",
+  "doi": "10.1016/S0021-9290(97)00013-4",
+  "n": "15 male patients (each scanned for one trunk portion only: 5 subjects per portion)",
+  "sample": "male patients of the Institute of Radiology and Radiotherapy, Medical University Gdansk; CT 8-mm layers",
+  "age": "20-40 y (mean 31.7, SD 4.7)",
+  "sex": "male",
+  "height_cm": null,
+  "weight_kg": null,
+  "notes": "DOI derived from printed PII S0021-9290(97)00013-4. Subject body mass/height not reported in extracted text."
+ },
+ "protocol": {
+  "summary": "Mean densities of trunk parts from CT.",
+  "how_to_use": [
+   "Use thorax 0.908, abdomen 1.043, pelvis 1.077, shoulder girdle 1.111 g/cm³ when converting body-scan volumes to mass (shoulders excluded from thorax).",
+   "Compare: Pearsall 1994 MRI thorax 0.82 g/cc (thorax incl. shoulder region boundaries differ)."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "CT, 8-mm layers; tissue-specific densities; trunk modelled as non-circular right frusta between anthropometric landmarks",
+   "posture": "supine (CT)",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Real trunk = thorax (TH) + abdomen (AB) + pelvis (PE); shoulder girdle (SG) = right + left shoulder (SH) – shoulders separated from the thorax; viscera-trunk = AB + PE; whole trunk = real trunk + shoulder girdle. Boundaries are anthropometric landmarks (Fig 1); the thorax here EXCLUDES the shoulder girdle, unlike Pearsall/de Leva."
+ },
+ "data": [
+  {
+   "x": "density",
+   "load": null,
+   "mean": 0.908,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "thorax",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.043,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "abdomen",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.077,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "pelvis",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.111,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "shoulder girdle",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.056,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "viscera-trunk (AB+PE)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.009,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "real trunk (TH+AB+PE)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.03,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "whole trunk (real trunk + shoulder girdle)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 0.85,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "thorax",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.178,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "thorax",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 1.017,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "abdomen",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.091,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "abdomen",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 1.035,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "pelvis",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.109,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "pelvis",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 1.186,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "shoulder girdle",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.103,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "shoulder girdle",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 1.022,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "viscera-trunk",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "viscera-trunk",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 0.951,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "real trunk",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.114,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "real trunk",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_unchangeable_tissues",
+   "load": null,
+   "mean": 0.962,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "whole trunk",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density_changeable_tissues",
+   "load": null,
+   "mean": 1.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "segment": "whole trunk",
+   "unit": "g/cm³"
+  }
+ ],
+ "extraction": {
+  "from": "text p.685",
+  "method": "text",
+  "uncertainty": "none (as printed, 3 decimals)",
+  "checked": true,
+  "check_notes": "Re-read text p.685 (densities). Shoulder girdle unchangeable tissue density 1.186 > changeable 1.103 as printed."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_density__trunk_parts_shoulder_separated__adults__-",
+ "tags": [
+  "in vivo",
+  "CT",
+  "male",
+  "young adults",
+  "patients",
+  "small n"
+ ]
+}

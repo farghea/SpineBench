@@ -1,0 +1,141 @@
+{
+ "id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_rom4Nm",
+ "title": "Segmental rotation at 4 Nm of intact T12-S1 columns (text values)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "intact segmental ROM",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "segmental rotation at 4.0 Nm from unloaded position, one direction; mean ± SD (only the extreme values stated in the text; all other level/direction values are in the curve test)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Guan 2007",
+  "authors": "Guan Y, Yoganandan N, Moore J, Pintar FA, Zhang J, Maiman DJ, Laud P",
+  "year": 2007,
+  "journal": "J Biomech 40:1975-1980",
+  "doi": "10.1016/j.jbiomech.2006.09.027",
+  "n": "10 cadaveric T12-S1 ligamentous columns",
+  "sample": "human cadaver T12-S1 lumbosacral columns, radiographically normal for age",
+  "age": "27-68 y (mean 50.6 ± 13.2)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Quasi-static pure moments (force couple on superior vertebra T12) to 4.0 Nm in flexion, extension, right and left lateral bending; S1 end on a 6-axis load cell; 30 s relaxation before each measurement; no preload; no axial rotation tested; off-axis moments monitored (<=0.03 Nm). Per-level rotation from optoelectronic markers.",
+  "how_to_simulate": [
+   "Model T12-S1 ligamentous column; fix S1 (embedded in PMMA), apply pure moment to T12 (embedded), no preload",
+   "Apply flexion, extension, right and left lateral bending moments stepwise to 4.0 Nm (static; steps 0.5,1.5,2.5,3.5,4.0 Nm per methods, figure plots 0.5 Nm steps)",
+   "Report the rotation of each segment (L1-L2 ... L5-S1) in the loading plane, measured from the unloaded position, at each step",
+   "Compare segmental rotation at 4.0 Nm with mean ± SD (one direction, not range)"
+  ],
+  "notes": "Rotation measured from the unloaded neutral position at each moment step (no cycles; not a peak-to-peak range). NZ not reported. Specimens are T12-S1 but data are per-level L1-L2..L5-S1.",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "4.0 Nm",
+   "mean": 2.42,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L1-L2",
+   "note": "text (Results/Abstract)"
+  },
+  {
+   "x": "flexion",
+   "load": "4.0 Nm",
+   "mean": 7.37,
+   "sd": 3.69,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L5-S1",
+   "note": "text (Results/Abstract)"
+  },
+  {
+   "x": "extension",
+   "load": "4.0 Nm",
+   "mean": 1.58,
+   "sd": 0.63,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L2-L3",
+   "note": "text (Results/Abstract)"
+  },
+  {
+   "x": "extension",
+   "load": "4.0 Nm",
+   "mean": 4.62,
+   "sd": 2.56,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L5-S1",
+   "note": "text (Results/Abstract)"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "4.0 Nm",
+   "mean": 2.5,
+   "sd": 0.75,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L1-L2",
+   "note": "text (Results/Abstract); presumably left/right pooled"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "4.0 Nm",
+   "mean": 4.04,
+   "sd": 1.11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "note": "text (Results/Abstract); presumably left/right pooled"
+  }
+ ],
+ "extraction": {
+  "from": "Abstract and Results text",
+  "method": "text",
+  "uncertainty": "exact as printed",
+  "checked": true,
+  "check_notes": "Re-read abstract and Results: 7.37±3.69, 4.62±2.56, 4.04±1.11, 2.42±0.90, 1.58±0.63, 2.50±0.75 match. NOTE: text values differ from Fig 2 endpoints at 4 Nm (e.g. L5-S1 flexion Fig 2 = 6.80±3.00, extension 3.73±1.89) and from Table 1 fits; text kept here, figure in the curve test."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_multi__rom__L1-S1_segmental__intact__4Nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+  "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve_fit"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "per-level"
+ ]
+}

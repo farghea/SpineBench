@@ -1,0 +1,134 @@
+{
+ "id": "passive_tissue.neumann1992.ALL_failure_stress",
+ "title": "Neumann 1992 lumbar ALL ultimate tensile strength",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L4-L5",
+  "T12-L1"
+ ],
+ "condition": "intact, young non-degenerate",
+ "quantity": {
+  "name": "ultimate tensile strength",
+  "definition": "load at failure / ligament substance area",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Neumann 1992",
+  "authors": "Neumann P, Keller TS, Ekstrom L, Perry L, Hansson TH, Spengler DM",
+  "year": 1992,
+  "journal": "J Biomech 25(10):1185-1194",
+  "doi": "",
+  "n": "6 bone-ALL-bone preparations from 3 male cadavers (21, 29, 43 y)",
+  "sample": "human lumbar ALL (T12-L1 to L4-L5), young donors, normal discs",
+  "age": "21, 29, 43 y",
+  "sex": "3 male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ALL-bone preparations (disc and PLL dissected away, ALL intact); vertebrae pinned with 4 Steinmann pins each; no mechanical preconditioning; distraction to failure at constant crosshead rate 2.5 mm/s (~1.07 %/s overall ligament strain rate); 12 video markers on ALL; tissue irrigated with 0.9% saline. Stress = load / ligament substance area (LA); overall strain from outermost marker pairs (e1-4); moduli = slope of linear region (LZ) of stress-strain.",
+  "how_to_simulate": [
+   "Build a bone-ALL-bone model (disc and PLL removed) with ALL CSA ~38 mm2 and motion-segment height ~77 mm",
+   "Distract the vertebrae axially at 2.5 mm/s until ALL failure",
+   "Report failure load, crosshead deformation at failure, failure stress (load/area) and overall strain/modulus from the central ligament region"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "prep 1 T12-L1 (21 y)",
+   "load": "",
+   "mean": 29.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "prep 2 L2-L3 (21 y)",
+   "load": "",
+   "mean": 29.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "prep 3 L4-L5 (21 y)",
+   "load": "",
+   "mean": 36.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "prep 4 L1-L2 (29 y)",
+   "load": "",
+   "mean": 26.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "prep 5 T12-L1 (43 y)",
+   "load": "",
+   "mean": 21.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "prep 6 L2-L3 (43 y)",
+   "load": "",
+   "mean": 20.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "mean (reported in text/abstract)",
+   "load": "",
+   "mean": 27.4,
+   "sd": 5.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (+ abstract/Results text for mean, SD)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 read from 200-dpi render (OCR error corrected: prep 2 e_S = 7.72). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_stress__ALL_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ALL"
+ ]
+}

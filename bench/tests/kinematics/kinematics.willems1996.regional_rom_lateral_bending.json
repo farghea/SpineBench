@@ -1,0 +1,245 @@
+{
+ "id": "kinematics.willems1996.regional_rom_lateral_bending",
+ "title": "Thoracic regional (T1-T4, T4-T8, T8-T12) lateral bending ROM, seated, by sex",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic rotation & lateral bending",
+ "region": "thoracic",
+ "levels": [
+  "T1-T4",
+  "T4-T8",
+  "T8-T12"
+ ],
+ "condition": "healthy, seated with pelvis strapped, maximal active motion from upright sitting",
+ "quantity": {
+  "name": "regional primary ROM (lateral bending)",
+  "definition": "difference in angle between the two skin sensors bordering each region, neutral sitting to maximal motion",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Willems 1996",
+  "authors": "Willems JM, Jull GA, Ng JK-F",
+  "year": 1996,
+  "journal": "Clin Biomech 11(6):311-316",
+  "doi": "10.1016/0268-0033(96)00017-4",
+  "n": "60 subjects (30 M, 30 F)",
+  "sample": "60 healthy young adults, no thoracic pain/injury/surgery or respiratory disorder",
+  "age": "18-24 y",
+  "sex": "30 M, 30 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Regional thoracic primary rotations with Fastrak skin sensors at T1, T4, T8, T12; seated, pelvis fixed.",
+  "how_to_use": [
+   "Distribute thoracic lateral bending ≈ 23 : 31 : 47 % over T1-T4 : T4-T8 : T8-T12 (6.0/8.1/12.4 deg), i.e. increasing caudally.",
+   "Use sex-specific rows when modelling a male or female subject (only rotation-left T8-T12 differs significantly by sex, p<0.005).",
+   "Seated, pelvis fixed: do not use for standing pelvis/lumbar sharing."
+  ],
+  "measurement": {
+   "method": "electromagnetic sensors",
+   "device": "3SPACE Fastrak, skin sensors on T1, T4, T8, T12 spinous processes; regional angle = difference between bordering sensors (Euler)",
+   "posture": "seated on bench, lumbar support, pelvis and thighs belted, arms folded across chest",
+   "task": "maximal active thoracic flexion, extension, lateral flexion L/R, axial rotation L/R from upright sitting"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 6.0,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F), L/R averaged"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 8.1,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F), L/R averaged"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 12.4,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F), L/R averaged"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 6.2,
+   "sd": 2.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male right"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 7.7,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male right"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 12.4,
+   "sd": 2.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male right"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 6.2,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female right"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 8.5,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female right"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 11.9,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female right"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 5.6,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male left"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 8.1,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male left"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 13.2,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male left"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 6.1,
+   "sd": 2.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female left"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 7.9,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female left"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 12.0,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female left"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (by sex, L/R separate) and Table 2 (pooled n=60, L/R averaged)",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg); repeatability error 1-3 deg (paper)",
+  "checked": true,
+  "check_notes": "Scanned PDF with noisy OCR: all values read from 350 dpi page images and compared twice; OCR misreads (e.g. '22.1 (6.31', '10.7 13.8)') resolved from images."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__regional_rom__thoracic_regions__healthy_seated__lateral_bending",
+ "shared_sample_with": [
+  "kinematics.willems1996.regional_rom_flexion",
+  "kinematics.willems1996.regional_rom_extension",
+  "kinematics.willems1996.regional_rom_axial_rotation",
+  "kinematics.willems1996.coupled_rom"
+ ],
+ "tags": [
+  "in vivo",
+  "electromagnetic",
+  "skin sensors",
+  "seated",
+  "pelvis fixed",
+  "healthy",
+  "young adults",
+  "both sexes",
+  "regional"
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "id": "muscle_geometry.seo2003.centroid_distance.L3-L4.rectus_abdominis.M_supine.agele19",
+ "title": "Seo 2003: centroid distance of rectus abdominis at L3-L4 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "M_supine",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "MALRA",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (Hitachi MRP-20)",
+  "plane": "transverse cross-sectional image at L3/4 (orientation relative to disc not stated)",
+  "slice_thickness_mm": null,
+  "level_definition": "L3/4 (disc level)",
+  "posture_detail": "supine (Discussion)"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm; AP distance between ellipse centres (long/short axis intersection) of muscle and vertebral body; mean of right and left",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Seo 2003",
+  "authors": "Seo A, Lee JH, Kusaka Y",
+  "year": 2003,
+  "journal": "J Occup Health 45:197-201",
+  "doi": "10.1539/joh.45.197",
+  "n": "250 subjects (152 M, 98 F)",
+  "sample": "healthy Japanese volunteers without back-pain treatment, age 15-75",
+  "age": "M 36.2 (13.1), F 39.7 (9.9) y",
+  "sex": "152M/98F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a transverse plane at the L3/L4 level.",
+   "Take the PCSA-weighted centroid of rectus abdominis (each side) in that plane and its AP offset from the vertebral body centre.",
+   "Average right and left and compare (+ anterior / - posterior). Centroid distance, not a moment arm."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": "age<=19",
+   "height_cm": 171.6,
+   "weight_kg": 64.8,
+   "disc_area_mm2": null,
+   "n": 12,
+   "source": "Table 1 (height SD 4.2, weight SD 11.3)"
+  },
+  "notes": " Authors call it moment arm length. cm -> mm."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "both_mean",
+   "mean": 61.0,
+   "sd": 9.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "as_reported": "6.1 (0.97) cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 1 single-line rows, unambiguous in text; re-read all values."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L3-L4__rectus_abdominis__M_supine__agele19",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "supine",
+  "age classes"
+ ]
+}

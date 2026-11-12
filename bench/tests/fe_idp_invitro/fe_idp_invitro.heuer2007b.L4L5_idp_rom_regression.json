@@ -1,0 +1,114 @@
+{
+ "id": "fe_idp_invitro.heuer2007b.L4L5_idp_rom_regression",
+ "title": "L4-L5 linear relation between nucleus IDP and segmental rotation, all stages (Heuer 2007b)",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "IDP-ROM relation",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact and resection stages pooled (INTACT..w/oALL)",
+ "quantity": {
+  "name": "IDP-ROM regression slope",
+  "definition": "slope of linear regression of absolute IDP (MPa) on rotation ROM (deg, Heuer 2007a values) pooled over all moments and stages; intercept fixed by authors at the unloaded IDP 0.04 MPa",
+  "unit": "MPa/deg"
+ },
+ "source": {
+  "short": "Heuer 2007b",
+  "authors": "Heuer F, Schmidt H, Claes L, Wilke HJ",
+  "year": 2007,
+  "journal": "J Biomech 40:795-803",
+  "doi": "10.1016/j.jbiomech.2006.03.016",
+  "n": "8 human cadaveric L4-L5 FSUs (4 M, 4 F) evaluated; 1 M + 1 F excluded for early failure; n=3 at 10 Nm for w/oFC..w/oALL",
+  "sample": "same specimens as Heuer 2007a; no radiographic disc degeneration (grade <2, Mimura)",
+  "age": "median 52 (range 38-59)",
+  "sex": "4 M / 4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Same protocol as Heuer 2007a: 15 min 500 N axial preconditioning, then pure unconstrained moments 1/2.5/5/7.5/10 Nm at 1.0 deg/s, 2.5 cycles (last evaluated), no preload; L5 fixed, L4 on gimbal. IDP: piezo-resistive probe (MIPM FMSPEZ50, 1.45 mm dia, 4.4 mm long) inserted into the centre of the nucleus from right lateral via 14G needle, position checked radiographically; absolute pressure (unloaded baseline included, averaged unloaded IDP 0.04 MPa).",
+  "how_to_simulate": [
+   "Fix the caudal half of L5; L4 free (gimbal), no preload",
+   "Apply pure moments 1, 2.5, 5, 7.5, 10 Nm in flexion and in extension",
+   "Read hydrostatic nucleus pressure (absolute, MPa) at the nucleus centre at each peak moment (loading branch)",
+   "For defect stages remove structures cumulatively in the Heuer order (SSL, ISL, FL, FC, vertebral arches, PLL, ALL)"
+  ],
+  "subject_model": null,
+  "notes": "IDP absolute (not normalised). Only flexion and extension are shown (Figs 7-8); lateral bending/axial rotation IDP only as IDP-ROM regressions (Fig 9). Stage order: INTACT -> w/oSSL -> w/oISL -> w/oFL -> w/oFC -> w/oVA -> w/oPLL -> w/oALL (w/oNUC not measurable). Values absolute, not % intact."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1-10 Nm, all stages pooled",
+   "mean": 0.0303,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "slope MPa/deg; IDP = 0.0303*ROM + 0.04; R2 = 0.7614"
+  },
+  {
+   "x": "extension",
+   "load": "1-10 Nm, all stages pooled",
+   "mean": 0.0319,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "slope MPa/deg; IDP = 0.0319*ROM + 0.04; R2 = 0.7881"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "1-10 Nm, all stages pooled",
+   "mean": 0.0381,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "slope MPa/deg; IDP = 0.0381*ROM + 0.04; R2 = 0.7975"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "1-10 Nm, all stages pooled",
+   "mean": 0.0264,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "slope MPa/deg; IDP = 0.0264*ROM + 0.04; R2 = 0.9207"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 9 (equations printed in panels) and Results text (R2)",
+  "method": "text",
+  "uncertainty": "exact (printed equations)",
+  "checked": true,
+  "check_notes": "Equations and R2 read from Fig 9 panel labels (text layer) and Results paragraph (R2 0.761, 0.788, 0.798, 0.921); consistent."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model IDP-ROM slope within ±25% of reported slope over the reported ROM range (flexion 0-14, extension 0-13, LB 1-8, AR 0-8 deg)"
+ },
+ "combine_group": "fe_idp_invitro__idp_rom_slope__L4-L5__stepwise_pooled__1-10Nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+  "heuer2007a: same 8 L4-L5 specimens",
+  "wilke2025: Heuer 2007a/b pooled in Wilke 2025 L4-L5 ROM/NZ"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "L4-L5",
+  "IDP",
+  "absolute",
+  "regression"
+ ]
+}

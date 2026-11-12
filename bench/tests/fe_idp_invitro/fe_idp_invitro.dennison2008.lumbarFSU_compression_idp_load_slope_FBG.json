@@ -1,0 +1,134 @@
+{
+ "id": "fe_idp_invitro.dennison2008.lumbarFSU_compression_idp_load_slope_FBG",
+ "title": "Lumbar FSU nucleus pressure sensitivity to axial compression (fibre-Bragg grating sensor)",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "axial compression",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5",
+  "L2-L3",
+  "L1-L2"
+ ],
+ "condition": "intact FSU",
+ "quantity": {
+  "name": "IDP-load slope",
+  "definition": "slope of nucleus pressure (FBG, centre of nucleus) vs axial compressive force, per specimen (mean±SD of the regression across repeats)",
+  "unit": "kPa/N"
+ },
+ "source": {
+  "short": "Dennison 2008",
+  "authors": "Dennison CR, Wild PM, Byrnes PWG, Saari A, Itshayek E, Wilson DC, Zhu QA, Dvorak MFS, Cripton PA, Wilson DR",
+  "year": 2008,
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2007.07.015",
+  "n": "5 specimens (5 lumbar FSUs: 3 L4-L5, 1 L2-L3, 1 L1-L2)",
+  "sample": "human cadaver lumbar two-vertebra FSUs, Thompson/Galante grade 2-3",
+  "age": "46-76 (per specimen: 70, 76, 75, 76, 46)",
+  "sex": "4M, 1F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure axial compression of lumbar FSUs in a materials testing machine (Instron 8874) 0 -> 2000 N -> 0 at 10 N/s after preconditioning cycles 0-2000 N at 200 N/s; ends potted in dental cement; loads visually checked as purely compressive. IDP sensors in the centre of the nucleus: FBG (10 mm active length, 125 um fibre via 25 G needle) or two needle-mounted strain-gauge sensors (2.45 mm diameter, Precision Measurement 060S). Pressure referenced to zero at 200 N (Fig 3 caption) - slopes only.",
+  "how_to_simulate": [
+   "Model the FSU with both endplates fully bonded to rigid plates; constrain to pure axial compression.",
+   "Apply 0-2000 N axial compression quasi-statically.",
+   "Report slope of nucleus (centre) pressure vs compressive force (kPa/N) over the linear range; compare per level/specimen."
+  ],
+  "subject_model": null,
+  "notes": "Table 1 also gives disc grade (2-3) and major disc diameter 51-63 mm. Abstract prints L1-L2 FBG sensitivity as 0.702±0.043 kPa/N but Table 1 gives 0.705±0.043; Table value used (mean 0.902 kPa/N in text matches Table values)."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "0-2000 N axial",
+   "mean": 1.07,
+   "sd": 0.069,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "level": "L4-L5",
+   "specimen": 1,
+   "donor": "Male-70",
+   "r2": 0.94
+  },
+  {
+   "x": "compression",
+   "load": "0-2000 N axial",
+   "mean": 1.04,
+   "sd": 0.071,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "level": "L4-L5",
+   "specimen": 2,
+   "donor": "Male-76",
+   "r2": 0.93
+  },
+  {
+   "x": "compression",
+   "load": "0-2000 N axial",
+   "mean": 0.847,
+   "sd": 0.039,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "level": "L4-L5",
+   "specimen": 3,
+   "donor": "Female-75",
+   "r2": 0.97
+  },
+  {
+   "x": "compression",
+   "load": "0-2000 N axial",
+   "mean": 0.851,
+   "sd": 0.095,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "level": "L2-L3",
+   "specimen": 4,
+   "donor": "Male-76",
+   "r2": 0.84
+  },
+  {
+   "x": "compression",
+   "load": "0-2000 N axial",
+   "mean": 0.705,
+   "sd": 0.043,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "level": "L1-L2",
+   "specimen": 5,
+   "donor": "Male-46",
+   "r2": 0.95
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "All 5 values, SDs, r2 re-read from Table 1; mean of five = 0.903 vs text 0.902 kPa/N."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model slope within [min,max] of specimens of the same level (L4-L5: 0.847-1.07 kPa/N)"
+ },
+ "combine_group": "fe_idp_invitro__idp_load_slope__lumbar_FSU__intact__compression0-2000N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "FSU",
+  "compression",
+  "IDP slope",
+  "sensor method"
+ ]
+}

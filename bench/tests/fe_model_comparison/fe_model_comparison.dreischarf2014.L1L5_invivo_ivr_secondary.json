@@ -1,0 +1,240 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_invivo_ivr_secondary",
+ "title": "In vivo segmental intervertebral rotations at maximal voluntary motion (Pearcy 1984/1985, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vivo reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "in vivo, maximal voluntary flexion / extension / lateral bending / axial rotation",
+ "quantity": {
+  "name": "intervertebral rotation",
+  "definition": "in vivo segmental rotation from upright standing to maximal voluntary motion (biplanar/stereo radiography), median and range (red bars in Fig 3). Sign as plotted: extension negative; negative LB/AR minimum values mean rotation opposite to the movement direction.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "in vivo volunteers of Pearcy et al. 1984, Pearcy & Tibrewal 1984, Pearcy 1985 (n not restated in Dreischarf 2014)",
+  "sample": "healthy volunteers, biplanar radiography (primary: Pearcy MJ et al. 1984 Spine 9:294; Pearcy & Tibrewal 1984 Spine 9:582; Pearcy 1985 Acta Orthop Scand Suppl 212)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "In vivo maximal voluntary motions; for FE simulation Dreischarf used combined loads (Table 3): flexion 1175 N compression + 7.5 Nm; extension 500 N + 7.5 Nm; lateral bending 700 N + 7.8 Nm; axial rotation 720 N + 5.5 Nm.",
+  "how_to_simulate": [
+   "L1-L5 model, fix L5 (or S1 if L5-S1 included)",
+   "Apply compressive follower force plus moment on L1 per Table 3: flexion 1175 N + 7.5 Nm; extension 500 N + 7.5 Nm; LB 700 N + 7.8 Nm; AR 720 N + 5.5 Nm",
+   "Report segmental rotation of L1-L2 ... L4-L5 (rotation from the unloaded state)"
+  ],
+  "subject_model": null,
+  "notes": "In vivo data, secondary (re-plotted). Not in vitro - do not pool with in vitro ROM. Dreischarf: flexion IVR under 7.5 Nm + 1175 N is underpredicted by all models (up to ~9 deg); 7.5 Nm is not sufficient to reproduce in vivo maximal flexion. Compression for the combined cases: Section 2.4 says compression was applied as follower load in part 1; part 2 loads were taken from Rohlmann 2009 / Dreischarf 2011, 2012 (follower load concept). Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 3.0,
+   "max": 17.1,
+   "median": 7.0,
+   "n": null,
+   "level": "L1-L2"
+  },
+  {
+   "x": "flexion",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 7.0,
+   "max": 15.2,
+   "median": 10.0,
+   "n": null,
+   "level": "L2-L3"
+  },
+  {
+   "x": "flexion",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 9.0,
+   "max": 14.1,
+   "median": 12.1,
+   "n": null,
+   "level": "L3-L4"
+  },
+  {
+   "x": "flexion",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 5.9,
+   "max": 19.1,
+   "median": 15.1,
+   "n": null,
+   "level": "L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -7.0,
+   "max": -2.0,
+   "median": -4.5,
+   "n": null,
+   "level": "L1-L2"
+  },
+  {
+   "x": "extension",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -7.0,
+   "max": -1.0,
+   "median": -4.0,
+   "n": null,
+   "level": "L2-L3"
+  },
+  {
+   "x": "extension",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -4.0,
+   "max": 1.0,
+   "median": -1.0,
+   "n": null,
+   "level": "L3-L4"
+  },
+  {
+   "x": "extension",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -4.0,
+   "max": 0.0,
+   "median": -2.0,
+   "n": null,
+   "level": "L4-L5"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 2.0,
+   "max": 10.0,
+   "median": 4.5,
+   "n": null,
+   "level": "L1-L2"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 2.0,
+   "max": 12.0,
+   "median": 4.9,
+   "n": null,
+   "level": "L2-L3"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -2.9,
+   "max": 11.0,
+   "median": 4.9,
+   "n": null,
+   "level": "L3-L4"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -2.9,
+   "max": 5.9,
+   "median": 2.9,
+   "n": null,
+   "level": "L4-L5"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -1.0,
+   "max": 2.0,
+   "median": 1.0,
+   "n": null,
+   "level": "L1-L2"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -1.0,
+   "max": 2.0,
+   "median": 1.0,
+   "n": null,
+   "level": "L2-L3"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": 0.0,
+   "max": 4.0,
+   "median": 1.0,
+   "n": null,
+   "level": "L3-L4"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "maximal voluntary motion (in vivo)",
+   "mean": null,
+   "sd": null,
+   "min": -1.0,
+   "max": 3.0,
+   "median": 1.0,
+   "n": null,
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3a-d (red bars and whiskers)",
+  "method": "digitised_figure",
+  "uncertainty": "flexion +/-0.3 deg (5.64 px/deg); extension +/-0.15 deg (11.4 px/deg); LB +/-0.3 deg (6.22 px/deg); AR +/-0.1 deg (16 px/deg)",
+  "checked": true,
+  "check_notes": "Each panel calibrated on its own gridlines. Whisker ends read where the dark whisker line inside the red bar stops (gridlines are drawn behind bars, so inner lines are caps). Re-read L4-L5 flexion (top 64.5 -> 15.1; cap 42 -> 19.1) and L3-L4 AR (top cap 271.5 -> 4.0) on second pass - identical. Consistency with text: models within in vivo range for flexion only at L1-L2; extension outside range only one model at L1-L2 (-1.6 vs -2.0) and one at L4-L5 (-4.4 vs -4.0) - both reproduced."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max (in vivo range); compare also with model range test"
+ },
+ "combine_group": "secondary__invivo__ivr__L1-L5_segmental__maximal_voluntary",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "secondary",
+  "segmental rotation",
+  "combined loading"
+ ]
+}

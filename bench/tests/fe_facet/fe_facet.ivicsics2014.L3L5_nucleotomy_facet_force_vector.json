@@ -1,0 +1,223 @@
+{
+ "id": "fe_facet.ivicsics2014.L3L5_nucleotomy_facet_force_vector",
+ "title": "Sagittal facet/capsule force vectors at max extension and flexion, intact vs nucleotomy",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet force",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact and after partial nucleotomy (kinematics replayed on posterior elements)",
+ "quantity": {
+  "name": "facet force",
+  "definition": "median magnitude of the sagittal-plane resultant force (both facets together, from shear+compression components) at maximum extension / maximum flexion, with direction angle as printed (angle relative to vertical; sign convention of Fig 4)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ivicsics 2014",
+  "authors": "Ivicsics MF, Bishop NE, Puschel K, Morlock MM, Huber G",
+  "year": 2014,
+  "journal": "J Biomech 47:1712-1717",
+  "doi": "10.1016/j.jbiomech.2014.02.021",
+  "n": "9 specimens (7 L4-L5, 2 L3-L4); 8 nucleotomy group + 1 L4-L5 control",
+  "sample": "9 fresh-frozen male human lumbar FSUs (7 L4-L5, 2 L3-L4); 8 in nucleotomy group, 1 intact control",
+  "age": "median 50 (range 40-59)",
+  "sex": "all male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Displacement-controlled sagittal-plane test (MTS Bionix + superstructure): 700 N constant axial compression, zero AP shear, sinusoidal extension-flexion +-5 deg at 0.2 Hz; 2100 preconditioning cycles; kinematics (axial, AP translation, FE angle) recorded and replayed on the same specimen after sequential removal of structures; lower vertebra on 6-axis load cell; cycles 19-24 of the third repetition evaluated. 5 deg extension not reached in all specimens (spinous process contact).",
+  "how_to_simulate": [
+   "Embed FSU (disc horizontal); lower vertebra fixed on load cell; upper vertebra driven in axial, AP-shear and FE",
+   "Apply 700 N axial compression, 0 shear, +-5 deg FE sinusoid; record kinematics (intact, then after ~1 g posterolateral nucleotomy)",
+   "Replay those kinematics on the posterior elements alone (disc removed) with and without capsular ligaments",
+   "Report sagittal-plane facet force as % of applied axial force, median over max extension, max flexion, and the entire cycle"
+  ],
+  "subject_model": null,
+  "notes": "Steps (order): 1 i1 = record 'intact kinematics' (3x25 cycles); 2 i2 = replay intact kinematics on intact FSU (normalisation); [nucleotomy: ~1 g nucleus (median 0.99 g, 0.73-1.71 g = 28% of nucleus) via 6-8 mm right-posterolateral horizontal incision, rongeur; then 540 re-preconditioning cycles] 3 n1 = record 'nucleotomy kinematics'; 4 n2 = replay (normalisation); [disc removed completely, cranial spinous process of lower vertebra trimmed] 5 i3 = intact kinematics applied to facets + capsular ligaments; 6 n3 = nucleotomy kinematics on facets + capsules; [capsular ligaments dissected] 7 i4 = intact kinematics on facet contact only; 8 n4 = nucleotomy kinematics on facet contact only. Values are % of the applied axial force (relative), not absolute."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 81.92,
+   "n": 8,
+   "step": "intact kinematics; capsular ligaments",
+   "angle": "6.96 deg to vertical (caudal-posterior)",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 14.88,
+   "n": 8,
+   "step": "intact kinematics; capsular ligaments",
+   "angle": "158.20 deg (cranial-posterior)",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 109.25,
+   "n": 8,
+   "step": "intact kinematics; facet contact (no capsules)",
+   "angle": "-33.27 deg (caudal-anterior)",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 46.05,
+   "n": 8,
+   "step": "intact kinematics; facet contact (no capsules)",
+   "angle": "-39.44 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 191.18,
+   "n": 8,
+   "step": "intact kinematics; resultant facets + capsules",
+   "angle": "-14.70 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 31.16,
+   "n": 8,
+   "step": "intact kinematics; resultant facets + capsules",
+   "angle": "-48.41 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 101.13,
+   "n": 8,
+   "step": "nucleotomy kinematics; capsular ligaments",
+   "angle": "26.55 deg (caudal-posterior)",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 7.29,
+   "n": 8,
+   "step": "nucleotomy kinematics; capsular ligaments",
+   "angle": "-178.56 deg (cranial-anterior)",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 193.12,
+   "n": 8,
+   "step": "nucleotomy kinematics; facet contact (no capsules)",
+   "angle": "-27.89 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 59.69,
+   "n": 8,
+   "step": "nucleotomy kinematics; facet contact (no capsules)",
+   "angle": "-49.83 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "700 N axial + +-5 deg FE, at max extension",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 294.24,
+   "n": 8,
+   "step": "nucleotomy kinematics; resultant facets + capsules",
+   "angle": "-5.72 deg",
+   "level": "L3-L4/L4-L5"
+  },
+  {
+   "x": "flexion",
+   "load": "700 N axial + +-5 deg FE, at max flexion",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 52.4,
+   "n": 8,
+   "step": "nucleotomy kinematics; resultant facets + capsules",
+   "angle": "-61.25 deg",
+   "level": "L3-L4/L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Results text p.1714 (vectors also in Fig 4)",
+  "method": "text",
+  "uncertainty": "exact; sagittal-plane only (lateral components excluded - absolute force underestimated, authors)",
+  "checked": true,
+  "check_notes": "All 12 magnitudes and angles re-read from rendered page (minus signs dropped by pdftotext)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "indicative: model magnitude within +-50% of median; direction within +-20 deg"
+ },
+ "combine_group": "fe_facet__facet_force_sagittal__L3-L4_L4-L5__intact_vs_nucleotomy__700N_FE5deg",
+ "shared_sample_with": [
+  "fe_facet.ivicsics2014.L3L5_nucleotomy_facet_load_share"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "nucleotomy",
+  "displacement control",
+  "human"
+ ]
+}

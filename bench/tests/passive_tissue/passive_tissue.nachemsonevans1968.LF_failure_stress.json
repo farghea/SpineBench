@@ -1,0 +1,181 @@
+{
+ "id": "passive_tissue.nachemsonevans1968.LF_failure_stress",
+ "title": "Nachemson & Evans 1968 L3-L4 ligamentum flavum rupture stress",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "autopsy, mixed ages and disc grades",
+ "quantity": {
+  "name": "rupture stress",
+  "definition": "stress at rupture (force / initial CSA)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Nachemson 1968",
+  "authors": "Nachemson AL, Evans JH",
+  "year": 1968,
+  "journal": "J Biomech 1:211-220",
+  "doi": "",
+  "n": "10 L3-L4 ligamenta flava from 10 autopsy cadavers (8 tested as separated left/right halves, 2 whole)",
+  "sample": "human lumbar ligamentum flavum, L3-L4 interlaminar portion",
+  "age": "13-79 y (per case in Table 1)",
+  "sex": "8 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Resting (in situ) length measured between laminar drill holes before and after separating vertebral bodies (contraction = prestrain). Interlaminar LF portions (articular processes removed), laminae wired to grips; optical extensometer on marker pins at bone-ligament junction; Instron in buffered isotonic Ringer at 37 C; strain rate ~0.33 /min; 5 load cycles to 1 kg then 2 kg, relaxation tests, then to rupture.",
+  "how_to_simulate": [
+   "Model the L3-L4 ligamentum flavum with its in situ resting (pre)strain",
+   "Apply uniaxial tension along the cranio-caudal fibre direction at ~0.33 /min (quasi-static) to rupture",
+   "Report prestrain/resting force in neutral posture, final (rupture) modulus, rupture stress and strain"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "case 1 (64 y, F, disc grade 2, separated)",
+   "load": "",
+   "mean": 1.726,
+   "sd": 0.451,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "17.6 +- 4.6 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 2 (29 y, M, disc grade 0, separated)",
+   "load": "",
+   "mean": 8.904,
+   "sd": 0.902,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "90.8 +- 9.2 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 3 (66 y, M, disc grade 3, separated)",
+   "load": "",
+   "mean": 2.236,
+   "sd": 0.118,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "22.8 +- 1.2 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 4 (79 y, M, disc grade 1, separated)",
+   "load": "",
+   "mean": 1.147,
+   "sd": 0.863,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "11.7 +- 8.8 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 5 (39 y, F, disc grade 0, separated)",
+   "load": "",
+   "mean": 3.285,
+   "sd": 0.402,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "33.5 +- 4.1 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 6 (58 y, M, disc grade 2, separated)",
+   "load": "",
+   "mean": 2.314,
+   "sd": 0.314,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "23.6 +- 3.2 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 7 (73 y, M, disc grade 2, separated)",
+   "load": "",
+   "mean": 1.638,
+   "sd": 0.127,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "16.7 +- 1.3 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 8 (54 y, M, disc grade 2, separated)",
+   "load": "",
+   "mean": 2.511,
+   "sd": 1.059,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "orig": "25.6 +- 10.8 kg/cm2",
+   "note": "mean +- SD of left and right halves"
+  },
+  {
+   "x": "case 9 (29 y, M, disc grade 0, whole)",
+   "load": "",
+   "mean": 9.709,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "99 kg/cm2",
+   "note": "whole ligament; no SD printed"
+  },
+  {
+   "x": "case 10 (13 y, M, disc grade 0, whole)",
+   "load": "",
+   "mean": 9.66,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "orig": "98.5 kg/cm2",
+   "note": "whole ligament; no SD printed"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (ages, sex, disc grade from Table 1)",
+  "method": "table",
+  "uncertainty": "as printed (0.1 in original units)",
+  "checked": true,
+  "check_notes": "Table 2 read from 200-dpi render. Conversions: 1 kg/cm2 = 0.0980665 MPa; 1 kg = 9.80665 N; original value kept in 'orig'. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_stress__LF_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "LF"
+ ]
+}

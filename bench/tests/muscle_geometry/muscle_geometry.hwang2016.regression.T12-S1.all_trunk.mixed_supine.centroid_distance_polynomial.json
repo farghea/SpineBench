@@ -1,0 +1,469 @@
+{
+ "id": "muscle_geometry.hwang2016.regression.T12-S1.all_trunk.mixed_supine.centroid_distance_polynomial",
+ "title": "Hwang 2016: polynomial (level) regressions of sagittal and coronal centroid distances on sex, age, height, mass",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "thoracic",
+ "levels": [
+  "T12",
+  "L1",
+  "L2",
+  "L3",
+  "L4",
+  "L5",
+  "S1"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (data of Jorgensen 2001 / Marras 2001)",
+  "plane": "transverse slices perpendicular to the table through vertebral body centres",
+  "slice_thickness_mm": 10,
+  "level_definition": "vertebral level coded S1=1 ... T8=11",
+  "posture_detail": "supine"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Hwang 2016",
+  "authors": "Hwang J, Dufour JS, Knapik GG, Best TM, Khan SN, Mendel E, Marras WS",
+  "year": 2016,
+  "journal": "Clin Biomech 37:60-64",
+  "doi": "10.1016/j.clinbiomech.2016.06.001",
+  "n": "30 subjects (10 M, 20 F) reused from Jorgensen 2001 / Marras 2001",
+  "sample": "same OSU supine MRI database (T8-S1)",
+  "age": "M 26.4 (5.5), F 25.0 (7.2) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "Coronal values are SIGNED (+ = left), unlike Jorgensen 2001 which reports unsigned ML distances. Level coding S1=1..T8=11. The \"erector spinae group\" includes the transversospinalis (text p.62). Obliques were excluded from centroid models (fibre direction differs from centroid path)."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "0.51 0.23     -0.03  | 0.107 0.982 0.0006",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "0.51 + 0.23*Level + -0.03*Height",
+   "coefficients": {
+    "intercept": 0.51,
+    "Level": 0.23,
+    "Height": -0.03
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm"
+   },
+   "r2_adj": 0.107,
+   "rmse": 0.982,
+   "p": "0.0006",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-4.32 0.54     -0.01  | 0.241 1.062 <.0001",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "-4.32 + 0.54*Level + -0.01*Height",
+   "coefficients": {
+    "intercept": -4.32,
+    "Level": 0.54,
+    "Height": -0.01
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm"
+   },
+   "r2_adj": 0.241,
+   "rmse": 1.062,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-2.92 0.18   0.52 -0.03 -0.01  | 0.508 0.484 <.0001",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-2.92 + 0.18*Level + 0.52*Gender + -0.03*Age + -0.01*Height",
+   "coefficients": {
+    "intercept": -2.92,
+    "Level": 0.18,
+    "Gender": 0.52,
+    "Age": -0.03,
+    "Height": -0.01
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Age": "years",
+    "Height": "cm"
+   },
+   "r2_adj": 0.508,
+   "rmse": 0.484,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-1.77 0.23   0.22 -0.03 -0.02  | 0.518 0.516 <.0001",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-1.77 + 0.23*Level + 0.22*Gender + -0.03*Age + -0.02*Height",
+   "coefficients": {
+    "intercept": -1.77,
+    "Level": 0.23,
+    "Gender": 0.22,
+    "Age": -0.03,
+    "Height": -0.02
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Age": "years",
+    "Height": "cm"
+   },
+   "r2_adj": 0.518,
+   "rmse": 0.516,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "6.28 -5.06 1.39 -0.09 -1.93  0.05  | 0.74 1.468 <.0001",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "6.28 + -5.06*Level + 1.39*Level2 + -0.09*Level3 + -1.93*Gender + 0.05*Height",
+   "coefficients": {
+    "intercept": 6.28,
+    "Level": -5.06,
+    "Level2": 1.39,
+    "Level3": -0.09,
+    "Gender": -1.93,
+    "Height": 0.05
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Level3": "Level^3",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.74,
+   "rmse": 1.468,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "6.8 -5.31 1.49 -0.1 -2.21  0.05  | 0.757 1.52 <.0001",
+   "predicted": "sagittal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "6.8 + -5.31*Level + 1.49*Level2 + -0.1*Level3 + -2.21*Gender + 0.05*Height",
+   "coefficients": {
+    "intercept": 6.8,
+    "Level": -5.31,
+    "Level2": 1.49,
+    "Level3": -0.1,
+    "Gender": -2.21,
+    "Height": 0.05
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Level3": "Level^3",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.757,
+   "rmse": 1.52,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-9.37 -0.52     0.04 -0.08 | 0.644 0.772 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "-9.37 + -0.52*Level + 0.04*Height + -0.08*Body mass",
+   "coefficients": {
+    "intercept": -9.37,
+    "Level": -0.52,
+    "Height": 0.04,
+    "Body mass": -0.08
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.644,
+   "rmse": 0.772,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "8.73 0.45     -0.04 0.08 | 0.6 0.817 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "8.73 + 0.45*Level + -0.04*Height + 0.08*Body mass",
+   "coefficients": {
+    "intercept": 8.73,
+    "Level": 0.45,
+    "Height": -0.04,
+    "Body mass": 0.08
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.6,
+   "rmse": 0.817,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "1.66 -1.55 0.23 -0.01 0.22  -0.01  | 0.756 0.364 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "1.66 + -1.55*Level + 0.23*Level2 + -0.01*Level3 + 0.22*Gender + -0.01*Height",
+   "coefficients": {
+    "intercept": 1.66,
+    "Level": -1.55,
+    "Level2": 0.23,
+    "Level3": -0.01,
+    "Gender": 0.22,
+    "Height": -0.01
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Level3": "Level^3",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.756,
+   "rmse": 0.364,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-1.64 1.53 -0.23 0.01 -0.31  0.02  | 0.789 0.333 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-1.64 + 1.53*Level + -0.23*Level2 + 0.01*Level3 + -0.31*Gender + 0.02*Height",
+   "coefficients": {
+    "intercept": -1.64,
+    "Level": 1.53,
+    "Level2": -0.23,
+    "Level3": 0.01,
+    "Gender": -0.31,
+    "Height": 0.02
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Level3": "Level^3",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.789,
+   "rmse": 0.333,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-2.22 -0.71 0.09  0.49   -0.01 | 0.29 0.783 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "-2.22 + -0.71*Level + 0.09*Level2 + 0.49*Gender + -0.01*Body mass",
+   "coefficients": {
+    "intercept": -2.22,
+    "Level": -0.71,
+    "Level2": 0.09,
+    "Gender": 0.49,
+    "Body mass": -0.01
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Gender": "male=0, female=1",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.29,
+   "rmse": 0.783,
+   "p": "<.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "1.13 0.24 -0.02  0.35   0.02 | 0.122 0.731 <.0001",
+   "predicted": "coronal-plane centroid distance (\"moment-arm\"), cm; sagittal + = anterior, coronal + = toward the LEFT side (signed)",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "1.13 + 0.24*Level + -0.02*Level2 + 0.35*Gender + 0.02*Body mass",
+   "coefficients": {
+    "intercept": 1.13,
+    "Level": 0.24,
+    "Level2": -0.02,
+    "Gender": 0.35,
+    "Body mass": 0.02
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Gender": "male=0, female=1",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.122,
+   "rmse": 0.731,
+   "p": "<.0001",
+   "output_unit": "cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (predictors Table 1)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All coefficients verified on rendered page 63 (Table 2)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_mri_30",
+  "regression"
+ ]
+}

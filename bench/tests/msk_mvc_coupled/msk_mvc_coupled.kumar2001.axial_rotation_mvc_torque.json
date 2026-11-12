@@ -1,0 +1,113 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "trunk (axis of harness rod)"
+ ],
+ "condition": "in vivo healthy",
+ "pass_rule": {
+  "template": true,
+  "rule": "no SD reported: |model-mean| <= 20% of mean"
+ },
+ "tags": [
+  "in vivo",
+  "MVC",
+  "axial rotation",
+  "seated",
+  "sex differences"
+ ],
+ "id": "msk_mvc_coupled.kumar2001.axial_rotation_mvc_torque",
+ "title": "Maximal isometric axial rotation torque, seated neutral posture, by sex",
+ "subcategory": "axial rotation MVC",
+ "quantity": {
+  "name": "peak axial rotation torque at MVC",
+  "definition": "maximal isometric axial torque (group mean of peak) about vertical axis of AROT harness",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Kumar 2001",
+  "authors": "Kumar S, Narayan Y, Garand D",
+  "year": 2001,
+  "journal": "Eur J Appl Physiol 86:53-61",
+  "doi": "10.1007/s004210100510",
+  "n": "50 subjects (27 M, 23 F)",
+  "sample": "healthy young adults, no LBP in past year",
+  "age": "M 22.1±3.8 (18-34); F 22.1±4.3 (18-33)",
+  "sex": "27 M, 23 F",
+  "height_cm": "M 176.9±6.9; F 165.4±5.4",
+  "weight_kg": "M 72.3±7.5; F 58.5±7.3"
+ },
+ "protocol": {
+  "summary": "Seated upright in the axial rotation tester (AROT); seat height set so knees at 90 deg, feet resting; pelvis/legs stabilised with four Velcro straps (hip, distal thigh, proximal shin, ankle); shoulder harness on both shoulders attached to a vertical rod; isometric maximal axial rotation to left and right from neutral (0 deg), random order, 5-s trials. Torque = load-cell force x lever arm (distance from the centre of the harness rod to the harness attachment on the shoulder), i.e. axial torque about the vertical axis of the harness rod (not stated to be referenced to L5-S1). No coupled (off-axis) moments measured.",
+  "how_to_simulate": [
+   "Seat the model upright (hips and knees 90 deg), pelvis fixed to seat",
+   "Apply/let muscles generate maximal axial rotation (left, right) with thorax reacting against a shoulder harness rotating about a vertical axis",
+   "Compare the predicted maximal axial moment (about the vertical axis; report at L5-S1 or T12-L1) with the sex-specific means",
+   "Use Table 1 anthropometry for male and female subject models"
+  ],
+  "subject_model": {
+   "sex": "M and F separately",
+   "age": "M 22.1, F 22.1",
+   "height_cm": "M 176.9, F 165.4",
+   "weight_kg": "M 72.3, F 58.5",
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "No SDs reported for torque; text values are the peak of the group means (Fig 3 shows the time course). Females ~65% of male torque."
+ },
+ "data": [
+  {
+   "x": "axial_rotation_left",
+   "component": "primary",
+   "sex": "M",
+   "mean": 101.8,
+   "sd": null,
+   "n": 27,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "component": "primary",
+   "sex": "M",
+   "mean": 97.5,
+   "sd": null,
+   "n": 27,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "component": "primary",
+   "sex": "F",
+   "mean": 61.8,
+   "sd": null,
+   "n": 23,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "component": "primary",
+   "sex": "F",
+   "mean": 64.7,
+   "sd": null,
+   "n": 23,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Results text p.55 (and Fig 3)",
+  "method": "text",
+  "uncertainty": "none (text values); no SD reported",
+  "checked": true,
+  "check_notes": "Re-read Results text: 101.8/97.5 Nm (M L/R), 61.8/64.7 Nm (F L/R). Fig 3 time courses consistent (peaks ~100-108 M, ~65-70 F). Table 1 re-checked."
+ },
+ "combine_group": null
+}

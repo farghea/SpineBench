@@ -1,0 +1,142 @@
+{
+ "id": "kinematics.beyer2017.sternal_angle",
+ "title": "Sternal angle (manubriosternal joint) at three lung volumes",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "rib motion",
+ "region": "ribcage",
+ "levels": [
+  "manubriosternal joint"
+ ],
+ "condition": "in vivo, supine, TLC-MIC-FRC breath-holds",
+ "quantity": {
+  "name": "sternal angle",
+  "definition": "angle between the y-axes of the manubrium and sternal-body coordinate systems (angle of Louis), and its change between poses",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Beyer 2017",
+  "authors": "Beyer B, Feipel V, Sholukha V, Cheze L, Van Sint Jan S",
+  "year": 2017,
+  "journal": "J Biomech 64:32-40",
+  "doi": "10.1016/j.jbiomech.2017.08.026",
+  "n": "12 asymptomatic volunteers (7 M, 5 F)",
+  "sample": "12 asymptomatic adults, retrospective spiral CT at TLC, MIC, FRC (same sample as Beyer 2014/2015 CVJ studies per the authors)",
+  "age": "30 +- 6 y (Annex 1; text 31 +- 6)",
+  "sex": "7 M / 5 F (Annex 1)",
+  "height_cm": "171 +- 8",
+  "weight_kg": "63 +- 13"
+ },
+ "protocol": {
+  "summary": "CT-based manubrium and sternum frames at TLC, MIC, FRC.",
+  "how_to_use": [
+   "If the manubrium and sternal body are separate bodies, allow ~4.4 deg of manubriosternal flexion between TLC and FRC (sternal angle larger at higher lung volume), roughly half above and half below MIC.",
+   "Otherwise use as a check that a rigid sternum assumption ignores a few degrees of motion."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "Siemens SOMATOM spiral CT, 0.5 mm slices, 1 mm spacing; virtual palpation of 5 landmarks per bone (lhpFusionBox)",
+   "posture": "supine, breath-hold against closed airway (spirometer-controlled), upper limbs raised above head",
+   "task": "static breath-holds at TLC, MIC and FRC"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "The paper says all results are mean +- SE, but Fig 3 error bars (~1.6 deg) equal 5.5/sqrt(12); the +- values in the text (5.5, 5.2, 4.9) are therefore SDs and are stored as sd. Differences TLC-MIC p=0.016 and MIC-FRC/TLC-FRC p=0.0011."
+ },
+ "data": [
+  {
+   "x": "sternal angle at TLC",
+   "load": null,
+   "mean": 16.7,
+   "sd": 5.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "TLC"
+  },
+  {
+   "x": "sternal angle at MIC",
+   "load": null,
+   "mean": 14.9,
+   "sd": 5.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "MIC"
+  },
+  {
+   "x": "sternal angle at FRC",
+   "load": null,
+   "mean": 12.4,
+   "sd": 4.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "FRC"
+  },
+  {
+   "x": "sternal angle ROM TLC-FRC",
+   "load": null,
+   "mean": 4.4,
+   "sd": 2.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "TLC to FRC"
+  },
+  {
+   "x": "sternal angle ROM above MIC",
+   "load": null,
+   "mean": 1.9,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "TLC to MIC"
+  },
+  {
+   "x": "sternal angle ROM below MIC",
+   "load": null,
+   "mean": 2.5,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "phase": "MIC to FRC"
+  }
+ ],
+ "extraction": {
+  "from": "text section 3.2 (Fig 3 for SE check)",
+  "method": "text",
+  "uncertainty": "exact (text); SD-vs-SE label ambiguous (see notes)",
+  "checked": true,
+  "check_notes": "Values re-read from text; Fig 3 means 16.7/14.9/12.4 consistent."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__sternal_angle__manubriosternal__supine_CT__breathing",
+ "shared_sample_with": [
+  "kinematics.beyer2014.cvj_rom_anatomical_axes",
+  "kinematics.beyer2014.intervertebral_rom_breathing",
+  "kinematics.beyer2014.cvj_mha_direction_cosines",
+  "kinematics.beyer2016.cvj_rotation_about_mha",
+  "kinematics.beyer2016.cvj_rom_anatomical_axes"
+ ],
+ "tags": [
+  "in vivo",
+  "CT",
+  "supine",
+  "healthy",
+  "breathing",
+  "rib cage",
+  "sternum"
+ ]
+}

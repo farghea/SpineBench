@@ -1,0 +1,109 @@
+{
+ "id": "msk_mvc_coupled.lariviere2009.mvc_moments_flexion",
+ "title": "Primary and coupled peak L5/S1 moments in maximal flexion exertion (upright standing), males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "primary_and_coupled_MVC_moments",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "isometric maximal flexion exertion, upright standing, feet/knees/pelvis fixed, thorax in frame; 1D feedback (primary plane)",
+ "quantity": {
+  "name": "MVC moment (primary and coupled, absolute)",
+  "definition": "peak L5/S1 moments over all MVC trials in that direction (3-5 trials); all values absolute (positive); pct_of_same_plane_MVC = coupled moment as % of the maximal strength in that plane (Table 1 italics), not % of primary",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Lariviere 2009",
+  "authors": "Lariviere C, Gagnon D, Genest K",
+  "year": 2009,
+  "journal": "J Biomech 42(10):1498-1505",
+  "doi": "10.1016/j.jbiomech.2009.03.045",
+  "n": "20 right-handed healthy males",
+  "sample": "healthy right-handed men, BMI<28, no back pain in previous year, in vivo",
+  "age": "25±3 y",
+  "sex": "M",
+  "height_cm": "180±8",
+  "weight_kg": "75±10"
+ },
+ "protocol": {
+  "summary": "Triaxial static dynamometer (AMTI MC6-6-1000 force platform on a steel frame) stabilising feet, knees and pelvis (Lariviere 2001); thorax embedded in a frame fixed on the platform; L5/S1 moments at 50 Hz; upright standing posture. MVCs in 6 directions (latin-square order) with visual feedback of the primary-plane moment and Baratta's protocol (target raised by 10% until failure, up to 5 trials, 5-7 s ramps), strong verbal encouragement, 2 min rest.",
+  "how_to_simulate": [
+   "Upright standing, pelvis fixed, thorax loaded through a rigid harness/frame.",
+   "Apply the measured primary flexion moment at L5/S1 (plus coupled moments of the magnitudes given; their signs are not reported).",
+   "Compare the model's maximal primary moment (or required max muscle stress) and coupled L5/S1 moments with data."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 25,
+   "height_cm": 180,
+   "weight_kg": 75,
+   "disc_area_mm2": null,
+   "source": "Methods text (mean of 20 men; BMI 23.4±2.5)"
+  },
+  "notes": "Coupled moments are absolute values (signs not reported) - do not pool with signed means. Same subjects as Lariviere 2014 (20 men, 25±3 y, same dynamometer, 3 sessions; 2009 reports session 1 MVC). Extension MVC also at start/end of protocol: 274±69 and 275±64 Nm (text)."
+ },
+ "data": [
+  {
+   "x": "flexion MVC",
+   "component": "primary_sagittal_moment_abs",
+   "sex": "M",
+   "mean": 186,
+   "sd": 34,
+   "pct_of_same_plane_MVC": null,
+   "pct_sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "flexion MVC",
+   "component": "coupled_frontal_moment_abs",
+   "sex": "M",
+   "mean": 16,
+   "sd": 11,
+   "pct_of_same_plane_MVC": 9,
+   "pct_sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "flexion MVC",
+   "component": "coupled_transverse_moment_abs",
+   "sex": "M",
+   "mean": 15,
+   "sd": 12,
+   "pct_of_same_plane_MVC": 12,
+   "pct_sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (1 Nm, 1%)",
+  "checked": true,
+  "check_notes": "Re-read Table 1 in text layout; numbers also match the copy in Ghezelbash 2018 Table 2 (Lariviere rows)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD for primary; coupled within 1 SD"
+ },
+ "combine_group": "msk_mvc_coupled__primary_moment__L5-S1__upright_standing__flexion_male",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "MVC",
+  "coupled moments",
+  "upright standing",
+  "dynamometer",
+  "male"
+ ]
+}

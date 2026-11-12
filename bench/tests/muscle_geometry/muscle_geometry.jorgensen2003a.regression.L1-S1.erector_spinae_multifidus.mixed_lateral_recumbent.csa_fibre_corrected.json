@@ -1,0 +1,318 @@
+{
+ "id": "muscle_geometry.jorgensen2003a.regression.L1-S1.erector_spinae_multifidus.mixed_lateral_recumbent.csa_fibre_corrected",
+ "title": "Jorgensen 2003a: regressions of right lumbar back-muscle corrected CSA on sex, anthropometry and lordosis (pooled flexion angles)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "mixed_lateral_recumbent",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "lateral_recumbent",
+ "imaging": {
+  "modality": "MRI 0.3 T Hitachi Airis open, T1 (TR 400, TE 10)",
+  "plane": "axial slices through and PARALLEL to each lumbar intervertebral disc (L1-L2..L5-S1)",
+  "slice_thickness_mm": 10,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "lying on LEFT side (lateral recumbent) on pegboard, torso flexion 0/15/30/45 deg (S1-C7 line), knees extended, padding against coronal sag"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Jorgensen 2003a",
+  "authors": "Jorgensen MJ, Marras WS, Gupta P",
+  "year": 2003,
+  "journal": "Clin Biomech 18:280-286",
+  "doi": "10.1016/S0268-0033(03)00027-5",
+  "n": "24 healthy subjects (12 M, 12 F)",
+  "sample": "young healthy adults",
+  "age": "M 23.1 (3.1), F 23.8 (4.4) y",
+  "sex": "12M/12F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "Gender coding is not stated in the paper. Torso flexion angle did not enter any final model."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', 4.28), ('Gender', 6.69), ('Mass', 0.28), ('TDTWIC', -0.02), ('L1/L5', 0.04)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "L1-L2",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "4.28 + 6.69*Gender + 0.28*Mass + -0.02*TDTWIC + 0.04*L1/L5",
+   "coefficients": {
+    "intercept": 4.28,
+    "Gender": 6.69,
+    "Mass": 0.28,
+    "TDTWIC": -0.02,
+    "L1/L5": 0.04
+   },
+   "predictor_units": {
+    "Gender": "coding not stated (positive coefficient => male presumably 1)",
+    "Mass": "kg",
+    "TDTWIC": "cm2",
+    "L1/L5": "deg (lordosis, superior L1 to inferior L5)"
+   },
+   "r2_adj": 0.88,
+   "see": 1.8,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Gender": 0.91,
+    "Mass": 0.04,
+    "TDTWIC": 0.05,
+    "L1/L5": 0.01
+   },
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', 12.67), ('Gender', 5.85), ('Mass', 0.28), ('TWIC', -0.59)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "L2-L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "12.67 + 5.85*Gender + 0.28*Mass + -0.59*TWIC",
+   "coefficients": {
+    "intercept": 12.67,
+    "Gender": 5.85,
+    "Mass": 0.28,
+    "TWIC": -0.59
+   },
+   "predictor_units": {
+    "Gender": "coding not stated (positive coefficient => male presumably 1)",
+    "Mass": "kg",
+    "TWIC": "cm"
+   },
+   "r2_adj": 0.87,
+   "see": 1.9,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Gender": 0.93,
+    "Mass": 0.05,
+    "TWIC": 0.02
+   },
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', -8.63), ('Gender', 3.7), ('Ht x mass', 0.001), ('TDTWIC', -0.02), ('TWXP', 0.74), ('L1/L5', 0.07)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "L3-L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-8.63 + 3.7*Gender + 0.001*Ht x mass + -0.02*TDTWIC + 0.74*TWXP + 0.07*L1/L5",
+   "coefficients": {
+    "intercept": -8.63,
+    "Gender": 3.7,
+    "Ht x mass": 0.001,
+    "TDTWIC": -0.02,
+    "TWXP": 0.74,
+    "L1/L5": 0.07
+   },
+   "predictor_units": {
+    "Gender": "coding not stated (positive coefficient => male presumably 1)",
+    "Ht x mass": "cm*kg",
+    "TDTWIC": "cm2",
+    "TWXP": "cm",
+    "L1/L5": "deg (lordosis, superior L1 to inferior L5)"
+   },
+   "r2_adj": 0.86,
+   "see": 1.9,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Gender": 0.88,
+    "Ht x mass": 0.02,
+    "TDTWIC": 0.02,
+    "TWXP": 0.05,
+    "L1/L5": 0.03
+   },
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', -6.48), ('Gender', 3.15), ('Mass', 0.29), ('TDTWIC', -0.03), ('TWXP', 0.52), ('L1/S1', 0.08)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "L4-L5",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-6.48 + 3.15*Gender + 0.29*Mass + -0.03*TDTWIC + 0.52*TWXP + 0.08*L1/S1",
+   "coefficients": {
+    "intercept": -6.48,
+    "Gender": 3.15,
+    "Mass": 0.29,
+    "TDTWIC": -0.03,
+    "TWXP": 0.52,
+    "L1/S1": 0.08
+   },
+   "predictor_units": {
+    "Gender": "coding not stated (positive coefficient => male presumably 1)",
+    "Mass": "kg",
+    "TDTWIC": "cm2",
+    "TWXP": "cm",
+    "L1/S1": "deg (lordosis, superior L1 to superior S1)"
+   },
+   "r2_adj": 0.85,
+   "see": 1.8,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Gender": 0.78,
+    "Mass": 0.06,
+    "TDTWIC": 0.07,
+    "TWXP": 0.02,
+    "L1/S1": 0.07
+   },
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', 14.29), ('Ht x mass', 0.002), ('TrCircum', -0.58), ('TWXP', 0.69), ('L1/S1', 0.13)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "L5-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "14.29 + 0.002*Ht x mass + -0.58*TrCircum + 0.69*TWXP + 0.13*L1/S1",
+   "coefficients": {
+    "intercept": 14.29,
+    "Ht x mass": 0.002,
+    "TrCircum": -0.58,
+    "TWXP": 0.69,
+    "L1/S1": 0.13
+   },
+   "predictor_units": {
+    "Ht x mass": "cm*kg",
+    "TrCircum": "cm",
+    "TWXP": "cm",
+    "L1/S1": "deg (lordosis, superior L1 to superior S1)"
+   },
+   "r2_adj": 0.73,
+   "see": 2.3,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Ht x mass": 0.58,
+    "TrCircum": 0.14,
+    "TWXP": 0.08,
+    "L1/S1": 0.2
+   },
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24,
+   "as_reported": "[('intercept', -10.11), ('Gender', 3.72), ('Mass', 0.28), ('TDTWIC', -0.02), ('TWXP', 0.61), ('L1/S1', 0.07)]",
+   "predicted": "fibre-corrected CSA (cm2) of right lumbar back muscles",
+   "level": "max_level",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-10.11 + 3.72*Gender + 0.28*Mass + -0.02*TDTWIC + 0.61*TWXP + 0.07*L1/S1",
+   "coefficients": {
+    "intercept": -10.11,
+    "Gender": 3.72,
+    "Mass": 0.28,
+    "TDTWIC": -0.02,
+    "TWXP": 0.61,
+    "L1/S1": 0.07
+   },
+   "predictor_units": {
+    "Gender": "coding not stated (positive coefficient => male presumably 1)",
+    "Mass": "kg",
+    "TDTWIC": "cm2",
+    "TWXP": "cm",
+    "L1/S1": "deg (lordosis, superior L1 to superior S1)"
+   },
+   "r2_adj": 0.86,
+   "see": 2.0,
+   "p": 0.0001,
+   "proportion_explained": {
+    "Gender": 0.84,
+    "Mass": 0.08,
+    "TDTWIC": 0.03,
+    "TWXP": 0.02,
+    "L1/S1": 0.04
+   },
+   "output_unit": "cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Verified against rendered page 284."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_flexion_24",
+  "in vivo",
+  "MRI",
+  "lateral recumbent",
+  "torso flexion"
+ ]
+}

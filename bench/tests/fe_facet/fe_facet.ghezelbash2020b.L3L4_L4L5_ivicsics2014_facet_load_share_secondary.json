@@ -1,0 +1,83 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L3L4_L4L5_ivicsics2014_facet_load_share_secondary",
+ "title": "Facet load share at L3-L4, L4-L5 - Ivicsics M, Bishop N, Puschel K, Morlock M, Huber G 2014 (J Biomech 47:1712) (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact disc, capsular ligaments intact (resection study)",
+ "quantity": {
+  "name": "facet load share",
+  "definition": "percentage of applied axial compression carried by both facet joints, median (min/max); level printed as 'L3-L5 & L4-L5' in the review",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Ivicsics M, Bishop N, Puschel K, Morlock M, Huber G 2014 (J Biomech 47:1712))",
+  "sample": "human cadaveric lumbar specimens of Ivicsics M, Bishop N, Puschel K, Morlock M, Huber G 2014 (J Biomech 47:1712), as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "700 N compression with 5 deg imposed extension or flexion; % of compression carried by both facets (not force in N).",
+  "how_to_simulate": [
+   "Apply 700 N axial compression with 5 deg extension or 5 deg flexion",
+   "Compute the sum of both facet contact forces as % of the applied compression"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Ivicsics M, Bishop N, Puschel K, Morlock M, Huber G 2014 (J Biomech 47:1712)."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "700 N compression + 5 deg extension",
+   "mean": null,
+   "sd": null,
+   "min": 7.6,
+   "max": 24.8,
+   "median": 10.6,
+   "n": null
+  },
+  {
+   "x": "flexion",
+   "load": "700 N compression + 5 deg flexion",
+   "mean": null,
+   "sd": null,
+   "min": 2.4,
+   "max": 9.3,
+   "median": 6.7,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_load_share__L3-L5_mixed__intact__700N_5deg",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet load share"
+ ],
+ "shared_sample_with": [
+  "ivicsics2014: primary (fe_facet tests from Ivicsics2014.pdf, other fork)"
+ ]
+}

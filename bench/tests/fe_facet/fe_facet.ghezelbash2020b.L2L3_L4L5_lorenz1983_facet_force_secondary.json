@@ -1,0 +1,164 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L2L3_L4L5_lorenz1983_facet_force_secondary",
+ "title": "Facet force at L2-L3, L4-L5 - Lorenz M, Patwardhan A, Vanderby R 1983 (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet force left/right (pressure-sensitive film); the review also prints the % of axial compression in parentheses (kept in note)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Lorenz M, Patwardhan A, Vanderby R 1983)",
+  "sample": "human cadaveric lumbar specimens of Lorenz M, Patwardhan A, Vanderby R 1983, as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "140 kg (~1373 N) axial compression, alone or with 6-8 deg extension; pressure film. Percent load share values: L2-L3 9% / 17%, L4-L5 8% / 13% (compression / with extension).",
+  "how_to_simulate": [
+   "Apply 140 kg (1373 N) compression, with or without 6-8 deg extension",
+   "Report left and right facet force"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Lorenz M, Patwardhan A, Vanderby R 1983."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "140 kg compression",
+   "mean": 56.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left",
+   "level": "L2-L3",
+   "note": "left/right 56.4/62.9 (9%)"
+  },
+  {
+   "x": "compression",
+   "load": "140 kg compression",
+   "mean": 62.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right",
+   "level": "L2-L3"
+  },
+  {
+   "x": "extension",
+   "load": "140 kg compression + 6-8 deg extension",
+   "mean": 131.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left",
+   "level": "L2-L3",
+   "note": "131.4/105.9 (17%)"
+  },
+  {
+   "x": "extension",
+   "load": "140 kg compression + 6-8 deg extension",
+   "mean": 105.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right",
+   "level": "L2-L3"
+  },
+  {
+   "x": "compression",
+   "load": "140 kg compression",
+   "mean": 73.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left",
+   "level": "L4-L5",
+   "note": "73.6/38.6 (8%)"
+  },
+  {
+   "x": "compression",
+   "load": "140 kg compression",
+   "mean": 38.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right",
+   "level": "L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "140 kg compression + 6-8 deg extension",
+   "mean": 113.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "left",
+   "level": "L4-L5",
+   "note": "113.9/60.8 (13%)"
+  },
+  {
+   "x": "extension",
+   "load": "140 kg compression + 6-8 deg extension",
+   "mean": 60.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "side": "right",
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__L4-L5__intact__compression_1373N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force",
+  "pressure film"
+ ],
+ "also_in_groups": [
+  "secondary__fe_facet__facet_force__L2-L3__intact__compression_1373N"
+ ]
+}

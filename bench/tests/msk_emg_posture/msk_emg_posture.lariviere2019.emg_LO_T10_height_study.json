@@ -1,0 +1,137 @@
+{
+ "id": "msk_emg_posture.lariviere2019.emg_LO_T10_height_study",
+ "title": "LO-T10 EMG vs load height (P1 vs P2) and load (0/5/10% BW), upright holding",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "upright static load holding EMG (%MVC), load height/stability",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "quantity": {
+  "name": "normalised EMG",
+  "definition": "surface EMG RMS over middle 3 s of 5-s hold, normalised to muscle-specific MVA = peak RMS (250-ms windows) in any of 6 standing isometric MVCs (flexion, extension, L/R lateral bending, L/R axial rotation) in a triaxial dynamometer (Larivière 2001b); averaged over 2 trials and over left/right homologous muscles; paper's unit '%MVA'",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Larivière 2019",
+  "authors": "Larivière C, Shahvarpour A, Gravel C, Gauvin M, Jean A-M, Viau A, Mecheri H",
+  "year": 2019,
+  "journal": "J Electromyogr Kinesiol 46:55-62",
+  "doi": "10.1016/j.jelekin.2019.03.001",
+  "n": "40 subjects (20F, 20M)",
+  "sample": "healthy adults, age-matched between sexes (IRSST accepted manuscript)",
+  "age": "F 23.0±2.2; M 23.2±2.3 y",
+  "sex": "20F, 20M",
+  "height_cm": "F 167±5; M 181±6",
+  "weight_kg": "F 59.7±7.3; M 73.2±6.2"
+ },
+ "protocol": {
+  "summary": "Height-study: upright standing 5-s isometric holds with a bar at L5/S1 height (P1) or shoulder height (P2), both close to the body, with 0, 5, 10% BW; L5/S1 relative extension moment ~2-9% of extension MVC (Fig 2). Pooled sexes (n=40), bilateral average.",
+  "how_to_simulate": [
+   "Upright standing, trunk vertical (C7 kept vertical with feedback; L5/S1 not moving horizontally), knees/heels stabilised",
+   "Hold the bar with both hands at position P1 (L5/S1 height, close; ~20-23 cm anterior to L5/S1), P2 (shoulder height, close) or P3 (shoulder height, arms extended)",
+   "Apply hand load 0.44 kg (0% BW), 5% BW or 10% BW (Table 1 masses)",
+   "Compare predicted activation (%) of the fascicles under the LO-T10 electrode (bilateral (averaged) longissimus at T10, ~5 cm from midline), averaged left/right, with mean %MVC"
+  ],
+  "subject_model": {
+   "sex": "mixed 20F/20M (pooled data); simulate F and M subjects and average",
+   "age": "F 23.0, M 23.2 y",
+   "height_cm": "F 167, M 181",
+   "weight_kg": "F 59.7, M 73.2",
+   "disc_area_mm2": null,
+   "source": "Larivière 2019 Table 1 (also: back strength F 166±33, M 271±70 Nm; lumbar curvature F 31.6±8.4, M 27.4±8.7 deg; L5/S1-to-guide-bar distance F 20.1, M 22.7 cm; shoulder-to-bar F 21.5, M 22.4 cm; L5/S1-to-shoulder vertical F 34.4, M 38.3 cm; 5%BW load F 2.9, M 3.6 kg; 10%BW load F 6.0, M 7.2 kg)"
+  },
+  "notes": "SDs not plotted; caption gives SD range across conditions 1.1-3.8 %MVA - use upper bound for tolerance if needed. P1<P2 HEIGHT effect significant but small (d<=0.29)."
+ },
+ "data": [
+  {
+   "x": "P1: upright, load held close at L5/S1 height (guide bars)",
+   "load": "0% BW (bar only, 0.44 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 2.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  },
+  {
+   "x": "P2: upright, load held close at shoulder height (0.35 x upper-limb length)",
+   "load": "0% BW (bar only, 0.44 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 2.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  },
+  {
+   "x": "P1: upright, load held close at L5/S1 height (guide bars)",
+   "load": "5% BW (F 2.9, M 3.6 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 4.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  },
+  {
+   "x": "P2: upright, load held close at shoulder height (0.35 x upper-limb length)",
+   "load": "5% BW (F 2.9, M 3.6 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 5.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  },
+  {
+   "x": "P1: upright, load held close at L5/S1 height (guide bars)",
+   "load": "10% BW (F 6.0, M 7.2 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 7.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  },
+  {
+   "x": "P2: upright, load held close at shoulder height (0.35 x upper-limb length)",
+   "load": "10% BW (F 6.0, M 7.2 kg)",
+   "site": "bilateral (averaged) longissimus at T10, ~5 cm from midline",
+   "mean": 8.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (manuscript p.22)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.15 %MVC (marker bbox centres at 300 dpi; y-axis 0-12 calibrated on tick marks)",
+  "checked": true,
+  "check_notes": "Marker centres found by pixel column scans, calibrated on 7 y-ticks (56.17 px/%); values re-read visually on the crop (e.g. MU-L5 P1 10%BW ≈9.8; MU-L5 P1 0%BW ≈4.2) - agree within 0.1. SDs not plotted; caption gives SD ranges only."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= SD (caption range 1.1-3.8 %MVC); and sign of P2-P1 and load trend reproduced"
+ },
+ "combine_group": "msk_emg_posture__emg__longissimus_T10__upright_hold_0-10pctBW_L5S1_vs_shoulder_height",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "upright",
+  "load height",
+  "%MVC",
+  "digitised",
+  "IRSST"
+ ]
+}

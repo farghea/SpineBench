@@ -1,0 +1,100 @@
+{
+ "id": "muscle_geometry.jorgensen2003a.csa_fibre_corrected.L5-S1.erector_spinae_multifidus.F_lateral_recumbent.flex0",
+ "title": "Jorgensen 2003a: csa fibre corrected of paraspinal / lumbar extensor mass at L5-S1 (F, lateral_recumbent)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "F_lateral_recumbent_flex0",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "right lumbar back muscles (combined iliocostalis, longissimus, multifidus)",
+ "sex": "F",
+ "posture": "lateral_recumbent",
+ "imaging": {
+  "modality": "MRI 0.3 T Hitachi Airis open, T1 (TR 400, TE 10)",
+  "plane": "axial slices through and PARALLEL to each lumbar intervertebral disc (L1-L2..L5-S1)",
+  "slice_thickness_mm": 10,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "lying on LEFT side (lateral recumbent) on pegboard, torso flexion 0/15/30/45 deg (S1-C7 line), knees extended, padding against coronal sag"
+ },
+ "quantity": {
+  "name": "csa_fibre_corrected",
+  "definition": "anatomical CSA multiplied by cosine of fibre angle to the plane normal (authors may call it PCSA/physiological area; NOT volume/fibre-length PCSA); authors call it ACSA: raw CSA x dot product of scan-plane normal with literature fascicle direction (Macintosh & Bogduk 1991 coronal; Macintosh 1993 sagittal, interpolated for 15/30 deg)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Jorgensen 2003a",
+  "authors": "Jorgensen MJ, Marras WS, Gupta P",
+  "year": 2003,
+  "journal": "Clin Biomech 18:280-286",
+  "doi": "10.1016/S0268-0033(03)00027-5",
+  "n": "24 healthy subjects (12 M, 12 F)",
+  "sample": "young healthy adults",
+  "age": "M 23.1 (3.1), F 23.8 (4.4) y",
+  "sex": "12M/12F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Open 0.3 T MRI, lateral recumbent with controlled torso flexion; right lumbar back muscle outlined at each disc level, fibre-angle corrected.",
+  "how_to_simulate": [
+   "Put the model in lateral-recumbent (gravity sideways) posture with 0 deg torso flexion; match the measured lumbar lordosis (L1-S1 44.0 deg, L1-L5 37.8 deg mean, Jorgensen 2003b Table 2).",
+   "Cut a plane through the L5-S1 disc centre parallel to the disc mid-plane.",
+   "Sum the PCSA of the RIGHT longissimus + iliocostalis + multifidus fascicles crossing that plane (the measured area is raw MRI area x cos(fascicle angle to the plane normal) using literature fascicle angles, i.e. approx. the PCSA of fibres crossing the slice).",
+   "Compare with the measured mean +/- SD."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 23.8,
+   "height_cm": 162.3,
+   "weight_kg": 56.5,
+   "disc_area_mm2": null,
+   "n": 12,
+   "source": "Methods text (SD age 4.4, height 6.2, mass 6.0)",
+   "lordosis_deg": {
+    "L1-L5": 37.8,
+    "L1-S1": 44.0,
+    "source": "Jorgensen 2003b Table 2 (same subjects)"
+   }
+  },
+  "notes": "Fascicle angles in Table 1 are literature inputs (Macintosh & Bogduk 1991; Macintosh et al. 1993), not measured here. cm2 -> mm2 (x100)."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 1060.0,
+   "sd": 190.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "as_reported": "10.6 (1.9) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 text layout is unambiguous; values re-read against the PDF text and page 283 render."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_fibre_corrected__L5-S1__erector_spinae_multifidus__F_lateral_recumbent__flex0",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_fibre_corrected",
+  "sample:osu_flexion_24",
+  "in vivo",
+  "MRI",
+  "lateral recumbent",
+  "torso flexion"
+ ]
+}

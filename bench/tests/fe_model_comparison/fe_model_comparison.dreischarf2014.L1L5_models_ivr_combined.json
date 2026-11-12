@@ -1,0 +1,240 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_models_ivr_combined",
+ "title": "FE-model range of segmental rotations under combined compression + moment (Dreischarf 2014 part 2)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "FE model range (not experimental)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact, combined loading",
+ "quantity": {
+  "name": "intervertebral rotation (FE model predictions)",
+  "definition": "segmental rotation predicted by 6 models (5 in flexion): median and min-max across models (dotted bar and individual bars, Fig 3). Extension plotted negative. NOT experimental data.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "6 FE models (5 for flexion)",
+  "sample": "six of the eight L1-L5 FE models (Models 1,2,3,5,6,7; Model 6 missing in flexion)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Combined loads (Table 3): flexion 1175 N compression + 7.5 Nm (Rohlmann 2009); extension 500 N + 7.5 Nm (Rohlmann 2009); lateral bending 700 N + 7.8 Nm (Dreischarf 2012); axial rotation 720 N + 5.5 Nm (Dreischarf 2011).",
+  "how_to_simulate": [
+   "Fix L5 (all DOF)",
+   "Apply compressive follower load + pure moment on L1 per load case (Table 3)",
+   "Report rotation of each segment L1-L2..L4-L5 relative to the unloaded state"
+  ],
+  "subject_model": null,
+  "notes": "Range = min-max of individual model bars (digitised); median = dotted FE-median bar (agrees with the median of the digitised model values). Compare with in vivo test fe_model_comparison.dreischarf2014.L1L5_invivo_ivr_secondary. Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 3.8,
+   "max": 6.1,
+   "median": 4.3,
+   "n": 5,
+   "level": "L1-L2"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 3.6,
+   "max": 5.8,
+   "median": 5.4,
+   "n": 5,
+   "level": "L2-L3"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 4.3,
+   "max": 5.8,
+   "median": 5.2,
+   "n": 5,
+   "level": "L3-L4"
+  },
+  {
+   "x": "flexion",
+   "load": "1175 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 4.0,
+   "max": 7.0,
+   "median": 5.9,
+   "n": 5,
+   "level": "L4-L5"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": -4.5,
+   "max": -1.6,
+   "median": -3.3,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": -3.8,
+   "max": -1.9,
+   "median": -2.8,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": -3.6,
+   "max": -2.0,
+   "median": -2.7,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "extension",
+   "load": "500 N follower + 7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": -4.4,
+   "max": -2.2,
+   "median": -3.2,
+   "n": 6,
+   "level": "L4-L5"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 2.4,
+   "max": 5.9,
+   "median": 4.5,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 2.4,
+   "max": 4.9,
+   "median": 4.1,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 2.4,
+   "max": 4.3,
+   "median": 3.7,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "700 N follower + 7.8 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 2.7,
+   "max": 4.9,
+   "median": 3.8,
+   "n": 6,
+   "level": "L4-L5"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.97,
+   "max": 1.6,
+   "median": 1.16,
+   "n": 6,
+   "level": "L1-L2"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 1.03,
+   "max": 1.66,
+   "median": 1.16,
+   "n": 6,
+   "level": "L2-L3"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.97,
+   "max": 1.6,
+   "median": 1.16,
+   "n": 6,
+   "level": "L3-L4"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "720 N follower + 5.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 0.97,
+   "max": 1.66,
+   "median": 1.28,
+   "n": 6,
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3a-d (FE-median bar and model bars)",
+  "method": "digitised_figure",
+  "uncertainty": "flexion/LB +/-0.3 deg; extension +/-0.15 deg; AR +/-0.1 deg",
+  "checked": true,
+  "check_notes": "Model bar tops found by automated column scan; FE-median bar heights equal the median of the model bars in all 16 cases (within 0.1 deg)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "PASS = inside in vivo range AND inside model range; MARGINAL = one"
+ },
+ "combine_group": "fe_model_comparison__ivr__L1-L5_segmental__combined_loads__Dreischarf_Table3",
+ "tags": [
+  "lumbar",
+  "fe_model_range",
+  "model comparison",
+  "combined loading",
+  "not experimental"
+ ]
+}

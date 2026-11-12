@@ -1,0 +1,185 @@
+{
+ "id": "fe_rom_thoracic.anderson2018.T4T5_T8T9_noribs_follower400N_rom",
+ "title": "Thoracic T4-T5/T8-T9 ROM at 5 Nm with 400 N follower, rib cage removed",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "pure moment + follower, rib cage condition",
+ "region": "thoracic",
+ "levels": [
+  "T4-T5",
+  "T8-T9"
+ ],
+ "condition": "rib cage removed",
+ "quantity": {
+  "name": "ROM",
+  "definition": "maximum intervertebral rotation in the loading direction from 0 to 5 Nm (one side), 3rd cycle, mixed-effects estimate with 95% CI",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Anderson 2018",
+  "authors": "Anderson DE, Mannen EM, Tromp R, Wong BM, Sis HL, Cadel ES, Friis EA, Bouxsein ML",
+  "year": 2018,
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.10.005",
+  "n": "7 specimens analysed (8 tested; 1 excluded)",
+  "sample": "human cadaver T1-T12 thoracic spines with rib cage (same specimens as Anderson 2016)",
+  "age": "66±4 (range 61-71)",
+  "sex": "3F, 4M (analysed)",
+  "height_cm": 171,
+  "weight_kg": 75.8
+ },
+ "protocol": {
+  "summary": "T1-T12 with rib cage, potted at T1 and T12, upright; pure unconstrained moments 0 to ±5 Nm applied at T1 in displacement control at 1 deg/s, 5 cycles, 3rd cycle analysed; 400 N compressive follower load (cables lateral to spine via rods through each vertebral body); AR, FE, LB; rib cage intact -> stiffened -> removed (ribs cut ~2 cm lateral to costotransverse joints). IDP: Gaeltec needle transducers in the centre of the T4-T5 and T8-T9 discs. Pressure-moment slope from linear regression in positive and negative moment regions separately; mixed-effects estimates. Optotrak pins on left pedicles T4,T5,T8,T9; Euler angles (first rotation = loading direction).",
+  "how_to_simulate": [
+   "Model T1-T12 with rib cage (or ribs removed ~2 cm lateral to costotransverse joints); fix T12, apply pure moment at T1 0 to ±5 Nm in FE, LB, AR.",
+   "Superimpose a 400 N follower load (path through vertebral bodies).",
+   "Report T4-T5 and T8-T9 rotation in the loading direction from 0 to 5 Nm (Euler, first rotation = loading direction), 3rd cycle."
+  ],
+  "subject_model": null,
+  "notes": "Height 1.71±0.11 m, weight 75.8±20.5 kg (analysed specimens). Flexion vs extension slopes differed, and left vs right LB at T4-T5, so analysed separately; AR combined L/R at both levels, LB combined at T8-T9. Stiffened rib cage condition not different from intact (data only in Supplemental Table 1, not available here)."
+ },
+ "data": [
+  {
+   "x": "axial_rotation",
+   "load": "5 Nm + 400 N follower",
+   "mean": 1.66,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T4-T5",
+   "ci95_lo": 1.4,
+   "ci95_hi": 1.92
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm + 400 N follower",
+   "mean": 1.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T4-T5",
+   "ci95_lo": 0.67,
+   "ci95_hi": 1.7
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.84,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T4-T5",
+   "ci95_lo": 0.56,
+   "ci95_hi": 1.12
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.31,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T4-T5",
+   "ci95_lo": 0.16,
+   "ci95_hi": 0.46
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T4-T5",
+   "ci95_lo": 0.18,
+   "ci95_hi": 0.42,
+   "note": "text reports +76% for right LB at T4-T5, but figure shows ~+27% and no significance star; digitised values kept"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "5 Nm + 400 N follower",
+   "mean": 2.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T8-T9",
+   "ci95_lo": 1.22,
+   "ci95_hi": 3.15
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm + 400 N follower",
+   "mean": 1.05,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T8-T9",
+   "ci95_lo": 0.46,
+   "ci95_hi": 1.65
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.78,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T8-T9",
+   "ci95_lo": 0.38,
+   "ci95_hi": 1.18
+  },
+  {
+   "x": "lateral_bending",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.43,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T8-T9",
+   "ci95_lo": 0.29,
+   "ci95_hi": 0.57
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (bars = estimate, error bars = 95% CI)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.02 deg bars, ±0.03 deg caps (1 px = 0.01 deg; 0.5 deg gridlines)",
+  "checked": true,
+  "check_notes": "Pixel digitisation. Check vs text % ROM increase with rib removal: T4-T5 AR 152% (digitised +153%), flexion 57% (+57%), extension 68% (+65%), left LB 48% (+50%); T8-T9 AR 27% (+27%), LB 72% (+74%). Right LB T4-T5 text 76% vs digitised +27% - discrepancy in paper, figure kept."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "ci95_lo <= model <= ci95_hi (PASS); within 2x CI half-width of estimate (WARN)"
+ },
+ "combine_group": "fe_rom_thoracic__rom__T4-T5+T8-T9__ribcage_removed_follower400N__5Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "follower load",
+  "pure moment",
+  "ROM",
+  "digitised"
+ ],
+ "shared_sample_with": [
+  "anderson2016: same specimens"
+ ]
+}

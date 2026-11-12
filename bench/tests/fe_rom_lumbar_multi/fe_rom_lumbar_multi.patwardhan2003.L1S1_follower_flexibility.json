@@ -1,0 +1,505 @@
+{
+ "id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_flexibility",
+ "title": "Bilinear flexibility coefficients of L1-sacrum under 0-1200 N follower preload",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "follower preload",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1"
+ ],
+ "condition": "intact, follower preload 0-1200 N",
+ "quantity": {
+  "name": "flexibility coefficient",
+  "definition": "slopes of bilinear fit to the L1-sacrum moment-rotation curve (Fig 2): a1 low-moment flexion, a2 high-moment flexion, a3 low-moment extension, a4 high-moment extension; a1 and a3 in deg/Nm, a1/a2 and a3/a4 dimensionless ratios; mean (SD)",
+  "unit": "deg/Nm (a1, a3); ratio (a1/a2, a3/a4)"
+ },
+ "source": {
+  "short": "Patwardhan 2003",
+  "authors": "Patwardhan AG, Havey RM, Carandang G, Simonds J, Voronov LI, Ghanayem AJ, Meade KP, Gavin TM, Paxinos O",
+  "year": 2003,
+  "journal": "J Orthop Res 21:540-546",
+  "doi": "10.1016/S0736-0266(02)00202-4",
+  "n": "21 cadaveric L1-sacrum spines (neutral path); 15 of them also with flexed path",
+  "sample": "human cadaver ligamentous lumbar spines L1-sacrum, mild-moderate degeneration, no bridging osteophytes",
+  "age": "mean 51.6 (SD 14.6) y",
+  "sex": "16 M, 4 F, 1 unknown",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L1 and sacrum potted; neutral posture = top cup ~15 deg extension at 0 N/0 Nm. Flexion-extension moments applied by water flowing into bags on loading arms on the top cup, continuous cycling between 8 Nm flexion and 6 Nm extension (rate 2.8-3.1 Nm/min flexion, 2.2-2.5 Nm/min extension), >= 2 full cycles recorded (analysed cycle not stated). Follower preload 0/200/400/800/1200 N via bilateral cables through guides on L2-sacrum to a hanger; path optimised either for the neutral posture (min lordosis change, 21 specimens) or for a forward-flexed posture at 2/3 of baseline flexion ROM (15 specimens). 5 min between preload increments; load cell under sacrum; Optotrak motion of each vertebra relative to sacrum.",
+  "how_to_simulate": [
+   "Model L1-sacrum; fix the sacrum; L1 free with moments applied at the top (L1) cup; start from the specimen's neutral posture",
+   "Apply a follower preload (0, 200, 400, 800, 1200 N) whose line of action passes through each segment's flexion-extension ICR / tangent to the lordotic curve (neutral-posture path); optionally the flexed-posture path",
+   "Apply flexion to 8 Nm and extension to 6 Nm under each preload",
+   "Report total sagittal ROM of L1 relative to the sacrum (full flexion to full extension) and the bilinear flexibility coefficients a1 (low flexion moments), a3 (low extension moments), a1/a2, a3/a4"
+  ],
+  "notes": "ROM = total L1-sacrum rotation from 8 Nm flexion to 6 Nm extension (not per level). Order of preloads not randomised; 0 N ROM repeated at end in 14 specimens was 8% larger than at start. Per-level ROM not reported.",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "0 N follower (neutral path)",
+   "mean": 11.9,
+   "sd": 5.18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "200 N follower (neutral path)",
+   "mean": 9.5,
+   "sd": 4.75,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "400 N follower (neutral path)",
+   "mean": 8.26,
+   "sd": 4.28,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "800 N follower (neutral path)",
+   "mean": 6.71,
+   "sd": 3.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "1200 N follower (neutral path)",
+   "mean": 5.98,
+   "sd": 3.45,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "0 N follower (neutral path)",
+   "mean": 7.76,
+   "sd": 2.91,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "200 N follower (neutral path)",
+   "mean": 5.79,
+   "sd": 2.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "400 N follower (neutral path)",
+   "mean": 4.54,
+   "sd": 1.96,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "800 N follower (neutral path)",
+   "mean": 2.91,
+   "sd": 1.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "1200 N follower (neutral path)",
+   "mean": 2.06,
+   "sd": 0.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "0 N follower (neutral path)",
+   "mean": 5.3,
+   "sd": 1.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "200 N follower (neutral path)",
+   "mean": 6.14,
+   "sd": 1.94,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "400 N follower (neutral path)",
+   "mean": 6.03,
+   "sd": 2.25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "800 N follower (neutral path)",
+   "mean": 5.39,
+   "sd": 2.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "1200 N follower (neutral path)",
+   "mean": 4.67,
+   "sd": 1.96,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "0 N follower (neutral path)",
+   "mean": 3.28,
+   "sd": 1.08,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "200 N follower (neutral path)",
+   "mean": 3.76,
+   "sd": 1.43,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "400 N follower (neutral path)",
+   "mean": 3.53,
+   "sd": 1.25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "800 N follower (neutral path)",
+   "mean": 3.33,
+   "sd": 1.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "1200 N follower (neutral path)",
+   "mean": 3.14,
+   "sd": 1.09,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 21,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "0 N follower (flexed path)",
+   "mean": 13.0,
+   "sd": 6.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "200 N follower (flexed path)",
+   "mean": 9.52,
+   "sd": 3.81,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "400 N follower (flexed path)",
+   "mean": 7.4,
+   "sd": 2.61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "800 N follower (flexed path)",
+   "mean": 5.6,
+   "sd": 2.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_low_moment_flexibility_a1 (deg/Nm)",
+   "load": "1200 N follower (flexed path)",
+   "mean": 4.73,
+   "sd": 2.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "0 N follower (flexed path)",
+   "mean": 8.57,
+   "sd": 4.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "200 N follower (flexed path)",
+   "mean": 5.18,
+   "sd": 2.88,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "400 N follower (flexed path)",
+   "mean": 3.52,
+   "sd": 1.78,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "800 N follower (flexed path)",
+   "mean": 2.0,
+   "sd": 0.85,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "flexion_flexibility_ratio_a1_a2 (dimensionless)",
+   "load": "1200 N follower (flexed path)",
+   "mean": 1.42,
+   "sd": 0.64,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "0 N follower (flexed path)",
+   "mean": 5.41,
+   "sd": 1.48,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "200 N follower (flexed path)",
+   "mean": 5.67,
+   "sd": 2.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "400 N follower (flexed path)",
+   "mean": 5.0,
+   "sd": 1.95,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "800 N follower (flexed path)",
+   "mean": 4.11,
+   "sd": 1.88,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_low_moment_flexibility_a3 (deg/Nm)",
+   "load": "1200 N follower (flexed path)",
+   "mean": 3.25,
+   "sd": 1.72,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "0 N follower (flexed path)",
+   "mean": 3.55,
+   "sd": 1.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "200 N follower (flexed path)",
+   "mean": 3.74,
+   "sd": 1.16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "400 N follower (flexed path)",
+   "mean": 3.56,
+   "sd": 1.02,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "800 N follower (flexed path)",
+   "mean": 3.15,
+   "sd": 0.87,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  },
+  {
+   "x": "extension_flexibility_ratio_a3_a4 (dimensionless)",
+   "load": "1200 N follower (flexed path)",
+   "mean": 2.68,
+   "sd": 0.71,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "level": "L1-S1"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read Table 2 from page image: all 40 mean (SD) values confirmed (OCR had errors, e.g. flexed a3 1200 N 3.25 (1.72), flexed a1 800 N 5.60). Text: a1 decreases 51% (neutral) and 60% (flexed) at 1200 N: 11.9->5.98 = -50%, 13.0->4.73 = -64% (text rounding)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD; a1 decreases with preload"
+ },
+ "combine_group": "fe_rom_lumbar_multi__flexibility__L1-S1_total__intact_follower__8Nm_flex_6Nm_ext",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "follower load",
+  "stiffness"
+ ]
+}

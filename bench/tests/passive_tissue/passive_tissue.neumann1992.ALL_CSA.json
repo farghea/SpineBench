@@ -1,0 +1,153 @@
+{
+ "id": "passive_tissue.neumann1992.ALL_CSA",
+ "title": "Neumann 1992 lumbar ALL substance cross-sectional area and segment geometry",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L4-L5",
+  "T12-L1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ligament substance area",
+  "definition": "ALL substance cross-sectional area (LA); also motion-segment height (MSH) and anterior/posterior disc height",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Neumann 1992",
+  "authors": "Neumann P, Keller TS, Ekstrom L, Perry L, Hansson TH, Spengler DM",
+  "year": 1992,
+  "journal": "J Biomech 25(10):1185-1194",
+  "doi": "",
+  "n": "6 bone-ALL-bone preparations from 3 male cadavers (21, 29, 43 y)",
+  "sample": "human lumbar ALL (T12-L1 to L4-L5), young donors, normal discs",
+  "age": "21, 29, 43 y",
+  "sex": "3 male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ALL-bone preparations (disc and PLL dissected away, ALL intact); vertebrae pinned with 4 Steinmann pins each; no mechanical preconditioning; distraction to failure at constant crosshead rate 2.5 mm/s (~1.07 %/s overall ligament strain rate); 12 video markers on ALL; tissue irrigated with 0.9% saline. Stress = load / ligament substance area (LA); overall strain from outermost marker pairs (e1-4); moduli = slope of linear region (LZ) of stress-strain.",
+  "how_to_simulate": [
+   "Compare model ALL CSA with LA"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "prep 1 T12-L1",
+   "load": "",
+   "mean": 36.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 77.0,
+   "disc_height_ant_mm": 6.5,
+   "disc_height_post_mm": 5.3
+  },
+  {
+   "x": "prep 2 L2-L3",
+   "load": "",
+   "mean": 39.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 76.0,
+   "disc_height_ant_mm": 9.8,
+   "disc_height_post_mm": 8.4
+  },
+  {
+   "x": "prep 3 L4-L5",
+   "load": "",
+   "mean": 43.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 73.8,
+   "disc_height_ant_mm": 10.0,
+   "disc_height_post_mm": 8.0
+  },
+  {
+   "x": "prep 4 L1-L2",
+   "load": "",
+   "mean": 33.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 78.4,
+   "disc_height_ant_mm": 8.5,
+   "disc_height_post_mm": 7.2
+  },
+  {
+   "x": "prep 5 T12-L1",
+   "load": "",
+   "mean": 39.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 73.0,
+   "disc_height_ant_mm": 9.5,
+   "disc_height_post_mm": 9.0
+  },
+  {
+   "x": "prep 6 L2-L3",
+   "load": "",
+   "mean": 36.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "msh_mm": 83.0,
+   "disc_height_ant_mm": 9.0,
+   "disc_height_post_mm": 9.0
+  },
+  {
+   "x": "mean (reported)",
+   "load": "",
+   "mean": 38.2,
+   "sd": 3.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "msh_mm": 76.9,
+   "note": "MSH 76.9+-3.6, DHA 8.9+-1.3, DHP 7.8+-1.4 mm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Results text",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Read from Table 1 (OCR matched). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__csa__ALL_lumbar__human__geometry",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ALL",
+  "geometry"
+ ]
+}

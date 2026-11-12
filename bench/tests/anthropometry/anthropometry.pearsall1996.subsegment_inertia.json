@@ -1,0 +1,228 @@
+{
+ "id": "anthropometry.pearsall1996.subsegment_inertia",
+ "title": "Moments of inertia of upper/middle/lower trunk (vertebral boundaries) by CT",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T1-T12",
+  "L1-L5",
+  "S1-S5"
+ ],
+ "condition": "living adults, supine CT",
+ "quantity": {
+  "name": "segment moment of inertia about CM",
+  "definition": "Icm about transverse (x), antero-posterior (y), longitudinal (z) axes through segment CM",
+  "unit": "kg·cm² ×10³"
+ },
+ "source": {
+  "short": "Pearsall 1996",
+  "authors": "Pearsall DJ, Reid JG, Livingston LA",
+  "year": 1996,
+  "journal": "Ann Biomed Eng 24:198-210",
+  "doi": "",
+  "n": "4 living subjects (2M, 2F)",
+  "sample": "4 hospital-referred adults (2 male, 2 female), serial transverse CT at 1-cm intervals pubic symphysis to T1, supine",
+  "age": "61.0 y (individuals 46, 65, 68, 65; printed SD 1.0 is inconsistent with individual ages)",
+  "sex": "2M, 2F",
+  "height_cm": 170.8,
+  "weight_kg": 70.8,
+  "notes": "height SD 13.8, mass SD 6.7, BMI 24.4 (2.4). DOI not printed (likely 10.1007/BF02667349 – verify). Subjects referred for medical reasons (pathology judged not to affect results)."
+ },
+ "protocol": {
+  "summary": "Icm of trunk subsegments; Table 3 values are in thousands of kg·cm² (text: whole trunk 7,100, 8,200, 3,100 kg·cm²).",
+  "how_to_use": [
+   "Use whole-trunk Icm_x 0.71 kg·m² (7,100 kg·cm²) about the medio-lateral axis for sagittal trunk dynamics; 'kg_m2' field gives the conversion.",
+   "Thorax Icm 1,200-1,700 kg·cm²; abdomen 600-800; pelvis 300-800."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "GE CT/T Continuum (Hi Light Advantage); pixel intensity calibrated to tissue density",
+   "posture": "supine, upper limbs in anatomical position",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Vertebral-level segments bounded through the intervertebral discs (each contains one complete vertebral body); upper (thorax) = T1-T12, middle (abdomen) = L1-L5, lower (pelvis) = S1-S5 (pubic symphysis); trunk = T1-S5. Neck and upper limbs (lateral to glenohumeral joint) and lower limbs (lateral to hip joint) excluded. NOTE: these boundaries differ fundamentally from Pearsall 1994/Zatsiorsky/de Leva (landmark-based) trunk subsegments."
+ },
+ "data": [
+  {
+   "x": "Icm_x",
+   "load": null,
+   "mean": 1.2,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.12
+  },
+  {
+   "x": "Icm_x",
+   "load": null,
+   "mean": 0.6,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.06
+  },
+  {
+   "x": "Icm_x",
+   "load": null,
+   "mean": 0.3,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.03
+  },
+  {
+   "x": "Icm_x",
+   "load": null,
+   "mean": 7.1,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.71
+  },
+  {
+   "x": "Icm_y",
+   "load": null,
+   "mean": 1.7,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.17
+  },
+  {
+   "x": "Icm_y",
+   "load": null,
+   "mean": 0.7,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.07
+  },
+  {
+   "x": "Icm_y",
+   "load": null,
+   "mean": 0.7,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.07
+  },
+  {
+   "x": "Icm_y",
+   "load": null,
+   "mean": 8.2,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.82
+  },
+  {
+   "x": "Icm_z",
+   "load": null,
+   "mean": 1.5,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.15
+  },
+  {
+   "x": "Icm_z",
+   "load": null,
+   "mean": 0.8,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.08
+  },
+  {
+   "x": "Icm_z",
+   "load": null,
+   "mean": 0.8,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.08
+  },
+  {
+   "x": "Icm_z",
+   "load": null,
+   "mean": 3.1,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "kg·cm² ×10³",
+   "kg_m2": 0.31
+  }
+ ],
+ "extraction": {
+  "from": "Table 3; text p.204",
+  "method": "table",
+  "uncertainty": "none (tabulated)",
+  "checked": true,
+  "check_notes": "Table 3 lists e.g. 7.1, 8.2, 3.1 for the whole trunk; text states 7,100, 8,200, 3,100 kg·cm², confirming the ×10³ kg·cm² unit."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_inertia__trunk_vertebral_boundaries__adults__-",
+ "tags": [
+  "in vivo",
+  "CT",
+  "male",
+  "female",
+  "older adults",
+  "patients",
+  "small n"
+ ]
+}

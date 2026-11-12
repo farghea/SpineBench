@@ -1,0 +1,360 @@
+{
+ "id": "anthropometry.pearsall1996.subsegment_mass",
+ "title": "Mass of upper/middle/lower trunk (vertebral boundaries) by CT, in vivo",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T1-T12",
+  "L1-L5",
+  "S1-S5"
+ ],
+ "condition": "living adults, supine CT",
+ "quantity": {
+  "name": "segment mass",
+  "definition": "mass of thorax (T1-T12), abdomen (L1-L5), pelvis (S1-S5) and whole trunk as % body mass (also % trunk mass, g, density, volume)",
+  "unit": "% body mass"
+ },
+ "source": {
+  "short": "Pearsall 1996",
+  "authors": "Pearsall DJ, Reid JG, Livingston LA",
+  "year": 1996,
+  "journal": "Ann Biomed Eng 24:198-210",
+  "doi": "",
+  "n": "4 living subjects (2M, 2F)",
+  "sample": "4 hospital-referred adults (2 male, 2 female), serial transverse CT at 1-cm intervals pubic symphysis to T1, supine",
+  "age": "61.0 y (individuals 46, 65, 68, 65; printed SD 1.0 is inconsistent with individual ages)",
+  "sex": "2M, 2F",
+  "height_cm": 170.8,
+  "weight_kg": 70.8,
+  "notes": "height SD 13.8, mass SD 6.7, BMI 24.4 (2.4). DOI not printed (likely 10.1007/BF02667349 – verify). Subjects referred for medical reasons (pathology judged not to affect results)."
+ },
+ "protocol": {
+  "summary": "Trunk subsegment mass parameters with vertebral-level boundaries.",
+  "how_to_use": [
+   "For a model segmented at T12/L1 and L5/S1, assign thorax 18.5 %, lumbar region 12.2 %, pelvis 10.7 % body mass (trunk 41.4 %).",
+   "Do NOT mix with landmark-defined segments (Pearsall 1994, de Leva) – boundaries differ (see notes)."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "GE CT/T Continuum (Hi Light Advantage); pixel intensity calibrated to tissue density",
+   "posture": "supine, upper limbs in anatomical position",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Vertebral-level segments bounded through the intervertebral discs (each contains one complete vertebral body); upper (thorax) = T1-T12, middle (abdomen) = L1-L5, lower (pelvis) = S1-S5 (pubic symphysis); trunk = T1-S5. Neck and upper limbs (lateral to glenohumeral joint) and lower limbs (lateral to hip joint) excluded. NOTE: these boundaries differ fundamentally from Pearsall 1994/Zatsiorsky/de Leva (landmark-based) trunk subsegments."
+ },
+ "data": [
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 18.5,
+   "sd": 1.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 12.2,
+   "sd": 0.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 10.7,
+   "sd": 1.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 41.4,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%trunk_mass",
+   "load": null,
+   "mean": 44.6,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "% trunk mass"
+  },
+  {
+   "x": "mass_%trunk_mass",
+   "load": null,
+   "mean": 29.8,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "% trunk mass"
+  },
+  {
+   "x": "mass_%trunk_mass",
+   "load": null,
+   "mean": 25.6,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "% trunk mass"
+  },
+  {
+   "x": "mass_%trunk_mass",
+   "load": null,
+   "mean": 100.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "% trunk mass"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 13148.9,
+   "sd": 1574.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 8801.2,
+   "sd": 1219.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 7485.6,
+   "sd": 716.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 29435.7,
+   "sd": 2722.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "g"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 0.87,
+   "sd": 0.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.02,
+   "sd": 0.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.07,
+   "sd": 0.01,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 0.96,
+   "sd": 0.04,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "volume_cc",
+   "load": null,
+   "mean": 15171.5,
+   "sd": 2166.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "cm³"
+  },
+  {
+   "x": "volume_cc",
+   "load": null,
+   "mean": 8651.5,
+   "sd": 1347.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "cm³"
+  },
+  {
+   "x": "volume_cc",
+   "load": null,
+   "mean": 6975.2,
+   "sd": 651.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "cm³"
+  },
+  {
+   "x": "volume_cc",
+   "load": null,
+   "mean": 30798.1,
+   "sd": 3515.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "cm³"
+  },
+  {
+   "x": "volume_%trunk_volume",
+   "load": null,
+   "mean": 49.1,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "upper (T1-T12)",
+   "unit": "% trunk volume"
+  },
+  {
+   "x": "volume_%trunk_volume",
+   "load": null,
+   "mean": 28.0,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "middle (L1-L5)",
+   "unit": "% trunk volume"
+  },
+  {
+   "x": "volume_%trunk_volume",
+   "load": null,
+   "mean": 22.9,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "lower (S1-S5)",
+   "unit": "% trunk volume"
+  },
+  {
+   "x": "volume_%trunk_volume",
+   "load": null,
+   "mean": 100.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "segment": "whole trunk (T1-S5)",
+   "unit": "% trunk volume"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "none (tabulated)",
+  "checked": true,
+  "check_notes": "Re-read from rendered Table 3 (p.203). Text quotes upper %TM 44.8 whereas Table 3 gives 44.6; abstract gives trunk 41.6 %BM whereas text/Table 3 give 41.4 – table values used."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_mass_fraction__trunk_vertebral_boundaries__adults__-",
+ "tags": [
+  "in vivo",
+  "CT",
+  "male",
+  "female",
+  "older adults",
+  "patients",
+  "small n"
+ ]
+}

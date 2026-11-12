@@ -1,0 +1,127 @@
+{
+ "id": "passive_tissue.hindle1990.ISL_SSL_force_10deg_12p5degps",
+ "title": "Hindle 1990 lumbar ISL+SSL force at 10 deg flexion (IAR 50 mm, 12.5 deg/s)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4"
+ ],
+ "condition": "intact cadaveric",
+ "quantity": {
+  "name": "ligament force at 10 deg flexion",
+  "definition": "tensile force in ISL+SSL complex at 10 deg flexion with rotation axis 50 mm anterior to ligament centre (= extension moment / 0.05 m); moment in extra key moment_Nm",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Hindle 1990",
+  "authors": "Hindle RJ, Pearcy MJ, Cross A",
+  "year": 1990,
+  "journal": "J Biomed Eng 12:340-344",
+  "doi": "",
+  "n": "13 ISL+SSL specimens (two adjacent spinous processes) from 11 cadavers (7 M, 4 F)",
+  "sample": "human lumbar interspinous + supraspinous ligament complex, L2-L3 to L4-L5",
+  "age": "50-87 y (mean 65.7)",
+  "sex": "7 M, 4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ISL/SSL-bone units (halves of adjacent spinous processes) pinned to two arms rotating about a fixed axis (rack-and-pinion on Hounsfield machine) placed 30-50 mm anterior to the ligament centre (simulating the IAR); 10 deg of flexion rotation; 5 cycles, 5th recorded (preconditioning); 100% humidity, 37 C, Ringer's saline; low rate 0.5 deg/s (all), high rate 12.5 deg/s (specimens 9-13). Force = moment / 50 mm.",
+  "how_to_simulate": [
+   "Mount the ISL+SSL between two spinous-process halves and rotate them 10 deg in flexion about an axis 50 mm anterior to the ligament centre",
+   "Use 0.5 deg/s (or 12.5 deg/s) and record the 5th cycle",
+   "Report the ligament force (moment / 0.05 m) and extension moment at 10 deg"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "spec 9 L3-L4 (65 y M)",
+   "load": "",
+   "mean": 118,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "moment_Nm": 5.9
+  },
+  {
+   "x": "spec 10 L3-L4 (67 y F)",
+   "load": "",
+   "mean": 88,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "moment_Nm": 4.4
+  },
+  {
+   "x": "spec 11 L3-L4 (67 y M)",
+   "load": "",
+   "mean": 50,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "moment_Nm": 2.5
+  },
+  {
+   "x": "spec 12 L2-L3 (67 y F)",
+   "load": "",
+   "mean": 134,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "moment_Nm": 6.7
+  },
+  {
+   "x": "spec 13 L3-L4 (67 y M)",
+   "load": "",
+   "mean": 44,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "moment_Nm": 2.2
+  },
+  {
+   "x": "mean of 5 (computed by extractor)",
+   "load": "",
+   "mean": 86.8,
+   "sd": 40.0,
+   "min": 44,
+   "max": 134,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 and Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Tables 1-2 read from 200-dpi render. Mean/SD rows computed by the extractor. Values are at 10 deg rotation (end of imposed range), NOT failure. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__force_at_10deg_flexion__ISL_SSL_lumbar__human__rotation_IAR50mm_rate_high",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ISL+SSL"
+ ]
+}

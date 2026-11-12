@@ -1,0 +1,303 @@
+{
+ "id": "fe_facet.ianuzzi2004.L1S1_capsule_strain_peak",
+ "title": "Largest facet capsule principal strains and intervertebral angles at 40 mm T12 displacement",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet capsule strain",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact ligamentous spine, displacement-controlled",
+ "quantity": {
+  "name": "capsule strain",
+  "definition": "largest mean in-plane principal strain of the facet capsule (E1 maximum/tensile, E2 minimum) at 40 mm T12 displacement, as reported in text and Table 1 (strain as fraction: 0.146 = 14.6%); and maximum mean IVA per level (Table 1). Means over 7 specimens",
+  "unit": "strain (-) / deg"
+ },
+ "source": {
+  "short": "Ianuzzi 2004",
+  "authors": "Ianuzzi A, Little JS, Chiu JB, Baitner A, Kawchuk G, Khalsa PS",
+  "year": 2004,
+  "journal": "Spine J 4:141-152",
+  "doi": "10.1016/j.spinee.2003.07.008",
+  "n": "7 specimens (human ligamentous T12-sacrum)",
+  "sample": "7 unembalmed human ligamentous lumbar spines T12-sacrum, superficial tissue incl. multifidus insertions removed, capsules intact",
+  "age": "mean 50 +- 12.96 (range 38-64)",
+  "sex": "6 M, 1 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "DISPLACEMENT-CONTROLLED (not pure moment): sacrum potted in epoxy with L3/L4 endplates horizontal; horizontal displacement of T12 by 10, 20, 30, 40 mm at 10 mm/s via a linear actuator coupled through a force transducer and U-shaped collar (no moment at the point of application); flexion, extension, left and right bending; 10 cycles per trial, 3 min recovery between trials; L5-S1 moments kept < 10 Nm (max mean joint moment -4.8 Nm extension, 2.8 Nm flexion at L5-S1). IVA by biaxial inclinometers on adjacent vertebral bodies; capsule plane strains from 3x3 (or 3x2) IR marker arrays (1.16 mm radius) tracked by 2 CCD cameras, 3D-corrected 2D isoparametric method; principal strains organised as maximum (E1, positive) and minimum (E2, negative).",
+  "how_to_simulate": [
+   "Fix the sacrum; apply a horizontal force at T12 (no moment at the application point) so that T12 translates 40 mm anteriorly (flexion), posteriorly (extension) or laterally (left/right bending)",
+   "Report intervertebral angle at each level (L1-L2 ... L5-S1) and facet capsule surface maximum/minimum principal strains (Lagrangian, in-plane) on the left and right capsules"
+  ],
+  "subject_model": null,
+  "notes": "Mean strains vs displacement per level and side are in Figs 6-7 and IVA/moment vs displacement in Figs 3-5; these overlapping-marker line plots were not digitised in this pass. SDs at each displacement are tabulated inside Figs 6-7. Capsules appeared preloaded in neutral; negative E2 interpreted as relaxation, not compression."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "T12 40 mm",
+   "mean": -0.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L5-S1",
+   "strain": "E2 (min principal)",
+   "side": "both (side not stated)",
+   "note": "largest E2 overall"
+  },
+  {
+   "x": "extension",
+   "load": "T12 40 mm",
+   "mean": 0.077,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "strain": "E1",
+   "note": "largest E1 in extension"
+  },
+  {
+   "x": "flexion",
+   "load": "T12 40 mm",
+   "mean": -0.075,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L3-L4",
+   "strain": "E2",
+   "note": "largest E2 in flexion"
+  },
+  {
+   "x": "flexion",
+   "load": "T12 40 mm",
+   "mean": 0.146,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L4-L5",
+   "strain": "E1",
+   "note": "largest mean E1 overall (also Table 1)"
+  },
+  {
+   "x": "flexion",
+   "load": "T12 40 mm",
+   "mean": 0.14,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L5-S1",
+   "strain": "largest strain (Table 1)"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": 0.086,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L4-L5",
+   "strain": "E1",
+   "side": "left_capsule",
+   "note": "text; Table 1 lists RB 0.086 for L3-L4 (different capsule/side); both kept as printed"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": -0.079,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "strain": "E2",
+   "side": "left_capsule"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": 0.094,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "strain": "E1",
+   "side": "right_capsule"
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "T12 40 mm",
+   "mean": -0.061,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "strain": "E2",
+   "side": "right_capsule"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": 0.05,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L1-L2",
+   "strain": "largest strain (Table 1)"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": 0.09,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "strain": "largest strain (Table 1)"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "T12 40 mm",
+   "mean": 0.086,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L3-L4",
+   "strain": "largest strain (Table 1)"
+  },
+  {
+   "x": "ROM_IVA_max",
+   "load": "T12 40 mm, right bending",
+   "mean": -6.77,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L1-L2",
+   "quantity": "max IVA (deg), Table 1"
+  },
+  {
+   "x": "ROM_IVA_max",
+   "load": "T12 40 mm, left bending",
+   "mean": 5.44,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3",
+   "quantity": "max IVA (deg), Table 1"
+  },
+  {
+   "x": "ROM_IVA_max",
+   "load": "T12 40 mm, right bending",
+   "mean": -6.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L3-L4",
+   "quantity": "max IVA (deg), Table 1; text gives 6.6 deg max LB at L3-L4"
+  },
+  {
+   "x": "ROM_IVA_max",
+   "load": "T12 40 mm, flexion",
+   "mean": -4.54,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L4-L5",
+   "quantity": "max IVA (deg), Table 1"
+  },
+  {
+   "x": "ROM_IVA_max",
+   "load": "T12 40 mm, extension",
+   "mean": 5.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L5-S1",
+   "quantity": "max IVA (deg), Table 1"
+  },
+  {
+   "x": "joint_moment_max",
+   "load": "T12 40 mm, extension",
+   "mean": -4.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L5-S1",
+   "quantity": "mean joint moment (Nm), Fig 5 caption; IVA 4.7 deg"
+  },
+  {
+   "x": "joint_moment_max",
+   "load": "T12 40 mm, flexion",
+   "mean": 2.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L5-S1",
+   "quantity": "mean joint moment (Nm), Fig 5 caption"
+  }
+ ],
+ "extraction": {
+  "from": "Results text pp.146-149; Table 1; Fig 5 caption",
+  "method": "table",
+  "uncertainty": "exact as printed; values are means at the largest displacement, no SD given with them",
+  "checked": true,
+  "check_notes": "All values re-read from text/Table 1. Inconsistencies kept as printed: Table 1 L3-L4 max IVA RB -6.0 vs Discussion 'maximum IVA during lateral bending at L3-L4 (6.6 degrees)'; Fig 5 caption IVA 4.7 at L5-S1 extension vs Table 1 5.18."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "indicative: model capsule principal strain of correct sign and within +-50% of the reported mean at matched IVA"
+ },
+ "combine_group": "fe_facet__capsule_strain__L1-S1__intact_displacement_control__T12_40mm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet capsule",
+  "strain",
+  "displacement control",
+  "human"
+ ]
+}

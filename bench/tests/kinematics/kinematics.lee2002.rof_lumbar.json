@@ -1,0 +1,80 @@
+{
+ "id": "kinematics.lee2002.rof_lumbar",
+ "title": "Maximum lumbar (L1-sacrum) flexion in forward bending",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "L1-sacrum"
+ ],
+ "condition": "healthy, standing, maximal forward bending",
+ "quantity": {
+  "name": "lumbar range of flexion",
+  "definition": "L1 sensor relative to sacral sensor at max forward bending, from upright zero",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Lee 2002",
+  "authors": "Lee RYW, Wong TKT",
+  "year": 2002,
+  "journal": "Hum Mov Sci 21(4):481-494",
+  "doi": "10.1016/S0167-9457(02)00117-3",
+  "n": "20 males",
+  "sample": "20 healthy young males, no back/leg pain in previous 12 months",
+  "age": "20 (SD 1) y",
+  "sex": "male",
+  "height_cm": "171 (SD 4)",
+  "weight_kg": "62.4 (SD 5.0)"
+ },
+ "protocol": {
+  "summary": "Lumbar flexion at maximal forward bending (Fig 1).",
+  "how_to_use": [
+   "Use 58.4 deg (SD ~16) as end-of-range lumbar flexion for young males; hips flex ~55 deg in the same task."
+  ],
+  "measurement": {
+   "method": "electromagnetic sensors",
+   "device": "3SPACE Fastrak (Polhemus): sensors on L1 spinous process, sacrum, lateral left and right thighs; 30 Hz per sensor",
+   "posture": "standing, feet shoulder-width (zero = comfortable upright posture)",
+   "task": "3 continuous cycles of max forward-backward bending, left-right lateral bending, left-right twisting, 12 s per trial at comfortable speed; repeated 3 times"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Same value also inside kinematics.leewong2002.max_rom (do not double count)."
+ },
+ "data": [
+  {
+   "x": "max forward bending",
+   "load": null,
+   "mean": 58.4,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "phase": "flexion",
+   "segment": "lumbar (L1-sacrum)"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 1",
+  "method": "digitised_figure",
+  "uncertainty": "+-1 deg (mean), +-1.5 deg (SD)",
+  "checked": true,
+  "check_notes": "Same digitisation as max_rom."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__lumbar__healthy_standing__max_forward_flexion",
+ "tags": [
+  "in vivo",
+  "electromagnetic sensors",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "3D"
+ ]
+}

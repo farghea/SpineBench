@@ -1,0 +1,96 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.lumbar_invitro_facet_force_secondary",
+ "title": "Lumbar facet joint force under 7.5 Nm, in vitro range (Wilson 2006, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vitro reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet joint force",
+  "definition": "range (min-max) of facet joint contact force measured in vitro, red bars in Fig 2c; only extension and axial rotation shown; text gives centres 30 N (extension) and 83 N (axial rotation)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "as in Wilson et al. 2006 (J Biomech 39:348) - see primary",
+  "sample": "human cadaveric lumbar specimens, facet force by Tekscan film (primary: Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm; facet force (N), not contact pressure.",
+  "how_to_simulate": [
+   "Apply 7.5 Nm pure moment in extension and in axial rotation, no preload",
+   "Extract facet contact force per joint; extension: average left/right; axial rotation: the loaded (higher) side",
+   "Compare per-level forces with the in vitro range"
+  ],
+  "subject_model": null,
+  "notes": "Secondary. Wilson 2006 is a method-validation paper (also extracted by another fork from the primary; shared). Dreischarf: model FJF at all levels L1-L5 compared to this range. Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "no in vitro value shown"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 10,
+   "max": 50,
+   "median": null,
+   "n": null,
+   "note": "text: centre 30 N"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 54,
+   "max": 109,
+   "median": null,
+   "n": null,
+   "note": "text: centre 83 N"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2c (red range bars) and Results text (centres 30 N, 83 N)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-2 N (1 px = 1.38 N)",
+  "checked": true,
+  "check_notes": "Axis: gridline rows 26..128 every 20 N (14.56 px), zero at 142.5. Red pixels: extension rows 106-135 -> 50.2/10.3 N; AR rows 63-103 -> 109.2/54.3 N. Midpoints 30.2 and 81.8 vs text 30 and 83 N - within uncertainty. Flexion item carries no values."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max, widened for method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__lumbar_pooled__intact__7.5Nm",
+ "shared_sample_with": [
+  "wilson2006: primary (fe_facet tests from Wilson2006.pdf)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force"
+ ]
+}

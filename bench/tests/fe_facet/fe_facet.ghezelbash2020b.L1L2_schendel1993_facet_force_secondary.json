@@ -1,0 +1,103 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L1L2_schendel1993_facet_force_secondary",
+ "title": "Facet force at L1-L2 - Schendel et al. 1993 (J Biomech 26:427) (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet force from extra-articular strain gauges (single values as printed)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Schendel et al. 1993 (J Biomech 26:427))",
+  "sample": "human cadaveric lumbar specimens of Schendel et al. 1993 (J Biomech 26:427), as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Moments with small axial preloads (150-190 N); strain gauges on bone surface.",
+  "how_to_simulate": [
+   "Apply axial preload 150-190 N plus the moment (10 Nm AR/extension/flexion, 3 Nm LB)",
+   "Report L1-L2 facet force"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Schendel et al. 1993 (J Biomech 26:427)."
+ },
+ "data": [
+  {
+   "x": "axial_rotation",
+   "load": "150 N compression + 10 Nm",
+   "mean": 65,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "lateral_bending",
+   "load": "160 N compression + 3 Nm",
+   "mean": 78,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "extension",
+   "load": "190 N compression + 10 Nm",
+   "mean": 205,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "flexion",
+   "load": "190 N compression + 10 Nm",
+   "mean": 0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__L1-L2__intact__10Nm_with_axial_preload",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force",
+  "strain gauge"
+ ],
+ "shared_sample_with": [
+  "schendel1993: primary (other fork)"
+ ]
+}

@@ -1,0 +1,129 @@
+{
+ "id": "fe_compression_stiffness.renner2007.L1S1_follower1200N_disc_compression",
+ "title": "Disc height loss per level under 1200 N follower preload (in vitro L1-S1)",
+ "layer": "outcome",
+ "category": "fe_compression_stiffness",
+ "subcategory": "follower load capacity",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact, 1200 N follower preload",
+ "quantity": {
+  "name": "disc compression",
+  "definition": "decrease in disc height (mean of anterior, middle, posterior heights on lateral radiographs) from 0 to 1200 N follower load in neutral posture; mean ± SD",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Renner 2007",
+  "authors": "Renner SM, Natarajan RN, Patwardhan AG, Havey RM, Voronov LI, Guo BY, Andersson GBJ, An HS",
+  "year": 2007,
+  "journal": "J Biomech 40:1326-1332",
+  "doi": "10.1016/j.jbiomech.2006.05.019",
+  "n": "10 cadaveric L1-S1 spines (in vitro part; FE model data not extracted)",
+  "sample": "human cadaver lumbar spines L1-sacrum, discs grade II or better on MRI",
+  "age": "mean 58 y (range 41-73)",
+  "sex": "7 M, 3 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "In vitro L1-S1 (Loyola/Hines lab, follower-load technique of Patwardhan 1999). Moments applied at L1: 8 Nm flexion / 6 Nm extension (with 0 or 800 N follower preload), ±6 Nm lateral bending and ±4 Nm torsion (no preload); loads simulating FE and LB remained vertical (so effective moment varies); ~14 N axial load from the moment apparatus. No preconditioning other than path optimisation. FE and LB rotations by biaxial inclinometers on each vertebra, torsion by Optotrak (resolution 0.1 deg). Total segmental motion = sum of the two directions in each plane.",
+  "how_to_simulate": [
+   "Model L1-S1 in neutral posture; fix S1",
+   "Apply 1200 N follower load (cables tangent to the lordosis, through each segment's rotation centre)",
+   "Report each disc's height loss (mean of anterior, middle, posterior)"
+  ],
+  "notes": "Ten specimens; per-level n assumed 10 (not stated per figure). The lab and authors overlap Patwardhan 2003; specimens may be shared.",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "1200 N follower",
+   "mean": 1.22,
+   "sd": 0.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L1-L2",
+   "note": "Fig 3"
+  },
+  {
+   "x": "compression",
+   "load": "1200 N follower",
+   "mean": 1.47,
+   "sd": 0.79,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L2-L3",
+   "note": "Fig 3"
+  },
+  {
+   "x": "compression",
+   "load": "1200 N follower",
+   "mean": 1.53,
+   "sd": 0.52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "note": "Fig 3"
+  },
+  {
+   "x": "compression",
+   "load": "1200 N follower",
+   "mean": 1.53,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L4-L5",
+   "note": "Fig 3"
+  },
+  {
+   "x": "compression",
+   "load": "1200 N follower",
+   "mean": 1.25,
+   "sd": 0.49,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "level": "L5-S1",
+   "note": "Fig 3"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (in vitro bars)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.02 mm mean, ±0.05 mm SD",
+  "checked": true,
+  "check_notes": "Bars located by colour (in vitro = blue/purple), calibrated on gridlines; SD = mean of upper/lower whisker half-lengths. Check vs text: L1/S1 FE 49.35±9.75 (text 49.7±9.7), torsion 12.91±3.37 (text 12.9±3.3), LB 48.18±10.6 (text 48.4±10.5), FE with 800 N 38.88±7.6 (text 39.0±7.6), disc compression range 1.22±0.35 to 1.53±0.5 mm (text 1.2±0.3 to 1.6±0.5)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_compression_stiffness__disc_compression__L1-S1_segmental__intact__follower1200N",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom (possible overlap: same lab/authors)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "per-level",
+  "follower load",
+  "digitised"
+ ]
+}

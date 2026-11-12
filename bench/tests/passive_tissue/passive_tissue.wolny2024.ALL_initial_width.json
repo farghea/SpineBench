@@ -1,0 +1,79 @@
+{
+ "id": "passive_tissue.wolny2024.ALL_initial_width",
+ "title": "Wolny 2024 thoracic ALL initial width",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "Th1-Th12"
+ ],
+ "condition": "cadaveric (elderly donors)",
+ "quantity": {
+  "name": "initial width",
+  "definition": "w0: initial ligament width",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Wolny 2024",
+  "authors": "Wolny R, Wiczenbach T, Andrzejewska AJ, Spodnik JH",
+  "year": 2024,
+  "journal": "J Mech Behav Biomed Mater 151:106404",
+  "doi": "10.1016/j.jmbbm.2024.106404",
+  "n": "4 thoracic spines (body donors); 17 ALL, 19 PLL, 31 CL, 17 LF, 16 ISL+SSL bone-ligament-bone samples",
+  "sample": "human thoracic ligaments Th1-Th12, BLB samples",
+  "age": "72-90 y (77.75+-8.26)",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ligament-bone samples (frozen -20 C, thawed in saline), bones reinforced and potted in PMMA cups; preload 5 N at 0.5 /s, 60 s relaxation; preconditioning 60 cycles at 10% strain, 1 Hz, 60 s rest; tension at constant strain rate 0.5 /s to rupture; environmental chamber 36.6 C, >=95% humidity. Failure = point where further elongation gives no force increase. Transition points I/II = start/end of linear region (<1% deviation between polynomial fit and linear approximation).",
+  "how_to_simulate": [
+   "Model the thoracic ligament as a bone-ligament-bone unit with the measured initial length/width (Table 1)",
+   "Apply 5 N preload, then tension at strain rate 0.5 /s to failure",
+   "Report force-elongation (or first Piola-Kirchhoff stress = F/A0 vs stretch) at transition points I, II and failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Th1-Th12",
+   "load": "",
+   "mean": 20.49,
+   "sd": 5.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table values from text layer of publisher PDF (digital, clean); cross-checked row/column alignment manually."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__width__ALL_thoracic__human__geometry",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ALL"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.wiczenbach2025.ALL_L0",
+  "passive_tissue.wiczenbach2025.ALL_width",
+  "passive_tissue.wiczenbach2025.ALL_thickness",
+  "passive_tissue.wiczenbach2025.ALL_A0",
+  "passive_tissue.wiczenbach2025.ALL_stretch_points",
+  "passive_tissue.wiczenbach2025.ALL_stress_points"
+ ]
+}

@@ -1,0 +1,196 @@
+{
+  "example": true,
+  "id": "fe_rom_thoracic.example_d.T4T5_ribcage_curve",
+  "title": "EXAMPLE T4-T5 moment-rotation curve with rib cage",
+  "layer": "outcome",
+  "category": "fe_rom_thoracic",
+  "subcategory": "with_ribcage",
+  "region": "thoracic",
+  "levels": [
+    "T4-T5"
+  ],
+  "condition": "with_ribcage",
+  "quantity": {
+    "name": "Rotation",
+    "definition": "T4 rotation relative to T5, loading branch (placeholder)",
+    "unit": "deg",
+    "x_name": "Moment",
+    "x_unit": "Nm"
+  },
+  "source": {
+    "short": "Example D 2015",
+    "authors": "EXAMPLE (placeholder, not a real study)",
+    "year": 2015,
+    "journal": "Placeholder Journal",
+    "doi": "10.0000/example.d",
+    "n": 6,
+    "sample": "placeholder: 6 thoracic specimens with intact rib cage",
+    "age": "placeholder",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "pure moments 0-5 Nm in 1 Nm steps (placeholder)",
+    "how_to_simulate": [
+      "Keep the rib cage and costovertebral joints",
+      "Fix T5 inferior endplate",
+      "Apply pure moments 0-5 Nm to T4",
+      "Report rotation at each 1 Nm step"
+    ],
+    "subject_model": null,
+    "notes": "EXAMPLE: placeholder values for site development. Not real data."
+  },
+  "data": [
+    {
+      "x": 0,
+      "series": "flexion",
+      "load": "0 Nm",
+      "mean": 0,
+      "sd": 0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 1,
+      "series": "flexion",
+      "load": "1 Nm",
+      "mean": 1.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 2,
+      "series": "flexion",
+      "load": "2 Nm",
+      "mean": 2.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 3,
+      "series": "flexion",
+      "load": "3 Nm",
+      "mean": 2.5,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 4,
+      "series": "flexion",
+      "load": "4 Nm",
+      "mean": 3.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 5,
+      "series": "flexion",
+      "load": "5 Nm",
+      "mean": 3.5,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 0,
+      "series": "extension",
+      "load": "0 Nm",
+      "mean": 0,
+      "sd": 0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 1,
+      "series": "extension",
+      "load": "1 Nm",
+      "mean": 0.5,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 2,
+      "series": "extension",
+      "load": "2 Nm",
+      "mean": 1.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 3,
+      "series": "extension",
+      "load": "3 Nm",
+      "mean": 1.5,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 4,
+      "series": "extension",
+      "load": "4 Nm",
+      "mean": 2.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": 5,
+      "series": "extension",
+      "load": "5 Nm",
+      "mean": 2.5,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    }
+  ],
+  "extraction": {
+    "from": "Figure 3 (placeholder)",
+    "method": "digitised_figure",
+    "uncertainty": "+/-0.1 deg (digitised, placeholder)",
+    "checked": false,
+    "check_notes": "EXAMPLE: placeholder values for site development. Not real data."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "model curve inside mean +/- 1 SD band"
+  },
+  "combine_group": "example_thoracic_T4T5_ribcage_curve",
+  "tags": [
+    "example",
+    "thoracic",
+    "rib cage",
+    "curve"
+  ]
+}

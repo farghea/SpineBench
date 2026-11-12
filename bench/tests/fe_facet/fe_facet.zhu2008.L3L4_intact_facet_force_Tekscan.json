@@ -1,0 +1,265 @@
+{
+ "id": "fe_facet.zhu2008.L3L4_intact_facet_force_Tekscan",
+ "title": "L3-L4 facet contact force at 7.5 Nm, Tekscan pressure film",
+ "subcategory": "facet contact force",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "intact (posterior L3-L4 capsules cut for Tekscan)",
+ "quantity": {
+  "name": "facet contact force",
+  "definition": "resultant compressive facet contact force per facet (left/right) from Tekscan 6900 thin-film sensors inserted after cutting posterior capsules, at 7.5 Nm; mean, SD (n=10), min/max over per-specimen values; negative = compressive",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Zhu 2008",
+  "authors": "Zhu QA, Park YB, Sjovold SG, Niosi CA, Wilson DC, Cripton PA, Oxland TR",
+  "year": 2008,
+  "journal": "Proc Inst Mech Eng H 222:171-184",
+  "doi": "10.1243/09544119JEIM290",
+  "n": "10 specimens (human cadaveric L2-L5)",
+  "sample": "10 fresh-frozen human cadaveric L2-L5 lumbar spines; facet forces at the L3-L4 joints (gauges on L3 inferior facets)",
+  "age": "mean 77 (range 70-88)",
+  "sex": "6 M, 3 F, 1 unknown",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L2-L5 specimens, L2 and L5 potted in dental stone (L3-L4 disc horizontal), all ligaments/capsules/discs intact except posterior L3-L4 capsules cut for Tekscan sensors; pure moment +-7.5 Nm, 3 cycles each of flexion-extension, bilateral lateral bending, bilateral axial torsion, ~2 deg/s, unconstrained (custom spine tester); no preload; peak facet contact force at peak moment; cycle used for evaluation not stated.",
+  "how_to_simulate": [
+   "Fix L5 (caudal potting); leave L2-L5 otherwise unconstrained; posterior L3-L4 capsules cut (Tekscan) - capsules remain for EAS but were cut in this test",
+   "Apply pure moment +-7.5 Nm to L2 in flexion, extension, left/right lateral bending and left/right axial rotation, no preload",
+   "Report resultant normal contact force in left and right L3-L4 facet joints at peak moment (compressive negative, tensile positive)",
+   "For lateral bending and axial rotation compare the maximum compressive force in each facet during the bilateral test"
+  ],
+  "subject_model": null,
+  "notes": "Method: Tekscan 6900 Quad electroresistive sensors, lubricated, inserted into L3-L4 facet joints after posterior capsules were cut; recorded simultaneously with EAS. Tekscan cannot detect tension; values near sensor lower range in FL/EX/LB. Disarticulated accuracy deviation 29% r.m.s. (overestimation); repeatability CV 6% AR, <10% extension. Neither method detects impingement of inferior facet on lamina (extension)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": -2,
+   "sd": 5,
+   "min": -12,
+   "max": 0,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    0,
+    -11,
+    -1,
+    0,
+    0,
+    -1,
+    0,
+    -12,
+    -1,
+    0
+   ],
+   "note": "flexion mean = sum of tensile and compressive forces"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": -4,
+   "sd": 4,
+   "min": -12,
+   "max": 0,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -12,
+    0,
+    -6,
+    0,
+    0,
+    -3,
+    -6,
+    -6,
+    -5,
+    -6
+   ],
+   "note": "flexion mean = sum of tensile and compressive forces"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": -13,
+   "sd": 14,
+   "min": -35,
+   "max": 0,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    0,
+    -5,
+    -31,
+    -16,
+    -8,
+    -2,
+    -30,
+    -3,
+    -1,
+    -35
+   ],
+   "note": ""
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": -14,
+   "sd": 10,
+   "min": -29,
+   "max": -3,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -7,
+    -13,
+    -23,
+    -11,
+    -10,
+    -3,
+    -29,
+    -9,
+    -3,
+    -28
+   ],
+   "note": ""
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": -11,
+   "sd": 11,
+   "min": -33,
+   "max": 0,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    -20,
+    -7,
+    -33,
+    -3,
+    0,
+    -3,
+    -21,
+    -11,
+    0,
+    -12
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": -16,
+   "sd": 13,
+   "min": -40,
+   "max": -2,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -40,
+    -10,
+    -28,
+    -13,
+    -10,
+    -2,
+    -33,
+    -2,
+    -3,
+    -19
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": -56,
+   "sd": 17,
+   "min": -80,
+   "max": -24,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "left_facet",
+   "per_specimen": [
+    -47,
+    -55,
+    -80,
+    -36,
+    -55,
+    -71,
+    -64,
+    -65,
+    -24,
+    -66
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": -55,
+   "sd": 18,
+   "min": -70,
+   "max": -11,
+   "median": null,
+   "n": 10,
+   "level": "L3-L4",
+   "side": "right_facet",
+   "per_specimen": [
+    -65,
+    -66,
+    -66,
+    -11,
+    -63,
+    -54,
+    -64,
+    -70,
+    -37,
+    -55
+   ],
+   "note": "LB and AR: peak compressive force during the bilateral test (side of bending/rotation not separated)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (per specimen, mean, SD)",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Values read from rendered page. Recomputed means: FL L -2.6 (published -2), FL R -4.4 (-4), EX -13.1/-13.6 (-13/-14), LB -11.0/-16.0, AR -56.3/-55.1 (-56/-55); SDs 4.7/3.8/13.9/9.7/10.8/13.6/16.8/18.2 vs published 5/4/14/10/11/13/17/18. Published values kept."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max per facet; axial rotation |model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_force__L3-L4__intact__7.5Nm",
+ "shared_sample_with": [
+  "fe_facet.zhu2008.L3L4_intact_facet_force_EAS"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "Tekscan",
+  "human"
+ ]
+}

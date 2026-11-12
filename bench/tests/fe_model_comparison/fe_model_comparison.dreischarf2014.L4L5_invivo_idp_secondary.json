@@ -1,0 +1,105 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L4L5_invivo_idp_secondary",
+ "title": "In vivo L4-L5 intradiscal pressure at maximal voluntary motion (Wilke 2001, one subject, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vivo reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "in vivo, maximal voluntary flexion / extension / lateral bending / axial rotation (standing)",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute intradiscal pressure measured in vivo with an implanted sensor in one subject (red bars, Fig 4)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "1 subject (Wilke et al. 2001)",
+  "sample": "one healthy male volunteer with L4-L5 pressure transducer (primary: Wilke H, Neef P, Hinz B, Seidel H, Claes L 2001, Clin Biomech 16 Suppl 1:S111-S126)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "In vivo maximal motions; FE load cases as Table 3 (flexion 1175 N + 7.5 Nm; extension 500 N + 7.5 Nm; LB 700 N + 7.8 Nm; AR 720 N + 5.5 Nm).",
+  "how_to_simulate": [
+   "Apply the Table 3 combined load (compressive follower force + moment on L1)",
+   "Read L4-L5 nucleus pressure",
+   "Compare with the single-subject in vivo value"
+  ],
+  "subject_model": null,
+  "notes": "In vivo, single subject, secondary. Text gives flexion 1.6 MPa explicitly; others digitised. Dreischarf discussion: 1.6 MPa corresponds to ~1900 N compression at L4-L5. Also a MSK target (msk_idp_lumbar) - do not double count with the primary Wilke 2001. Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "maximal voluntary flexion",
+   "mean": 1.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": "text: 1.6 MPa"
+  },
+  {
+   "x": "extension",
+   "load": "maximal voluntary extension",
+   "mean": 0.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lateral_bending",
+   "load": "maximal voluntary lateral bending",
+   "mean": 0.59,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "axial_rotation",
+   "load": "maximal voluntary axial rotation",
+   "mean": 0.63,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4a-d (red bars, L4-L5) and Discussion text (1.6 MPa flexion)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 MPa (flexion +/-0.03 MPa)",
+  "checked": true,
+  "check_notes": "Panels calibrated by frame top (2.5 or 1.2 MPa) and axis row; flexion bar 1.58-1.59 vs text 1.6. Re-read red top rows 76/90/303/298 -> 1.58/0.59/0.59/0.63."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - in vivo| <= max(0.15 MPa, 25%) (template, single subject)"
+ },
+ "combine_group": "secondary__invivo__idp_abs__L4-L5__maximal_voluntary",
+ "shared_sample_with": [
+  "wilke2001: primary single-subject in vivo dataset (msk_idp_lumbar)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "secondary",
+  "IDP",
+  "single subject"
+ ]
+}

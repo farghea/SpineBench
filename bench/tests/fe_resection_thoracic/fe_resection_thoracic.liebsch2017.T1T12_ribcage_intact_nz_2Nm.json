@@ -1,0 +1,116 @@
+{
+ "id": "fe_resection_thoracic.liebsch2017.T1T12_ribcage_intact_nz_2Nm",
+ "title": "T1-T12 NZ with stepwise rib cage reduction: IC (Liebsch 2017)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "long segment with rib cage, stepwise reduction",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "NZ",
+  "definition": "neutral zone: full-range rotation at 0 Nm of the last-cycle hysteresis (intersection with displacement axis)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2017",
+  "authors": "Liebsch C, Graf N, Appelt K, Wilke HJ",
+  "year": 2017,
+  "journal": "PLoS One",
+  "doi": "10.1371/journal.pone.0178733",
+  "n": 6,
+  "sample": "6 fresh-frozen human C7-L1 thoracic spines with entire rib cage (sternum, costal cartilage, ribs, intercostal muscles)",
+  "age": "mean 56 y (range 50-65)",
+  "sex": "1 M, 5 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "C7 and L1 half-embedded in PMMA (screws in endplates; C7-T1 disc fixed with screws); L1 in angle flange at 20 deg (4 specimens) or 30 deg (2 hyperkyphotic). Pure moments +/-2 Nm at C7, FE/LB/AR, 1 deg/s (AR 0.5 deg/s), 3.5 cycles, last cycle; no preload. ROM of T1-T12 from optical markers on each vertebra.",
+  "how_to_simulate": [
+   "Fix L1 (caudal) and leave C7-T1 rigid; apply pure moment +/-2 Nm to C7 in FE, LB, AR without preload",
+   "Model the rib cage structures present at this step (see ribcage.intact_structures)",
+   "Report rotation of T1 relative to T12 at peak moment; ROM = full range (e.g. flexion+extension); NZ = rotation at 0 Nm crossing of last-cycle hysteresis (full range)"
+  ],
+  "subject_model": null,
+  "notes": "Mean +/- SD (data normally distributed). PC = % vs previous step, IC = % vs intact as printed in Table 1 (W/o IM: PC is also vs intact). Same 6 specimens later sternotomy-tested in Liebsch 2017 ESJ? see shared_sample_with."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "2 Nm",
+   "mean": 7.9,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_total",
+   "load": "2 Nm",
+   "mean": 11.8,
+   "sd": 4.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_total",
+   "load": "2 Nm",
+   "mean": 2.4,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Re-checked vs PDF text layer and rendered page 6/7; FE IC% for W/o RH 6-8 and W/o RH printed equal to PC (typo) -> null."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__nz__T1-T12__ribcage_intact__2Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "Ulm"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "full rib cage: sternum, costal cartilage, ribs, intercostal muscles, costovertebral/costotransverse joints"
+ },
+ "loading": {
+  "moment_Nm": 2,
+  "rate": "1.0 deg/s FE and LB, 0.5 deg/s AR",
+  "cycles": "3.5 cycles per plane, last (3rd) cycle evaluated",
+  "branch": "maximum deflection at +/-2 Nm of last cycle",
+  "preload": "none",
+  "device": "custom spine tester, Vicon MX13 6 cameras (0.1 mm / 0.1 deg)"
+ },
+ "resection": {
+  "step_index": 0,
+  "step_name": "IC",
+  "sequence": [
+   "intact",
+   "no_intercostal_muscles",
+   "median_sternotomy",
+   "no_anterior_ribcage (rib stumps kept)",
+   "no_right_rib_heads_6-8",
+   "no_rib_heads (isolated spine)"
+  ],
+  "cumulative": true
+ }
+}

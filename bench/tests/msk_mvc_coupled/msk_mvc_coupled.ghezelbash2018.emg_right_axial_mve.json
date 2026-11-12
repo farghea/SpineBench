@@ -1,0 +1,238 @@
+{
+ "id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+ "title": "Normalised surface EMG of 14 trunk sites during maximal right axial exertion (semi-seated)",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "EMG_at_MVE",
+ "region": "lumbar",
+ "levels": [
+  "T12-L5 (electrode levels)"
+ ],
+ "condition": "isometric maximal right axial exertion, semi-seated dynamometer",
+ "quantity": {
+  "name": "normalised EMG at MVE",
+  "definition": "RMS EMG (band-pass 30-450 Hz) normalised, per subject and electrode, to the maximum RMS recorded across all six MVE tasks (flex, ext, R/L lateral, R/L axial); so 100% = that site's largest MVE activity. Mean±SD over 19 subjects (sexes pooled).",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Ghezelbash 2018",
+  "authors": "Ghezelbash F, El Ouaaid Z, Shirazi-Adl A, Plamondon A, Arjmand N",
+  "year": 2018,
+  "journal": "J Biomech 70:124-133",
+  "doi": "10.1016/j.jbiomech.2017.11.007",
+  "n": "19 subjects (9F, 10M)",
+  "sample": "healthy young right-handed adults, in vivo",
+  "age": "F 24.1±4.3 y; M 30.6±6.5 y",
+  "sex": "9F, 10M",
+  "height_cm": "F 163.4±3.7; M 174.6±4.2",
+  "weight_kg": "F 61±4.5; M 72.2±8.7"
+ },
+ "protocol": {
+  "summary": "Bilateral surface EMG (Delsys DE-2.3, 1024 Hz) of longissimus, iliocostalis (2 levels), multifidus, rectus abdominis, external and internal oblique during two ~8 s MVE trials per direction in the semi-seated triaxial dynamometer (Lariviere 2001); trial with larger primary moment used.",
+  "how_to_simulate": [
+   "Simulate the same MVE as in the matching ghezelbash2018.mve_moments test (semi-seated, pelvis fixed, measured primary+coupled moments about S1 applied at the harness contact).",
+   "Simulate all six MVEs for the subject; normalise each muscle's active force by its maximum over the six MVEs (as the paper did for EMG).",
+   "Compare normalised activation of model muscles under each electrode site (right and left: LGPT ~T12, iliocostalis ~L1 and L3 at 6 cm, multifidus ~L5 at 3 cm, RA, EO, IO) with these means."
+  ],
+  "subject_model": {
+   "sex": "9F/10M (simulate each sex separately or a mean subject)",
+   "age": "F 24.1; M 30.6",
+   "height_cm": "F 163.4; M 174.6",
+   "weight_kg": "F 61.0; M 72.2",
+   "disc_area_mm2": null,
+   "source": "Methods text"
+  },
+  "notes": "Pooling note: El Ouaaid 2013 (same IRSST lab/dynamometer, same normalisation) reports L/R-averaged values at the same sites for flexion/extension; compare like with like (side vs average). Electrode locations read from the schematic Fig. 1 (paper cites De Foa 1989; McGill 1991); vertebral levels approximate. The paper's model-vs-EMG correlation: r=0.69 (ext), 0.76 (flex), 0.27 (lateral), 0.13 (axial) in Results (Discussion quotes 0.72/0.69/0.44/0.34)."
+ },
+ "data": [
+  {
+   "x": "right axial MVE",
+   "site": "right longissimus thoracis pars thoracis (LGPT); ~T12-L1 level in schematic Fig 1b (same-lab protocol in El Ouaaid 2013: ~3 cm lateral to midline at L1)",
+   "muscle": "LGPT",
+   "side": "right",
+   "mean": 25.4,
+   "sd": 14.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right iliocostalis (upper electrode) (ICPT); ~L1 level, 6 cm lateral to midline (schematic Fig 1b)",
+   "muscle": "ICPT",
+   "side": "right",
+   "mean": 51.1,
+   "sd": 26.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right iliocostalis lumborum (lower electrode, 'collected at L3') (ICPT*); L3 level (caption), 6 cm lateral to midline (Fig 1b)",
+   "muscle": "ICPT*",
+   "side": "right",
+   "mean": 11.6,
+   "sd": 8.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right multifidus (MF); L5 level, 3 cm lateral to midline per Fig 1b (El Ouaaid 2013 same-lab text: ~2 cm at L5)",
+   "muscle": "MF",
+   "side": "right",
+   "mean": 15.9,
+   "sd": 8.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right rectus abdominis (RA); 3 cm lateral to umbilicus (Fig 1a; El Ouaaid 2013: ~3 cm lateral to midline above umbilicus)",
+   "muscle": "RA",
+   "side": "right",
+   "mean": 30.6,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right external oblique (EO); 10 cm lateral to umbilicus, along fibres (Fig 1a; El Ouaaid 2013: ~10 cm lateral above umbilicus)",
+   "muscle": "EO",
+   "side": "right",
+   "mean": 70.5,
+   "sd": 22.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "right internal oblique (IO); just medial/inferior to ASIS (Fig 1a '2 cm' and '7 cm' dimensions; El Ouaaid 2013 same-lab text: ~2 cm below and 7 cm medial to ASIS)",
+   "muscle": "IO",
+   "side": "right",
+   "mean": 32.1,
+   "sd": 21.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left longissimus thoracis pars thoracis (LGPT); ~T12-L1 level in schematic Fig 1b (same-lab protocol in El Ouaaid 2013: ~3 cm lateral to midline at L1)",
+   "muscle": "LGPT",
+   "side": "left",
+   "mean": 52.0,
+   "sd": 25.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left iliocostalis (upper electrode) (ICPT); ~L1 level, 6 cm lateral to midline (schematic Fig 1b)",
+   "muscle": "ICPT",
+   "side": "left",
+   "mean": 25.9,
+   "sd": 16.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left iliocostalis lumborum (lower electrode, 'collected at L3') (ICPT*); L3 level (caption), 6 cm lateral to midline (Fig 1b)",
+   "muscle": "ICPT*",
+   "side": "left",
+   "mean": 93.8,
+   "sd": 7.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left multifidus (MF); L5 level, 3 cm lateral to midline per Fig 1b (El Ouaaid 2013 same-lab text: ~2 cm at L5)",
+   "muscle": "MF",
+   "side": "left",
+   "mean": 72.0,
+   "sd": 25.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left rectus abdominis (RA); 3 cm lateral to umbilicus (Fig 1a; El Ouaaid 2013: ~3 cm lateral to midline above umbilicus)",
+   "muscle": "RA",
+   "side": "left",
+   "mean": 32.1,
+   "sd": 20.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left external oblique (EO); 10 cm lateral to umbilicus, along fibres (Fig 1a; El Ouaaid 2013: ~10 cm lateral above umbilicus)",
+   "muscle": "EO",
+   "side": "left",
+   "mean": 25.4,
+   "sd": 14.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "right axial MVE",
+   "site": "left internal oblique (IO); just medial/inferior to ASIS (Fig 1a '2 cm' and '7 cm' dimensions; El Ouaaid 2013 same-lab text: ~2 cm below and 7 cm medial to ASIS)",
+   "muscle": "IO",
+   "side": "left",
+   "mean": 32.5,
+   "sd": 20.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 top (yellow 'EMG' bars, error bars = 1 SD); Fig 1 for sites",
+  "method": "digitised_figure",
+  "uncertainty": "±1.5 %MVC (mean and SD)",
+  "checked": true,
+  "check_notes": "Pixel-based digitisation at 130 dpi against axis ticks (0-100); SD = mean of upper/lower whisker lengths. Fig 6 re-digitised independently at 200 dpi: all 28 bars agree within 0.5%."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD per site; pattern: agonists highest"
+ },
+ "combine_group": "msk_mvc_coupled__emg_at_mvc__LGPT-L1_ICPT-L3_MF-L5_abdominals__semi_seated_right_axial",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "EMG",
+  "MVC",
+  "MVE",
+  "semi-seated",
+  "sexes pooled"
+ ]
+}

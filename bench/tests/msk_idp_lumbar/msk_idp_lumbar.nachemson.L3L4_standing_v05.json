@@ -1,0 +1,355 @@
+{
+ "id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+ "title": "Nachemson 1964/1970: L3-L4 IDP in standing (corrected, via Dreischarf 2016)",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L3-L4 in vivo, early transducer (corrected)",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "relaxed upright standing",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo IDP in standing; CORRECTED early-transducer value (original - 0.25 MPa, Nachemson's retrospective correction for transducer self-heating) as tabulated by Dreischarf 2016; original value in 'original_mpa'",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Nachemson & Morris 1964; Nachemson & Elfstrom 1970 (via Dreischarf 2016)",
+  "authors": "Nachemson A, Morris JM; Nachemson A, Elfstrom G (tabulated by Dreischarf M et al.)",
+  "year": 1970,
+  "journal": "J Bone Joint Surg Am 46:1077; Scand J Rehabil Med Suppl 1 (table: J Biomech 49:833-845, 2016)",
+  "doi": "10.1016/j.jbiomech.2015.12.038",
+  "n": "13 subjects (6M, 7F)",
+  "sample": "4 patients (Nachemson & Morris) + 9 subjects (Nachemson & Elfstrom; 3 patients, 6 without LBP history), L3-L4",
+  "age": "14-60",
+  "sex": "6M/7F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Early liquid/piezo needle transducer measurements in standing; values as corrected and tabulated in Dreischarf et al. 2016 review.",
+  "how_to_simulate": [
+   "Scale the model to each subject (protocol.subject_model.per_subject: sex, age, height, weight)",
+   "Posture: relaxed upright standing, arms hanging; no hand load",
+   "Output: L3-L4 compression F (and flexion th = 0)",
+   "Convert with Ghezelbash 2016 Eq. 6 using the subject's L3-L4 disc area (per_subject.disc_area_mm2); compare with data[].mean (corrected)"
+  ],
+  "subject_model": {
+   "per_subject": [
+    {
+     "id": "Nachemson & Morris 1964a,b No. 15",
+     "age": 52,
+     "sex": "m",
+     "weight_kg": 83,
+     "height_cm": 179,
+     "bmi": 26.0,
+     "disc_area_mm2": 1990,
+     "history": "posterior fusion L4-S1 6 mo, previously LBP"
+    },
+    {
+     "id": "Nachemson & Morris 1964a,b No. 17",
+     "age": 35,
+     "sex": "f",
+     "weight_kg": 76,
+     "height_cm": 160,
+     "bmi": 29.7,
+     "disc_area_mm2": 1380,
+     "history": "LBP 7 mo after automobile accident"
+    },
+    {
+     "id": "Nachemson & Morris 1964a,b No. 18",
+     "age": 34,
+     "sex": "m",
+     "weight_kg": 64,
+     "height_cm": 173,
+     "bmi": 21.4,
+     "disc_area_mm2": 1570,
+     "history": "posterior fusion L4-S1, recurrence of LBP after 3 mo"
+    },
+    {
+     "id": "Nachemson & Morris 1964a,b No. 19",
+     "age": 37,
+     "sex": "m",
+     "weight_kg": 93,
+     "height_cm": 186,
+     "bmi": 27.0,
+     "disc_area_mm2": 2060,
+     "history": "LBP 2.5 yrs, radiation to both knees"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 1",
+     "age": 60,
+     "sex": "m",
+     "weight_kg": 70,
+     "height_cm": 173,
+     "bmi": 23.4,
+     "disc_area_mm2": 2070,
+     "history": "2 mo sciatica subsiding"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 2",
+     "age": 37,
+     "sex": "m",
+     "weight_kg": 69,
+     "height_cm": 180,
+     "bmi": 21.3,
+     "disc_area_mm2": 1830,
+     "history": "3 mo LBP subsiding"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 3",
+     "age": 14,
+     "sex": "f",
+     "weight_kg": 50,
+     "height_cm": 174,
+     "bmi": 16.5,
+     "disc_area_mm2": 1810,
+     "history": "idiopathic thoracic scoliosis"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 4",
+     "age": 29,
+     "sex": "f",
+     "weight_kg": 59,
+     "height_cm": 170,
+     "bmi": 20.4,
+     "disc_area_mm2": 1710,
+     "history": "no LBP history"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 5",
+     "age": 20,
+     "sex": "f",
+     "weight_kg": 66,
+     "height_cm": 171,
+     "bmi": 22.6,
+     "disc_area_mm2": 1700,
+     "history": "no LBP history"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 6",
+     "age": 24,
+     "sex": "f",
+     "weight_kg": 57,
+     "height_cm": 168,
+     "bmi": 20.2,
+     "disc_area_mm2": 1600,
+     "history": "no LBP history"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 7",
+     "age": 23,
+     "sex": "m",
+     "weight_kg": 61,
+     "height_cm": 179,
+     "bmi": 19.0,
+     "disc_area_mm2": 1630,
+     "history": "no LBP history"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 8",
+     "age": 20,
+     "sex": "f",
+     "weight_kg": 58,
+     "height_cm": 172,
+     "bmi": 19.6,
+     "disc_area_mm2": 1670,
+     "history": "no LBP history"
+    },
+    {
+     "id": "Nachemson & Elfstrom 1970 No. 9",
+     "age": 24,
+     "sex": "f",
+     "weight_kg": 58,
+     "height_cm": 165,
+     "bmi": 21.3,
+     "disc_area_mm2": 1500,
+     "history": "no LBP history"
+    }
+   ],
+   "source": "Dreischarf 2016 (V05) Table 1"
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Mixed patients and volunteers without LBP. V05 Table 1 also prints a row '1-4, No LBP history, 29 (26-34) y, 3 f 1 m, 52-69 kg, 169-177 cm, IDP 0.33 MPa' inside the Nachemson & Elfstrom block without a study name (probably Andersson et al. 1977) - not added as data (attribution uncertain). Schultz et al. 1982 (4 subjects, 3 f 1 m, 21.8 (19-23) y, 63 (56-76) kg, 174 (165-189) cm, BMI 20.8): L3-L4 IDP 0.27 MPa (modern transducer, uncorrected) - see msk_idp_lumbar.schultz1982.L3L4_standing_v05. Okushima 1970 (no subject data) not added."
+ },
+ "data": [
+  {
+   "x": "standing, Nachemson & Morris 1964a,b No. 15",
+   "load": "none",
+   "mean": 0.48,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.73,
+   "v05_compression_N": 625
+  },
+  {
+   "x": "standing, Nachemson & Morris 1964a,b No. 17",
+   "load": "none",
+   "mean": 0.69,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.94,
+   "v05_compression_N": 630
+  },
+  {
+   "x": "standing, Nachemson & Morris 1964a,b No. 18",
+   "load": "none",
+   "mean": 0.55,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.8,
+   "v05_compression_N": 575
+  },
+  {
+   "x": "standing, Nachemson & Morris 1964a,b No. 19",
+   "load": "none",
+   "mean": 0.82,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 1.07,
+   "v05_compression_N": 1115
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 1",
+   "load": "none",
+   "mean": 0.33,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.58,
+   "v05_compression_N": 450
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 2",
+   "load": "none",
+   "mean": 0.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.55,
+   "v05_compression_N": 360
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 3",
+   "load": "none",
+   "mean": 0.31,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.56,
+   "v05_compression_N": 370
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 4",
+   "load": "none",
+   "mean": 0.55,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.8,
+   "v05_compression_N": 625
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 5",
+   "load": "none",
+   "mean": 0.47,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.72,
+   "v05_compression_N": 520
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 6",
+   "load": "none",
+   "mean": 0.44,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.69,
+   "v05_compression_N": 460
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 7",
+   "load": "none",
+   "mean": 0.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.95,
+   "v05_compression_N": 755
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 8",
+   "load": "none",
+   "mean": 0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.75,
+   "v05_compression_N": 550
+  },
+  {
+   "x": "standing, Nachemson & Elfstrom 1970 No. 9",
+   "load": "none",
+   "mean": 0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "original_mpa": 0.75,
+   "v05_compression_N": 490
+  }
+ ],
+ "extraction": {
+  "from": "Dreischarf 2016 J Biomech 49:833 (V05) Table 1 p.835 (page image)",
+  "method": "table",
+  "uncertainty": "values as printed (2 decimals); correction of -0.25 MPa (range 0.2-0.3) is itself uncertain",
+  "checked": true,
+  "check_notes": "Each row compared against the rendered table image; compressive forces reproduce 0.66 x IDP x area."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs_corrected__L3-L4__standing_relaxed__none",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "early transducer",
+  "corrected",
+  "secondary (review table)"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

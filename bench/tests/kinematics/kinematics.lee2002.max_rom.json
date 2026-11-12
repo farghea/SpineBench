@@ -1,0 +1,275 @@
+{
+ "id": "kinematics.lee2002.max_rom",
+ "title": "Maximum lumbar and hip movements in forward/backward bending, side bending and twisting",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "L1-sacrum",
+  "hip"
+ ],
+ "condition": "healthy, standing, maximal trunk movements in 3 planes",
+ "quantity": {
+  "name": "maximum lumbar and hip movement",
+  "definition": "Lumbar = L1 sensor relative to sacral sensor; hip = thigh sensor relative to sacral sensor (hip-joint angle, NOT pelvis vs global). Lumbar: flexion, left lateral flexion, left axial rotation positive; hip: flexion, abduction, lateral rotation positive. Signed values (sign convention above).",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Lee 2002",
+  "authors": "Lee RYW, Wong TKT",
+  "year": 2002,
+  "journal": "Hum Mov Sci 21(4):481-494",
+  "doi": "10.1016/S0167-9457(02)00117-3",
+  "n": "20 males",
+  "sample": "20 healthy young males, no back/leg pain in previous 12 months",
+  "age": "20 (SD 1) y",
+  "sex": "male",
+  "height_cm": "171 (SD 4)",
+  "weight_kg": "62.4 (SD 5.0)"
+ },
+ "protocol": {
+  "summary": "Mean (SD) maximum lumbar and left/right hip angles for 6 trunk movements (Fig 1, digitised).",
+  "how_to_use": [
+   "Forward bending: lumbar ~58 deg, hips ~55-57 deg flexion; backward bending: lumbar ~16 deg, hips ~9-11 deg extension.",
+   "Lateral bending: lumbar ~20-22 deg with hips < 6 deg (ab/adduction).",
+   "Twisting: lumbar axial rotation only 8-10 deg, hips 23-31 deg internal/external rotation: drive axial-rotation tasks mainly through the hips/pelvis."
+  ],
+  "measurement": {
+   "method": "electromagnetic sensors",
+   "device": "3SPACE Fastrak (Polhemus): sensors on L1 spinous process, sacrum, lateral left and right thighs; 30 Hz per sensor",
+   "posture": "standing, feet shoulder-width (zero = comfortable upright posture)",
+   "task": "3 continuous cycles of max forward-backward bending, left-right lateral bending, left-right twisting, 12 s per trial at comfortable speed; repeated 3 times"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Hip rotations in twisting have large SD (12-21 deg)."
+ },
+ "data": [
+  {
+   "x": "forward bending",
+   "load": null,
+   "mean": 58.4,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)",
+   "phase": "flexion"
+  },
+  {
+   "x": "forward bending",
+   "load": null,
+   "mean": 54.5,
+   "sd": 15.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip",
+   "phase": "flexion"
+  },
+  {
+   "x": "forward bending",
+   "load": null,
+   "mean": 56.6,
+   "sd": 15.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip",
+   "phase": "flexion"
+  },
+  {
+   "x": "backward bending",
+   "load": null,
+   "mean": -15.7,
+   "sd": 7.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)",
+   "phase": "extension"
+  },
+  {
+   "x": "backward bending",
+   "load": null,
+   "mean": -11.2,
+   "sd": 8.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip",
+   "phase": "extension"
+  },
+  {
+   "x": "backward bending",
+   "load": null,
+   "mean": -8.5,
+   "sd": 9.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip",
+   "phase": "extension"
+  },
+  {
+   "x": "left lateral bending",
+   "load": null,
+   "mean": 21.6,
+   "sd": 4.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)"
+  },
+  {
+   "x": "left lateral bending",
+   "load": null,
+   "mean": 5.5,
+   "sd": 5.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip"
+  },
+  {
+   "x": "left lateral bending",
+   "load": null,
+   "mean": -1.6,
+   "sd": 5.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip"
+  },
+  {
+   "x": "right lateral bending",
+   "load": null,
+   "mean": -19.9,
+   "sd": 4.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)"
+  },
+  {
+   "x": "right lateral bending",
+   "load": null,
+   "mean": -1.6,
+   "sd": 5.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip"
+  },
+  {
+   "x": "right lateral bending",
+   "load": null,
+   "mean": 4.6,
+   "sd": 6.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip"
+  },
+  {
+   "x": "left twisting",
+   "load": null,
+   "mean": 7.9,
+   "sd": 3.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)"
+  },
+  {
+   "x": "left twisting",
+   "load": null,
+   "mean": -31.2,
+   "sd": 12.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip"
+  },
+  {
+   "x": "left twisting",
+   "load": null,
+   "mean": 22.8,
+   "sd": 20.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip"
+  },
+  {
+   "x": "right twisting",
+   "load": null,
+   "mean": -10.0,
+   "sd": 4.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "lumbar (L1-sacrum)"
+  },
+  {
+   "x": "right twisting",
+   "load": null,
+   "mean": 24.0,
+   "sd": 19.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "left hip"
+  },
+  {
+   "x": "right twisting",
+   "load": null,
+   "mean": -30.0,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "right hip"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 1",
+  "method": "digitised_figure",
+  "uncertainty": "means +-1 deg, SDs +-1.5 deg (200 dpi, 3.35 px/deg, bar edges and error-bar ends by pixel scan)",
+  "checked": true,
+  "check_notes": "Axis calibrated on 8 ticks (80 to -60). Re-digitised right lateral bending after legend-box contamination (first pass gave spurious 48.5). Bar values visually confirmed on rendered image; right-lateral-bending right-hip SD 6.6 from cap at 11.2."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__lumbar_and_hip_rom__L1-sacrum_and_hip__healthy_standing__max_range_all_planes",
+ "tags": [
+  "in vivo",
+  "electromagnetic sensors",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "3D"
+ ]
+}

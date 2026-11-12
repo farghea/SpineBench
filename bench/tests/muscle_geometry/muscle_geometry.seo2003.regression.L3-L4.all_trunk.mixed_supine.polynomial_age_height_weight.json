@@ -1,0 +1,270 @@
+{
+ "id": "muscle_geometry.seo2003.regression.L3-L4.all_trunk.mixed_supine.polynomial_age_height_weight",
+ "title": "Seo 2003: polynomial regressions of L3/4 ES and RA centroid distance and CSA on age, height, weight",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (Hitachi MRP-20)",
+  "plane": "transverse cross-sectional image at L3/4 (orientation relative to disc not stated)",
+  "slice_thickness_mm": null,
+  "level_definition": "L3/4 (disc level)",
+  "posture_detail": "supine (Discussion)"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Seo 2003",
+  "authors": "Seo A, Lee JH, Kusaka Y",
+  "year": 2003,
+  "journal": "J Occup Health 45:197-201",
+  "doi": "10.1539/joh.45.197",
+  "n": "250 subjects (152 M, 98 F)",
+  "sample": "healthy Japanese volunteers without back-pain treatment, age 15-75",
+  "age": "M 36.2 (13.1), F 39.7 (9.9) y",
+  "sex": "152M/98F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "R = multiple correlation coefficient (not R2). Authors note the equations may be applied from L3 to L5."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 152,
+   "as_reported": "MALES = 5.01 + 9.68e-11*A*H^2*W^2",
+   "predicted": "centroid_distance ES (cm, positive)",
+   "level": "L3-L4",
+   "sex": "M",
+   "muscle": "erector_spinae",
+   "equation": "5.01 + 9.68e-11*A*H^2*W^2",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.355,
+   "see": 0.445,
+   "p": "<0.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 152,
+   "as_reported": "MALRA = 5.40 + 3.51e-7*A*W^3 - 3.68e-12*A*H^3*W^2",
+   "predicted": "centroid_distance RA (cm)",
+   "level": "L3-L4",
+   "sex": "M",
+   "muscle": "rectus_abdominis",
+   "equation": "5.40 + 3.51e-7*A*W^3 - 3.68e-12*A*H^3*W^2",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.65,
+   "see": 0.948,
+   "p": "<0.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 152,
+   "as_reported": "CSAES = 5.32 + 2.84e-1*W",
+   "predicted": "csa_anatomical ES (cm2, mean of sides)",
+   "level": "L3-L4",
+   "sex": "M",
+   "muscle": "erector_spinae",
+   "equation": "5.32 + 2.84e-1*W",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.576,
+   "see": 3.7,
+   "p": "<0.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 152,
+   "as_reported": "CSARA = 2.26 + 7.85e-2*W",
+   "predicted": "csa_anatomical RA (cm2)",
+   "level": "L3-L4",
+   "sex": "M",
+   "muscle": "rectus_abdominis",
+   "equation": "2.26 + 7.85e-2*W",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.358,
+   "see": 1.88,
+   "p": "<0.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 98,
+   "as_reported": "MALES = 4.31 - 1.27e-9*A^2*W^3 + 2.21e-12*A*H^3*W^2",
+   "predicted": "centroid_distance ES (cm, positive)",
+   "level": "L3-L4",
+   "sex": "F",
+   "muscle": "erector_spinae",
+   "equation": "4.31 - 1.27e-9*A^2*W^3 + 2.21e-12*A*H^3*W^2",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.364,
+   "see": 0.444,
+   "p": "0.0012",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 98,
+   "as_reported": "MALRA = 4.32 + 2.18e-9*A^2*W^3",
+   "predicted": "centroid_distance RA (cm)",
+   "level": "L3-L4",
+   "sex": "F",
+   "muscle": "rectus_abdominis",
+   "equation": "4.32 + 2.18e-9*A^2*W^3",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.411,
+   "see": 0.997,
+   "p": "<0.0001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 98,
+   "as_reported": "CSAES = 11.36 + 1.912e-3*W^2",
+   "predicted": "csa_anatomical ES (cm2)",
+   "level": "L3-L4",
+   "sex": "F",
+   "muscle": "erector_spinae",
+   "equation": "11.36 + 1.912e-3*W^2",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": 0.469,
+   "see": 2.73,
+   "p": "<0.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "both_mean",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 98,
+   "as_reported": "CSARA = 5.05 (no effective predictor)",
+   "predicted": "csa_anatomical RA (cm2)",
+   "level": "L3-L4",
+   "sex": "F",
+   "muscle": "rectus_abdominis",
+   "equation": "5.05 (no effective predictor)",
+   "predictor_units": {
+    "A": "yr",
+    "H": "cm",
+    "W": "kg"
+   },
+   "multiple_R": null,
+   "see": 1.3,
+   "p": null,
+   "output_unit": "cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Equations re-read from Table 3 text (exponents x10^-n transcribed as e-n)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "regression"
+ ]
+}

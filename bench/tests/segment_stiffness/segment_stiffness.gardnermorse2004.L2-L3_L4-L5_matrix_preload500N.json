@@ -1,0 +1,442 @@
+{
+ "id": "segment_stiffness.gardnermorse2004.L2-L3_L4-L5_matrix_preload500N",
+ "title": "Lumbar motion segment 6x6 stiffness matrix, intact, 500 N axial preload (L2-3/L4-5)",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "stiffness_matrix_6dof",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "6x6 stiffness matrix (linearised)",
+  "definition": "Least-squares linearised stiffness from 2nd-3rd of 4 sawtooth cycles of +-0.5 mm A-P/lateral, +-0.35 mm axial, +-1.5 deg lateral bending, +-1 deg flexion-extension and torsion. Gardner-Morse & Stokes 2004 Figs 1-2: 6x6 stiffness of the UPPER vertebral body centre relative to the FIXED lower vertebra; nodes at vertebral body centres (located radiographically). FE-style axes: axis 1 = axial, pointing inferior (positive F1/D1 = compression of the segment); axis 2 = antero-posterior, pointing posterior; axis 3 = lateral (right-handed with 1 and 2, i.e. pointing to the specimen's left). DOF 1-3 translations (mm), DOF 4-6 rotations about axes 1,2,3 = axial rotation, lateral bending, flexion-extension (rad in the paper). Off-diagonal terms were averaged to make the matrix symmetric (k_ij = k_ji, only upper triangle tabulated). Terms expected zero by sagittal symmetry not reported; k12 (axial-A-P coupling) not significantly different from zero and not tabulated. Signs as printed (k16, k35, k45 negative). Positive rotation sense: right-hand rule about the axes (FE convention; not stated explicitly in text).",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Gardner-Morse & Stokes 2004",
+  "authors": "Gardner-Morse MG, Stokes IAF",
+  "year": 2004,
+  "journal": "J Biomech 37:205-212",
+  "doi": "10.1016/j.jbiomech.2003.10.003",
+  "n": "8 motion segments (L2-3 x4, L4-5 x4) from 4 female spines",
+  "sample": "human cadaveric lumbar motion segments, no gross degeneration (some osteophytes in older specimens)",
+  "age": "17, 21, 52 and 58 y (one spine each)",
+  "sex": "4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Hexapod (Stewart platform) displacement control, 6 pure DOF tests, 4 sawtooth cycles of 87 s, 1 Hz sampling, specimens in ~4 C isotonic saline bath, 500 N axial compressive preload (equilibrated >=3 h), preload order varied.",
+  "how_to_simulate": [
+   "Model L2-L3 and/or L4-L5 motion segment; fix the lower vertebra and define the node at the upper vertebral body centre (mean centre-to-centre distance 36.3 mm)",
+   "Apply 500 N axial compressive preload along axis 1 and let the model equilibrate (no follower path needed: single segment)",
+   "From the preloaded state impose each pure displacement separately with the other 5 DOF held fixed: +-0.5 mm A-P and lateral, +-0.35 mm axial, +-1.5 deg lateral bending, +-1 deg flexion-extension and axial rotation",
+   "Record the 6 reaction forces/moments at the upper vertebral centre, fit the linear slope per DOF, symmetrise the off-diagonals, convert to N/mm, N/deg and Nm/deg and compare term by term (diagonal within mean +-1 SD; off-diagonal sign and order of magnitude)"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate system: Gardner-Morse & Stokes 2004 Figs 1-2: 6x6 stiffness of the UPPER vertebral body centre relative to the FIXED lower vertebra; nodes at vertebral body centres (located radiographically). FE-style axes: axis 1 = axial, pointing inferior (positive F1/D1 = compression of the segment); axis 2 = antero-posterior, pointing posterior; axis 3 = lateral (right-handed with 1 and 2, i.e. pointing to the specimen's left). DOF 1-3 translations (mm), DOF 4-6 rotations about axes 1,2,3 = axial rotation, lateral bending, flexion-extension (rad in the paper). Off-diagonal terms were averaged to make the matrix symmetric (k_ij = k_ji, only upper triangle tabulated). Terms expected zero by sagittal symmetry not reported; k12 (axial-A-P coupling) not significantly different from zero and not tabulated. Signs as printed (k16, k35, k45 negative). Positive rotation sense: right-hand rule about the axes (FE convention; not stated explicitly in text). SE reported in the paper; 'sd' = SE*sqrt(n) (derived: n=8 pooled, n=4 per level). Specimen means (radiographs): 36.3 mm (33.0-39.8) between vertebral centres, disc lateral width 45.5 mm (41.2-58.1), A-P width 32.5 mm (30.0-34.7), disc height 8.9 mm (6.4-10.3). Same specimens tested again with posterior elements removed (see isolated-disc test). Where L2-3 and L4-5 differed significantly separate values are given (n=4 each); otherwise the pooled mean (n=8)."
+ },
+ "data": [
+  {
+   "x": "K[F1,D1]",
+   "row": "F1",
+   "col": "D1",
+   "dof_row": "axial force F1",
+   "dof_col": "axial translation (axis 1)",
+   "level": "L2-L3 and L4-L5 pooled (not significantly different)",
+   "load": "axial compressive preload 500 N",
+   "mean": 2420.0,
+   "sd": 446.9,
+   "se": 158.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "N/mm",
+   "native": {
+    "mean": 2420,
+    "se": 158,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "K[F1,D6]",
+   "row": "F1",
+   "col": "D6",
+   "dof_row": "axial force F1",
+   "dof_col": "flexion-extension rotation (about axis 3)",
+   "level": "L2-L3 and L4-L5 pooled (not significantly different)",
+   "load": "axial compressive preload 500 N",
+   "mean": -90.41,
+   "sd": 95.77,
+   "se": 33.86,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "N/deg",
+   "native": {
+    "mean": -5180,
+    "se": 1940,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F2,D2]",
+   "row": "F2",
+   "col": "D2",
+   "dof_row": "A-P shear force F2",
+   "dof_col": "A-P shear translation (axis 2)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": 397.0,
+   "sd": 136.0,
+   "se": 68.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/mm",
+   "native": {
+    "mean": 397,
+    "se": 68,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "K[F2,D2]",
+   "row": "F2",
+   "col": "D2",
+   "dof_row": "A-P shear force F2",
+   "dof_col": "A-P shear translation (axis 2)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": 473.0,
+   "sd": 156.0,
+   "se": 78.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/mm",
+   "native": {
+    "mean": 473,
+    "se": 78,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "K[F2,D6]",
+   "row": "F2",
+   "col": "D6",
+   "dof_row": "A-P shear force F2",
+   "dof_col": "flexion-extension rotation (about axis 3)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": 157.1,
+   "sd": 46.43,
+   "se": 23.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/deg",
+   "native": {
+    "mean": 9000,
+    "se": 1330,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F2,D6]",
+   "row": "F2",
+   "col": "D6",
+   "dof_row": "A-P shear force F2",
+   "dof_col": "flexion-extension rotation (about axis 3)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": 193.7,
+   "sd": 75.4,
+   "se": 37.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/deg",
+   "native": {
+    "mean": 11100,
+    "se": 2160,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F3,D3]",
+   "row": "F3",
+   "col": "D3",
+   "dof_row": "lateral shear force F3",
+   "dof_col": "lateral shear translation (axis 3)",
+   "level": "L2-L3 and L4-L5 pooled (not significantly different)",
+   "load": "axial compressive preload 500 N",
+   "mean": 523.0,
+   "sd": 206.5,
+   "se": 73.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "N/mm",
+   "native": {
+    "mean": 523,
+    "se": 73,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "K[F3,D4]",
+   "row": "F3",
+   "col": "D4",
+   "dof_row": "lateral shear force F3",
+   "dof_col": "axial rotation (about axis 1)",
+   "level": "L2-L3 and L4-L5 pooled (not significantly different)",
+   "load": "axial compressive preload 500 N",
+   "mean": 233.9,
+   "sd": 93.3,
+   "se": 32.99,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "N/deg",
+   "native": {
+    "mean": 13400,
+    "se": 1890,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F3,D5]",
+   "row": "F3",
+   "col": "D5",
+   "dof_row": "lateral shear force F3",
+   "dof_col": "lateral bending rotation (about axis 2)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": -181.5,
+   "sd": 61.44,
+   "se": 30.72,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/deg",
+   "native": {
+    "mean": -10400,
+    "se": 1760,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F3,D5]",
+   "row": "F3",
+   "col": "D5",
+   "dof_row": "lateral shear force F3",
+   "dof_col": "lateral bending rotation (about axis 2)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": -202.5,
+   "sd": 43.63,
+   "se": 21.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "N/deg",
+   "native": {
+    "mean": -11600,
+    "se": 1250,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "K[F4,D4]",
+   "row": "F4",
+   "col": "D4",
+   "dof_row": "axial torque F4",
+   "dof_col": "axial rotation (about axis 1)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": 12.81,
+   "sd": 5.934,
+   "se": 2.967,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 734000,
+    "se": 170000,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F4,D4]",
+   "row": "F4",
+   "col": "D4",
+   "dof_row": "axial torque F4",
+   "dof_col": "axial rotation (about axis 1)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": 14.52,
+   "sd": 4.503,
+   "se": 2.251,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 832000,
+    "se": 129000,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F4,D5]",
+   "row": "F4",
+   "col": "D5",
+   "dof_row": "axial torque F4",
+   "dof_col": "lateral bending rotation (about axis 2)",
+   "level": "L2-L3 and L4-L5 pooled (not significantly different)",
+   "load": "axial compressive preload 500 N",
+   "mean": -4.747,
+   "sd": 1.654,
+   "se": 0.5847,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": -272000,
+    "se": 33500,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F5,D5]",
+   "row": "F5",
+   "col": "D5",
+   "dof_row": "lateral bending moment F5",
+   "dof_col": "lateral bending rotation (about axis 2)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": 4.119,
+   "sd": 0.4503,
+   "se": 0.2251,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 236000,
+    "se": 12900,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F5,D5]",
+   "row": "F5",
+   "col": "D5",
+   "dof_row": "lateral bending moment F5",
+   "dof_col": "lateral bending rotation (about axis 2)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": 6.58,
+   "sd": 1.564,
+   "se": 0.7819,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 377000,
+    "se": 44800,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F6,D6]",
+   "row": "F6",
+   "col": "D6",
+   "dof_row": "flexion-extension moment F6",
+   "dof_col": "flexion-extension rotation (about axis 3)",
+   "level": "L2-L3",
+   "load": "axial compressive preload 500 N",
+   "mean": 5.009,
+   "sd": 0.9425,
+   "se": 0.4712,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 287000,
+    "se": 27000,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "K[F6,D6]",
+   "row": "F6",
+   "col": "D6",
+   "dof_row": "flexion-extension moment F6",
+   "dof_col": "flexion-extension rotation (about axis 3)",
+   "level": "L4-L5",
+   "load": "axial compressive preload 500 N",
+   "mean": 10.04,
+   "sd": 4.782,
+   "se": 2.391,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 575000,
+    "se": 137000,
+    "unit": "N·mm/rad"
+   }
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p. 209); axis definitions Fig 1-2 (p. 206)",
+  "method": "table",
+  "uncertainty": "tabulated values (3 significant figures); converted from N, mm, rad",
+  "checked": true,
+  "check_notes": "All values re-read from rendered Table 1 image (pdftotext dropped minus signs: k16, k35, k45 are negative in the printed table). Conversion: N/rad -> N/deg x(pi/180); N·mm/rad -> Nm/deg /(1000*180/pi). Native values kept in data[].native. SD derived from SE x sqrt(n)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "each diagonal term within mean +- 1 SD; off-diagonal terms: same sign and order of magnitude"
+ },
+ "combine_group": "segment_stiffness__stiffness_matrix_6dof__lumbar_FSU__intact__preload_500N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "stiffness matrix",
+  "preload effect",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.gardnermorse2004.disc_only_pct_of_intact"
+ ]
+}

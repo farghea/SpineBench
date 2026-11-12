@@ -1,0 +1,100 @@
+{
+ "id": "fe_instrumented.gornet2011.L4L5_titanium_rods",
+ "title": "L4-L5 ROM with bilateral 5.5 mm titanium rod pedicle-screw fixation (Gornet 2011)",
+ "layer": "outcome",
+ "category": "fe_instrumented",
+ "subcategory": "destabilised + bilateral 5.5 mm titanium rods with pedicle screws at L4-L5",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "destabilised + bilateral 5.5 mm titanium rods with pedicle screws at L4-L5",
+ "quantity": {
+  "name": "ROM",
+  "definition": "L4-L5 segmental range of motion (total over both directions: flexion+extension, left+right LB, left+right AR) measured within an L1-sacrum specimen; bar value = mean (assumed), sd = whisker length (error-bar type not stated)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Gornet 2011",
+  "authors": "Gornet MF, Chan FW, Coleman JC, Murrell B, Nockels RP, Taylor BA, Lanman TH, Ochoa JA",
+  "year": 2011,
+  "journal": "J Biomech Eng 133(8):081009",
+  "doi": "10.1115/1.4004862",
+  "n": "5 specimens (fresh-frozen L1-sacrum spines; instrumented level L4-L5)",
+  "sample": "5 fresh-frozen human cadaveric lumbar spines L1-sacrum, radiographically screened to exclude disc degeneration, minimal-mild facet hypertrophy, no osteopenia",
+  "age": "mean 52.3 (SD 17.4) years",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L1 and sacrum potted (bone cement + pins); sacrum on 6-component load cell, L1 free (unconstrained). Pure moments applied to L1 by water-filled bags on loading arms, continuous cycling between endpoints: flexion 8 Nm, extension 6 Nm (with 450 N follower load, Patwardhan technique), lateral bending +/-6 Nm and axial rotation +/-5 Nm (no follower load). Data collected until two reproducible load-displacement loops (max 3 cycles); rate not reported. L4 and L5 motion relative to sacrum by Optotrak. Test sequence on each specimen: intact -> destabilised (partial discectomy + hemi-facetectomy at L4-L5) -> bilateral PEEK rods (LPR, Medtronic) -> bilateral 5.5 mm titanium rods (same 4 pedicle screws).",
+  "how_to_simulate": [
+   "Model L1-sacrum, fix the sacrum, leave L1 free",
+   "Flexion-extension: 450 N follower load + pure moment to L1, 8 Nm flexion and 6 Nm extension",
+   "Lateral bending +/-6 Nm and axial rotation +/-5 Nm without follower load",
+   "Condition: destabilised + bilateral 5.5 mm titanium rods with pedicle screws at L4-L5",
+   "Report L4-L5 total ROM per plane (sum of both directions)"
+  ],
+  "subject_model": null,
+  "notes": "ROM measured at L4-L5 inside a multi-segment specimen (not an isolated FSU). Asymmetric flexion/extension moments (8/6 Nm). Only the cadaveric ROM is extracted (device ASTM tests and FE results skipped).  Results text: ROM reduction vs intact (mean of specimens) flexion_extension_total 85%, lateral_bending_total 83%, axial_rotation_total 66% (p<0.001 each); no significant difference between PEEK and titanium."
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 450 N follower",
+   "mean": 1.32,
+   "sd": 0.91,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "+/-6 Nm",
+   "mean": 1.12,
+   "sd": 0.58,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "+/-5 Nm",
+   "mean": 1.42,
+   "sd": 0.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Fig 8 (bar chart; bar = presumably mean, one-sided whisker = error bar of unstated type, presumably SD); Results text for % reductions",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.05 deg (1 px = 0.019 deg; whisker read +/-0.05 deg)",
+  "checked": true,
+  "check_notes": "Page rendered at 250 dpi; axis calibrated on 8 tick marks (0-14 deg, 53.7 px/deg); bar tops and whisker caps found by column scan. Re-digitised visually at display scale: FE intact 8.82/11.41, LB intact 7.40/8.90, AR destab 5.00/6.70 - within 0.05 deg. Cross-check with text reductions vs intact: FE titanium 1.32/8.83 -> 85% (text 85%), PEEK 1.51/8.83 -> 83% (text 80%); LB Ti 85% (text 83%), PEEK 73% (text 71%); AR Ti 65% (text 66%), PEEK 58% (text 55%) - text values are means of per-specimen % and need not equal ratios of means."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (n=5)"
+ },
+ "combine_group": "fe_instrumented__rom__L4-L5_in_multiseg__posterior_rods_titanium__F8E6Nm_follower450N",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.gornet2011.L4L5_intact",
+  "fe_instrumented.gornet2011.L4L5_destabilized",
+  "fe_instrumented.gornet2011.L4L5_peek_rods",
+  "same 5 specimens, sequential conditions"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "follower load (F/E only)",
+  "instrumented",
+  "titanium"
+ ]
+}

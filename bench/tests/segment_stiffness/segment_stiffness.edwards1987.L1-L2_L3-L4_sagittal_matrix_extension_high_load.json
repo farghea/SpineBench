@@ -1,0 +1,167 @@
+{
+ "id": "segment_stiffness.edwards1987.L1-L2_L3-L4_sagittal_matrix_extension_high_load",
+ "title": "Lumbar FSU sagittal 3x3 stiffness matrix under combined loads: extension, high load",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "stiffness_matrix_6dof",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L3-L4"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "sagittal-plane stiffness matrix (3x3: axial, A-P, flexion-extension)",
+  "definition": "'standing' high-load regime: stiffness fitted from (FH1,FV1), (FH2,FV1), (FH1,FV2), (FH2,FV2). Right-hand Cartesian system of Panjabi et al.: origin at the centre of the SUPERIOR vertebral body in the unloaded state; y axial (vertical), z antero-posterior, theta_x flexion-extension rotation; lower vertebra fixed; sagittal 3x3 stiffness (symmetric, Kij = Kji, 6 distinct coefficients) estimated by least squares from load/displacement differences between combined-load states; all applied loads (incl. deformation-dependent components) resolved to the origin.",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Edwards 1987",
+  "authors": "Edwards WT, Hayes WC, Posner I, White AA III, Mann RW",
+  "year": 1987,
+  "journal": "J Biomech Eng 109:35-42",
+  "doi": "",
+  "n": "12 lumbar FSUs (6 L1-L2, 6 L3-L4) from 7 spines T12-S1; 6 loaded in flexion (S16,S18,S21,S03), 6 in extension (S04,S13,S23); n per condition 4-6",
+  "sample": "fresh-frozen human cadaveric lumbar FSUs (autopsy), no history of spinal surgery/disease",
+  "age": "not reported in this paper",
+  "sex": "not reported in this paper",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Dead-weight/cable combined loading: 9 combinations of compressive force (0, FV1, FV2 = ~0, 70, 140% of estimated standing L3 load; FV1 308-400 N, FV2 616-800 N) and horizontal A-P force (0, FH1, FH2 = 1.5 FH1; FH1 234-320 N, sign + for flexion, - for extension), compressive load applied ~30 mm above the vertebral centre; each state held 4 min before displacements were recorded (two steel balls, LVDTs). L1-L2 and L3-L4 not different (P=0.5) and pooled.",
+  "how_to_simulate": [
+   "Fix the inferior vertebra; reference point = centre of the superior vertebral body (unloaded)",
+   "Apply the combined sagittal loads of the regime: FV1/FV2 (~310-400 / 620-800 N) compression with FH1/FH2 (~230-320 / 350-480 N) A-P force directed to produce extension (Table 1 gives specimen-specific values)",
+   "Record uy, uz, theta_x of the superior vertebral centre for each load state and resolve applied loads to that point",
+   "Fit the symmetric 3x3 stiffness (Kyy, Kzz, Ktt, Kyz, Kzt, Kyt) by least squares to the load/displacement differences and compare (convert rad to deg)"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate system: Right-hand Cartesian system of Panjabi et al.: origin at the centre of the SUPERIOR vertebral body in the unloaded state; y axial (vertical), z antero-posterior, theta_x flexion-extension rotation; lower vertebra fixed; sagittal 3x3 stiffness (symmetric, Kij = Kji, 6 distinct coefficients) estimated by least squares from load/displacement differences between combined-load states; all applied loads (incl. deformation-dependent components) resolved to the origin. Deformation-dependent moment from the offset compressive load is included in the load resolution. Large SD (some SD > mean) reflects specimen variability; flexion stiffer than extension (Kyy significant at both loads)."
+ },
+ "data": [
+  {
+   "x": "Kyy",
+   "dof": "axial force Fy / axial displacement uy",
+   "load": "extension combined loads, high load",
+   "mean": 484.7,
+   "sd": 141.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm",
+   "native": {
+    "mean": 484.7,
+    "sd": 141.4,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "Kzz",
+   "dof": "A-P force Fz / A-P displacement uz",
+   "load": "extension combined loads, high load",
+   "mean": 195.7,
+   "sd": 101.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm",
+   "native": {
+    "mean": 195.7,
+    "sd": 101.2,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "Ktt",
+   "dof": "flexion-extension moment Mx / rotation theta_x",
+   "load": "extension combined loads, high load",
+   "mean": 1.217,
+   "sd": 0.9742,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg",
+   "native": {
+    "mean": 69719,
+    "sd": 55820,
+    "unit": "N·mm/rad"
+   }
+  },
+  {
+   "x": "Kyz",
+   "dof": "coupling axial / A-P",
+   "load": "extension combined loads, high load",
+   "mean": -25.1,
+   "sd": 53.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm",
+   "native": {
+    "mean": -25.1,
+    "sd": 53.7,
+    "unit": "N/mm"
+   }
+  },
+  {
+   "x": "Kzt",
+   "dof": "coupling A-P force / flexion-extension rotation",
+   "load": "extension combined loads, high load",
+   "mean": -15.48,
+   "sd": 29.62,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/deg",
+   "native": {
+    "mean": -887,
+    "sd": 1697,
+    "unit": "N/rad"
+   }
+  },
+  {
+   "x": "Kyt",
+   "dof": "coupling axial force / flexion-extension rotation",
+   "load": "extension combined loads, high load",
+   "mean": -33.96,
+   "sd": 33.96,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/deg",
+   "native": {
+    "mean": -1946,
+    "sd": 1946,
+    "unit": "N/rad"
+   }
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (p.38); loads Table 1 (p.36); coordinate system p.36-37 and Fig 2",
+  "method": "table",
+  "uncertainty": "tabulated values; converted from N·mm/rad and N/rad",
+  "checked": true,
+  "check_notes": "All 12 mean/SD values re-read from the rendered Table 2 image. Ktt converted N·mm/rad -> Nm/deg (/57295.8); Kzt, Kyt N/rad -> N/deg (/57.2958). Native values in data[].native."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "diagonal terms within mean +- 1 SD; coupling terms sign and order of magnitude"
+ },
+ "combine_group": "segment_stiffness__sagittal_stiffness_matrix_combined_load__lumbar_FSU__intact__extension_high_load",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "stiffness matrix",
+  "combined loading",
+  "passive"
+ ]
+}

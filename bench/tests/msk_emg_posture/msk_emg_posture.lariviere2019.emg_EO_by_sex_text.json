@@ -1,0 +1,118 @@
+{
+ "id": "msk_emg_posture.lariviere2019.emg_EO_by_sex_text",
+ "title": "External oblique EMG by sex, upright load holding (text values)",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "upright static load holding EMG (%MVC), sex effect",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "quantity": {
+  "name": "normalised EMG",
+  "definition": "surface EMG RMS over middle 3 s of 5-s hold, normalised to muscle-specific MVA = peak RMS (250-ms windows) in any of 6 standing isometric MVCs (flexion, extension, L/R lateral bending, L/R axial rotation) in a triaxial dynamometer (Larivière 2001b); averaged over 2 trials and over left/right homologous muscles; paper's unit '%MVA'",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Larivière 2019",
+  "authors": "Larivière C, Shahvarpour A, Gravel C, Gauvin M, Jean A-M, Viau A, Mecheri H",
+  "year": 2019,
+  "journal": "J Electromyogr Kinesiol 46:55-62",
+  "doi": "10.1016/j.jelekin.2019.03.001",
+  "n": "40 subjects (20F, 20M)",
+  "sample": "healthy adults, age-matched between sexes (IRSST accepted manuscript)",
+  "age": "F 23.0±2.2; M 23.2±2.3 y",
+  "sex": "20F, 20M",
+  "height_cm": "F 167±5; M 181±6",
+  "weight_kg": "F 59.7±7.3; M 73.2±6.2"
+ },
+ "protocol": {
+  "summary": "Main SEX effect on EO activation, averaged over postures and loads within each sub-study (Height-study P1/P2; Distance-study P2/P3).",
+  "how_to_simulate": [
+   "Upright standing, trunk vertical (C7 kept vertical with feedback; L5/S1 not moving horizontally), knees/heels stabilised",
+   "Hold the bar with both hands at position P1 (L5/S1 height, close; ~20-23 cm anterior to L5/S1), P2 (shoulder height, close) or P3 (shoulder height, arms extended)",
+   "Apply hand load 0.44 kg (0% BW), 5% BW or 10% BW (Table 1 masses)",
+   "Simulate female and male subjects across all positions/loads of the sub-study and average model EO activation; compare with sex means"
+  ],
+  "subject_model": {
+   "sex": "female and male separately",
+   "age": "F 23.0, M 23.2 y",
+   "height_cm": "F 167, M 181",
+   "weight_kg": "F 59.7, M 73.2",
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "Discussion: across postures females 4.2-5.6 %MVA, males 2.7-3.3 %MVA; F-M differences P1 1.9, P2 1.5, P3 2.3 %MVA (d=1.13, 0.86, 1.00)."
+ },
+ "data": [
+  {
+   "x": "Height-study (P1 & P2, all loads)",
+   "load": "0/5/10% BW pooled",
+   "sex": "females",
+   "site": "bilateral (averaged) external oblique, placement per McGill 1991",
+   "mean": 4.5,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "Height-study (P1 & P2, all loads)",
+   "load": "0/5/10% BW pooled",
+   "sex": "males",
+   "site": "bilateral (averaged) external oblique, placement per McGill 1991",
+   "mean": 2.8,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "Distance-study (P2 & P3, all loads)",
+   "load": "0/5/10% BW pooled",
+   "sex": "females",
+   "site": "bilateral (averaged) external oblique, placement per McGill 1991",
+   "mean": 4.9,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "Distance-study (P2 & P3, all loads)",
+   "load": "0/5/10% BW pooled",
+   "sex": "males",
+   "site": "bilateral (averaged) external oblique, placement per McGill 1991",
+   "mean": 3.0,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  }
+ ],
+ "extraction": {
+  "from": "Results text (EMG results from the Height-study / Distance-study, abdominal muscles)",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read: '(F > M; 4.5 ± 1.8% > 2.8 ± 1.6% MVA; d = 0.96)' and '(F > M; 4.9 ± 2.8% > 3.0 ± 1.9% MVA; d = 0.79)'."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_emg_posture__emg__external_oblique__upright_hold_by_sex",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "sex",
+  "%MVC",
+  "text",
+  "IRSST"
+ ]
+}

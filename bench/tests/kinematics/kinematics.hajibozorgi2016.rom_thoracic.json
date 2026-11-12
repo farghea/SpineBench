@@ -1,0 +1,111 @@
+{
+ "id": "kinematics.hajibozorgi2016.rom_thoracic",
+ "title": "Thoracic (T1-T12, T1-T5, T5-T12) peak forward flexion, IMU",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12",
+  "T1-T5",
+  "T5-T12"
+ ],
+ "condition": "healthy, standing, upright to full forward flexion",
+ "quantity": {
+  "name": "range of flexion",
+  "definition": "Sagittal rotation relative to initial upright posture; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, upper thorax = T1 vs T5, lower thorax = T5 vs T12, total thorax = T1 vs T12; peak at maximum voluntary flexion",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Hajibozorgi 2016",
+  "authors": "Hajibozorgi M, Arjmand N",
+  "year": 2016,
+  "journal": "J Biomech 49(6):913-918",
+  "doi": "10.1016/j.jbiomech.2015.09.003",
+  "n": "40 males",
+  "sample": "40 young healthy male students, no history of back surgery or recent back/hip/knee complications",
+  "age": "22.5 (SD 1.8), range 20-26 y",
+  "sex": "male",
+  "height_cm": "177.8 (SD 7.3), range 163-194",
+  "weight_kg": "75.5 (SD 10.8), range 54-99"
+ },
+ "protocol": {
+  "summary": "Peak voluntary forward flexion from neutral upright standing; segment ROMs from 4 skin-mounted inertial sensors.",
+  "measurement": {
+   "method": "IMU",
+   "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes, 100 Hz",
+   "posture": "standing, feet shoulder-width, knees extended",
+   "task": "slow (4-5 s) forward flexion from neutral upright to maximum voluntary flexion, 3 trials"
+  },
+  "how_to_use": [
+   "Do not treat T1-T12 as rigid: apply ~20.5 deg thoracic flexion at full trunk flexion.",
+   "Allocate ~72% of it (14.8 deg) to T5-T12 and ~28% (5.8 deg) to T1-T5."
+  ],
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "total thorax T1 vs T12, full flexion",
+   "load": null,
+   "mean": 20.5,
+   "sd": 6.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40,
+   "segment": "T1-T12"
+  },
+  {
+   "x": "lower thorax T5 vs T12, full flexion",
+   "load": null,
+   "mean": 14.8,
+   "sd": 5.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40,
+   "segment": "T5-T12"
+  },
+  {
+   "x": "upper thorax T1 vs T5, full flexion",
+   "load": null,
+   "mean": 5.8,
+   "sd": 3.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 40,
+   "segment": "T1-T5"
+  }
+ ],
+ "extraction": {
+  "from": "Abstract and Results 3.1 (text)",
+  "method": "text",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Re-read abstract and Section 3.1; values identical in both places."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__thoracic__healthy_standing__max_forward_flexion",
+ "shared_sample_with": [
+  "kinematics.hajibozorgi2016.rom_trunk",
+  "kinematics.hajibozorgi2016.rom_lumbar",
+  "kinematics.hajibozorgi2016.rom_pelvis",
+  "kinematics.hajibozorgi2016.rotations_vs_trunk_angle",
+  "kinematics.hajibozorgi2016.lp_ratio_flexion",
+  "kinematics.hajibozorgi2016.share_percent_flexion"
+ ],
+ "tags": [
+  "in vivo",
+  "IMU",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults"
+ ]
+}

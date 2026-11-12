@@ -1,0 +1,171 @@
+{
+ "id": "fe_resection_lumbar.meakin2001.lumbar_hemidisc_intact_annulus_marker_direction",
+ "title": "Direction of mid-sagittal annulus marker movement under compression, intact hemi-disc",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "partial nucleotomy, internal annulus deformation",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact hemi-disc",
+ "quantity": {
+  "name": "marker movement direction",
+  "definition": "number of hemi-disc specimens whose marker moved posteriorly (P), anteriorly (A) or undetermined (X) under compression; two-tailed sign test p",
+  "unit": "count of specimens"
+ },
+ "source": {
+  "short": "Meakin 2001",
+  "authors": "Meakin JR, Redpath TW, Hukins DWL",
+  "year": 2001,
+  "journal": "Clin Biomech",
+  "doi": "10.1016/S0268-0033(00)00075-9",
+  "n": "12 specimens (12 hemi-discs from 6 lumbar discs: L4/L5 x2, L2/L3 x2, L3/L4 x2) for mechanics; 11 whole discs for MRI",
+  "sample": "human cadaver lumbar discs bisected mid-sagittally, Thompson grade 2-4",
+  "age": "spine C 50 y, spine E 74 y; others unknown",
+  "sex": "unknown",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Mid-sagittally bisected lumbar discs (with vertebral halves) sealed behind a glass window; displacement-controlled compression up to 1.8 mm at 0.2 mm/s (Instron), intact then after partial nucleotomy (mean 0.555 g, SD 0.065 g nucleus removed through the cut face). Seven Alcian blue markers M1 (outer posterior lamella) ... M7 (outer anterior lamella) in the mid-transverse plane; direction of horizontal marker movement (P posterior / A anterior / X undetermined) from video images at start and full (or pre-extrusion) compression. Maximum load: intact 420 N (SD 230), denucleated 270 N (SD 150).",
+  "how_to_simulate": [
+   "Model a hemi-disc (mid-sagittal half) between half-vertebrae with a rigid frictionless window on the cut face; compress axially up to 1.8 mm.",
+   "Track horizontal (AP) displacement of 7 equally spaced points across the mid-sagittal annulus/nucleus from posterior (M1) to anterior (M7).",
+   "Repeat after removing ~0.55 g nucleus; compare direction of movement (outward/inward) with the majority direction per marker."
+  ],
+  "subject_model": null,
+  "notes": "Resection steps in order: (1) intact hemi-disc; (2) partial nucleotomy (marker M3 removed with nucleus). Movement magnitudes 0.005-2.410 mm (mean 0.677, SD 0.528) - not per marker. Catalog DOI 10.1016/S0268-0033(00)00077-2 differs from printed PII S0268-0033(00)00075-9 (used here)."
+ },
+ "data": [
+  {
+   "x": "marker_M1",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 10,
+   "count_anterior": 0,
+   "count_undetermined": 2,
+   "p_sign_test": "0.002",
+   "note": "M1 = outer posterior lamella, M7 = outer anterior lamella"
+  },
+  {
+   "x": "marker_M2",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 5,
+   "count_anterior": 1,
+   "count_undetermined": 6,
+   "p_sign_test": "0.219"
+  },
+  {
+   "x": "marker_M3",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 3,
+   "count_anterior": 3,
+   "count_undetermined": 6,
+   "p_sign_test": "1.000"
+  },
+  {
+   "x": "marker_M4",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 1,
+   "count_anterior": 8,
+   "count_undetermined": 3,
+   "p_sign_test": "0.040"
+  },
+  {
+   "x": "marker_M5",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 0,
+   "count_anterior": 11,
+   "count_undetermined": 1,
+   "p_sign_test": "<0.001"
+  },
+  {
+   "x": "marker_M6",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 0,
+   "count_anterior": 11,
+   "count_undetermined": 1,
+   "p_sign_test": "<0.001"
+  },
+  {
+   "x": "marker_M7",
+   "load": "axial compression up to 1.8 mm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "step": "1 intact",
+   "count_posterior": 0,
+   "count_anterior": 11,
+   "count_undetermined": 1,
+   "p_sign_test": "<0.001",
+   "note": "M1 = outer posterior lamella, M7 = outer anterior lamella"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed (counts)",
+  "checked": true,
+  "check_notes": "All counts and p-values re-read from Table 2."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model marker displacement direction equals the majority direction for every marker with sign-test p<0.05"
+ },
+ "combine_group": "fe_resection_lumbar__annulus_marker_direction__lumbar_hemidisc__intact__compression1.8mm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "hemi-disc",
+  "nucleotomy",
+  "annulus",
+  "categorical"
+ ]
+}

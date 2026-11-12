@@ -1,0 +1,136 @@
+{
+ "id": "msk_idp_thoracic.meir2007.hydrostatic_pressure_anaesthetised",
+ "title": "Meir 2007: intraoperative disc hydrostatic pressure, anaesthetised lateral-lying patients (scoliotic vs non-scoliotic)",
+ "layer": "outcome",
+ "category": "msk_idp_thoracic",
+ "subcategory": "thoracolumbar in vivo, intraoperative (no muscle load)",
+ "region": "thoracic",
+ "levels": [
+  "T3-T4 to L5-S1 (mixed)"
+ ],
+ "condition": "general anaesthesia, lateral decubitus, anterior surgical approach (minimal muscle load)",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute hydrostatic nucleus pressure (MPa) where a hydrostatic region was found (horizontal = vertical stress for >= 2 consecutive 5 mm steps); mean +/- SD over discs",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Meir 2007",
+  "authors": "Meir AR, Fairbank JCT, Jones DA, McNally DS, Urban JPG",
+  "year": 2007,
+  "journal": "Scoliosis 2:4",
+  "doi": "10.1186/1748-7161-2-4",
+  "n": "11 patients (7 scoliotic: 25 discs; 4 non-scoliotic: 10 discs)",
+  "sample": "7 scoliosis patients (6F/1M, 13-25 y, Cobb 44-78 deg, thoracolumbar curves) and 4 non-scoliotic patients (4F, 15-40 y: 2 kyphosis, 2 discogenic LBP)",
+  "age": "13-40",
+  "sex": "10F/1M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Stress profilometry (side-mounted needle transducer, 1.33 mm) at 5 mm steps across exposed discs during anterior surgery, patients anaesthetised and lying laterally.",
+  "how_to_simulate": [
+   "Lateral lying, no muscle activity (anaesthesia), no external load",
+   "Output: disc pressure from swelling/ligament tension only (a muscle-driven MSK model predicts ~0)",
+   "Use only as a lower-bound / baseline check of thoracolumbar IDP without loading"
+  ],
+  "subject_model": {
+   "per_patient": "Meir 2007 Tables 1-2 (age, sex, diagnosis, curve type, Cobb angle, apical level, discs recorded); height/weight not reported",
+   "disc_area_mm2": null
+  },
+  "notes": "Not an upright posture; mostly scoliotic discs. Informative baseline only."
+ },
+ "data": [
+  {
+   "x": "scoliotic discs with a hydrostatic region (14/25 discs, 7 patients)",
+   "load": "none",
+   "mean": 0.25,
+   "sd": 0.1,
+   "min": 0.1,
+   "max": 0.43,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "non-scoliotic: patient 10, L4/5 (discogenic LBP, 26 y F)",
+   "load": "none",
+   "mean": 0.214,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "non-scoliotic: patient 11, L4/5 (central region, negative)",
+   "load": "none",
+   "mean": -0.023,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "non-scoliotic: patient 11, L5/S1",
+   "load": "none",
+   "mean": 0.04,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "non-scoliotic: patient 8, T11/12 and L1/2 (kyphosis, 18 y F)",
+   "load": "none",
+   "mean": 0.03,
+   "sd": 0.022,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2
+  },
+  {
+   "x": "literature comparison (Yonezawa data, anaesthetised LBP patients, discs with hydrostatic nuclei 13/18)",
+   "load": "none",
+   "mean": 0.058,
+   "sd": 0.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13
+  },
+  {
+   "x": "literature comparison, age-matched subset",
+   "load": "none",
+   "mean": 0.07,
+   "sd": 0.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Meir 2007 Results text p.6 and p.8-9 (Abstract: 0.25 vs <0.07 MPa)",
+  "method": "text",
+  "uncertainty": "text values",
+  "checked": true,
+  "check_notes": "Re-read Results; patient 9 had no hydrostatic regions (mean vertical stress 0.327 +/- 0.33, horizontal 0.627 +/- 0.46 MPa over 4 discs) - not added as IDP."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "informative only (unloaded, anaesthetised)"
+ },
+ "combine_group": "msk_idp_thoracic__idp_abs__thoracolumbar__anaesthetised_lateral_lying__none",
+ "tags": [
+  "thoracolumbar",
+  "in vivo",
+  "IDP",
+  "intraoperative",
+  "scoliosis",
+  "patients",
+  "no muscle load"
+ ]
+}

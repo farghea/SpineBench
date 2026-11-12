@@ -1,0 +1,97 @@
+{
+ "id": "passive_tissue.chazal1985.ITL_thoracic_linear_stiffness_AB",
+ "title": "Chazal 1985 thoracic ITL linear-region stiffness (derived) (per specimen)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "T7-T8",
+  "T9-T10"
+ ],
+ "condition": "intact (cadaveric + surgical)",
+ "quantity": {
+  "name": "linear-region stiffness (derived)",
+  "definition": "(F_B - F_A)/(dl_B - dl_A) computed by the extractor from Table 3 points A and B",
+  "unit": "N/mm"
+ },
+ "source": {
+  "short": "Chazal 1985",
+  "authors": "Chazal J, Tanguy A, Bourges M, Gaurel G, Escande G, Guillot M, Vanneuville G",
+  "year": 1985,
+  "journal": "J Biomech 18(3):167-176",
+  "doi": "",
+  "n": "43 whole ligaments from 18 spines (34 from 12 fresh cadavers <24 h post mortem, 30-80 y, mean 53; 9 SSL/ISL from living surgical subjects)",
+  "sample": "human whole spinal ligaments (ALL, PLL, LF, ISL+SSL, ITL), cervical to lumbar; bone clamped",
+  "age": "cadavers 30-80 y (mean 53); surgical donors 40-73 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of entire ligaments, bones held in custom clamps (never the ligament or its insertions), universal joints; constant rate 1 mm/min for loading and relaxation; cadaver ligaments kept in water/alcohol/glycerin solution, surgical ligaments in Ringer and tested <1 h. CSA measured every 2 mm with a palpator, smallest value used for stress; length between nearest bony insertions. Curves sigmoid: point A = end of initial toe (concave) region, point B = end of linear region, point C = apex (rupture).",
+  "how_to_simulate": [
+   "Model the ligament between its bony insertions at the reported resting length and CSA",
+   "Apply uniaxial elongation at quasi-static rate (1 mm/min) until rupture",
+   "Report force/elongation (or stress/strain) at end of toe region (A), end of linear region (B) and at failure (C)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T7-T8 (cadaver, 30 y)",
+   "load": "",
+   "mean": 120.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 8.5,
+   "csa_mm2": 1.7
+  },
+  {
+   "x": "T9-T10 (cadaver, 30 y)",
+   "load": "",
+   "mean": 125.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 9,
+   "csa_mm2": 2
+  },
+  {
+   "x": "mean of specimens above (computed by extractor)",
+   "load": "",
+   "mean": 122.5,
+   "sd": 3.54,
+   "min": 120.0,
+   "max": 125.0,
+   "median": null,
+   "n": 2
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "derived",
+  "checked": true,
+  "check_notes": "Per-specimen values read from rotated Table 3 (200-dpi render; OCR verified/corrected e.g. LF T6-T7 stress A 2.75, ALL T10-T11 CSA 25). Summary row (mean, SD, min, max) computed by the extractor, not reported by the paper for this region. Cervical specimens excluded from this region test. Stiffness is DERIVED by the extractor (not reported by the paper): slope between points A and B."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__stiffness_AB_secant__ITL_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ITL",
+  "derived"
+ ]
+}

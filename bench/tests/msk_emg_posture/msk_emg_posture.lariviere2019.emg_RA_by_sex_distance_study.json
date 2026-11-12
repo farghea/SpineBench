@@ -1,0 +1,190 @@
+{
+ "id": "msk_emg_posture.lariviere2019.emg_RA_by_sex_distance_study",
+ "title": "Rectus abdominis EMG by sex: distance (P2/P3) and load marginal means",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "upright static load holding EMG (%MVC), sex effect",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "quantity": {
+  "name": "normalised EMG",
+  "definition": "surface EMG RMS over middle 3 s of 5-s hold, normalised to muscle-specific MVA = peak RMS (250-ms windows) in any of 6 standing isometric MVCs (flexion, extension, L/R lateral bending, L/R axial rotation) in a triaxial dynamometer (Larivière 2001b); averaged over 2 trials and over left/right homologous muscles; paper's unit '%MVA'",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Larivière 2019",
+  "authors": "Larivière C, Shahvarpour A, Gravel C, Gauvin M, Jean A-M, Viau A, Mecheri H",
+  "year": 2019,
+  "journal": "J Electromyogr Kinesiol 46:55-62",
+  "doi": "10.1016/j.jelekin.2019.03.001",
+  "n": "40 subjects (20F, 20M)",
+  "sample": "healthy adults, age-matched between sexes (IRSST accepted manuscript)",
+  "age": "F 23.0±2.2; M 23.2±2.3 y",
+  "sex": "20F, 20M",
+  "height_cm": "F 167±5; M 181±6",
+  "weight_kg": "F 59.7±7.3; M 73.2±6.2"
+ },
+ "protocol": {
+  "summary": "Distance-study (P2 vs P3 at shoulder height) RA activation shown separately for 20 males and 20 females as marginal means (left plot: averaged across loads; right plot: averaged across P2/P3).",
+  "how_to_simulate": [
+   "Upright standing, trunk vertical (C7 kept vertical with feedback; L5/S1 not moving horizontally), knees/heels stabilised",
+   "Hold the bar with both hands at position P1 (L5/S1 height, close; ~20-23 cm anterior to L5/S1), P2 (shoulder height, close) or P3 (shoulder height, arms extended)",
+   "Apply hand load 0.44 kg (0% BW), 5% BW or 10% BW (Table 1 masses)",
+   "Simulate a female (167 cm, 59.7 kg) and a male (181 cm, 73.2 kg) subject; average model RA activation across the factor not shown, compare with sex-specific values"
+  ],
+  "subject_model": {
+   "sex": "female and male separately",
+   "age": "F 23.0, M 23.2 y",
+   "height_cm": "F 167, M 181",
+   "weight_kg": "F 59.7, M 73.2",
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "SD range 1.5-2.4 (left) and 1.4-2.3 %MVA (right) per caption."
+ },
+ "data": [
+  {
+   "x": "P2 (marginal over loads)",
+   "load": "all loads (mean of 0/5/10% BW)",
+   "sex": "males",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 1.94,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P3 (marginal over loads)",
+   "load": "all loads (mean of 0/5/10% BW)",
+   "sex": "males",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "0% BW (bar only, 0.44 kg)",
+   "sex": "males",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 1.87,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "5% BW (F 2.9, M 3.6 kg)",
+   "sex": "males",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.01,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "10% BW (F 6.0, M 7.2 kg)",
+   "sex": "males",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2 (marginal over loads)",
+   "load": "all loads (mean of 0/5/10% BW)",
+   "sex": "females",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.35,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P3 (marginal over loads)",
+   "load": "all loads (mean of 0/5/10% BW)",
+   "sex": "females",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 3.24,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "0% BW (bar only, 0.44 kg)",
+   "sex": "females",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.26,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "5% BW (F 2.9, M 3.6 kg)",
+   "sex": "females",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 2.81,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "P2+P3 (marginal over distance)",
+   "load": "10% BW (F 6.0, M 7.2 kg)",
+   "sex": "females",
+   "site": "bilateral (averaged) rectus abdominis, ~2 cm above and 2 cm lateral to umbilicus",
+   "mean": 3.31,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4 (manuscript p.22)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.05 %MVC (300 dpi, axis 0-3.5 calibrated on 8 ticks)",
+  "checked": true,
+  "check_notes": "Diamond centres from pixel runs; visual re-read (F 10%BW ≈3.3, M 0%BW ≈1.87) agrees."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= SD (1.4-2.4 %MVC); F>M direction"
+ },
+ "combine_group": "msk_emg_posture__emg__rectus_abdominis__upright_hold_shoulder_height_by_sex",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "sex",
+  "%MVC",
+  "digitised",
+  "IRSST"
+ ]
+}

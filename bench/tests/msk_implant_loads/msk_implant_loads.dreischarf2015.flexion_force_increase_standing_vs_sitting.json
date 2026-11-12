@@ -1,0 +1,404 @@
+{
+ "layer": "outcome",
+ "category": "msk_implant_loads",
+ "region": "lumbar",
+ "id": "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+ "title": "Increase of VBR resultant force at maximal trunk flexion vs upright, standing vs sitting, per patient",
+ "subcategory": "VBR force increase, flexion standing vs sitting",
+ "levels": [
+  "L1 (VBR, WP1-WP4)",
+  "L3 (VBR, WP5)"
+ ],
+ "condition": "in vivo, VBR + posterior fixator, >6 months post-op",
+ "quantity": {
+  "name": "resultant force increase on VBR",
+  "unit": "N",
+  "definition": "RELATIVE: increase of the resultant VBR force at maximal trunk inclination (point B) minus the average force during upright standing (for standing flexion) or upright sitting on a stool (for sitting flexion), same day. Per patient median and range over trials; max inclination angle from Fig 3a."
+ },
+ "source": {
+  "short": "Dreischarf 2015",
+  "authors": "Dreischarf M, Albiol L, Zander T, Arshad R, Graichen F, Bergmann G, Schmidt H, Rohlmann A",
+  "year": 2015,
+  "journal": "J Biomech 48:560-565",
+  "doi": "10.1016/j.jbiomech.2015.01.007",
+  "n": "5 patients (4 M, 1 F) with telemeterised VBR (WP1-WP4 at L1, WP5 at L3); 135 trials (82 standing, 53 sitting) from 37 sessions",
+  "sample": "in vivo, patients with A3 compression fracture treated with posterior internal fixator + telemeterised vertebral body replacement; only sessions >6 months post-op (up to 65 months)",
+  "age": "WP1 62, WP2 71, WP3 69, WP4 63, WP5 66 y (at surgery)",
+  "sex": "4 M (WP1, WP2, WP4, WP5), 1 F (WP3)",
+  "height_cm": "WP1 168, WP2 169, WP3 168, WP4 170, WP5 180",
+  "weight_kg": "WP1 66, WP2 74, WP3 64, WP4 60, WP5 63",
+  "patients": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006",
+    "days_postop": ">6 months (sessions 6-65 months post-op)"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006",
+    "days_postop": ">6 months (sessions 6-65 months post-op)"
+   },
+   "WP3": {
+    "sex": "F",
+    "age": 69,
+    "height_cm": 168,
+    "weight_kg": 64,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "03/2007",
+    "days_postop": ">6 months (sessions 6-65 months post-op)"
+   },
+   "WP4": {
+    "sex": "M",
+    "age": 63,
+    "height_cm": 170,
+    "weight_kg": 60,
+    "bmi": 21,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "01/2008",
+    "days_postop": ">6 months (sessions 6-65 months post-op)"
+   },
+   "WP5": {
+    "sex": "M",
+    "age": 66,
+    "height_cm": 180,
+    "weight_kg": 63,
+    "bmi": 19,
+    "fractured_vertebra": "L3",
+    "implant_level": "L3 VBR",
+    "fixation": "internal fixator L2-L4",
+    "implantation": "07/2008",
+    "days_postop": ">6 months (sessions 6-65 months post-op)"
+   }
+  }
+ },
+ "protocol": {
+  "summary": "Forward flexion of the upper body while standing (hands close to legs, arms hanging) and while sitting on a stool without backrest/armrests (arms hanging laterally). Force increase = force at max inclination minus mean upright force of the same posture.",
+  "how_to_simulate": [
+   "Model each patient (Table 1) upright standing and upright sitting on a stool (no backrest), arms hanging",
+   "Flex the trunk to the reported maximal inclination (standing ~53 deg, sitting ~30 deg; per-patient medians in data)",
+   "Compute resultant force at the implant level (L1, or L3 for WP5) in the flexed and the upright posture of the same position and take the difference (N)",
+   "A whole-spine MSK model outputs total segment compression at the implant level, not the implant share; compare trends/relative changes unless the model includes the VBR and posterior fixator; the key target is the larger increase standing (~330 N) than sitting (~200 N)"
+  ],
+  "subject_model": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006"
+   },
+   "WP3": {
+    "sex": "F",
+    "age": 69,
+    "height_cm": 168,
+    "weight_kg": 64,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "03/2007"
+   },
+   "WP4": {
+    "sex": "M",
+    "age": 63,
+    "height_cm": 170,
+    "weight_kg": 60,
+    "bmi": 21,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "01/2008"
+   },
+   "WP5": {
+    "sex": "M",
+    "age": 66,
+    "height_cm": 180,
+    "weight_kg": 63,
+    "bmi": 19,
+    "fractured_vertebra": "L3",
+    "implant_level": "L3 VBR",
+    "fixation": "internal fixator L2-L4",
+    "implantation": "07/2008"
+   },
+   "implant_note": "VBR replaces parts of the fractured vertebral body and the adjacent discs; posterior internal fixator remains in situ",
+   "source": "Dreischarf 2015 Table 1 (sex, age, height, body mass, BMI, fractured vertebra, fixator levels, implantation date)",
+   "disc_area_mm2": null
+  },
+  "notes": "Load measured on a telemeterised vertebral body replacement (modified Synex, 6 load components, accuracy ~2% force / 5% moment of 3000 N / 20 Nm calibration range) that shares the load with the posterior internal fixator, residual vertebral bone and bone graft; the VBR force is NOT the total spinal load. Text: average maximal inclination 30 deg sitting vs 53 deg standing; force increase ~200 N sitting vs ~330 N standing (smaller in all five patients sitting); plateau onset ~21 deg sitting (12 deg smaller than standing); plateau in ~75% of sitting trials; resultant moments usually <4 Nm."
+ },
+ "data": [
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 173,
+   "max": 340,
+   "median": 270,
+   "n": 32,
+   "patient": "WP1",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 63.5,
+    "min": 52.9,
+    "max": 72.8
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 173,
+   "max": 398,
+   "median": 330,
+   "n": 18,
+   "patient": "WP2",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 66.1,
+    "min": 57.0,
+    "max": 73.6
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 141,
+   "max": 525,
+   "median": 352,
+   "n": 17,
+   "patient": "WP3",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 44.9,
+    "min": 29.9,
+    "max": 57.3
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 191,
+   "max": 264,
+   "median": 211,
+   "n": 5,
+   "patient": "WP4",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 53.1,
+    "min": 51.9,
+    "max": 58.1
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 233,
+   "max": 428,
+   "median": 334,
+   "n": 10,
+   "patient": "WP5",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 43.8,
+    "min": 41.0,
+    "max": 49.3
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while standing, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 209,
+   "max": 352,
+   "median": 330,
+   "n": 5,
+   "patient": "all (median of 5 patient medians; min/max = range of patient medians)",
+   "reference": "average force during upright standing (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 53.1,
+    "min": 43.6,
+    "max": 66.1
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 229,
+   "max": 294,
+   "median": 264,
+   "n": 18,
+   "patient": "WP1",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 31.4,
+    "min": 27.8,
+    "max": 39.7
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 36,
+   "max": 137,
+   "median": 107,
+   "n": 16,
+   "patient": "WP2",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 29.6,
+    "min": 21.9,
+    "max": 33.5
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 133,
+   "max": 256,
+   "median": 181,
+   "n": 7,
+   "patient": "WP3",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 25.5,
+    "min": 24.2,
+    "max": 28.6
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 161,
+   "max": 235,
+   "median": 193,
+   "n": 6,
+   "patient": "WP4",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 29.6,
+    "min": 26.8,
+    "max": 31.2
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 163,
+   "max": 368,
+   "median": 243,
+   "n": 6,
+   "patient": "WP5",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 26.5,
+    "min": 22.4,
+    "max": 27.5
+   },
+   "unit": "N"
+  },
+  {
+   "x": "flexion while sitting, at maximal inclination",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 105,
+   "max": 264,
+   "median": 193,
+   "n": 5,
+   "patient": "all (median of 5 patient medians; min/max = range of patient medians)",
+   "reference": "average force during upright sitting (same day)",
+   "max_trunk_inclination_deg": {
+    "median": 29.6,
+    "min": 25.2,
+    "max": 31.4
+   },
+   "unit": "N"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3b (force increase) and Fig 3a (max inclination); text Results",
+  "method": "digitised_figure",
+  "uncertainty": "force increase +-6 N (1 px = 2.0 N); angles +-1 deg",
+  "checked": false,
+  "check_notes": ""
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model increase within the patient range; sign and ranking: standing increase > sitting increase"
+ },
+ "combine_group": "msk_implant_loads__vbr_resultant_force_increase_vs_upright__L1-L3__max_flexion_standing_and_sitting__no_load",
+ "tags": [
+  "in vivo",
+  "telemetry",
+  "vertebral body replacement",
+  "flexion",
+  "standing",
+  "sitting",
+  "relative",
+  "digitised"
+ ],
+ "shared_sample_with": []
+}

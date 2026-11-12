@@ -1,0 +1,80 @@
+{
+ "id": "kinematics.pal2007.rof_lumbar",
+ "title": "Peak lumbar flexion during maximal forward flexion",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "T11/L1-pelvis"
+ ],
+ "condition": "healthy, standing, maximal forward flexion",
+ "quantity": {
+  "name": "lumbar range of flexion",
+  "definition": "mean of individual peak lumbar angles (T11-L1 line vs pelvic line)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Pal 2007",
+  "authors": "Pal P, Milosavljevic S, Sole G, Johnson G",
+  "year": 2007,
+  "journal": "Eur Spine J 16(6):741-747",
+  "doi": "10.1007/s00586-006-0200-2",
+  "n": "20 males",
+  "sample": "20 young healthy males",
+  "age": "20.6 (SD 1.2) y; range 19-23",
+  "sex": "male",
+  "height_cm": "180 (SD 10); range 165-189",
+  "weight_kg": "77.3 (SD 11.5); BMI 24.3 (SD 3.0)"
+ },
+ "protocol": {
+  "summary": "Peak lumbar flexion (Table 1).",
+  "how_to_use": [
+   "Use 55.9 deg (SD 5.8) as end-of-range lumbar flexion for young males; hip (pelvis on femur) 69.2 deg."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "12-camera Motion Analysis system, 60 Hz; markers T12, L3, ASIS, PSIS, greater trochanter, lateral femoral epicondyle, 1/3 thigh",
+   "posture": "standing, feet 1/10 body height apart, knees straight",
+   "task": "5 trials of maximal forward flexion, hold 2 counts, return to upright, self-paced within 10 s; time normalised to 100 points"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Same value also in kinematics.pal2007.lumbar_hip_timecourse (do not double count)."
+ },
+ "data": [
+  {
+   "x": "max forward flexion",
+   "load": null,
+   "mean": 55.9,
+   "sd": 5.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "phase": "flexion",
+   "segment": "lumbar"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "Re-read from rendered Table 1."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__lumbar__healthy_standing__max_forward_flexion",
+ "tags": [
+  "in vivo",
+  "skin markers (optical)",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "sagittal"
+ ]
+}

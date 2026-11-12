@@ -1,0 +1,432 @@
+{
+ "id": "kinematics.morita2014.segmental_kyphosis_flex_ext",
+ "title": "Thoracic segmental kyphotic angles at passive maximal flexion and extension (supine CT, patients)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2",
+  "T2-T3",
+  "T3-T4",
+  "T4-T5",
+  "T5-T6",
+  "T6-T7",
+  "T7-T8",
+  "T8-T9",
+  "T9-T10",
+  "T10-T11",
+  "T11-T12",
+  "T12-L1"
+ ],
+ "condition": "patients without thoracic disease, supine, passive maximal flexion and maximal extension",
+ "quantity": {
+  "name": "segmental kyphotic angle",
+  "definition": "Cobb-type angle between superior endplates of adjacent vertebrae; positive = kyphosis",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Morita 2014",
+  "authors": "Morita D, Yukawa Y, Nakashima H, Ito K, Yoshida G, Machino M, Kanbara S, Iwase T, Kato F",
+  "year": 2014,
+  "journal": "Eur Spine J 23(3):673-678",
+  "doi": "10.1007/s00586-013-3088-7",
+  "n": "50 patients (34 M, 16 F)",
+  "sample": "50 patients with cervical or lumbar spinal disease (no thoracic disease or compression fracture) imaged after myelography",
+  "age": "55.4 (SD 14.7), range 27-81 y",
+  "sex": "34 M, 16 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "End-position segmental kyphosis; total T1-L1 kyphosis 40.2 deg in flexion and 8.5 deg in extension.",
+  "how_to_use": [
+   "Use as end-range thoracic shapes for a supine passive model: flexed apex at T6/7, extended shape lordotic below T9/10.",
+   "Supine end-positions; not standing posture."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "64-row MDCT (GE LightSpeed VCT), 1 mm slices; Cobb-type segmental angles from superior endplates (T1/2-T12/L1)",
+   "posture": "supine on triangular pillows (flexion: under upper and lower back; extension: under mid-back and buttocks)",
+   "task": "passive maximal flexion and maximal extension"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T1-T2",
+   "load": null,
+   "mean": 3.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T2-T3",
+   "load": null,
+   "mean": 3.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T3-T4",
+   "load": null,
+   "mean": 3.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T4-T5",
+   "load": null,
+   "mean": 4.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T5-T6",
+   "load": null,
+   "mean": 4.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T6-T7",
+   "load": null,
+   "mean": 5.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T7-T8",
+   "load": null,
+   "mean": 4.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T8-T9",
+   "load": null,
+   "mean": 3.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T9-T10",
+   "load": null,
+   "mean": 2.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T10-T11",
+   "load": null,
+   "mean": 0.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T11-T12",
+   "load": null,
+   "mean": 2.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T12-L1",
+   "load": null,
+   "mean": 2.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T1-T2",
+   "load": null,
+   "mean": -0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T2-T3",
+   "load": null,
+   "mean": 0.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T3-T4",
+   "load": null,
+   "mean": 2.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T4-T5",
+   "load": null,
+   "mean": 3.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T5-T6",
+   "load": null,
+   "mean": 2.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T6-T7",
+   "load": null,
+   "mean": 3.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T7-T8",
+   "load": null,
+   "mean": 2.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T8-T9",
+   "load": null,
+   "mean": 0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T9-T10",
+   "load": null,
+   "mean": -1.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T10-T11",
+   "load": null,
+   "mean": -2.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T11-T12",
+   "load": null,
+   "mean": -1.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T12-L1",
+   "load": null,
+   "mean": -1.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T1-L1 total",
+   "load": null,
+   "mean": 40.2,
+   "sd": 11.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion"
+  },
+  {
+   "x": "T1-L1 total",
+   "load": null,
+   "mean": 8.5,
+   "sd": 12.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension"
+  },
+  {
+   "x": "T1-T2",
+   "load": null,
+   "mean": 3.4,
+   "sd": 4.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion",
+   "note": "text value"
+  },
+  {
+   "x": "T6-T7",
+   "load": null,
+   "mean": 5.4,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion",
+   "note": "text value"
+  },
+  {
+   "x": "T10-T11",
+   "load": null,
+   "mean": 0.9,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max flexion",
+   "note": "text value"
+  },
+  {
+   "x": "T4-T5",
+   "load": null,
+   "mean": 3.5,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension",
+   "note": "text value"
+  },
+  {
+   "x": "T10-T11",
+   "load": null,
+   "mean": -2.7,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 50,
+   "phase": "max extension",
+   "note": "text value; sign from Fig 3 (minus lost in text extraction)"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (segmental, digitised); text Results for totals and selected levels",
+  "method": "digitised_figure",
+  "uncertainty": "±0.1 deg (49 px/deg at 300 dpi)",
+  "checked": true,
+  "check_notes": "Triangles' apex re-detected after first pass (first pass ~0.05 deg low). Checks: sums of digitised segmental angles = 40.1 (text 40.2) and 8.5 (text 8.5); flexion minus extension reproduces Table 1 ROM at all 12 levels within 0.1 deg; text levels match."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__segmental_kyphosis__thoracic_T1-L1__supine_CT_patients__max_flexion_extension",
+ "shared_sample_with": [
+  "kinematics.morita2014.segmental_rom_flex_ext",
+  "kinematics.morita2014.segmental_rom_by_age_sex"
+ ],
+ "tags": [
+  "in vivo",
+  "CT",
+  "supine",
+  "patients",
+  "passive",
+  "segmental",
+  "both sexes",
+  "middle-aged/older",
+  "digitised"
+ ]
+}

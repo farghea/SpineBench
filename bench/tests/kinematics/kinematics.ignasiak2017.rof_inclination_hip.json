@@ -1,0 +1,130 @@
+{
+ "id": "kinematics.ignasiak2017.rof_inclination_hip",
+ "title": "Spine inclination and hip range of forward flexion, young vs elderly (skin markers)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "whole",
+ "levels": [
+  "C7-sacrum inclination",
+  "hip"
+ ],
+ "condition": "healthy, standing, upright to end of forward flexion",
+ "quantity": {
+  "name": "range of flexion",
+  "definition": "spine inclination = C7-sacrum vector vs vertical; hip = pelvis vs upper leg; at end of flexion relative to upright",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Ignasiak 2017",
+  "authors": "Ignasiak D, Rüeger A, Ferguson SJ",
+  "year": 2017,
+  "journal": "Hum Mov Sci 54:230-239",
+  "doi": "10.1016/j.humov.2017.05.011",
+  "n": "42 subjects (21 young: 13 F/8 M; 21 elderly: 13 F/8 M)",
+  "sample": "healthy volunteers without spinal surgery, chronic spine disorder or recent back pain; 44 recruited, 42 analysed",
+  "age": "young 27.0 (SD 3.96), 20-35 y; elderly 70.1 (SD 3.85), 65-80 y",
+  "sex": "26 F, 16 M",
+  "height_cm": "young 173.3 (SD 9.5); elderly 168.5 (SD 8.9)",
+  "weight_kg": "young 68.3 (SD 13.7); elderly 67.5 (SD 11.3)"
+ },
+ "protocol": {
+  "summary": "No significant age difference in inclination or hip ROF; elderly hips median ~84 vs ~78 deg.",
+  "how_to_use": [
+   "Use median (IQR) end-of-flexion ROF for young vs elderly; elderly use ~11 deg less lumbar flexion and more hip flexion for a similar spine inclination.",
+   "Region definitions are skin-curve based: thoracic C7-L1, lumbar L1-sacrum, hip = pelvis vs upper leg; spine inclination = C7-sacrum vector vs vertical."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "Vicon MX 12 cameras, 100 Hz; 11 spinous-process markers (C7,T3,T5,T7,T9,T11,L1-L5) + sacrum; cubic polynomial fitted to marker curve, segment angles from curve normals",
+   "posture": "standing, feet hip-width, knees extended, arms relaxed",
+   "task": "slow forward flexion at self-selected speed to end of range and return"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "spine inclination C7-sacrum",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 114.6,
+   "n": 21,
+   "group": "young",
+   "q1": 111.3,
+   "q3": 120.3
+  },
+  {
+   "x": "spine inclination C7-sacrum",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 116.0,
+   "n": 21,
+   "group": "elderly",
+   "q1": 98.3,
+   "q3": 123.2
+  },
+  {
+   "x": "hip (pelvis vs thigh)",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 77.7,
+   "n": 21,
+   "group": "young",
+   "q1": 70.7,
+   "q3": 84.6
+  },
+  {
+   "x": "hip (pelvis vs thigh)",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 83.9,
+   "n": 21,
+   "group": "elderly",
+   "q1": 73.3,
+   "q3": 102.3
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 left panel (box plots)",
+  "method": "digitised_figure",
+  "uncertainty": "±1.5 deg (low-resolution raster figure, 2.66 px/deg at 400 dpi)",
+  "checked": true,
+  "check_notes": "Box edges/medians from colour run profiles; elderly hip median read in an unclassified-colour gap between fills (±2 deg)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__spine_inclination-hip__healthy_standing__max_forward_flexion",
+ "shared_sample_with": [
+  "kinematics.ignasiak2017.rof_lumbar",
+  "kinematics.ignasiak2017.rof_thoracic",
+  "kinematics.ignasiak2017.segmental_rof"
+ ],
+ "tags": [
+  "in vivo",
+  "skin markers",
+  "optical",
+  "standing",
+  "healthy",
+  "both sexes",
+  "young adults",
+  "elderly",
+  "age effect",
+  "digitised"
+ ]
+}

@@ -1,0 +1,3464 @@
+[
+ {
+  "file": "Actis2018.pdf",
+  "short": "Actis 2018",
+  "year": 2018,
+  "title": "Lumbar loads and trunk kinematics in people with a transtibial amputation during sit-to-stand",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.12.030",
+  "n": "16 subjects in vivo (8 unilateral transtibial amputees, 8 controls 4M/4F)",
+  "layer": "outcome",
+  "category": "msk_emg_posture",
+  "subcategory": "dynamic task (sit-to-stand) EMG vs model activation",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "L4-L5 compressive load (model-estimated, not measured)",
+    "unit": "BW",
+    "where": "Fig 2, Table 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "trunk segment angles and trunk-pelvis angles (measured kinematics)",
+    "unit": "deg",
+    "where": "Fig 3, Table 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "EMG vs model activation (qualitative validation)",
+    "unit": "normalised",
+    "where": "Fig 1",
+    "extractable": "figure"
+   },
+   {
+    "name": "ground reaction forces",
+    "unit": "BW",
+    "where": "Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "participant demographics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo kinematics/EMG measured, but spinal loads are model outputs; useful mainly as kinematic input and qualitative EMG comparison for a pathological population.",
+  "notes": "OpenSim 294-muscle model with static optimization; L4-L5 loads are predictions, not data."
+ },
+ {
+  "file": "AdamsDolan1991.pdf",
+  "short": "Adams & Dolan 1991",
+  "year": 1991,
+  "title": "A technique for quantifying the bending moment acting on the lumbar spine in vivo",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "42 cadaveric lumbar motion segments (L1-S1) in vitro + 28 subjects in vivo",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "flexion bending moment vs angle (to elastic limit)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "bending moment vs % flexion at elastic limit, per level (in vitro)",
+    "unit": "% max moment / Nm",
+    "where": "Table 2, Fig 4-6",
+    "extractable": "table"
+   },
+   {
+    "name": "specimen details (level, age, sex)",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "in vivo vs in vitro lumbar flexion relation",
+    "unit": "deg",
+    "where": "Fig 8",
+    "extractable": "figure"
+   },
+   {
+    "name": "peak L5-S1 bending moment in lifting tasks (estimated from in vivo flexion via cadaveric curves)",
+    "unit": "Nm",
+    "where": "Table 3, Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vitro moment-angle data (Table 2) are measured and usable for FSU flexion stiffness; in vivo moments are derived, not directly measured.",
+  "notes": "Volume 24(2):117-126. DOI not printed. Moment normalised to elastic limit; absolute values only partly reported."
+ },
+ {
+  "file": "AdamsGreen1993.pdf",
+  "short": "Adams & Green 1993",
+  "year": 1993,
+  "title": "Tensile properties of the annulus fibrosus. I. The contribution of fibre-matrix interactions to tensile stiffness and strength",
+  "journal": "Eur Spine J",
+  "doi": "",
+  "n": "annulus slices from 6 cadaveric lumbar spines (mean age 46, range 19-71)",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "vertical tensile stiffness of lateral annulus vs specimen width",
+    "unit": "N/mm (per area)",
+    "where": "Table 1, Table 2, Fig 4",
+    "extractable": "table"
+   },
+   {
+    "name": "force-deformation curve (typical)",
+    "unit": "N, mm",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "ultimate tensile strength",
+    "unit": "N / MPa",
+    "where": "Table 1-2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro annulus tensile stiffness/strength tabulated per specimen.",
+  "notes": "Eur Spine J 2:203-208. Specimens are 5 mm slices with bone ends; stiffness depends on specimen width (size effect)."
+ },
+ {
+  "file": "Allaire2023.pdf",
+  "short": "Allaire 2023",
+  "year": 2023,
+  "title": "Dependence of trunk muscle size and position on age, height, and weight in a multi-ethnic cohort of middle-aged and older men and women",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "507 participants (Framingham Heart Study, aged 40-90, men and women) CT",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "csa_anatomical + centroid_distance",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "muscle CSA (CT, transverse-ish slice) T4-L4",
+    "unit": "cm2",
+    "where": "Fig 2, Table 3 (level-specific means + regression RMSE)",
+    "extractable": "table"
+   },
+   {
+    "name": "centroid distance (CD) muscle-centroid to vertebral body centroid",
+    "unit": "mm",
+    "where": "Fig 2, Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "centroid angle (CA)",
+    "unit": "deg",
+    "where": "Fig 2, Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "regression coefficients for age/height/weight",
+    "unit": "",
+    "where": "Fig 3 + supplementary",
+    "extractable": "figure"
+   },
+   {
+    "name": "sample characteristics",
+    "unit": "",
+    "where": "Table 1, Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Large in vivo CT dataset of anatomical CSA and centroid distance (NOT true moment arm) at T4-L4.",
+  "notes": "Author accepted manuscript (Version of Record S0021929023002798); DOI of the article not printed in first page (first DOI found is a reference). Distances are centroid distances, not moment arms. Note slices described as aligned with vertebral body (check text)."
+ },
+ {
+  "file": "Amin2016JB.pdf",
+  "short": "Amin 2016a",
+  "year": 2016,
+  "title": "The effect of six degree of freedom loading sequence on the in-vitro compressive properties of human lumbar spine segments",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2016.09.009",
+  "n": "14 cadaveric lumbar FSUs (hexapod robot)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "disc_whole axial compression (repeated reference tests, loading-sequence effect)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "compressive modulus across 13 reference tests",
+    "unit": "MPa",
+    "where": "Fig 5, Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "compressive stiffness",
+    "unit": "N/mm",
+    "where": "Fig 7, Fig 8, Table 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "phase angle (viscoelastic)",
+    "unit": "deg",
+    "where": "Fig 9, Fig 10",
+    "extractable": "figure"
+   },
+   {
+    "name": "protocol/specimen details",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured in vitro compression stiffness but mostly in figures and focused on protocol effects; facets removed (disc-only).",
+  "notes": "Same specimens as Amin2016JOR. Facet joints removed (Fig 3), 0.001-1 Hz, 37C, preload."
+ },
+ {
+  "file": "Amin2016JOR.pdf",
+  "short": "Amin 2016b",
+  "year": 2016,
+  "title": "Effect of degeneration on the six degree of freedom mechanical properties of human lumbar spine segments",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.23334",
+  "n": "14 cadaveric lumbar FSUs (mean age 76.2; Thompson grade 3 n=5, 4 n=6, 5 n=3)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "FSU 6-DOF stiffness (shear, compression, bending, torsion) by degeneration",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "6-DOF stiffness per degeneration grade",
+    "unit": "N/mm, Nm/deg",
+    "where": "Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "phase angle per DOF",
+    "unit": "deg",
+    "where": "Fig 7",
+    "extractable": "figure"
+   },
+   {
+    "name": "load-displacement curves per DOF",
+    "unit": "",
+    "where": "Fig 4, Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "estimated ROM vs literature",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "level, age, disc area, disc height, grade",
+    "unit": "mm2, mm",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Rare measured 6-DOF stiffness incl. shear on human FSUs; values mostly in Fig 6 (digitise) with specimen geometry in Table 1.",
+  "notes": "Text indicates intact FSUs with facet joints and longitudinal ligaments preserved for these 6DOF tests (facets removed only later, see Amin2016JB)."
+ },
+ {
+  "file": "Anderson2012.pdf",
+  "short": "Anderson 2012",
+  "year": 2012,
+  "title": "Regressions for estimating muscle parameters in the thoracic and lumbar trunk for use in musculoskeletal modeling",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2011.10.004",
+  "n": "100 subjects (51 M, 49 F, aged 36-87) QCT, Framingham",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "csa_anatomical + centroid_distance (+ derived moment arm)",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "muscle CSA T6-L5 (regressions on sex, age, height, weight)",
+    "unit": "cm2",
+    "where": "Tables 1-4 (author manuscript pages 14-17)",
+    "extractable": "table"
+   },
+   {
+    "name": "muscle centroid position relative to vertebral body (AP and lateral)",
+    "unit": "mm",
+    "where": "Tables 2-4",
+    "extractable": "table"
+   },
+   {
+    "name": "estimated anatomical CSA and moment arms (corrected using literature line-of-action data, i.e. derived)",
+    "unit": "cm2, mm",
+    "where": "Table 3/4",
+    "extractable": "table"
+   },
+   {
+    "name": "demographics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo CT muscle CSA and centroid positions; 'moment arms' here are derived from centroids + literature lines of action, not measured.",
+  "notes": "PMC author manuscript; table/figure captions at end of document. Keep centroid distance separate from the derived moment arm."
+ },
+ {
+  "file": "Anderson2016.pdf",
+  "short": "Anderson 2016",
+  "year": 2016,
+  "title": "Effects of follower load and rib cage on intervertebral disc pressure and sagittal plane curvature in static tests of cadaveric thoracic spines",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2016.02.038",
+  "n": "8 cadaveric thoracic spines T1-T12 with intact rib cage",
+  "layer": "outcome",
+  "category": "fe_idp_invitro",
+  "subcategory": "thoracic IDP vs follower load, intact / stiffened / no ribs",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "absolute IDP at T4-T5 and T8-T9 vs follower load (0-400 N)",
+    "unit": "MPa",
+    "where": "Table 1, Fig 3-4",
+    "extractable": "table"
+   },
+   {
+    "name": "sagittal curvature / segmental angle change with follower load",
+    "unit": "deg",
+    "where": "Table 2, Fig 5",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro thoracic absolute IDP vs follower load with and without rib cage.",
+  "notes": "Captions at end of PMC manuscript. Testing order confounds rib-cage effect (authors state)."
+ },
+ {
+  "file": "Anderson2018.pdf",
+  "short": "Anderson 2018",
+  "year": 2018,
+  "title": "The rib cage reduces intervertebral disc pressures in cadaveric thoracic spines by sharing loading under applied dynamic moments",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.10.005",
+  "n": "8 cadaveric thoracic spines T1-T12 with rib cage (data analysed for 7: 3 F, 4 M)",
+  "layer": "outcome",
+  "category": "fe_idp_invitro",
+  "subcategory": "thoracic IDP vs pure moment (±5 Nm, 400 N follower), rib cage intact vs removed",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "IDP vs moment slope at T4-T5, T8-T9 (FE/LB/AR) with/without ribs",
+    "unit": "MPa/Nm",
+    "where": "Fig 2-4 (text gives % load share)",
+    "extractable": "figure"
+   },
+   {
+    "name": "rib cage share of moment",
+    "unit": "%",
+    "where": "text (abstract/results)",
+    "extractable": "text"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro thoracic IDP-moment relations with/without rib cage; slopes mostly in figures.",
+  "notes": "Only 4 figures, no tables; digitising needed."
+ },
+ {
+  "file": "Arjmand2009CB.pdf",
+  "short": "Arjmand 2009",
+  "year": 2009,
+  "title": "Comparison of trunk muscle forces and spinal loads estimated by two biomechanical models",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2009.05.008",
+  "n": "1 healthy male subject (52 y, 174.5 cm) in vivo kinematics/EMG; modelling comparison",
+  "layer": "outcome",
+  "category": "msk_idp_lumbar",
+  "subcategory": "model comparison (KEMG vs FE) of L4-L5/L5-S1 loads; compares with Wilke IDP",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "trunk muscle PCSA per level (model input, literature-based)",
+    "unit": "mm2",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "predicted muscle forces, net moments, spinal compression/shear (model outputs)",
+    "unit": "N, Nm",
+    "where": "Tables 2-4, Fig 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Modelling paper; Table 1 PCSA is a model input (not measured here); no new measured targets except single-subject task data.",
+  "notes": "IRSST repository copy. Subject chosen to match Wilke 1999 IDP subject."
+ },
+ {
+  "file": "Arshad2016.pdf",
+  "short": "Arshad 2016",
+  "year": 2016,
+  "title": "Influence of lumbar spine rhythms and intra-abdominal pressure on spinal loads and trunk muscle forces during upper body inclination",
+  "journal": "Med Eng Phys",
+  "doi": "10.1016/j.medengphy.2016.01.013",
+  "n": "modelling only (AnyBody); rhythms from literature",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "model parameter settings",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "predicted L4-L5 compression/shear and muscle forces at 55 deg flexion",
+    "unit": "N",
+    "where": "Table 2, Fig 3-4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Pure sensitivity modelling study; no new experimental data (in vivo range shown in Fig 3 is from literature).",
+  "notes": "Lumbar rhythm inputs from Pearcy etc. could be traced to originals."
+ },
+ {
+  "file": "Bass2004.pdf",
+  "short": "Bass 2004",
+  "year": 2004,
+  "title": "Biaxial testing of human annulus fibrosus and its implications for a constitutive formulation",
+  "journal": "Ann Biomed Eng",
+  "doi": "",
+  "n": "annulus samples from 5 cadaveric lumbar motion segments (3 L3-L4, 2 L4-L5), grade I-II",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus (uniaxial + biaxial tension, strain energy fits)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "strain energy function coefficients (population fits) biaxial/uniaxial/combined",
+    "unit": "MPa",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "biaxial and uniaxial stress-strain curves",
+    "unit": "MPa vs strain",
+    "where": "figures (captions not extracted cleanly)",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured annulus biaxial/uniaxial response with fitted constitutive coefficients in a table.",
+  "notes": "Ann Biomed Eng 32(9):1231-1242. DOI not printed (10.1023/B:ABME.0000039357.70905.94 likely, verify). Small sample."
+ },
+ {
+  "file": "Bayoglu2017L.pdf",
+  "short": "Bayoglu 2017a",
+  "year": 2017,
+  "title": "Twente spine model: a complete and coherent dataset for musculo-skeletal modeling of the lumbar region of the human spine",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.01.009",
+  "n": "1 embalmed human cadaver (dissection + imaging)",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "pcsa + fascicle_architecture + line_of_action (attachments)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "PCSA per muscle (vs literature)",
+    "unit": "cm2",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "fibre length, sarcomere length, pennation, attachment coordinates for 96 elements of 11 muscles",
+    "unit": "mm, um, deg",
+    "where": "Table 1 (supplementary dataset)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured cadaveric PCSA and architecture with literature comparison table.",
+  "notes": "Single specimen; full element dataset in supplementary material."
+ },
+ {
+  "file": "Bayoglu2017b.pdf",
+  "short": "Bayoglu 2017b",
+  "year": 2017,
+  "title": "Twente spine model: a complete and coherent dataset for musculoskeletal modeling of the thoracic and cervical regions of the human spine",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.04.003",
+  "n": "1 embalmed human cadaver (same as lumbar dataset)",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "pcsa + fascicle_architecture + line_of_action",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "PCSA, optimal fibre length, sarcomere length for 225 elements of 39 muscles",
+    "unit": "cm2, mm, um",
+    "where": "Table 1 (supplementary)",
+    "extractable": "table"
+   },
+   {
+    "name": "neck muscle morphology vs literature",
+    "unit": "cm2, mm",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured cadaveric PCSA/architecture for thoracic and cervical muscles.",
+  "notes": "Region thoracic + cervical."
+ },
+ {
+  "file": "Beach2005.pdf",
+  "short": "Beach 2005",
+  "year": 2005,
+  "title": "Effects of prolonged sitting on the passive flexion stiffness of the in vivo lumbar spine",
+  "journal": "Spine J",
+  "doi": "10.1016/j.spinee.2004.07.036",
+  "n": "12 healthy subjects (6 M, 6 F) university students",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "passive lumbar flexion moment-angle (before/after 2 h sitting)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "passive flexion moment-angle slopes (low/transition/high zones)",
+    "unit": "Nm/% max flexion",
+    "where": "Table 2, Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "breakpoint locations",
+    "unit": "% flexion",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "maximum passive lumbar flexion angle",
+    "unit": "deg",
+    "where": "Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "moment-angle curve (typical)",
+    "unit": "Nm vs deg",
+    "where": "Fig 2, Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "participant characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo passive trunk moment-angle data (frictionless jig), slopes tabulated by sex.",
+  "notes": "Slopes normalised to % of trial-1 max flexion, so absolute stiffness needs care."
+ },
+ {
+  "file": "Berkson1979.pdf",
+  "short": "Berkson 1979",
+  "year": 1979,
+  "title": "Mechanical properties of human lumbar spine motion segments - Part II: Responses in compression and shear; influence of gross morphology",
+  "journal": "J Biomech Eng",
+  "doi": "",
+  "n": "42-43 fresh cadaveric lumbar motion segments (posterior elements removed in 18)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "FSU compression and shear (ant/post/lat) displacements + IDP",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "principal motions under compression (400 N) and shear (145 N), intact vs posterior elements removed",
+    "unit": "mm",
+    "where": "Table 1, Fig 1",
+    "extractable": "table"
+   },
+   {
+    "name": "principal and coupled mean motions",
+    "unit": "mm, deg",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "intradiscal pressure increase (absolute increase) under compression/shear",
+    "unit": "kPa",
+    "where": "Table 1, Fig 2, Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Classic measured in vitro FSU compression/shear flexibility and IDP increases in tables.",
+  "notes": "J Biomech Eng 101:53-57. Companion Part I = Schultz 1979. Pressure reported as increase over baseline."
+ },
+ {
+  "file": "Beyer2014.pdf",
+  "short": "Beyer 2014",
+  "year": 2014,
+  "title": "In vivo thorax 3D modelling from costovertebral joint complex kinematics",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2014.01.007",
+  "n": "8 asymptomatic subjects (mean age 30) CT at 3 lung volumes",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "rib motion (costovertebral joint ROM during breathing)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "costovertebral joint ROM (rotation about x,y,z) per level",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "mean helical axis direction cosines and SD",
+    "unit": "-",
+    "where": "Table 4 (n=8), Table 3 (one subject)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo rib kinematics during breathing tabulated.",
+  "notes": "Breathing kinematics, not loading."
+ },
+ {
+  "file": "Beyer2016.pdf",
+  "short": "Beyer 2016",
+  "year": 2016,
+  "title": "Relationship between costovertebral joint kinematics and lung volume in supine humans",
+  "journal": "Respir Physiol Neurobiol",
+  "doi": "10.1016/j.resp.2016.07.003",
+  "n": "12 asymptomatic subjects, CT at TLC/MIC/FRC",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "rib motion (CVJ1-10 angular displacement vs lung volume)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "CVJ angular displacements at MIC and FRC relative to TLC",
+    "unit": "deg",
+    "where": "Table 2, Fig 4",
+    "extractable": "table"
+   },
+   {
+    "name": "CVJ ROM per level",
+    "unit": "deg",
+    "where": "Fig 7, Fig 8",
+    "extractable": "figure"
+   },
+   {
+    "name": "MHA orientation",
+    "unit": "-",
+    "where": "Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "anthropometric/lung data",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo rib kinematics tabulated per level.",
+  "notes": ""
+ },
+ {
+  "file": "Beyer2017.pdf",
+  "short": "Beyer 2017",
+  "year": 2017,
+  "title": "In-vivo analysis of sternal angle, sternal and sternocostal kinematics in supine humans during breathing",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2017.08.026",
+  "n": "12 asymptomatic subjects (CT, 3 lung volumes)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "rib motion (sternal, sternocostal kinematics)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "sternal displacement relative to T7",
+    "unit": "mm",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "sternal angle variation",
+    "unit": "deg",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "rib 1-7 ROM in sternum frame",
+    "unit": "deg",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "MHA direction cosines/pivot points",
+    "unit": "-, mm",
+    "where": "Fig 6, Fig 7",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo data but only in figures (HAL accepted manuscript, no tables).",
+  "notes": "HAL hal-01652754 version."
+ },
+ {
+  "file": "Bogduk1992CB.pdf",
+  "short": "Bogduk 1992",
+  "year": 1992,
+  "title": "Anatomy and biomechanics of psoas major",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "3 cadavers (6 psoas muscles) dissection + radiographs of 10 adult males",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "pcsa + moment_arm + line_of_action (psoas)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "psoas fascicle volume, length, PCSA",
+    "unit": "cm3, cm, cm2",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "fascicle moment arms about each lumbar segment (erect, flexed, extended) from radiographs",
+    "unit": "mm",
+    "where": "Table 3, Table 5, Table 7",
+    "extractable": "table"
+   },
+   {
+    "name": "fascicle orientation to vertebral transverse plane",
+    "unit": "deg",
+    "where": "Tables 4, 6, 8",
+    "extractable": "table"
+   },
+   {
+    "name": "max moments, compression, shear by psoas (model-derived)",
+    "unit": "Nm, N",
+    "where": "Table 9",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured psoas PCSA (cadaver) and geometric moment arms (radiographic lines of action), tabulated.",
+  "notes": "Clin Biomech 7:109-119. Moment arms are geometric perpendicular distances from fascicle line to segment axis (true moment-arm style), not centroid distances."
+ },
+ {
+  "file": "Borkowski2016.pdf",
+  "short": "Borkowski 2016",
+  "year": 2016,
+  "title": "Challenging the conventional standard for thoracic spine range of motion: a systematic review",
+  "journal": "JBJS Rev",
+  "doi": "10.2106/JBJS.RVW.O.00048",
+  "n": "systematic review of 33 cadaveric studies",
+  "layer": "outcome",
+  "category": "fe_rom_thoracic",
+  "subcategory": "intact segmental ROM (with/without rib cage), pooled",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "reported thoracic ROM from pure moment tests without rib cage (by study)",
+    "unit": "deg",
+    "where": "Table I",
+    "extractable": "table"
+   },
+   {
+    "name": "ROM under 4-point / cantilever bending",
+    "unit": "deg",
+    "where": "Table II",
+    "extractable": "table"
+   },
+   {
+    "name": "ROM with rib cage intact",
+    "unit": "deg",
+    "where": "Table III",
+    "extractable": "table"
+   },
+   {
+    "name": "pooled estimated segmental ROM FE/LB/AR",
+    "unit": "deg",
+    "where": "Table IV, Fig 1-3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Secondary data, but tabulates in vitro thoracic ROM per source study; useful as pooled reference and pointer to originals.",
+  "notes": "Review: cite primary sources for individual tests."
+ },
+ {
+  "file": "Brown2011Spine.pdf",
+  "short": "Brown 2011",
+  "year": 2011,
+  "title": "Architectural analysis of human abdominal wall muscles: implications for mechanical function",
+  "journal": "Spine",
+  "doi": "10.1097/BRS.0b013e3181d12ed7",
+  "n": "11 formaldehyde-fixed cadavers (5 M, 6 F; mean age ~72)",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "pcsa + fascicle_architecture (RA, EO, IO, TrA)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "PCSA by muscle/region",
+    "unit": "cm2",
+    "where": "Table 1, Fig 3",
+    "extractable": "table"
+   },
+   {
+    "name": "fascicle length, normalised fascicle length, sarcomere length",
+    "unit": "cm, um",
+    "where": "Table 1, text (e.g. RA 3.29±0.07 um)",
+    "extractable": "table"
+   },
+   {
+    "name": "predicted sarcomere operating range across lumbar ROM (model-derived)",
+    "unit": "um",
+    "where": "Fig 4, Fig 5",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured cadaveric abdominal PCSA and architecture, tabulated.",
+  "notes": "PMC author manuscript; abdominal muscles (trunk, lumbar-acting)."
+ },
+ {
+  "file": "BrownMcGill2008.pdf",
+  "short": "Brown & McGill 2008",
+  "year": 2008,
+  "title": "How the inherent stiffness of the in vivo human trunk varies with changing magnitudes of muscular activation",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2007.08.011",
+  "n": "9 healthy male subjects",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "trunk moment-angle in vivo (relaxed and with abdominal co-activation)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "moment-angle exponential fit coefficients (flexion, extension, lateral bend) per brace level",
+    "unit": "Nm, %RoM",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "stiffness across RoM",
+    "unit": "Nm/%RoM",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "moment to initiate bend; peak moment at end RoM",
+    "unit": "Nm",
+    "where": "Fig 5, Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "EMG levels per condition",
+    "unit": "%MVC",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "max trunk displacement normalised",
+    "unit": "%RoM",
+    "where": "Fig 7",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo trunk moment-angle data; relaxed condition = passive trunk stiffness, fit coefficients tabulated.",
+  "notes": "Angle normalised to %RoM; braced conditions include active stiffness."
+ },
+ {
+  "file": "Bruno2017JOR.pdf",
+  "short": "Bruno 2017",
+  "year": 2017,
+  "title": "Incorporation of CT-based measurements of trunk anatomy into subject-specific musculoskeletal models of the spine influences vertebral loading predictions",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.23524",
+  "n": "125 men (Framingham CT cohort)",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "demographics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "model-predicted vertebral compressive loads T8/T12/L3 (model outputs)",
+    "unit": "N",
+    "where": "Table 2, Table 3, Fig 6",
+    "extractable": "table"
+   },
+   {
+    "name": "spine curvature distribution (CT-measured kyphosis/lordosis)",
+    "unit": "deg",
+    "where": "Fig 5",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "Modelling sensitivity study; only measured data are CT curvature distributions (figure) and demographics, no graded targets.",
+  "notes": "Curvature distributions (Fig 5) could serve as input; muscle morphology measured but not tabulated (see Anderson2012)."
+ },
+ {
+  "file": "Burkhart2018.pdf",
+  "short": "Burkhart 2018",
+  "year": 2018,
+  "title": "Estimating apparent maximum muscle stress of trunk extensor muscles in older adults using subject-specific musculoskeletal models",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.23630",
+  "n": "49 older adults (mean age 78; 34 F, 15 M)",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "maximal trunk extension strength in vivo vs model (apparent MMS)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "measured trunk extension strength",
+    "unit": "N",
+    "where": "Table 2, Fig 2",
+    "extractable": "table"
+   },
+   {
+    "name": "model-predicted strength and apparent MMS",
+    "unit": "N, N/cm2",
+    "where": "Table 2, Fig 3",
+    "extractable": "table"
+   },
+   {
+    "name": "participant characteristics incl. QCT muscle CSA",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vivo extension strength with subject anthropometry; MVC target for subject-specific models.",
+  "notes": "Strength measured as force at a point, posture in Fig 1."
+ },
+ {
+  "file": "C05_Zwambag2020.pdf",
+  "short": "Zwambag 2020",
+  "year": 2020,
+  "title": "Experimental validation of a novel spine model demonstrates the large contribution of passive muscle to the flexion relaxation phenomenon",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2019.109431",
+  "n": "10 healthy male subjects (25±2 y)",
+  "layer": "outcome",
+  "category": "msk_flexion_relaxation",
+  "subcategory": "L4/L5 moment partition at flexion-relaxation",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "external L4/L5 moment demand and model-predicted passive (muscle, disc, ligament) and active moments at FR",
+    "unit": "Nm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "passive muscle forces vs flexion (model)",
+    "unit": "N",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "disc + ligament moments (model)",
+    "unit": "Nm",
+    "where": "Fig 3",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "External moment demand at FR is measured (in vivo inverse dynamics); partitioning is model output.",
+  "notes": "Useful as a FR target: muscles electrically silent while moment demand ~30-56 Nm (text)."
+ },
+ {
+  "file": "C07.pdf",
+  "short": "Toosizadeh 2012",
+  "year": 2012,
+  "title": "Load-relaxation properties of the human trunk in response to prolonged flexion: measuring and modeling the effect of flexion angle",
+  "journal": "PLoS One",
+  "doi": "10.1371/journal.pone.0048625",
+  "n": "10 healthy subjects",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "passive trunk moment relaxation in vivo (viscoelastic)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "initial trunk moment and moment drop vs flexion angle (30-100% FR angle)",
+    "unit": "Nm",
+    "where": "Fig 4a-b",
+    "extractable": "figure"
+   },
+   {
+    "name": "change in normalised neutral zone (in vivo trunk, hysteresis-based, not FSU NZ)",
+    "unit": "%",
+    "where": "Fig 4c",
+    "extractable": "figure"
+   },
+   {
+    "name": "viscoelastic model parameters (SLS, Prony, Schapery, MSM)",
+    "unit": "Nm/deg, s",
+    "where": "Table 1, Fig 6",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo passive trunk moment-time data and fitted viscoelastic parameters in table.",
+  "notes": "File named C07; actual paper Toosizadeh, Nussbaum, Bazrgari, Madigan 2012. NZ here is trunk-level, do not mix with FSU NZ."
+ },
+ {
+  "file": "C08.pdf",
+  "short": "Dolan 1994",
+  "year": 1994,
+  "title": "Passive tissues help the back muscles to generate extensor moments during lifting",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "149 healthy subjects (men and women; Table 1 lists men n=23 subgroup etc.)",
+  "layer": "outcome",
+  "category": "msk_flexion_relaxation",
+  "subcategory": "passive extensor moment vs lumbar flexion in vivo",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "passive (EMG-silent) extensor moment intercept I vs % lumbar flexion, men and women",
+    "unit": "Nm",
+    "where": "Table 2, Fig 3, Fig 4",
+    "extractable": "table"
+   },
+   {
+    "name": "subject details, range of flexion, max extensor moment",
+    "unit": "deg, Nm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "lifting (stoop/squat/freestyle) flexion and passive moment",
+    "unit": "%, Nm",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo passive extensor moment vs flexion tabulated; target for passive tissue contributions.",
+  "notes": "File named C08; actual paper Dolan, Mannion, Adams 1994 J Biomech 27(8):1077-1085. Could also be trunk_passive_invivo."
+ },
+ {
+  "file": "C09.pdf",
+  "short": "Stokes 2011",
+  "year": 2011,
+  "title": "Abdominal muscle activation increases lumbar spinal stability: analysis of contributions of different muscle groups",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2011.04.006",
+  "n": "modelling only",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "model stability eigenvalues",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "model compression forces and activations",
+    "unit": "N, %max",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Pure analytical stability model; no experimental data.",
+  "notes": "File named C09; actual paper Stokes, Gardner-Morse, Henry 2011."
+ },
+ {
+  "file": "Cannella2008.pdf",
+  "short": "Cannella 2008",
+  "year": 2008,
+  "title": "The role of the nucleus pulposus in neutral zone human lumbar intervertebral disc mechanics",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2008.04.037",
+  "n": "12 cadaveric lumbar anterior column units (2 data sets of 6), posterior elements removed",
+  "layer": "outcome",
+  "category": "fe_resection_lumbar",
+  "subcategory": "nucleotomy (partial denucleation); ROM and NZ of disc-only units",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "intact ROM and NZ (AC, AR, LB, FE) - separately reported",
+    "unit": "deg, mm",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "intact stiffness (axial, AR, LB, FE)",
+    "unit": "N/mm, Nm/deg",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "relative change in axial stiffness and relative IDP vs intact after denucleation",
+    "unit": "% of intact",
+    "where": "Fig 5b-c",
+    "extractable": "figure"
+   },
+   {
+    "name": "normalised NZ and ROM after denucleation",
+    "unit": "normalised",
+    "where": "Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "hysteresis",
+    "unit": "%",
+    "where": "Fig 7",
+    "extractable": "figure"
+   },
+   {
+    "name": "specimen disc height and axes",
+    "unit": "mm",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro ROM and NZ separately for intact ACUs plus denucleation effect; IDP is relative (normalised to intact).",
+  "notes": "Anterior column units (no posterior elements) - simulate disc-only."
+ },
+ {
+  "file": "Carpenedo2025.pdf",
+  "short": "Carpenedo 2025",
+  "year": 2025,
+  "title": "Advances in musculoskeletal modeling of the thoraco-lumbar spine: a comprehensive systematic review",
+  "journal": "Ann Biomed Eng",
+  "doi": "10.1007/s10439-025-03818-8",
+  "n": "systematic review of MB/FE/coupled MSK models",
+  "layer": "outcome",
+  "category": "fe_model_comparison",
+  "subcategory": "review of model validation practice",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "model characteristics and validation targets used (IDP, muscle forces etc.)",
+    "unit": "",
+    "where": "Tables 1-7",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Review with no primary data; useful only as a pointer to validation sources.",
+  "notes": ""
+ },
+ {
+  "file": "Chaffin1990.pdf",
+  "short": "Chaffin 1990",
+  "year": 1990,
+  "title": "Lumbar muscle size and locations from CT scans of 96 women of age 40 to 63 years",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "96 women (aged 40-63) CT",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "centroid_distance + csa_anatomical",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "'moment arms' = x,y distances from muscle centroid to disc centroid at L2/L3, L3/L4, L4/L5 (CT centroid distance, NOT true moment arm)",
+    "unit": "cm",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "muscle CSA (anatomical, CT slice) and torso area",
+    "unit": "cm2",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "regressions of y-distance on anthropometry",
+    "unit": "",
+    "where": "Table 6 (and Tables 4-5)",
+    "extractable": "table"
+   },
+   {
+    "name": "population statistics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo CT centroid distances and CSA tabulated for women.",
+  "notes": "Clin Biomech 5:9-16. Authors call them moment arms but they are centroid distances - classify as centroid_distance."
+ },
+ {
+  "file": "Chambers2010.pdf",
+  "short": "Chambers 2010",
+  "year": 2010,
+  "title": "The effect of obesity and gender on body segment parameters in older adults",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2009.10.015",
+  "n": "83 healthy older adults (65-75 and >75 y; M and F, obese/non-obese) DXA",
+  "layer": "input",
+  "category": "anthropometry",
+  "subcategory": "segment mass & COM",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "segment length as % height",
+    "unit": "%",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "segment mass as % body mass",
+    "unit": "%",
+    "where": "Table 3, Fig 1",
+    "extractable": "table"
+   },
+   {
+    "name": "segment COM position (% length from proximal)",
+    "unit": "%",
+    "where": "Table 4",
+    "extractable": "table"
+   },
+   {
+    "name": "frontal radius of gyration",
+    "unit": "%",
+    "where": "Table 5",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo DXA segment parameters tabulated for older adults.",
+  "notes": "PMC author manuscript; tables at end (pages 9-13)."
+ },
+ {
+  "file": "Chazal1985.pdf",
+  "short": "Chazal 1985",
+  "year": 1985,
+  "title": "Biomechanical properties of spinal ligaments and a histological study of the supraspinal ligament in traction",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "43 ligaments from 18 spines (34 from 12 fresh cadavers + others from surgery on living subjects); ages 30-80",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "ligament (tension-elongation to failure, whole ligaments)",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "number of ligaments tested by type and level",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "stress and strain at characteristic points A, B, C (incl. failure) per ligament type",
+    "unit": "N/mm2, %",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "detailed per-ligament results",
+    "unit": "N, mm",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "load-elongation curves",
+    "unit": "N vs mm",
+    "where": "Fig 3-4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured whole-ligament tensile properties incl. failure, tabulated (thoracic and lumbar levels).",
+  "notes": "J Biomech 18(3):167-176. Mixed cadaveric and surgical specimens; OCR is poor on tables, check against PDF."
+ },
+ {
+  "file": "Cholewicki1995.pdf",
+  "short": "Cholewicki 1995",
+  "year": 1995,
+  "title": "Comparison of muscle forces and joint load from an optimization and EMG assisted lumbar spine model: towards development of a hybrid approach",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "4 male subjects",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "model-predicted muscle forces and L4/L5 compression (OPT vs EMG vs EMGAO)",
+    "unit": "N",
+    "where": "Fig 2-5, Table 1-2",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "Methods/modelling comparison; outputs are model estimates, no graded measured target.",
+  "notes": "J Biomech 28(3):321-331. Measured reaction moments exist but are inputs."
+ },
+ {
+  "file": "Cholewicki2000.pdf",
+  "short": "Cholewicki 2000",
+  "year": 2000,
+  "title": "Effects of external trunk loads on lumbar spine stability",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "12 healthy subjects (6 M, 6 F)",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "effective trunk stiffness in vivo (quick release, active+passive)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "effective trunk stiffness from quick release vs load direction and magnitude",
+    "unit": "Nm/rad",
+    "where": "Table 1, Fig 5, text (785±580 to 2200±1015 Nm/rad)",
+    "extractable": "table"
+   },
+   {
+    "name": "model stability index",
+    "unit": "Nm/rad",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured in vivo effective trunk stiffness, but it includes active muscle (not passive); stability index is model output.",
+  "notes": "J Biomech 33:1377-1385. Doesn't fit exactly in trunk_passive_invivo (active stiffness)."
+ },
+ {
+  "file": "CholewickiMcGill1996.pdf",
+  "short": "Cholewicki & McGill 1996",
+  "year": 1996,
+  "title": "Mechanical stability of the in vivo lumbar spine: implications for injury and chronic low back pain",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "3 male subjects",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "model-estimated muscle forces/stiffness and stability index",
+    "unit": "N, N/m",
+    "where": "Table 1, Fig 4-7",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Modelling/concept paper; stability index and muscle forces are model outputs.",
+  "notes": "Clin Biomech 11(1):1-15."
+ },
+ {
+  "file": "Christophy2012.pdf",
+  "short": "Christophy 2012",
+  "year": 2012,
+  "title": "A musculoskeletal model for the lumbar spine",
+  "journal": "Biomech Model Mechanobiol",
+  "doi": "10.1007/s10237-011-0290-6",
+  "n": "modelling only (literature-derived parameters)",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "muscle parameters PCSA, Fmax, lf/lMT, sarcomere length, pennation (literature-compiled model inputs)",
+    "unit": "mm2, N, um, deg",
+    "where": "Table 1, Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "lumbar rhythm slopes (from Fujii, Rozumalski etc.)",
+    "unit": "-",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "trunk mass/inertia (from Pearsall 1996)",
+    "unit": "kg, kg m2",
+    "where": "Table 4",
+    "extractable": "table"
+   },
+   {
+    "name": "model moment arms vs flexion",
+    "unit": "cm",
+    "where": "Fig 7, Fig 8",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "OpenSim model paper; tables are compiled literature inputs (useful to trace sources), no new measurements.",
+  "notes": "Table 3 rhythm and Table 2 PCSA comparison point to primary sources."
+ },
+ {
+  "file": "CollocaHinrichs2005.pdf",
+  "short": "Colloca & Hinrichs 2005",
+  "year": 2005,
+  "title": "The biomechanical and clinical significance of the lumbar erector spinae flexion-relaxation phenomenon: a review of literature",
+  "journal": "J Manipulative Physiol Ther",
+  "doi": "10.1016/j.jmpt.2005.08.005",
+  "n": "literature review",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "example EMG recordings (illustrative)",
+    "unit": "uV",
+    "where": "Fig 1-2",
+    "extractable": "no"
+   }
+  ],
+  "usable": "no",
+  "why": "Narrative review, no tabulated primary data.",
+  "notes": "Could point to FR primary sources."
+ },
+ {
+  "file": "Consmuller2012.pdf",
+  "short": "Consmuller 2012",
+  "year": 2012,
+  "title": "Velocity of lordosis angle during spinal flexion and extension",
+  "journal": "PLoS One",
+  "doi": "10.1371/journal.pone.0050135",
+  "n": "429 asymptomatic volunteers (age 20-75, M and F)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbar shares (lordosis angle RoM and velocity)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "lordosis RoM and range of functional kinematics (velocity) by age group and sex",
+    "unit": "deg, deg/s",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "max lordosis angle velocities",
+    "unit": "deg/s",
+    "where": "Fig 3, Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "ANCOVA/ANOVA results",
+    "unit": "",
+    "where": "Table 2, Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Large in vivo normative lumbar flexion/extension RoM (skin sensor) tabulated.",
+  "notes": "Epionics SPINE skin-surface measurement, not vertebral angles."
+ },
+ {
+  "file": "Cook2015.pdf",
+  "short": "Cook 2015",
+  "year": 2015,
+  "title": "Range of motion of the intact lumbar segment: a multivariate study of 42 lumbar spines",
+  "journal": "Int J Spine Surg",
+  "doi": "10.14444/2005",
+  "n": "42 cadaveric lumbar spines L1-S1 (204 FSUs: 91 F, 113 M)",
+  "layer": "outcome",
+  "category": "fe_rom_lumbar_multi",
+  "subcategory": "intact segmental ROM under pure moments (FE, LB, AT) by sex and level",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "segmental ROM per level, by sex",
+    "unit": "deg",
+    "where": "Fig 3-5 (text gives some means)",
+    "extractable": "figure"
+   },
+   {
+    "name": "comparison with literature ROM",
+    "unit": "deg",
+    "where": "Fig 6-7, Table 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "donor statistics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Large in vitro pure-moment ROM dataset; values in bar figures (digitise) - check text for means.",
+  "notes": "Pure moments ±7.5 Nm, 0.005 Hz, 3rd cycle. ROM, not NZ."
+ },
+ {
+  "file": "Cortes2014.pdf",
+  "short": "Cortes 2014",
+  "year": 2014,
+  "title": "Elastic, permeability and swelling properties of human intervertebral disc tissues: a benchmark for tissue engineering",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2013.12.021",
+  "n": "samples from 14 cadaveric lumbar spines (confined compression)",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "nucleus + annulus + endplate (biphasic-swelling)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "literature elastic/permeability parameters",
+    "unit": "MPa, m4/Ns",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "biphasic-swelling properties (aggregate modulus, permeability, swelling) per tissue (NP, IAF, OAF, CEP)",
+    "unit": "MPa, m4/Ns",
+    "where": "Table 2, Fig 2",
+    "extractable": "table"
+   },
+   {
+    "name": "biphasic model parameters",
+    "unit": "MPa, m4/Ns",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured tissue-level confined-compression properties tabulated for NP, AF, endplate.",
+  "notes": "PMC author manuscript."
+ },
+ {
+  "file": "Costi2007.pdf",
+  "short": "Costi 2007",
+  "year": 2007,
+  "title": "Direct measurement of intervertebral disc maximum shear strain in six degrees of freedom: motions that place disc tissue at risk of injury",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "9 cadaveric lumbar disc segments from 3 male spines",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "disc_whole (internal max shear strain per DOF)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "largest regional maximum shear strain normalised per mm or per degree, per DOF",
+    "unit": "%/mm, %/deg",
+    "where": "Table 1, Fig 7, Fig 8, abstract",
+    "extractable": "table"
+   },
+   {
+    "name": "internal displacement fields/contours",
+    "unit": "",
+    "where": "Fig 4-6",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured internal disc strains (FE strain-field validation) - niche quantity outside main categories.",
+  "notes": "J Biomech 40(11):2457-2466; PMC version, DOI not printed (10.1016/j.jbiomech.2006.11.006 - verify)."
+ },
+ {
+  "file": "Costi2008.pdf",
+  "short": "Costi 2008",
+  "year": 2008,
+  "title": "Frequency-dependent behavior of the intervertebral disc in response to each of six degree of freedom dynamic loading",
+  "journal": "Spine",
+  "doi": "10.1097/BRS.0b013e31817bb116",
+  "n": "9 cadaveric lumbar vertebra-disc-vertebra segments from 7 spines",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "disc_whole 6-DOF stiffness and phase angle vs frequency (0.4 MPa preload)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "mean (95% CI) stiffness per DOF and frequency",
+    "unit": "N/mm, Nm/deg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "phase angle per DOF and frequency",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "% change vs 0.001 Hz",
+    "unit": "%",
+    "where": "Fig 2-4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured 6-DOF disc stiffness with preload tabulated (posterior elements removed).",
+  "notes": "Disc-only (vertebra-disc-vertebra), 37C PBS."
+ },
+ {
+  "file": "Crawford2016.pdf",
+  "short": "Crawford 2016",
+  "year": 2016,
+  "title": "Age- and level-dependence of fatty infiltration in lumbar paravertebral muscles of healthy volunteers",
+  "journal": "AJNR Am J Neuroradiol",
+  "doi": "10.3174/ajnr.A4596",
+  "n": "80 healthy volunteers (40 F, 40 M; aged 20-62)",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "muscle volume + fat fraction (MRI Dixon)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "multifidus and erector spinae fat signal fraction per level",
+    "unit": "%",
+    "where": "Fig 1, Fig 2, abstract",
+    "extractable": "figure"
+   },
+   {
+    "name": "muscle volume per level",
+    "unit": "cm3",
+    "where": "Fig 1, Fig 2, abstract",
+    "extractable": "figure"
+   },
+   {
+    "name": "demographics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo muscle volume/fat fraction, no CSA per se and no moment arm; mostly figures.",
+  "notes": "Volume, not CSA/PCSA - does not map cleanly to a subcategory."
+ },
+ {
+  "file": "Cripton2000JB.pdf",
+  "short": "Cripton 2000",
+  "year": 2000,
+  "title": "In vitro axial preload application during spine flexibility testing: towards reduced apparatus-related artefacts",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "6 cadaveric lumbar FSUs (1 L1/L2, 3 L2/L3, 1 L3/L4, 1 L4/L5)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "preload effect (four preload methods, 0/200/400 N)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "rotation vs applied moment for each preload type (FE, LB)",
+    "unit": "deg",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "artefact moments and shear forces vs preload type",
+    "unit": "Nm, N",
+    "where": "Fig 5-8",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured preload effect on FSU kinematics, but only in figures; mainly a methods paper.",
+  "notes": "J Biomech 33:1559-1568."
+ },
+ {
+  "file": "Crisco1992.pdf",
+  "short": "Crisco 1992",
+  "year": 1992,
+  "title": "Euler stability of the human ligamentous lumbar spine. Part II: Experiment",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "6 fresh cadaveric ligamentous lumbar spines (3 L1-S1, 3 L2-S1)",
+  "layer": "outcome",
+  "category": "fe_compression_stiffness",
+  "subcategory": "buckling load of whole ligamentous lumbar spine, intact and injured",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "critical buckling load per specimen (intact, disc injury, facet injury)",
+    "unit": "N",
+    "where": "Table 1, Table 2, Table 3 (mean 88 N intact, abstract)",
+    "extractable": "table"
+   },
+   {
+    "name": "post-buckling lateral rotations at 157/98/78 N",
+    "unit": "deg",
+    "where": "Tables 4-6",
+    "extractable": "table"
+   },
+   {
+    "name": "load-rotation curves",
+    "unit": "N vs deg",
+    "where": "Fig 2-4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro buckling loads tabulated - classic target for passive whole lumbar spine.",
+  "notes": "Clin Biomech 7:27-32."
+ },
+ {
+  "file": "Daggfeldt2003.pdf",
+  "short": "Daggfeldt & Thorstensson 2003",
+  "year": 2003,
+  "title": "The mechanics of back-extensor torque production about the lumbar spine",
+  "journal": "J Biomech",
+  "doi": "10.1016/S0021-9290(03)00015-0",
+  "n": "4 healthy male subjects (MRI + strength) + Visible Human anatomy",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "maximal isometric back-extension torque vs lumbar position, with IAP",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "measured max voluntary back-extension torque about L5/S1 by position",
+    "unit": "Nm",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "measured IAP during exertions and MRI effective IAP area",
+    "unit": "kPa, cm2",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "MRI-measured lever arm lengths of back extensors and IAP in 4 positions (subject-specific MRI, line-of-action based)",
+    "unit": "mm",
+    "where": "Fig 4, Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "muscle CSA / PCSA used",
+    "unit": "cm2",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured MVC torque and IAP in vivo (figures only, n=4); lever arms are MRI-based model geometry.",
+  "notes": "Lever arms here are moment-arm estimates from MRI muscle paths, not plain centroid distances - check method before classifying."
+ },
+ {
+  "file": "Damm2020.pdf",
+  "short": "Damm 2020",
+  "year": 2020,
+  "title": "Lumbar spinal ligament characteristics extracted from stepwise reduction experiments allow for preciser modeling than literature data",
+  "journal": "Biomech Model Mechanobiol",
+  "doi": "10.1007/s10237-019-01259-6",
+  "n": "modelling (MBS) reproducing stepwise-reduction experiments on 7 lumbar spines (Heuer/ Wilke data)",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "fitted IVD torque-angle parameters",
+    "unit": "Nm, deg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "fitted ligament force-strain parameters",
+    "unit": "N",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "comparison with experimental ROM (stepwise reduction) and IDP ranges",
+    "unit": "deg, MPa",
+    "where": "Table 4, Table 5, Fig 6, Fig 7",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Modelling paper; experimental ROM/IDP shown are re-plotted from Heuer 2007/Wilke - use the originals.",
+  "notes": ""
+ },
+ {
+  "file": "Delp2001.pdf",
+  "short": "Delp 2001",
+  "year": 2001,
+  "title": "Architecture of the rectus abdominis, quadratus lumborum, and erector spinae",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "5 cadavers (4 unembalmed, 1 embalmed)",
+  "layer": "property",
+  "category": "muscle_geometry",
+  "subcategory": "pcsa + fascicle_architecture (RA, QL, ES columns)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "specimen characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "musculotendon length, muscle length, optimal fascicle length, sarcomere length, pennation, mass, PCSA",
+    "unit": "cm, um, deg, g, cm2",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "PCSA vs literature anatomical CSA",
+    "unit": "cm2",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured cadaveric architecture and PCSA tabulated.",
+  "notes": "J Biomech 34:371-375 (Technical note). Table 3 contrasts PCSA with literature anatomical CSA - keep separate."
+ },
+ {
+  "file": "Dennison2008.pdf",
+  "short": "Dennison 2008",
+  "year": 2008,
+  "title": "Ex vivo measurement of lumbar intervertebral disc pressure using fibre-Bragg gratings",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2007.07.015",
+  "n": "5 cadaveric lumbar FSUs",
+  "layer": "outcome",
+  "category": "fe_idp_invitro",
+  "subcategory": "absolute IDP vs compressive load (pressure sensitivity kPa/N)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "IDP sensitivity to compressive load (FBG and strain-gauge sensors) per specimen with level/age/sex",
+    "unit": "kPa/N",
+    "where": "Table 1, abstract",
+    "extractable": "table"
+   },
+   {
+    "name": "IDP vs load curve example",
+    "unit": "MPa vs N",
+    "where": "Fig 3",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro IDP-load slopes per specimen tabulated.",
+  "notes": "Short communication, sensor methods focus."
+ },
+ {
+  "file": "Descarreaux2008.pdf",
+  "short": "Descarreaux 2008",
+  "year": 2008,
+  "title": "Changes in the flexion relaxation response induced by lumbar muscle fatigue",
+  "journal": "BMC Musculoskelet Disord",
+  "doi": "10.1186/1471-2474-9-10",
+  "n": "20 healthy subjects (9 M, 11 F)",
+  "layer": "outcome",
+  "category": "msk_flexion_relaxation",
+  "subcategory": "onset/cessation angle of myoelectric silence (fatigue, load)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "trunk flexion angle at onset and cessation of myoelectric silence per condition",
+    "unit": "deg",
+    "where": "text (Results) / figures; only Table 1 is a table",
+    "extractable": "text"
+   },
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo FR onset/cessation angles, a direct target for FR prediction.",
+  "notes": "Only Table 1 (subject characteristics) exists; FR angles reported in Results text."
+ },
+ {
+  "file": "DolanAdams1993.pdf",
+  "short": "Dolan & Adams 1993",
+  "year": 1993,
+  "title": "The relationship between EMG activity and extensor moment generation in the erector spinae muscles during bending and lifting activities",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "10 healthy subjects (aged 21-42); 3 for reproducibility",
+  "layer": "outcome",
+  "category": "msk_emg_posture",
+  "subcategory": "EMG-extensor moment calibration vs lumbar curvature",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "EMG-moment gradient G and passive intercept I vs lumbar curvature",
+    "unit": "Nm/uV, Nm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "reproducibility",
+    "unit": "",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "peak extensor moment and compression during lifting (EMG-derived estimate)",
+    "unit": "Nm, N",
+    "where": "Fig 10, Fig 11",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo EMG-moment data; intercept I gives passive moment vs flexion (FR-related); lifting moments are estimates.",
+  "notes": "J Biomech 26(4/5):513-522."
+ },
+ {
+  "file": "DrakeCallaghan2008.pdf",
+  "short": "Drake & Callaghan 2008",
+  "year": 2008,
+  "title": "Do flexion/extension postures affect the in vivo passive lumbar spine response to applied axial twist moments?",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2007.12.005",
+  "n": "10 healthy male subjects",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "passive axial twist moment-angle in vivo in 7 postures",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "normalised max axial twist stiffness per posture (% of neutral)",
+    "unit": "%",
+    "where": "Fig 5, text (81.0% max flexion, 125.4% extension)",
+    "extractable": "figure"
+   },
+   {
+    "name": "normalised axial twist angle per posture",
+    "unit": "%",
+    "where": "Fig 6, text",
+    "extractable": "figure"
+   },
+   {
+    "name": "postures attained",
+    "unit": "deg",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "coupled lateral bend",
+    "unit": "%",
+    "where": "Fig 7",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo passive twist data but normalised to neutral and in figures; absolute values may be limited.",
+  "notes": ""
+ },
+ {
+  "file": "Dreischarf2014.pdf",
+  "short": "Dreischarf 2014a",
+  "year": 2014,
+  "title": "Comparison of eight published static finite element models of the intact lumbar spine: predictive power of models improves when combined together",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "8 FE models compared against in vitro (Rohlmann 2001, 10 L1-L5 specimens) and in vivo data",
+  "layer": "outcome",
+  "category": "fe_model_comparison",
+  "subcategory": "lumbar L1-L5 ROM, IVR and IDP model benchmark",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "L1-L5 ROM under pure moments (models vs in vitro median/range)",
+    "unit": "deg",
+    "where": "Fig 2a",
+    "extractable": "figure"
+   },
+   {
+    "name": "segmental rotations under combined loads vs in vivo (Pearcy, Wong)",
+    "unit": "deg",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "IDP vs in vivo (Wilke 2001) per load case",
+    "unit": "MPa",
+    "where": "Fig 4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "Model comparison; experimental reference data are re-plotted from primary sources, but the load cases (e.g. follower load + moment) are the standard benchmark definitions.",
+  "notes": "QUT eprints author version. Use primary sources for data; this paper defines benchmark load cases."
+ },
+ {
+  "file": "Dreischarf2014KIN.pdf",
+  "short": "Dreischarf 2014b",
+  "year": 2014,
+  "title": "Age-related loss of lumbar spinal lordosis and mobility - a study of 323 asymptomatic volunteers",
+  "journal": "PLoS One",
+  "doi": "10.1371/journal.pone.0116186",
+  "n": "323 asymptomatic volunteers (139 M, 184 F; aged 20-75)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbar shares (lordosis and range of flexion/extension, segmental)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "total lordosis standing, range of flexion, range of extension by age and sex",
+    "unit": "deg",
+    "where": "Fig 2, Table 3-4 (in text refs)",
+    "extractable": "figure"
+   },
+   {
+    "name": "segmental (Epionics S1-S6) lordosis, RoF, RoE",
+    "unit": "deg",
+    "where": "Fig 3, Fig 5, Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "volunteer characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Large in vivo normative lumbar RoM dataset (skin-sensor).",
+  "notes": "Skin surface curvature, not vertebral angles. Check for numeric tables 3-4."
+ },
+ {
+  "file": "Dreischarf2015JB.pdf",
+  "short": "Dreischarf 2015",
+  "year": 2015,
+  "title": "In vivo implant forces acting on a vertebral body replacement during upper body flexion",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2015.01.007",
+  "n": "5 patients with telemeterized vertebral body replacement (L1 level mostly)",
+  "layer": "outcome",
+  "category": "msk_implant_loads",
+  "subcategory": "VBR resultant force vs trunk inclination (standing, sitting)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "patient and surgical data",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "implant force components during flexion",
+    "unit": "N, % of upright",
+    "where": "Fig 1, Fig 3-4",
+    "extractable": "figure"
+   },
+   {
+    "name": "trunk inclination angles",
+    "unit": "deg",
+    "where": "Fig 2, Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "force increase at max inclination vs upright",
+    "unit": "%",
+    "where": "text/abstract",
+    "extractable": "text"
+   }
+  ],
+  "usable": "yes",
+  "why": "Direct in vivo telemetric spinal loads during flexion - key MSK target.",
+  "notes": "Thoracolumbar (VBR at L1/T12)."
+ },
+ {
+  "file": "Dumas2007.pdf",
+  "short": "Dumas 2007",
+  "year": 2007,
+  "title": "Adjustments to McConville et al. and Young et al. body segment inertial parameters",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2006.02.013",
+  "n": "secondary analysis of McConville (31 M) and Young (46 F) data",
+  "layer": "input",
+  "category": "anthropometry",
+  "subcategory": "segment mass & COM (3D BSIP)",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "adjusted 3D landmark and COM positions in segment coordinate systems",
+    "unit": "% segment length",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "segment lengths, mass, inertia scaling factors",
+    "unit": "%, kg, %",
+    "where": "Table 2 (+ erratum at end)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Standard BSIP tables (input layer).",
+  "notes": "Includes corrigendum (10.1016/j.jbiomech.2006.07.016) at end."
+ },
+ {
+  "file": "Duprey2010.pdf",
+  "short": "Duprey 2010",
+  "year": 2010,
+  "title": "Biomechanical properties of the costovertebral joint",
+  "journal": "Med Eng Phys",
+  "doi": "10.1016/j.medengphy.2009.12.001",
+  "n": "15 costovertebral joint samples (ribs 2-10) from 3 PMHS",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costovertebral_joint (moment-angle in 3 axes)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "donor data",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "polynomial fits of average moment-angle curves and corridors (X, Y, Z axes)",
+    "unit": "Nm vs deg",
+    "where": "Table 2, Fig 6",
+    "extractable": "table"
+   },
+   {
+    "name": "ROM per loading axis",
+    "unit": "deg",
+    "where": "Fig 7",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured CVJ moment-angle characteristics tabulated as fit equations.",
+  "notes": ""
+ },
+ {
+  "file": "E01.pdf",
+  "short": "McGill 1991",
+  "year": 1991,
+  "title": "Electromyographic activity of the abdominal and low back musculature during the generation of isometric and dynamic axial trunk torque: implications for lumbar mechanics",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.1100090112",
+  "n": "25 subjects (10 M, 15 F); MVC part 11 M, 5 F",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "maximal axial twist torque with EMG (%MVC)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "subject data",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "normalisation method producing max EMG",
+    "unit": "",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "peak axial torque and muscle activity %MVC during isometric twists",
+    "unit": "Nm, %MVC",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "dynamic twist EMG",
+    "unit": "%MVC",
+    "where": "Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo max axial torque with coupled muscle activations tabulated.",
+  "notes": "File named E01; actual paper McGill 1991 J Orthop Res 9:91-103."
+ },
+ {
+  "file": "E02_Kumar2001.pdf",
+  "short": "Kumar 2001",
+  "year": 2001,
+  "title": "Isometric axial rotation of the trunk in the neutral posture",
+  "journal": "Eur J Appl Physiol",
+  "doi": "10.1007/s004210100510",
+  "n": "50 healthy subjects (27 M, 23 F)",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "maximal isometric axial rotation torque with EMG",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "peak and normalised EMG of 14 muscles during max axial rotation",
+    "unit": "uV, normalised",
+    "where": "Table 2, Fig 4",
+    "extractable": "table"
+   },
+   {
+    "name": "axial rotation torque",
+    "unit": "Nm",
+    "where": "Fig 3, text",
+    "extractable": "figure"
+   },
+   {
+    "name": "EMG slopes, onset timing",
+    "unit": "",
+    "where": "Table 3, Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo max axial torque with EMG; EMG normalised within subjects (not %MVC per muscle), torque mostly in figure/text.",
+  "notes": "Printed DOI is malformed (10.0007/...), actual 10.1007/s004210100510."
+ },
+ {
+  "file": "E03_Ng2003.pdf",
+  "short": "Ng 2003",
+  "year": 2003,
+  "title": "Reliability of electromyographic and torque measures during isometric axial rotation exertions of the trunk",
+  "journal": "Clin Neurophysiol",
+  "doi": "10.1016/S1388-2457(03)00249-9",
+  "n": "10 healthy subjects",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "axial rotation at 30-100% MVC: EMG + coupled torques (reliability)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "EMG RMS amplitude per muscle and exertion level (group mean, SD, ICC)",
+    "unit": "mV",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "EMG median frequency",
+    "unit": "Hz",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "max axial torque and coupling torques",
+    "unit": "Nm",
+    "where": "text / Table 3 (check)",
+    "extractable": "text"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo EMG/torque data but EMG in absolute mV (not %MVC); reliability focus.",
+  "notes": ""
+ },
+ {
+  "file": "E04.pdf",
+  "short": "Lavender 1992",
+  "year": 1992,
+  "title": "Trunk muscle cocontraction: the effects of moment direction and moment magnitude",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.1100100511",
+  "n": "10 male subjects (aged 20-36)",
+  "layer": "outcome",
+  "category": "msk_emg_posture",
+  "subcategory": "normalised EMG vs applied asymmetric moment (10-50 Nm, 0-180 deg directions)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "normalised EMG of 8 trunk muscles vs moment direction and magnitude",
+    "unit": "%max",
+    "where": "Fig 2, Fig 3, Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "statistics",
+    "unit": "",
+    "where": "Table 1, Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo EMG under controlled applied external moments - good MSK EMG validation target (figures).",
+  "notes": "File named E04; actual paper Lavender, Tsuang, Andersson, Hafezi, Shin 1992 J Orthop Res 10:691-700."
+ },
+ {
+  "file": "E05.pdf",
+  "short": "Granata 2005",
+  "year": 2005,
+  "title": "Co-contraction recruitment and spinal load during isometric trunk flexion and extension",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "14 healthy subjects (7 M, 7 F)",
+  "layer": "outcome",
+  "category": "msk_emg_posture",
+  "subcategory": "co-contraction in isometric flexion vs extension exertions",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "co-contraction level (EMG-model derived)",
+    "unit": "%",
+    "where": "Fig 2, abstract (28% vs ~14%)",
+    "extractable": "figure"
+   },
+   {
+    "name": "model-predicted spinal compression (total, task, co-contraction)",
+    "unit": "N",
+    "where": "Table 2, Fig 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Co-contraction and compression are EMG-model estimates; useful as a qualitative target (flexion > extension co-contraction).",
+  "notes": "File named E05; actual paper Granata, Lee, Franklin 2005 Clin Biomech 20(10):1029-1037; PMC version, DOI not printed (10.1016/j.clinbiomech.2005.07.006 likely - verify)."
+ },
+ {
+  "file": "E06.pdf",
+  "short": "Ng 2001",
+  "year": 2001,
+  "title": "Functional roles of abdominal and back muscles during isometric axial rotation of the trunk",
+  "journal": "J Orthop Res",
+  "doi": "10.1016/S0736-0266(00)90027-5",
+  "n": "23 healthy male subjects",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "coupled sagittal/coronal torques and %MVC EMG during axial rotation 30-100% MVC",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "coupled sagittal and coronal torques vs exertion level",
+    "unit": "Nm",
+    "where": "Fig 1",
+    "extractable": "figure"
+   },
+   {
+    "name": "normalised EMG of abdominal and back muscles vs exertion level",
+    "unit": "%MVC",
+    "where": "Fig 2, Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "statistics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo coupled torques and normalised EMG in axial rotation - figures.",
+  "notes": "File named E06; actual paper Ng, Parnianpour, Richardson, Kippers 2001 J Orthop Res 19:463-471."
+ },
+ {
+  "file": "E07.pdf",
+  "short": "Thelen 1995",
+  "year": 1995,
+  "title": "Co-contraction of lumbar muscles during the development of time-varying triaxial moments",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.1100130313",
+  "n": "9 young men (21-31 y)",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "max exertions in 3 planes with normalised EMG of 14 muscles; co-contraction",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "normalised RMS EMG per muscle during max exertions",
+    "unit": "normalised",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "EMG-model moment prediction agreement",
+    "unit": "r, CV",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "co-contraction ratios / sums (model-derived)",
+    "unit": "-, N",
+    "where": "Table 2, Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo EMG at MVC in multiple directions (figure); co-contraction values are model-derived.",
+  "notes": "File named E07; actual paper Thelen, Schultz, Ashton-Miller 1995 J Orthop Res 13:390-398."
+ },
+ {
+  "file": "Edmondston2007.pdf",
+  "short": "Edmondston 2007",
+  "year": 2007,
+  "title": "Influence of posture on the range of axial rotation and coupled lateral flexion of the thoracic spine",
+  "journal": "J Manipulative Physiol Ther",
+  "doi": "10.1016/j.jmpt.2007.01.010",
+  "n": "52 asymptomatic subjects (25 M, 27 F; aged 18-43)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending (in vivo, neutral/flexed/extended postures)",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "thoracic axial rotation ROM and coupled lateral flexion per posture",
+    "unit": "deg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "sex comparison",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "coupling direction counts",
+    "unit": "n",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo thoracic rotation ROM and coupling tabulated.",
+  "notes": "Seated, surface markers (optical)."
+ },
+ {
+  "file": "Edmondston2012.pdf",
+  "short": "Edmondston 2012",
+  "year": 2012,
+  "title": "Functional radiographic analysis of thoracic spine extension motion in asymptomatic men",
+  "journal": "J Manipulative Physiol Ther",
+  "doi": "10.1016/j.jmpt.2012.01.008",
+  "n": "14 asymptomatic male subjects",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic shares (kyphosis and extension ROM, radiographic Cobb)",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "thoracic kyphosis, extreme of extension, range of extension by region",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "literature summary of thoracic extension mobility",
+    "unit": "deg",
+    "where": "Table 1",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo radiographic thoracic extension ROM tabulated.",
+  "notes": ""
+ },
+ {
+  "file": "Edwards1987.pdf",
+  "short": "Edwards 1987",
+  "year": 1987,
+  "title": "Variation of lumbar spine stiffness with load",
+  "journal": "J Biomech Eng",
+  "doi": "",
+  "n": "12 cadaveric lumbar FSUs (L1-L2, L3-L4) from 7 spines T12-S1",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "FSU sagittal stiffness matrix at combined loads (load dependence)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "applied combined load conditions (% BW)",
+    "unit": "N",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "sagittal stiffness coefficients (3x3) at two load conditions, L1-L2 and L3-L4",
+    "unit": "N/mm, Nm/rad, N/rad",
+    "where": "Table 2, Fig 4",
+    "extractable": "table"
+   },
+   {
+    "name": "comparison with literature stiffness coefficients",
+    "unit": "",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured FSU stiffness matrices at preloads tabulated.",
+  "notes": "J Biomech Eng 109:35-42. Authors Edwards, Hayes, Posner, White, Mann."
+ },
+ {
+  "file": "ElliottSetton2001.pdf",
+  "short": "Elliott & Setton 2001",
+  "year": 2001,
+  "title": "Anisotropic and inhomogeneous tensile behavior of the human anulus fibrosus: experimental measurement and material model predictions",
+  "journal": "J Biomech Eng",
+  "doi": "10.1115/1.1374202",
+  "n": "samples from 10 fresh-frozen lumbar discs",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus (tensile moduli, Poisson's ratios, 3 directions, inner/outer)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "toe and linear region tensile moduli (circumferential, axial, radial), outer vs inner",
+    "unit": "MPa",
+    "where": "Table 2, abstract",
+    "extractable": "table"
+   },
+   {
+    "name": "Poisson's ratios",
+    "unit": "-",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "stress-strain examples",
+    "unit": "MPa",
+    "where": "Fig 5",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured AF anisotropic tensile properties tabulated.",
+  "notes": "J Biomech Eng 123:256-263."
+ },
+ {
+  "file": "Erdmann1997.pdf",
+  "short": "Erdmann 1997",
+  "year": 1997,
+  "title": "Geometric and inertial data of the trunk in adult males",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "15 male patients (CT, 8 mm slices)",
+  "layer": "input",
+  "category": "anthropometry",
+  "subcategory": "segment mass & COM (trunk sub-segments)",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "volume, mass, density of trunk segments and tissues",
+    "unit": "cm3, kg, g/cm3",
+    "where": "tables (captions not extracted; check PDF) and Fig 5-10",
+    "extractable": "table"
+   },
+   {
+    "name": "COM locations of trunk segments",
+    "unit": "% / cm",
+    "where": "Fig 6-8, Fig 10",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo CT trunk segment inertial data (input layer).",
+  "notes": "J Biomech 30(7):679-688. Table captions not picked up by extraction - verify table numbers."
+ },
+ {
+  "file": "Erdmann2020.pdf",
+  "short": "Erdmann & Kowalczyk 2020",
+  "year": 2020,
+  "title": "Basic inertial quantities including multi-segment trunk of fit, young males obtained based on personalized data",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2020.109794",
+  "n": "30 young fit males (24±4 y, 179±6 cm, 74±7 kg)",
+  "layer": "input",
+  "category": "anthropometry",
+  "subcategory": "segment mass & COM (5-part trunk)",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "relative mass of body parts incl. five trunk parts vs literature",
+    "unit": "% body mass",
+    "where": "Table 1, Fig 3",
+    "extractable": "table"
+   },
+   {
+    "name": "comparison with mid-aged/old subjects",
+    "unit": "%",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Segment mass fractions tabulated (estimated from anthropometric methods, not direct measurement).",
+  "notes": ""
+ },
+ {
+  "file": "Fasser2021.pdf",
+  "short": "Fasser 2021",
+  "year": 2021,
+  "title": "Subject-specific alignment and mass distribution in musculoskeletal models of the lumbar spine",
+  "journal": "Front Bioeng Biotechnol",
+  "doi": "10.3389/fbioe.2021.721042",
+  "n": "modelling, 145 EOS images of subjects",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "segment contribution to lumbar ROM (compiled from in vivo literature, model input)",
+    "unit": "%",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "subject age, weight, spinopelvic parameters",
+    "unit": "",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "model JRFs, IDP vs Wilke (comparison)",
+    "unit": "N, MPa",
+    "where": "Fig 4, Fig 7",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "Modelling paper; Table 1 lumbar rhythm is literature-compiled (input reference), no new measured targets.",
+  "notes": "Table 1 can be used as pointer to in vivo segmental share sources."
+ },
+ {
+  "file": "Forman2010.pdf",
+  "short": "Forman 2010",
+  "year": 2010,
+  "title": "The effect of perichondrium on the structural response of costal cartilage (cantilever-like loading)",
+  "journal": "J Biomech Eng",
+  "doi": "10.1115/1.4001976",
+  "n": "22 postmortem costal cartilage specimens",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costal_cartilage (structural, with/without perichondrium)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "test and specimen info",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "peak normalised reaction force, perichondrium intact vs removed",
+    "unit": "normalised",
+    "where": "Fig 4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured costal cartilage response but mostly normalised and in figures.",
+  "notes": "J Biomech Eng 132:094501 (technical brief). Title as extracted is about the perichondrium role."
+ },
+ {
+  "file": "Forman2011.pdf",
+  "short": "Forman & Kent 2011",
+  "year": 2011,
+  "title": "Modeling costal cartilage using local material properties with consideration for gross heterogeneities",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2010.11.034",
+  "n": "5 costal cartilage segments (subject-specific models) + indentation of cross-sections",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costal_cartilage (indentation moduli + structural force-displacement)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "specimen info and characteristic average moduli (indentation)",
+    "unit": "MPa",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "structural force-displacement experiments vs models",
+    "unit": "N vs mm",
+    "where": "Fig 7, Fig 8",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured local moduli tabulated and structural responses as FE validation targets.",
+  "notes": ""
+ },
+ {
+  "file": "Frei2002.pdf",
+  "short": "Frei 2002",
+  "year": 2002,
+  "title": "Thoracolumbar spine mechanics contrasted under compression and shear loading",
+  "journal": "J Orthop Res",
+  "doi": "10.1016/S0736-0266(02)00058-X",
+  "n": "12 cadaveric FSUs (11 T12-L1, 1 L1-L2)",
+  "layer": "outcome",
+  "category": "fe_idp_invitro",
+  "subcategory": "absolute IDP + endplate/rim strain under 500 N compression and shear",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "averaged disc pressure under compression and shear load types",
+    "unit": "MPa",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "endplate strains",
+    "unit": "microstrain",
+    "where": "Fig 4, Fig 6",
+    "extractable": "figure"
+   },
+   {
+    "name": "vertebral rim strains",
+    "unit": "microstrain",
+    "where": "Fig 5, Fig 7",
+    "extractable": "figure"
+   },
+   {
+    "name": "intervertebral motions",
+    "unit": "mm, deg",
+    "where": "text",
+    "extractable": "text"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured in vitro IDP and endplate strain under compression/shear (figures, digitise).",
+  "notes": "Thoracolumbar junction level."
+ },
+ {
+  "file": "Fujimori2014.pdf",
+  "short": "Fujimori 2014",
+  "year": 2014,
+  "title": "Kinematics of the thoracic spine in trunk lateral bending: in vivo three-dimensional analysis",
+  "journal": "Spine J",
+  "doi": "10.1016/j.spinee.2013.11.054",
+  "n": "15 healthy male volunteers (supine CT)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending (segmental LB ROM and coupled AR)",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "segmental lateral bending ROM T1-L1 by region",
+    "unit": "deg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "right vs left LB ROM per level",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "coupled axial rotation per level",
+    "unit": "deg",
+    "where": "Fig 3, Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "comparison with literature",
+    "unit": "deg",
+    "where": "Table 3, Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo CT-based segmental thoracic LB ROM (with rib cage) tabulated; usable as in vivo reference for thoracic models.",
+  "notes": "Supine maximal voluntary bending (no defined moment)."
+ },
+ {
+  "file": "Fujita1997.pdf",
+  "short": "Fujita 1997",
+  "year": 1997,
+  "title": "Radial tensile properties of the lumbar annulus fibrosus are site and degeneration dependent",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.1100150605",
+  "n": "196 radial AF specimens from 8 cadaveric lumbar spines (2 M, 6 F)",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus (radial tensile)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "radial tangent modulus, yield/ultimate stress and strain by region",
+    "unit": "MPa, -",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "effect of disc grade",
+    "unit": "MPa",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured AF radial tensile properties tabulated.",
+  "notes": ""
+ },
+ {
+  "file": "Fujita2000.pdf",
+  "short": "Fujita 2000",
+  "year": 2000,
+  "title": "Anisotropic shear behavior of the annulus fibrosus: effect of harvest site and tissue prestrain",
+  "journal": "Med Eng Phys",
+  "doi": "",
+  "n": "30 cube + 56 sheet AF specimens from 6 non-degenerate lumbar spines",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus (shear moduli)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "shear moduli of cube specimens by direction/site",
+    "unit": "kPa",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "shear modulus of sheet specimens vs prestrain and site",
+    "unit": "kPa",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured AF shear moduli tabulated.",
+  "notes": "Med Eng Phys 22:349-357. DOI not printed (10.1016/S1350-4533(00)00053-9 likely - verify)."
+ },
+ {
+  "file": "G04_ElOuaaid2013.pdf",
+  "short": "El Ouaaid 2013",
+  "year": 2013,
+  "title": "Trunk strength, muscle activity and spinal loads in maximum isometric flexion and extension exertions: a combined in vivo-computational study",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2013.06.018",
+  "n": "12 asymptomatic subjects measured; 4 modelled",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "max isometric flexion/extension moment at L5-S1 with normalised EMG",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "measured maximum trunk resistant moment at L5-S1 and normalised EMG in flexion/extension MVE",
+    "unit": "Nm, %MVE",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "body weight and moments of 4 modelled subjects",
+    "unit": "N, Nm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "model IAP/co-activity settings and predicted forces",
+    "unit": "kPa, N",
+    "where": "Table 2, Table 3, Fig 4-7",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo MVC moment + EMG measured in semi-seated posture; Table 1 gives subject-specific moments for simulation.",
+  "notes": "File G04."
+ },
+ {
+  "file": "G06.pdf",
+  "short": "Tafazzol 2014",
+  "year": 2014,
+  "title": "Lumbopelvic rhythm during forward and backward sagittal trunk rotations: combined in vivo measurement with inertial tracking device and biomechanical modeling",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2013.10.021",
+  "n": "8 asymptomatic males",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm (flexion and extension)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "full range of thorax, pelvis, lumbar, T5-L1 rotations per subject",
+    "unit": "deg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "lumbopelvic ratio L/P per 10% interval of flexion",
+    "unit": "-",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "L/P per 10% interval of extension",
+    "unit": "-",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "lumbar flexion vs literature",
+    "unit": "deg",
+    "where": "Table 4",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo lumbopelvic rhythm tabulated per subject and interval - key kinematic input.",
+  "notes": "File G06; L5-S1 loads in Fig 4 are model outputs."
+ },
+ {
+  "file": "G07.pdf",
+  "short": "Hajibozorgi & Arjmand 2016",
+  "year": 2016,
+  "title": "Sagittal range of motion of the thoracic spine using inertial tracking device and effect of measurement errors on model predictions",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2015.09.003",
+  "n": "40 young healthy male students",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic/lumbar/pelvis shares during forward flexion",
+  "region": "whole",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "pelvis, lumbar, upper/lower/total thoracic and T1 rotations vs trunk flexion",
+    "unit": "deg",
+    "where": "Fig 2, abstract (T1 118.4±13.9, T1-T12 20.5±6.5 deg)",
+    "extractable": "figure"
+   },
+   {
+    "name": "% contribution of pelvis/lumbar/thoracic",
+    "unit": "%",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "thoracic ROM vs literature",
+    "unit": "deg",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo thoracic/lumbar/pelvis shares during flexion; key kinematic input.",
+  "notes": "File G07; spinal loads in Fig 4 are model outputs."
+ },
+ {
+  "file": "G08_Lariviere2001.pdf",
+  "short": "Lariviere 2001",
+  "year": 2001,
+  "title": "A triaxial dynamometer to monitor lateral bending and axial rotation moments during static trunk extension efforts",
+  "journal": "Clin Biomech",
+  "doi": "",
+  "n": "14 healthy subjects",
+  "layer": "outcome",
+  "category": "msk_mvc_coupled",
+  "subcategory": "coupled LB/AR moments during 20-80% MVC extension",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "L5/S1 extension, lateral bending and axial rotation moments at 20-80% MVC",
+    "unit": "Nm",
+    "where": "Table 1, abstract (6.2±6.6, 6.1±4.5 Nm at 80%)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Measured coupled moments during extension efforts; device paper, no EMG targets.",
+  "notes": "Clin Biomech 16:80-83. File G08."
+ },
+ {
+  "file": "G09_Eskandari2019.pdf",
+  "short": "Eskandari 2019",
+  "year": 2019,
+  "title": "Hypersensitivity of trunk biomechanical model predictions to errors in image-based kinematics when using fully displacement-control techniques",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2018.12.043",
+  "n": "modelling (Monte Carlo)",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "SD/CV of model IDP, compression, shear",
+    "unit": "MPa, N",
+    "where": "Table 1, Table 2, Fig 2-6",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Pure model sensitivity study; no experimental data.",
+  "notes": "File G09."
+ },
+ {
+  "file": "Galante1967.pdf",
+  "short": "Galante 1967",
+  "year": 1967,
+  "title": "Tensile properties of the human lumbar annulus fibrosus",
+  "journal": "Acta Orthop Scand Suppl",
+  "doi": "10.3109/ort.1967.38.suppl-100.01",
+  "n": "592 AF samples from 68 lumbar spines (autopsy)",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus (tensile, by direction, region, age, degeneration)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "study group",
+    "unit": "",
+    "where": "Table I",
+    "extractable": "table"
+   },
+   {
+    "name": "water content, swelling",
+    "unit": "%",
+    "where": "Table III, Table IV, Table V",
+    "extractable": "table"
+   },
+   {
+    "name": "tensile stiffness/strength vs orientation, region, degeneration (later tables and load-elongation figures)",
+    "unit": "kp/cm2, %",
+    "where": "Tables VI+ and Figs 13+ (92-page monograph; many tables)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Classic monograph of AF tensile data; many tables (needs careful extraction, old units kp).",
+  "notes": "92 pages; scanned quality moderate. Load units in pond/kilopond."
+ },
+ {
+  "file": "Galbusera2014.pdf",
+  "short": "Galbusera 2014",
+  "year": 2014,
+  "title": "Ageing and degenerative changes of the intervertebral disc and their impact on spinal flexibility",
+  "journal": "Eur Spine J",
+  "doi": "10.1007/s00586-014-3203-4",
+  "n": "narrative review",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "ROM and NZ vs degeneration grade (re-plotted from Mimura/Tanaka/Kettler studies)",
+    "unit": "% of grade 0",
+    "where": "Fig 4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "Review; data are secondary (use primary degeneration studies).",
+  "notes": ""
+ },
+ {
+  "file": "GardnerMorse1995.pdf",
+  "short": "Gardner-Morse 1995",
+  "year": 1995,
+  "title": "Role of muscles in lumbar spine stability in maximum extension efforts",
+  "journal": "J Orthop Res",
+  "doi": "10.1002/jor.1100130521",
+  "n": "modelling only",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "critical muscle stiffness q and predicted max extension moments",
+    "unit": "-, Nm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "simulated muscle forces % max",
+    "unit": "%",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "no",
+  "why": "Pure stability model; no experimental data.",
+  "notes": ""
+ },
+ {
+  "file": "GardnerMorse2003.pdf",
+  "short": "Gardner-Morse & Stokes 2003",
+  "year": 2003,
+  "title": "Physiological axial compressive preloads increase motion segment stiffness, linearity and hysteresis in all six degrees of freedom for small displacements about the neutral posture",
+  "journal": "J Orthop Res",
+  "doi": "10.1016/S0736-0266(02)00199-7",
+  "n": "6 PORCINE lumbar motion segments (not human)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "preload effect on 6x6 stiffness (0/200/400 N), intact and isolated disc",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "diagonal stiffness terms vs preload, intact",
+    "unit": "N/mm, Nm/deg",
+    "where": "Fig 2",
+    "extractable": "figure"
+   },
+   {
+    "name": "diagonal stiffness terms vs preload, isolated disc",
+    "unit": "N/mm, Nm/deg",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "linearity R2",
+    "unit": "-",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "% stiffness/hysteresis increase attributable to disc vs posterior elements",
+    "unit": "%",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Porcine specimens; useful only for relative preload effect, not human absolute stiffness.",
+  "notes": "Animal tissue - flag in benchmark."
+ },
+ {
+  "file": "GardnerMorse2004.pdf",
+  "short": "Gardner-Morse & Stokes 2004",
+  "year": 2004,
+  "title": "Structural behavior of human lumbar spinal motion segments",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2003.10.003",
+  "n": "8 cadaveric lumbar motion segments (L2-3 and L4-5 from 4 spines)",
+  "layer": "property",
+  "category": "segment_stiffness",
+  "subcategory": "FSU 6-DOF stiffness matrix with preload 0/250/500 N",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "stiffness matrix terms ± SE of intact FSUs at 0, 250, 500 N preload",
+    "unit": "N/mm, Nm/rad, N/rad",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "isolated disc stiffness as % of intact",
+    "unit": "%",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "equivalent structure geometric properties",
+    "unit": "mm, N",
+    "where": "Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "Benchmark human FSU 6x6 stiffness matrices with preload tabulated.",
+  "notes": "Small displacements about neutral (±0.5 mm, ±1-1.5 deg)."
+ },
+ {
+  "file": "GardnerMorseStokes2001.pdf",
+  "short": "Gardner-Morse & Stokes 2001",
+  "year": 2001,
+  "title": "Trunk stiffness increases with steady-state effort",
+  "journal": "J Biomech",
+  "doi": "",
+  "n": "14 young healthy subjects (8 with complete data)",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "trunk driving-point stiffness in vivo with active preload effort",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "effective trunk mass by effort and direction",
+    "unit": "kg",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "trunk driving-point stiffness vs direction and effort (20/40% max)",
+    "unit": "N/mm",
+    "where": "Fig 4, abstract (14.5 to 19.8 N/mm)",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo trunk stiffness but includes active muscle (not passive); figures.",
+  "notes": "J Biomech 34:457-463."
+ },
+ {
+  "file": "Ghasemi2021.pdf",
+  "short": "Ghasemi & Arjmand 2021",
+  "year": 2021,
+  "title": "Spinal segment ranges of motion, movement coordination, and three-dimensional kinematics during occupational activities in normal-weight and obese individuals",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2021.110539",
+  "n": "18 healthy young males (9 normal-weight, 9 obese)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm (all planes) + trunk/lumbar/pelvis ROM, 3D load-handling kinematics",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "trunk, lumbar, pelvis ROM per plane/direction",
+    "unit": "deg",
+    "where": "Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "lumbopelvic ratios at 10 trunk-angle intervals",
+    "unit": "-",
+    "where": "Fig 6, Table 1 (ANOVA)",
+    "extractable": "figure"
+   },
+   {
+    "name": "3D Euler angles in 12 load-handling tasks",
+    "unit": "deg",
+    "where": "Fig 7, Table 2, supplementary",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo kinematic input (lumbopelvic rhythm in all planes); values mostly in figures/supplement.",
+  "notes": ""
+ },
+ {
+  "file": "Ghezelbash2020AF.pdf",
+  "short": "Ghezelbash 2020a",
+  "year": 2020,
+  "title": "On the modeling of human intervertebral disc annulus fibrosus: elastic, permanent deformation and failure responses",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2019.109463",
+  "n": "modelling only (FE, calibrated against literature data)",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "L2-L3 disc model specifications",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "model vs literature AF tensile/failure and whole-disc compression data (Holzapfel, Skaggs, Acaroglu, Skrzypiec etc.)",
+    "unit": "MPa, N vs mm",
+    "where": "Fig 2-4",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "User's own FE modelling paper; experimental curves are re-plotted from literature (go to primary sources).",
+  "notes": "User's own paper (J Biomech 102:109463). Fig 2-4 list the AF and disc experimental datasets worth cataloguing."
+ },
+ {
+  "file": "Ghezelbash2020rev.pdf",
+  "short": "Ghezelbash 2020b",
+  "year": 2020,
+  "title": "Internal load-sharing in the human passive lumbar spine: review of in vitro and finite element model studies",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "literature review",
+  "layer": "outcome",
+  "category": "fe_facet",
+  "subcategory": "review: load-sharing (disc/ligament/facet) and in vitro facet force measurements",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "load-sharing contributions of disc, ligaments, facets (in vitro and FE)",
+    "unit": "%",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "in vitro facet force measurements by level/load",
+    "unit": "N",
+    "where": "Table 2",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "Review (secondary data), but Table 2 compiles measured in vitro facet forces with sources - good pointer for fe_facet tests.",
+  "notes": "User's own review. Extract primary sources from Table 2."
+ },
+ {
+  "file": "Ghezelbash2021_SSRN.pdf",
+  "short": "Ghezelbash 2021",
+  "year": 2021,
+  "title": "Modeling of human intervertebral disc annulus fibrosus with complex multi-fiber networks",
+  "journal": "SSRN preprint (submitted to Acta Biomaterialia Aug 2020; published Acta Biomater 2021)",
+  "doi": "",
+  "n": "modelling only",
+  "layer": "none",
+  "category": "",
+  "subcategory": "",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "literature hyperelastic AF strain energy functions/parameters",
+    "unit": "MPa",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "model vs literature uniaxial/biaxial AF and whole-disc data",
+    "unit": "MPa, N vs mm",
+    "where": "Fig 4, 5, 7, 9",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "no",
+  "why": "User's own micromechanical model (SSRN preprint version); experimental data re-plotted from literature.",
+  "notes": "Preprint, not the version of record (SSRN abstract=3677348). Table 1 is a useful compilation of published AF constitutive parameters."
+ },
+ {
+  "file": "Gombatto2008.pdf",
+  "short": "Gombatto 2008",
+  "year": 2008,
+  "title": "Differences in symmetry of lumbar region passive tissue characteristics between people with and people without low back pain",
+  "journal": "Clin Biomech",
+  "doi": "10.1016/j.clinbiomech.2008.05.006",
+  "n": "41 subjects (22 LBP Rotation-with-Extension subgroup + 19 without LBP)",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "passive lateral bending torque-angle in vivo (extensibility, elastic energy)",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "",
+    "where": "Table 1, Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "passive elastic energy by side",
+    "unit": "Nm deg",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "torque-lumbar angle curves (representative)",
+    "unit": "Nm vs deg",
+    "where": "Fig 3, Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "lumbar region extensibility / energy by group",
+    "unit": "deg, Nm deg",
+    "where": "Table 3 (and text)",
+    "extractable": "table"
+   }
+  ],
+  "usable": "partly",
+  "why": "In vivo passive LB torque-angle data but reported mainly as asymmetry/energy, with figures for curves.",
+  "notes": "PMC author manuscript."
+ },
+ {
+  "file": "Gornet2011.pdf",
+  "short": "Gornet 2011",
+  "year": 2011,
+  "title": "Biomechanical assessment of a PEEK rod system for semi-rigid fixation of lumbar fusion constructs",
+  "journal": "J Biomech Eng",
+  "doi": "10.1115/1.4004862",
+  "n": "5 cadaveric lumbar spines L1-sacrum (L4-L5 instrumented) + ASTM construct tests + FE",
+  "layer": "outcome",
+  "category": "fe_instrumented",
+  "subcategory": "L4-L5 ROM intact / destabilised / PEEK vs titanium rods",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "L4-L5 ROM intact, destabilised, instrumented (cadaveric)",
+    "unit": "deg",
+    "where": "Fig 8",
+    "extractable": "figure"
+   },
+   {
+    "name": "construct static compression bending and fatigue",
+    "unit": "N, cycles",
+    "where": "Fig 6, Fig 7, Table 1",
+    "extractable": "figure"
+   },
+   {
+    "name": "FE ROM and load sharing (model)",
+    "unit": "deg, N",
+    "where": "Fig 9-11",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "partly",
+  "why": "Cadaveric instrumented ROM measured but only in a bar chart, n=5; rest is device testing/FE.",
+  "notes": "Industry (Medtronic) device paper."
+ },
+ {
+  "file": "Gradischar2022.pdf",
+  "short": "Gradischar 2022",
+  "year": 2022,
+  "title": "Measurement of global mechanical properties of human thorax costal cartilage",
+  "journal": "J Biomech",
+  "doi": "10.1016/j.jbiomech.2022.111242",
+  "n": "12 costal cartilage samples from 2 cadavers",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "costal_cartilage (bending, torsion, tension moduli)",
+  "region": "ribcage",
+  "quantities": [
+   {
+    "name": "donor data",
+    "unit": "",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "sample dimensions; bending moduli EB1-EB4, shear moduli GT1-GT2, secant tensile modulus EZ",
+    "unit": "mm, MPa",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "force-displacement and stress-strain curves",
+    "unit": "N, mm, MPa",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "modulus distributions",
+    "unit": "MPa",
+    "where": "Fig 5",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Measured whole costal cartilage moduli per sample tabulated.",
+  "notes": "Only 2 donors."
+ }
+]

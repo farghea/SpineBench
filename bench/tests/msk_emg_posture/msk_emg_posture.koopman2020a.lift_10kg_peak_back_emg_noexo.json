@@ -1,0 +1,116 @@
+{
+ "id": "msk_emg_posture.koopman2020a.lift_10kg_peak_back_emg_noexo",
+ "title": "Peak lumbar back muscle EMG during symmetric 10 kg lifts from knee/ankle height, near/far, no exoskeleton",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "dynamic lifting EMG",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo, healthy, WITHOUT exoskeleton",
+ "quantity": {
+  "name": "peak back muscle EMG",
+  "definition": "peak over lift of normalised EMG averaged over left/right iliocostalis and longissimus pars lumborum; mean ± SD over subjects (error bars assumed SD)",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Koopman 2020a",
+  "authors": "Koopman AS, Kingma I, de Looze MP, van Dieën JH",
+  "year": 2020,
+  "journal": "J Biomech 102:109486",
+  "doi": "10.1016/j.jbiomech.2019.109486",
+  "n": 11,
+  "sample": "11 healthy male subjects (same cohort/ethics protocol NL57404.029.16 and identical demographics as Koopman 2019)",
+  "age": "24.1 ± 2.7 yr",
+  "sex": "male",
+  "height_cm": 184,
+  "weight_kg": 74.8
+ },
+ "protocol": {
+  "summary": "Symmetric lifting of a 10 kg box (35 x 10 x 25 cm, w x h x d) from 10 cm above ankle height (ANKLE) or 10 cm above knee height (KNEE), box centre 35 cm (NEAR) or 60 cm (FAR) in front of the ankle joint; start and end upright without box; free (self-selected) speed and technique; 3 repetitions; WITHOUT exoskeleton condition only. Peak values over the lift. EMG: bilateral RA, EO, anterior IO, IL, LL per Kingma et al. 2010 (levels/distances not stated). Normalisation: %MVC, MVC per McGill 1991 (supine maximal efforts, as in Koopman 2019); rectified, low-pass 2.5 Hz.",
+  "how_to_simulate": [
+   "Scale model to a 184 cm, 74.8 kg male",
+   "Drive the model with a symmetric 10 kg box lift from the 4 pick-up locations (box centre 35 or 60 cm anterior to ankle, 10 cm above ankle or knee height), peak lumbar flexion 31/38/48/56 deg (KN/KF/AN/AF), peak trunk angular velocity 157-232 deg/s",
+   "Compare the peak of the mean IL+LL (bilateral) activation over the lift with the measured peak %MVC"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 24.1,
+   "height_cm": 184,
+   "weight_kg": 74.8,
+   "disc_area_mm2": null,
+   "source": "Koopman 2020a Methods 2.3 (mean of 11 males; 1.84 ± 0.07 m, 74.8 ± 7.4 kg)"
+  },
+  "notes": "WITHOUT means printed on Fig. 3 bars: peak lumbar flexion KN 31, KF 38, AN 48, AF 56 deg (SD digitised ~5/10/11/10); peak trunk angular velocity KN 157, KF 180, AN 216, AF 232 deg/s. Peak abdominal EMG analysed but not plotted (only ANOVA in Table 1) - not extracted. L5S1 compression is EMG-driven model output - not extracted as a measured test."
+ },
+ "data": [
+  {
+   "x": "KNEE NEAR",
+   "load": "10 kg; 10 cm above knee; 35 cm in front of ankle",
+   "site": "iliocostalis + longissimus pars lumborum, bilateral average (Kingma 2010 sites)",
+   "mean": 57,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "KNEE FAR",
+   "load": "10 kg; 10 cm above knee; 60 cm in front of ankle",
+   "site": "iliocostalis + longissimus pars lumborum, bilateral average (Kingma 2010 sites)",
+   "mean": 84,
+   "sd": 16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "ANKLE NEAR",
+   "load": "10 kg; 10 cm above ankle; 35 cm in front of ankle",
+   "site": "iliocostalis + longissimus pars lumborum, bilateral average (Kingma 2010 sites)",
+   "mean": 80,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "ANKLE FAR",
+   "load": "10 kg; 10 cm above ankle; 60 cm in front of ankle",
+   "site": "iliocostalis + longissimus pars lumborum, bilateral average (Kingma 2010 sites)",
+   "mean": 98,
+   "sd": 19,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Fig. 3 'Back muscle activity' NO EXO bars (means printed on bars)",
+  "method": "digitised_figure",
+  "uncertainty": "means printed integers (±0.5); SD digitised ±2 %MVC",
+  "checked": true,
+  "check_notes": "Means read from 300-dpi render labels; SD from cap pixel rows (cap-centre minus printed mean): 11.3, 16.3, 14.6, 18.5 -> rounded. Second pass with off-centre bar top gave mean 57.0 for KN (matches label)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_emg_posture__emg_peak__lumbar_back_IL_LL_avg__symmetric_lift_10kg",
+ "shared_sample_with": [
+  "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+  "msk_emg_posture.koopman2019.static_bending_L5S1_moment_noexo"
+ ],
+ "tags": [
+  "in vivo",
+  "EMG",
+  "dynamic",
+  "lifting",
+  "exoskeleton study control condition"
+ ]
+}

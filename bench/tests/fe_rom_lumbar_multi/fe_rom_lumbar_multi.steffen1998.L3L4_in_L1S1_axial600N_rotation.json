@@ -1,0 +1,116 @@
+{
+ "id": "fe_rom_lumbar_multi.steffen1998.L3L4_in_L1S1_axial600N_rotation",
+ "title": "L3-L4 segmental rotation under whole-specimen displacement (600 N, 10 deg AR, 15 deg flexion / 10 deg extension)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "displacement-controlled multisegment",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "intact (in L1-S1 specimen)",
+ "quantity": {
+  "name": "segmental rotation",
+  "definition": "L3/L4 angular displacement (electromagnetic tracking) at the end positions, mean (SD); AR one side; upright sagittal angle defined as 0",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Steffen 1998",
+  "authors": "Steffen T, Baramki HG, Rubin R, Antoniou J, Aebi M",
+  "year": 1998,
+  "journal": "Clin Biomech",
+  "doi": "10.1016/S0268-0033(98)00039-4",
+  "n": "16 specimens (L1-S1 spines; L3-L4 disc instrumented; 1 grade IV disc excluded per text)",
+  "sample": "human cadaver lumbar L1-S1 spines (L1-L2 and L5-S1 fused with screws), Thompson grade II (13) / III (3)",
+  "age": "mean 46.3 (range 29-63)",
+  "sex": "10M, 6F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L1-S1 spine, L1/L2 and L5/S1 fused, ends in plaster with L3/L4 disc parallel to fixtures; 6-DOF custom machine: upper platform displacement-controlled (compression, AR, FE), lower platform free in LB and both horizontal translations. 300 N held 15 min, then 600 N axial compression with whole-specimen positions upright, 15 deg flexion, 10 deg extension; at each, 10 deg axial rotation to each side (whole specimen); 2 preconditioning cycles, then a recording cycle (left-to-right and right-to-left, averaged). IDP: three 2.1 mm needles in the mid-plane of L3/L4 (anterior mid-sagittal; left and right posterolateral at 30 deg to sagittal plane), each with three 1.6 mm strain-gauge transducers 6, 9, 12 mm from the outer disc border facing upward. Absolute pressure (kPa), mean (SEM).",
+  "how_to_simulate": [
+   "Model L1-S1 (or L2-L5 with rigid ends) with L3/L4 disc horizontal; apply 600 N axial compression on the upper end.",
+   "Impose whole-specimen sagittal posture (upright, 15 deg flexion, 10 deg extension) and then 10 deg axial rotation to each side (displacement control; lateral bending and horizontal translations free).",
+   "Report L3/L4 segmental axial rotation (one side) and sagittal angle, and the end moments, for comparison with Table 3."
+  ],
+  "subject_model": null,
+  "notes": "Sensor tissue zones (Table 4, n=16): anterior needle 12 mm: 13 nuclear/3 intermediate/0 annular; 9 mm: 0/9/7; 6 mm: 0/0/16. PL left 12 mm: 16/0/0; 9 mm: 7/7/2; 6 mm: 0/1/15. PL right 12 mm: 15/1/0; 9 mm: 9/6/1; 6 mm: 0/2/14. Needle insertion (0.08 ml) estimated to add ~26 kPa. Pressure gradients (Fig 5) and differences vs upright (Fig 6) not extracted."
+ },
+ "data": [
+  {
+   "x": "axial_rotation",
+   "load": "upright, 600 N, 10 deg whole-specimen AR",
+   "mean": 2.3,
+   "sd": 0.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "level": "L3-L4"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "15 deg flexion, 600 N, 10 deg whole-specimen AR",
+   "mean": 2.5,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "level": "L3-L4"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "10 deg extension, 600 N, 10 deg whole-specimen AR",
+   "mean": 1.9,
+   "sd": 0.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "level": "L3-L4"
+  },
+  {
+   "x": "flexion",
+   "load": "15 deg whole-specimen flexion, 600 N",
+   "mean": 4.9,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "level": "L3-L4"
+  },
+  {
+   "x": "extension",
+   "load": "10 deg whole-specimen extension, 600 N",
+   "mean": 1.8,
+   "sd": 0.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "level": "L3-L4"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read from rendered table; SD (not SEM) per caption."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_multi__segmental_rotation__L3-L4_in_multiseg__intact__displacement_control_600N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multisegment",
+  "displacement control",
+  "kinematics"
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "id": "passive_tissue.robertson2013.prestrain_change_444N",
+ "title": "Robertson 2013 change in ligament pre-strain under 444 N compression",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracolumbar",
+ "levels": [],
+ "condition": "444 N compressive load on FSU",
+ "quantity": {
+  "name": "change in pre-strain",
+  "definition": "change in ligament strain (percent points) between unloaded neutral and 444 N compressive load through the centre of rotation",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Robertson 2013",
+  "authors": "Robertson DJ, Von Forell GA, Alsup J, Bowden AE",
+  "year": 2013,
+  "journal": "J Mech Behav Biomed Mater 23:44-52",
+  "doi": "",
+  "n": "71 ligaments (30 ALL, 27 SSL, 14 ISL) from 3 cadaveric T1-S1 spines; +10 ligaments (4 ALL, 3 ISL, 3 SSL) for the 444 N test",
+  "sample": "human thoracolumbar ALL, SSL, ISL in situ (neutral posture fixed with pedicle screws/plates)",
+  "age": "29, 42, 73 y",
+  "sex": "2 F, 1 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Spine placed in neutral posture and fixed posterolaterally (plates + pedicle screws); tattoo-ink optical markers on ALL (12), ISL (4), SSL (2); calibrated photographs in situ, then each ligament excised and allowed to reach stress-free state and re-photographed; pre-strain = (in situ length - free length)/free length between markers. Room temperature, isotonic saline mist. Load test: single-level FSUs potted, 444 N compressive follower-type load through centre of rotation, photographs with/without load.",
+  "how_to_simulate": [
+   "Apply 444 N compression through the FSU centre of rotation (moment < 7.3 Nm)",
+   "Report change in ligament strain along the stated directions"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "ALL vertical direction",
+   "load": "",
+   "mean": 1.5,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4
+  },
+  {
+   "x": "ALL medial-lateral direction",
+   "load": "",
+   "mean": 1.6,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4
+  },
+  {
+   "x": "ISL superior-inferior direction",
+   "load": "",
+   "mean": 0.3,
+   "sd": 4.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 3
+  },
+  {
+   "x": "ISL dorsal-ventral direction",
+   "load": "",
+   "mean": 0.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 3
+  },
+  {
+   "x": "SSL",
+   "load": "",
+   "mean": -6.0,
+   "sd": 4.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 3
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 read from render. Levels of the 10 FSU ligaments not specified per value. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__prestrain_change__ligaments__human__compression_444N",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "lumbar"
+ ]
+}

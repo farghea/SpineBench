@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.marras2001.csa_fibre_corrected.L1.psoas.M_supine",
+ "title": "Marras 2001: csa fibre corrected of psoas major at L1 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L1"
+ ],
+ "condition": "M_supine",
+ "muscle": "psoas",
+ "muscle_as_reported": "R./L. psoas major",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips GyroScan, T1 spin echo",
+  "plane": "transverse slices perpendicular to the scan table through approximate vertebral body centres T8-S1; areas then fibre-angle corrected (dot product with literature fibre directions)",
+  "slice_thickness_mm": 10,
+  "level_definition": "mid-vertebral-body level",
+  "posture_detail": "supine, hips and knees extended"
+ },
+ "quantity": {
+  "name": "csa_fibre_corrected",
+  "definition": "anatomical CSA multiplied by cosine of fibre angle to the plane normal (authors may call it PCSA/physiological area; NOT volume/fibre-length PCSA); fibre angles from McGill et al. [14]",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Marras 2001",
+  "authors": "Marras WS, Jorgensen MJ, Granata KP, Wiand B",
+  "year": 2001,
+  "journal": "Clin Biomech 16:38-46",
+  "doi": "10.1016/S0268-0033(00)00046-2",
+  "n": "30 healthy subjects (20 F, 10 M)",
+  "sample": "young healthy volunteers (same 30 subjects/MRI scans as Jorgensen 2001)",
+  "age": "F 25.0 (7.2), M 26.4 (5.5) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Supine MRI axial slices through vertebral body centres T8-S1; raw muscle areas corrected by the dot product with literature fibre-direction unit vectors (authors call the result ACSA).",
+  "how_to_simulate": [
+   "Pose the model supine; cut a transverse plane perpendicular to the body long axis through the centre of the L1 vertebral body.",
+   "Select the model psoas major fascicles crossing that plane on each side; sum their PCSA (fibre-angle-corrected area = area normal to the fibres).",
+   "Compare each side with the measured mean +/- SD (the measured value is the axial MRI area times the cosine of a literature fibre angle, so it approximates the summed PCSA of fibres crossing the slice, not the whole-muscle PCSA)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 26.4,
+   "height_cm": 175.9,
+   "weight_kg": 79.8,
+   "disc_area_mm2": null,
+   "n": 10,
+   "source": "Table 1 (vertebral body ACSA by level in Table 2, e.g. L3 14.13 cm2)"
+  },
+  "notes": "Authors label Table 2 \"fiber angle corrected ACSAs\". Converted cm2 -> mm2 (x100). Uncorrected areas are not reported."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 258.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "2.58 (-) cm2",
+   "note": "SD printed as '(-)'"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 323.0,
+   "sd": 140.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "3.23 (1.4) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "printed to 0.01 cm2",
+  "checked": true,
+  "check_notes": "Every cell compared with rendered (rotated) page 41; level columns confirmed from the image."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_fibre_corrected__L1__psoas__M_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_fibre_corrected",
+  "sample:osu_mri_30",
+  "in vivo",
+  "MRI",
+  "supine"
+ ]
+}

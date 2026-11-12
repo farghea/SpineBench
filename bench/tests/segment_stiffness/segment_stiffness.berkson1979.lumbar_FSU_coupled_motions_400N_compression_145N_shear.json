@@ -1,0 +1,836 @@
+{
+ "id": "segment_stiffness.berkson1979.lumbar_FSU_coupled_motions_400N_compression_145N_shear",
+ "title": "Lumbar motion segment principal and coupled motions under 400 N compression and 145 N shear, intact vs posterior elements destroyed",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "shear_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (mixed)"
+ ],
+ "condition": "intact and posterior elements destroyed",
+ "quantity": {
+  "name": "principal and coupled translations/rotations",
+  "definition": "mean translations (left, posterior, superior) and rotations (flexion, left lateral bending, CCW torsion) of the superior vertebral body centre. Inferior vertebra clamped, superior fixture unconstrained; displacements and rotations of the centre of the SUPERIOR vertebral body (6 dial gauges). Shear dead weights applied horizontally near the centre of the superior vertebral body, i.e. acting on the disc centre through a mean moment arm of 3.4 cm (shear is therefore accompanied by a bending moment of ~0.034 m x F).",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Berkson 1979",
+  "authors": "Berkson MH, Nachemson A, Schultz AB",
+  "year": 1979,
+  "journal": "J Biomech Eng 101:53-57",
+  "doi": "",
+  "n": "42 lumbar motion segments intact (abstract: 43); 18 of them retested with posterior elements destroyed",
+  "sample": "fresh human cadaver lumbar motion segments (autopsy <12 h), tested at room temperature, 100% humidity",
+  "age": "mean 43 y (cadavers)",
+  "sex": "not reported in this part (see Part III, Nachemson 1979)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "As principal-displacement test; Table 3 reports all 6 motion components at 400 N compression and 145 N shear.",
+  "how_to_simulate": [
+   "Fix the inferior vertebra; leave the superior vertebra free; output = displacement of the centre of the superior vertebral body",
+   "Compression: apply 400 N axial force in 100 N steps (report 86, 145 and 400 N)",
+   "Shear: with the 400 N compressive preload, apply horizontal anterior, posterior or right-lateral force at the level of the superior vertebral body centre (3.4 cm above the disc centre) in steps to 145 N",
+   "Report all 6 motion components of the superior vertebral body centre at 145 N shear / 400 N compression; compare sign and magnitude (shear is coupled with flexion/extension/lateral bending because the shear acts 3.4 cm above the disc centre)"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate/reference: Inferior vertebra clamped, superior fixture unconstrained; displacements and rotations of the centre of the SUPERIOR vertebral body (6 dial gauges). Shear dead weights applied horizontally near the centre of the superior vertebral body, i.e. acting on the disc centre through a mean moment arm of 3.4 cm (shear is therefore accompanied by a bending moment of ~0.034 m x F). Sign convention as printed: positive = left, posterior, superior translation; flexion, left lateral bend, CCW torsion. No SD reported."
+ },
+ "data": [
+  {
+   "x": "left translation",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.0,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": -0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.05,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": -0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.1,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements intact",
+   "load": "compression 400 N",
+   "mean": -0.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.6,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": -1.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.12,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": 2.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": 2.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": 0.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": 0.6,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements intact",
+   "load": "anterior shear 145 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": -0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": 0.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.08,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.02,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": -1.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -1.2,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": -0.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.8,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements intact",
+   "load": "posterior shear 145 N",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": 0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": -1.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.1,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": 0.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": 0.04,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": -0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "mm",
+   "native": {
+    "mean": -0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": -0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.1,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": -1.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -1.9,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements intact",
+   "load": "right lateral shear 145 N",
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "unit": "deg",
+   "native": {
+    "mean": -0.2,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.0,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.02,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": -0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.05,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": 0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": 0.5,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.2,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements destroyed",
+   "load": "compression 400 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.0,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": -1.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.14,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.0,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": 2.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": 2.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": 0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements destroyed",
+   "load": "anterior shear 145 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": 0.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.03,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": 1.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.12,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": -0.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.03,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": -2.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -2.3,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.2,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements destroyed",
+   "load": "posterior shear 145 N",
+   "mean": -0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.0,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left translation",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": -1.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.11,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "posterior translation",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": 0.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": 0.06,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "superior translation",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": -0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "mm",
+   "native": {
+    "mean": -0.01,
+    "unit": "cm"
+   }
+  },
+  {
+   "x": "flexion",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": -0.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -0.6,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "left lateral bending",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": -1.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": -1.9,
+    "unit": "deg"
+   }
+  },
+  {
+   "x": "CCW torsion",
+   "series": "posterior elements destroyed",
+   "load": "right lateral shear 145 N",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18,
+   "unit": "deg",
+   "native": {
+    "mean": 0.1,
+    "unit": "deg"
+   }
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 (p.56)",
+  "method": "table",
+  "uncertainty": "tabulated to 0.01 cm and 0.1 deg; no SD",
+  "checked": true,
+  "check_notes": "All 48 values re-read from the rendered Table 3 image; translations converted cm -> mm."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "sign and magnitude within +-50% of the principal and of the dominant coupled rotation"
+ },
+ "combine_group": "segment_stiffness__coupled_motion_compression_shear__lumbar_FSU__intact_vs_posterior_elements_destroyed__400N_145N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "shear",
+  "coupling",
+  "posterior elements removed",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement"
+ ]
+}

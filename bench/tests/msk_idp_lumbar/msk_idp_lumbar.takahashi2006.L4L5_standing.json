@@ -1,0 +1,135 @@
+{
+ "id": "msk_idp_lumbar.takahashi2006.L4L5_standing",
+ "title": "Takahashi 2006: L4-L5 IDP, relaxed upright standing",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L4-L5 in vivo, cohort",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "relaxed upright standing",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture; mean of 3 subjects",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Takahashi 2006",
+  "authors": "Takahashi I, Kikuchi S, Sato K, Sato N",
+  "year": 2006,
+  "journal": "Spine 31:18-23",
+  "doi": "10.1097/01.brs.0000192636.69129.fb",
+  "n": "3 healthy subjects (3M)",
+  "sample": "3 young healthy men, L4-L5 IDP with and without 10 kg",
+  "age": "25.3 (24-26)",
+  "sex": "M",
+  "height_cm": 176.0,
+  "weight_kg": 72.3
+ },
+ "protocol": {
+  "summary": "Needle transducer in the L4-L5 nucleus of 3 young healthy men; upright and 10/20/30 deg forward bending, with and without 10 kg (5 kg per hand).",
+  "how_to_simulate": [
+   "Scale the model to the Takahashi cohort mean (protocol.subject_model: male, 25 y, 176 cm, 72 kg)",
+   "Posture: relaxed upright standing; arms hanging",
+   "Hand load: none",
+   "Output: L4-L5 compression F and L4-L5 intersegmental flexion th",
+   "Convert with Ghezelbash 2016 Eq. 6: P = F / A with A = 1970 mm2 (V05 mean) - or 1910 mm2 as in targets_msk.json (Fasser 2021); compare with data[0].mean"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 25.3,
+   "age_range": [
+    24,
+    26
+   ],
+   "height_cm": 176.0,
+   "weight_kg": 72.3,
+   "weight_range_kg": [
+    70,
+    77
+   ],
+   "disc_area_mm2": 1970,
+   "disc_area_range_mm2": [
+    1880,
+    2120
+   ],
+   "source": "Means computed here from V05 Table 2 (3 men: 26 y/70 kg/170 cm/18.8 cm2; 26 y/70 kg/180 cm/21.2 cm2; 24 y/77 kg/178 cm/19.1 cm2). Bruno 2015 Table 3: 3M, BM 72 kg, HT 176 cm, ages 24-26.",
+   "disc_area_discrepancy": "targets_msk.json (subjects.takahashi) uses 1910 (1730-2120) mm2 from Fasser 2021 Suppl. Table S1 (not verified by the user). V05 Table 2 gives 18.8, 21.2, 19.1 cm2 (mean 19.7 cm2 = 1970 mm2, range 1880-2120). Use 1970 mm2 if following V05; difference 3%.",
+   "per_subject": [
+    {
+     "no": 1,
+     "age": 26,
+     "weight_kg": 70,
+     "height_cm": 170,
+     "bmi": 24.2,
+     "disc_area_mm2": 1880
+    },
+    {
+     "no": 2,
+     "age": 26,
+     "weight_kg": 70,
+     "height_cm": 180,
+     "bmi": 21.6,
+     "disc_area_mm2": 2120
+    },
+    {
+     "no": 3,
+     "age": 24,
+     "weight_kg": 77,
+     "height_cm": 178,
+     "bmi": 24.3,
+     "disc_area_mm2": 1910
+    }
+   ]
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the user's MSK validation (MSK_VALIDATION.md 'idp_relation'). Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "Task set and hand load (5 kg in each hand at the side) confirmed by Bruno 2015 J Biomech Eng Table 3 (M01.pdf). Only group means are published (V05: 'only mean published')."
+ },
+ "data": [
+  {
+   "x": "relaxed upright standing",
+   "load": "none",
+   "mean": 0.344,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 3,
+   "crosscheck": {
+    "Ghezelbash 2020 Fig S2-3a gray bar re-digitised here": 0.336,
+    "V05 Table 2 (only mean published)": 0.35,
+    "Takahashi 2006 Fig 4 as read by Guenther & Moerl 2021 (targets_msk.json)": 0.35
+   }
+  }
+ ],
+ "extraction": {
+  "from": "targets_msk.json (user's validation, /mnt/c/Users/fghezelbash/Desktop/plan_agent/app/validation/targets_msk.json) (tak_stand; digitised from Ghezelbash 2020 J Biomech Fig 4a), original Takahashi et al. 2006 Spine 31:18 (figures)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.01 MPa (digitisation) on top of the secondary-source uncertainty",
+  "checked": "via user's targets",
+  "check_notes": "Original PDF not available. Independently re-digitised the same measured bar in Ghezelbash 2020 Fig S2-3a (accepted manuscript p.40, 300 dpi): 0.336 vs targets 0.344 MPa (diff 0.008 MPa, within the +/-0.01 MPa + bar-outline width)."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs__L4-L5__standing_relaxed__none",
+ "shared_sample_with": [
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg",
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg",
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg",
+  "msk_idp_lumbar.takahashi2006.L4L5_standing_10kg",
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg_10kg",
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg_10kg",
+  "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg_10kg"
+ ],
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "cohort",
+  "healthy"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "targets_msk.json tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

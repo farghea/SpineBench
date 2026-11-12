@@ -1,0 +1,253 @@
+{
+ "id": "segment_stiffness.cripton2000.lumbar_FSU_rotation_5Nm_preload_methods",
+ "title": "Lumbar FSU rotation at 5 Nm: no preload vs 400 N preload applied by four different methods (dead weight to follower-type)",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "preload_effect",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact; preload application method varied",
+ "quantity": {
+  "name": "rotation at 5 Nm pure moment (includes neutral zone)",
+  "definition": "Euler rotation (ZYX) of the upper relative to the lower vertebra at 5 Nm in cycle 2, relative to the cycle-1 balance point; coordinate system fixed to the caudal vertebra with origin at the disc centre",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Cripton 2000",
+  "authors": "Cripton PA, Bruehlmann SB, Orr TE, Oxland TR, Nolte LP",
+  "year": 2000,
+  "journal": "J Biomech 33:1559-1568",
+  "doi": "",
+  "n": "6 lumbar FSUs (1 L1-L2, 3 L2-L3, 1 L3-L4, 1 L4-L5)",
+  "sample": "human cadaveric lumbar FSUs screened for abnormal degeneration",
+  "age": "not reported",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments by cable system, 4 equal steps (8 for Type IV) to 5 Nm, 2 cycles (1st preconditioning), 30 s hold per step; preload 20 or 40 kg weights (~200/400 N) applied by Types I-IV; no-load tests before and after (final no-load used as reference). Optotrak kinematics; six-axis load cell under the caudal vertebra (artefact moments and shear also reported).",
+  "how_to_simulate": [
+   "Fix the caudal vertebra of a lumbar FSU; apply pure flexion, extension or right lateral bending moment in 4 steps to 5 Nm",
+   "Run without preload, then with 400 N compression applied either as a follower load through the disc centre (compare with Type IV/III) or as a vertical dead load attached above the cranial vertebra (compare with Type I)",
+   "Report the rotation at 5 Nm (including the neutral zone) and compare the change relative to the no-preload case (follower-type preload should change ROM little; dead-weight types increase flexion/lateral bending ROM through artefact moments)"
+  ],
+  "subject_model": null,
+  "notes": "Type definitions: End: no preload (final no-load test; reference); Type I: 400 N dead weight hung from a point above the cranial vertebra, direction vertical, unconstrained; Type II: 400 N, Type I with cable guides below the specimen; Type III: 400 N, cable attachment and guide points level with the upper/lower endplate edges; Type IV: 400 N, follower-type: preload vector kept parallel to/realigned with the cranial endplate after each step. Artefact moments with Type I/II 400 N were +40-94% (Type I) and +40-50% (Type II) of the applied 5 Nm (text). Torsion not digitised (Type IV not applicable)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "series": "End: no preload (final no-load test; reference)",
+   "load": "pure moment 5.0 Nm",
+   "mean": 6.05,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "flexion",
+   "series": "Type I: 400 N dead weight hung from a point above the cranial vertebra, direction vertical, unconstrained",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 6.39,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "flexion",
+   "series": "Type II: 400 N, Type I with cable guides below the specimen",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 6.79,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "flexion",
+   "series": "Type III: 400 N, cable attachment and guide points level with the upper/lower endplate edges",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "Type III and IV markers overlap at 5 Nm (pixel blob centre 5.08; visual 5.0)"
+  },
+  {
+   "x": "flexion",
+   "series": "Type IV: 400 N, follower-type: preload vector kept parallel to/realigned with the cranial endplate after each step",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 5.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "Type III and IV markers overlap at 5 Nm (pixel blob centre 5.08; visual 5.0)"
+  },
+  {
+   "x": "extension",
+   "series": "End: no preload (final no-load test; reference)",
+   "load": "pure moment 5.0 Nm",
+   "mean": -2.96,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "extension",
+   "series": "Type I: 400 N dead weight hung from a point above the cranial vertebra, direction vertical, unconstrained",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": -4.74,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "extension",
+   "series": "Type II: 400 N, Type I with cable guides below the specimen",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": -3.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "three overlapping markers between -3.3 and -3.65 deg; assignment by line style, +-0.2 deg"
+  },
+  {
+   "x": "extension",
+   "series": "Type III: 400 N, cable attachment and guide points level with the upper/lower endplate edges",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": -3.35,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "three overlapping markers between -3.3 and -3.65 deg; assignment by line style, +-0.2 deg"
+  },
+  {
+   "x": "extension",
+   "series": "Type IV: 400 N, follower-type: preload vector kept parallel to/realigned with the cranial endplate after each step",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": -3.62,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "three overlapping markers between -3.3 and -3.65 deg; assignment by line style, +-0.2 deg"
+  },
+  {
+   "x": "right lateral bending",
+   "series": "End: no preload (final no-load test; reference)",
+   "load": "pure moment 5.0 Nm",
+   "mean": 5.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "End and Type II markers partly overlap (merged blob centre 5.41)"
+  },
+  {
+   "x": "right lateral bending",
+   "series": "Type I: 400 N dead weight hung from a point above the cranial vertebra, direction vertical, unconstrained",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 6.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "right lateral bending",
+   "series": "Type II: 400 N, Type I with cable guides below the specimen",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 5.28,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg",
+   "note": "End and Type II markers partly overlap (merged blob centre 5.41)"
+  },
+  {
+   "x": "right lateral bending",
+   "series": "Type III: 400 N, cable attachment and guide points level with the upper/lower endplate edges",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 3.97,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  },
+  {
+   "x": "right lateral bending",
+   "series": "Type IV: 400 N, follower-type: preload vector kept parallel to/realigned with the cranial endplate after each step",
+   "load": "pure moment 5.0 Nm, 400 N preload",
+   "mean": 3.72,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "deg"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4a-c (p.1564), 5 Nm endpoints only",
+  "method": "digitised_figure",
+  "uncertainty": "+-0.1 deg for separated markers (1 px = 0.021 deg at 300 dpi; marker centre +-3 px), +-0.2 deg where markers overlap; curve identity from line style (moderate confidence for thin lines)",
+  "checked": true,
+  "check_notes": "Endpoint markers located by pixel blob analysis against dotted gridlines (2-deg spacing) and re-read visually from the 300 dpi crop; flexion values: Type II 6.79, Type I 6.39, End 6.05 consistent with text (Types I/II ROM larger than no-load). Intermediate moment steps not extracted."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 0.5 deg (no SD reported), and correct sign of change vs no-preload for each preload type"
+ },
+ "combine_group": "segment_stiffness__rotation_5Nm_preload_method__lumbar_FSU__intact__0_vs_400N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "preload effect",
+  "follower load",
+  "passive"
+ ]
+}

@@ -1,0 +1,322 @@
+{
+ "id": "segment_stiffness.janevic1991.lumbar_FSU_displacement_80N_8Nm_preload_0_2200_4400N",
+ "title": "Lumbar motion segment primary displacement at 80 N / 8 Nm under 0, 2200 and 4400 N compressive preload",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "preload_effect",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "primary displacement / rotation at test load (flexibility)",
+  "definition": "displacement (mm) of O under 80 N shear, or rotation (deg) under 8 Nm moment, read 60 s after load increment; Loads applied at point O = geometric centre of the inferior end plate of the superior vertebra (midway between palpated anterior/posterior/lateral end-plate margins); inferior vertebra clamped with disc horizontal; displacements/rotations of O from 6 LVDTs (resolution ~0.5 deg, 0.25 mm). Moments applied as pure couples; preload applied axially through O via outrigger cables, hinges and Belleville springs (constant magnitude, not a follower path).",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Janevic 1991",
+  "authors": "Janevic J, Ashton-Miller JA, Schultz AB",
+  "year": 1991,
+  "journal": "J Orthop Res 9:228-236",
+  "doi": "10.1002/jor.1100090211",
+  "n": "11 lumbar motion segments analysed (13 tested from 9 cadavers: L1-2 x3, L2-3 x5, L3-4 x3, L4-5 x2; 1 failed under 2200 N preload, 1 used only for posterior-element excision)",
+  "sample": "human cadaveric lumbar motion segments, all discs Nachemson grade III; mean (SD) disc AP diameter 42.1 (4.2) mm, lateral 58.3 (5.6) mm",
+  "age": "48-83 y",
+  "sex": "donors of 13 segments: 11 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Static test loads in 4 increments of 40 N or 4.0 Nm (each over 5 s, held 60 s) up to 160 N / 16 Nm, under 0, 2200 or 4400 N axial compressive preload; directions in fixed order LLat, CCWT, Flex, Ext, Ant, RLat, Post; 30 s bias load to standardise start near the neutral-zone limit; values read 60 s after the 80 N / 8 Nm increment.",
+  "how_to_simulate": [
+   "Fix the inferior vertebra with the disc horizontal; reference point O = centre of the inferior end plate of the superior vertebra",
+   "Apply 0, 2200 or 4400 N axial compression through O (constant direction, vertical) and let the model equilibrate",
+   "Apply the test load at O in two 40 N (shear) or 4 Nm (pure moment) increments to 80 N / 8 Nm, with no other constraint on the upper vertebra",
+   "Report the primary displacement (mm) or rotation (deg) of O at 80 N / 8 Nm and compare per direction and preload (creep: values at 60 s hold)"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate/reference: Loads applied at point O = geometric centre of the inferior end plate of the superior vertebra (midway between palpated anterior/posterior/lateral end-plate margins); inferior vertebra clamped with disc horizontal; displacements/rotations of O from 6 LVDTs (resolution ~0.5 deg, 0.25 mm). Moments applied as pure couples; preload applied axially through O via outrigger cables, hinges and Belleville springs (constant magnitude, not a follower path). Elderly (48-83 y), grade III discs; 4400 N tests often stopped early (failures by end-plate fracture); n differs per cell. Flexibility reductions 0->2200 N reported in text (e.g. 4.35 LLat shear, 7.94 Ant shear, 6.06 Post shear, 2.62 flexion, 2.35 extension, 3.35 RLat bending, 4.52 torsion)."
+ },
+ "data": [
+  {
+   "x": "left lateral shear (LLat)",
+   "load": "80 N shear; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 0.74,
+   "sd": 0.76,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "left lateral shear (LLat)",
+   "load": "80 N shear; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.17,
+   "sd": 0.31,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "left lateral shear (LLat)",
+   "load": "80 N shear; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": -0.01,
+   "sd": 0.87,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "unit": "mm"
+  },
+  {
+   "x": "anterior shear (Ant)",
+   "load": "80 N shear; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 1.35,
+   "sd": 0.91,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "anterior shear (Ant)",
+   "load": "80 N shear; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.17,
+   "sd": 0.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "anterior shear (Ant)",
+   "load": "80 N shear; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": 0.03,
+   "sd": 0.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "unit": "mm"
+  },
+  {
+   "x": "posterior shear (Post)",
+   "load": "80 N shear; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 1.03,
+   "sd": 0.49,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "posterior shear (Post)",
+   "load": "80 N shear; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.17,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "mm"
+  },
+  {
+   "x": "posterior shear (Post)",
+   "load": "80 N shear; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": -0.02,
+   "sd": 0.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "mm"
+  },
+  {
+   "x": "flexion (Flex)",
+   "load": "8 Nm moment; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 2.93,
+   "sd": 1.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "flexion (Flex)",
+   "load": "8 Nm moment; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 1.39,
+   "sd": 1.12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "flexion (Flex)",
+   "load": "8 Nm moment; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": 0.98,
+   "sd": 1.27,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "unit": "deg"
+  },
+  {
+   "x": "extension (Ext)",
+   "load": "8 Nm moment; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 1.83,
+   "sd": 1.02,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "extension (Ext)",
+   "load": "8 Nm moment; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.78,
+   "sd": 1.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "extension (Ext)",
+   "load": "8 Nm moment; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": 0.26,
+   "sd": 0.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "unit": "deg"
+  },
+  {
+   "x": "right lateral bending (RLat)",
+   "load": "8 Nm moment; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 3.12,
+   "sd": 1.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "right lateral bending (RLat)",
+   "load": "8 Nm moment; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.93,
+   "sd": 0.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "right lateral bending (RLat)",
+   "load": "8 Nm moment; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": 0.4,
+   "sd": 0.33,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "unit": "deg"
+  },
+  {
+   "x": "axial torsion counter-clockwise viewed from above (CCWT)",
+   "load": "8 Nm moment; axial compressive preload 0 N",
+   "preload_N": 0,
+   "mean": 2.35,
+   "sd": 0.97,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "axial torsion counter-clockwise viewed from above (CCWT)",
+   "load": "8 Nm moment; axial compressive preload 2200 N",
+   "preload_N": 2200,
+   "mean": 0.52,
+   "sd": 0.19,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "deg"
+  },
+  {
+   "x": "axial torsion counter-clockwise viewed from above (CCWT)",
+   "load": "8 Nm moment; axial compressive preload 4400 N",
+   "preload_N": 4400,
+   "mean": 0.86,
+   "sd": 0.51,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "unit": "deg"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (p.232); methods p.229-230; Table 1 for specimens",
+  "method": "table",
+  "uncertainty": "tabulated (0.01 mm / 0.01 deg); measurement resolution 0.25 mm and 0.5 deg",
+  "checked": true,
+  "check_notes": "All 21 mean/SD/N cells re-read from rendered Table 2 image (pdftotext garbled '.91', '.49', '.82', '.51'). Negative means at 4400 N (LLat -0.01, Post -0.02) are as printed (below measurement resolution)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD per direction and preload"
+ },
+ "combine_group": "segment_stiffness__displacement_at_80N_8Nm__lumbar_FSU__intact__preload_0_2200_4400N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "preload effect",
+  "flexibility",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.janevic1991.lumbar_FSU_coupled_motion_preload_0_2200_4400N"
+ ]
+}

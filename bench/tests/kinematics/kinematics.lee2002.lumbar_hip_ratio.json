@@ -1,0 +1,208 @@
+{
+ "id": "kinematics.lee2002.lumbar_hip_ratio",
+ "title": "Ratio of maximum lumbar to hip motion (S/LH, S/RH) in bending, side bending and twisting",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "L1-sacrum",
+  "hip"
+ ],
+ "condition": "healthy, standing, maximal trunk movements in 3 planes",
+ "quantity": {
+  "name": "lumbar/hip ratio of maximum movement",
+  "definition": "|max lumbar movement| / |max hip movement| per subject, averaged. Lumbar = L1 sensor relative to sacral sensor; hip = thigh sensor relative to sacral sensor (hip-joint angle, NOT pelvis vs global). Lumbar: flexion, left lateral flexion, left axial rotation positive; hip: flexion, abduction, lateral rotation positive.",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Lee 2002",
+  "authors": "Lee RYW, Wong TKT",
+  "year": 2002,
+  "journal": "Hum Mov Sci 21(4):481-494",
+  "doi": "10.1016/S0167-9457(02)00117-3",
+  "n": "20 males",
+  "sample": "20 healthy young males, no back/leg pain in previous 12 months",
+  "age": "20 (SD 1) y",
+  "sex": "male",
+  "height_cm": "171 (SD 4)",
+  "weight_kg": "62.4 (SD 5.0)"
+ },
+ "protocol": {
+  "summary": "Lumbar-to-hip ratios at end of range for 6 trunk movements in 20 young males (Table 1).",
+  "how_to_use": [
+   "At full forward bending give the lumbar spine ~1.1-1.2 x the hip (pelvis-on-thigh) rotation (about equal shares); in backward bending ~1.2-1.3.",
+   "Lateral bending is almost all lumbar (ratio 4-9; ipsilateral hip abducts less than contralateral hip adducts).",
+   "Twisting is mostly at the hips (ratio 0.2-0.7): the leading-side hip rotates medially and the trailing hip laterally.",
+   "The ratio is to hip-joint motion (thigh vs sacrum); with knees straight and feet fixed this approximates pelvic rotation."
+  ],
+  "measurement": {
+   "method": "electromagnetic sensors",
+   "device": "3SPACE Fastrak (Polhemus): sensors on L1 spinous process, sacrum, lateral left and right thighs; 30 Hz per sensor",
+   "posture": "standing, feet shoulder-width (zero = comfortable upright posture)",
+   "task": "3 continuous cycles of max forward-backward bending, left-right lateral bending, left-right twisting, 12 s per trial at comfortable speed; repeated 3 times"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Mean of per-subject ratios, so differs from ratio of mean angles (e.g. forward bending 58.4/54.5 = 1.07). Angle-angle plots (Fig 2): lumbar leads early in forward bending, hip dominates late; reversed in return."
+ },
+ "data": [
+  {
+   "x": "forward bending",
+   "load": null,
+   "mean": 1.2,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)",
+   "phase": "flexion"
+  },
+  {
+   "x": "forward bending",
+   "load": null,
+   "mean": 1.1,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)",
+   "phase": "flexion"
+  },
+  {
+   "x": "backward bending",
+   "load": null,
+   "mean": 1.3,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)",
+   "phase": "extension"
+  },
+  {
+   "x": "backward bending",
+   "load": null,
+   "mean": 1.2,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)",
+   "phase": "extension"
+  },
+  {
+   "x": "left side bending",
+   "load": null,
+   "mean": 9.2,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)"
+  },
+  {
+   "x": "left side bending",
+   "load": null,
+   "mean": 4.3,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)"
+  },
+  {
+   "x": "right side bending",
+   "load": null,
+   "mean": 3.6,
+   "sd": 0.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)"
+  },
+  {
+   "x": "right side bending",
+   "load": null,
+   "mean": 9.3,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)"
+  },
+  {
+   "x": "left twisting",
+   "load": null,
+   "mean": 0.2,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)"
+  },
+  {
+   "x": "left twisting",
+   "load": null,
+   "mean": 0.5,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)"
+  },
+  {
+   "x": "right twisting",
+   "load": null,
+   "mean": 0.7,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/LH (left hip)"
+  },
+  {
+   "x": "right twisting",
+   "load": null,
+   "mean": 0.2,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "segment": "S/RH (right hip)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "exact (1 decimal as printed)",
+  "checked": true,
+  "check_notes": "Re-read Table 1 from layout text; SDs of side-bending ratios (0.3-0.4) as printed although small relative to means."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__lumbar_hip_ratio__lumbar-hip__healthy_standing__max_range_all_planes",
+ "tags": [
+  "in vivo",
+  "electromagnetic sensors",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "3D"
+ ]
+}

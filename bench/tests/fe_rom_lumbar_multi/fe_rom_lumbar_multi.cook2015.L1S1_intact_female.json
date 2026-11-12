@@ -1,0 +1,247 @@
+{
+ "id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+ "title": "Segmental ROM (peak-to-peak) of intact L1-S1 spines at ±7.5 Nm, female segments",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "intact segmental ROM",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "segmental range of motion, peak-to-peak (e.g. flexion+extension) over the 3rd cycle at ±7.5 Nm; mean ± SD of female FSUs",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Cook 2015",
+  "authors": "Cook DJ, Yeager MS, Cheng BC",
+  "year": 2015,
+  "journal": "Int J Spine Surg 9:5",
+  "doi": "10.14444/2005",
+  "n": "42 cadaveric L1-S1 spines; 204 FSUs (91 female, 113 male); L5-S1 tracked in 36 spines",
+  "sample": "human cadaveric lumbar spines L1-S1 (T12 and sacrum potted), intact condition pooled from 6 studies of one lab",
+  "age": "donor age mean 57.52 ± 9.29 (range 24-74) y",
+  "sex": "female segments only (91 F / 113 M FSUs overall)",
+  "height_cm": 169.5,
+  "weight_kg": 97.7
+ },
+ "protocol": {
+  "summary": "Pure moments ±7.5 Nm, sinusoidal, 0.005 Hz, 3 cycles per mode; 3rd cycle analysed; no preload reported; 6-DOF spine tester (Bose) with FE and LB gimbals; Optotrak LEDs on each vertebral body.",
+  "how_to_simulate": [
+   "Model L1-S1 (T12 and sacrum potted); fix the sacrum, apply pure moment to the cranial end, no preload",
+   "Apply ±7.5 Nm in flexion-extension, lateral bending and axial rotation (3 cycles; use the 3rd)",
+   "Per level, report the full range (peak-to-peak) of the Euler angle of the upper vertebra relative to the lower one (sequence X y' z'): FE = alpha, LB = beta, AT = gamma",
+   "Compare with the sex-specific mean ± SD (female and male specimens are separate tests)"
+  ],
+  "notes": "ROM = range (peak-to-peak) over the 3rd cycle, i.e. flexion+extension, left+right LB, left+right AT. NZ not reported. Height/weight in source: mean 66.75 in (=169.5 cm) and 215.32 lb (=97.7 kg), converted here. Per-level, per-sex n not reported (all levels: 42 spines, L5-S1 36).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 8.59,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L2",
+   "note": "Fig 3; per-level n not reported"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 9.35,
+   "sd": 2.25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L2-L3",
+   "note": "Fig 3; per-level n not reported"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 10.12,
+   "sd": 2.78,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L3-L4",
+   "note": "Fig 3; per-level n not reported"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 12.71,
+   "sd": 3.41,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L4-L5",
+   "note": "Fig 3; per-level n not reported"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 14.24,
+   "sd": 4.08,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L5-S1",
+   "note": "Fig 3; per-level n not reported"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 8.34,
+   "sd": 2.51,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L2",
+   "note": "Fig 4; per-level n not reported"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 10.54,
+   "sd": 3.02,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L2-L3",
+   "note": "Fig 4; per-level n not reported"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 11.02,
+   "sd": 2.95,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L3-L4",
+   "note": "Fig 4; per-level n not reported"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 11.09,
+   "sd": 2.64,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L4-L5",
+   "note": "Fig 4; per-level n not reported"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 8.89,
+   "sd": 2.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L5-S1",
+   "note": "Fig 4; per-level n not reported"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 3.03,
+   "sd": 1.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L2",
+   "note": "Fig 5; per-level n not reported"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 4.55,
+   "sd": 2.52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L2-L3",
+   "note": "Fig 5; per-level n not reported"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 5.67,
+   "sd": 3.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L3-L4",
+   "note": "Fig 5; per-level n not reported"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 5.9,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L4-L5",
+   "note": "Fig 5; per-level n not reported"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 4.27,
+   "sd": 1.96,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L5-S1",
+   "note": "Fig 5; per-level n not reported"
+  }
+ ],
+ "extraction": {
+  "from": "Figs 3-5 (bar charts, mean ± 1 SD)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.2 deg (mean and SD; pixel scale 21-39 px/deg)",
+  "checked": true,
+  "check_notes": "Bar tops and SD whisker caps located by pixel scan against tick-label centres; 6 points re-digitised with different column offsets: identical. LB F/M ratios match text (L3-4 +20%, L4-5 +53%). FE and AT ratios do NOT match text percentages (text FE 23-34%, AT 41-96%; digitised FE 29-41%, AT 20-67%); text likely uses adjusted means or is inconsistent - figure values kept."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_multi__rom__L1-S1_segmental__intact__7.5Nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "per-level",
+  "female",
+  "digitised"
+ ]
+}

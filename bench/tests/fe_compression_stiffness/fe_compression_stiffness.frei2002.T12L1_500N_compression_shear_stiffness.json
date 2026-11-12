@@ -1,0 +1,129 @@
+{
+ "id": "fe_compression_stiffness.frei2002.T12L1_500N_compression_shear_stiffness",
+ "title": "Thoracolumbar FSU translation and stiffness under 500 N compression and shear",
+ "layer": "outcome",
+ "category": "fe_compression_stiffness",
+ "subcategory": "compression and shear stiffness",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2"
+ ],
+ "condition": "intact FSU",
+ "quantity": {
+  "name": "translation",
+  "definition": "translation of the superior vertebra (posterior-inferior corner of the superior vertebral body) at 500 N peak load, mean (SD); overall stiffness 500 N / mean translation given per item",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Frei 2002",
+  "authors": "Frei H, Oxland TR, Nolte LP",
+  "year": 2002,
+  "journal": "J Orthop Res",
+  "doi": "10.1016/S0736-0266(02)00058-X",
+  "n": "12 specimens (11 T12-L1, 1 L1-L2 FSUs)",
+  "sample": "human cadaver thoracolumbar FSUs, no degeneration observed",
+  "age": "mean 51 (range 37-67; age known for 6 only)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "FSUs mounted in PMMA (disc horizontal), servo-hydraulic machine (MTS Bionix). Compression series to 500 N at 50 N/s, 10 s hold, unload: pure compression at the balance point and flexion-, extension-, right- and left-lateral compression with 2.0 cm load eccentricity; shear series (posterior, anterior, left, right) to 500 N at 50 N/s through the centre of shear (~mid-disc) in a jig allowing unconstrained motion. Disc pressure: 2.1 mm needle (Denton) with sensing part in the centre of the nucleus; values at peak load averaged.",
+  "how_to_simulate": [
+   "Model the FSU with vertebrae potted; inferior vertebra fixed, superior free (unconstrained).",
+   "Apply 500 N compression at the balance point, or 500 N with 20 mm anterior/posterior/lateral eccentricity, or 500 N shear through mid-disc height (posterior/anterior/left/right).",
+   "Report nucleus-centre pressure at peak load (and axial/shear translation of the upper vertebra)."
+  ],
+  "subject_model": null,
+  "notes": "Disc pressure in Fig 2 trace starts at ~0 at zero load; whether the sensor was zeroed in the unloaded state is not stated, treated as absolute. Endplate and rim strains (Figs 4-7) not extracted."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "500 N axial at balance point",
+   "mean": 0.3,
+   "sd": 0.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "stiffness_N_per_mm": 1510
+  },
+  {
+   "x": "posterior_shear",
+   "load": "500 N posterior shear",
+   "mean": 1.4,
+   "sd": 1.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "stiffness_N_per_mm": 359
+  },
+  {
+   "x": "anterior_shear",
+   "load": "500 N anterior shear",
+   "mean": 1.0,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "stiffness_N_per_mm": 482
+  },
+  {
+   "x": "lateral_shear",
+   "load": "500 N lateral shear (mean of left/right)",
+   "mean": 1.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "stiffness_N_per_mm": 326,
+   "note": "right 1.5 (SD 1.2), left 1.6 (SD 1.2)"
+  },
+  {
+   "x": "right_shear",
+   "load": "500 N right shear",
+   "mean": 1.5,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "left_shear",
+   "load": "500 N left shear",
+   "mean": 1.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  }
+ ],
+ "extraction": {
+  "from": "Results text (Kinematics), p.1336-1337",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read from rendered page images (p.1336 bottom right, p.1337 top right): anterior SD 0.9 confirmed across the page break."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_compression_stiffness__translation__T12-L1__intact_FSU__500N",
+ "tags": [
+  "lumbar",
+  "thoracolumbar",
+  "in vitro",
+  "FSU",
+  "compression",
+  "shear",
+  "stiffness"
+ ]
+}

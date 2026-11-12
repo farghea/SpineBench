@@ -1,0 +1,112 @@
+{
+ "id": "fe_facet.ghezelbash2020b.L5S1_rousseau2006_facet_force_secondary",
+ "title": "Facet force at L5-S1 - Rousseau MA, Bradford DS, Hadi TM, Pedersen KL, Lotz JC 2006 (secondary, Ghezelbash 2020 review)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet force",
+  "definition": "mean contact force on facets +/- SD (pressure-sensitive film) under imposed posture + 650 N compression + 550 N shear",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020b",
+  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+  "year": 2020,
+  "journal": "J Biomech 102:109441",
+  "doi": "10.1016/j.jbiomech.2019.109441",
+  "n": "not stated in review (see primary: Rousseau MA, Bradford DS, Hadi TM, Pedersen KL, Lotz JC 2006)",
+  "sample": "human cadaveric lumbar specimens of Rousseau MA, Bradford DS, Hadi TM, Pedersen KL, Lotz JC 2006, as compiled in Ghezelbash et al. 2020 Table 2",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Imposed angular position (0, +/-6 deg) with 650 N compression and 550 N shear.",
+  "how_to_simulate": [
+   "Impose 0 or 6 deg flexion/extension/lateral posture on L5-S1",
+   "Apply 650 N compression + 550 N shear",
+   "Report mean facet contact force"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data compiled in a review (the user's own review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Rousseau MA, Bradford DS, Hadi TM, Pedersen KL, Lotz JC 2006."
+ },
+ "data": [
+  {
+   "x": "neutral",
+   "load": "0 deg flexion + 650 N compression + 550 N shear",
+   "mean": 50.4,
+   "sd": 9.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "flexion",
+   "load": "6 deg flexion + 650 N compression + 550 N shear",
+   "mean": 43.9,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "extension",
+   "load": "6 deg extension + 650 N compression + 550 N shear",
+   "mean": 54.1,
+   "sd": 14.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "lateral_bending",
+   "load": "6 deg lateral + 650 N compression + 550 N shear",
+   "mean": 20.7,
+   "sd": 6.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "lateral_bending",
+   "load": "-6 deg lateral + 650 N compression + 550 N shear",
+   "mean": 58.4,
+   "sd": 16.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (summary of in vitro facet force measurements)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+ },
+ "combine_group": "secondary__fe_facet__facet_force__L5-S1__intact__650N_compression_550N_shear",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "facet force",
+  "pressure film",
+  "shear"
+ ]
+}

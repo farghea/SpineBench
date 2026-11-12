@@ -1,0 +1,127 @@
+{
+ "id": "fe_resection_thoracic.liebsch2017esj.T1T12_ribcage_sternotomy_wired_rom_2Nm",
+ "title": "T1-T12 ROM after median sternotomy closed with steel wire cerclage (Liebsch 2017 ESJ)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "long segment with rib cage, sternotomy and closure",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_sternotomy_wired",
+ "quantity": {
+  "name": "ROM",
+  "definition": "full range (both directions) T1 vs T12 at +/-2 Nm, last of 3.5 cycles",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2017 ESJ",
+  "authors": "Liebsch C, Graf N, Wilke HJ",
+  "year": 2017,
+  "journal": "Eur Spine J 26:1401-1407",
+  "doi": "10.1007/s00586-016-4768-x",
+  "n": 6,
+  "sample": "6 human C7-L1 thoracic spines with entire rib cage (same 6 specimens as Liebsch 2017 PLoS One)",
+  "age": "mean 56 y (range 50-65)",
+  "sex": "1 M, 5 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "C7-L1 with rib cage, C7/L1 potted (C7-T1 screwed), L1 flange 20/30 deg; pure moments +/-2 Nm FE/LB/AR at C7, 1 deg/s (AR 0.5 deg/s), 3.5 cycles, no preload. Steps: baseline, longitudinal median sternotomy, closure with 1.0 mm steel wire (peristernal at upper four intercostal spaces + transsternal above and below lowest peristernal wire).",
+  "how_to_simulate": [
+   "Model C7-L1 with ribs, costal cartilage, split sternum; intercostal muscles absent",
+   "Tie the sternal halves with wire cerclage (peristernal intercostal spaces 1-4, two transsternal)",
+   "Apply +/-2 Nm pure moments at C7 (L1 fixed), no preload; report T1-T12 full-range ROM and NZ"
+  ],
+  "subject_model": null,
+  "notes": "ESJ 'intact' ROM/NZ (11.8+/-5.0, 18.3+/-5.4, 25.0+/-9.5; NZ 8.9, 15.3, 3.0) and 'median sternotomy' values are identical to Liebsch 2017 PLoS One 'W/o IM' and 'MST' rows -> same specimens and same measurements; ESJ baseline therefore corresponds to the rib cage WITHOUT intercostal muscles. Only the new wire-cerclage step is written as a test."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "2 Nm",
+   "mean": 12.4,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "pct_of_previous": -5.5,
+   "pct_of_intact": 5.7,
+   "note": "pct_of_intact relative to ESJ baseline (= rib cage without intercostal muscles)"
+  },
+  {
+   "x": "LB_total",
+   "load": "2 Nm",
+   "mean": 18.9,
+   "sd": 4.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "pct_of_previous": -2.1,
+   "pct_of_intact": 3.4,
+   "note": "pct_of_intact relative to ESJ baseline (= rib cage without intercostal muscles)"
+  },
+  {
+   "x": "AR_total",
+   "load": "2 Nm",
+   "mean": 27.0,
+   "sd": 9.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "pct_of_previous": -11.5,
+   "pct_of_intact": 7.9,
+   "note": "pct_of_intact relative to ESJ baseline (= rib cage without intercostal muscles)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg); '?' in text layer = '+'",
+  "checked": true,
+  "check_notes": "Values re-read from text layer; signs '?' interpreted as '+' (consistent with Results text +12 %, +22 %, +8 %, -12 %)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_resection_thoracic__rom__T1-T12__ribcage_sternotomy_wired__2Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "sternotomy",
+  "Ulm"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "ribs, costal cartilage, costovertebral joints; sternum split and re-fixed with wire cerclage; intercostal muscles removed (inferred from identical baseline data with Liebsch 2017 W/o IM)"
+ },
+ "loading": {
+  "moment_Nm": 2,
+  "rate": "1.0 deg/s FE and LB, 0.5 deg/s AR",
+  "cycles": "3.5 cycles, last cycle evaluated",
+  "branch": "maximum deflection at +/-2 Nm, last cycle",
+  "preload": "none",
+  "device": "custom spine tester, Vicon MX13"
+ },
+ "resection": {
+  "step_index": 2,
+  "step_name": "sternal closure (wire cerclage)",
+  "sequence": [
+   "intact (as tested here; numerically = Liebsch 2017 'without intercostal muscles')",
+   "median_sternotomy",
+   "sternal_closure_wire_cerclage"
+  ],
+  "cumulative": true
+ },
+ "shared_sample_with": [
+  "fe_resection_thoracic.liebsch2017.T1T12_ribcage_no_intercostal_rom_2Nm",
+  "fe_resection_thoracic.liebsch2017.T1T12_ribcage_sternotomy_rom_2Nm"
+ ]
+}

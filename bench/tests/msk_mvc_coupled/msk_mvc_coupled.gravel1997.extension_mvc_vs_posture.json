@@ -1,0 +1,196 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "pass_rule": {
+  "template": true,
+  "rule": "no SD reported: |model-mean| <= 15% of mean (algorithm error in paper ≈13%)"
+ },
+ "tags": [
+  "in vivo",
+  "MVC",
+  "standing",
+  "male",
+  "posture effect"
+ ],
+ "id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+ "title": "Maximal static trunk extension moment vs flexion and twist angle, standing, males",
+ "subcategory": "primary MVC moment vs posture",
+ "source": {
+  "short": "Gravel 1997",
+  "authors": "Gravel D, Gagnon M, Plamondon A, Desjardins P",
+  "year": 1997,
+  "journal": "Clin Biomech 12(5):314-324",
+  "doi": "10.1016/S0268-0033(97)00011-6",
+  "sex": "M",
+  "n": "12 subjects (12 M)",
+  "sample": "healthy male college (physical education) students; separate group per muscle group",
+  "age": "24±5",
+  "height_cm": "165.1±4.4",
+  "weight_kg": "69.3±5.6"
+ },
+ "quantity": {
+  "name": "maximal static extension moment",
+  "definition": "group mean of maximal static extension moment (mean of 3 trials per subject) about the dynamometer flexion-extension axis aligned with L5-S1",
+  "unit": "Nm"
+ },
+ "protocol": {
+  "summary": "Standing, knees extended, feet stabilised with wooden blocks; pelvis stabilised by a posterior sacral pad and two anterior pads over the ASIS; upper trunk constrained in a padded rigid frame at shoulder level, supported by two vertical rods whose rotation set the flexion angle (flexion-extension axis aligned on the lateral projection of L5-S1). Asymmetric positions: pelvis rotated relative to trunk (twist ±30 deg, shoulders kept parallel to floor), then flexed. Moment = sum of moments from 4 force transducers; peak of each trial, gravity-corrected with a relaxed trial; mean of 3 maximal efforts (2 min rest) per position. Positive twist = left twisting of trunk relative to pelvis. Angles are 'adjusted' (dynamometer) angles; measured 3-D trunk angles were ~57% smaller in flexion (Table 5).",
+  "how_to_simulate": [
+   "Standing, pelvis and legs fixed, upper trunk restrained at shoulder level",
+   "Set trunk flexion (adjusted angle -20..+60 deg) and twist (-30, 0, +30 deg; + = trunk twisted left relative to pelvis)",
+   "Maximal voluntary extension exertion; compare predicted maximal moment (L5-S1 (dynamometer axis)) with the group means",
+   "Use the measured (smaller) 3-D angles of Table 5 if the model posture is set from kinematics"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 24,
+   "height_cm": 165.1,
+   "weight_kg": 69.3,
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "Text: anatomical-position mean 253 Nm; twist decreased moment 6-13%. No SDs given. Height 165.1 cm for the extension group as printed in Table 1 (lower than the other groups; possibly a misprint)."
+ },
+ "data": [
+  {
+   "x": "flexion -20 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 166.5,
+   "sd": null,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +0 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 252.0,
+   "sd": null,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 307.3,
+   "sd": null,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +40 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 346.9,
+   "sd": null,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 359.2,
+   "sd": null,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion -20 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 156.0,
+   "sd": null,
+   "note": "overlapping symbols, ±6 Nm",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion -20 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 145.0,
+   "sd": null,
+   "note": "overlapping symbols, ±6 Nm",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 288.8,
+   "sd": null,
+   "note": "+30 and -30 symbols overlap; same value assigned to both",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 288.8,
+   "sd": null,
+   "note": "+30 and -30 symbols overlap",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 338.0,
+   "sd": null,
+   "note": "+30 and -30 symbols overlap",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 338.0,
+   "sd": null,
+   "note": "+30 and -30 symbols overlap",
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4A (text: 253 Nm in anatomical position)",
+  "method": "digitised_figure",
+  "uncertainty": "±4 Nm (0.9 px/Nm, poor scan); ±6 Nm where symbols overlap",
+  "checked": true,
+  "check_notes": "Digitised by pixel analysis of 200-dpi render; anatomical position 252.0 Nm vs text 253 Nm. Twisted (±30) points at 20 and 60 deg cannot be separated (symbols overlap; paper: no significant L/R difference)."
+ },
+ "combine_group": null
+}

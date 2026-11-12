@@ -1,0 +1,115 @@
+{
+ "id": "anthropometry.pearsall1994.trunk_segment_density",
+ "title": "In vivo density of trunk segments of males by MRI",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T4/5-pubis"
+ ],
+ "condition": "living adult males, MRI",
+ "quantity": {
+  "name": "segment density",
+  "definition": "mean segment density (mass/volume) from tissue-assigned MRI pixels",
+  "unit": "g/cm³"
+ },
+ "source": {
+  "short": "Pearsall 1994",
+  "authors": "Pearsall DJ, Reid JG, Ross R",
+  "year": 1994,
+  "journal": "Ann Biomed Eng 22:692-706",
+  "doi": "",
+  "n": "26 males",
+  "sample": "26 living adult males, MRI (Philips 1.5 T), prone, arms above head; 10-mm slices every 50 mm",
+  "age": "40.5 ± 14.4 y",
+  "sex": "male",
+  "height_cm": 174.5,
+  "weight_kg": 87.3,
+  "notes": "height SD 5.7 cm; body mass SD 16.8 kg (range 56.4-129 kg); BMI 28.6 ± 4.8 (range 19.7-39.3). DOI not printed in PDF (likely 10.1007/BF02368294 – verify)."
+ },
+ "protocol": {
+  "summary": "Mean density of thorax, abdomen, pelvis, trunk.",
+  "how_to_use": [
+   "Use in vivo densities (thorax 0.82, abdomen 1.01, pelvis 1.02, trunk 0.94 g/cc) when converting body-scan or geometric volumes to mass.",
+   "Do not use cadaver density (1.01 g/cc) for the thorax: it overestimates thorax mass by ~13 %."
+  ],
+  "measurement": {
+   "method": "MRI",
+   "device": "Philips Gyroscan 1.5 T; tissue densities assigned per pixel (cortical bone 1.8, cancellous 1.1, viscera/muscle/blood 1.06, adipose 0.96, lung 0.25 g/cc)",
+   "posture": "prone recumbent, arms above head",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Thorax = suprasternal notch (~T4/5) to xiphoid (~T9); abdomen = xiphoid to umbilicus (~L3/4); pelvis = umbilicus to pubic symphysis/greater trochanter (incl. perineum, excl. thighs); trunk = sum. Boundaries follow Zatsiorsky & Seluyanov gamma-scan definitions (thus close to de Leva UPT/MPT/LPT)."
+ },
+ "data": [
+  {
+   "x": "density",
+   "load": null,
+   "mean": 0.82,
+   "sd": 0.04,
+   "min": 0.72,
+   "max": 0.89,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.01,
+   "sd": 0.01,
+   "min": 0.99,
+   "max": 1.04,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 1.02,
+   "sd": 0.01,
+   "min": 1.0,
+   "max": 1.05,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "g/cm³"
+  },
+  {
+   "x": "density",
+   "load": null,
+   "mean": 0.94,
+   "sd": 0.02,
+   "min": 0.89,
+   "max": 0.97,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "g/cm³"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "none",
+  "checked": true,
+  "check_notes": "Checked against rendered Table 1 and text (densities 0.82, 1.01, 1.02, 0.94 g/cc)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_density__trunk_subsegments__adults__-",
+ "tags": [
+  "in vivo",
+  "MRI",
+  "male",
+  "adults"
+ ]
+}

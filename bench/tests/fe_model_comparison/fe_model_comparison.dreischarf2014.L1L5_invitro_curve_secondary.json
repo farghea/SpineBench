@@ -1,0 +1,306 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_invitro_curve_secondary",
+ "title": "L1-L5 moment-rotation curves, in vitro median (Rohlmann 2001b, re-plotted in Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "in vitro reference (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "moment-rotation curve",
+  "definition": "L1-L5 rotation (one direction, from the unloaded position) vs pure moment; median curve of 10 specimens (black dotted lines in Fig 2b). At 7.5 Nm the red bars give the specimen range (min-max). Flexion/LB positive, extension/AR plotted negative by Dreischarf; here all given as positive magnitudes.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "10 specimens (L1-L5, from Rohlmann et al. 2001b)",
+  "sample": "human cadaveric L1-L5 lumbar spines, 10 specimens (primary: Rohlmann et al. 2001b Spine 26:E557)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments up to 7.5 Nm, no preload; L1-L5 rotation.",
+  "how_to_simulate": [
+   "Fix L5, apply pure moment to L1, no preload",
+   "Step the moment 0-7.5 Nm in flexion, extension, lateral bending, axial rotation",
+   "Report L1-L5 rotation at each moment (one direction)"
+  ],
+  "subject_model": null,
+  "notes": "Curve points only for flexion and lateral bending: in those quadrants the in vitro median curve is the uppermost curve and ends at the 7.5 Nm marker. For extension and axial rotation the dotted median curve cannot be separated from Model 7 (also black/grey) at this image resolution, so only the 7.5 Nm values are given. The in vitro curves rise steeply at small moments (neutral zone included). Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "0.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 7.0,
+   "n": 10,
+   "moment_Nm": 0.5
+  },
+  {
+   "x": "flexion",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 10.5,
+   "n": 10,
+   "moment_Nm": 1.0
+  },
+  {
+   "x": "flexion",
+   "load": "1.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 12.9,
+   "n": 10,
+   "moment_Nm": 1.5
+  },
+  {
+   "x": "flexion",
+   "load": "2 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 15.2,
+   "n": 10,
+   "moment_Nm": 2.0
+  },
+  {
+   "x": "flexion",
+   "load": "3 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 17.8,
+   "n": 10,
+   "moment_Nm": 3.0
+  },
+  {
+   "x": "flexion",
+   "load": "4 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 19.6,
+   "n": 10,
+   "moment_Nm": 4.0
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 20.3,
+   "n": 10,
+   "moment_Nm": 5.0
+  },
+  {
+   "x": "flexion",
+   "load": "6 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 20.9,
+   "n": 10,
+   "moment_Nm": 6.0
+  },
+  {
+   "x": "flexion",
+   "load": "7 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 21.2,
+   "n": 10,
+   "moment_Nm": 7.0
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 17.8,
+   "max": 24.4,
+   "median": 21.1,
+   "n": 10,
+   "moment_Nm": 7.5
+  },
+  {
+   "x": "lateral_bending",
+   "load": "0.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.0,
+   "n": 10,
+   "moment_Nm": 0.5
+  },
+  {
+   "x": "lateral_bending",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.9,
+   "n": 10,
+   "moment_Nm": 1.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "1.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 10.7,
+   "n": 10,
+   "moment_Nm": 1.5
+  },
+  {
+   "x": "lateral_bending",
+   "load": "2 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 12.0,
+   "n": 10,
+   "moment_Nm": 2.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "3 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 14.0,
+   "n": 10,
+   "moment_Nm": 3.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "4 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 15.1,
+   "n": 10,
+   "moment_Nm": 4.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 16.0,
+   "n": 10,
+   "moment_Nm": 5.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "6 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 16.4,
+   "n": 10,
+   "moment_Nm": 6.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 17.0,
+   "n": 10,
+   "moment_Nm": 7.0
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 12.0,
+   "max": 22.4,
+   "median": 17.1,
+   "n": 10,
+   "moment_Nm": 7.5
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 6.0,
+   "max": 12.4,
+   "median": 9.3,
+   "n": 10,
+   "moment_Nm": 7.5
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 4.9,
+   "max": 9.3,
+   "median": 6.4,
+   "n": 10,
+   "moment_Nm": 7.5
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2b (black dotted median curves; black markers and red ranges at 7.5 Nm)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.7 deg for 7.5 Nm markers and caps; +/-1.5 deg for curve points (dotted line, 2.25 px/deg, 13 px/Nm)",
+  "checked": true,
+  "check_notes": "Axis: top frame row 30.5 = 30 deg, zero row 98, x = 152 + 13*M px (tick marks at -6, 4, 6 Nm verified). Curves re-digitised by a dense column scan (every 3 px): flexion 4.0 Nm 19.6, 6.08 Nm 20.9; LB -4.08 Nm 15.1, -5.0 Nm 16.0 - agree within 0.4 deg. Two-sided sums vs Fig 2a totals: LB 2x17.1=34.2 vs 34.1; FE 21.1+9.3=30.4 vs 31.2 (medians of totals need not equal sums)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "7.5 Nm: min <= model <= max; curve: >= 80% of points within +/-2 deg of median curve (template)"
+ },
+ "combine_group": "secondary__fe_rom_lumbar_multi__curve_moment_rotation__L1-L5_total__intact__7.5Nm",
+ "shared_sample_with": [
+  "fe_model_comparison.dreischarf2014.L1L5_invitro_rom_secondary"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "multi-segment",
+  "moment-rotation curve"
+ ]
+}

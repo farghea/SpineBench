@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.chaffin1990.csa_anatomical.L4-L5.erector_spinae.F_supine",
+ "title": "Chaffin 1990: csa anatomical of erector spinae at L4-L5 (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "F_supine",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "Erector spinae",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (Technicare 1440 HPS), bone protocol 130 kV, 1-mm slices",
+  "plane": "transverse scans perpendicular to the table at the disc levels (identified on scout view); x/y axes rotated so y passes through disc centroid and spinous process",
+  "slice_thickness_mm": 1,
+  "level_definition": "intervertebral disc level (L2/L3, L3/L4, L4/L5)",
+  "posture_detail": "supine, knees and hips flexed to minimise lordosis"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Chaffin 1990",
+  "authors": "Chaffin DB, Redfern MS, Erig M, Goldstein SA",
+  "year": 1990,
+  "journal": "Clin Biomech 5:9-16",
+  "doi": "10.1016/0268-0033(90)90026-3",
+  "n": "96 women (scans: L2/L3 31, L3/L4 96, L4/L5 66)",
+  "sample": "women aged 40-63 (osteoporosis-study CT population)",
+  "age": "49.6 (5.9) y",
+  "sex": "96F",
+  "height_cm": 163.1,
+  "weight_kg": 67.6
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine (lying; lordosis as when lying, no gravity load on trunk).",
+   "Select all erector spinae fascicles whose path crosses the plane at L4-L5 (transverse scans perpendicular to the table at the disc levels (identified on scout view); x/y axes rotated so y passes through disc centroid and spinous process), one side.",
+   "Sum their PCSA; divide each PCSA by cos(angle between fascicle and plane normal) to get anatomical CSA.",
+   "Compare the one-side total with the measured mean +/- SD (bilateral sums are labelled side=bilateral_sum)."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 49.6,
+   "height_cm": 163.1,
+   "weight_kg": 67.6,
+   "disc_area_mm2": 1530.0,
+   "n": 66,
+   "source": "Table 1 (whole sample) and Table 3 (disc area at this level)"
+  },
+  "notes": "Uncorrected CT area. \"Erector spinae\" as reported; whether multifidus was included is not stated (no separate multifidus outline; Fig. 1 shows the whole paraspinal mass traced). Torso area by level: 443/509/576 cm2. cm2 -> mm2."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 1740.0,
+   "sd": 300.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 66,
+   "as_reported": "17.4 (3.0) cm2"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 1730.0,
+   "sd": 300.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 66,
+   "as_reported": "17.3 (3.0) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All values verified cell by cell on rendered pages 12-13 (layout text had OCR errors)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__L4-L5__erector_spinae__F_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "CT",
+  "supine",
+  "older women"
+ ]
+}

@@ -1,0 +1,191 @@
+{
+ "id": "fe_idp_invitro.heuer2007b.L4L5_woPLL",
+ "title": "L4-L5 absolute nucleus IDP vs pure moment, w/o posterior longitudinal ligament (Heuer 2007b)",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "stepwise resection",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "cumulative resection step 6 of 7: w/o posterior longitudinal ligament",
+ "quantity": {
+  "name": "IDP absolute",
+  "definition": "absolute nucleus-centre pressure at peak moment, median over specimens",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Heuer 2007b",
+  "authors": "Heuer F, Schmidt H, Claes L, Wilke HJ",
+  "year": 2007,
+  "journal": "J Biomech 40:795-803",
+  "doi": "10.1016/j.jbiomech.2006.03.016",
+  "n": "8 human cadaveric L4-L5 FSUs (4 M, 4 F) evaluated; 1 M + 1 F excluded for early failure; n=3 at 10 Nm for w/oFC..w/oALL",
+  "sample": "same specimens as Heuer 2007a; no radiographic disc degeneration (grade <2, Mimura)",
+  "age": "median 52 (range 38-59)",
+  "sex": "4 M / 4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Same protocol as Heuer 2007a: 15 min 500 N axial preconditioning, then pure unconstrained moments 1/2.5/5/7.5/10 Nm at 1.0 deg/s, 2.5 cycles (last evaluated), no preload; L5 fixed, L4 on gimbal. IDP: piezo-resistive probe (MIPM FMSPEZ50, 1.45 mm dia, 4.4 mm long) inserted into the centre of the nucleus from right lateral via 14G needle, position checked radiographically; absolute pressure (unloaded baseline included, averaged unloaded IDP 0.04 MPa).",
+  "how_to_simulate": [
+   "Fix the caudal half of L5; L4 free (gimbal), no preload",
+   "Apply pure moments 1, 2.5, 5, 7.5, 10 Nm in flexion and in extension",
+   "Read hydrostatic nucleus pressure (absolute, MPa) at the nucleus centre at each peak moment (loading branch)",
+   "For defect stages remove structures cumulatively in the Heuer order (SSL, ISL, FL, FC, vertebral arches, PLL, ALL)"
+  ],
+  "subject_model": null,
+  "notes": "IDP absolute (not normalised). Only flexion and extension are shown (Figs 7-8); lateral bending/axial rotation IDP only as IDP-ROM regressions (Fig 9). Stage order: INTACT -> w/oSSL -> w/oISL -> w/oFL -> w/oFC -> w/oVA -> w/oPLL -> w/oALL (w/oNUC not measurable). Values absolute, not % intact."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.053,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "flexion",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.134,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.257,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.388,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "flexion",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.511,
+   "n": 3,
+   "moment_Nm": 10.0,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "extension",
+   "load": "1 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.026,
+   "n": 8,
+   "moment_Nm": 1.0,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "extension",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.091,
+   "n": 8,
+   "moment_Nm": 2.5,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.183,
+   "n": 8,
+   "moment_Nm": 5.0,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.284,
+   "n": 8,
+   "moment_Nm": 7.5,
+   "step": "6 w/oPLL"
+  },
+  {
+   "x": "extension",
+   "load": "10 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.434,
+   "n": 3,
+   "moment_Nm": 10.0,
+   "step": "6 w/oPLL"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 7 (flexion), Fig 8 (extension); neutral value from Results text",
+  "method": "digitised_figure",
+  "uncertainty": "±0.01 MPa (axis 0-0.6 MPa; bar-top method validated on Heuer 2007a Table 1 within 0.3% of axis range)",
+  "checked": true,
+  "check_notes": "Re-digitised flexion 7.5 Nm INTACT (0.267 vs 0.269) and w/oPLL (0.388 vs 0.388) from a separate 2x zoom; within uncertainty. 10 Nm n=3 for w/oFC..w/oALL from 'n=3' bracket and Results text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-median| <= max(0.03 MPa, 20%); sign of change vs previous stage"
+ },
+ "combine_group": "fe_idp_invitro__idp_abs__L4-L5__heuer2007_stepwise_woPLL__7.5Nm",
+ "also_in_groups": [],
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+  "heuer2007a: same 8 L4-L5 specimens",
+  "wilke2025: Heuer 2007a/b pooled in Wilke 2025 L4-L5 ROM/NZ"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "L4-L5",
+  "IDP",
+  "absolute",
+  "resection"
+ ]
+}

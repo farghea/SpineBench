@@ -1,0 +1,85 @@
+{
+ "id": "passive_tissue.littlekhalsa2005.CL_poisson",
+ "title": "Little & Khalsa 2005 lumbar facet capsule Poisson ratio",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "non-degenerate cadaveric",
+ "quantity": {
+  "name": "Poisson ratio",
+  "definition": "in-plane Poisson ratio from optical strains",
+  "unit": "-"
+ },
+ "source": {
+  "short": "Little 2005",
+  "authors": "Little JS, Khalsa PS",
+  "year": 2005,
+  "journal": "J Biomech Eng 127(1):15-24",
+  "doi": "",
+  "n": "35 facet capsules from 8 lumbar spines (ramp tests: 25 parallel = 5 per level L1-L2..L5-S1, 10 perpendicular; dynamic subset 15 parallel)",
+  "sample": "human lumbar facet joint capsule (L1-L2 to L5-S1), isolated capsule with bony attachments (parallel) or glued to acrylic plates (perpendicular)",
+  "age": "59+-5.3 y",
+  "sex": "2 F, 6 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of isolated capsule in PBS bath (pH 7.4, room temperature); preload 0.1 N defines resting length; preconditioning 6 cycles to 50% strain at 15%/s with 300 s holds; ramp-hold trials to 10, 20, 30, 40, 50% grip strain at 15%/s held 300 s (rate 1-15%/s had no effect on modulus); first principal strain by optical image correlation; parallel specimens 6.08+-2.58 mm long, 11.59+-2.87 mm wide, 1.88+-0.94 mm thick; perpendicular 6.83+-1.45 x 7.11+-2.45 x 2.51+-1.66 mm. Tangent modulus = slope of linear portion of engineering stress vs first principal strain; viscous (peak) and elastic (after 300 s) moduli = secant from (0,0).",
+  "how_to_simulate": [
+   "Model a capsule strip (approx. 6 mm long, 11.6 mm wide, 1.9 mm thick) loaded parallel or perpendicular to the medial-lateral collagen direction",
+   "Precondition, then ramp to 10-50% grip strain at 15%/s (hold 300 s for elastic values)",
+   "Report engineering stress vs first principal strain in the central region; compute tangent / secant moduli as defined"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "parallel to fibres",
+   "load": "",
+   "mean": 0.299,
+   "sd": 0.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "perpendicular to fibres",
+   "load": "",
+   "mean": 0.488,
+   "sd": 0.199,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Results text / abstract",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Stiffness and Poisson's ratio from Results text (mean+-SD); strength, extensibility and dynamic moduli from abstract (no SD). Rows mix orientations - compare per row. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__poisson__CL_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "facet capsule"
+ ]
+}

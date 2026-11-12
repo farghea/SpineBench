@@ -1,0 +1,284 @@
+{
+ "id": "passive_tissue.pintar1992.ISL_force_deformation_curve",
+ "title": "Pintar 1992 lumbar ISL mean force-deformation curves (T12-L2, L2-L4, L4-S1)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "T12-L2",
+  "L2-L4",
+  "L4-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "force-deformation curve",
+  "definition": "mean normalised force-deformation curve scaled by mean failure force/deformation; points at the plotted error bars (20/40/60/80% of failure deformation; bar = +/- SD as plotted, caption does not define bar) plus origin and failure point",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Pintar 1992",
+  "authors": "Pintar FA, Yoganandan N, Myers T, Elhagediab A, Sances A Jr",
+  "year": 1992,
+  "journal": "J Biomech 25(11):1351-1356",
+  "doi": "",
+  "n": "132 ligament samples from 38 fresh cadavers (mechanics, data of Myklebust et al. 1988); geometry from 8 additional cadavers",
+  "sample": "human cadaveric lumbar ligaments T12-S1 (ALL, PLL, JC, LF, ISL, SSL), in situ isolation tests to failure",
+  "age": "geometry cadavers 31-80 y (mean 63); mechanics cadavers not reported here",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "In situ isolation tensile tests to failure of bone-ligament-bone preparations (Myklebust et al. 1988 protocol; linear ramp displacement; rate not restated in this note). Failure = peak load. Stiffness = slope of least-squares line over the most linear portion of force-deformation curve. Failure stress = failure force / CSA (CSA from cryomicrotome images of 8 separate, anthropometrically matched cadavers); failure strain = failure deformation / original length (Table 1 definitions).",
+  "how_to_simulate": [
+   "Model the interspinous ligament as in the FE/MSK model (bone-ligament-bone, original length per Table 1: 16.0 mm mean)",
+   "Isolate the ligament (other structures removed) and apply uniaxial elongation along its line of action to failure",
+   "Report the requested quantity per level (stiffness = slope of most linear part of force-deformation)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 2.65,
+   "load": "",
+   "mean": 30.2,
+   "sd": 11.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 20% of failure deformation"
+  },
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 5.28,
+   "load": "",
+   "mean": 78.8,
+   "sd": 6.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 40% of failure deformation"
+  },
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 7.94,
+   "load": "",
+   "mean": 110.8,
+   "sd": 10.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 60% of failure deformation"
+  },
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 10.57,
+   "load": "",
+   "mean": 134.2,
+   "sd": 6.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 80% of failure deformation"
+  },
+  {
+   "x": "T12-L2 mean curve",
+   "x_value": 13.2,
+   "load": "",
+   "mean": 164.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "curve end = mean failure force and deformation"
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 2.16,
+   "load": "",
+   "mean": 26.8,
+   "sd": 14.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 20% of failure deformation"
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 4.32,
+   "load": "",
+   "mean": 40.0,
+   "sd": 19.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 40% of failure deformation"
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 6.53,
+   "load": "",
+   "mean": 63.7,
+   "sd": 13.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 60% of failure deformation"
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 8.66,
+   "load": "",
+   "mean": 85.7,
+   "sd": 4.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 80% of failure deformation"
+  },
+  {
+   "x": "L2-L4 mean curve",
+   "x_value": 10.82,
+   "load": "",
+   "mean": 96.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "curve end = mean failure force and deformation"
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 2.36,
+   "load": "",
+   "mean": 22.8,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 20% of failure deformation"
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 4.78,
+   "load": "",
+   "mean": 46.0,
+   "sd": 13.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 40% of failure deformation"
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 7.19,
+   "load": "",
+   "mean": 70.1,
+   "sd": 14.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 60% of failure deformation"
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 9.56,
+   "load": "",
+   "mean": 93.1,
+   "sd": 3.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar at 80% of failure deformation"
+  },
+  {
+   "x": "L4-S1 mean curve",
+   "x_value": 11.82,
+   "load": "",
+   "mean": 114.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "curve end = mean failure force and deformation"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 1(a)/(b)",
+  "method": "digitised_figure",
+  "uncertainty": "x +/-0.2 mm (PLL +/-0.1 mm); y +/-2 percent of axis range",
+  "checked": true,
+  "check_notes": "Bar centres taken as curve points; bar half-height recorded as sd. Error-bar meaning (SD vs SE) not stated in caption. Automatic bar detection checked visually; SSL T12-L2 first bar re-measured manually (7.4-14.2 N)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__force_elong_curve__ISL_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ISL",
+  "digitised",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "deformation",
+  "x_unit": "mm",
+  "y_name": "force",
+  "y_unit": "N"
+ }
+}

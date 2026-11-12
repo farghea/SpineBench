@@ -1,0 +1,123 @@
+{
+ "id": "fe_facet.schendel1993.L1L2_eccentric_facet_force_slope",
+ "title": "L1-L2 facet force per applied moment under eccentric compression (strain gauges)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet force",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact, eccentric compressive loading (moment + axial load)",
+ "quantity": {
+  "name": "facet force sensitivity",
+  "definition": "average slope of right L1-L2 facet force vs applied moment (N per Nm), n=4 specimens; moments include axial loads of 75-300 N (FL/EX/LB) or 150 N (AR)",
+  "unit": "N/Nm"
+ },
+ "source": {
+  "short": "Schendel 1993",
+  "authors": "Schendel MJ, Wood KB, Buttermann GR, Lewis JL, Ogilvie JW",
+  "year": 1993,
+  "journal": "J Biomech 26(4/5):427-438",
+  "doi": "",
+  "n": "5 specimens (human L1-L2 FSUs; facet data from 4)",
+  "sample": "5 fresh human L1-L2 motion segments (from T12-L3 sections); strain gauges failed in one, so facet force n=4",
+  "age": "38-70 (63, 38, 70, 68, 67)",
+  "sex": "3 F, 2 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L1 and L2 potted in PMMA; NOT pure moments: offset compressive cable loads (75/150/300 N) at lever arms 1-4 cm from an origin 1 cm anterior to the posterior VB rim give combined moment + axial load (Table 2, up to ~12 Nm FL/EX); lateral bending 50-200 N cable loads, up to 3.1 Nm; axial torsion via 5.5 cm lever arm (text: 10-40 Nm) with constant 150 N axial load. 300 N axial creep preload before testing. Capsules intact. Motion by instrumented spatial linkage.",
+  "how_to_simulate": [
+   "Fix L2; leave L1 free",
+   "Apply compressive force F normal to mid-disc plane through a point offset d (1-4 cm) anterior/posterior of the origin (sagittal plane, 1 cm anterior to posterior VB rim, 1.5 cm above L1 inferior endplate): moment = F*d, axial load = F",
+   "Report right L1-L2 facet force (instrumented right inferior articular process of L1) vs applied moment; and L1 rotation"
+  ],
+  "subject_model": null,
+  "notes": "Facet method: 4 strain gauges on external surface of right L1 inferior articular process (Buttermann 1990 technique), calibrated by point loads on a grid normal to facet surface, gauge-ratio contour method; impingement on L2 lamina identified by separate calibration points. Accuracy ~15% (Buttermann 1990), repeatability 5%. Impingement began at 4-6 Nm extension (bilinear facet load-moment). No facet load in flexion."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "eccentric 0-12 Nm + 75-300 N",
+   "mean": 17.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "level": "L1-L2",
+   "side": "right_facet"
+  },
+  {
+   "x": "flexion",
+   "load": "eccentric 0-~7 Nm + 75-300 N",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "level": "L1-L2",
+   "side": "right_facet"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "eccentric up to 3.1 Nm + 50-200 N",
+   "mean": 9.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "level": "L1-L2",
+   "side": "right_facet",
+   "note": "bending toward instrumented facet per Fig 8 caption"
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "eccentric up to 3.1 Nm + 50-200 N",
+   "mean": 13.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "level": "L1-L2",
+   "side": "right_facet"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "torsion + 150 N axial",
+   "mean": 6.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "level": "L1-L2",
+   "side": "right_facet"
+  }
+ ],
+ "extraction": {
+  "from": "Results text p.430",
+  "method": "text",
+  "uncertainty": "exact (no SD reported)",
+  "checked": true,
+  "check_notes": "Read from rendered page: 17.3 EX, 0.0 FL, 9.5 right LB, 13.0 left LB, 6.8 AR N/Nm. Note Fig 8 shows larger loads for right bending (toward the instrumented facet) while text gives larger slope for left bending - reported as printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model slope within +-30% of reported value (no SD; method accuracy ~15%)"
+ },
+ "combine_group": "fe_facet__facet_force_slope__L1-L2__eccentric_compression__0-12Nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "strain gauges",
+  "eccentric load",
+  "human"
+ ]
+}

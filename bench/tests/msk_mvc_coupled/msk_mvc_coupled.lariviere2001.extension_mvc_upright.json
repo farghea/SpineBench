@@ -1,0 +1,81 @@
+{
+ "id": "msk_mvc_coupled.lariviere2001.extension_mvc_upright",
+ "title": "Peak isometric trunk extension moment at L5/S1 (upright standing, triaxial dynamometer), males",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "primary_MVC_moment",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "static maximal trunk extension, upright standing, pelvis and knees fixed",
+ "quantity": {
+  "name": "peak extension moment (MVC)",
+  "definition": "peak L5/S1 extension moment during a 5 s static extension MVC (reported with negative sign = extension)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Lariviere 2001",
+  "authors": "Lariviere C, Gagnon D, Gravel D, Arsenault AB, Dumas JP, Goyette M, Loisel P",
+  "year": 2001,
+  "journal": "Clin Biomech 16:80-83",
+  "doi": "10.1016/S0268-0033(00)00068-1",
+  "n": "14 healthy males",
+  "sample": "healthy males, no back problem in preceding 6 months, in vivo",
+  "age": "33±11 y",
+  "sex": "M",
+  "height_cm": "177±5",
+  "weight_kg": "73±13"
+ },
+ "protocol": {
+  "summary": "Static triaxial dynamometer: subject stands erect, knees held in extension (pad), feet stabilised by wooden blocks, pelvis stabilised by a sacral pad and two pads over the ASIS; force platform (AMTI MC6-6-1000) at shoulder level contacted by an upper-back pad; trunk assumed vertical; moments computed at the L5/S1 joint centre (located from ASIS/PSIS: 50% of ASIS-PSIS distance from PSIS, 15 mm above). One 5-s extension MVC, then three 7-s ramp contractions 0-100% MVC with real-time visual feedback of Mext.",
+  "how_to_simulate": [
+   "Upright standing, pelvis fixed, trunk vertical, arms free/not used.",
+   "Apply a posterior contact force at shoulder level (upper back pad) producing a pure extension moment about L5/S1.",
+   "Compare the model's maximal extension moment at L5/S1 (or the maximal muscle stress needed to equilibrate 250.7 Nm) with data."
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 33,
+   "height_cm": 177,
+   "weight_kg": 73,
+   "disc_area_mm2": null,
+   "source": "Methods text (mean of 14 males)"
+  },
+  "notes": "Single primary direction (extension) only. Moment sign as printed: -250.7 Nm (extension negative in this paper's convention)."
+ },
+ "data": [
+  {
+   "x": "extension MVC",
+   "component": "primary_extension_moment",
+   "sex": "M",
+   "mean": -250.7,
+   "sd": 51.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  }
+ ],
+ "extraction": {
+  "from": "Results text, p.82",
+  "method": "text",
+  "uncertainty": "as printed (0.1 Nm)",
+  "checked": true,
+  "check_notes": "Re-read Results: 'peak extension moment at L5/S1 reached -250.7 Nm (SD: 51.3 Nm)'."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_mvc_coupled__primary_moment__L5-S1__upright_standing__extension_male",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "MVC",
+  "extension",
+  "upright standing",
+  "dynamometer",
+  "male"
+ ]
+}

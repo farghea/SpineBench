@@ -1,0 +1,107 @@
+{
+ "id": "muscle_geometry.kumar1988.centroid_distance.T12.rectus_abdominis.F_supine",
+ "title": "Kumar 1988: centroid distance of rectus abdominis at T12 (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "thoracic",
+ "levels": [
+  "T12"
+ ],
+ "condition": "F_supine",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "rectus abdominis",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (Picker 600 SD)",
+  "plane": "transverse CT slices (gantry plane) at the vertebral body; centres located by geometric construction (ellipse/apex lines), not area centroids",
+  "slice_thickness_mm": 5,
+  "level_definition": "vertebral body level (T7, T12, L3, L5)",
+  "posture_detail": "supine"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Kumar 1988",
+  "authors": "Kumar S",
+  "year": 1988,
+  "journal": "Clin Biomech 3:137-144",
+  "doi": "",
+  "n": "56 patients (35 M, 21 F); per level T7 20, T12 41, L3 32, L5 13",
+  "sample": "archival CT of patients without musculoskeletal disorders",
+  "age": "58.6 (15.5) y, range 23-90",
+  "sex": "35M/21F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Archival supine CT; lever arms from geometric muscle centres to vertebral body centre, pooled right and left.",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a transverse plane through the T12 vertebral body.",
+   "Take the PCSA-weighted centroid of rectus abdominis on each side; reference = vertebral body centre (intersection of the spinous-process midline and the widest coronal line).",
+   "Report perpendicular distance to the coronal line (AP) and to the midsagittal line (ML); average right and left (the paper pooled both sides).",
+   "Note: muscle \"centres\" were geometric (axes/apex constructions), not area centroids."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 54.9,
+   "height_cm": 155.5,
+   "weight_kg": 65.2,
+   "disc_area_mm2": null,
+   "n": 14,
+   "source": "Table 1"
+  },
+  "notes": "Authors call these moment arms (lever arms); they are centroid distances. Older clinical population. cm -> mm. Trunk diameters (Table 9) not stored."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "both_mean",
+   "mean": 121.0,
+   "sd": 18.3,
+   "min": 89.0,
+   "max": 162.0,
+   "median": null,
+   "n": 14,
+   "as_reported": "12.1 sd 1.83 min 8.9 max 16.2 cm [Table 3]",
+   "note": "printed unsigned; anterior => +"
+  },
+  {
+   "x": "ML",
+   "side": "both_mean",
+   "mean": 38.4,
+   "sd": 7.0,
+   "min": 23.8,
+   "max": 51.0,
+   "median": null,
+   "n": 14,
+   "as_reported": "3.84 sd 0.7 min 2.38 max 5.1 cm [Table 6]"
+  }
+ ],
+ "extraction": {
+  "from": "Tables 3-5 (sagittal/AP), 6-8 (coronal/ML)",
+  "method": "table",
+  "uncertainty": "reliability: up to 2 mm variation (Table 2)",
+  "checked": true,
+  "check_notes": "All table values re-read from text; OCR artefacts (IO.37 -> 10.37, o-45 -> 0.45, l-04 -> 1.04, 11 .oo -> 11.00) corrected by reading the digits."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__T12__rectus_abdominis__F_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "CT",
+  "supine",
+  "patients"
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "id": "kinematics.willems1996.regional_rom_extension",
+ "title": "Thoracic regional (T1-T4, T4-T8, T8-T12) extension ROM, seated, by sex",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "thoracic",
+ "levels": [
+  "T1-T4",
+  "T4-T8",
+  "T8-T12"
+ ],
+ "condition": "healthy, seated with pelvis strapped, maximal active motion from upright sitting",
+ "quantity": {
+  "name": "regional primary ROM (extension)",
+  "definition": "difference in angle between the two skin sensors bordering each region, neutral sitting to maximal motion",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Willems 1996",
+  "authors": "Willems JM, Jull GA, Ng JK-F",
+  "year": 1996,
+  "journal": "Clin Biomech 11(6):311-316",
+  "doi": "10.1016/0268-0033(96)00017-4",
+  "n": "60 subjects (30 M, 30 F)",
+  "sample": "60 healthy young adults, no thoracic pain/injury/surgery or respiratory disorder",
+  "age": "18-24 y",
+  "sex": "30 M, 30 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Regional thoracic primary rotations with Fastrak skin sensors at T1, T4, T8, T12; seated, pelvis fixed.",
+  "how_to_use": [
+   "Use ≈ equal thirds of thoracic extension across T1-T4, T4-T8, T8-T12 (8.1/8.9/8.8 deg).",
+   "Use sex-specific rows when modelling a male or female subject (only rotation-left T8-T12 differs significantly by sex, p<0.005).",
+   "Seated, pelvis fixed: do not use for standing pelvis/lumbar sharing."
+  ],
+  "measurement": {
+   "method": "electromagnetic sensors",
+   "device": "3SPACE Fastrak, skin sensors on T1, T4, T8, T12 spinous processes; regional angle = difference between bordering sensors (Euler)",
+   "posture": "seated on bench, lumbar support, pelvis and thighs belted, arms folded across chest",
+   "task": "maximal active thoracic flexion, extension, lateral flexion L/R, axial rotation L/R from upright sitting"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 8.1,
+   "sd": 7.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F)"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 8.9,
+   "sd": 5.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F)"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 8.8,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60,
+   "group": "all (M+F)"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 9.0,
+   "sd": 6.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 9.9,
+   "sd": 5.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 7.8,
+   "sd": 4.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "male"
+  },
+  {
+   "x": "T1-T4",
+   "load": null,
+   "mean": 7.1,
+   "sd": 7.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female"
+  },
+  {
+   "x": "T4-T8",
+   "load": null,
+   "mean": 7.9,
+   "sd": 4.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female"
+  },
+  {
+   "x": "T8-T12",
+   "load": null,
+   "mean": 9.7,
+   "sd": 5.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "group": "female"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (by sex, L/R separate) and Table 2 (pooled n=60, L/R averaged)",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg); repeatability error 1-3 deg (paper)",
+  "checked": true,
+  "check_notes": "Scanned PDF with noisy OCR: all values read from 350 dpi page images and compared twice; OCR misreads (e.g. '22.1 (6.31', '10.7 13.8)') resolved from images."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__regional_rom__thoracic_regions__healthy_seated__extension",
+ "shared_sample_with": [
+  "kinematics.willems1996.regional_rom_flexion",
+  "kinematics.willems1996.regional_rom_lateral_bending",
+  "kinematics.willems1996.regional_rom_axial_rotation",
+  "kinematics.willems1996.coupled_rom"
+ ],
+ "tags": [
+  "in vivo",
+  "electromagnetic",
+  "skin sensors",
+  "seated",
+  "pelvis fixed",
+  "healthy",
+  "young adults",
+  "both sexes",
+  "regional"
+ ]
+}

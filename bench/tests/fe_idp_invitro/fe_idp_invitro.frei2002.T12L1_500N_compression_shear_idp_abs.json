@@ -1,0 +1,155 @@
+{
+ "id": "fe_idp_invitro.frei2002.T12L1_500N_compression_shear_idp_abs",
+ "title": "Thoracolumbar FSU disc pressure under 500 N compression (centric/eccentric) and shear",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "compression and shear",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2"
+ ],
+ "condition": "intact FSU",
+ "quantity": {
+  "name": "IDP",
+  "definition": "nucleus-centre pressure at 500 N peak load (mean ± SD over specimens)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Frei 2002",
+  "authors": "Frei H, Oxland TR, Nolte LP",
+  "year": 2002,
+  "journal": "J Orthop Res",
+  "doi": "10.1016/S0736-0266(02)00058-X",
+  "n": "12 specimens (11 T12-L1, 1 L1-L2 FSUs)",
+  "sample": "human cadaver thoracolumbar FSUs, no degeneration observed",
+  "age": "mean 51 (range 37-67; age known for 6 only)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "FSUs mounted in PMMA (disc horizontal), servo-hydraulic machine (MTS Bionix). Compression series to 500 N at 50 N/s, 10 s hold, unload: pure compression at the balance point and flexion-, extension-, right- and left-lateral compression with 2.0 cm load eccentricity; shear series (posterior, anterior, left, right) to 500 N at 50 N/s through the centre of shear (~mid-disc) in a jig allowing unconstrained motion. Disc pressure: 2.1 mm needle (Denton) with sensing part in the centre of the nucleus; values at peak load averaged.",
+  "how_to_simulate": [
+   "Model the FSU with vertebrae potted; inferior vertebra fixed, superior free (unconstrained).",
+   "Apply 500 N compression at the balance point, or 500 N with 20 mm anterior/posterior/lateral eccentricity, or 500 N shear through mid-disc height (posterior/anterior/left/right).",
+   "Report nucleus-centre pressure at peak load (and axial/shear translation of the upper vertebra)."
+  ],
+  "subject_model": null,
+  "notes": "Disc pressure in Fig 2 trace starts at ~0 at zero load; whether the sensor was zeroed in the unloaded state is not stated, treated as absolute. Endplate and rim strains (Figs 4-7) not extracted."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "500 N axial at balance point",
+   "mean": 0.471,
+   "sd": 0.107,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "extension_compression",
+   "load": "500 N, 20 mm posterior eccentricity",
+   "mean": 0.48,
+   "sd": 0.109,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "flexion_compression",
+   "load": "500 N, 20 mm anterior eccentricity",
+   "mean": 0.479,
+   "sd": 0.102,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "right_lateral_compression",
+   "load": "500 N, 20 mm right eccentricity",
+   "mean": 0.496,
+   "sd": 0.103,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "left_lateral_compression",
+   "load": "500 N, 20 mm left eccentricity",
+   "mean": 0.472,
+   "sd": 0.115,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "posterior_shear",
+   "load": "500 N posterior shear",
+   "mean": 0.231,
+   "sd": 0.097,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "anterior_shear",
+   "load": "500 N anterior shear",
+   "mean": 0.115,
+   "sd": 0.084,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "left_shear",
+   "load": "500 N left shear",
+   "mean": 0.149,
+   "sd": 0.126,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "right_shear",
+   "load": "500 N right shear",
+   "mean": 0.116,
+   "sd": 0.077,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (bars mean, error bars SD); text: compression mean 0.48 (SD 0.1), posterior shear 0.23 (SD 0.10)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.01 MPa (1 px = 0.002 MPa at 200 dpi)",
+  "checked": true,
+  "check_notes": "Pixel digitisation of bar tops and SD caps. Checks: mean of 5 compression bars 0.480 vs text 0.48; posterior shear 0.231 (SD 0.097) vs text 0.23 (SD 0.10). n per bar assumed 12 (pressure analysis on all specimens; strain analysis excluded 3)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_idp_invitro__idp_abs__T12-L1__intact_FSU__compression500N",
+ "tags": [
+  "lumbar",
+  "thoracolumbar",
+  "in vitro",
+  "FSU",
+  "compression",
+  "shear",
+  "IDP absolute",
+  "digitised"
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "id": "passive_tissue.iida2002.ISL_SSL_modulus",
+ "title": "Iida 2002 L4-L5 SSL+ISL elastic modulus (degenerative surgical patients)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "degenerative (surgical patients)",
+ "quantity": {
+  "name": "elastic modulus",
+  "definition": "slope of linear portion of stress-strain curve (strain = displacement / initial length)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Iida 2002",
+  "authors": "Iida T, Abumi K, Kotani Y, Kaneda K",
+  "year": 2002,
+  "journal": "Spine J 2:95-100",
+  "doi": "10.1016/S1529-9430(02)00142-0",
+  "n": "24 L4-L5 SSL+ISL bone-ligament-bone complexes from 24 surgical patients",
+  "sample": "human lumbar SSL+ISL complex, L4-L5, harvested at posterior surgery for degenerative disease (stenosis 14, spondylolisthesis 7, herniation 2, scoliosis 1)",
+  "age": "18-85 y (mean 66.2)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Fresh-frozen (-30 C) surgical BLB complexes with halves of the adjacent spinous processes; kept moist with Ringer's / high humidity; SSL and ISL tested combined. CSA by CCD/video dimension analyser (36 directions); initial length = shortest distance between spinous processes on X-ray under 300 g load. Uniaxial tension (MTS 858), 3 N preload, constant displacement 0.5 mm/s to failure. Stiffness = slope of elastic zone of load-displacement; modulus = slope of linear stress-strain portion.",
+  "how_to_simulate": [
+   "Model the L4-L5 SSL+ISL complex between spinous processes (initial length ~9.9 mm, CSA ~185 mm2)",
+   "Apply 3 N preload, then uniaxial tension at 0.5 mm/s to failure",
+   "Report ultimate load, linear (elastic zone) stiffness, tensile strength and modulus"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "L4-L5 SSL+ISL",
+   "load": "",
+   "mean": 3.3,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 24
+  }
+ ],
+ "extraction": {
+  "from": "Results text / abstract",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Values from Results text (plus-minus signs lost in text extraction; checked against abstract: 203.2+-102.9 N, 60.6+-36.7 N/mm, 1.2+-0.6 MPa, 3.3+-2.1 MPa, CSA 185.1+-58.6 mm2, length 9.9+-4.0 mm). DOI taken from PII printed in PDF (S1529-9430(02)00142-0)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__E_linear__ISL_SSL_L4-L5__human_degen__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ISL+SSL",
+  "surgical",
+  "degenerative"
+ ]
+}

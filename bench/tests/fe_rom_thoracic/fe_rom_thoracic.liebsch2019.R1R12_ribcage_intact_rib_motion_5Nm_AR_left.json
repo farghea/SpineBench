@@ -1,0 +1,800 @@
+{
+ "id": "fe_rom_thoracic.liebsch2019.R1R12_ribcage_intact_rib_motion_5Nm_AR_left",
+ "title": "Rib rotations relative to adjacent vertebra during thoracic AR left at 5 Nm (Liebsch 2019)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "rib cage kinematics",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12 (ribs 1-12, both sides)"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "rib-vertebra relative rotation",
+  "definition": "3D rotation (about x, y, z of the local vertebral coordinate system; right-hand rule, axes per Liebsch 2019 Fig 2 schematic: x to the right, y and z as drawn) of rib n relative to vertebra Tn at full +/-5 Nm spinal loading in this direction (3rd cycle), relative to unloaded state; median of 8 (ranges plotted but not extracted). Signed value.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2019",
+  "authors": "Liebsch C, Graf N, Wilke HJ",
+  "year": 2019,
+  "journal": "J Biomech 94:147-157",
+  "doi": "10.1016/j.jbiomech.2019.07.041",
+  "n": 8,
+  "sample": "8 fresh-frozen human C7-L1 thoracic spines with entire rib cage - SAME specimens as Liebsch 2018 (stated in Methods)",
+  "age": "median 55 y (40-60)",
+  "sex": "7 M, 1 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "C7-L1 with entire rib cage (same specimens/test series as Liebsch 2018, no follower load); pure moments 5 Nm, 1 deg/s, 3.5 cycles; 150 markers (3 per rib on ribs 1, 11, 12, upper/lower sternum, markers on ribs anterior/lateral/posterior); 12-camera Vicon.",
+  "how_to_simulate": [
+   "Fix L1, apply pure moment 5 Nm at C7 in the given direction, no preload",
+   "Model full rib cage with costovertebral/costotransverse joints, costal cartilage, sternum, intercostal muscles",
+   "Report rotation of each rib (rigid-body from its markers) relative to its own vertebra Tn about the vertebra's x, y, z axes at peak moment"
+  ],
+  "subject_model": null,
+  "notes": "Automated pixel digitisation of coloured median bars (blue = x, green = y, red = z). Inter-rib strain heat maps (Figs 5-7) and 1st rib-sternum motion (Fig 8) not extracted."
+ },
+ "data": [
+  {
+   "x": "left rib 1 vs T1: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.96,
+   "n": 8
+  },
+  {
+   "x": "left rib 1 vs T1: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.23,
+   "n": 8
+  },
+  {
+   "x": "left rib 1 vs T1: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.78,
+   "n": 8
+  },
+  {
+   "x": "left rib 2 vs T2: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.54,
+   "n": 8
+  },
+  {
+   "x": "left rib 2 vs T2: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.12,
+   "n": 8
+  },
+  {
+   "x": "left rib 2 vs T2: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.81,
+   "n": 8
+  },
+  {
+   "x": "left rib 3 vs T3: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.43,
+   "n": 8
+  },
+  {
+   "x": "left rib 3 vs T3: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.29,
+   "n": 8
+  },
+  {
+   "x": "left rib 3 vs T3: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.33,
+   "n": 8
+  },
+  {
+   "x": "left rib 4 vs T4: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.57,
+   "n": 8
+  },
+  {
+   "x": "left rib 4 vs T4: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.16,
+   "n": 8
+  },
+  {
+   "x": "left rib 4 vs T4: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.16,
+   "n": 8
+  },
+  {
+   "x": "left rib 5 vs T5: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.33,
+   "n": 8
+  },
+  {
+   "x": "left rib 5 vs T5: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.43,
+   "n": 8
+  },
+  {
+   "x": "left rib 5 vs T5: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.36,
+   "n": 8
+  },
+  {
+   "x": "left rib 6 vs T6: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.12,
+   "n": 8
+  },
+  {
+   "x": "left rib 6 vs T6: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.16,
+   "n": 8
+  },
+  {
+   "x": "left rib 6 vs T6: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.33,
+   "n": 8
+  },
+  {
+   "x": "left rib 7 vs T7: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.23,
+   "n": 8
+  },
+  {
+   "x": "left rib 7 vs T7: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.13,
+   "n": 8
+  },
+  {
+   "x": "left rib 7 vs T7: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.92,
+   "n": 8
+  },
+  {
+   "x": "left rib 8 vs T8: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "bar not resolvable: |median| < ~0.1 deg"
+  },
+  {
+   "x": "left rib 8 vs T8: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.65,
+   "n": 8
+  },
+  {
+   "x": "left rib 8 vs T8: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.71,
+   "n": 8
+  },
+  {
+   "x": "left rib 9 vs T9: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.4,
+   "n": 8
+  },
+  {
+   "x": "left rib 9 vs T9: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.96,
+   "n": 8
+  },
+  {
+   "x": "left rib 9 vs T9: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.44,
+   "n": 8
+  },
+  {
+   "x": "left rib 10 vs T10: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.33,
+   "n": 8
+  },
+  {
+   "x": "left rib 10 vs T10: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.96,
+   "n": 8
+  },
+  {
+   "x": "left rib 10 vs T10: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.0,
+   "n": 8
+  },
+  {
+   "x": "left rib 11 vs T11: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.03,
+   "n": 8
+  },
+  {
+   "x": "left rib 11 vs T11: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.44,
+   "n": 8
+  },
+  {
+   "x": "left rib 11 vs T11: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.75,
+   "n": 8
+  },
+  {
+   "x": "left rib 12 vs T12: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.47,
+   "n": 8
+  },
+  {
+   "x": "left rib 12 vs T12: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.1,
+   "n": 8
+  },
+  {
+   "x": "left rib 12 vs T12: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.23,
+   "n": 8
+  },
+  {
+   "x": "right rib 1 vs T1: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.07,
+   "n": 8
+  },
+  {
+   "x": "right rib 1 vs T1: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.17,
+   "n": 8
+  },
+  {
+   "x": "right rib 1 vs T1: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.87,
+   "n": 8
+  },
+  {
+   "x": "right rib 2 vs T2: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.97,
+   "n": 8
+  },
+  {
+   "x": "right rib 2 vs T2: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.42,
+   "n": 8
+  },
+  {
+   "x": "right rib 2 vs T2: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.35,
+   "n": 8
+  },
+  {
+   "x": "right rib 3 vs T3: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.32,
+   "n": 8
+  },
+  {
+   "x": "right rib 3 vs T3: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.76,
+   "n": 8
+  },
+  {
+   "x": "right rib 3 vs T3: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.24,
+   "n": 8
+  },
+  {
+   "x": "right rib 4 vs T4: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.07,
+   "n": 8
+  },
+  {
+   "x": "right rib 4 vs T4: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.55,
+   "n": 8
+  },
+  {
+   "x": "right rib 4 vs T4: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.21,
+   "n": 8
+  },
+  {
+   "x": "right rib 5 vs T5: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.42,
+   "n": 8
+  },
+  {
+   "x": "right rib 5 vs T5: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -0.24,
+   "n": 8
+  },
+  {
+   "x": "right rib 5 vs T5: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.35,
+   "n": 8
+  },
+  {
+   "x": "right rib 6 vs T6: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.52,
+   "n": 8
+  },
+  {
+   "x": "right rib 6 vs T6: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.69,
+   "n": 8
+  },
+  {
+   "x": "right rib 6 vs T6: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.35,
+   "n": 8
+  },
+  {
+   "x": "right rib 7 vs T7: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.62,
+   "n": 8
+  },
+  {
+   "x": "right rib 7 vs T7: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.73,
+   "n": 8
+  },
+  {
+   "x": "right rib 7 vs T7: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.11,
+   "n": 8
+  },
+  {
+   "x": "right rib 8 vs T8: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.83,
+   "n": 8
+  },
+  {
+   "x": "right rib 8 vs T8: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.11,
+   "n": 8
+  },
+  {
+   "x": "right rib 8 vs T8: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.97,
+   "n": 8
+  },
+  {
+   "x": "right rib 9 vs T9: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.52,
+   "n": 8
+  },
+  {
+   "x": "right rib 9 vs T9: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.49,
+   "n": 8
+  },
+  {
+   "x": "right rib 9 vs T9: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.74,
+   "n": 8
+  },
+  {
+   "x": "right rib 10 vs T10: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.97,
+   "n": 8
+  },
+  {
+   "x": "right rib 10 vs T10: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.45,
+   "n": 8
+  },
+  {
+   "x": "right rib 10 vs T10: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.84,
+   "n": 8
+  },
+  {
+   "x": "right rib 11 vs T11: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.52,
+   "n": 8
+  },
+  {
+   "x": "right rib 11 vs T11: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.8,
+   "n": 8
+  },
+  {
+   "x": "right rib 11 vs T11: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.74,
+   "n": 8
+  },
+  {
+   "x": "right rib 12 vs T12: rot_x",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "note": "bar not resolvable: |median| < ~0.1 deg"
+  },
+  {
+   "x": "right rib 12 vs T12: rot_y",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.42,
+   "n": 8
+  },
+  {
+   "x": "right rib 12 vs T12: rot_z",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.57,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 deg (28.9 px/deg at 200 dpi; bar border +/-1 px); None = bar too small to resolve",
+  "checked": true,
+  "check_notes": "Gridlines detected automatically (9 per panel, -8..8 deg); R1-R4 of flexion-left and visually-large bars (e.g. AR lower ribs ~3-4 deg) checked against zoomed images."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__rib_motion__R1-R12__ribcage_intact__5Nm_AR_left",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "rib kinematics",
+  "Ulm",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "entire rib cage incl. sternum, costal cartilage, intercostal muscles"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5, 3rd evaluated",
+  "branch": "peak moment",
+  "preload": "none",
+  "device": "spine tester, Vicon 12 cameras"
+ },
+ "specimen_levels": "C7-L1",
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm"
+ ]
+}

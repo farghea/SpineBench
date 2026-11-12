@@ -1,0 +1,222 @@
+{
+ "id": "segment_stiffness.tencer1982.lumbar_joint_intact_coupled_ratios_single_loads",
+ "title": "Lumbar intervertebral joint coupled/principal displacement ratios, intact, single principal loads",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "stiffness_diagonal",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "intact, no preload, nucleus pressurised to 626 kPa",
+ "quantity": {
+  "name": "coupled/principal displacement ratio Gamma_ij",
+  "definition": "mean over increments and specimens of (incremental coupled displacement / incremental principal displacement); upper and lower bounds across specimens given as max/min. Cells left blank in the paper (no significant coupling) are omitted. Load/displacement coordinate system with origin O_L at the intersection of the disc mid-transverse plane and the line joining the two vertebral body centres (NOT the vertebral body centre); Z along that centre line (axial compression +Fz), Y in the plane of symmetry (antero-posterior, +Fy anterior shear), X lateral (+Fx right lateral shear); rotations G (flexion-extension about X), B (lateral bending about Y; CCW = -B), A (axial rotation about Z; CW = +A). Lower member fixed, upper member unconstrained (loads by pulleys/dead weights).",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Tencer 1982",
+  "authors": "Tencer AF, Ahmed AM, Burke DL",
+  "year": 1982,
+  "journal": "J Biomech Eng 104:193-201",
+  "doi": "",
+  "n": "14 lumbar intervertebral joints (L2-3 and L4-5) from 8 cadavers (7 M, 1 F)",
+  "sample": "human cadaveric lumbar joints, disc grade 1-2, radiographically normal except one hypoplastic L5",
+  "age": "16-57 y (57, 18, 33, 16, 53, 57, 37, 48)",
+  "sex": "7 M, 1 F (donors)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Max principal loads (Table 3): 90 N right lateral/anterior/posterior shear, 823 N axial compression, 11.2 Nm flexion and extension, 14.7 Nm CCW lateral bending, 12.9 Nm CW axial torque; applied in 3 ~equal steps (readings 1 min after steps 1-2, 2 min after step 3). Nucleus pressurised to 626 kPa by water injection before testing (simulating reclining in vivo pressure); 4 conditioning cycles of +-axial torsion at max torque.",
+  "how_to_simulate": [
+   "Model an L2-L3 or L4-L5 joint; fix the lower vertebra; define the load/output point at the disc centre O_L (mid-disc on the line joining the vertebral body centres), Z along that line",
+   "Pressurise/pre-stress the nucleus to ~0.63 MPa if the model allows (paper injected water to 626 kPa); no external preload",
+   "Apply each principal load alone in 3 equal steps to 90 N shear, 823 N compression, 11.2 Nm flexion/extension, 14.7 Nm lateral bending, 12.9 Nm axial torque, upper vertebra otherwise free",
+   "Compute the ratio of each coupled displacement increment to the principal displacement increment (displacements at O_L) and average; compare sign and range (bounds) rather than exact value"
+  ],
+  "subject_model": null,
+  "notes": "Coordinate system: Load/displacement coordinate system with origin O_L at the intersection of the disc mid-transverse plane and the line joining the two vertebral body centres (NOT the vertebral body centre); Z along that centre line (axial compression +Fz), Y in the plane of symmetry (antero-posterior, +Fy anterior shear), X lateral (+Fx right lateral shear); rotations G (flexion-extension about X), B (lateral bending about Y; CCW = -B), A (axial rotation about Z; CW = +A). Lower member fixed, upper member unconstrained (loads by pulleys/dead weights). Coupled translations under torques depend on the reference point (O_L at disc centre). Only force-load coupling found: A-P translation with axial compression."
+ },
+ "data": [
+  {
+   "x": "A-P translation Y coupled to axial compression (Fz)",
+   "load": "single principal load, no preload",
+   "mean": 0.027,
+   "sd": null,
+   "min": -1.89,
+   "max": 0.64,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "R lateral translation X coupled to flexion (Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.144,
+   "sd": null,
+   "min": -0.09,
+   "max": 0.7,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "A-P translation Y coupled to flexion (Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.178,
+   "sd": null,
+   "min": 0.0,
+   "max": 0.36,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial translation Z coupled to flexion (Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.099,
+   "sd": null,
+   "min": -0.11,
+   "max": 0.28,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "lateral rotation B coupled to flexion (Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.066,
+   "sd": null,
+   "min": -0.62,
+   "max": 0.79,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial rotation A coupled to flexion (Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.051,
+   "sd": null,
+   "min": -0.33,
+   "max": 0.41,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "R lateral translation X coupled to extension (-Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.115,
+   "sd": null,
+   "min": -0.32,
+   "max": 0.57,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "A-P translation Y coupled to extension (-Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.162,
+   "sd": null,
+   "min": -0.22,
+   "max": 0.36,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial translation Z coupled to extension (-Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.013,
+   "sd": null,
+   "min": -0.08,
+   "max": 0.1,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial rotation A coupled to extension (-Tx)",
+   "load": "single principal load, no preload",
+   "mean": 0.009,
+   "sd": null,
+   "min": -0.34,
+   "max": 0.29,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "R lateral translation X coupled to CCW lateral bending (-Ty)",
+   "load": "single principal load, no preload",
+   "mean": 0.182,
+   "sd": null,
+   "min": 0.47,
+   "max": 0.61,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)",
+   "note": "lower bound printed as '.47' (> mean .182); possibly a lost minus sign in the original; recorded as printed"
+  },
+  {
+   "x": "A-P translation Y coupled to CCW lateral bending (-Ty)",
+   "load": "single principal load, no preload",
+   "mean": 0.117,
+   "sd": null,
+   "min": -0.19,
+   "max": 0.36,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial translation Z coupled to CCW lateral bending (-Ty)",
+   "load": "single principal load, no preload",
+   "mean": 0.02,
+   "sd": null,
+   "min": -0.05,
+   "max": 0.07,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  },
+  {
+   "x": "axial translation Z coupled to CW axial torque (Tz)",
+   "load": "single principal load, no preload",
+   "mean": 0.024,
+   "sd": null,
+   "min": -0.36,
+   "max": 0.29,
+   "median": null,
+   "n": 14,
+   "unit": "coupled/principal displacement ratio (mm/mm, mm/deg or deg/deg as appropriate)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 4 off-diagonal blocks (p.197): middle value = mean, upper/lower = bounds",
+  "method": "table",
+  "uncertainty": "tabulated to 2-3 decimals",
+  "checked": true,
+  "check_notes": "Re-read from rendered Table 4 image. One anomaly flagged: CCW lateral bending -> R lateral translation lower bound printed .47 above the mean .182."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model coupled ratio within [min, max] bounds"
+ },
+ "combine_group": "segment_stiffness__coupled_displacement_ratio_single_load__lumbar_FSU__intact__no_preload",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "coupling",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.tencer1982.lumbar_joint_intact_flexibility_single_loads"
+ ]
+}

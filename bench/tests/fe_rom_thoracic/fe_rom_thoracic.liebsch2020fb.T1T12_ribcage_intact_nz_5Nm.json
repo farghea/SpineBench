@@ -1,0 +1,107 @@
+{
+ "id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_nz_5Nm",
+ "title": "T1-T12 neutral zone with intact rib cage (Liebsch 2020 FB, intact condition)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "long segment with rib cage",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "NZ",
+  "definition": "total T1-T12 neutral zone in the primary plane (grey part of bar), median of 6",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2020 FB",
+  "authors": "Liebsch C, Kocak T, Aleinikov V, Kerimbayev T, Akshulakov S, Jansen JU, Vogt M, Wilke HJ",
+  "year": 2020,
+  "journal": "Front Bioeng Biotechnol 8:572",
+  "doi": "10.3389/fbioe.2020.00572",
+  "n": 6,
+  "sample": "6 fresh-frozen human C7-L1 thoracic spines with intact rib cage (anatomy dept. Aachen)",
+  "age": "81 +/- 13 y (63-99); per specimen ranges 60-65, 96-100, 96-100, 80-85, 90-95, 70-75",
+  "sex": "4 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null,
+  "bmd": "38 +/- 35 mgHA/cm3 (2-96), i.e. very osteoporotic"
+ },
+ "protocol": {
+  "summary": "C7-L1 with intact rib cage, C7 and L1 potted; pure moments +/-5 Nm FE/LB/AR, 1 deg/s, 3.5 cycles (3rd evaluated), no preload. Only the un-instrumented intact condition (step 1) is extracted; steps 2-5 (T6 vertebral body replacement with unilateral/bilateral approach, long T4-T8 or short T5-T7 pedicle-screw instrumentation) are fe_instrumented and not extracted.",
+  "how_to_simulate": [
+   "Fix L1, apply pure moments +/-5 Nm to C7 in FE, LB, AR, no preload",
+   "Model full rib cage (sternum, costal cartilage, ribs, costovertebral joints; no intercostal muscles); use osteoporotic bone properties if relevant",
+   "Report total T1-T12 rotation (full range) in the primary plane and coupled planes at peak moment"
+  ],
+  "subject_model": null,
+  "notes": "Values digitised from Figs 3-5 (median bars with min-max whiskers, n=6). Old, osteoporotic donors (63-99 y) - independent of the Liebsch 2017 and 2018-2020 specimen pools by age/sex/source (Aachen, 2018)."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.3,
+   "n": 6
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 14.5,
+   "n": 6
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.7,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Figs 3-5 (grey NZ bars, intact)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.4 deg medians, +/-0.5 deg whisker ends",
+  "checked": true,
+  "check_notes": "Pixel-scanned at 200 dpi (5.1-5.2 px/deg); intact primary medians agree with red reference line; re-scanned adjacent columns for 2 bars (same pixel rows)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__nz__T1-T12__ribcage_intact__5Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "Ulm",
+  "digitised",
+  "osteoporotic"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "entire rib cage with sternum, costal cartilage, ribs and costovertebral joints; muscles incl. intercostal muscles removed"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5 cycles, third full cycle evaluated",
+  "branch": "ROM at +/-5 Nm, third cycle",
+  "preload": "none",
+  "device": "spine tester (Wilke 1994) + optical tracking, 3 markers per vertebra"
+ },
+ "specimen_levels": "C7-L1"
+}

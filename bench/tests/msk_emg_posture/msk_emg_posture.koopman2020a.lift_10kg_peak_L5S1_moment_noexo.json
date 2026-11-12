@@ -1,0 +1,115 @@
+{
+ "id": "msk_emg_posture.koopman2020a.lift_10kg_peak_L5S1_moment_noexo",
+ "title": "Peak net L5/S1 moment during symmetric 10 kg lifts from knee/ankle height, near/far, no exoskeleton",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "dynamic lifting net moment (inverse dynamics)",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo, healthy, WITHOUT exoskeleton",
+ "quantity": {
+  "name": "peak L5S1 net flexion-extension moment (ML5S1_total)",
+  "definition": "bottom-up inverse dynamics, peak over lift, mean ± SD (error bars assumed SD)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Koopman 2020a",
+  "authors": "Koopman AS, Kingma I, de Looze MP, van Dieën JH",
+  "year": 2020,
+  "journal": "J Biomech 102:109486",
+  "doi": "10.1016/j.jbiomech.2019.109486",
+  "n": 11,
+  "sample": "11 healthy male subjects (same cohort/ethics protocol NL57404.029.16 and identical demographics as Koopman 2019)",
+  "age": "24.1 ± 2.7 yr",
+  "sex": "male",
+  "height_cm": 184,
+  "weight_kg": 74.8
+ },
+ "protocol": {
+  "summary": "Symmetric lifting of a 10 kg box (35 x 10 x 25 cm, w x h x d) from 10 cm above ankle height (ANKLE) or 10 cm above knee height (KNEE), box centre 35 cm (NEAR) or 60 cm (FAR) in front of the ankle joint; start and end upright without box; free (self-selected) speed and technique; 3 repetitions; WITHOUT exoskeleton condition only. Peak values over the lift.",
+  "how_to_simulate": [
+   "Scale model to a 184 cm, 74.8 kg male",
+   "Simulate symmetric 10 kg lifts from the 4 locations with measured peak lumbar flexion and trunk velocity",
+   "Compare peak net L5-S1 extension moment"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 24.1,
+   "height_cm": 184,
+   "weight_kg": 74.8,
+   "disc_area_mm2": null,
+   "source": "Koopman 2020a Methods 2.3 (mean of 11 males; 1.84 ± 0.07 m, 74.8 ± 7.4 kg)"
+  },
+  "notes": "WITHOUT means printed on Fig. 3 bars: peak lumbar flexion KN 31, KF 38, AN 48, AF 56 deg (SD digitised ~5/10/11/10); peak trunk angular velocity KN 157, KF 180, AN 216, AF 232 deg/s."
+ },
+ "data": [
+  {
+   "x": "KNEE NEAR",
+   "load": "10 kg; 10 cm above knee; 35 cm in front of ankle",
+   "site": null,
+   "mean": 170,
+   "sd": 23,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "KNEE FAR",
+   "load": "10 kg; 10 cm above knee; 60 cm in front of ankle",
+   "site": null,
+   "mean": 233,
+   "sd": 24,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "ANKLE NEAR",
+   "load": "10 kg; 10 cm above ankle; 35 cm in front of ankle",
+   "site": null,
+   "mean": 218,
+   "sd": 25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "ANKLE FAR",
+   "load": "10 kg; 10 cm above ankle; 60 cm in front of ankle",
+   "site": null,
+   "mean": 275,
+   "sd": 31,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Fig. 3 'Total moment L5S1' NO EXO bars (means printed)",
+  "method": "digitised_figure",
+  "uncertainty": "means printed (±0.5 Nm); SD digitised ±3 Nm",
+  "checked": true,
+  "check_notes": "Off-centre pixel bar top for KN = 169.9 Nm vs label 170. SD caps 193.2/256.8/243.2/305.5 Nm minus means."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_emg_posture__L5S1_moment_peak__symmetric_lift_10kg",
+ "shared_sample_with": [
+  "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+  "msk_emg_posture.koopman2019.static_bending_L5S1_moment_noexo"
+ ],
+ "tags": [
+  "in vivo",
+  "inverse dynamics",
+  "dynamic",
+  "lifting"
+ ]
+}

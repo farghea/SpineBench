@@ -1,0 +1,135 @@
+{
+ "id": "passive_tissue.chazal1985.ISL_SSL_thoracic_failure_force",
+ "title": "Chazal 1985 thoracic ISL+SSL failure force (per specimen)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2",
+  "T2-T3",
+  "T4-T5",
+  "T7-T8",
+  "T8-T9"
+ ],
+ "condition": "intact (cadaveric + surgical)",
+ "quantity": {
+  "name": "failure force",
+  "definition": "force at point C (apex/rupture)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Chazal 1985",
+  "authors": "Chazal J, Tanguy A, Bourges M, Gaurel G, Escande G, Guillot M, Vanneuville G",
+  "year": 1985,
+  "journal": "J Biomech 18(3):167-176",
+  "doi": "",
+  "n": "43 whole ligaments from 18 spines (34 from 12 fresh cadavers <24 h post mortem, 30-80 y, mean 53; 9 SSL/ISL from living surgical subjects)",
+  "sample": "human whole spinal ligaments (ALL, PLL, LF, ISL+SSL, ITL), cervical to lumbar; bone clamped",
+  "age": "cadavers 30-80 y (mean 53); surgical donors 40-73 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of entire ligaments, bones held in custom clamps (never the ligament or its insertions), universal joints; constant rate 1 mm/min for loading and relaxation; cadaver ligaments kept in water/alcohol/glycerin solution, surgical ligaments in Ringer and tested <1 h. CSA measured every 2 mm with a palpator, smallest value used for stress; length between nearest bony insertions. Curves sigmoid: point A = end of initial toe (concave) region, point B = end of linear region, point C = apex (rupture).",
+  "how_to_simulate": [
+   "Model the ligament between its bony insertions at the reported resting length and CSA",
+   "Apply uniaxial elongation at quasi-static rate (1 mm/min) until rupture",
+   "Report force/elongation (or stress/strain) at end of toe region (A), end of linear region (B) and at failure (C)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T1-T2 (living/surgical, 68 y)",
+   "load": "",
+   "mean": 80,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 12,
+   "csa_mm2": 9
+  },
+  {
+   "x": "T2-T3 (living/surgical, 68 y)",
+   "load": "",
+   "mean": 80,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 10.5,
+   "csa_mm2": 8
+  },
+  {
+   "x": "T4-T5 (cadaver, 60 y)",
+   "load": "",
+   "mean": 110,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 10,
+   "csa_mm2": 8
+  },
+  {
+   "x": "T7-T8 (cadaver, 30 y)",
+   "load": "",
+   "mean": 290,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 11,
+   "csa_mm2": 30
+  },
+  {
+   "x": "T8-T9 (living/surgical, 69 y)",
+   "load": "",
+   "mean": 90,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 10,
+   "csa_mm2": 29
+  },
+  {
+   "x": "mean of specimens above (computed by extractor)",
+   "load": "",
+   "mean": 130,
+   "sd": 90.28,
+   "min": 80,
+   "max": 290,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Per-specimen values read from rotated Table 3 (200-dpi render; OCR verified/corrected e.g. LF T6-T7 stress A 2.75, ALL T10-T11 CSA 25). Summary row (mean, SD, min, max) computed by the extractor, not reported by the paper for this region. Cervical specimens excluded from this region test."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_force__ISL_SSL_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ISL+SSL"
+ ]
+}

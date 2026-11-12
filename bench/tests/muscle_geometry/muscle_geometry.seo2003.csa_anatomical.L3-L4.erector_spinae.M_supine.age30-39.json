@@ -1,0 +1,94 @@
+{
+ "id": "muscle_geometry.seo2003.csa_anatomical.L3-L4.erector_spinae.M_supine.age30-39",
+ "title": "Seo 2003: csa anatomical of erector spinae at L3-L4 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "M_supine",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "CSAES",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (Hitachi MRP-20)",
+  "plane": "transverse cross-sectional image at L3/4 (orientation relative to disc not stated)",
+  "slice_thickness_mm": null,
+  "level_definition": "L3/4 (disc level)",
+  "posture_detail": "supine (Discussion)"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction); planimeter area on the transverse MRI image; mean of right and left sides (one-side value)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Seo 2003",
+  "authors": "Seo A, Lee JH, Kusaka Y",
+  "year": 2003,
+  "journal": "J Occup Health 45:197-201",
+  "doi": "10.1539/joh.45.197",
+  "n": "250 subjects (152 M, 98 F)",
+  "sample": "healthy Japanese volunteers without back-pain treatment, age 15-75",
+  "age": "M 36.2 (13.1), F 39.7 (9.9) y",
+  "sex": "152M/98F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine (lying; lordosis as when lying, no gravity load on trunk).",
+   "Select all erector spinae fascicles whose path crosses the plane at L3-L4 (transverse cross-sectional image at L3/4 (orientation relative to disc not stated)), one side.",
+   "Sum their PCSA; divide each PCSA by cos(angle between fascicle and plane normal) to get anatomical CSA.",
+   "Compare the one-side total with the measured mean +/- SD (bilateral sums are labelled side=bilateral_sum)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": "age30-39",
+   "height_cm": 170.1,
+   "weight_kg": 67.6,
+   "disc_area_mm2": null,
+   "n": 48,
+   "source": "Table 1 (height SD 4.1, weight SD 7.9)"
+  },
+  "notes": "Paper does not say whether multifidus is included in \"erector spinae\" (size ~24 cm2/side in men suggests the whole paraspinal mass). cm2 -> mm2."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "both_mean",
+   "mean": 2490.0,
+   "sd": 350.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 48,
+   "as_reported": "24.9 (3.5) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 1 single-line rows, unambiguous in text; re-read all values."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__L3-L4__erector_spinae__M_supine__age30-39",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "MRI",
+  "supine",
+  "age classes"
+ ]
+}

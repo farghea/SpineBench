@@ -1,0 +1,115 @@
+{
+ "id": "passive_tissue.chazal1985.pooled_strain_pointA",
+ "title": "Chazal 1985 ligament strain at end of toe region (point A), all levels pooled",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "whole spine (C2-S1)",
+ "levels": [],
+ "condition": "intact (cadaveric + surgical)",
+ "quantity": {
+  "name": "strain at point A",
+  "definition": "strain at end of toe region (point A); stress = force / smallest CSA; strain = elongation / resting length",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Chazal 1985",
+  "authors": "Chazal J, Tanguy A, Bourges M, Gaurel G, Escande G, Guillot M, Vanneuville G",
+  "year": 1985,
+  "journal": "J Biomech 18(3):167-176",
+  "doi": "",
+  "n": "43 whole ligaments from 18 spines (34 from 12 fresh cadavers <24 h post mortem, 30-80 y, mean 53; 9 SSL/ISL from living surgical subjects)",
+  "sample": "human whole spinal ligaments (ALL, PLL, LF, ISL+SSL, ITL), cervical to lumbar; bone clamped",
+  "age": "cadavers 30-80 y (mean 53); surgical donors 40-73 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of entire ligaments, bones held in custom clamps (never the ligament or its insertions), universal joints; constant rate 1 mm/min for loading and relaxation; cadaver ligaments kept in water/alcohol/glycerin solution, surgical ligaments in Ringer and tested <1 h. CSA measured every 2 mm with a palpator, smallest value used for stress; length between nearest bony insertions. Curves sigmoid: point A = end of initial toe (concave) region, point B = end of linear region, point C = apex (rupture).",
+  "how_to_simulate": [
+   "Model the ligament between its bony insertions at the reported resting length and CSA",
+   "Apply uniaxial elongation at quasi-static rate (1 mm/min) until rupture",
+   "Report force/elongation (or stress/strain) at end of toe region (A), end of linear region (B) and at failure (C)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "PLL",
+   "load": "",
+   "mean": 11.0,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "note": "pooled C2-S1 levels (strain converted from fraction x100)"
+  },
+  {
+   "x": "LF",
+   "load": "",
+   "mean": 6.0,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "note": "pooled C2-S1 levels (strain converted from fraction x100)"
+  },
+  {
+   "x": "ALL",
+   "load": "",
+   "mean": 12.0,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "note": "pooled C2-S1 levels (strain converted from fraction x100)"
+  },
+  {
+   "x": "ISL+SSL",
+   "load": "",
+   "mean": 12.0,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "note": "pooled C2-S1 levels (strain converted from fraction x100)"
+  },
+  {
+   "x": "ITL",
+   "load": "",
+   "mean": 8.5,
+   "sd": 0.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 2,
+   "note": "pooled C2-S1 levels (strain converted from fraction x100)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 read from 200-dpi render (OCR had ALL point-B SD as 23.2; correct 3.2). n per type counted from Table 1/3 (ALL 9, PLL 11, LF 7, ISL+SSL 14, ITL 2). Third line of each cell in Table 2 is the coefficient of variation (not extracted). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__strain_toe_end__ligaments_C-L_pooled__human__uniaxial_tension_chazal_points",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "cervical",
+  "thoracic",
+  "lumbar"
+ ]
+}

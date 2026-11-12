@@ -1,0 +1,101 @@
+{
+  "example": true,
+  "id": "fe_rom_lumbar_fsu.example_b.L4L5_intact",
+  "title": "EXAMPLE L4-L5 intact ROM under pure moments",
+  "layer": "outcome",
+  "category": "fe_rom_lumbar_fsu",
+  "subcategory": "intact",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5"
+  ],
+  "condition": "intact",
+  "quantity": {
+    "name": "ROM",
+    "definition": "rotation at peak moment, loading branch, 3rd cycle (placeholder)",
+    "unit": "deg"
+  },
+  "source": {
+    "short": "Example B 2010",
+    "authors": "EXAMPLE (placeholder, not a real study)",
+    "year": 2010,
+    "journal": "Placeholder Journal",
+    "doi": "10.0000/example.b",
+    "n": 6,
+    "sample": "placeholder: 6 cadaveric L4-L5 specimens",
+    "age": "placeholder",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "pure moments to 7.5 Nm, 3 cycles, no preload (placeholder)",
+    "how_to_simulate": [
+      "Fix the L5 inferior endplate",
+      "Apply a pure moment to the L4 superior endplate, ramp to 7.5 Nm",
+      "Report L4 rotation relative to L5 at 7.5 Nm, loading branch"
+    ],
+    "subject_model": null,
+    "notes": "EXAMPLE: placeholder values for site development. Not real data."
+  },
+  "data": [
+    {
+      "x": "flexion",
+      "load": "7.5 Nm",
+      "mean": 6.0,
+      "sd": 2.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "extension",
+      "load": "7.5 Nm",
+      "mean": 4.0,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "lateral bending",
+      "load": "7.5 Nm",
+      "mean": 5.0,
+      "sd": 1.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "axial rotation",
+      "load": "7.5 Nm",
+      "mean": 1.0,
+      "sd": 0.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (placeholder)",
+    "method": "digitised_figure",
+    "uncertainty": "+/-0.2 deg (digitised, placeholder)",
+    "checked": false,
+    "check_notes": "EXAMPLE: placeholder values for site development. Not real data."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model - mean| <= 1 SD"
+  },
+  "combine_group": "example_lumbar_fsu_rom_L4L5_7p5Nm",
+  "tags": [
+    "example",
+    "lumbar",
+    "in vitro",
+    "FSU"
+  ]
+}

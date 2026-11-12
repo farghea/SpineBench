@@ -1,0 +1,263 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo chronic low back pain",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "tags": [
+  "in vivo",
+  "coupled moments",
+  "axial rotation",
+  "standing",
+  "male",
+  "submaximal",
+  "LBP",
+  "patients"
+ ],
+ "source": {
+  "short": "Ng 2002",
+  "authors": "Ng JK-F, Richardson CA, Parnianpour M, Kippers V",
+  "year": 2002,
+  "journal": "J Orthop Res 20:112-121",
+  "doi": "10.1016/S0736-0266(01)00067-5",
+  "sex": "M",
+  "n": "12 subjects (12 M), chronic LBP patients",
+  "sample": "right-handed male chronic/recurrent LBP patients, pain-free or minimal pain at testing; LBP duration 6.0±4.4 yr",
+  "age": "28.3±6.7",
+  "height_cm": "177±8 (1.77±0.08 m)",
+  "weight_kg": "72.1±9.3"
+ },
+ "id": "msk_mvc_coupled.ng2002.axial_rotation_coupled_moments_lbp",
+ "title": "Coupled sagittal and lateral moments during axial rotation at 30-100% MVC, standing, chronic LBP patients (normalised)",
+ "subcategory": "coupled moments in axial rotation",
+ "quantity": {
+  "name": "coupled moment",
+  "definition": "mean coupled torque in sagittal/coronal planes during R/L axial rotation, normalised to the subject's maximal torque in that direction (from the 6 MVCs); + flexion, + right lateral flexion",
+  "unit": "% of MVC moment in that direction"
+ },
+ "protocol": {
+  "summary": "Erect standing in a B200 Isostation triaxial dynamometer locked in 3 planes, L5-S1 interspinous space aligned with its flexion/extension axis; pelvis and lower legs stabilised (pelvic restraint, thigh and knee straps); torso fixed by chest restraint and thoracic pad; arms folded across chest. MVCs (5 s, randomised, 2 min rest) in flexion, extension, R/L lateral flexion, R/L axial rotation with visual feedback and verbal encouragement; then R/L axial rotation at 70, 50, 30% MVC to a visual target. Mean of stable 3 s; baseline (relaxed standing in device) subtracted. Same lab/protocol as Ng 2001.",
+  "how_to_simulate": [
+   "Upright standing, pelvis fixed, thorax restrained",
+   "Axial rotation at 30/50/70/100% of axial MVC (controls ≈ 84 Nm)",
+   "Report coupled flexion/extension and lateral moments at L5-S1, normalised by the model's MVC in those directions (controls: flexion 125, extension 180, lateral 138/147 Nm in Fig 1)"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 28.3,
+   "height_cm": 177,
+   "weight_kg": 72.1,
+   "disc_area_mm2": null,
+   "source": "Table 1 (back pain patients)"
+  },
+  "notes": "Can be converted to Nm only approximately using group-mean MVCs (Fig 1); not done here. Trend (P=0.08) for larger coupled flexion in patients during left rotation."
+ },
+ "data": [
+  {
+   "x": "axial_rotation_left",
+   "load": "100% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": 24.1,
+   "sd": 42.5,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "100% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": -21.6,
+   "sd": 28.2,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "70% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": 19.7,
+   "sd": 28.8,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "70% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": -22.4,
+   "sd": 19.9,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "50% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": 7.2,
+   "sd": 16.9,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "50% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": -21.6,
+   "sd": 15.8,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "30% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": 4.7,
+   "sd": 8.8,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "30% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": -13.3,
+   "sd": 10.8,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "30% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": -0.9,
+   "sd": 11.9,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "30% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": 6.6,
+   "sd": 7.5,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "50% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": -1.6,
+   "sd": 17.5,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "50% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": 13.3,
+   "sd": 11.6,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "70% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": -4.7,
+   "sd": 18.1,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "70% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": 14.1,
+   "sd": 19.1,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "100% MVC axial rotation",
+   "component": "coupled_sagittal (+flexion/-extension)",
+   "sex": "M",
+   "mean": 15.3,
+   "sd": 28.1,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "100% MVC axial rotation",
+   "component": "coupled_lateral (+right/-left lateral flexion)",
+   "sex": "M",
+   "mean": 24.9,
+   "sd": 31.5,
+   "n": 12,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2",
+  "method": "digitised_figure",
+  "uncertainty": "±2 % (sagittal, 1.6 px/%), ±2.5 % (lateral, 1.2 px/%)",
+  "checked": true,
+  "check_notes": "Pixel digitisation of bar ends and SD caps; visually re-checked against figure (controls: -100% lateral -39, +100% sagittal +22). Tiny bars (|value|<2%) are ±1.5%."
+ },
+ "combine_group": null
+}

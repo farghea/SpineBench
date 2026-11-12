@@ -1,0 +1,81 @@
+{
+ "id": "kinematics.laird2016.rof_lumbar",
+ "title": "Peak lumbar (T12-S2) flexion at maximal forward flexion (no-LBP adults, IMU)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "T12-S2"
+ ],
+ "condition": "healthy (no LBP), standing, maximal forward flexion",
+ "quantity": {
+  "name": "range of flexion",
+  "definition": "Trunk = T12 sensor angle; pelvis = S2 sensor angle; lumbar = trunk - pelvis (T12 relative to S2). Values = mean (between-subject SD) of the average of 3 test sessions.",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Laird 2016",
+  "authors": "Laird RA, Kent P, Keating JL",
+  "year": 2016,
+  "journal": "BMC Musculoskelet Disord 17:403",
+  "doi": "10.1186/s12891-016-1250-1",
+  "n": "32 without LBP (42% F) [+30 chronic LBP, 50% F, reported in separate test]",
+  "sample": "adults without LBP (NoLBP) recruited from physiotherapy clinics and a university; BMI<=30",
+  "age": "NoLBP 35.5 (SD 12.4) y; LBP 45.8 (SD 11.6) y (groups differ, p=.001)",
+  "sex": "NoLBP 42% female",
+  "height_cm": null,
+  "weight_kg": "BMI NoLBP 24.4 (SD 3.1), LBP 24.1 (SD 5.6) kg/m2"
+ },
+ "protocol": {
+  "summary": "Peak lumbar (T12-S2) flexion from standing, ViMove IMU, 32 adults without LBP (Table 2).",
+  "how_to_use": [
+   "Use 52.1 deg (SD 9.1) as lumbar (T12-S2) rotation at full flexion; full trunk (T12) 105.7 = lumbar 52.1 + pelvis 54.8 (approx).",
+   "Whole-range lumbar share is 51.3% (see lumbar_share_pct) -> L/P about 0.95 at full flexion.",
+   "Treat +-13.0 deg (MDC90 between days) as the repeatability band."
+  ],
+  "measurement": {
+   "method": "IMU",
+   "device": "ViMove (DorsaVi) wireless IMUs on skin over T12 and S2 spinous processes, ~20 Hz",
+   "posture": "standing",
+   "task": "5 repetitions each of max flexion, extension, left/right lateral flexion (reps 2-5 averaged); 3 test sessions (2 raters same day, 1 rater 7-14 d later)"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "MDC90 (different-day, same rater) given per value as mdc90_days: use as the expected test-retest band for robustness runs. Total sample stated as n=63 in abstract but Table 1 lists 32 NoLBP + 30 LBP; Table 4 lists n per movement (NoLBP flexion 32, extension 31, lordosis/lateral 33)."
+ },
+ "data": [
+  {
+   "x": "max flexion",
+   "load": null,
+   "mean": 52.1,
+   "sd": 9.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 32,
+   "phase": "flexion",
+   "segment": "lumbar (T12-S2)",
+   "mdc90_days": 13.0
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 / Table 3 (column 'Average for all 3 Tests' and intra-rater MDC90)",
+  "method": "table",
+  "uncertainty": "exact",
+  "checked": true,
+  "check_notes": "Re-read from layout text of Tables 2-3; left lateral flexion averages printed with negative sign (direction) - stored as magnitudes."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__lumbar__healthy_standing__max_forward_flexion",
+ "tags": [
+  "in vivo",
+  "IMU",
+  "standing",
+  "healthy",
+  "both sexes"
+ ]
+}

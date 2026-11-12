@@ -1,0 +1,93 @@
+{
+ "id": "kinematics.narimani2018.rom_extension_pelvis",
+ "title": "Pelvis (S1) maximal backward rotation in extension, IMU",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "pelvis",
+ "levels": [
+  "pelvis"
+ ],
+ "condition": "healthy, standing, upright to maximal backward extension",
+ "quantity": {
+  "name": "range of extension",
+  "definition": "Primary rotation at maximal voluntary motion relative to relaxed upright; trunk = T1 vs global, pelvis = S1 vs global, lumbar = T12 vs S1, T1-T5, T5-T12, T1-T12 relative rotations; absolute values",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Narimani 2018",
+  "authors": "Narimani M, Arjmand N",
+  "year": 2018,
+  "journal": "J Biomech 69:169-174",
+  "doi": "10.1016/j.jbiomech.2018.01.017",
+  "n": "22 males",
+  "sample": "22 young healthy male students, no recent back/hip/knee complications",
+  "age": "24.8 (SD 1.0), range 24-28 y",
+  "sex": "male",
+  "height_cm": "178.0 (SD 5.4), range 165-190",
+  "weight_kg": "71.5 (SD 10.0), range 50-92"
+ },
+ "protocol": {
+  "summary": "Maximal voluntary primary RoMs in standing measured with 4 inertial sensors.",
+  "how_to_use": [
+   "Rotate the pelvis ~10 deg backward at full trunk extension."
+  ],
+  "measurement": {
+   "method": "IMU",
+   "device": "Xsens MTx inertial sensors (4) on T1, T5, T12 and S1 spinous processes",
+   "posture": "standing, feet shoulder-width, knees extended",
+   "task": "slow (4-5 s) maximal voluntary flexion, extension, left/right lateral bending, left/right axial rotation from relaxed upright, 3 trials"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "pelvis S1 vs global",
+   "load": null,
+   "mean": 10.2,
+   "sd": 6.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 22,
+   "segment": "pelvis",
+   "phase": "extension"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (segments; bold primary values) and Table 2 (trunk T1)",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Rotated Table 1 re-read at 300 dpi; primary values cross-checked against Table 2 and abstract (all identical)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_extension__pelvis__healthy_standing__max_extension",
+ "shared_sample_with": [
+  "kinematics.narimani2018.rom_flexion_trunk",
+  "kinematics.narimani2018.rom_flexion_lumbar",
+  "kinematics.narimani2018.rom_flexion_pelvis",
+  "kinematics.narimani2018.rom_flexion_thoracic",
+  "kinematics.narimani2018.rom_extension_trunk",
+  "kinematics.narimani2018.rom_extension_lumbar",
+  "kinematics.narimani2018.rom_extension_thoracic",
+  "kinematics.narimani2018.rom_lateral_bending",
+  "kinematics.narimani2018.rom_axial_rotation",
+  "kinematics.narimani2018.coupled_rom",
+  "kinematics.narimani2018.lp_ratio_flexion",
+  "kinematics.narimani2018.lp_ratio_extension"
+ ],
+ "tags": [
+  "in vivo",
+  "IMU",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults"
+ ]
+}

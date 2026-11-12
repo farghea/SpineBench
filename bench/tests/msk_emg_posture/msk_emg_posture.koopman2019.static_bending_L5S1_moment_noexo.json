@@ -1,0 +1,127 @@
+{
+ "id": "msk_emg_posture.koopman2019.static_bending_L5S1_moment_noexo",
+ "title": "Net L5/S1 extension moment in static forward bending at five hand heights, no exoskeleton",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "static posture net moment (inverse dynamics)",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo, healthy, WITHOUT exoskeleton",
+ "quantity": {
+  "name": "L5/S1 net flexion-extension moment (Mtot)",
+  "definition": "bottom-up inverse dynamics (force plate + lower-body kinematics), mean over 5 s static hold; error bars assumed SD (not stated in caption)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Koopman 2019",
+  "authors": "Koopman AS, Kingma I, Faber GS, de Looze MP, van Dieën JH",
+  "year": 2019,
+  "journal": "J Biomech 83:97-103",
+  "doi": "10.1016/j.jbiomech.2018.11.033",
+  "n": 11,
+  "sample": "11 healthy male subjects",
+  "age": "24.1 ± 2.7 yr",
+  "sex": "male",
+  "height_cm": 184,
+  "weight_kg": 74.8
+ },
+ "protocol": {
+  "summary": "Static forward bending, arms hanging, hands at 5 predetermined heights relative to upright standing hand height (100% = upright, 75%, 50%, 25%, 0% = floor); knees as straight as possible without locking; ~5 s hold; NO hand load; WITHOUT exoskeleton condition only.",
+  "how_to_simulate": [
+   "Scale model to a 184 cm, 74.8 kg male; no hand load",
+   "Impose postures per hand height (Fig. 4 WITHOUT means): trunk inclination 0/66/93/113/126 deg, hip flexion -3/25/42/61/70 deg, lumbar flexion ~0/50/61/66/69 deg",
+   "Compare model net L5-S1 extension moment (gravity of upper body and arms) with measured Mtot"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 24.1,
+   "height_cm": 184,
+   "weight_kg": 74.8,
+   "disc_area_mm2": null,
+   "source": "Koopman 2019 Methods 2.2 (mean of 11 males; height 1.84 ± 0.07 m, mass 74.8 ± 7.4 kg)"
+  },
+  "notes": "Mean (n=11) WITHOUT values printed on Fig. 4 bars: trunk inclination 0/66/93/113/126 deg, hip flexion -3/25/42/61/70 deg, lumbar flexion ~0/50/61/66/69 deg (100% value hidden, ~0), % of max lumbar flexion (Fig. 5A) ?/76/93/100/104 % at 100/75/50/25/0% hand height."
+ },
+ "data": [
+  {
+   "x": "hand height 100%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 7,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "note": "mean label hidden; both mean and SD digitised"
+  },
+  {
+   "x": "hand height 75%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 97,
+   "sd": 17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "hand height 50%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 108,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "hand height 25%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 105,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "hand height 0%",
+   "load": "0 kg",
+   "site": null,
+   "mean": 94,
+   "sd": 18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Fig. 4A (Mtot, WITHOUT bars; means printed on bars)",
+  "method": "digitised_figure",
+  "uncertainty": "means: printed integers (±0.5 Nm) except 100% (digitised ±2 Nm); SD digitised ±2 Nm",
+  "checked": true,
+  "check_notes": "Pixel bar heights reproduce printed means within 1 Nm (75%: 97.4 vs 97). SDs from error-bar caps re-digitised twice (75%: 17.1/17.7). Error bars assumed SD."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "msk_emg_posture__L5S1_moment__static_forward_bending_hand_heights_no_load",
+ "shared_sample_with": [
+  "msk_emg_posture.koopman2020a.lift_10kg_peak_back_emg_noexo",
+  "msk_emg_posture.koopman2020a.lift_10kg_peak_L5S1_moment_noexo"
+ ],
+ "tags": [
+  "in vivo",
+  "inverse dynamics",
+  "static",
+  "forward bending"
+ ]
+}

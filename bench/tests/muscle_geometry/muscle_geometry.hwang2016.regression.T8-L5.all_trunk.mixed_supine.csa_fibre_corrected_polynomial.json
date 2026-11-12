@@ -1,0 +1,399 @@
+{
+ "id": "muscle_geometry.hwang2016.regression.T8-L5.all_trunk.mixed_supine.csa_fibre_corrected_polynomial",
+ "title": "Hwang 2016: polynomial (level) regressions of fibre-angle-corrected CSA (\"PCSA\") on sex, height, mass",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "thoracic",
+ "levels": [
+  "T8",
+  "T9",
+  "T10",
+  "T11",
+  "T12",
+  "L1",
+  "L2",
+  "L3",
+  "L4",
+  "L5",
+  "S1"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI (data of Jorgensen 2001 / Marras 2001)",
+  "plane": "transverse slices perpendicular to the table through vertebral body centres",
+  "slice_thickness_mm": 10,
+  "level_definition": "vertebral level coded S1=1 ... T8=11",
+  "posture_detail": "supine"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Hwang 2016",
+  "authors": "Hwang J, Dufour JS, Knapik GG, Best TM, Khan SN, Mendel E, Marras WS",
+  "year": 2016,
+  "journal": "Clin Biomech 37:60-64",
+  "doi": "10.1016/j.clinbiomech.2016.06.001",
+  "n": "30 subjects (10 M, 20 F) reused from Jorgensen 2001 / Marras 2001",
+  "sample": "same OSU supine MRI database (T8-S1)",
+  "age": "M 26.4 (5.5), F 25.0 (7.2) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "\"PCSA\" here = cosine-corrected anatomical CSA per level (as Marras 2001), not volume/fibre-length PCSA."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-7.03 0.85  -1.86 0.03  | 0.627 1.696 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T8-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "-7.03 + 0.85*Level + -1.86*Gender + 0.03*Height",
+   "coefficients": {
+    "intercept": -7.03,
+    "Level": 0.85,
+    "Gender": -1.86,
+    "Height": 0.03
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.627,
+   "rmse": 1.696,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-8.23 0.75  -1.53 0.04  | 0.569 1.703 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T8-L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "both (Gender term)",
+   "equation": "-8.23 + 0.75*Level + -1.53*Gender + 0.04*Height",
+   "coefficients": {
+    "intercept": -8.23,
+    "Level": 0.75,
+    "Gender": -1.53,
+    "Height": 0.04
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.569,
+   "rmse": 1.703,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-12.04 16.6 -1.66 -3.38 -0.15 0.27 | 0.838 2.861 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-L5",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-12.04 + 16.6*Level + -1.66*Level2 + -3.38*Gender + -0.15*Height + 0.27*Body mass",
+   "coefficients": {
+    "intercept": -12.04,
+    "Level": 16.6,
+    "Level2": -1.66,
+    "Gender": -3.38,
+    "Height": -0.15,
+    "Body mass": 0.27
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Gender": "male=0, female=1",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.838,
+   "rmse": 2.861,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "-17.56 16.47 -1.64 -3.13 -0.11 0.26 | 0.837 2.851 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-L5",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (Gender term)",
+   "equation": "-17.56 + 16.47*Level + -1.64*Level2 + -3.13*Gender + -0.11*Height + 0.26*Body mass",
+   "coefficients": {
+    "intercept": -17.56,
+    "Level": 16.47,
+    "Level2": -1.64,
+    "Gender": -3.13,
+    "Height": -0.11,
+    "Body mass": 0.26
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Gender": "male=0, female=1",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.837,
+   "rmse": 2.851,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "11.77 -0.36   -0.08 0.14 | 0.572 1.404 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "11.77 + -0.36*Level + -0.08*Height + 0.14*Body mass",
+   "coefficients": {
+    "intercept": 11.77,
+    "Level": -0.36,
+    "Height": -0.08,
+    "Body mass": 0.14
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.572,
+   "rmse": 1.404,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "11.93 -0.33   -0.09 0.15 | 0.545 1.51 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-S1",
+   "muscle": "rectus_abdominis",
+   "sex": "both (Gender term)",
+   "equation": "11.93 + -0.33*Level + -0.09*Height + 0.15*Body mass",
+   "coefficients": {
+    "intercept": 11.93,
+    "Level": -0.33,
+    "Height": -0.09,
+    "Body mass": 0.15
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Height": "cm",
+    "Body mass": "kg"
+   },
+   "r2_adj": 0.545,
+   "rmse": 1.51,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "5.11 -0.5  -2.42 0.03  | 0.512 1.42 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-L4",
+   "muscle": "external_oblique",
+   "sex": "both (Gender term)",
+   "equation": "5.11 + -0.5*Level + -2.42*Gender + 0.03*Height",
+   "coefficients": {
+    "intercept": 5.11,
+    "Level": -0.5,
+    "Gender": -2.42,
+    "Height": 0.03
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.512,
+   "rmse": 1.42,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "1.95 -0.56  -2.37 0.05  | 0.536 1.464 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "T12-L4",
+   "muscle": "external_oblique",
+   "sex": "both (Gender term)",
+   "equation": "1.95 + -0.56*Level + -2.37*Gender + 0.05*Height",
+   "coefficients": {
+    "intercept": 1.95,
+    "Level": -0.56,
+    "Gender": -2.37,
+    "Height": 0.05
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Gender": "male=0, female=1",
+    "Height": "cm"
+   },
+   "r2_adj": 0.536,
+   "rmse": 1.464,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "6.59 -8.49 0.81  0.11  | 0.453 2.006 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "L2-L4",
+   "muscle": "internal_oblique",
+   "sex": "both (Gender term)",
+   "equation": "6.59 + -8.49*Level + 0.81*Level2 + 0.11*Height",
+   "coefficients": {
+    "intercept": 6.59,
+    "Level": -8.49,
+    "Level2": 0.81,
+    "Height": 0.11
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Height": "cm"
+   },
+   "r2_adj": 0.453,
+   "rmse": 2.006,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30,
+   "as_reported": "10.43 -11.46 1.17  0.12  | 0.506 1.984 <.0001",
+   "predicted": "\"PCSA\" = fibre-angle-corrected CSA per vertebral level (Marras 2001 data), cm2",
+   "level": "L2-L4",
+   "muscle": "internal_oblique",
+   "sex": "both (Gender term)",
+   "equation": "10.43 + -11.46*Level + 1.17*Level2 + 0.12*Height",
+   "coefficients": {
+    "intercept": 10.43,
+    "Level": -11.46,
+    "Level2": 1.17,
+    "Height": 0.12
+   },
+   "predictor_units": {
+    "Level": "S1=1, L5=2, ..., T8=11",
+    "Level2": "Level^2",
+    "Height": "cm"
+   },
+   "r2_adj": 0.506,
+   "rmse": 1.984,
+   "p": "<.0001",
+   "output_unit": "cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All coefficients verified on rendered page 63 (Table 3)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_mri_30",
+  "regression"
+ ]
+}

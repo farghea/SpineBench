@@ -1,0 +1,104 @@
+{
+ "id": "kinematics.ignasiak2017.rof_lumbar",
+ "title": "Lumbar (L1-sacrum) range of forward flexion, young vs elderly (skin markers)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "thoracic/lumbar/pelvis shares",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1"
+ ],
+ "condition": "healthy, standing, upright to end of forward flexion",
+ "quantity": {
+  "name": "range of flexion",
+  "definition": "angular displacement of L1-sacrum curve at end of flexion (50% task cycle) relative to upright",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Ignasiak 2017",
+  "authors": "Ignasiak D, Rüeger A, Ferguson SJ",
+  "year": 2017,
+  "journal": "Hum Mov Sci 54:230-239",
+  "doi": "10.1016/j.humov.2017.05.011",
+  "n": "42 subjects (21 young: 13 F/8 M; 21 elderly: 13 F/8 M)",
+  "sample": "healthy volunteers without spinal surgery, chronic spine disorder or recent back pain; 44 recruited, 42 analysed",
+  "age": "young 27.0 (SD 3.96), 20-35 y; elderly 70.1 (SD 3.85), 65-80 y",
+  "sex": "26 F, 16 M",
+  "height_cm": "young 173.3 (SD 9.5); elderly 168.5 (SD 8.9)",
+  "weight_kg": "young 68.3 (SD 13.7); elderly 67.5 (SD 11.3)"
+ },
+ "protocol": {
+  "summary": "Lumbar ROF lower in elderly (37.8 ± 9.0) than young (48.9 ± 8.8), p ≤ 0.001.",
+  "how_to_use": [
+   "Use median (IQR) end-of-flexion ROF for young vs elderly; elderly use ~11 deg less lumbar flexion and more hip flexion for a similar spine inclination.",
+   "Region definitions are skin-curve based: thoracic C7-L1, lumbar L1-sacrum, hip = pelvis vs upper leg; spine inclination = C7-sacrum vector vs vertical.",
+   "Reduce lumbar flexion by ~11 deg (≈23%) for a 70-year-old relative to a 27-year-old."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "Vicon MX 12 cameras, 100 Hz; 11 spinous-process markers (C7,T3,T5,T7,T9,T11,L1-L5) + sacrum; cubic polynomial fitted to marker curve, segment angles from curve normals",
+   "posture": "standing, feet hip-width, knees extended, arms relaxed",
+   "task": "slow forward flexion at self-selected speed to end of range and return"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "lumbar L1-sacrum",
+   "load": null,
+   "mean": 48.9,
+   "sd": 8.8,
+   "min": null,
+   "max": null,
+   "median": 45.9,
+   "n": 21,
+   "group": "young",
+   "q1": 44.6,
+   "q3": 52.5
+  },
+  {
+   "x": "lumbar L1-sacrum",
+   "load": null,
+   "mean": 37.8,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": 39.5,
+   "n": 21,
+   "group": "elderly",
+   "q1": 30.9,
+   "q3": 44.1
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 left panel (box plots: median, quartiles); lumbar mean±SD from Results 3.3 text",
+  "method": "digitised_figure",
+  "uncertainty": "±1.5 deg (low-resolution raster figure, 2.66 px/deg at 400 dpi)",
+  "checked": true,
+  "check_notes": "Box edges and median lines located from colour run profiles at two columns per box and checked against a visual read; lumbar medians consistent with text means (48.9, 37.8)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_flexion__lumbar__healthy_standing__max_forward_flexion",
+ "shared_sample_with": [
+  "kinematics.ignasiak2017.rof_thoracic",
+  "kinematics.ignasiak2017.rof_inclination_hip",
+  "kinematics.ignasiak2017.segmental_rof"
+ ],
+ "tags": [
+  "in vivo",
+  "skin markers",
+  "optical",
+  "standing",
+  "healthy",
+  "both sexes",
+  "young adults",
+  "elderly",
+  "age effect",
+  "digitised"
+ ]
+}

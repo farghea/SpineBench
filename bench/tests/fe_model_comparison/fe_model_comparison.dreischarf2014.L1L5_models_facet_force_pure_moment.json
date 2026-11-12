@@ -1,0 +1,106 @@
+{
+ "id": "fe_model_comparison.dreischarf2014.L1L5_models_facet_force_pure_moment",
+ "title": "Eight-FE-model range of lumbar facet joint forces under 7.5 Nm pure moments (Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_model_comparison",
+ "subcategory": "FE model range (not experimental)",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "facet joint force (FE model predictions)",
+  "definition": "each model's median facet joint force over levels L1-L5; FE median = median of the model medians, range = min-max of model medians (dotted bar). Extension: mean of left and right; LB and AR: the more loaded side. NOT experimental data.",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Dreischarf 2014",
+  "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+  "year": 2014,
+  "journal": "J Biomech 47(8):1757-1766",
+  "doi": "10.1016/j.jbiomech.2014.04.002",
+  "n": "8 FE models (not specimens)",
+  "sample": "eight published L1-L5 FE models (anonymised Models 1-8)",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm, no preload; L5 fixed.",
+  "how_to_simulate": [
+   "Fix L5, apply 7.5 Nm pure moments to L1",
+   "Extract facet contact force at every level; extension: average left/right; LB/AR: higher-loaded side",
+   "Report the median over L1-L2..L4-L5"
+  ],
+  "subject_model": null,
+  "notes": "Text: segmental FJF on average 0 N flexion, 32 N extension, 12 N lateral bending, 87 N axial rotation; in extension and AR two of seven models predict FJF well outside the in vitro range. Digitised per-model medians (N, +/-3): extension M1 19, M2 16, M3 30, M4 107, M5 9, M6 35, M7 108, M8 50; AR M1 72, M2 38, M3 63, M4 115, M5 90, M6 86, M7 134, M8 89; LB M2 32, M4 42, M7 19, M8 26, M1/M3/M5/M6 below ~5 (not resolvable). Per-model whiskers (min-max across levels) not extracted. Figures in the QUT eprints author version are low-resolution embedded bitmaps (~550x420 px for a 4-panel figure); digitised by pixel analysis of the extracted image against gridlines."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0,
+   "n": 8,
+   "note": "text: 0 N on average; some models up to ~25 N at single levels"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 9,
+   "max": 108,
+   "median": 32,
+   "n": 8
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": 42,
+   "median": 12,
+   "n": 8,
+   "note": "min below ~5 N, not resolvable"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 38,
+   "max": 134,
+   "median": 87,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Section 3.2 text (medians) and Fig 2c (ranges)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-3 N for ranges; medians from text",
+  "checked": true,
+  "check_notes": "Digitised FE-median bars 32.4 (ext) and 86.2 (AR) vs text 32 and 87. Median of digitised model medians reproduces text (ext 32.5, AR 87.5, LB ~11.5). FE-median whisker tops (108, 134) equal the highest model medians, confirming range = range of model medians."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "PASS = inside in vitro range (Wilson 2006) AND inside model range; MARGINAL = one"
+ },
+ "combine_group": "fe_model_comparison__facet_force__lumbar_pooled__intact__7.5Nm",
+ "tags": [
+  "lumbar",
+  "fe_model_range",
+  "model comparison",
+  "facet force",
+  "not experimental"
+ ]
+}

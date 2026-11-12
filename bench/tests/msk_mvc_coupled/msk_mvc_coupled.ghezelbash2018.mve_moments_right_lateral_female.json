@@ -1,0 +1,111 @@
+{
+ "id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_female",
+ "title": "Maximal voluntary right lateral exertion: primary and coupled moments about L5-S1, females (semi-seated dynamometer)",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "primary_and_coupled_MVE_moments",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "isometric maximal right lateral exertion, semi-seated, pelvis and legs fixed",
+ "quantity": {
+  "name": "MVE moment (primary and coupled)",
+  "definition": "moments about S1 (L5-S1) measured by triaxial dynamometer (three AMTI force platforms) during ~8 s isometric maximal exertion; trial with the larger primary moment of two; sign: + flexion, + right lateral bending, + right axial rotation; pct_of_primary = coupled/primary as printed in Table 2",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Ghezelbash 2018",
+  "authors": "Ghezelbash F, El Ouaaid Z, Shirazi-Adl A, Plamondon A, Arjmand N",
+  "year": 2018,
+  "journal": "J Biomech 70:124-133",
+  "doi": "10.1016/j.jbiomech.2017.11.007",
+  "n": "9 female subjects (cohort of 19: 9F, 10M)",
+  "sample": "healthy young right-handed females, in vivo",
+  "age": "24.1±4.3 y",
+  "sex": "F",
+  "height_cm": "163.4±3.7",
+  "weight_kg": "61.0±4.5"
+ },
+ "protocol": {
+  "summary": "Two ~8 s isometric MVE trials per direction (flexion, extension, right/left lateral bending, right/left axial rotation) in the semi-seated triaxial dynamometer of Lariviere et al. (2001); pelvis and legs fixed, hands crossed on chest, verbal encouragement, 2 min rest; dynamometer signals 128 Hz; moments reported about S1.",
+  "how_to_simulate": [
+   "Semi-seated posture, pelvis fixed; paper's model prescribed lordosis reduced by 11 deg (+10 deg rotation at S1, -1 deg at L1).",
+   "Apply the harness reaction at the subject-machine contact (shoulder joint height), offset so the moments about S1 equal the measured primary and coupled moments (sign: + flexion, + right lateral, + right axial).",
+   "Arms crossed on chest; upper-body gravity scaled to the subject's body weight and height.",
+   "Compare the model's moments about L5-S1 (primary and coupled) with data; if the model predicts strength, compare its maximal primary moment, or report the required maximum muscle stress (paper: mean 0.80±0.42 MPa)."
+  ],
+  "subject_model": {
+   "sex": "female",
+   "age": "24.1±4.3 y",
+   "height_cm": 163.4,
+   "weight_kg": 61.0,
+   "disc_area_mm2": null,
+   "source": "Methods text (lines 72-73): mean±SD of the sex group"
+  },
+  "notes": "Coupled-moment directions varied among subjects (e.g. left axial MVE: 9 subjects coupled extension vs 10 flexion), so signed means are small with large SD. Table 2 also lists Ng et al. (2001, 12 males) and Lariviere et al. (2009, 20 males, absolute values) - those are literature copies, not extracted here. Female vs male ANOVA p-values in Table 1 (primary moments significantly different except flexion)."
+ },
+ "data": [
+  {
+   "x": "right lateral MVE",
+   "component": "coupled_flexion_moment",
+   "sign": "+ = flexion",
+   "sex": "F",
+   "mean": -25,
+   "sd": 31,
+   "pct_of_primary": -21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9
+  },
+  {
+   "x": "right lateral MVE",
+   "component": "primary_right_lateral_moment",
+   "sign": "+ = right lateral",
+   "sex": "F",
+   "mean": 117,
+   "sd": 31,
+   "pct_of_primary": 100,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9
+  },
+  {
+   "x": "right lateral MVE",
+   "component": "coupled_right_axial_moment",
+   "sign": "+ = right axial",
+   "sex": "F",
+   "mean": -23,
+   "sd": 26,
+   "pct_of_primary": -20,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (moments), Methods text (anthropometry)",
+  "method": "table",
+  "uncertainty": "table values to 1 Nm",
+  "checked": true,
+  "check_notes": "All 9 mean/SD/% values re-compared with the rendered Table 2 (PDF p.17)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD for primary moment; coupled moments: sign and magnitude within 1 SD"
+ },
+ "combine_group": "msk_mvc_coupled__primary_moment__L5-S1__semi_seated__lateral_bend_right_female",
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "MVC",
+  "MVE",
+  "coupled moments",
+  "dynamometer",
+  "semi-seated",
+  "female"
+ ]
+}

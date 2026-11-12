@@ -1,0 +1,284 @@
+{
+ "id": "segment_stiffness.gardnermorse2003.porcine_isolated_disc_diagonal_preload_0_200_400N",
+ "title": "PORCINE lumbar motion segment diagonal stiffness, isolated disc (posterior elements removed), 0/200/400 N preload",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "preload_effect",
+ "region": "lumbar",
+ "levels": [
+  "porcine lumbar (level not stated)"
+ ],
+ "condition": "posterior elements (facets and ligaments) removed",
+ "quantity": {
+  "name": "diagonal terms of the 6x6 stiffness matrix",
+  "definition": "Least-squares symmetric 6x6 stiffness (21 coefficients) at the centre of the upper vertebral body, lower vertebra fixed; diagonal terms relate force/moment to the collinear displacement/rotation. Axes aligned to the vertebral body centres from biplanar radiographs. Displacements +-0.3 mm A-P and lateral, +-0.2 mm axial, +-1 deg lateral bending, +-0.8 deg flexion-extension and torsion.",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Gardner-Morse & Stokes 2003",
+  "authors": "Gardner-Morse MG, Stokes IAF",
+  "year": 2003,
+  "journal": "J Orthop Res 21:547-552",
+  "doi": "10.1016/S0736-0266(02)00199-7",
+  "n": "6 porcine lumbar motion segments (animals >16 weeks old; levels not stated)",
+  "sample": "PORCINE lumbar motion segments in vitro (animal, not human)",
+  "age": ">16 weeks (animals)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Hexapod robot, 6 pure-displacement tests, 4 sawtooth cycles of 87 s, 1 Hz sampling, isotonic saline bath ~4 C, axial preload 0/200/400 N (order permuted; >=3 h equilibration; vertical displacement with horizontal adjustment to zero shear).",
+  "how_to_simulate": [
+   "Build a porcine lumbar motion segment model (animal; do not compare with human data)",
+   "Fix the lower vertebra; reference point = centre of the upper vertebral body",
+   "Apply 0, 200 or 400 N axial compression and equilibrate; remove facets and posterior ligaments first",
+   "Impose each pure displacement with the other DOF fixed (+-0.3 mm A-P/lateral, +-0.2 mm axial, +-1 deg lateral bending, +-0.8 deg flexion-extension/torsion) and report the slope of collinear force/moment vs displacement"
+  ],
+  "subject_model": null,
+  "notes": "Primary off-diagonal terms (A-P shear/flexion, lateral shear/lateral bending) only reported as ratios in text (x1.4 and x1.6 with 200/400 N intact; x3.5 and x5.4 isolated disc). At 400 N compressive stress ~0.5 MPa. SE given in figure; sd = SE*sqrt(6) (derived)."
+ },
+ "data": [
+  {
+   "x": "diagonal stiffness, AP shear",
+   "load": "axial compressive preload 0 N",
+   "mean": 37,
+   "sd": null,
+   "se": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm",
+   "note": "value from text (p.549: 37 N/mm, not significantly different from zero); digitised bar = 41 N/mm"
+  },
+  {
+   "x": "diagonal stiffness, AP shear",
+   "load": "axial compressive preload 200 N",
+   "mean": 110,
+   "sd": 85.7,
+   "se": 35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, AP shear",
+   "load": "axial compressive preload 400 N",
+   "mean": 208,
+   "sd": null,
+   "se": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, lateral shear",
+   "load": "axial compressive preload 0 N",
+   "mean": 68,
+   "sd": null,
+   "se": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, lateral shear",
+   "load": "axial compressive preload 200 N",
+   "mean": 208,
+   "sd": null,
+   "se": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, lateral shear",
+   "load": "axial compressive preload 400 N",
+   "mean": 306,
+   "sd": 51.4,
+   "se": 21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, axial",
+   "load": "axial compressive preload 0 N",
+   "mean": 599,
+   "sd": 529.0,
+   "se": 216,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, axial",
+   "load": "axial compressive preload 200 N",
+   "mean": 2540,
+   "sd": 632.0,
+   "se": 258,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, axial",
+   "load": "axial compressive preload 400 N",
+   "mean": 3410,
+   "sd": 752.0,
+   "se": 307,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "N/mm"
+  },
+  {
+   "x": "diagonal stiffness, lateral bending",
+   "load": "axial compressive preload 0 N",
+   "mean": 0.51,
+   "sd": 0.367,
+   "se": 0.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, lateral bending",
+   "load": "axial compressive preload 200 N",
+   "mean": 3.2,
+   "sd": 0.857,
+   "se": 0.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, lateral bending",
+   "load": "axial compressive preload 400 N",
+   "mean": 4.74,
+   "sd": 1.37,
+   "se": 0.56,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, flexion-extension",
+   "load": "axial compressive preload 0 N",
+   "mean": 0.29,
+   "sd": 0.181,
+   "se": 0.074,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, flexion-extension",
+   "load": "axial compressive preload 200 N",
+   "mean": 1.89,
+   "sd": 0.637,
+   "se": 0.26,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, flexion-extension",
+   "load": "axial compressive preload 400 N",
+   "mean": 2.99,
+   "sd": 0.955,
+   "se": 0.39,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, axial rotation",
+   "load": "axial compressive preload 0 N",
+   "mean": 0.17,
+   "sd": 0.103,
+   "se": 0.042,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, axial rotation",
+   "load": "axial compressive preload 200 N",
+   "mean": 0.61,
+   "sd": 0.181,
+   "se": 0.074,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "diagonal stiffness, axial rotation",
+   "load": "axial compressive preload 400 N",
+   "mean": 0.91,
+   "sd": 0.154,
+   "se": 0.063,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm/deg"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (p.549) bar charts, mean +- SE",
+  "method": "digitised_figure",
+  "uncertainty": "N/mm terms +-30 N/mm (1 px = 14 N/mm at 300 dpi); Nm/deg terms +-0.05 Nm/deg; SE +-1-2 px; SE set null where the cap overlaps the bar top (< 2 px)",
+  "checked": true,
+  "check_notes": "Digitised by pixel analysis (300 dpi render, bar-top line centre vs axis tick centres); two passes (raw edge vs line-centre corrected) differed by <=1 px (14 N/mm, 0.07 Nm/deg in Fig 2), within stated uncertainty. Ratios check against text: intact axial 200/0 = 4.7 (text 4.7), 400/0 = 6.4 (text 6.4); lateral bending 2.4/3.5 (text 2.4/3.5); flexion-extension 2.0/2.7 (text 2.0/2.7). Isolated disc A-P shear at 0 N: text 37 N/mm vs digitised 41."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (porcine model only)"
+ },
+ "combine_group": "segment_stiffness__diagonal_stiffness__porcine_lumbar_FSU__posterior_elements_removed__preload_0_200_400N",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "animal",
+  "porcine",
+  "FSU",
+  "preload effect",
+  "passive"
+ ],
+ "shared_sample_with": [
+  "segment_stiffness.gardnermorse2003.porcine_intact_diagonal_preload_0_200_400N"
+ ]
+}

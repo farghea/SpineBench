@@ -1,0 +1,124 @@
+{
+ "id": "passive_tissue.pintar1992.ligament_CSA",
+ "title": "Pintar 1992 lumbar ligament cross-sectional area (cryomicrotomy)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "cross-sectional area",
+  "definition": "CSA from axial cryomicrotome images: ALL/PLL/JC/LF at disc midheight; ISL/SSL midway between spinous processes",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Pintar 1992",
+  "authors": "Pintar FA, Yoganandan N, Myers T, Elhagediab A, Sances A Jr",
+  "year": 1992,
+  "journal": "J Biomech 25(11):1351-1356",
+  "doi": "",
+  "n": "132 ligament samples from 38 fresh cadavers (mechanics, data of Myklebust et al. 1988); geometry from 8 additional cadavers",
+  "sample": "human cadaveric lumbar ligaments T12-S1 (ALL, PLL, JC, LF, ISL, SSL), in situ isolation tests to failure",
+  "age": "geometry cadavers 31-80 y (mean 63); mechanics cadavers not reported here",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Cryomicrotomy of 8 frozen intact cadavers (31-80 y, mean 63); values pooled T12-S1 by ligament type",
+  "how_to_simulate": [
+   "Compare model ligament geometry (CSA or reference length) per ligament type with the T12-S1 pooled mean and range"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "ALL",
+   "load": "",
+   "mean": 32.4,
+   "sd": 10.9,
+   "min": 10.6,
+   "max": 52.5,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "PLL",
+   "load": "",
+   "mean": 5.2,
+   "sd": 2.4,
+   "min": 1.6,
+   "max": 8.0,
+   "median": null,
+   "n": 21
+  },
+  {
+   "x": "JC",
+   "load": "",
+   "mean": 43.8,
+   "sd": 28.3,
+   "min": 19.0,
+   "max": 93.6,
+   "median": null,
+   "n": 24
+  },
+  {
+   "x": "LF",
+   "load": "",
+   "mean": 84.2,
+   "sd": 17.9,
+   "min": 57.2,
+   "max": 114.0,
+   "median": null,
+   "n": 22
+  },
+  {
+   "x": "ISL",
+   "load": "",
+   "mean": 35.1,
+   "sd": 15.0,
+   "min": 13.8,
+   "max": 60.0,
+   "median": null,
+   "n": 18
+  },
+  {
+   "x": "SSL",
+   "load": "",
+   "mean": 25.2,
+   "sd": 14.0,
+   "min": 6.0,
+   "max": 59.8,
+   "median": null,
+   "n": 22
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 read from page render (OCR garbled JC/LF n): n = 25, 21, 24, 22, 18, 22."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__csa__ligaments_lumbar__human__geometry",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "geometry"
+ ]
+}

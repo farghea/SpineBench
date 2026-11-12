@@ -1,0 +1,100 @@
+{
+ "id": "passive_tissue.wiczenbach2025.ISL_SSL_stress_points",
+ "title": "Wiczenbach 2025 thoracic ISL+SSL engineering stress at I, II and failure points",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "Th1-Th12"
+ ],
+ "condition": "cadaveric (elderly donors)",
+ "quantity": {
+  "name": "engineering stress at I, II and failure points",
+  "definition": "first Piola-Kirchhoff stress P11 = F/A0 at transition I, II and failure (max stress)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Wiczenbach 2025",
+  "authors": "Wiczenbach T, Wolny R, Sabik A, Pachocki L, Spodnik E, Witkowski W",
+  "year": 2025,
+  "journal": "Sci Rep 15:39483",
+  "doi": "10.1038/s41598-025-23016-9",
+  "n": "same 4 thoracic spines as Wolny 2024 (body donors); 17 ALL, 19 PLL, 31 CL, 17 LF, 16 ISL+SSL BLB samples",
+  "sample": "human thoracic ligaments Th1-Th12, BLB samples (same experimental series as Wolny 2024)",
+  "age": "72-90 y (77.8+-8.3)",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ligament-bone samples (frozen -20 C, thawed in saline), bones reinforced and potted in PMMA cups; preload 5 N at 0.5 /s, 60 s relaxation; preconditioning 60 cycles at 10% strain, 1 Hz, 60 s rest; tension at constant strain rate 0.5 /s to rupture; environmental chamber 36.6 C, >=95% humidity. Failure = point where further elongation gives no force increase. Transition points I/II = start/end of linear region (<1% deviation between polynomial fit and linear approximation).",
+  "how_to_simulate": [
+   "Model the thoracic ligament as a bone-ligament-bone unit with the measured initial length/width (Table 1)",
+   "Apply 5 N preload, then tension at strain rate 0.5 /s to failure",
+   "Report force-elongation (or first Piola-Kirchhoff stress = F/A0 vs stretch) at transition points I, II and failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "point I",
+   "load": "",
+   "mean": 2.88,
+   "sd": 2.11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "point II",
+   "load": "",
+   "mean": 10.23,
+   "sd": 8.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "failure",
+   "load": "",
+   "mean": 13.35,
+   "sd": 9.35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table values from text layer of publisher PDF (digital, clean); cross-checked row/column alignment manually. Same samples as Wolny 2024 (re-processed: L0 values differ slightly from Wolny Table 1). Fitted constitutive parameters (Table 3+) not extracted (model outputs)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__stress_points__ISL_SSL_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ISL+SSL"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.wolny2024.ISL_SSL_failure_force",
+  "passive_tissue.wolny2024.ISL_SSL_failure_elongation",
+  "passive_tissue.wolny2024.ISL_SSL_initial_length",
+  "passive_tissue.wolny2024.ISL_SSL_initial_width",
+  "passive_tissue.wolny2024.ISL_SSL_transition_force",
+  "passive_tissue.wolny2024.ISL_SSL_transition_elongation",
+  "passive_tissue.wolny2024.ISL_SSL_linear_stiffness_derived"
+ ]
+}

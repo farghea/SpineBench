@@ -1,0 +1,101 @@
+{
+ "id": "fe_facet.sawa2008.L1L2_follower400N_facet_force",
+ "title": "L1-L2 facet force under 400 N follower load in upright, flexion and extension",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet force",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "intact_follower400N",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet contact load magnitude (compressive) with 400 N compressive follower load; upright, and at the flexion/extension angle reached in the 7.5 Nm flexibility test; mean +- SD, n=6",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Sawa 2008",
+  "authors": "Sawa AGU, Crawford NR",
+  "year": 2008,
+  "journal": "J Biomech 41:2647-2653",
+  "doi": "10.1016/j.jbiomech.2008.06.010",
+  "n": "6 specimens (human cadaveric T12-L2)",
+  "sample": "6 fresh-frozen human cadaveric T12-L2 segments screened for degeneration; facet loads at L1-L2 (gauges on L2 superior facets)",
+  "age": "median 58 (range 40-82)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Stiffness test after flexibility test: 400 N dead-weight compressive follower load (belt over pulleys, stays aligned with the specimen axis); flexion and extension induced by a hanging belt in the midsagittal plane driven by a stepper motor to the target angle determined in the flexibility test (rotation-controlled, not moment-controlled).",
+  "how_to_simulate": [
+   "Fix L2; apply 400 N follower load along the T12-L2 curvature",
+   "Report L1-L2 facet force in upright posture",
+   "Rotate to the flexion and extension angles reached at 7.5 Nm without preload (displacement control) with the follower load present and report facet force"
+  ],
+  "subject_model": null,
+  "notes": "Method: four-gauge strain pads on lateral L2 superior articular processes (extra-articular, capsule intact); specimen-specific neural-network models (NeuralWorks Predict) trained on post hoc calibration loads 5-125 N at up to 12 points per facet; load RMSD < 11 N (Table 1). Strain gauges cannot measure tension; values are compressive contact loads. Mean loads = 11.4% (upright), 11.6% (FL), 18.8% (EX) of the 400 N follower load (text)."
+ },
+ "data": [
+  {
+   "x": "neutral",
+   "load": "400 N follower",
+   "mean": 45.4,
+   "sd": 40.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "note": "digitised Fig 3; text: 11.4% of 400 N = 45.6 N"
+  },
+  {
+   "x": "flexion",
+   "load": "400 N follower, flexion to 7.5 Nm angle",
+   "mean": 46.6,
+   "sd": 41.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "note": "text"
+  },
+  {
+   "x": "extension",
+   "load": "400 N follower, extension to 7.5 Nm angle",
+   "mean": 75.4,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "L1-L2",
+   "note": "text"
+  }
+ ],
+ "extraction": {
+  "from": "Results text; Fig 3 (upright bar)",
+  "method": "digitised_figure",
+  "uncertainty": "+-1 N (digitised; axis 4.56 px/N at 200 dpi; 7 bars with text values matched to within 0.2 N)",
+  "checked": true,
+  "check_notes": "See intact test; upright bar 45.4 N vs 11.4% x 400 N = 45.6 N."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_force__L1-L2__intact_follower400N__angle_matched",
+ "shared_sample_with": [
+  "fe_facet.sawa2008.L1L2_intact_facet_force"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "strain gauges",
+  "follower load",
+  "human"
+ ]
+}

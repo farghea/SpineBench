@@ -1,0 +1,279 @@
+{
+ "layer": "outcome",
+ "category": "msk_implant_loads",
+ "region": "lumbar",
+ "id": "msk_implant_loads.rohlmann2008.lying_positions",
+ "title": "VBR maximum resultant force in lying positions, first post-op month (WP1, WP2)",
+ "subcategory": "lying supine, prone, lateral; supine straight-leg raise",
+ "levels": [
+  "L1 (VBR; fixator T12-L2 in WP1/WP2, T11-L3 in WP3)"
+ ],
+ "condition": "in vivo, early post-op (3-27 days), VBR + posterior fixator",
+ "quantity": {
+  "name": "maximum resultant force on VBR",
+  "unit": "N",
+  "definition": "ABSOLUTE resultant force (sqrt(Fx^2+Fy^2+Fz^2)) on the telemeterised L1 VBR, in N, per patient: median (range) of the per-clip maximum (or minimum where stated) over evaluated video clips within the first post-operative month; n = number of evaluated clips. WP3 values are relative to supine rest (zero offset reset)."
+ },
+ "source": {
+  "short": "Rohlmann 2008",
+  "authors": "Rohlmann A, Graichen F, Bender A, Kayser R, Bergmann G",
+  "year": 2008,
+  "journal": "Clin Biomech 23:147-158",
+  "doi": "10.1016/j.clinbiomech.2007.09.011",
+  "n": "3 patients (WP1, WP2 male; WP3 female) with telemeterised L1 VBR, first post-operative month (2-4 sessions each)",
+  "sample": "in vivo, L1 compression fracture, posterior internal fixator (T12-L2 or T11-L3) + telemeterised VBR + bone graft; measured 3-27 days post-op",
+  "age": "WP1 62, WP2 71, WP3 69 y",
+  "sex": "2 M, 1 F",
+  "height_cm": "WP1 168, WP2 169, WP3 168",
+  "weight_kg": "WP1 66, WP2 74, WP3 64",
+  "patients": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006",
+    "days_postop": [
+     4,
+     13,
+     20,
+     27
+    ],
+    "note": "additional femoral hip fracture",
+    "bone_graft": "yes"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006",
+    "days_postop": [
+     3,
+     13
+    ],
+    "bone_graft": "yes"
+   },
+   "WP3": {
+    "sex": "F",
+    "age": 69,
+    "height_cm": 168,
+    "weight_kg": 64,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "03/2007",
+    "days_postop": [
+     4,
+     9,
+     16
+    ],
+    "note": "osteoporotic vertebrae; telemetry zero point changed between calibration and first measurement -> loads set to zero when lying relaxed supine (unknown offset; values are relative to supine rest)",
+    "bone_graft": "yes"
+   }
+  }
+ },
+ "protocol": {
+  "summary": "Exercises under guidance of a physiotherapist within the first post-operative month (WP1 days 4,13,20,27; WP2 days 3,13; WP3 days 4,9,16), video-synchronised telemetry; results of all sessions pooled per patient.",
+  "how_to_simulate": [
+   "Place the patient model lying supine, prone or on the side, muscles relaxed",
+   "For the leg-raise row lift one straight leg while supine",
+   "Output resultant force at L1 (expected <100 N)",
+   "A whole-spine MSK model outputs total segment compression at the implant level, not the implant share; compare trends/relative changes unless the model includes the VBR and posterior fixator; whole-spine models typically predict near-zero muscle-driven compression lying, so compare order of magnitude only"
+  ],
+  "subject_model": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006",
+    "days_postop": [
+     4,
+     13,
+     20,
+     27
+    ],
+    "note": "additional femoral hip fracture",
+    "bone_graft": "yes"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006",
+    "days_postop": [
+     3,
+     13
+    ],
+    "bone_graft": "yes"
+   },
+   "WP3": {
+    "sex": "F",
+    "age": 69,
+    "height_cm": 168,
+    "weight_kg": 64,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "03/2007",
+    "days_postop": [
+     4,
+     9,
+     16
+    ],
+    "note": "osteoporotic vertebrae; telemetry zero point changed between calibration and first measurement -> loads set to zero when lying relaxed supine (unknown offset; values are relative to supine rest)",
+    "bone_graft": "yes"
+   },
+   "source": "Rohlmann 2008 Table 1 (sex, age, height, body mass, fractured vertebra, fixator level, bone graft, implantation date, sessions); days post-op from Methods 2.4",
+   "disc_area_mm2": null
+  },
+  "notes": "Load measured on a telemeterised vertebral body replacement (modified Synex, 6 load components, accuracy ~2% force / 5% moment of 3000 N / 20 Nm calibration range) that shares the load with the posterior internal fixator, residual vertebral bone and bone graft; the VBR force is NOT the total spinal load. Pooled over all first-month sessions of a patient (median and range). Median values >400 N printed bold in the paper. Mostly maximum resultant force per clip; rows marked \"MINIMUM\" are minimum resultant force (Table 2 footnote b). WP3: zero point of telemetry changed, loads were set to zero lying relaxed supine (values exclude an unknown preload). Patients were not told how to perform exercises (own daily-life manner) and were under pain medication; early post-op loads vary strongly between sessions."
+ },
+ "data": [
+  {
+   "x": "Supine position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 51,
+   "max": 65,
+   "median": 59,
+   "n": 12,
+   "patient": "WP1",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Supine position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 69,
+   "max": 76,
+   "median": 72,
+   "n": 4,
+   "patient": "WP2",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Supine position, lifting a stretched leg",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 52,
+   "max": 64,
+   "median": 59,
+   "n": 9,
+   "patient": "WP1",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Supine position, lifting a stretched leg",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 92,
+   "max": 98,
+   "median": 94,
+   "n": 3,
+   "patient": "WP2",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Prone position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 54,
+   "max": 57,
+   "median": 55,
+   "n": 2,
+   "patient": "WP1",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Prone position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 85,
+   "max": 117,
+   "median": 92,
+   "n": 4,
+   "patient": "WP2",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Lateral position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 58,
+   "max": 183,
+   "median": 71,
+   "n": 14,
+   "patient": "WP1",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  },
+  {
+   "x": "Lateral position",
+   "load": null,
+   "mean": null,
+   "sd": null,
+   "min": 69,
+   "max": 101,
+   "median": 72,
+   "n": 3,
+   "patient": "WP2",
+   "unit": "N",
+   "statistic": "median (range) over evaluated clips of the MAXIMUM resultant force in the clip"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed (integer N); measurement error ~2% of 3000 N",
+  "checked": false,
+  "check_notes": ""
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within the patient range (min-max) for that activity; for single-clip cells (no range) within +-20%"
+ },
+ "combine_group": "msk_implant_loads__vbr_max_resultant_force_abs__L1__first_postop_month__lying",
+ "tags": [
+  "in vivo",
+  "telemetry",
+  "vertebral body replacement",
+  "early post-op",
+  "absolute",
+  "per patient"
+ ],
+ "shared_sample_with": []
+}

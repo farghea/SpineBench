@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.jorgensen2005.centroid_distance.L1-L2.rectus_abdominis.F_standing",
+ "title": "Jorgensen 2005: centroid distance of rectus abdominis at L1-L2 (F, standing)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2"
+ ],
+ "condition": "F_standing",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "right/left rectus abdominis",
+ "sex": "F",
+ "posture": "standing",
+ "imaging": {
+  "modality": "MRI 0.6 T FONAR positional (upright) open MRI, T1 axial (TR 870, TE 140)",
+  "plane": "axial slices PARALLEL to and through the approximate centre of each lumbar disc (L1/L2..L5/S1)",
+  "slice_thickness_mm": 4.5,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "standing upright neutral, no hand load, retaining bar across abdomen"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm; distance corrected from the disc-parallel scan plane to the transverse plane (Fig. 2)",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Jorgensen 2005",
+  "authors": "Jorgensen MJ, Marras WS, Smith FW, Pope MH",
+  "year": 2005,
+  "journal": "Clin Biomech 20:242-246",
+  "doi": "10.1016/j.clinbiomech.2004.10.009",
+  "n": "5 females",
+  "sample": "healthy female volunteers from an existing upright-MRI study",
+  "age": "30.2 (4.4) y",
+  "sex": "5F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Upright standing MRI; sagittal distance between disc centroid and rectus abdominis centroid.",
+  "how_to_simulate": [
+   "Put the model in upright neutral standing (no hand load).",
+   "Locate the L1-L2 disc centroid; take the PCSA-weighted centroid of each rectus abdominis where its path crosses the plane through that disc centre (disc-parallel plane).",
+   "Project the disc-centroid -> muscle-centroid vector onto the horizontal (transverse) plane and report its AP component (+ anterior).",
+   "Compare right and left separately (or average); this is a centroid distance, not a moment arm."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 30.2,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 5,
+   "source": "Methods: stature range 162.6-177.8 cm, body mass range 49.9-68.0 kg (means not given)"
+  },
+  "notes": "Authors call these sagittal plane moment arms. Only 5 subjects. Table 2 also lists literature (supine) values (Jorgensen 2001, Chaffin 1990, Kumar 1988, Nemeth & Ohlsen 1986) - not stored here (other studies)."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": 98.0,
+   "sd": 9.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "9.8 (0.9) cm"
+  },
+  {
+   "x": "AP",
+   "side": "left",
+   "mean": 96.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "9.6 (0.7) cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (also Table 2 \"this study: transverse plane\")",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All values verified on rendered page 244; Table 1 vs Table 2 inconsistency at right L4/L5 (8.6 vs 8.7) noted."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L1-L2__rectus_abdominis__F_standing",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "upright MRI",
+  "standing"
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "id": "msk_mvc_coupled.mcgill1991.emg_axial_twist_minus30deg_ccw",
+ "title": "Right-side trunk EMG (%MVC) at peak isometric axial torque, pre-rotation -30°, ccw effort",
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "subcategory": "EMG_at_MVE",
+ "region": "whole",
+ "levels": [
+  "T9",
+  "L3"
+ ],
+ "condition": "maximal isometric axial twist ccw, trunk pre-rotated -30°, standing, pelvis fixed",
+ "quantity": {
+  "name": "normalised EMG at peak axial torque",
+  "definition": "Linear envelope (full-wave rectified, 3 Hz low-pass) normalised to the maximum activity of that site over 4 MVC strategies, 3 trials each: restrained bent-knee sit-up; 'hanging' over the table edge (supine flexion, side-lying lateral bend, prone extension against resistance); standing flexion/lateral bend/extension against a chest strap with pelvis fixed; maximal isometric twists (if higher). Lower ES max always from prone 'hang-extend'; RA mostly 'hang-flex' (Table 2).",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "McGill 1991",
+  "authors": "McGill SM",
+  "year": 1991,
+  "journal": "J Orthop Res 9(1):91-103",
+  "doi": "10.1002/jor.1100090112",
+  "n": "15 subjects in Table 3 (10 M, 5 F); 11 M + 5 F in MVC-normalisation part",
+  "sample": "healthy university students, no LBP for >=1 year, in vivo",
+  "age": "M 21.2±8.5 y; F 24±1.9 y",
+  "sex": "10M, 5F",
+  "height_cm": "M 173.5±7.7; F 159±4.2",
+  "weight_kg": "M 71.4±7.7; F 53.3±6.7"
+ },
+ "protocol": {
+  "summary": "Standing; pelvis fixed (ASIS rigid fixator + adjustable belt); upper-torso jig harness clamped at shoulder level (handles for arm position) connected through a ~0.6 m telescopic shaft with two universal joints to a Cybex II head mounted overhead with vertical axle: trunk free in all directions except axial rotation, so only axial torque about the vertical dynamometer axis is measured (no coupled moments recorded). 3 trials per condition, slow build-up to peak at ~4 s. Six bipolar Ag-AgCl surface electrode pairs on the right side only; 10-500 Hz, 1000 Hz sampling.",
+  "how_to_simulate": [
+   "Simulate the twist as in mcgill1991.axial_torque_minus30deg_ccw_<sex> (standing, pelvis fixed, pre-rotation -30°, torque = measured mean).",
+   "Normalise model muscle activation by each muscle's maximum over simulated flexion, extension, lateral bend and twist MVCs (or by PCSA x max stress).",
+   "Compare right-side activations under the six sites (RA, EO ~15 cm, IO, latissimus at T9, ES 5 cm at T9, ES 3 cm at L3)."
+  ],
+  "subject_model": {
+   "sex": "10 M / 5 F (separate rows)",
+   "age": "M 21.2; F 24",
+   "height_cm": "M 173.5; F 159",
+   "weight_kg": "M 71.4; F 53.3",
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "Direction naming: cw/ccw as printed. From the right-side muscle pattern (right IO and latissimus agonists in cw, right EO agonist in ccw), cw corresponds to twisting the trunk to the right (right axial rotation) - inferred, not stated. '+30°' = trunk pre-rotated in the cw direction (Table 3 footnote). Activations are far below 100% even at maximal twist (author's model with these EMGs underpredicted 91 Nm as 14 Nm)."
+ },
+ "data": [
+  {
+   "x": "-30° ccw twist",
+   "site": "right rectus abdominis, 3 cm lateral to umbilicus",
+   "muscle": "RA",
+   "side": "right",
+   "sex": "M",
+   "mean": 12,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right external oblique, ~15 cm lateral to umbilicus",
+   "muscle": "EO",
+   "side": "right",
+   "sex": "M",
+   "mean": 52,
+   "sd": 18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right internal oblique, below the EO electrodes, just superior to the inguinal ligament",
+   "muscle": "IO",
+   "side": "right",
+   "sex": "M",
+   "mean": 16,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right latissimus dorsi, lateral to T9 over muscle belly",
+   "muscle": "LD",
+   "side": "right",
+   "sex": "M",
+   "mean": 21,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right thoracic (upper) erector spinae, 5 cm lateral to T9 spinous process",
+   "muscle": "UES",
+   "side": "right",
+   "sex": "M",
+   "mean": 13,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right lumbar (lower) erector spinae, 3 cm lateral to L3 spinous process",
+   "muscle": "LES",
+   "side": "right",
+   "sex": "M",
+   "mean": 26,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right rectus abdominis, 3 cm lateral to umbilicus",
+   "muscle": "RA",
+   "side": "right",
+   "sex": "F",
+   "mean": 12,
+   "sd": 13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right external oblique, ~15 cm lateral to umbilicus",
+   "muscle": "EO",
+   "side": "right",
+   "sex": "F",
+   "mean": 37,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right internal oblique, below the EO electrodes, just superior to the inguinal ligament",
+   "muscle": "IO",
+   "side": "right",
+   "sex": "F",
+   "mean": 14,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right latissimus dorsi, lateral to T9 over muscle belly",
+   "muscle": "LD",
+   "side": "right",
+   "sex": "F",
+   "mean": 23,
+   "sd": 16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right thoracic (upper) erector spinae, 5 cm lateral to T9 spinous process",
+   "muscle": "UES",
+   "side": "right",
+   "sex": "F",
+   "mean": 5,
+   "sd": 4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "-30° ccw twist",
+   "site": "right lumbar (lower) erector spinae, 3 cm lateral to L3 spinous process",
+   "muscle": "LES",
+   "side": "right",
+   "sex": "F",
+   "mean": 10,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed (1 %MVC)",
+  "checked": true,
+  "check_notes": "All 12 values per condition compared with rendered Table 3."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD per site"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "in vivo",
+  "EMG",
+  "axial rotation",
+  "standing",
+  "MVC"
+ ]
+}

@@ -1,0 +1,247 @@
+{
+ "id": "kinematics.beyer2017.sternum_displacement",
+ "title": "Sternum displacement relative to the thoracic vertebra during breathing",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "rib motion",
+ "region": "ribcage",
+ "levels": [
+  "sternum relative to T7 (Fig 2) / T1 (text)"
+ ],
+ "condition": "in vivo, supine, TLC-MIC-FRC breath-holds",
+ "quantity": {
+  "name": "sternum displacement",
+  "definition": "change of the sternal-body origin position expressed in the thoracic vertebra frame (x anterior, y cephalic, z lateral) between lung-volume poses",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Beyer 2017",
+  "authors": "Beyer B, Feipel V, Sholukha V, Cheze L, Van Sint Jan S",
+  "year": 2017,
+  "journal": "J Biomech 64:32-40",
+  "doi": "10.1016/j.jbiomech.2017.08.026",
+  "n": "12 asymptomatic volunteers (7 M, 5 F)",
+  "sample": "12 asymptomatic adults, retrospective spiral CT at TLC, MIC, FRC (same sample as Beyer 2014/2015 CVJ studies per the authors)",
+  "age": "30 +- 6 y (Annex 1; text 31 +- 6)",
+  "sex": "7 M / 5 F (Annex 1)",
+  "height_cm": "171 +- 8",
+  "weight_kg": "63 +- 13"
+ },
+ "protocol": {
+  "summary": "CT-based sternum and vertebra frames; displacement of sternum position vector in vertebral frame.",
+  "how_to_use": [
+   "Prescribe or check sternum excursion from FRC to TLC of ~18 mm cephalic and ~10 mm anterior relative to the thoracic spine (supine); lateral ~0.",
+   "Note that below MIC the sternum moves both anteriorly and cephalically, above MIC mainly cephalically (Fig 2).",
+   "Link rib rotation to sternal cephalic displacement d (mm) with the regressions (Fig 9) to scale a breathing model to a target sternum excursion."
+  ],
+  "measurement": {
+   "method": "CT",
+   "device": "Siemens SOMATOM spiral CT, 0.5 mm slices, 1 mm spacing; virtual palpation of 5 landmarks per bone (lhpFusionBox)",
+   "posture": "supine, breath-hold against closed airway (spirometer-controlled), upper limbs raised above head",
+   "task": "static breath-holds at TLC, MIC and FRC"
+  },
+  "equations": [
+   "CVJ1 ROM (deg) = 0.8109*d + 1.933, R2=0.897, p<0.001 (d = sternum cephalo-caudal displacement, mm; Fig 9A)",
+   "CVJ7 ROM (deg) = 0.2217*d + 5.4519, R2=0.6593, p=0.001 (Fig 9A)",
+   "SCJ1 ROM (deg) = 0.6348*d + 3.3277, R2=0.8419, p<0.01 (Fig 9B; label placement in figure is swapped, assignment from line slopes and text r=0.92)",
+   "SCJ7 ROM (deg) = 0.2275*d + 3.8034, R2=0.5075, p<0.001 (Fig 9B)"
+  ],
+  "subject_model": null,
+  "notes": "Text says displacement 'relative to vertebra Th1' while Methods and Fig 2 use the Th7 frame. Text +- values treated as SD (Fig 2 bars are SE and smaller); digitised SE of x (1.71) and y (2.13) imply SDs ~5.9 and ~7.4, i.e. the text SDs for x (7.1) and y (5.9) may be swapped. Abstract: cephalic displacement 17.8-19.2 mm over IC."
+ },
+ "data": [
+  {
+   "x": "x (anterior), FRC-TLC, text",
+   "load": null,
+   "mean": 9.6,
+   "sd": 7.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "x",
+   "phase": "FRC to TLC",
+   "value_source": "text 3.1"
+  },
+  {
+   "x": "y (cephalic), FRC-TLC, text",
+   "load": null,
+   "mean": 17.8,
+   "sd": 5.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "y",
+   "phase": "FRC to TLC",
+   "value_source": "text 3.1"
+  },
+  {
+   "x": "z (lateral), FRC-TLC, text",
+   "load": null,
+   "mean": 0.8,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "z",
+   "phase": "FRC to TLC",
+   "value_source": "text 3.1"
+  },
+  {
+   "x": "x, FRC-TLC, Fig 2",
+   "load": null,
+   "mean": 9.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "x",
+   "phase": "FRC-TLC",
+   "se": 1.7,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "x, FRC-MIC, Fig 2",
+   "load": null,
+   "mean": 10.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "x",
+   "phase": "FRC-MIC",
+   "se": 1.5,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "x, MIC-TLC, Fig 2",
+   "load": null,
+   "mean": -0.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "x",
+   "phase": "MIC-TLC",
+   "se": 0.9,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "y, FRC-TLC, Fig 2",
+   "load": null,
+   "mean": 17.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "y",
+   "phase": "FRC-TLC",
+   "se": 2.1,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "y, FRC-MIC, Fig 2",
+   "load": null,
+   "mean": 10.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "y",
+   "phase": "FRC-MIC",
+   "se": 1.9,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "y, MIC-TLC, Fig 2",
+   "load": null,
+   "mean": 6.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "y",
+   "phase": "MIC-TLC",
+   "se": 1.4,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "z, FRC-TLC, Fig 2",
+   "load": null,
+   "mean": 0.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "z",
+   "phase": "FRC-TLC",
+   "se": 0.7,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "z, FRC-MIC, Fig 2",
+   "load": null,
+   "mean": -0.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "z",
+   "phase": "FRC-MIC",
+   "se": 0.6,
+   "value_source": "Fig 2 digitised"
+  },
+  {
+   "x": "z, MIC-TLC, Fig 2",
+   "load": null,
+   "mean": 1.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "axis": "z",
+   "phase": "MIC-TLC",
+   "se": 0.9,
+   "value_source": "Fig 2 digitised"
+  }
+ ],
+ "extraction": {
+  "from": "text section 3.1, Fig 2, Fig 9",
+  "method": "text",
+  "uncertainty": "text exact; Fig 2 digitised +-0.3 mm (22 px/mm at 300 dpi)",
+  "checked": true,
+  "check_notes": "Fig 2 FRC-TLC digitised (9.6, 17.8, 0.8 mm) matches text values; regression equations copied from figure text, assignment of SCJ1/SCJ7 checked against plotted line slopes (SCJ1 line rises ~19 deg over 29 mm) and text r values (0.92, 0.74)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__sternum_displacement__sternum_rel_thoracic_vertebra__supine_CT__breathing",
+ "shared_sample_with": [
+  "kinematics.beyer2014.cvj_rom_anatomical_axes",
+  "kinematics.beyer2014.intervertebral_rom_breathing",
+  "kinematics.beyer2014.cvj_mha_direction_cosines",
+  "kinematics.beyer2016.cvj_rotation_about_mha",
+  "kinematics.beyer2016.cvj_rom_anatomical_axes"
+ ],
+ "tags": [
+  "in vivo",
+  "CT",
+  "supine",
+  "healthy",
+  "breathing",
+  "rib cage",
+  "sternum"
+ ]
+}

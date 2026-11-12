@@ -1,0 +1,1344 @@
+{
+ "id": "muscle_geometry.jorgensen2001.regression.L3-L5.all_trunk.mixed_supine.sagittal_centroid_distance",
+ "title": "Jorgensen 2001: sex-specific regressions of sagittal-plane centroid distance (\"moment-arm\") on anthropometry, L3-L5",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L3",
+  "L4",
+  "L5"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips GyroScan, spin echo T1 (TR 240, TE 12)",
+  "plane": "transverse slices perpendicular to the table (scanner axial), through approximate centres of vertebral bodies T8-S1",
+  "slice_thickness_mm": 10,
+  "level_definition": "mid-vertebral-body level (T8..S1)",
+  "posture_detail": "supine, knees extended, hands across abdomen"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Jorgensen 2001",
+  "authors": "Jorgensen MJ, Marras WS, Granata KP, Wiand JW",
+  "year": 2001,
+  "journal": "Clin Biomech 16:182-193 (erratum Clin Biomech 16:547)",
+  "doi": "10.1016/S0268-0033(00)00087-5",
+  "n": "30 healthy subjects (20 F, 10 M)",
+  "sample": "young healthy volunteers, no activity-limiting back pain",
+  "age": "F 25.0 (7.2), M 26.4 (5.5) y",
+  "sex": "20F/10M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Significant linear regressions (best 3-4 per muscle/side/sex/level) of MRI centroid distances (cm) on external anthropometry.",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "ERRATUM applied: TDICH, TWICH, TDXPH, TWXPH, TCIRH are divided by height in cm (cm/cm), not m. HT is not defined in Table 2; cm inferred. Equations predict cm. Sagittal equations predict signed values (posterior negative)."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 LD L M L3 -13.5 73.5 TDXPH 0.462 0.82 0.0305",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "latissimus_dorsi",
+   "sex": "M",
+   "equation": "-13.5 + 73.5*TDXPH",
+   "coefficients": {
+    "intercept": -13.5,
+    "TDXPH": 73.5
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.462,
+   "see": 0.82,
+   "p": 0.0305,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 ES R F L3 -2.48 -0.043 WT 0.307 0.42 0.0113",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-2.48 - 0.043*WT",
+   "coefficients": {
+    "intercept": -2.48,
+    "WT": -0.043
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.307,
+   "see": 0.42,
+   "p": 0.0113,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 ES R F L3 -2.73 -0.023 HTWT 0.313 0.42 0.0103",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-2.73 - 0.023*HTWT",
+   "coefficients": {
+    "intercept": -2.73,
+    "HTWT": -0.023
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.313,
+   "see": 0.42,
+   "p": 0.0103,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 ES R F L3 -7.22 0.79 HTDWT 0.261 0.44 0.0213",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-7.22 + 0.79*HTDWT",
+   "coefficients": {
+    "intercept": -7.22,
+    "HTDWT": 0.79
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.261,
+   "see": 0.44,
+   "p": 0.0213,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 ES L M L3 1.83 -0.042 HT 0.475 0.43 0.0276",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "1.83 - 0.042*HT",
+   "coefficients": {
+    "intercept": 1.83,
+    "HT": -0.042
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.475,
+   "see": 0.43,
+   "p": 0.0276,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 ES L M L3 -9.3 12.8 TDXPW 0.448 0.44 0.0344",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "-9.3 + 12.8*TDXPW",
+   "coefficients": {
+    "intercept": -9.3,
+    "TDXPW": 12.8
+   },
+   "predictor_units": {
+    "TDXPW": "cm/kg"
+   },
+   "r2": 0.448,
+   "see": 0.44,
+   "p": 0.0344,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L3 -0.85 0.44 TDXP 0.530 0.95 0.0170",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-0.85 + 0.44*TDXP",
+   "coefficients": {
+    "intercept": -0.85,
+    "TDXP": 0.44
+   },
+   "predictor_units": {
+    "TDXP": "cm"
+   },
+   "r2": 0.53,
+   "see": 0.95,
+   "p": 0.017,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L3 -4.9 108.2 TDXPH 0.644 0.83 0.0052",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-4.9 + 108.2*TDXPH",
+   "coefficients": {
+    "intercept": -4.9,
+    "TDXPH": 108.2
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.644,
+   "see": 0.83,
+   "p": 0.0052,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L3 -0.83 0.4 BMI 0.461 1.02 0.0309",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-0.83 + 0.4*BMI",
+   "coefficients": {
+    "intercept": -0.83,
+    "BMI": 0.4
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.461,
+   "see": 1.02,
+   "p": 0.0309,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 EO L M L3 -13.8 126.7 TDXPH 0.780 0.69 0.0007",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "-13.8 + 126.7*TDXPH",
+   "coefficients": {
+    "intercept": -13.8,
+    "TDXPH": 126.7
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.78,
+   "see": 0.69,
+   "p": 0.0007,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 IO R F L3 11.1 -69.5 TDXPH 0.412 0.95 0.0041",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "11.1 - 69.5*TDXPH",
+   "coefficients": {
+    "intercept": 11.1,
+    "TDXPH": -69.5
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.412,
+   "see": 0.95,
+   "p": 0.0041,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 IO R F L3 11.09 -0.42 TDXP 0.375 0.98 0.0069",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "11.09 - 0.42*TDXP",
+   "coefficients": {
+    "intercept": 11.09,
+    "TDXP": -0.42
+   },
+   "predictor_units": {
+    "TDXP": "cm"
+   },
+   "r2": 0.375,
+   "see": 0.98,
+   "p": 0.0069,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 IO R F L3 9.16 -0.28 BMI 0.268 1.06 0.0277",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "9.16 - 0.28*BMI",
+   "coefficients": {
+    "intercept": 9.16,
+    "BMI": -0.28
+   },
+   "predictor_units": {
+    "BMI": "kg/m2"
+   },
+   "r2": 0.268,
+   "see": 1.06,
+   "p": 0.0277,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 QL L M L3 -9.25 42.57 TDXPH 0.423 0.57 0.0418",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L3",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "-9.25 + 42.57*TDXPH",
+   "coefficients": {
+    "intercept": -9.25,
+    "TDXPH": 42.57
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.423,
+   "see": 0.57,
+   "p": 0.0418,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 ES R F L4 -3.02 -0.095 TDIC 0.261 0.35 0.0214",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-3.02 - 0.095*TDIC",
+   "coefficients": {
+    "intercept": -3.02,
+    "TDIC": -0.095
+   },
+   "predictor_units": {
+    "TDIC": "cm"
+   },
+   "r2": 0.261,
+   "see": 0.35,
+   "p": 0.0214,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 ES R F L4 -3.39 -0.016 HTWT 0.229 0.36 0.0329",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "F",
+   "equation": "-3.39 - 0.016*HTWT",
+   "coefficients": {
+    "intercept": -3.39,
+    "HTWT": -0.016
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.229,
+   "see": 0.36,
+   "p": 0.0329,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 ES L M L4 2.33 -0.046 HT 0.627 0.34 0.0064",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "2.33 - 0.046*HT",
+   "coefficients": {
+    "intercept": 2.33,
+    "HT": -0.046
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.627,
+   "see": 0.34,
+   "p": 0.0064,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 ES L M L4 -9.96 14.6 TDXPW 0.652 0.33 0.0047",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "-9.96 + 14.6*TDXPW",
+   "coefficients": {
+    "intercept": -9.96,
+    "TDXPW": 14.6
+   },
+   "predictor_units": {
+    "TDXPW": "cm/kg"
+   },
+   "r2": 0.652,
+   "see": 0.33,
+   "p": 0.0047,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 ES L M L4 -4.1 -0.01 HTWT 0.415 0.43 0.0445",
+   "note": "printed '-4.1 0.01 HTWT' (operator missing). '-' inferred: -4.1-0.01*HTWT (HTWT~140 m*kg for these males) = -5.5 cm, matching the male L-ES L4 mean -5.7 cm; '+' would give -2.7 cm",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "M",
+   "equation": "-4.1 - 0.01*HTWT",
+   "coefficients": {
+    "intercept": -4.1,
+    "HTWT": -0.01
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.415,
+   "see": 0.43,
+   "p": 0.0445,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 RA L F L4 1.83 0.071 WT 0.248 0.82 0.0254",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "1.83 + 0.071*WT",
+   "coefficients": {
+    "intercept": 1.83,
+    "WT": 0.071
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.248,
+   "see": 0.82,
+   "p": 0.0254,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 RA L F L4 2.14 0.04 HTWT 0.269 0.81 0.0191",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "2.14 + 0.04*HTWT",
+   "coefficients": {
+    "intercept": 2.14,
+    "HTWT": 0.04
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.269,
+   "see": 0.81,
+   "p": 0.0191,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L4 -1.55 0.409 TDXP 0.428 1.09 0.0402",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-1.55 + 0.409*TDXP",
+   "coefficients": {
+    "intercept": -1.55,
+    "TDXP": 0.409
+   },
+   "predictor_units": {
+    "TDXP": "cm"
+   },
+   "r2": 0.428,
+   "see": 1.09,
+   "p": 0.0402,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L4 -4.83 97.1 TDXPH 0.481 1.04 0.0262",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-4.83 + 97.1*TDXPH",
+   "coefficients": {
+    "intercept": -4.83,
+    "TDXPH": 97.1
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.481,
+   "see": 1.04,
+   "p": 0.0262,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 EO L M L4 -8.9 83.6 TDXPH 0.582 0.73 0.0103",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "external_oblique",
+   "sex": "M",
+   "equation": "-8.9 + 83.6*TDXPH",
+   "coefficients": {
+    "intercept": -8.9,
+    "TDXPH": 83.6
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.582,
+   "see": 0.73,
+   "p": 0.0103,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 IO R M L4 -5.367 0.35 TDIC 0.556 0.74 0.0133",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-5.367 + 0.35*TDIC",
+   "coefficients": {
+    "intercept": -5.367,
+    "TDIC": 0.35
+   },
+   "predictor_units": {
+    "TDIC": "cm"
+   },
+   "r2": 0.556,
+   "see": 0.74,
+   "p": 0.0133,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 IO R M L4 -13.5 32.3 TCIRH 0.572 0.91 0.0113",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-13.5 + 32.3*TCIRH",
+   "coefficients": {
+    "intercept": -13.5,
+    "TCIRH": 32.3
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.572,
+   "see": 0.91,
+   "p": 0.0113,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 IO L F L4 -13.71 0.092 HT 0.264 0.89 0.0292",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "F",
+   "equation": "-13.71 + 0.092*HT",
+   "coefficients": {
+    "intercept": -13.71,
+    "HT": 0.092
+   },
+   "predictor_units": {
+    "HT": "cm (not defined in Table 2; cm inferred from magnitudes)"
+   },
+   "r2": 0.264,
+   "see": 0.89,
+   "p": 0.0292,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 IO L M L4 -6.8 0.37 TDTR 0.595 0.69 0.0089",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-6.8 + 0.37*TDTR",
+   "coefficients": {
+    "intercept": -6.8,
+    "TDTR": 0.37
+   },
+   "predictor_units": {
+    "TDTR": "cm"
+   },
+   "r2": 0.595,
+   "see": 0.69,
+   "p": 0.0089,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 IO L M L4 -5.56 0.36 TDXP 0.588 0.70 0.0096",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-5.56 + 0.36*TDXP",
+   "coefficients": {
+    "intercept": -5.56,
+    "TDXP": 0.36
+   },
+   "predictor_units": {
+    "TDXP": "cm"
+   },
+   "r2": 0.588,
+   "see": 0.7,
+   "p": 0.0096,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 IO L M L4 -8.47 85.8 TDXPH 0.663 0.63 0.0041",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "internal_oblique",
+   "sex": "M",
+   "equation": "-8.47 + 85.8*TDXPH",
+   "coefficients": {
+    "intercept": -8.47,
+    "TDXPH": 85.8
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.663,
+   "see": 0.63,
+   "p": 0.0041,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 QL L M L4 -9.56 49.63 TDXPH 0.477 0.54 0.0271",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L4",
+   "muscle": "quadratus_lumborum",
+   "sex": "M",
+   "equation": "-9.56 + 49.63*TDXPH",
+   "coefficients": {
+    "intercept": -9.56,
+    "TDXPH": 49.63
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.477,
+   "see": 0.54,
+   "p": 0.0271,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA R M L5 -5.52 103.3 TDICH 0.448 1.11 0.0343",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-5.52 + 103.3*TDICH",
+   "coefficients": {
+    "intercept": -5.52,
+    "TDICH": 103.3
+   },
+   "predictor_units": {
+    "TDICH": "cm/cm (erratum; Table 2 said cm/m)"
+   },
+   "r2": 0.448,
+   "see": 1.11,
+   "p": 0.0343,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA R M L5 -13.2 42.1 TCIRH 0.541 1.01 0.0153",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-13.2 + 42.1*TCIRH",
+   "coefficients": {
+    "intercept": -13.2,
+    "TCIRH": 42.1
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.541,
+   "see": 1.01,
+   "p": 0.0153,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 RA L F L5 2.44 0.04 HTWT 0.202 0.94 0.0468",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "F",
+   "equation": "2.44 + 0.04*HTWT",
+   "coefficients": {
+    "intercept": 2.44,
+    "HTWT": 0.04
+   },
+   "predictor_units": {
+    "HTWT": "m*kg"
+   },
+   "r2": 0.202,
+   "see": 0.94,
+   "p": 0.0468,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L5 -3.03 0.46 TDXP 0.472 1.13 0.0283",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-3.03 + 0.46*TDXP",
+   "coefficients": {
+    "intercept": -3.03,
+    "TDXP": 0.46
+   },
+   "predictor_units": {
+    "TDXP": "cm"
+   },
+   "r2": 0.472,
+   "see": 1.13,
+   "p": 0.0283,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L5 -7.14 113.2 TDXPH 0.559 1.04 0.0129",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-7.14 + 113.2*TDXPH",
+   "coefficients": {
+    "intercept": -7.14,
+    "TDXPH": 113.2
+   },
+   "predictor_units": {
+    "TDXPH": "cm/cm (erratum)"
+   },
+   "r2": 0.559,
+   "see": 1.04,
+   "p": 0.0129,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 RA L M L5 -12.8 41.4 TCIRH 0.477 1.13 0.0271",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "rectus_abdominis",
+   "sex": "M",
+   "equation": "-12.8 + 41.4*TCIRH",
+   "coefficients": {
+    "intercept": -12.8,
+    "TCIRH": 41.4
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.477,
+   "see": 1.13,
+   "p": 0.0271,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 PS R F L5 -2.77 0.15 TDTR 0.207 0.65 0.0437",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "-2.77 + 0.15*TDTR",
+   "coefficients": {
+    "intercept": -2.77,
+    "TDTR": 0.15
+   },
+   "predictor_units": {
+    "TDTR": "cm"
+   },
+   "r2": 0.207,
+   "see": 0.65,
+   "p": 0.0437,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 PS R F L5 4.27 -10.3 TDICW 0.223 0.65 0.0357",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "4.27 - 10.3*TDICW",
+   "coefficients": {
+    "intercept": 4.27,
+    "TDICW": -10.3
+   },
+   "predictor_units": {
+    "TDICW": "cm/kg"
+   },
+   "r2": 0.223,
+   "see": 0.65,
+   "p": 0.0357,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 PS R M L5 -3.07 0.17 TDIC 0.577 0.35 0.0108",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-3.07 + 0.17*TDIC",
+   "coefficients": {
+    "intercept": -3.07,
+    "TDIC": 0.17
+   },
+   "predictor_units": {
+    "TDIC": "cm"
+   },
+   "r2": 0.577,
+   "see": 0.35,
+   "p": 0.0108,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "right",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 PS R M L5 -6.14 14.05 TCIRH 0.461 0.40 0.0310",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-6.14 + 14.05*TCIRH",
+   "coefficients": {
+    "intercept": -6.14,
+    "TCIRH": 14.05
+   },
+   "predictor_units": {
+    "TCIRH": "cm/cm (erratum)"
+   },
+   "r2": 0.461,
+   "see": 0.4,
+   "p": 0.031,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 PS L F L5 -3.0 0.06 WT 0.337 0.52 0.0073",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "-3 + 0.06*WT",
+   "coefficients": {
+    "intercept": -3.0,
+    "WT": 0.06
+   },
+   "predictor_units": {
+    "WT": "kg"
+   },
+   "r2": 0.337,
+   "see": 0.52,
+   "p": 0.0073,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 PS L F L5 -3.07 9.44 WTDHT 0.333 0.52 0.0077",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "-3.07 + 9.44*WTDHT",
+   "coefficients": {
+    "intercept": -3.07,
+    "WTDHT": 9.44
+   },
+   "predictor_units": {
+    "WTDHT": "kg/cm"
+   },
+   "r2": 0.333,
+   "see": 0.52,
+   "p": 0.0077,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "as_reported": "5 PS L F L5 3.24 -1.04 HTDWT 0.293 0.54 0.0138",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "F",
+   "equation": "3.24 - 1.04*HTDWT",
+   "coefficients": {
+    "intercept": 3.24,
+    "HTDWT": -1.04
+   },
+   "predictor_units": {
+    "HTDWT": "cm/kg"
+   },
+   "r2": 0.293,
+   "see": 0.54,
+   "p": 0.0138,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 PS L M L5 -3.1 0.18 TDIC 0.406 0.50 0.0477",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-3.1 + 0.18*TDIC",
+   "coefficients": {
+    "intercept": -3.1,
+    "TDIC": 0.18
+   },
+   "predictor_units": {
+    "TDIC": "cm"
+   },
+   "r2": 0.406,
+   "see": 0.5,
+   "p": 0.0477,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 PS L M L5 -4.4 0.21 TDTR 0.499 0.46 0.0224",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-4.4 + 0.21*TDTR",
+   "coefficients": {
+    "intercept": -4.4,
+    "TDTR": 0.21
+   },
+   "predictor_units": {
+    "TDTR": "cm"
+   },
+   "r2": 0.499,
+   "see": 0.46,
+   "p": 0.0224,
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "left",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "as_reported": "5 PS L M L5 -4.6 42.7 TDICH 0.400 0.51 0.0499",
+   "predicted": "sagittal (AP, signed) centroid distance",
+   "level": "L5",
+   "muscle": "psoas",
+   "sex": "M",
+   "equation": "-4.6 + 42.7*TDICH",
+   "coefficients": {
+    "intercept": -4.6,
+    "TDICH": 42.7
+   },
+   "predictor_units": {
+    "TDICH": "cm/cm (erratum; Table 2 said cm/m)"
+   },
+   "r2": 0.4,
+   "see": 0.51,
+   "p": 0.0499,
+   "output_unit": "cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 5 + Erratum (Clin Biomech 16:547)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "All equations checked on rendered pages 187-189 (rotated tables); row-to-muscle assignment for male column taken from the image, not the layout text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "sample:osu_mri_30",
+  "regression",
+  "erratum"
+ ]
+}

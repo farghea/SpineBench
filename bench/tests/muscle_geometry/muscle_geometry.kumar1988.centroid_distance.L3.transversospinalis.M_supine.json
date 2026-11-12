@@ -1,0 +1,107 @@
+{
+ "id": "muscle_geometry.kumar1988.centroid_distance.L3.transversospinalis.M_supine",
+ "title": "Kumar 1988: centroid distance of transversospinalis at L3 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L3"
+ ],
+ "condition": "M_supine",
+ "muscle": "transversospinalis",
+ "muscle_as_reported": "transverso spinalis",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (Picker 600 SD)",
+  "plane": "transverse CT slices (gantry plane) at the vertebral body; centres located by geometric construction (ellipse/apex lines), not area centroids",
+  "slice_thickness_mm": 5,
+  "level_definition": "vertebral body level (T7, T12, L3, L5)",
+  "posture_detail": "supine"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Kumar 1988",
+  "authors": "Kumar S",
+  "year": 1988,
+  "journal": "Clin Biomech 3:137-144",
+  "doi": "",
+  "n": "56 patients (35 M, 21 F); per level T7 20, T12 41, L3 32, L5 13",
+  "sample": "archival CT of patients without musculoskeletal disorders",
+  "age": "58.6 (15.5) y, range 23-90",
+  "sex": "35M/21F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Archival supine CT; lever arms from geometric muscle centres to vertebral body centre, pooled right and left.",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a transverse plane through the L3 vertebral body.",
+   "Take the PCSA-weighted centroid of transverso spinalis on each side; reference = vertebral body centre (intersection of the spinous-process midline and the widest coronal line).",
+   "Report perpendicular distance to the coronal line (AP) and to the midsagittal line (ML); average right and left (the paper pooled both sides).",
+   "Note: muscle \"centres\" were geometric (axes/apex constructions), not area centroids."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 60.2,
+   "height_cm": 175.1,
+   "weight_kg": 80.0,
+   "disc_area_mm2": null,
+   "n": 21,
+   "source": "Table 1"
+  },
+  "notes": "Authors call these moment arms (lever arms); they are centroid distances. Older clinical population. cm -> mm. Trunk diameters (Table 9) not stored."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "both_mean",
+   "mean": -61.5,
+   "sd": 4.8,
+   "min": -72.0,
+   "max": -50.0,
+   "median": null,
+   "n": 21,
+   "as_reported": "6.15 sd 0.48 min 5.0 max 7.2 cm [Table 4]",
+   "note": "sign set negative (posterior of vertebral-body centre; printed unsigned)"
+  },
+  {
+   "x": "ML",
+   "side": "both_mean",
+   "mean": 12.5,
+   "sd": 3.0,
+   "min": 5.0,
+   "max": 17.6,
+   "median": null,
+   "n": 21,
+   "as_reported": "1.25 sd 0.3 min 0.5 max 1.76 cm [Table 7]"
+  }
+ ],
+ "extraction": {
+  "from": "Tables 3-5 (sagittal/AP), 6-8 (coronal/ML)",
+  "method": "table",
+  "uncertainty": "reliability: up to 2 mm variation (Table 2)",
+  "checked": true,
+  "check_notes": "All table values re-read from text; OCR artefacts (IO.37 -> 10.37, o-45 -> 0.45, l-04 -> 1.04, 11 .oo -> 11.00) corrected by reading the digits."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L3__transversospinalis__M_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "CT",
+  "supine",
+  "patients"
+ ]
+}

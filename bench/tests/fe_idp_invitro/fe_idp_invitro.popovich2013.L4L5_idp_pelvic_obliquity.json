@@ -1,0 +1,138 @@
+{
+ "id": "fe_idp_invitro.popovich2013.L4L5_idp_pelvic_obliquity",
+ "title": "L4-L5 mean peak intradiscal pressure (9 needle sensors) under 10 Nm and pelvic obliquity",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "IDP absolute",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact; pure moment and pelvic-obliquity combined loading",
+ "quantity": {
+  "name": "IDP absolute",
+  "definition": "mean of the peak pressures of all 9 sensors (3 Denton 6376 15-gauge needles x 3 sensors each) in the L4-L5 disc, absolute, mean +- SD, n=8; sensor zone (nucleus/annulus) not confirmed",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Popovich 2013",
+  "authors": "Popovich JM Jr, Welcher JB, Hedman TP, Tawackoli W, Anand N, Chen TC, Kulig K",
+  "year": 2013,
+  "journal": "Spine J 13:1581-1589",
+  "doi": "10.1016/j.spinee.2013.04.011",
+  "n": "8 specimens (7 L1-sacrum, 1 L3-sacrum); measurements at L4-L5",
+  "sample": "8 fresh-frozen human lumbosacral spines (7 L1-S, 1 L3-S) without gross deformity or major degeneration",
+  "age": "mean 58.6 +- 22.2",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bose Kinematic Spine Testing Device; specimens potted in polyurethane with L4 superior endplate horizontal; pure moments +-10 Nm at 1 deg/s; 5 preconditioning cycles then 3 recorded cycles, 2nd cycle analysed; no preload. Conditions: flexion/extension, lateral bending, axial rotation, and simulated pelvic obliquity = sacrum tilted left 5 deg or 10 deg (lumbar spine in right lateral bending) followed by +-10 Nm axial rotation.",
+  "how_to_simulate": [
+   "Fix sacrum (cranial end loaded; L1 or L3 free); no preload",
+   "Apply pure moment +-10 Nm in FL/EX, LB, AR; for pelvic obliquity tilt the sacrum 5 or 10 deg to the left in the frontal plane, then apply +-10 Nm axial rotation",
+   "Report peak disc pressure averaged over a 3x3 array spanning the L4-L5 disc (nucleus and inner annulus); LB = right, AR = left"
+  ],
+  "subject_model": null,
+  "notes": "IDP: three needle transducers (R.A. Denton 6376, each with 3 sensors along the distal needle) inserted into the L4-L5 disc, placement checked by fluoroscopy only; the reported value is the mean peak of all nine sensors, absolute pressure. No preload, so values are moment-induced pressures on top of the unloaded state."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "10 Nm",
+   "mean": 429.0,
+   "sd": 212.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "text"
+  },
+  {
+   "x": "extension",
+   "load": "10 Nm",
+   "mean": 354.5,
+   "sd": 218.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "digitised Fig 6"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "10 Nm (right)",
+   "mean": 495.6,
+   "sd": 280.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "text"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "10 Nm (left)",
+   "mean": 253.2,
+   "sd": 135.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "text"
+  },
+  {
+   "x": "pelvic_obliquity_5deg_plus_axial_rotation",
+   "load": "sacrum 5 deg left tilt + 10 Nm AR",
+   "mean": 255.5,
+   "sd": 132.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "text"
+  },
+  {
+   "x": "pelvic_obliquity_10deg_plus_axial_rotation",
+   "load": "sacrum 10 deg left tilt + 10 Nm AR",
+   "mean": 267.1,
+   "sd": 127.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "level": "L4-L5",
+   "note": "text"
+  }
+ ],
+ "extraction": {
+  "from": "Abstract/Results text; Fig 6 (extension)",
+  "method": "text",
+  "uncertainty": "exact for text values; extension digitised +-3 kPa (0.62 px/kPa at 300 dpi; text-reported bars re-digitised 0.3-1.6 kPa high)",
+  "checked": true,
+  "check_notes": "Re-digitised all six bars: FL 430.6/213.7, LB 496.9/280.0, AR 254.1/136.0, 5deg 255.8/134.4, 10deg 268.7/127.9 vs text 429.0/212.9, 495.6/280.9, 253.2/135.0, 255.5/132.7, 267.1/127.1."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_idp_invitro__idp_abs__L4-L5__intact__10Nm",
+ "shared_sample_with": [
+  "fe_facet.popovich2013.L4L5_facet_force_pelvic_obliquity"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "IDP",
+  "absolute",
+  "needle sensors",
+  "combined loading",
+  "human"
+ ]
+}

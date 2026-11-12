@@ -1,0 +1,172 @@
+{
+ "id": "anthropometry.pearsall1994.trunk_segment_mass",
+ "title": "Trunk segment masses (thorax/abdomen/pelvis) of living males by MRI",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T4/5-pubis"
+ ],
+ "condition": "living adult males, MRI",
+ "quantity": {
+  "name": "segment mass",
+  "definition": "mass of thorax, abdomen, pelvis and whole trunk as % body mass and in grams",
+  "unit": "% body mass"
+ },
+ "source": {
+  "short": "Pearsall 1994",
+  "authors": "Pearsall DJ, Reid JG, Ross R",
+  "year": 1994,
+  "journal": "Ann Biomed Eng 22:692-706",
+  "doi": "",
+  "n": "26 males",
+  "sample": "26 living adult males, MRI (Philips 1.5 T), prone, arms above head; 10-mm slices every 50 mm",
+  "age": "40.5 ± 14.4 y",
+  "sex": "male",
+  "height_cm": 174.5,
+  "weight_kg": 87.3,
+  "notes": "height SD 5.7 cm; body mass SD 16.8 kg (range 56.4-129 kg); BMI 28.6 ± 4.8 (range 19.7-39.3). DOI not printed in PDF (likely 10.1007/BF02368294 – verify)."
+ },
+ "protocol": {
+  "summary": "In vivo MRI segment parameters of the trunk of 26 males; tissue-specific densities; mean, SD, min, max.",
+  "how_to_use": [
+   "Assign thorax/abdomen/pelvis masses as 13.0/16.0/13.3 % body mass (trunk 42.2 %) for an average male; segment boundaries as in notes.",
+   "For heavier/lighter subjects prefer the Fig 3 linear regressions on body mass (slopes 0.11/0.22/0.14 for thorax/abdomen/pelvis): the abdomen absorbs most extra mass.",
+   "Use min-max range (trunk 35.8-48.0 % BM) for robustness/sensitivity runs.",
+   "Note in vivo thorax density 0.82 g/cc (lungs) – much lower than cadaver-based 1.01 g/cc used by volumetric methods."
+  ],
+  "measurement": {
+   "method": "MRI",
+   "device": "Philips Gyroscan 1.5 T; tissue densities assigned per pixel (cortical bone 1.8, cancellous 1.1, viscera/muscle/blood 1.06, adipose 0.96, lung 0.25 g/cc)",
+   "posture": "prone recumbent, arms above head",
+   "task": "static"
+  },
+  "equations": [
+   "Table 2 (printed, M in g; HT cm; Mass kg): Trunk M = 26371.4 - 182*HT + 525.8*Mass (r2 0.87, SE 3404.3)",
+   "Table 2: Thorax M = 12922.8 - 68.3*HT + 1119.4*Mass (r2 0.64, SE 1465.6)  [as printed; does NOT reproduce the sample mean thorax mass – mass coefficient 1119.4 is probably a misprint for 119.4]",
+   "Table 2: Abdomen M = 4155.5 - 57*HT + 227.1*Mass (r2 0.75, SE 2280.3)",
+   "Table 2: Pelvis M = 9293.1 - 56.7*HT + 179.2*Mass (r2 0.86, SE 1241.4)  [as printed; at sample means gives ~15000 g vs mean 11587 g – use with caution]",
+   "Fig 3 (segment mass and body mass both in g): Trunk = -3846.51 + 0.47*BM (r2 0.88); Thorax = 1625.33 + 0.11*BM (r2 0.63); Abdomen = -5249.27 + 0.22*BM (r2 0.76); Pelvis = -222.58 + 0.14*BM (r2 0.81)",
+   "Table 3 gives stepwise regressions on trunk circumferences/depths/widths (not transcribed; see paper)"
+  ],
+  "subject_model": null,
+  "notes": "Thorax = suprasternal notch (~T4/5) to xiphoid (~T9); abdomen = xiphoid to umbilicus (~L3/4); pelvis = umbilicus to pubic symphysis/greater trochanter (incl. perineum, excl. thighs); trunk = sum. Boundaries follow Zatsiorsky & Seluyanov gamma-scan definitions (thus close to de Leva UPT/MPT/LPT)."
+ },
+ "data": [
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 13.0,
+   "sd": 1.6,
+   "min": 10.2,
+   "max": 16.2,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 16.0,
+   "sd": 2.6,
+   "min": 10.4,
+   "max": 21.6,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 13.3,
+   "sd": 1.2,
+   "min": 9.0,
+   "max": 15.1,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_%BM",
+   "load": null,
+   "mean": 42.2,
+   "sd": 3.5,
+   "min": 35.8,
+   "max": 48.0,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "% body mass"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 11265.5,
+   "sd": 2335.1,
+   "min": 6196.3,
+   "max": 16342.3,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 14157.8,
+   "sd": 4284.5,
+   "min": 5867.5,
+   "max": 24328.1,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 11586.6,
+   "sd": 2522.0,
+   "min": 7625.5,
+   "max": 17557.0,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "g"
+  },
+  {
+   "x": "mass_g",
+   "load": null,
+   "mean": 37010.0,
+   "sd": 8389.4,
+   "min": 20974.3,
+   "max": 56096.2,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "g"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1; Fig 3; Table 2",
+  "method": "table",
+  "uncertainty": "none (tabulated, 1 decimal)",
+  "checked": true,
+  "check_notes": "Re-read Table 1 and Table 2 from rendered page images (p.697, p.699) and Fig 3 equations from p.698 image; all values match. Table 2 thorax and pelvis mass equations do not reproduce sample means (printed as such)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_mass_fraction__trunk_subsegments__adults__-",
+ "tags": [
+  "in vivo",
+  "MRI",
+  "male",
+  "adults"
+ ]
+}

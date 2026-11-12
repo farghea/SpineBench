@@ -1,0 +1,117 @@
+{
+ "id": "fe_resection_thoracic.liebsch2020.T1T12sumseg_ribcage_intact_rom_5Nm",
+ "title": "T1-T12 sum of 6 segments ROM, step 1 Poly intact [1] (Liebsch 2020)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "stepwise rib cage reduction and segment isolation",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "T1-T12 ROM computed as SUM of the six tested segmental levels (T1-T2 + T3-T4 + T5-T6 + T7-T8 + T9-T10 + T11-T12; every other segment), full range at +/-5 Nm; median (max/min)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2020",
+  "authors": "Liebsch C, Wilke HJ",
+  "year": 2020,
+  "journal": "Front Bioeng Biotechnol 8:46",
+  "doi": "10.3389/fbioe.2020.00046",
+  "n": 8,
+  "sample": "8 fresh-frozen human C7-L1 thoracic spines with intact rib cage (middle-aged male donors)",
+  "age": "56 +/- 7 y (donor age ranges 36-40 to 66-70)",
+  "sex": "male (text: 'middle-aged male donors')",
+  "height_cm": "180 +/- 6",
+  "weight_kg": null,
+  "bmd": "104 +/- 40 mgHA/cm3",
+  "bmi": "21 +/- 3 kg/m2"
+ },
+ "protocol": {
+  "summary": "8 C7-L1 rib cage specimens, pure moments +/-5 Nm FE/LB/AR, 1 deg/s, 3.5 cycles (3rd evaluated), no preload; optical tracking of all vertebrae. Stepwise: [1] poly intact, [2] poly without anterior rib-to-rib/sternal connections, [3] monosegments (T1-T2, T3-T4, ..., T11-T12) with ribs, [4] monosegments without ribs.",
+  "how_to_simulate": [
+   "Steps 1-2: fix L1, load C7 with pure moments +/-5 Nm (FE, LB, AR), 1 deg/s, no preload; model rib cage per ribcage.intact_structures",
+   "Steps 3-4: isolated monosegment potted at both ends, same moments",
+   "Report sum of segmental ROMs of T1-T2, T3-T4, T5-T6, T7-T8, T9-T10, T11-T12"
+  ],
+  "subject_model": null,
+  "notes": "Median and range (n=8). pct_of_previous_median = RC column (relative change of median vs previous step) as printed. NZ only shown in Figs 3-5 (not extracted; authors state segmental NZ too variable)."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 10.5,
+   "max": 27.9,
+   "median": 18.5,
+   "n": 8
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 12.4,
+   "max": 33.5,
+   "median": 20.5,
+   "n": 8
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": 13.4,
+   "max": 32.7,
+   "median": 19.5,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Parsed from text layer by regex and spot-checked against printed tables."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_resection_thoracic__rom_sum6seg__T1-T12__ribcage_intact__5Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "Ulm",
+  "long segment"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "full rib cage with sternum, costal cartilage, ribs, costovertebral/costotransverse joints (muscles incl. intercostals removed)"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s (displacement-controlled pure moment, spine tester)",
+  "cycles": "3.5 cycles, third full cycle evaluated",
+  "branch": "ROM at +/-5 Nm (full range), third cycle",
+  "preload": "none",
+  "device": "custom spine tester, Vicon 12 cameras (<0.1 deg)"
+ },
+ "resection": {
+  "step_index": 0,
+  "step_name": "Poly intact [1]",
+  "sequence": [
+   "Poly intact [1]: C7-L1 with intact rib cage",
+   "Poly w/o [2]: sternum and all cartilaginous rib-to-rib connections cut transversally at each intercostal level",
+   "Mono intact [3]: specimen partitioned into monosegments T1-T2, T3-T4, T5-T6, T7-T8, T9-T10, T11-T12, each with its ribs and sternal/costal piece",
+   "Mono w/o [4]: ribs removed at the costovertebral joints (monosegment without ribs)"
+  ],
+  "cumulative": true
+ },
+ "specimen_levels": "C7-L1"
+}

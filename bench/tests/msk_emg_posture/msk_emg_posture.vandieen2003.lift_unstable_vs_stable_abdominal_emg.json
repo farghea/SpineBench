@@ -1,0 +1,130 @@
+{
+ "id": "msk_emg_posture.vandieen2003.lift_unstable_vs_stable_abdominal_emg",
+ "title": "Abdominal co-activation when lifting an unstable (water) vs stable (ice) 15 kg load from the floor",
+ "layer": "outcome",
+ "category": "msk_emg_posture",
+ "subcategory": "dynamic lifting EMG, load stability effect",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo, healthy",
+ "quantity": {
+  "name": "mean abdominal EMG (antagonist co-activation)",
+  "definition": "normalised EMG averaged over all abdominal channels (bilateral IO, EO, RA), averaged over phase window; data = unstable minus stable (mean ± SD over subjects) and, for the lifting phase, absolute group means",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "van Dieën 2003",
+  "authors": "van Dieën JH, Kingma I, van der Bug JCE",
+  "year": 2003,
+  "journal": "J Biomech 36:1829-1836",
+  "doi": "10.1016/S0021-9290(03)00227-6",
+  "n": 10,
+  "sample": "10 healthy young males",
+  "age": "24.8 ± 2.9 yr",
+  "sex": "male",
+  "height_cm": 180,
+  "weight_kg": 73.8
+ },
+ "protocol": {
+  "summary": "Fast symmetric lift (instructed 'as fast as possible') of a 35 l container (0.380 x 0.410 x 0.230 m, w x d x h) placed on the floor in front of the subject, holding 15 l of water (unstable, sloshing) or 15 l of ice (stable); lifted by handle; 2 trials per condition, random order. Phases: peak loading (100 ms window at peak sagittal L5S1 moment), lifting (after peak until trunk angle plateau, 985 ± 225 ms), holding (3478 ± 1218 ms). EMG: bilateral surface electrodes (1 cm2, 2.5 cm IED) over internal oblique, external oblique, rectus abdominis (sites not further specified), iliocostalis lumborum (6 cm lateral to L2), longissimus thoracis pars lumborum (3 cm lateral to L1) and pars thoracis (4 cm lateral to T10). Normalisation: %MVC; MVC = max EMG over 3 x 7 attempted maximal isometric trunk contractions (McGill 1991).",
+  "how_to_simulate": [
+   "Scale model to a 180 cm, 73.8 kg male",
+   "Simulate a fast symmetric floor-to-standing lift of ~15 kg held in a 0.41 m deep container by a handle",
+   "Run once with a fixed load (stable) and once with a stability requirement / perturbation (unstable, sloshing mass); keep L5S1 moment and kinematics unchanged (they did not differ between conditions)",
+   "Compare mean activation of IO+EO+RA (bilateral) per phase and the unstable-minus-stable increase"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 24.8,
+   "height_cm": 180,
+   "weight_kg": 73.8,
+   "disc_area_mm2": null,
+   "source": "van Dieën 2003 Methods (mean of 10 males; 1.80 ± 0.11 m, 73.8 ± 12.8 kg)"
+  },
+  "notes": "Peak sagittal L5S1 moment (peak loading phase, stable load) from Fig. 2 scatter: 9 of 10 subject points resolvable, mean ~292 Nm (SD ~62), range ~218-406 Nm (digitised, ±5 Nm per point; one point hidden by overlap). Model-derived antagonist moment (+3.3 ± 5.3, +2.4 ± 3.5, +1.2 ± 1.4 Nm) and L5S1 compression changes are EMG-driven model outputs, not extracted as tests. Paper includes a 2004 corrigendum (author name only)."
+ },
+ "data": [
+  {
+   "x": "peak loading phase: unstable - stable",
+   "load": "15 l water vs ice",
+   "site": "abdominal mean (bilateral IO, EO, RA)",
+   "mean": 1.4,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "relative_increase_pct": "32.7 ± 36.7 %"
+  },
+  {
+   "x": "lifting phase: unstable - stable",
+   "load": "15 l water vs ice",
+   "site": "abdominal mean (bilateral IO, EO, RA)",
+   "mean": 1.3,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "relative_increase_pct": "32.6 ± 33.2 %"
+  },
+  {
+   "x": "holding phase: unstable - stable",
+   "load": "15 l water vs ice",
+   "site": "abdominal mean (bilateral IO, EO, RA)",
+   "mean": 0.5,
+   "sd": 0.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "relative_increase_pct": "24.7 ± 24.7 %"
+  },
+  {
+   "x": "lifting phase: stable load (absolute)",
+   "load": "15 l ice",
+   "site": "abdominal mean (bilateral IO, EO, RA)",
+   "mean": 3.7,
+   "sd": 1.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "method": "digitised Fig. 1 top-middle scatter"
+  },
+  {
+   "x": "lifting phase: unstable load (absolute)",
+   "load": "15 l water",
+   "site": "abdominal mean (bilateral IO, EO, RA)",
+   "mean": 5.0,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "method": "digitised Fig. 1 top-middle scatter"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (differences, relative increases); Fig. 1 upper-middle panel (per-subject scatter, lifting phase)",
+  "method": "text",
+  "uncertainty": "text values exact; digitised absolute lifting-phase means ±0.3 %MVC (per point ±0.2 %MVC; one of 10 circles overlapped and was placed visually at (3.2, 2.7))",
+  "checked": true,
+  "check_notes": "Differences re-read from text. Lifting-phase digitisation validated: mean(unstable-stable) of digitised points = 1.31 ± 1.84 vs text 1.3 ± 1.9. Peak loading and holding panels NOT converted to absolute means: only 9 (peak) / 7 (holding) of 10 circles resolvable and peak-phase digitised difference (1.02) does not reproduce text (1.4)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model increase in abdominal activation within mean ± 1 SD of measured increase; absolute stable-load activation within ± 1 SD"
+ },
+ "combine_group": "msk_emg_posture__emg_change__abdominal_avg__lift_15kg_floor_unstable_vs_stable",
+ "tags": [
+  "in vivo",
+  "EMG",
+  "dynamic",
+  "lifting",
+  "stability",
+  "co-contraction"
+ ]
+}

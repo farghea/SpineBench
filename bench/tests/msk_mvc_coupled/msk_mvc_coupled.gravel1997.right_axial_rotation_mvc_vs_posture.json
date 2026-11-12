@@ -1,0 +1,190 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "pass_rule": {
+  "template": true,
+  "rule": "no SD reported: |model-mean| <= 15% of mean (algorithm error in paper ≈13%)"
+ },
+ "tags": [
+  "in vivo",
+  "MVC",
+  "standing",
+  "male",
+  "posture effect"
+ ],
+ "id": "msk_mvc_coupled.gravel1997.right_axial_rotation_mvc_vs_posture",
+ "title": "Maximal static right axial rotation moment vs flexion and twist angle, standing, males",
+ "subcategory": "primary MVC moment vs posture",
+ "source": {
+  "short": "Gravel 1997",
+  "authors": "Gravel D, Gagnon M, Plamondon A, Desjardins P",
+  "year": 1997,
+  "journal": "Clin Biomech 12(5):314-324",
+  "doi": "10.1016/S0268-0033(97)00011-6",
+  "sex": "M",
+  "n": "10 subjects (10 M)",
+  "sample": "healthy male college (physical education) students; separate group per muscle group",
+  "age": "24±4",
+  "height_cm": "175.1±4.2",
+  "weight_kg": "74.3±5.7"
+ },
+ "quantity": {
+  "name": "maximal static right axial rotation moment",
+  "definition": "group mean maximal static right axial rotation moment about the longitudinal axis of the trunk (transducers on the shoulder-level frame)",
+  "unit": "Nm"
+ },
+ "protocol": {
+  "summary": "Standing, knees extended, feet stabilised with wooden blocks; pelvis stabilised by a posterior sacral pad and two anterior pads over the ASIS; upper trunk constrained in a padded rigid frame at shoulder level, supported by two vertical rods whose rotation set the flexion angle (flexion-extension axis aligned on the lateral projection of L5-S1). Asymmetric positions: pelvis rotated relative to trunk (twist ±30 deg, shoulders kept parallel to floor), then flexed. Moment = sum of moments from 4 force transducers; peak of each trial, gravity-corrected with a relaxed trial; mean of 3 maximal efforts (2 min rest) per position. Positive twist = left twisting of trunk relative to pelvis. Angles are 'adjusted' (dynamometer) angles; measured 3-D trunk angles were ~57% smaller in flexion (Table 5).",
+  "how_to_simulate": [
+   "Standing, pelvis and legs fixed, upper trunk restrained at shoulder level",
+   "Set trunk flexion (adjusted angle -20..+60 deg) and twist (-30, 0, +30 deg; + = trunk twisted left relative to pelvis)",
+   "Maximal voluntary right axial rotation exertion; compare predicted maximal moment (longitudinal trunk axis (not stated relative to L5-S1)) with the group means",
+   "Use the measured (smaller) 3-D angles of Table 5 if the model posture is set from kinematics"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 24,
+   "height_cm": 175.1,
+   "weight_kg": 74.3,
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "Right axial rotation increased with forward bending and with left twist (+30). No SDs."
+ },
+ "data": [
+  {
+   "x": "flexion -20 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 107.4,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion -20 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 86.4,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion -20 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 52.0,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +0 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 104.1,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 134.5,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 113.6,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +20 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 65.2,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +40 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 126.2,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist +30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 158.6,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist +0 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 134.8,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "flexion +60 deg, twist -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 78.3,
+   "sd": null,
+   "n": 10,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5A (text: max 160 Nm at +60 flexion, +30 twist)",
+  "method": "digitised_figure",
+  "uncertainty": "±3 Nm (1.79 px/Nm)",
+  "checked": true,
+  "check_notes": "Pixel digitisation; the +60/+30 point 158.6 Nm vs text 160 Nm. Symbols well separated."
+ },
+ "combine_group": null
+}

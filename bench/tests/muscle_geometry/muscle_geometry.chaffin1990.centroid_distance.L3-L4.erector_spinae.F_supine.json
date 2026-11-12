@@ -1,0 +1,129 @@
+{
+ "id": "muscle_geometry.chaffin1990.centroid_distance.L3-L4.erector_spinae.F_supine",
+ "title": "Chaffin 1990: centroid distance of erector spinae at L3-L4 (F, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "F_supine",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "Erector spinae",
+ "sex": "F",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (Technicare 1440 HPS), bone protocol 130 kV, 1-mm slices",
+  "plane": "transverse scans perpendicular to the table at the disc levels (identified on scout view); x/y axes rotated so y passes through disc centroid and spinous process",
+  "slice_thickness_mm": 1,
+  "level_definition": "intervertebral disc level (L2/L3, L3/L4, L4/L5)",
+  "posture_detail": "supine, knees and hips flexed to minimise lordosis"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Chaffin 1990",
+  "authors": "Chaffin DB, Redfern MS, Erig M, Goldstein SA",
+  "year": 1990,
+  "journal": "Clin Biomech 5:9-16",
+  "doi": "10.1016/0268-0033(90)90026-3",
+  "n": "96 women (scans: L2/L3 31, L3/L4 96, L4/L5 66)",
+  "sample": "women aged 40-63 (osteoporosis-study CT population)",
+  "age": "49.6 (5.9) y",
+  "sex": "96F",
+  "height_cm": 163.1,
+  "weight_kg": 67.6
+ },
+ "protocol": {
+  "summary": "Supine CT of 96 older women; area-weighted centroids from trapezoid tracing.",
+  "how_to_simulate": [
+   "Pose the model supine with hips/knees flexed (reduced lordosis).",
+   "Cut a transverse plane (perpendicular to the body long axis) through the L3-L4 disc.",
+   "Take the area/PCSA-weighted centroid of erector spinae on each side; origin = disc centroid, y axis = disc centroid -> spinous process.",
+   "Report |x| (ML) and |y| (AP) and compare per side. Centroid distance, not a moment arm."
+  ],
+  "subject_model": {
+   "sex": "F",
+   "age": 49.6,
+   "height_cm": 163.1,
+   "weight_kg": 67.6,
+   "disc_area_mm2": 1520.0,
+   "n": 96,
+   "source": "Table 1 (whole sample) and Table 3 (disc area at this level)"
+  },
+  "notes": "Authors call these moment arms (absolute x, y components). \"Erector spinae\" as reported; whether multifidus was included is not stated (no separate multifidus outline; Fig. 1 shows the whole paraspinal mass traced). Segmental grand average column not stored. cm -> mm."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": -52.0,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 96,
+   "as_reported": "y 5.2 (0.4) cm, absolute",
+   "note": "printed as absolute value; sign set negative (posterior)"
+  },
+  {
+   "x": "ML",
+   "side": "right",
+   "mean": 34.0,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 96,
+   "as_reported": "x 3.4 (0.4) cm"
+  },
+  {
+   "x": "AP",
+   "side": "left",
+   "mean": -53.0,
+   "sd": 2.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 96,
+   "as_reported": "y 5.3 (0.2) cm, absolute",
+   "note": "printed as absolute value; sign set negative (posterior)"
+  },
+  {
+   "x": "ML",
+   "side": "left",
+   "mean": 34.0,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 96,
+   "as_reported": "x 3.4 (0.4) cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All values verified cell by cell on rendered pages 12-13 (layout text had OCR errors)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__L3-L4__erector_spinae__F_supine",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "CT",
+  "supine",
+  "older women"
+ ]
+}

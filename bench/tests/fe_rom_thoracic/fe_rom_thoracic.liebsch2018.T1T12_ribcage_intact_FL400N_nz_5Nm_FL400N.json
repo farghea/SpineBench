@@ -1,0 +1,137 @@
+{
+ "id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_nz_5Nm_FL400N",
+ "title": "T1-T12 nz with rib cage, 400 N follower load (Liebsch 2018)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "long segment with rib cage, follower load",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_intact_FL400N",
+ "quantity": {
+  "name": "NZ",
+  "definition": "T1-T12 neutral zone in one direction (primary plane), median of 8",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Liebsch 2018",
+  "authors": "Liebsch C, Graf N, Wilke HJ",
+  "year": 2018,
+  "journal": "J Biomech 78:36-44",
+  "doi": "10.1016/j.jbiomech.2018.06.025",
+  "n": 8,
+  "sample": "8 fresh-frozen human C7-L1 thoracic spines with entire rib cage incl. intercostal muscles (Science Care)",
+  "age": "54 +/- 6 y (40-60); per donor 52, 40, 57, 55, 57, 54, 55, 60",
+  "sex": "7 M, 1 F",
+  "height_cm": "179 +/- 11",
+  "weight_kg": null,
+  "bmi": "21 +/- 3"
+ },
+ "protocol": {
+  "summary": "C7-L1 with entire rib cage; C7 and L1 potted; pure moments 5 Nm in flexion, extension, LB left/right, AR left/right, 1 deg/s, 3.5 cycles; tested first without, then with 400 N follower load (all planes within 10 min).",
+  "how_to_simulate": [
+   "Fix L1; apply 400 N follower load along a path through the estimated ICR of each thoracic vertebra (C7-L1), then pure moments of 5 Nm in each direction",
+   "Model full rib cage incl. intercostal muscles",
+   "Report T1-T12 rotation (one direction) at 5 Nm and coupled rotations in the other two planes"
+  ],
+  "subject_model": null,
+  "notes": "Digitised from Figs 3-5 (T1-T12, median with range; only medians extracted - range whiskers not extracted). Text-reported FL changes used as check: flexion -36 %, extension -46 %, LB -72 %/-72 %, AR -26 %/-26 %, NZ LB -73 %/-71 %, coupled extension in LB -67 %/-80 %, coupled AR in LB +18 %/+16 %. Segmental coupled motions (Figs 7-9) not extracted. Authors state full data are in the electronic supplement (not available)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.5,
+   "n": 8
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.3,
+   "n": 8
+  },
+  {
+   "x": "LB_left",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.0,
+   "n": 8
+  },
+  {
+   "x": "LB_right",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.1,
+   "n": 8
+  },
+  {
+   "x": "AR_left",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.9,
+   "n": 8
+  },
+  {
+   "x": "AR_right",
+   "load": "5 Nm + 400 N follower",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.6,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Figs 3-5",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.3 deg (pixel measurement at 200 dpi, 5.2 px/deg, bar borders; raster figure)",
+  "checked": true,
+  "check_notes": "Bar ends measured on two rows per bar; gridline confusion corrected (Fig 5 FL AR). FL/no-FL ratios agree with text % within ~0.3 deg except extension NZ (-8 % digitised vs -22 % text) and AR->LB right (-27 % vs -36 %)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__nz__T1-T12__ribcage_intact_FL400N__5Nm_FL400N",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment",
+  "Ulm",
+  "digitised",
+  "follower load"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "entire rib cage incl. sternum, costal cartilage, ribs, intercostal muscles and all ligaments"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5 cycles, 3rd cycle evaluated (3rd-order polynomial fit of hysteresis)",
+  "branch": "ROM at +/-5 Nm per direction",
+  "preload": "400 N follower load (40 kg dead weight, cables through lateral screws at estimated ICR of each vertebra, C7-L1)",
+  "device": "spine tester with gantry and balancing weights; Vicon MX13 12 cameras (<0.1 deg)"
+ },
+ "specimen_levels": "C7-L1"
+}

@@ -1,0 +1,224 @@
+{
+ "id": "anthropometry.pearsall1994.trunk_segment_inertia",
+ "title": "Moments of inertia of trunk segments of living males by MRI",
+ "layer": "input",
+ "category": "anthropometry",
+ "subcategory": "segment mass & COM",
+ "region": "whole",
+ "levels": [
+  "T4/5-pubis"
+ ],
+ "condition": "living adult males, MRI",
+ "quantity": {
+  "name": "segment moment of inertia about CM",
+  "definition": "principal-axis moments of inertia about segment CM; x = transverse (medio-lateral), y = antero-posterior, z = longitudinal",
+  "unit": "kg·m²"
+ },
+ "source": {
+  "short": "Pearsall 1994",
+  "authors": "Pearsall DJ, Reid JG, Ross R",
+  "year": 1994,
+  "journal": "Ann Biomed Eng 22:692-706",
+  "doi": "",
+  "n": "26 males",
+  "sample": "26 living adult males, MRI (Philips 1.5 T), prone, arms above head; 10-mm slices every 50 mm",
+  "age": "40.5 ± 14.4 y",
+  "sex": "male",
+  "height_cm": 174.5,
+  "weight_kg": 87.3,
+  "notes": "height SD 5.7 cm; body mass SD 16.8 kg (range 56.4-129 kg); BMI 28.6 ± 4.8 (range 19.7-39.3). DOI not printed in PDF (likely 10.1007/BF02368294 – verify)."
+ },
+ "protocol": {
+  "summary": "Moments of inertia of thorax, abdomen, pelvis and whole trunk about their CM.",
+  "how_to_use": [
+   "Use Ix (about the medio-lateral axis, i.e. the flexion axis) for sagittal dynamics: whole trunk 2.1 kg·m² mean (males, mean 87 kg).",
+   "Scale with body mass for other subjects (all I values correlated with body mass, r2 >= 0.74, Table 2).",
+   "Values converted from printed g·cm²×10^k to kg·m² (1 g·cm² = 1e-7 kg·m²); 'printed' keeps the original."
+  ],
+  "measurement": {
+   "method": "MRI",
+   "device": "Philips Gyroscan 1.5 T; tissue densities assigned per pixel (cortical bone 1.8, cancellous 1.1, viscera/muscle/blood 1.06, adipose 0.96, lung 0.25 g/cc)",
+   "posture": "prone recumbent, arms above head",
+   "task": "static"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Thorax = suprasternal notch (~T4/5) to xiphoid (~T9); abdomen = xiphoid to umbilicus (~L3/4); pelvis = umbilicus to pubic symphysis/greater trochanter (incl. perineum, excl. thighs); trunk = sum. Boundaries follow Zatsiorsky & Seluyanov gamma-scan definitions (thus close to de Leva UPT/MPT/LPT)."
+ },
+ "data": [
+  {
+   "x": "Ix",
+   "load": null,
+   "mean": 0.083,
+   "sd": 0.025,
+   "min": 0.028,
+   "max": 0.13,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "kg·m²",
+   "printed": "8.3 (2.5) [2.8-13.0] g·cm²×10^5"
+  },
+  {
+   "x": "Iy",
+   "load": null,
+   "mean": 0.16,
+   "sd": 0.04,
+   "min": 0.07,
+   "max": 2.6,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "kg·m²",
+   "printed": "1.6 (0.4) [0.7-26.0] g·cm²×10^6"
+  },
+  {
+   "x": "Iz",
+   "load": null,
+   "mean": 0.18,
+   "sd": 0.06,
+   "min": 0.08,
+   "max": 3.1,
+   "median": null,
+   "n": 26,
+   "segment": "thorax",
+   "unit": "kg·m²",
+   "printed": "1.8 (0.6) [0.8-31.0] g·cm²×10^6"
+  },
+  {
+   "x": "Ix",
+   "load": null,
+   "mean": 0.1,
+   "sd": 0.06,
+   "min": 0.02,
+   "max": 0.26,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "kg·m²",
+   "printed": "1.0 (0.6) [0.2-2.6] g·cm²×10^6"
+  },
+  {
+   "x": "Iy",
+   "load": null,
+   "mean": 0.17,
+   "sd": 0.09,
+   "min": 0.04,
+   "max": 0.4,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "kg·m²",
+   "printed": "1.7 (0.9) [0.4-4.0] g·cm²×10^6"
+  },
+  {
+   "x": "Iz",
+   "load": null,
+   "mean": 0.17,
+   "sd": 0.09,
+   "min": 0.04,
+   "max": 0.41,
+   "median": null,
+   "n": 26,
+   "segment": "abdomen",
+   "unit": "kg·m²",
+   "printed": "1.7 (0.9) [0.4-4.1] g·cm²×10^6"
+  },
+  {
+   "x": "Ix",
+   "load": null,
+   "mean": 0.11,
+   "sd": 0.04,
+   "min": 0.05,
+   "max": 0.21,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "kg·m²",
+   "printed": "1.1 (0.4) [0.5-2.1] g·cm²×10^6"
+  },
+  {
+   "x": "Iy",
+   "load": null,
+   "mean": 0.18,
+   "sd": 0.06,
+   "min": 0.1,
+   "max": 0.36,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "kg·m²",
+   "printed": "1.8 (0.6) [1.0-3.6] g·cm²×10^6"
+  },
+  {
+   "x": "Iz",
+   "load": null,
+   "mean": 0.18,
+   "sd": 0.08,
+   "min": 0.08,
+   "max": 0.4,
+   "median": null,
+   "n": 26,
+   "segment": "pelvis",
+   "unit": "kg·m²",
+   "printed": "1.8 (0.8) [0.8-4.0] g·cm²×10^6"
+  },
+  {
+   "x": "Ix",
+   "load": null,
+   "mean": 2.1,
+   "sd": 0.6,
+   "min": 1.0,
+   "max": 3.6,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "kg·m²",
+   "printed": "2.1 (0.6) [1.0-3.6] g·cm²×10^7"
+  },
+  {
+   "x": "Iy",
+   "load": null,
+   "mean": 2.3,
+   "sd": 0.7,
+   "min": 1.1,
+   "max": 4.0,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "kg·m²",
+   "printed": "2.3 (0.7) [1.1-4.0] g·cm²×10^7"
+  },
+  {
+   "x": "Iz",
+   "load": null,
+   "mean": 0.54,
+   "sd": 0.21,
+   "min": 0.21,
+   "max": 1.1,
+   "median": null,
+   "n": 26,
+   "segment": "trunk",
+   "unit": "kg·m²",
+   "printed": "5.4 (2.1) [2.1-11.0] g·cm²×10^6"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "none (tabulated, 2 sig. figures)",
+  "checked": true,
+  "check_notes": "Checked against rendered Table 1. Printed thorax Iy max 26.0 and Iz max 31.0 (×10^6 g·cm²) are inconsistent with mean/SD (probably 2.6 and 3.1) – kept as printed (converted)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "anthropometry__segment_inertia__trunk_subsegments__adults__-",
+ "tags": [
+  "in vivo",
+  "MRI",
+  "male",
+  "adults"
+ ]
+}
