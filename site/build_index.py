@@ -602,7 +602,7 @@ def build_outcomes(real_dir, ex_dir, out):
             all_studies[u] = max(all_studies.get(u, 0), s.get("n") if isinstance(s.get("n"), int) else 0)
         index.append({
             "id": c["id"], "file": fn, "title": c.get("title", c["id"]), "domain": c.get("domain", ""),
-            "region": c.get("region", ""), "levels": c["levels"], "summary": c.get("summary", ""),
+            "region": c.get("region", ""), "levels": c["levels"], "summary": c.get("summary", ""), "views": [v.get("title", "") for v in c.get("views", [])],
             "tasks": len(c["tasks"]), "studies": len(c["studies"]), "N": card_n(c),
             "years": [min(years), max(years)] if years else [], "example": bool(c.get("example")),
         })

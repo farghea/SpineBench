@@ -7,9 +7,9 @@
   var S = { index: null, cache: {}, charts: [], off: {}, offP: {}, bw: false, hidePooled: false, card: null, viewId: null, lastWide: null, schem: {} };
   var main = document.getElementById('main');
   var DOMAINS = [
-    { id: 'msk', label: 'Musculoskeletal (in vivo)', blurb: 'Whole-body or trunk models: postures, loads, muscle activity.' },
-    { id: 'fe', label: 'Finite element (in vitro)', blurb: 'Spine segments and columns under moments and forces.' },
-    { id: 'tissue', label: 'Tissue', blurb: 'Constitutive models: the test mode is the task.' }
+    { id: 'msk', label: 'Musculoskeletal', blurb: 'In vivo: postures, loads and muscle activity.' },
+    { id: 'fe', label: 'Finite element', blurb: 'In vitro: segments and columns under moments and forces.' },
+    { id: 'tissue', label: 'Tissue', blurb: 'Constitutive models: quasi-static stress–strain per test mode.' }
   ];
   var COMING = ['Kinematics', 'Anthropometry', 'Muscle geometry', 'In vivo trunk stiffness'];
   var WIDE_PX = 760; // two-column chart + schematic from here up (same as the CSS breakpoint)
@@ -570,44 +570,58 @@
   }
 
   // ---------- home ----------
-  function statTiles(c) {
-    return '<div class="stats">' + [['Benchmarks', c.benchmarks], ['Tasks', c.tasks], ['Studies', c.studies], ['Subjects and specimens', c.N]]
-      .map(function (x) { return '<div class="stat"><b class="num">' + esc(x[1] == null ? '–' : Number(x[1]).toLocaleString('en')) + '</b><span>' + x[0] + '</span></div>'; }).join('') + '</div>';
+  var VORD = (function () { var o = {}, i = 0; ['C', 'T', 'L', 'S'].forEach(function (r) { var n = r === 'C' ? 7 : r === 'T' ? 12 : r === 'L' ? 5 : 5; for (var k = 1; k <= n; k++) o[r + k] = i++; }); return o; })();
+  // "L4-L5, L3-L4" -> "L3–L5"; falls back to the first level text
+  function levelRange(levels) {
+    var toks = [];
+    (levels || []).forEach(function (l) { (String(l).match(/\b[CTLS]\d{1,2}\b/g) || []).forEach(function (t) { if (VORD[t] != null) toks.push(t); }); });
+    if (!toks.length) return (levels || [])[0] || '';
+    toks.sort(function (a, b) { return VORD[a] - VORD[b]; });
+    var lo = toks[0], hi = toks[toks.length - 1];
+    return lo === hi ? lo : lo + '–' + hi;
+  }
+  function shortTitle(t, domain) {
+    return String(t).replace(/\s+in vivo$/i, '');
+  }
+  function heroStats(c) {
+    return '<p class="hero-stats">' + [[c.benchmarks, 'benchmarks'], [c.tasks, 'tasks'], [c.studies, 'studies'], [c.N, 'subjects and specimens']]
+      .map(function (x) { return '<span><b class="num">' + esc(x[0] == null ? '–' : Number(x[0]).toLocaleString('en')) + '</b> ' + x[1] + '</span>'; }).join('') + '</p>';
   }
   function benchTile(b) {
-    var lv = (b.levels || []).join(', ');
     var sc = schematicFor(b.id);
-    if (!sc) { // no card-level schematic: use the first view-level one as the thumbnail
+    if (!sc) {
       var vk = Object.keys(S.schem || {}).filter(function (k) { return k.indexOf(b.id + '/') === 0; })[0];
       if (vk) sc = schemSrc(S.schem[vk]);
     }
-    return '<a class="tile' + (sc ? ' has-thumb' : '') + '" href="#b/' + enc(b.id) + '"><span class="tile-txt">' +
-      '<b>' + esc(b.title) + exTag(b.example) + '</b>' +
-      (lv ? '<span class="lv">' + esc(lv) + '</span>' : '') +
-      '<span class="meta num">' + plural(b.studies, 'study', 'studies') + ' · N ' + esc(b.N) +
-      (b.years && b.years.length ? ' · <span class="nowrap">' + yearsText(b.years) + '</span>' : '') + '</span></span>' +
-      (sc ? '<span class="thumb" data-schem-box><img data-schem src="' + esc(sc.src) + '" alt="" loading="lazy"></span>' : '') + '</a>';
+    var rg = levelRange(b.levels);
+    return '<a class="tile" href="#b/' + enc(b.id) + '">' +
+      '<span class="tile-pic" data-schem-box>' + (sc ? '<img data-schem src="' + esc(sc.src) + '" alt="" loading="lazy">' : '') + '</span>' +
+      '<span class="tile-body">' +
+        '<span class="tile-top"><b>' + esc(shortTitle(b.title, b.domain)) + exTag(b.example) + '</b>' + (rg ? '<span class="lvl">' + esc(rg) + '</span>' : '') + '</span>' +
+        ((b.views && b.views.length) ? '<span class="tile-sum">' + esc(b.views.length > 4 ? b.views.slice(0, 4).join(' · ') + ' · +' + (b.views.length - 4) + ' more' : b.views.join(' · ')) + '</span>' : (b.summary ? '<span class="tile-sum">' + esc(b.summary) + '</span>' : '')) +
+        '<span class="tile-meta num"><span>' + plural(b.studies, 'study', 'studies') + '</span><span>N ' + esc(b.N) + '</span>' +
+          (b.years && b.years.length ? '<span>' + yearsText(b.years) + '</span>' : '') + '</span>' +
+      '</span></a>';
   }
   function viewHome() {
     var I = S.index, c = I.counts || {};
     setTitle('');
-    var html = '<section class="hero"><h1>Validation benchmarks for spine models</h1>' +
-      '<p class="lede">Each benchmark is one outcome: simulate its tasks, then compare with every study that measured it.</p>' +
-      statTiles(c) + '</section>';
+    var html = '<section class="hero"><div class="hero-main"><h1>Put your spine model on the bench.</h1>' +
+      '<p class="lede">Experimental outcomes every spine model should reproduce, from ' + esc(c.studies) + ' studies, each value traced to its table or figure.</p>' +
+      heroStats(c) + '</div>' +
+      '<ol class="how"><li><b>Pick a benchmark</b><span>one outcome, e.g. lumbar disc pressure</span></li>' +
+      '<li><b>Simulate its tasks</b><span>subject, loads and boundary conditions are given</span></li>' +
+      '<li><b>Compare</b><span>with every study (n, year) and the pooled mean, or <a href="#agents">give the tasks to an agent</a></span></li></ol></section>';
     DOMAINS.forEach(function (d) {
       var items = I.benchmarks.filter(function (b) { return b.domain === d.id; });
-      var planned = (I.planned || []).filter(function (b) { return b.domain === d.id; });
-      if (!items.length && !planned.length) return;
-      html += '<section class="sec"><div class="sec-head"><h2>' + esc(d.label) + '</h2><p>' + esc(d.blurb) + '</p></div><div class="tiles">' +
-        items.map(benchTile).join('') +
-        planned.map(function (b) { return '<div class="tile off" aria-disabled="true"><span class="tile-txt"><b>' + esc(b.title) + '</b><span class="meta">In preparation</span></span></div>'; }).join('') +
-        '</div></section>';
+      if (!items.length) return;
+      html += '<section class="sec"><div class="sec-head"><h2>' + esc(d.label) + '</h2><span class="count">' + items.length + '</span><p>' + esc(d.blurb) + '</p></div><div class="tiles">' +
+        items.map(benchTile).join('') + '</div></section>';
     });
     var other = I.benchmarks.filter(function (b) { return !DOMAINS.some(function (d) { return d.id === b.domain; }); });
     if (other.length) html += '<section class="sec"><div class="sec-head"><h2>Other</h2></div><div class="tiles">' + other.map(benchTile).join('') + '</div></section>';
-    html += '<section class="sec soon"><div class="sec-head"><h2>Inputs and model properties</h2><p>Coming next</p></div><div class="tiles">' +
-      COMING.map(function (t) { return '<div class="tile off" aria-disabled="true"><span class="tile-txt"><b>' + esc(t) + '</b><span class="meta">Coming next</span></span></div>'; }).join('') +
-      '</div></section>';
+    html += '<section class="sec soon"><div class="sec-head"><h2>Coming next</h2><p>Model inputs and properties</p></div><div class="soon-row">' +
+      COMING.map(function (t) { return '<span class="soon-chip">' + esc(t) + '</span>'; }).join('') + '</div></section>';
     main.innerHTML = html;
     wireSchemImgs(main);
   }
