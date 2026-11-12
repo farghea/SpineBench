@@ -63,7 +63,12 @@
     return '<a class="btn' + (primary ? ' primary' : '') + '" href="' + esc(href) + '" download>' + ICON_DL + esc(label) + '</a>';
   }
   function copyText(text) {
-    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function () { return copyLegacy(text); });
+    }
+    return copyLegacy(text);
+  }
+  function copyLegacy(text) {
     return new Promise(function (res, rej) {
       var ta = document.createElement('textarea');
       ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
@@ -119,7 +124,8 @@
     if (v == null || v === '') return '–';
     var d = card._input[key] || {};
     if (typeof v === 'object') return JSON.stringify(v);
-    if (isNum(v)) return fmt(v) + (d.unit ? (d.unit === '°' || d.unit === '%' ? d.unit : ' ' + d.unit) : '');
+    var u = d.unit && !/^[-–(]?\s*[-–]?\s*\)?$/.test(d.unit) ? d.unit : '';
+    if (isNum(v)) return fmt(v) + (u ? (u === '°' || u === '%' ? u : ' ' + u) : '');
     return human(v);
   }
   function inputLabel(card, key) { var d = card._input[key]; return (d && d.label) || human(key); }
@@ -228,14 +234,14 @@
   // ---------- Chart.js ----------
   var whiskers = {
     id: 'sbWhiskers',
-    afterDatasetsDraw: function (chart) {
-      var ctx = chart.ctx, horiz = chart.options.indexAxis === 'y';
+    afterDatasetsDraw: function (chart, args, pluginOpts) {
+      var ctx = chart.ctx, horiz = !!(pluginOpts && pluginOpts.horiz);
       var vs = horiz ? chart.scales.x : chart.scales.y, ink = cssVar('--ink');
       chart.data.datasets.forEach(function (ds, i) {
         if (!ds._vals || !chart.isDatasetVisible(i)) return;
         var meta = chart.getDatasetMeta(i);
         ctx.save();
-        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : alpha(ink, 0.65);
+        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : ds._color ? alpha(ds._color, 0.7) : alpha(ink, 0.65);
         ctx.lineWidth = ds._pooled ? 1.6 : 1.2;
         meta.data.forEach(function (el, j) {
           var v = ds._vals[j];
@@ -289,6 +295,16 @@
     if (cur) lines.push(cur);
     return lines.length > 1 ? lines : s;
   }
+  // chart labels: drop " · "-separated parts that every task of the view shares (e.g. "7.5 Nm")
+  function shortLabels(tasks) {
+    var parts = tasks.map(function (t) { return String(t.label || t.id).split(' · '); });
+    if (tasks.length < 2) return parts.map(function (p) { return p.join(' · '); });
+    var common = parts[0].filter(function (x) { return parts.every(function (p) { return p.indexOf(x) >= 0; }); });
+    return parts.map(function (p) {
+      var keep = p.filter(function (x) { return common.indexOf(x) < 0; });
+      return (keep.length ? keep : p).join(' · ');
+    });
+  }
   function destroyCharts() { S.charts.forEach(function (c) { try { c.destroy(); } catch (e) { /* ignore */ } }); S.charts = []; }
 
   // bars: x = task labels, one dataset per study, pooled as an outlined neutral bar
@@ -315,6 +331,7 @@
     var hi = Math.max.apply(null, all), lo = Math.min.apply(null, all);
     var opts = chartBase(), ink2 = cssVar('--ink-2'), grid = cssVar('--grid');
     opts.indexAxis = horiz ? 'y' : 'x';
+    opts.plugins.sbWhiskers = { horiz: horiz };
     opts.interaction = { mode: 'index', axis: horiz ? 'y' : 'x', intersect: false };
     var valueAxis = { beginAtZero: true, suggestedMax: hi > 0 ? hi * 1.04 : 0, suggestedMin: lo < 0 ? lo * 1.04 : 0,
       title: { display: true, text: yTitle, color: ink2 }, grid: { color: grid }, border: { display: false } };
@@ -330,7 +347,7 @@
       }
     };
     var pooledInk = cssVar('--pooled');
-    var labels = tasks.map(function (t) { return horiz ? wrapLabel(t.label || t.id, wide ? 30 : 16) : wrapLabel(t.label || t.id, 14); });
+    var labels = shortLabels(tasks).map(function (l) { return horiz ? wrapLabel(l, wide ? 30 : 16) : wrapLabel(l, 14); });
     var chart = new Chart(canvasIn(box, yTitle + ' per task'), {
       type: 'bar',
       data: { labels: labels, datasets: sets.map(function (d) {
@@ -349,7 +366,7 @@
   // dot plot for big views: one row per task, one dot per study (± whisker), pooled as a neutral diamond
   function drawDots(box, card, tasks, unit, xTitle, sets) {
     var wide = box.clientWidth >= 640, surface = cssVar('--surface'), ink2 = cssVar('--ink-2'), grid = cssVar('--grid');
-    var labels = tasks.map(function (t) { return wrapLabel(t.label || t.id, wide ? 34 : 18); });
+    var labels = shortLabels(tasks).map(function (l) { return wrapLabel(l, wide ? 34 : 18); });
     var present = tasks.map(function (t, i) { return sets.filter(function (d) { return d.vals[i]; }); });
     var offs = tasks.map(function (t, i) { // spread the dots of one row vertically so they do not hide each other
       var o = {}, n = present[i].length, span = Math.min(0.6, 0.14 * (n - 1));
@@ -363,7 +380,8 @@
     sets.forEach(function (d) { d.vals.forEach(function (v) { if (v) { all.push(v.y); if (v.lo != null) all.push(v.lo); if (v.hi != null) all.push(v.hi); } }); });
     var lo = Math.min.apply(null, all), hi = Math.max.apply(null, all);
     var opts = chartBase();
-    opts.indexAxis = 'y';
+    opts.animation = false; // many points; draw at once
+    opts.plugins.sbWhiskers = { horiz: true };
     opts.interaction = { mode: 'nearest', intersect: false, axis: 'xy' };
     opts.scales = {
       x: { beginAtZero: lo >= 0, title: { display: true, text: xTitle, color: ink2 }, grid: { color: grid }, border: { display: false } },
@@ -382,7 +400,7 @@
         var pts = [], vals = [];
         d.vals.forEach(function (v, i) { if (v) { pts.push({ x: v.y, y: i + offs[i][d.key], i: i, v: v }); vals.push(v); } });
         var col = d.pooled ? cssVar('--pooled') : d.color;
-        return { label: d.label, _key: d.key, _pooled: !!d.pooled, _vals: vals, data: pts,
+        return { label: d.label, _key: d.key, _pooled: !!d.pooled, _vals: vals, data: pts, _color: d.pooled ? null : col,
           pointStyle: d.pooled ? 'rectRot' : 'circle', pointRadius: d.pooled ? 5.5 : 4.5, pointHoverRadius: 7,
           backgroundColor: d.pooled || d.hollow ? surface : col, borderColor: d.pooled || d.hollow ? col : surface,
           pointBorderWidth: d.pooled || d.hollow ? 2 : 1.5 };
@@ -394,10 +412,11 @@
 
   // curves: x = a numeric input; one line per study and series (other varying inputs)
   var DASHES = [[], [6, 4], [2, 3], [10, 3, 2, 3], [1, 2]];
-  function drawCurves(box, card, tasks, xKey, unit, yTitle) {
+  function drawCurves(box, card, tasks, xKey, unit, yTitle, seriesKeys) {
     if (typeof Chart === 'undefined') return chartMsg(box, 'The chart library did not load. The table below has every value.');
     var split = splitInputs(card, tasks, [xKey]);
-    var sKey = function (t) { return split.vary.map(function (k) { return inputText(card, k, t.inputs[k]); }).join(' · '); };
+    var skeys = (seriesKeys && seriesKeys.length) ? seriesKeys.filter(function (k) { return split.vary.indexOf(k) >= 0; }) : split.vary;
+    var sKey = function (t) { return skeys.map(function (k) { return inputText(card, k, t.inputs[k]); }).join(' · '); };
     var series = uniq(tasks.map(sKey));
     var studies = viewStudies(card, tasks).filter(function (k) { return !S.off[k]; });
     var byStudyColor = studies.length > 1 || series.length === 1;
@@ -437,7 +456,7 @@
     var chart = new Chart(canvasIn(box, yTitle + ' versus ' + xTitle), {
       type: 'line',
       data: { datasets: lines.map(function (l) {
-        return { label: l.label, _key: l.key, _pooled: !!l.pooled, _vals: l.pts, data: l.pts.map(function (p) { return { x: p.x, y: p.y }; }),
+        return { label: l.label, _key: l.key, _pooled: !!l.pooled, _color: l.pooled ? null : l.color, _vals: l.pts, data: l.pts.map(function (p) { return { x: p.x, y: p.y }; }),
           borderColor: l.color, backgroundColor: l.color, borderWidth: l.pooled ? 2.5 : 2, borderDash: l.dash,
           pointRadius: l.pooled ? 4.5 : 3.5, pointHoverRadius: 6, pointBorderColor: l.hollow ? l.color : surface, pointBorderWidth: 1.5,
           pointBackgroundColor: l.hollow ? surface : l.color,
@@ -522,17 +541,34 @@
       (card.views.length > 1 ? '<div class="tabs" role="tablist" aria-label="Views">' + card.views.map(function (v) {
         var on = v.id === S.viewId;
         return '<button type="button" role="tab" class="tab" data-view="' + esc(v.id) + '" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '">' + esc(v.title || v.id) + '</button>';
-      }).join('') + '</div>' : (card.views[0] && card.views[0].title ? '<h3 class="view-title">' + esc(card.views[0].title) + '</h3>' : '')) +
+      }).join('') + '</div>' +
+      '<label class="view-select"><span>View</span><select id="view-select">' + card.views.map(function (v) {
+        return '<option value="' + esc(v.id) + '"' + (v.id === S.viewId ? ' selected' : '') + '>' + esc(v.title || v.id) + ' (' + v.task_ids.length + ')</option>';
+      }).join('') + '</select></label>' : (card.views[0] && card.views[0].title ? '<h3 class="view-title">' + esc(card.views[0].title) + '</h3>' : '')) +
       '<div id="view-body"></div></section>';
     html += '<section class="panel"><h2>Studies</h2>' + studiesTable(card) + '</section>';
     if (card.notes.length) html += '<section class="panel"><h2>Notes</h2><ul class="notes">' + card.notes.slice(0, 3).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></section>';
     main.innerHTML = '<div class="stack">' + html + '</div>';
 
     $('#copy-prompt').addEventListener('click', function () {
-      var label = $('span', this);
-      copyText(agentPrompt(card)).then(function () { label.textContent = 'Copied'; }, function () { label.textContent = 'Copy failed'; })
-        .then(function () { setTimeout(function () { label.textContent = 'Copy agent prompt'; }, 1600); });
+      var label = $('span', this), btns = this.parentNode, text = agentPrompt(card);
+      copyText(text).then(function () {
+        label.textContent = 'Copied';
+        setTimeout(function () { label.textContent = 'Copy agent prompt'; }, 1600);
+      }, function () { // no clipboard access: show the prompt to copy by hand
+        var box = $('#prompt-box');
+        if (!box) {
+          box = document.createElement('textarea');
+          box.id = 'prompt-box'; box.className = 'prompt-box'; box.readOnly = true; box.rows = 6;
+          box.setAttribute('aria-label', 'Agent prompt');
+          btns.parentNode.insertBefore(box, btns.nextSibling);
+        }
+        box.value = text; box.focus(); box.select();
+        label.textContent = 'Select and copy below';
+      });
     });
+    var sel = $('#view-select');
+    if (sel) sel.addEventListener('change', function () { selectView(card, sel.value); });
     $$('.tab', main).forEach(function (b) {
       b.addEventListener('click', function () { selectView(card, b.getAttribute('data-view')); });
       b.addEventListener('keydown', function (e) {
@@ -549,6 +585,7 @@
       var on = b.getAttribute('data-view') === vid;
       b.setAttribute('aria-selected', String(on)); b.setAttribute('tabindex', on ? '0' : '-1');
     });
+    var sel = $('#view-select'); if (sel && sel.value !== vid) sel.value = vid;
     try { history.replaceState(null, '', '#b/' + enc(card.id) + '/' + enc(vid)); } catch (e) { /* ignore */ }
     renderView(card);
   }
@@ -566,23 +603,32 @@
       var s = card.subjects[k] || {};
       Object.keys(s).forEach(function (f) { if (!std.some(function (x) { return x[0] === f; }) && extra.indexOf(f) < 0 && !/^_/.test(f)) extra.push(f); });
     });
-    var cols = std.concat(extra.slice(0, 4).map(function (f) { return [f, human(f)]; }));
-    var val = function (v) { return v == null || v === '' ? '–' : typeof v === 'object' ? esc(JSON.stringify(v)) : esc(isNum(v) ? fmt(v) : v); };
+    var cols = std.concat(extra.slice(0, 4).map(function (f) { var h = human(f); return [f, h.charAt(0).toUpperCase() + h.slice(1)]; }));
+    var UNITS = { age: ' y', height_cm: ' cm', weight_kg: ' kg', disc_area_mm2: ' mm²' };
+    var val = function (v) {
+      if (v == null || v === '') return '–';
+      if (Array.isArray(v)) return esc(v.join(', '));
+      if (typeof v === 'object') return esc(Object.keys(v).map(function (k) {
+        var x = v[k], xs = isNum(x) ? fmt(x) : typeof x === 'object' ? JSON.stringify(x) : String(x);
+        return UNITS[k] ? xs + UNITS[k] : human(k) + ' ' + xs;
+      }).join(', '));
+      return esc(isNum(v) ? fmt(v) : v);
+    };
     var order = card.studies.map(function (s) { return s.key; }).filter(function (k) { return card.subjects[k]; });
     keys.forEach(function (k) { if (order.indexOf(k) < 0) order.push(k); });
     return '<h3 class="sub-h">Subjects</h3><div class="table-wrap"><table><thead><tr><th>Study</th>' +
-      cols.map(function (c) { return '<th class="' + (c[0] === 'sex' ? '' : 'r') + '">' + esc(c[1]) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      cols.map(function (c, i) { return '<th class="' + (c[0] === 'sex' || i >= std.length ? '' : 'r') + '">' + esc(c[1]) + '</th>'; }).join('') + '</tr></thead><tbody>' +
       order.map(function (k) {
         var s = card.subjects[k] || {};
         return '<tr><td class="nowrap"><span class="sw" style="background:' + swatch(card, k) + '"></span>' + esc(studyLabel(card, k, true)) + '</td>' +
-          cols.map(function (c) { return '<td class="' + (c[0] === 'sex' ? '' : 'r num') + '">' + val(s[c[0]]) + '</td>'; }).join('') + '</tr>';
+          cols.map(function (c, i) { return '<td class="' + (c[0] === 'sex' ? '' : i >= std.length ? 'wide' : 'r num') + '">' + val(s[c[0]]) + '</td>'; }).join('') + '</tr>';
       }).join('') + '</tbody></table></div>';
   }
   function studiesTable(card) {
     var rows = card.studies.slice().sort(function (a, b) { return (a.year || 0) - (b.year || 0) || String(a.short).localeCompare(String(b.short)); });
     return '<div class="table-wrap"><table><thead><tr><th>Study</th><th class="r">Year</th><th class="r">n</th><th>Sample</th><th>DOI</th></tr></thead><tbody>' +
       rows.map(function (s) {
-        return '<tr><td class="nowrap"><span class="sw" style="background:' + swatch(card, s.key) + '"></span><b>' + esc(s.short || s.key) + '</b>' +
+        return '<tr><td class="study"><span class="sw" style="background:' + swatch(card, s.key) + '"></span><b class="nowrap">' + esc(s.short || s.key) + '</b>' +
           (s.secondary ? ' <span class="tag" title="Value compiled in a review; the primary study is not in this benchmark">secondary</span>' : '') +
           (s.pool === false ? ' <span class="tag" title="Shown, but not part of the pooled value">not pooled</span>' : '') + '</td>' +
           '<td class="r num">' + esc(s.year || '') + '</td><td class="r num">' + esc(s.n == null ? '–' : s.n) + '</td>' +
@@ -617,7 +663,7 @@
       var unit = unitOf(card, o), yTitle = outLabel(card, o) + (unit ? ' (' + unit + ')' : '');
       var box = $('#chart-' + i, body);
       if (xKey && ts.some(function (t) { return toNum(t.inputs[xKey]) != null; })) {
-        var info = drawCurves(box, card, ts, xKey, unit, yTitle);
+        var info = drawCurves(box, card, ts, xKey, unit, yTitle, v.series);
         if (info && info.series.length > 1) $('#skey-' + i, body).innerHTML = info.series.map(function (s, si) {
           var d = info.colorBySeries ? [] : DASHES[si % DASHES.length];
           var col = info.colorBySeries ? 'var(--s' + (si % 12 + 1) + ')' : 'var(--ink-2)';
@@ -640,8 +686,8 @@
   }
   function capText(xKey) {
     var off = Object.keys(S.off).some(function (k) { return S.off[k]; });
-    return (xKey ? 'Points: study mean or median; whiskers: ± SD or [min–max]. ' : 'Bars: study mean or median; whiskers: ± SD or [min–max]. ') +
-      'Pooled: n-weighted mean ± SD of studies reporting a mean; shared samples counted once; medians and studies marked “not pooled” left out.' +
+    return 'Each mark: one study’s mean or median; whiskers: ± SD or [min–max]; hollow: not pooled. ' +
+      'Pooled (grey outline, diamond): n-weighted mean ± SD of studies reporting a mean; shared samples counted once; medians left out.' +
       (off ? ' <b>Pooled recomputed for the selected studies.</b>' : '');
   }
   function taskTable(card, tasks, studies, xKey) {
@@ -670,12 +716,18 @@
       var u = oneUnit ? '' : unitOf(card, t.output);
       var p = pooledValue(pooledFor(card, t));
       return '<tr><td class="task">' + esc(t.label || t.id) + '<span class="sub mono">' + esc(t.id) + '</span></td>' +
-        (split.vary.length ? '<td class="inp">' + split.vary.map(function (k) {
-          return t.inputs[k] == null || t.inputs[k] === '' ? '' : '<span>' + esc(inputLabel(card, k)) + ': ' + esc(inputText(card, k, t.inputs[k])) + '</span>';
-        }).join('') + '</td>' : '') +
+        (split.vary.length ? '<td class="inp">' + split.vary.filter(function (k) { return t.inputs[k] != null && t.inputs[k] !== ''; }).map(function (k) {
+          return '<span class="muted">' + esc(inputLabel(card, k)) + '</span> ' + esc(inputText(card, k, t.inputs[k]));
+        }).join(' · ') + '</td>' : '') +
         vis.map(function (k) {
           var refs = t.refs.filter(function (r) { return r.study === k; }).map(refValue).filter(Boolean);
           if (!refs.length) return '<td class="r muted">–</td>';
+          if (refs.length > 3) { // many individual values: one compact line, all values in the tooltip
+            var mv = firstRef(t, k);
+            var all = refs.map(function (v) { return fmt(v.y); }).join(', ');
+            return '<td class="r num"><span class="val" title="' + esc(refs.length + ' values: ' + all + ' · ' + (refs[0].ref.test_id || '')) + '">' +
+              esc(fmtC(mv.y) + ' [' + fmt(mv.lo) + '–' + fmt(mv.hi) + ']') + (u ? ' <small>' + esc(u) + '</small>' : '') + '</span><span class="sub">mean of ' + refs.length + ' individuals</span></td>';
+          }
           return '<td class="r num">' + refs.map(function (v) {
             var r = v.ref;
             var tip = [r.test_id, r.note, v.n != null ? 'n=' + v.n : '', r.exclude_from_pool ? 'not pooled' : ''].filter(Boolean).join(' · ');
@@ -689,8 +741,14 @@
 
   function viewAgents() {
     setTitle('For agents');
-    var ex = S.index.agent_example;
-    var exText = ex ? JSON.stringify(ex) : '{"id": "...", "agent_prompt": "...", "tasks": [{"id": "...", "inputs": {}}]}';
+    var ex = S.index.agent_example, exText = '{"id": "...", "agent_prompt": "...", "tasks": [{"id": "...", "inputs": {}}]}';
+    if (ex) {
+      var cut = function (x, n) { x = String(x || ''); return x.length > n ? x.slice(0, n) + '\u2026' : x; };
+      exText = JSON.stringify({ id: ex.id, title: ex.title, agent_prompt: cut(ex.agent_prompt, 150), answer_format: ex.answer_format,
+        subjects: ex.subjects, tasks: ex.tasks, more: 'simulate, inputs, outputs, studies' }, function (k, v) {
+        return typeof v === 'string' && k !== 'agent_prompt' ? cut(v, 60) : v;
+      }, 1);
+    }
     main.innerHTML = '<div class="stack prose"><div><h1>For agents</h1>' +
       '<p class="lede">Give an agent the tasks, keep the answers, then score its reply.</p></div>' +
       '<ul class="lines">' +

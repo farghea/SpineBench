@@ -57,7 +57,7 @@ Out of v1 (kept in `bench/tests`, not shown): inputs, properties, in vivo passiv
   "shared": [["sato1999", "x"]],          // pairs of study keys with overlapping subjects/specimens
   "views": [                              // how the site draws charts; each view = one chart
     {"id": "standing_flexion", "title": "Standing and flexion", "task_ids": ["standing", "flex10", "flex20"], "x": "task"},
-    {"id": "fr_curve", "title": "Erector EMG vs flexion", "task_ids": ["..."], "x": "input:flexion_deg"}
+    {"id": "fr_curve", "title": "Erector EMG vs flexion", "task_ids": ["..."], "x": "input:flexion_deg", "series": ["muscle", "load"]}
   ],
   "tasks": [
     {"id": "standing", "label": "Standing, relaxed", "view": "standing_flexion",
@@ -72,6 +72,7 @@ Out of v1 (kept in `bench/tests`, not shown): inputs, properties, in vivo passiv
 }
 ```
 - `stat`: mean | median | value (single subject or no spread). `sd` only if SD (convert SE to SD only if n is known; say so in `note`).
+- `series` (optional): which inputs name the curves in the legend (keeps legends short).
 - `x: "input:<key>"` → numeric input on the x axis (curves: EMG vs flexion angle, ROM vs moment). Otherwise `"task"` (bars).
 - Keep labels short (≤ 40 chars). No study names in task labels.
 - Pooled values are computed by `tools/pool_outcomes.py` (n-weighted mean, shared samples counted once, medians not pooled). Do not hand-write them.

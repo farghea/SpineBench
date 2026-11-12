@@ -1,47 +1,51 @@
 # SpineBench site
 
-Static site (plain HTML/CSS/JS, no build step) for the SpineBench validation data.
-Data comes from `bench/tests/<category>/*.json` (format: `bench/SCHEMA.md`).
+Static site (plain HTML/CSS/JS, Chart.js 4.4.1 from cdnjs, no build step for the front end), organised by
+**outcome benchmark**. Cards come from `bench/outcomes/<id>.json` (format: `bench/OUTCOMES.md`).
 
 ## Preview locally
 
 ```bash
-python3 site/build_index.py --examples   # --examples adds the 6 placeholder tests in site/dev/examples
-cd site && python3 -m http.server 8770   # open http://localhost:8770
+python3 site/build_index.py               # real cards only (what the deploy workflow runs)
+python3 site/build_index.py --examples    # also the 2 EXAMPLE cards in site/dev/examples/outcomes
+cd site && python3 -m http.server 8773    # open http://localhost:8773
 ```
 
-Drop `--examples` to build from real tests only (this is what the deploy workflow does).
+## Pages (hash routes)
 
-## Publish on GitHub Pages (3 commands)
+| Route | What |
+|---|---|
+| `#` | home: counts, one tile per benchmark in three sections (MSK, FE, tissue), "coming next" tiles |
+| `#b/<id>[/<view>]` | one benchmark: how to simulate, subjects, a chart and task table per view, studies, notes, downloads |
+| `#agents` | the three agent files |
+| `#about` | what, how values were extracted and checked, pooling rule, cite, licence |
 
-From the SpineBench folder, with an empty GitHub repo already created:
+Old explorer links (`#test/...`, `#group/...`) show a "moved" page; the per-test files stay in `data/tests/`.
 
-```bash
-git init -b main && git add bench site .github .gitignore && git commit -m "SpineBench site"
-git remote add origin https://github.com/<user>/<repo>.git
-git push -u origin main
-```
+## Data written by build_index.py (site/data/)
 
-Then, once, in the repo on GitHub: **Settings > Pages > Source: GitHub Actions**.
-Every push to `main` that touches `bench/` or `site/` runs `.github/workflows/pages.yml`,
-which runs `build_index.py` and deploys `site/` to `https://<user>.github.io/<repo>/`.
-
-`.gitignore` keeps the source PDFs and the generated `site/data/` out of the repo.
+| File | What |
+|---|---|
+| `outcomes.json` | index: id, title, domain, region, levels, tasks, studies, N, years; counts; an example agent line |
+| `outcomes/<id>.json` | one card with `pooled` per task (computed by running `tools/pool_outcomes.py` on temp copies) |
+| `outcomes/<id>.csv` | tasks x refs, one row per reference value, with the pooled value |
+| `benchmark.json` | every card in one file |
+| `agent_tasks.jsonl` | one line per card: prompt, answer format, subjects, studies, tasks with inputs, **no reference values** |
+| `answers.json` | `{card id: {task id: {output, unit, refs, pooled}}}` |
+| `all.json`, `all.csv`, `tests/`, `groups/`, `categories/` | raw per-test data (footer "Raw data" link) |
 
 ## Files
 
 | Path | What |
 |---|---|
 | `index.html` | page shell |
-| `assets/app.js` | router (`#category/<id>`, `#test/<id>`, `#group/<id>`, `#browse`, `#groups`, `#about`), views, charts |
+| `assets/app.js` | router, pages, charts (bars for small views, dot plot for big ones, lines for `x: "input:<key>"`) |
 | `assets/style.css` | tokens (light/dark) and layout |
-| `build_index.py` | writes `data/index.json`, `data/tests/*`, `data/groups/*`, `data/categories/*.csv`, `data/all.json`, `data/all.csv` |
-| `dev/examples/` | 6 EXAMPLE tests with placeholder values (`"example": true`), for development only |
+| `assets/logo.svg` | logo for header and favicon; replace this one file to change it |
+| `build_index.py` | builds everything in `data/` |
+| `dev/examples/outcomes/` | 2 EXAMPLE cards (`"example": true`), used only with `--examples` |
 
-Optional: `bench/groups/<id>.json` with `{"id", "title", "description"}` gives a pooled group a readable title;
-otherwise the title is derived from the `combine_group` id.
+## Publish on GitHub Pages
 
-Test JSON extras the site understands beyond the schema: `quantity.x_name` / `quantity.x_unit` (curve x axis),
-`data[].series` (separate curves or bar sets), and any other `data[]` key (shown as a table column).
-Numeric `x` gives a line plot with an SD band; text `x` gives bars with SD whiskers; text `x` with three or more
-numeric loads each (e.g. `"load": "2.5 Nm"`) gives one curve per `x`.
+The workflow `.github/workflows/pages.yml` runs `build_index.py` and deploys `site/`; every URL is relative,
+so the site works from `https://<user>.github.io/<repo>/`.

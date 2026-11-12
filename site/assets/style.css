@@ -101,7 +101,7 @@ main { flex: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 28
 .crumbs a { color: var(--ink-2); text-decoration: none; }
 .crumbs a:hover { text-decoration: underline; }
 .crumbs span[aria-hidden] { color: var(--line-2); }
-.lede { color: var(--ink-2); max-width: 70ch; margin-top: 6px; }
+.lede { color: var(--ink-2); max-width: 70ch; margin-top: 6px; overflow-wrap: anywhere; }
 .levels { margin-top: 4px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; min-width: 0; }
 .panel > h2 { margin-bottom: 12px; }
@@ -112,6 +112,7 @@ main { flex: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 28
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn.primary:hover { filter: brightness(1.08); }
 .btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; flex: none; }
+.prompt-box { flex: 1 1 100%; width: 100%; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r); padding: 8px 10px; resize: vertical; }
 .btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .empty { padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line-2); border-radius: 8px; }
 .note { margin-top: 10px; font-size: 0.88rem; color: var(--muted); }
@@ -149,6 +150,9 @@ ol.steps li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 .tab { font: inherit; font-size: 0.86rem; color: var(--ink-2); background: var(--surface-2); border: 1px solid transparent; border-radius: var(--r); padding: 4px 11px; cursor: pointer; min-height: 32px; }
 .tab:hover { color: var(--ink); border-color: var(--line-2); }
 .tab[aria-selected="true"] { color: var(--accent-ink); background: var(--accent); font-weight: 500; }
+.view-select { display: none; }
+.view-select span { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 3px; }
+.view-select select { width: 100%; font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line-2); border-radius: var(--r); padding: 6px 8px; min-height: 36px; }
 .view-title { margin: -4px 0 12px; color: var(--ink-2); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .chip { font: inherit; font-size: 0.84rem; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink-2); cursor: pointer; min-height: 30px; display: inline-flex; align-items: center; gap: 6px; }
@@ -186,12 +190,13 @@ tbody tr:hover { background: var(--surface-2); }
 td.nowrap { white-space: nowrap; }
 td.wide { min-width: 220px; color: var(--ink-2); }
 td.doi { white-space: nowrap; font-size: 0.84rem; }
-td .sub { display: block; color: var(--muted); font-size: 0.74rem; font-weight: 400; }
+td .sub, th .sub { display: block; color: var(--muted); font-size: 0.74rem; font-weight: 400; }
 table.tasks td.task { min-width: 170px; max-width: 280px; position: sticky; left: 0; background: var(--surface); z-index: 0; box-shadow: inset -1px 0 0 var(--line); }
 table.tasks th:first-child { position: sticky; left: 0; z-index: 2; }
 table.tasks tbody tr:hover td.task { background: var(--surface-2); }
 table.tasks td.inp { min-width: 150px; max-width: 280px; font-size: 0.82rem; color: var(--ink-2); }
-table.tasks td.inp span { display: block; }
+td.study { min-width: 150px; }
+.nowrap { white-space: nowrap; }
 table.tasks td.r { white-space: nowrap; }
 table.tasks td .val { display: block; }
 table.tasks td .val small { color: var(--muted); }
@@ -215,8 +220,13 @@ pre.code { margin: 8px 0 0; font-family: var(--mono); font-size: 0.8rem; line-he
   .chart-box { height: 300px; }
   .panel { padding: 14px; }
   .tiles { grid-template-columns: minmax(0, 1fr); }
+  table.tasks td.task { min-width: 120px; max-width: 160px; }
+  table.tasks td.inp { min-width: 140px; }
+  td.wide { min-width: 180px; }
 }
 @media (max-width: 520px) {
+  .tabs { display: none; }
+  .view-select { display: block; margin-bottom: 14px; }
   .top-in { flex-wrap: wrap; gap: 6px 10px; }
   .nav { order: 3; flex: 1 1 100%; margin: 0 -10px; }
   #theme-toggle { margin-left: auto; }

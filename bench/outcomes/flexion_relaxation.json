@@ -203,8 +203,8 @@
   ],
   "views": [
     {
-      "id": "emg_flexion",
-      "title": "Back-muscle EMG vs flexion angle",
+      "id": "emg_flexion_thoracic",
+      "title": "EMG vs flexion: thoracic erectors (T11)",
       "task_ids": [
         "g20_lg_t11_18",
         "g20_lg_t11_50",
@@ -214,14 +214,6 @@
         "g20_ic_t11_50",
         "g20_ic_t11_68",
         "g20_ic_t11_92",
-        "g20_ic_l3_18",
-        "g20_ic_l3_50",
-        "g20_ic_l3_68",
-        "g20_ic_l3_92",
-        "g20_mf_l4_18",
-        "g20_mf_l4_50",
-        "g20_mf_l4_68",
-        "g20_mf_l4_92",
         "g24_lg_t11_18",
         "g24_lg_t11_50",
         "g24_lg_t11_68",
@@ -235,7 +227,26 @@
         "g24s_lg_t11_95",
         "g24s_ic_t11_25",
         "g24s_ic_t11_50",
-        "g24s_ic_t11_95",
+        "g24s_ic_t11_95"
+      ],
+      "x": "input:flexion_deg",
+      "series": [
+        "muscle",
+        "load"
+      ]
+    },
+    {
+      "id": "emg_flexion_lumbar",
+      "title": "EMG vs flexion: lumbar erectors (L2-L5)",
+      "task_ids": [
+        "g20_ic_l3_18",
+        "g20_ic_l3_50",
+        "g20_ic_l3_68",
+        "g20_ic_l3_92",
+        "g20_mf_l4_18",
+        "g20_mf_l4_50",
+        "g20_mf_l4_68",
+        "g20_mf_l4_92",
         "shin_mu_30",
         "shin_mu_50",
         "shin_mu_70",
@@ -265,7 +276,11 @@
         "koo20b_back_64",
         "koo20b_back_67"
       ],
-      "x": "input:flexion_deg"
+      "x": "input:flexion_deg",
+      "series": [
+        "muscle",
+        "load"
+      ]
     },
     {
       "id": "fr_angle",
@@ -293,7 +308,7 @@
     {
       "id": "g20_lg_t11_18",
       "label": "LG(T11), 14 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -320,7 +335,7 @@
     {
       "id": "g20_lg_t11_50",
       "label": "LG(T11), 14 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -347,7 +362,7 @@
     {
       "id": "g20_lg_t11_68",
       "label": "LG(T11), 14 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -374,7 +389,7 @@
     {
       "id": "g20_lg_t11_92",
       "label": "LG(T11), 14 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -401,7 +416,7 @@
     {
       "id": "g20_ic_t11_18",
       "label": "IC(T11), 14 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -428,7 +443,7 @@
     {
       "id": "g20_ic_t11_50",
       "label": "IC(T11), 14 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -455,7 +470,7 @@
     {
       "id": "g20_ic_t11_68",
       "label": "IC(T11), 14 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -482,7 +497,7 @@
     {
       "id": "g20_ic_t11_92",
       "label": "IC(T11), 14 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -509,7 +524,7 @@
     {
       "id": "g20_ic_l3_18",
       "label": "IC(L3), 14 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -536,7 +551,7 @@
     {
       "id": "g20_ic_l3_50",
       "label": "IC(L3), 14 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -563,7 +578,7 @@
     {
       "id": "g20_ic_l3_68",
       "label": "IC(L3), 14 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -590,7 +605,7 @@
     {
       "id": "g20_ic_l3_92",
       "label": "IC(L3), 14 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -617,7 +632,7 @@
     {
       "id": "g20_mf_l4_18",
       "label": "MF(L4/L5), 14 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -644,7 +659,7 @@
     {
       "id": "g20_mf_l4_50",
       "label": "MF(L4/L5), 14 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -671,7 +686,7 @@
     {
       "id": "g20_mf_l4_68",
       "label": "MF(L4/L5), 14 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -698,7 +713,7 @@
     {
       "id": "g20_mf_l4_92",
       "label": "MF(L4/L5), 14 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -725,7 +740,7 @@
     {
       "id": "g24_lg_t11_18",
       "label": "LG(T11), 10 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -752,7 +767,7 @@
     {
       "id": "g24_lg_t11_50",
       "label": "LG(T11), 10 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -779,7 +794,7 @@
     {
       "id": "g24_lg_t11_68",
       "label": "LG(T11), 10 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -806,7 +821,7 @@
     {
       "id": "g24_lg_t11_92",
       "label": "LG(T11), 10 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -833,7 +848,7 @@
     {
       "id": "g24_ic_t11_18",
       "label": "IC(T11), 10 kg, 18.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -860,7 +875,7 @@
     {
       "id": "g24_ic_t11_50",
       "label": "IC(T11), 10 kg, 50.5 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -887,7 +902,7 @@
     {
       "id": "g24_ic_t11_68",
       "label": "IC(T11), 10 kg, 68.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -914,7 +929,7 @@
     {
       "id": "g24_ic_t11_92",
       "label": "IC(T11), 10 kg, 92.1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -941,7 +956,7 @@
     {
       "id": "g24s_lg_t11_25",
       "label": "LG(T11), no load, 1 subj., 25 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 25,
         "angle_def": "trunk flexion",
@@ -968,7 +983,7 @@
     {
       "id": "g24s_lg_t11_50",
       "label": "LG(T11), no load, 1 subj., 50 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "trunk flexion",
@@ -995,7 +1010,7 @@
     {
       "id": "g24s_lg_t11_95",
       "label": "LG(T11), no load, 1 subj., 95 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 95,
         "angle_def": "trunk flexion",
@@ -1022,7 +1037,7 @@
     {
       "id": "g24s_ic_t11_25",
       "label": "IC(T11), no load, 1 subj., 25 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 25,
         "angle_def": "trunk flexion",
@@ -1049,7 +1064,7 @@
     {
       "id": "g24s_ic_t11_50",
       "label": "IC(T11), no load, 1 subj., 50 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "trunk flexion",
@@ -1076,7 +1091,7 @@
     {
       "id": "g24s_ic_t11_95",
       "label": "IC(T11), no load, 1 subj., 95 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 95,
         "angle_def": "trunk flexion",
@@ -1103,7 +1118,7 @@
     {
       "id": "shin_mu_30",
       "label": "MF(L4), no load, 30 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 30,
         "angle_def": "torso flexion from upright",
@@ -1130,7 +1145,7 @@
     {
       "id": "shin_mu_50",
       "label": "MF(L4), no load, 50 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "torso flexion from upright",
@@ -1157,7 +1172,7 @@
     {
       "id": "shin_mu_70",
       "label": "MF(L4), no load, 70 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 70,
         "angle_def": "torso flexion from upright",
@@ -1184,7 +1199,7 @@
     {
       "id": "shin_mu_90",
       "label": "MF(L4), no load, 90 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 90,
         "angle_def": "torso flexion from upright",
@@ -1211,7 +1226,7 @@
     {
       "id": "shin_lo_30",
       "label": "LG(L2), no load, 30 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 30,
         "angle_def": "torso flexion from upright",
@@ -1238,7 +1253,7 @@
     {
       "id": "shin_lo_50",
       "label": "LG(L2), no load, 50 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "torso flexion from upright",
@@ -1265,7 +1280,7 @@
     {
       "id": "shin_lo_70",
       "label": "LG(L2), no load, 70 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 70,
         "angle_def": "torso flexion from upright",
@@ -1292,7 +1307,7 @@
     {
       "id": "shin_lo_90",
       "label": "LG(L2), no load, 90 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 90,
         "angle_def": "torso flexion from upright",
@@ -1319,7 +1334,7 @@
     {
       "id": "shin_il_30",
       "label": "IC(L2), no load, 30 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 30,
         "angle_def": "torso flexion from upright",
@@ -1346,7 +1361,7 @@
     {
       "id": "shin_il_50",
       "label": "IC(L2), no load, 50 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "torso flexion from upright",
@@ -1373,7 +1388,7 @@
     {
       "id": "shin_il_70",
       "label": "IC(L2), no load, 70 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 70,
         "angle_def": "torso flexion from upright",
@@ -1400,7 +1415,7 @@
     {
       "id": "shin_il_90",
       "label": "IC(L2), no load, 90 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 90,
         "angle_def": "torso flexion from upright",
@@ -1427,7 +1442,7 @@
     {
       "id": "koo19_il_0",
       "label": "IC (site n.s.), no load, 0 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 0,
         "angle_def": "trunk inclination",
@@ -1455,7 +1470,7 @@
     {
       "id": "koo19_il_66",
       "label": "IC (site n.s.), no load, 66 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 66,
         "angle_def": "trunk inclination",
@@ -1483,7 +1498,7 @@
     {
       "id": "koo19_il_93",
       "label": "IC (site n.s.), no load, 93 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 93,
         "angle_def": "trunk inclination",
@@ -1511,7 +1526,7 @@
     {
       "id": "koo19_il_113",
       "label": "IC (site n.s.), no load, 113 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 113,
         "angle_def": "trunk inclination",
@@ -1539,7 +1554,7 @@
     {
       "id": "koo19_il_126",
       "label": "IC (site n.s.), no load, 126 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 126,
         "angle_def": "trunk inclination",
@@ -1567,7 +1582,7 @@
     {
       "id": "koo19_lo_0",
       "label": "LL (site n.s.), no load, 0 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 0,
         "angle_def": "trunk inclination",
@@ -1595,7 +1610,7 @@
     {
       "id": "koo19_lo_66",
       "label": "LL (site n.s.), no load, 66 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 66,
         "angle_def": "trunk inclination",
@@ -1623,7 +1638,7 @@
     {
       "id": "koo19_lo_93",
       "label": "LL (site n.s.), no load, 93 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 93,
         "angle_def": "trunk inclination",
@@ -1651,7 +1666,7 @@
     {
       "id": "koo19_lo_113",
       "label": "LL (site n.s.), no load, 113 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 113,
         "angle_def": "trunk inclination",
@@ -1679,7 +1694,7 @@
     {
       "id": "koo19_lo_126",
       "label": "LL (site n.s.), no load, 126 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 126,
         "angle_def": "trunk inclination",
@@ -1707,7 +1722,7 @@
     {
       "id": "koo20b_back_1",
       "label": "IC+LL mean, no load, 1 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 1,
         "angle_def": "lumbar flexion",
@@ -1735,7 +1750,7 @@
     {
       "id": "koo20b_back_31",
       "label": "IC+LL mean, no load, 31.4 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 31.4,
         "angle_def": "lumbar flexion",
@@ -1763,7 +1778,7 @@
     {
       "id": "koo20b_back_42",
       "label": "IC+LL mean, no load, 42.3 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 42.3,
         "angle_def": "lumbar flexion",
@@ -1791,7 +1806,7 @@
     {
       "id": "koo20b_back_55",
       "label": "IC+LL mean, no load, 54.9 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 54.9,
         "angle_def": "lumbar flexion",
@@ -1819,7 +1834,7 @@
     {
       "id": "koo20b_back_64",
       "label": "IC+LL mean, no load, 63.7 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 63.7,
         "angle_def": "lumbar flexion",
@@ -1847,7 +1862,7 @@
     {
       "id": "koo20b_back_67",
       "label": "IC+LL mean, no load, 67.4 deg",
-      "view": "emg_flexion",
+      "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 67.4,
         "angle_def": "lumbar flexion",
