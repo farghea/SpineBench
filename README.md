@@ -10,4 +10,4 @@ Source PDFs are not included. Values are extracted from the published papers; ci
 
 Created by Farshid Ghezelbash (https://sites.google.com/view/farshidghezelbash/home).
 
-Licence: research and education use only (CC BY-NC 4.0, see LICENSE). Commercial use requires written permission from Farshid Ghezelbash.
+Licence: research and education use only (CC BY-NC 4.0, see LICENSE). Commercial use is not allowed. For any other use, please contact the author.

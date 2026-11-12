@@ -1030,7 +1030,7 @@
   function viewAbout() {
     setTitle('About');
     var c = S.index.counts || {};
-    main.innerHTML = '<div class="stack prose"><div><h1>About SpineBench</h1></div><ul class="lines">' +
+    main.innerHTML = '<div class="stack prose"><div><img class="about-logo" src="assets/logo_full.svg" alt="SpineBench"><h1>About SpineBench</h1></div><ul class="lines">' +
       '<li>SpineBench collects published human measurements to validate thoracic and lumbar spine models: ' + esc(c.benchmarks) + ' outcome benchmarks, ' +
       esc(c.tasks) + ' tasks, ' + esc(c.studies) + ' studies.</li>' +
       '<li>A benchmark is one outcome (e.g. disc pressure, range of motion). A task is one condition a model can simulate; every study’s value for it is shown side by side.</li>' +
@@ -1039,7 +1039,7 @@
       '<li>Pooled value: n-weighted mean of studies that report a mean; SD combines within- and between-study spread; overlapping samples count once; medians are not pooled; at least two studies.</li>' +
       '<li>Created and maintained by <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</li>' +
       '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. https://sites.google.com/view/farshidghezelbash/home. Please also cite the original studies behind the values you use.</li>' +
-      '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed</b> without written permission from Farshid Ghezelbash.</li></ul>' +
+      '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
   }
   function notFound(msg) {
