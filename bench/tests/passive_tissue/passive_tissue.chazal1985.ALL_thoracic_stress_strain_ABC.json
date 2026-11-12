@@ -1,0 +1,239 @@
+{
+ "id": "passive_tissue.chazal1985.ALL_thoracic_stress_strain_ABC",
+ "title": "Chazal 1985 thoracic ALL stress-strain characteristic points A, B, C (mean of specimens)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "T10-T11",
+  "T4-T5",
+  "T6-T7"
+ ],
+ "condition": "intact (cadaveric + surgical)",
+ "quantity": {
+  "name": "stress-strain curve points",
+  "definition": "stress = force / smallest CSA (MPa) vs strain = elongation / resting length between nearest bony insertions (%), at A (end of toe), B (end of linear region), C (apex/rupture); mean of per-specimen Table 3 values computed by the extractor",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Chazal 1985",
+  "authors": "Chazal J, Tanguy A, Bourges M, Gaurel G, Escande G, Guillot M, Vanneuville G",
+  "year": 1985,
+  "journal": "J Biomech 18(3):167-176",
+  "doi": "",
+  "n": 43,
+  "sample": "43 whole ligaments from 18 spines (34 from 12 fresh cadavers <24 h post mortem, 30-80 y, mean 53; 9 SSL/ISL from living surgical subjects); human whole spinal ligaments (ALL, PLL, LF, ISL+SSL, ITL), cervical to lumbar; bone clamped",
+  "age": "cadavers 30-80 y (mean 53); surgical donors 40-73 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Uniaxial tension of entire ligaments, bones held in custom clamps (never the ligament or its insertions), universal joints; constant rate 1 mm/min for loading and relaxation; cadaver ligaments kept in water/alcohol/glycerin solution, surgical ligaments in Ringer and tested <1 h. CSA measured every 2 mm with a palpator, smallest value used for stress; length between nearest bony insertions. Curves sigmoid: point A = end of initial toe (concave) region, point B = end of linear region, point C = apex (rupture).",
+  "how_to_simulate": [
+   "Model the ligament between its bony insertions at the reported resting length and CSA (rows give length_mm, csa_mm2)",
+   "Apply uniaxial elongation along the fibres at a quasi-static rate (1 mm/min) to rupture",
+   "Report nominal stress (force / CSA) at the listed strains (elongation / resting length)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "origin",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "point A, T4-T5 (cadaver, 60 y)",
+   "x_value": 14.0,
+   "load": "",
+   "mean": 1.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 5,
+   "csa_mm2": 36
+  },
+  {
+   "x": "point B, T4-T5 (cadaver, 60 y)",
+   "x_value": 52.0,
+   "load": "",
+   "mean": 9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 5,
+   "csa_mm2": 36
+  },
+  {
+   "x": "point C, T4-T5 (cadaver, 60 y)",
+   "x_value": 60.0,
+   "load": "",
+   "mean": 11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 5,
+   "csa_mm2": 36
+  },
+  {
+   "x": "point A, T6-T7 (cadaver, 55 y)",
+   "x_value": 13.0,
+   "load": "",
+   "mean": 1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 6,
+   "csa_mm2": 30
+  },
+  {
+   "x": "point B, T6-T7 (cadaver, 55 y)",
+   "x_value": 50.0,
+   "load": "",
+   "mean": 11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 6,
+   "csa_mm2": 30
+  },
+  {
+   "x": "point C, T6-T7 (cadaver, 55 y)",
+   "x_value": 73.0,
+   "load": "",
+   "mean": 12,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 6,
+   "csa_mm2": 30
+  },
+  {
+   "x": "point A, T10-T11 (cadaver, 30 y)",
+   "x_value": 14.0,
+   "load": "",
+   "mean": 1.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 7,
+   "csa_mm2": 25
+  },
+  {
+   "x": "point B, T10-T11 (cadaver, 30 y)",
+   "x_value": 60.0,
+   "load": "",
+   "mean": 16,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 7,
+   "csa_mm2": 25
+  },
+  {
+   "x": "point C, T10-T11 (cadaver, 30 y)",
+   "x_value": 90.0,
+   "load": "",
+   "mean": 21,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "length_mm": 7,
+   "csa_mm2": 25
+  },
+  {
+   "x": "mean point A",
+   "x_value": 13.67,
+   "x_sd": 0.58,
+   "load": "",
+   "mean": 1.3,
+   "sd": 0.43,
+   "min": 1,
+   "max": 1.8,
+   "median": null,
+   "n": 3,
+   "note": "mean of specimens above (computed by extractor); x_sd = SD of strain (%)"
+  },
+  {
+   "x": "mean point B",
+   "x_value": 54.0,
+   "x_sd": 5.29,
+   "load": "",
+   "mean": 12.0,
+   "sd": 3.61,
+   "min": 9,
+   "max": 16,
+   "median": null,
+   "n": 3,
+   "note": "mean of specimens above (computed by extractor); x_sd = SD of strain (%)"
+  },
+  {
+   "x": "mean point C",
+   "x_value": 74.33,
+   "x_sd": 15.04,
+   "load": "",
+   "mean": 14.67,
+   "sd": 5.51,
+   "min": 11,
+   "max": 21,
+   "median": null,
+   "n": 3,
+   "note": "mean of specimens above (computed by extractor); x_sd = SD of strain (%)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 (pp. 174-175, rotated table)",
+  "method": "table",
+  "uncertainty": "as printed; means derived by extractor",
+  "checked": true,
+  "check_notes": "Read from 250-dpi renders of the rotated Table 3; consistent with the existing chazal1985 point-C tests (failure force/elongation/strain means reproduced). Points A/B missing for some surgical ISL+SSL specimens (not printed), so n differs per point. Cervical and C7-T1 rows excluded; T12-L1 counted as lumbar (as in the existing tests). Printed strain disagrees with dl/l for: T6-T7 (cadaver, 55 y) point B: printed strain 0.5 vs dl/l = 3.2/6 = 0.53 (printed value kept)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve passes within 1 SD of the mean point (both axes) at A, B and C"
+ },
+ "combine_group": "passive_tissue__stress_strain_curve__all_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ALL",
+  "curve",
+  "quasi-static",
+  "derived"
+ ],
+ "curve": {
+  "x_name": "strain",
+  "x_unit": "%",
+  "y_name": "stress",
+  "y_unit": "MPa"
+ }
+}

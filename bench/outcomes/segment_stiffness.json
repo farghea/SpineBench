@@ -12,7 +12,7 @@
     "T1-T12 FSUs",
     "T1-T2"
   ],
-  "summary": "Load single human motion segments (or L1-S1 under follower load) as stated and report stiffness, flexibility or displacement.",
+  "summary": "Load single motion segments (or L1-S1 under follower load) slowly as stated and report stiffness, flexibility, translation or rotation.",
   "simulate": [
     "Build the motion segment of the task (intact, posterior elements removed, or disc-only); fix the lower vertebra.",
     "Apply the preload first, then the single test load or displacement of the task; other DOF free unless stated.",
@@ -52,37 +52,44 @@
     {
       "key": "k_lin",
       "label": "Translational stiffness",
-      "unit": "N/mm"
+      "unit": "N/mm",
+      "definition": "Stiffness = force / translation along the loaded direction, slope over the stated range (N/mm)"
     },
     {
       "key": "k_rot",
       "label": "Rotational stiffness",
-      "unit": "Nm/deg"
+      "unit": "Nm/deg",
+      "definition": "Stiffness = moment / rotation about the loaded axis, slope over the stated range (Nm/deg)"
     },
     {
       "key": "disp",
       "label": "Translation under load",
-      "unit": "mm"
+      "unit": "mm",
+      "definition": "Translation of the upper vertebra relative to the lower at the stated load (mm)"
     },
     {
       "key": "rot",
       "label": "Rotation under load",
-      "unit": "deg"
+      "unit": "deg",
+      "definition": "Rotation of the upper vertebra relative to the lower at the stated load (deg)"
     },
     {
       "key": "flex_lin",
       "label": "Translational flexibility",
-      "unit": "mm/N"
+      "unit": "mm/N",
+      "definition": "Flexibility = translation per unit force (mm/N)"
     },
     {
       "key": "flex_rot",
       "label": "Rotational flexibility",
-      "unit": "deg/Nm"
+      "unit": "deg/Nm",
+      "definition": "Flexibility = rotation per unit moment (deg/Nm)"
     },
     {
       "key": "moment_pct",
       "label": "Bending moment, % of elastic-limit moment",
-      "unit": "%"
+      "unit": "%",
+      "definition": "Flexion moment at the stated % of the elastic-limit angle (10.5°), as % of the moment at that limit"
     }
   ],
   "studies": [
@@ -235,7 +242,7 @@
   "views": [
     {
       "id": "gms_diag",
-      "title": "Lumbar FSU 6x6 stiffness, diagonal terms (Gardner-Morse & Stokes 2004)",
+      "title": "Lumbar stiffness vs axial preload",
       "task_ids": [
         "gms_k11_0",
         "gms_k11_250",
@@ -256,30 +263,14 @@
         "gms_k66_250",
         "gms_k66_500"
       ],
-      "x": "input:preload_n"
-    },
-    {
-      "id": "panjabi_diag",
-      "title": "Thoracic FSU 6x6 stiffness, diagonal terms (Panjabi 1976)",
-      "task_ids": [
-        "pj_k11_p",
-        "pj_k11_m",
-        "pj_k22_p",
-        "pj_k22_m",
-        "pj_k33_p",
-        "pj_k33_m",
-        "pj_k44_p",
-        "pj_k44_m",
-        "pj_k55_p",
-        "pj_k55_m",
-        "pj_k66_p",
-        "pj_k66_m"
-      ],
-      "x": "task"
+      "x": "input:preload_n",
+      "series": [
+        "dof"
+      ]
     },
     {
       "id": "hexapod",
-      "title": "Lumbar FSU and disc, hexapod 6-DOF tests at 0.1 Hz (Amin 2016, Costi 2008)",
+      "title": "Lumbar stiffness in each direction",
       "task_ids": [
         "amin_axial_compression",
         "amin_anterior_shear",
@@ -297,14 +288,32 @@
         "costi_flexion",
         "costi_extension",
         "costi_lateral_bending",
-        "costi_axial_rotation"
+        "costi_axial_rotation",
+        "edw_fle_kyy",
+        "edw_fle_kzz",
+        "edw_fle_ktt",
+        "edw_ext_kyy",
+        "edw_ext_kzz",
+        "edw_ext_ktt"
       ],
       "x": "task"
     },
     {
-      "id": "thoracic_shear",
-      "title": "Upper thoracic T1-T2 shear stiffness (Yamamoto 2022)",
+      "id": "panjabi_diag",
+      "title": "Thoracic segment stiffness",
       "task_ids": [
+        "pj_k11_p",
+        "pj_k11_m",
+        "pj_k22_p",
+        "pj_k22_m",
+        "pj_k33_p",
+        "pj_k33_m",
+        "pj_k44_p",
+        "pj_k44_m",
+        "pj_k55_p",
+        "pj_k55_m",
+        "pj_k66_p",
+        "pj_k66_m",
         "yam_ant_low",
         "yam_ant_high",
         "yam_post_low",
@@ -347,7 +356,7 @@
     },
     {
       "id": "rotation",
-      "title": "Rotation under moment or follower load",
+      "title": "Rotation and flexibility under single loads",
       "task_ids": [
         "jan_flexion_0",
         "jan_flexion_2200",
@@ -358,14 +367,7 @@
         "jan_axial_0",
         "jan_axial_2200",
         "pat_neutral",
-        "pat_flexed"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "tencer",
-      "title": "Lumbar joint flexibility, single loads, no preload (Tencer 1982)",
-      "task_ids": [
+        "pat_flexed",
         "ten_lateral_shear",
         "ten_anterior_shear",
         "ten_posterior_shear",
@@ -378,21 +380,8 @@
       "x": "task"
     },
     {
-      "id": "edwards",
-      "title": "Lumbar FSU sagittal stiffness, low combined loads (Edwards 1987)",
-      "task_ids": [
-        "edw_fle_kyy",
-        "edw_fle_kzz",
-        "edw_fle_ktt",
-        "edw_ext_kyy",
-        "edw_ext_kzz",
-        "edw_ext_ktt"
-      ],
-      "x": "task"
-    },
-    {
       "id": "adams",
-      "title": "L4-L5 flexion moment vs % of elastic-limit flexion (Adams & Dolan 1991)",
+      "title": "L4-L5 bending moment vs flexion",
       "task_ids": [
         "ad_l45_10",
         "ad_l45_30",
@@ -980,7 +969,7 @@
     },
     {
       "id": "pj_k11_p",
-      "label": "K11 lateral shear, positive load",
+      "label": "Lateral shear, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1007,7 +996,7 @@
     },
     {
       "id": "pj_k11_m",
-      "label": "K11 lateral shear, negative load",
+      "label": "Lateral shear, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1034,7 +1023,7 @@
     },
     {
       "id": "pj_k22_p",
-      "label": "K22 axial, positive load",
+      "label": "Axial, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1061,7 +1050,7 @@
     },
     {
       "id": "pj_k22_m",
-      "label": "K22 axial, negative load",
+      "label": "Axial, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1088,7 +1077,7 @@
     },
     {
       "id": "pj_k33_p",
-      "label": "K33 A-P shear, positive load",
+      "label": "A-P shear, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1115,7 +1104,7 @@
     },
     {
       "id": "pj_k33_m",
-      "label": "K33 A-P shear, negative load",
+      "label": "A-P shear, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1142,7 +1131,7 @@
     },
     {
       "id": "pj_k44_p",
-      "label": "K44 flexion-extension, positive load",
+      "label": "Flexion-extension, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1169,7 +1158,7 @@
     },
     {
       "id": "pj_k44_m",
-      "label": "K44 flexion-extension, negative load",
+      "label": "Flexion-extension, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1196,7 +1185,7 @@
     },
     {
       "id": "pj_k55_p",
-      "label": "K55 axial rotation, positive load",
+      "label": "Axial rotation, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1223,7 +1212,7 @@
     },
     {
       "id": "pj_k55_m",
-      "label": "K55 axial rotation, negative load",
+      "label": "Axial rotation, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1250,7 +1239,7 @@
     },
     {
       "id": "pj_k66_p",
-      "label": "K66 lateral bending, positive load",
+      "label": "Lateral bending, + direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1277,7 +1266,7 @@
     },
     {
       "id": "pj_k66_m",
-      "label": "K66 lateral bending, negative load",
+      "label": "Lateral bending, - direction",
       "view": "panjabi_diag",
       "inputs": {
         "specimen": "thoracic FSU with rib heads",
@@ -1304,7 +1293,7 @@
     },
     {
       "id": "amin_axial_compression",
-      "label": "FSU, Compression, 0.1 Hz",
+      "label": "FSU, compression (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1364,7 +1353,7 @@
     },
     {
       "id": "amin_anterior_shear",
-      "label": "FSU, Anterior shear, 0.1 Hz",
+      "label": "FSU, anterior shear (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1413,7 +1402,7 @@
     },
     {
       "id": "amin_posterior_shear",
-      "label": "FSU, Posterior shear, 0.1 Hz",
+      "label": "FSU, posterior shear (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1462,7 +1451,7 @@
     },
     {
       "id": "amin_lateral_shear",
-      "label": "FSU, Lateral shear, 0.1 Hz",
+      "label": "FSU, lateral shear (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1511,7 +1500,7 @@
     },
     {
       "id": "amin_flexion",
-      "label": "FSU, Flexion, 0.1 Hz",
+      "label": "FSU, flexion (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1560,7 +1549,7 @@
     },
     {
       "id": "amin_extension",
-      "label": "FSU, Extension, 0.1 Hz",
+      "label": "FSU, extension (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1609,7 +1598,7 @@
     },
     {
       "id": "amin_lateral_bending",
-      "label": "FSU, Lateral bending, 0.1 Hz",
+      "label": "FSU, lateral bending (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1658,7 +1647,7 @@
     },
     {
       "id": "amin_axial_rotation",
-      "label": "FSU, Axial rotation, 0.1 Hz",
+      "label": "FSU, axial rotation (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -1707,7 +1696,7 @@
     },
     {
       "id": "amin_disc_compression",
-      "label": "Disc only, Compression, 0.1 Hz",
+      "label": "Disc only, compression (0.1 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "lumbar FSU, facets removed",
@@ -1734,13 +1723,13 @@
     },
     {
       "id": "costi_axial_compression",
-      "label": "Disc unit, Compression, 0.1 Hz",
+      "label": "Disc unit, compression (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "axial compression",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_lin",
@@ -1748,26 +1737,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 4737.0,
-          "sd": 1090.0,
+          "mean": 3513,
+          "sd": 662.0,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 7,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_anterior_shear",
-      "label": "Disc unit, Anterior shear, 0.1 Hz",
+      "label": "Disc unit, anterior shear (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "anterior shear",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_lin",
@@ -1775,26 +1764,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 157.0,
-          "sd": 50.8,
+          "mean": 127,
+          "sd": 45.4,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 7,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_posterior_shear",
-      "label": "Disc unit, Posterior shear, 0.1 Hz",
+      "label": "Disc unit, posterior shear (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "posterior shear",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_lin",
@@ -1802,26 +1791,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 181.0,
-          "sd": 67.0,
+          "mean": 151,
+          "sd": 60.5,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 7,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_lateral_shear",
-      "label": "Disc unit, Lateral shear, 0.1 Hz",
+      "label": "Disc unit, lateral shear (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "lateral shear",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_lin",
@@ -1829,26 +1818,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 299.0,
-          "sd": 238.0,
+          "mean": 252,
+          "sd": 211.0,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 9,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_flexion",
-      "label": "Disc unit, Flexion, 0.1 Hz",
+      "label": "Disc unit, flexion (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "flexion",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_rot",
@@ -1856,26 +1845,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 3.0,
-          "sd": 2.38,
+          "mean": 2.3,
+          "sd": 2.1,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 6,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_extension",
-      "label": "Disc unit, Extension, 0.1 Hz",
+      "label": "Disc unit, extension (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "extension",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_rot",
@@ -1883,26 +1872,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 3.0,
-          "sd": 2.0,
+          "mean": 2.1,
+          "sd": 1.52,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 6,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_lateral_bending",
-      "label": "Disc unit, Lateral bending, 0.1 Hz",
+      "label": "Disc unit, lateral bending (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "lateral bending",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_rot",
@@ -1910,26 +1899,26 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 4.1,
-          "sd": 1.73,
+          "mean": 3.4,
+          "sd": 1.62,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 7,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "costi_axial_rotation",
-      "label": "Disc unit, Axial rotation, 0.1 Hz",
+      "label": "Disc unit, axial rotation (0.001 Hz)",
       "view": "hexapod",
       "inputs": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
         "dof": "axial rotation",
-        "load": "0.1 Hz sinusoid",
+        "load": "0.001 Hz sinusoid",
         "preload_n": null
       },
       "output": "k_rot",
@@ -1937,21 +1926,21 @@
       "refs": [
         {
           "study": "costi2008",
-          "mean": 2.7,
-          "sd": 0.911,
+          "mean": 2.3,
+          "sd": 0.781,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 9,
           "test_id": "segment_stiffness.costi2008.lumbar_disc_6dof_stiffness_vs_frequency",
-          "note": "mean, SD from 95% CI; 0.001-1 Hz in bench/tests"
+          "note": "0.001 Hz (slowest, quasi-static) row; SD from 95% CI"
         }
       ]
     },
     {
       "id": "yam_ant_low",
-      "label": "T1-T2, Anterior shear, low zone",
-      "view": "thoracic_shear",
+      "label": "T1-T2, anterior shear, low zone",
+      "view": "panjabi_diag",
       "inputs": {
         "specimen": "T1-T2 FSU with rib heads",
         "condition": "intact, no preload",
@@ -1977,8 +1966,8 @@
     },
     {
       "id": "yam_ant_high",
-      "label": "T1-T2, Anterior shear, high zone",
-      "view": "thoracic_shear",
+      "label": "T1-T2, anterior shear, high zone",
+      "view": "panjabi_diag",
       "inputs": {
         "specimen": "T1-T2 FSU with rib heads",
         "condition": "intact, no preload",
@@ -2004,8 +1993,8 @@
     },
     {
       "id": "yam_post_low",
-      "label": "T1-T2, Posterior shear, low zone",
-      "view": "thoracic_shear",
+      "label": "T1-T2, posterior shear, low zone",
+      "view": "panjabi_diag",
       "inputs": {
         "specimen": "T1-T2 FSU with rib heads",
         "condition": "intact, no preload",
@@ -2031,8 +2020,8 @@
     },
     {
       "id": "yam_post_high",
-      "label": "T1-T2, Posterior shear, high zone",
-      "view": "thoracic_shear",
+      "label": "T1-T2, posterior shear, high zone",
+      "view": "panjabi_diag",
       "inputs": {
         "specimen": "T1-T2 FSU with rib heads",
         "condition": "intact, no preload",
@@ -2868,7 +2857,7 @@
     },
     {
       "id": "jan_right_0",
-      "label": "FSU, 8 Nm right LB, 0 N preload",
+      "label": "FSU, 8 Nm right bend, 0 N preload",
       "view": "rotation",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -2895,7 +2884,7 @@
     },
     {
       "id": "jan_right_2200",
-      "label": "FSU, 8 Nm right LB, 2200 N preload",
+      "label": "FSU, 8 Nm right bend, 2200 N preload",
       "view": "rotation",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
@@ -3030,8 +3019,8 @@
     },
     {
       "id": "ten_lateral_shear",
-      "label": "L2-L3/L4-L5 joint, Lateral shear",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, lateral shear",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3057,8 +3046,8 @@
     },
     {
       "id": "ten_anterior_shear",
-      "label": "L2-L3/L4-L5 joint, Anterior shear",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, anterior shear",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3084,8 +3073,8 @@
     },
     {
       "id": "ten_posterior_shear",
-      "label": "L2-L3/L4-L5 joint, Posterior shear",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, posterior shear",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3111,8 +3100,8 @@
     },
     {
       "id": "ten_axial_compression",
-      "label": "L2-L3/L4-L5 joint, Compression",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, compression",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3138,8 +3127,8 @@
     },
     {
       "id": "ten_flexion",
-      "label": "L2-L3/L4-L5 joint, Flexion",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, flexion",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3165,8 +3154,8 @@
     },
     {
       "id": "ten_extension",
-      "label": "L2-L3/L4-L5 joint, Extension",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, extension",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3192,8 +3181,8 @@
     },
     {
       "id": "ten_lateral_bending",
-      "label": "L2-L3/L4-L5 joint, Lateral bending",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, lateral bending",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3219,8 +3208,8 @@
     },
     {
       "id": "ten_axial_rotation",
-      "label": "L2-L3/L4-L5 joint, Axial torque",
-      "view": "tencer",
+      "label": "L2-L3/L4-L5, axial torque",
+      "view": "rotation",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3247,7 +3236,7 @@
     {
       "id": "edw_fle_kyy",
       "label": "Axial stiffness, flexion loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3274,7 +3263,7 @@
     {
       "id": "edw_fle_kzz",
       "label": "A-P stiffness, flexion loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3301,7 +3290,7 @@
     {
       "id": "edw_fle_ktt",
       "label": "Rotation stiffness, flexion loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3328,7 +3317,7 @@
     {
       "id": "edw_ext_kyy",
       "label": "Axial stiffness, extension loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3355,7 +3344,7 @@
     {
       "id": "edw_ext_kzz",
       "label": "A-P stiffness, extension loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3382,7 +3371,7 @@
     {
       "id": "edw_ext_ktt",
       "label": "Rotation stiffness, extension loads",
-      "view": "edwards",
+      "view": "hexapod",
       "inputs": {
         "specimen": "L1-L2 / L3-L4 FSU",
         "condition": "intact",
@@ -3543,10 +3532,9 @@
     }
   ],
   "notes": [
-    "Only human data. Excluded: Gardner-Morse & Stokes 2003 (porcine); Lopez-Valdes 2011 (dynamic bending to failure); Crisco 1992 (Euler buckling of whole L1-S1 spines under ~100 N dead load: an instability load set by imperfections, not a segment stiffness); Cripton 2000 (ROM at 5 Nm, belongs to lumbar_rom).",
-    "Kept to diagonal terms and principal displacements: off-diagonal/coupling terms (Gardner-Morse 2004, Panjabi 1976, Edwards 1987), disc-only % of intact, Tencer coupling and Rc ratios, Berkson coupled motions, Janevic 4400 N preload and lateral shear, Edwards high-load regime, Costi other frequencies and phase angles, Yamamoto per-rate values, Amin loading-sequence effect and Adams & Dolan other levels stay in bench/tests.",
-    "Gardner-Morse 2004 split levels at 250 and 500 N for some terms: both level refs are listed; L4-L5 is stiffer in bending.",
-    "Amin 2016b refs are degeneration grades (disjoint subsets of the 14 FSUs); Amin 2016a compression uses all 14. Patwardhan 2003 and Renner 2007 come from one lab; donor overlap assumed."
+    "Quasi-static only: Costi 2008 at 0.001 Hz (slowest of 0.001-1 Hz); Amin 2016 and Cannella 2008 use slow 0.1 Hz cycles. Dynamic and failure tests are excluded.",
+    "Only diagonal (direct) terms and principal motions; coupling terms stay in bench/tests.",
+    "Amin 2016b refs are degeneration grades of the same 14 FSUs as Amin 2016a; Patwardhan 2003 and Renner 2007 share a lab."
   ],
   "agent_prompt": "Use your finite element spine model. For each task build the motion segment in its inputs (intact, posterior elements removed, or disc-only; L1-S1 for follower-load tasks), fix the lower vertebra and apply the preload first. Then apply the single test load or imposed displacement given in \"load\" with the other degrees of freedom free (for 6x6 diagonal terms, hold them fixed). Report stiffness (k_lin N/mm, k_rot Nm/deg) as the slope over the stated range, flexibility (mm/N, deg/Nm), or the translation (mm) or rotation (deg) at the stated load and reference point. For moment_pct, report the flexion moment at the given % of 10.5 deg as % of the moment at 10.5 deg. Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {

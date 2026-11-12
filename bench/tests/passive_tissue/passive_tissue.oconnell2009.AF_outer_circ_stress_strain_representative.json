@@ -1,0 +1,287 @@
+{
+  "id": "passive_tissue.oconnell2009.AF_outer_circ_stress_strain_representative",
+  "title": "O'Connell 2009 outer AF uniaxial circumferential tension, representative nondegenerate sample",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus",
+  "region": "lumbar",
+  "levels": [
+    "L3-L4",
+    "L4-L5"
+  ],
+  "condition": "non-degenerate",
+  "quantity": {
+    "name": "stress-strain curve",
+    "definition": "stress (as plotted) vs deformation C = stretch^2 in circumferential tension; nominal strain = sqrt(C) - 1",
+    "unit": "MPa"
+  },
+  "source": {
+    "short": "O'Connell 2009",
+    "authors": "O'Connell GD, Guerin HL, Elliott DM",
+    "year": 2009,
+    "journal": "J Biomech Eng 131(11):111007",
+    "doi": "10.1115/1.3212104",
+    "n": 13,
+    "sample": "outer anterior AF samples, L3-L4/L4-L5, 7 cadaveric spines; 7 nondegenerate, 6 degenerate; figure = one representative nondegenerate sample",
+    "age": "36-80 y",
+    "sex": "not reported",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Outer anterior AF strips (circ 15.8 x 2.8 x 1.9 mm; axial 11.1 x 2.3 x 1.5 mm); 10 min preload 0.1 N; 20 preconditioning cycles 0-2 %; uniaxial quasi-static ramp; 2D Lagrangian strain from optical tracking (Vic2D); 'Lagrangian stress (S) calculated as force divided by the undeformed cross sectional area' (Methods), although the figure axis is labelled '2nd P-K Stress'.",
+    "how_to_simulate": [
+      "Rectangular strip of outer anterior AF, lamellae at about +-30 deg to the load axis (circ) or +-60 deg (axial)",
+      "Grip ends, lateral faces free, quasi-static ramp",
+      "Report nominal stress vs nominal strain eps = sqrt(C) - 1"
+    ],
+    "subject_model": null,
+    "notes": "x_value = C (stretch squared) as plotted; nominal_strain = sqrt(C) - 1 added per row. Stress kept as plotted (Methods: force/undeformed area; axis label says 2nd P-K - ambiguity flagged)."
+  },
+  "data": [
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.0,
+      "load": "",
+      "mean": 0.0,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.0377,
+      "load": "",
+      "mean": 0.0082,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0187
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.0697,
+      "load": "",
+      "mean": 0.0181,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0343
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.0994,
+      "load": "",
+      "mean": 0.0362,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0485
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.129,
+      "load": "",
+      "mean": 0.053,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0625
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.158,
+      "load": "",
+      "mean": 0.0772,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0761
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.1819,
+      "load": "",
+      "mean": 0.1083,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0872
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.2031,
+      "load": "",
+      "mean": 0.1485,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0969
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.2213,
+      "load": "",
+      "mean": 0.2606,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1051
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.2408,
+      "load": "",
+      "mean": 0.3345,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1139
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.2784,
+      "load": "",
+      "mean": 0.5204,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1307
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.2977,
+      "load": "",
+      "mean": 0.628,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1392
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.3048,
+      "load": "",
+      "mean": 0.6913,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1423
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.312,
+      "load": "",
+      "mean": 0.7545,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1454
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.3267,
+      "load": "",
+      "mean": 0.8941,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1518
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.3357,
+      "load": "",
+      "mean": 0.9617,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1557
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.345,
+      "load": "",
+      "mean": 1.0269,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1597
+    },
+    {
+      "x": "circumferential tension, representative nondegenerate sample",
+      "x_value": 1.3601,
+      "load": "",
+      "mean": 1.1699,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1662
+    }
+  ],
+  "extraction": {
+    "from": "Fig 4 (PMC p.15)",
+    "method": "digitised_figure",
+    "uncertainty": "C +/-0.004 (strain +/-0.2 %), stress +/-0.01 MPa",
+    "checked": true,
+    "check_notes": "300-dpi render; axes calibrated on tick marks; filled symbols located by blob centroids. Re-check: C=1.20 -> 0.15 MPa and C=1.36 -> 1.17 MPa read again on the figure, agree. Points at C<1.08 partly hidden by the axis (stress +/-0.005 MPa). n=1 (representative)."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "model curve within the stated digitising uncertainty band of the measured curve over the tested range"
+  },
+  "combine_group": "passive_tissue__stress_strain_curve__af_outer__human_nondegen__uniaxial_circ",
+  "tags": [
+    "human",
+    "in vitro",
+    "annulus",
+    "lumbar",
+    "curve",
+    "digitised",
+    "representative",
+    "quasi-static"
+  ],
+  "curve": {
+    "x_name": "deformation C (stretch squared)",
+    "x_unit": "-",
+    "y_name": "stress (force/undeformed area per Methods)",
+    "y_unit": "MPa"
+  }
+}

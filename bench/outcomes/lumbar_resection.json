@@ -9,12 +9,12 @@
     "L2-L3",
     "L4-L5"
   ],
-  "summary": "Remove structures step by step as each study did and report rotation at the stated pure moment after every step.",
+  "summary": "Remove spinal structures step by step as each study did and report lumbar segment rotation at the stated pure moment after every step.",
   "simulate": [
-    "Build the specimen of the view: lumbar FSU, disc-only unit, thoracic FSU, or C7-L1 spine with rib cage.",
-    "Fix the caudal vertebra; apply the pure moment (and preload, if stated) to the cranial end.",
-    "Remove structures cumulatively in the listed order; re-run the same load at every step.",
-    "Report rotation at peak moment: one direction, or full range (both directions summed) if stated.",
+    "Build the specimen of the view: lumbar FSU, or disc-only unit (posterior elements removed).",
+    "Fix the caudal vertebra; apply the pure moment (and preload, if stated) to the cranial vertebra.",
+    "Remove structures cumulatively in the listed order (step 0 = intact); re-run the same load at every step.",
+    "Report rotation at peak moment, one direction from neutral.",
     "For % of intact tasks divide by your own intact value and multiply by 100."
   ],
   "inputs": [
@@ -48,18 +48,15 @@
   "outputs": [
     {
       "key": "rom",
-      "label": "ROM, one direction",
-      "unit": "deg"
-    },
-    {
-      "key": "rom_range",
-      "label": "ROM, full range (both directions)",
-      "unit": "deg"
+      "label": "ROM",
+      "unit": "deg",
+      "definition": "ROM = rotation of the upper vertebra relative to the lower at peak moment, one direction, loading branch (deg)"
     },
     {
       "key": "rom_pct",
       "label": "ROM, % of intact",
-      "unit": "%"
+      "unit": "%",
+      "definition": "Value after removal / same specimen intact x 100 (rotation, or axial displacement for axial tasks)"
     }
   ],
   "studies": [
@@ -109,7 +106,7 @@
   "views": [
     {
       "id": "l45_heuer",
-      "title": "Lumbar L4-L5 FSU (Heuer 2007a), 7.5 Nm",
+      "title": "L4-L5: structures removed one by one",
       "task_ids": [
         "l45_intact_flex",
         "l45_ssl_flex",
@@ -148,11 +145,14 @@
         "l45_all_ar",
         "l45_nuc_ar"
       ],
-      "x": "task"
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
     },
     {
       "id": "l23_heuer",
-      "title": "Lumbar L2-L3 FSU (Heuer 2008), 7.5 Nm",
+      "title": "L2-L3: posterior parts, ligaments, nucleus",
       "task_ids": [
         "l23_intact_flex",
         "l23_va_flex",
@@ -171,11 +171,14 @@
         "l23_all_ar",
         "l23_nuc_ar"
       ],
-      "x": "task"
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
     },
     {
       "id": "lumbar_pe_schultz",
-      "title": "Lumbar FSU, posterior elements removed (Schultz 1979), 4.7 Nm + 400 N",
+      "title": "Posterior elements removed (4.7 Nm, 400 N)",
       "task_ids": [
         "sch_intact_flex",
         "sch_wope_flex",
@@ -190,7 +193,7 @@
     },
     {
       "id": "lumbar_denuc_pct",
-      "title": "Lumbar disc-only unit, nucleus removal (% of intact)",
+      "title": "Nucleus removed, % of intact",
       "task_ids": [
         "acu_denuc_flex",
         "acu_denuc_ext",
@@ -205,7 +208,7 @@
   "tasks": [
     {
       "id": "l45_intact_flex",
-      "label": "Flex, 0: intact",
+      "label": "Flexion, intact",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -234,7 +237,7 @@
     },
     {
       "id": "l45_ssl_flex",
-      "label": "Flex, 1: -SSL (cum.)",
+      "label": "Flexion, step 1: SSL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -263,7 +266,7 @@
     },
     {
       "id": "l45_isl_flex",
-      "label": "Flex, 2: -ISL (cum.)",
+      "label": "Flexion, step 2: ISL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -292,7 +295,7 @@
     },
     {
       "id": "l45_lf_flex",
-      "label": "Flex, 3: -LF (cum.)",
+      "label": "Flexion, step 3: LF out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -321,7 +324,7 @@
     },
     {
       "id": "l45_fc_flex",
-      "label": "Flex, 4: -FC (cum.)",
+      "label": "Flexion, step 4: capsules out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -350,7 +353,7 @@
     },
     {
       "id": "l45_va_flex",
-      "label": "Flex, 5: -VA (cum.)",
+      "label": "Flexion, step 5: arch out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -379,7 +382,7 @@
     },
     {
       "id": "l45_pll_flex",
-      "label": "Flex, 6: -PLL (cum.)",
+      "label": "Flexion, step 6: PLL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -408,7 +411,7 @@
     },
     {
       "id": "l45_all_flex",
-      "label": "Flex, 7: -ALL (cum.)",
+      "label": "Flexion, step 7: ALL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -437,7 +440,7 @@
     },
     {
       "id": "l45_nuc_flex",
-      "label": "Flex, 8: -NUC (cum.)",
+      "label": "Flexion, step 8: nucleus out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -466,7 +469,7 @@
     },
     {
       "id": "l45_intact_ext",
-      "label": "Ext, 0: intact",
+      "label": "Extension, intact",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -495,7 +498,7 @@
     },
     {
       "id": "l45_ssl_ext",
-      "label": "Ext, 1: -SSL (cum.)",
+      "label": "Extension, step 1: SSL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -524,7 +527,7 @@
     },
     {
       "id": "l45_isl_ext",
-      "label": "Ext, 2: -ISL (cum.)",
+      "label": "Extension, step 2: ISL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -553,7 +556,7 @@
     },
     {
       "id": "l45_lf_ext",
-      "label": "Ext, 3: -LF (cum.)",
+      "label": "Extension, step 3: LF out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -582,7 +585,7 @@
     },
     {
       "id": "l45_fc_ext",
-      "label": "Ext, 4: -FC (cum.)",
+      "label": "Extension, step 4: capsules out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -611,7 +614,7 @@
     },
     {
       "id": "l45_va_ext",
-      "label": "Ext, 5: -VA (cum.)",
+      "label": "Extension, step 5: arch out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -640,7 +643,7 @@
     },
     {
       "id": "l45_pll_ext",
-      "label": "Ext, 6: -PLL (cum.)",
+      "label": "Extension, step 6: PLL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -669,7 +672,7 @@
     },
     {
       "id": "l45_all_ext",
-      "label": "Ext, 7: -ALL (cum.)",
+      "label": "Extension, step 7: ALL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -698,7 +701,7 @@
     },
     {
       "id": "l45_nuc_ext",
-      "label": "Ext, 8: -NUC (cum.)",
+      "label": "Extension, step 8: nucleus out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -727,7 +730,7 @@
     },
     {
       "id": "l45_intact_lb",
-      "label": "LB, 0: intact",
+      "label": "Lat. bending, intact",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -756,7 +759,7 @@
     },
     {
       "id": "l45_ssl_lb",
-      "label": "LB, 1: -SSL (cum.)",
+      "label": "Lat. bending, step 1: SSL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -785,7 +788,7 @@
     },
     {
       "id": "l45_isl_lb",
-      "label": "LB, 2: -ISL (cum.)",
+      "label": "Lat. bending, step 2: ISL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -814,7 +817,7 @@
     },
     {
       "id": "l45_lf_lb",
-      "label": "LB, 3: -LF (cum.)",
+      "label": "Lat. bending, step 3: LF out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -843,7 +846,7 @@
     },
     {
       "id": "l45_fc_lb",
-      "label": "LB, 4: -FC (cum.)",
+      "label": "Lat. bending, step 4: capsules out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -872,7 +875,7 @@
     },
     {
       "id": "l45_va_lb",
-      "label": "LB, 5: -VA (cum.)",
+      "label": "Lat. bending, step 5: arch out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -901,7 +904,7 @@
     },
     {
       "id": "l45_pll_lb",
-      "label": "LB, 6: -PLL (cum.)",
+      "label": "Lat. bending, step 6: PLL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -930,7 +933,7 @@
     },
     {
       "id": "l45_all_lb",
-      "label": "LB, 7: -ALL (cum.)",
+      "label": "Lat. bending, step 7: ALL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -959,7 +962,7 @@
     },
     {
       "id": "l45_nuc_lb",
-      "label": "LB, 8: -NUC (cum.)",
+      "label": "Lat. bending, step 8: nucleus out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -988,7 +991,7 @@
     },
     {
       "id": "l45_intact_ar",
-      "label": "AR, 0: intact",
+      "label": "Axial rot., intact",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1017,7 +1020,7 @@
     },
     {
       "id": "l45_ssl_ar",
-      "label": "AR, 1: -SSL (cum.)",
+      "label": "Axial rot., step 1: SSL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1046,7 +1049,7 @@
     },
     {
       "id": "l45_isl_ar",
-      "label": "AR, 2: -ISL (cum.)",
+      "label": "Axial rot., step 2: ISL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1075,7 +1078,7 @@
     },
     {
       "id": "l45_lf_ar",
-      "label": "AR, 3: -LF (cum.)",
+      "label": "Axial rot., step 3: LF out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1104,7 +1107,7 @@
     },
     {
       "id": "l45_fc_ar",
-      "label": "AR, 4: -FC (cum.)",
+      "label": "Axial rot., step 4: capsules out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1133,7 +1136,7 @@
     },
     {
       "id": "l45_va_ar",
-      "label": "AR, 5: -VA (cum.)",
+      "label": "Axial rot., step 5: arch out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1162,7 +1165,7 @@
     },
     {
       "id": "l45_pll_ar",
-      "label": "AR, 6: -PLL (cum.)",
+      "label": "Axial rot., step 6: PLL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1191,7 +1194,7 @@
     },
     {
       "id": "l45_all_ar",
-      "label": "AR, 7: -ALL (cum.)",
+      "label": "Axial rot., step 7: ALL out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1220,7 +1223,7 @@
     },
     {
       "id": "l45_nuc_ar",
-      "label": "AR, 8: -NUC (cum.)",
+      "label": "Axial rot., step 8: nucleus out",
       "view": "l45_heuer",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1249,7 +1252,7 @@
     },
     {
       "id": "l23_intact_flex",
-      "label": "Flex, 0: intact",
+      "label": "Flexion, intact",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1278,7 +1281,7 @@
     },
     {
       "id": "l23_va_flex",
-      "label": "Flex, 1: -posterior elements",
+      "label": "Flexion, step 1: post. elements out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1307,7 +1310,7 @@
     },
     {
       "id": "l23_all_flex",
-      "label": "Flex, 2: -PLL, ALL (cum.)",
+      "label": "Flexion, step 2: PLL, ALL out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1336,7 +1339,7 @@
     },
     {
       "id": "l23_nuc_flex",
-      "label": "Flex, 3: -nucleus (cum.)",
+      "label": "Flexion, step 3: nucleus out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1365,7 +1368,7 @@
     },
     {
       "id": "l23_intact_ext",
-      "label": "Ext, 0: intact",
+      "label": "Extension, intact",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1394,7 +1397,7 @@
     },
     {
       "id": "l23_va_ext",
-      "label": "Ext, 1: -posterior elements",
+      "label": "Extension, step 1: post. elements out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1423,7 +1426,7 @@
     },
     {
       "id": "l23_all_ext",
-      "label": "Ext, 2: -PLL, ALL (cum.)",
+      "label": "Extension, step 2: PLL, ALL out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1452,7 +1455,7 @@
     },
     {
       "id": "l23_nuc_ext",
-      "label": "Ext, 3: -nucleus (cum.)",
+      "label": "Extension, step 3: nucleus out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1481,7 +1484,7 @@
     },
     {
       "id": "l23_intact_lb",
-      "label": "LB, 0: intact",
+      "label": "Lat. bending, intact",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1510,7 +1513,7 @@
     },
     {
       "id": "l23_va_lb",
-      "label": "LB, 1: -posterior elements",
+      "label": "Lat. bending, step 1: post. elements out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1539,7 +1542,7 @@
     },
     {
       "id": "l23_all_lb",
-      "label": "LB, 2: -PLL, ALL (cum.)",
+      "label": "Lat. bending, step 2: PLL, ALL out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1568,7 +1571,7 @@
     },
     {
       "id": "l23_nuc_lb",
-      "label": "LB, 3: -nucleus (cum.)",
+      "label": "Lat. bending, step 3: nucleus out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1597,7 +1600,7 @@
     },
     {
       "id": "l23_intact_ar",
-      "label": "AR, 0: intact",
+      "label": "Axial rot., intact",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1626,7 +1629,7 @@
     },
     {
       "id": "l23_va_ar",
-      "label": "AR, 1: -posterior elements",
+      "label": "Axial rot., step 1: post. elements out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1655,7 +1658,7 @@
     },
     {
       "id": "l23_all_ar",
-      "label": "AR, 2: -PLL, ALL (cum.)",
+      "label": "Axial rot., step 2: PLL, ALL out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1684,7 +1687,7 @@
     },
     {
       "id": "l23_nuc_ar",
-      "label": "AR, 3: -nucleus (cum.)",
+      "label": "Axial rot., step 3: nucleus out",
       "view": "l23_heuer",
       "inputs": {
         "specimen": "L2-L3 FSU",
@@ -1713,7 +1716,7 @@
     },
     {
       "id": "sch_intact_flex",
-      "label": "Flex, 0: intact",
+      "label": "Flexion, intact",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1741,7 +1744,7 @@
     },
     {
       "id": "sch_wope_flex",
-      "label": "Flex, 1: -posterior elements",
+      "label": "Flexion, step 1: post. elements out",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1769,7 +1772,7 @@
     },
     {
       "id": "sch_intact_ext",
-      "label": "Ext, 0: intact",
+      "label": "Extension, intact",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1797,7 +1800,7 @@
     },
     {
       "id": "sch_wope_ext",
-      "label": "Ext, 1: -posterior elements",
+      "label": "Extension, step 1: post. elements out",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1825,7 +1828,7 @@
     },
     {
       "id": "sch_intact_lb",
-      "label": "LB, 0: intact",
+      "label": "Lat. bending, intact",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1853,7 +1856,7 @@
     },
     {
       "id": "sch_wope_lb",
-      "label": "LB, 1: -posterior elements",
+      "label": "Lat. bending, step 1: post. elements out",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1881,7 +1884,7 @@
     },
     {
       "id": "sch_intact_ar",
-      "label": "AR, 0: intact",
+      "label": "Axial rot., intact",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1909,7 +1912,7 @@
     },
     {
       "id": "sch_wope_ar",
-      "label": "AR, 1: -posterior elements",
+      "label": "Axial rot., step 1: post. elements out",
       "view": "lumbar_pe_schultz",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1937,7 +1940,7 @@
     },
     {
       "id": "acu_denuc_flex",
-      "label": "Flex, 20-min denucleation",
+      "label": "Flexion, nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -1965,7 +1968,7 @@
     },
     {
       "id": "acu_denuc_ext",
-      "label": "Ext, 20-min denucleation",
+      "label": "Extension, nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -1993,7 +1996,7 @@
     },
     {
       "id": "acu_denuc_lb",
-      "label": "LB, 20-min denucleation",
+      "label": "Lat. bending, nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -2021,7 +2024,7 @@
     },
     {
       "id": "acu_denuc_ar",
-      "label": "AR, 20-min denucleation",
+      "label": "Axial rot., nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -2049,7 +2052,7 @@
     },
     {
       "id": "acu_denuc_axial_comp",
-      "label": "Axial comp., 20-min denucleation",
+      "label": "Axial compression, nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -2075,7 +2078,7 @@
     },
     {
       "id": "acu_denuc_axial_tension",
-      "label": "Axial tension, 20-min denucleation",
+      "label": "Axial tension, nucleus removed",
       "view": "lumbar_denuc_pct",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
@@ -2101,12 +2104,11 @@
     }
   ],
   "notes": [
-    "Heuer and Wilke values are medians at one moment (Heuer 7.5 Nm, Wilke 2.5 Nm). Other moments (1-10 Nm), neutral zones, Wilke T2-T3 and T10-T11, and per-segment rib cage ROM (Liebsch 2017/2020) stay in bench/tests.",
-    "rom = one direction from the neutral posture; rom_range = both directions summed (thoracic spines with rib cage). Do not compare one with the other.",
-    "Left out: Rahm 2019 (T4-L2 screw-rod construct and cyclic loading, i.e. an instrumented specimen); Healy/Lubelski local-region ROM (n 5-7); Liebsch 2017 NZ; Heuer 2008 strain and bulge; Ghezelbash 2020 review load-sharing secondaries (moment shares, not ROM).",
-    "Healy 2014 and Lubelski 2014 come from one lab with similar torsos; listed as shared in case donors overlap (not stated)."
+    "Removal is cumulative: step n has all structures of steps 1..n removed.",
+    "Heuer values are medians (not pooled); Heuer 2007a and 2008 share donors.",
+    "Cannella 2008 nucleus removal: 20-min nucleotomy of disc-only units, 0.1 Hz cycles (5th cycle)."
   ],
-  "agent_prompt": "Use your finite element spine model. For each view build the specimen named in the task inputs (lumbar FSU, lumbar disc-only unit, thoracic FSU without ribs, or C7-L1 spine with rib cage). Fix the caudal end, apply the pure moment (plus preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. Output \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), measured T1 relative to T12 unless the level says otherwise; \"rom_pct\" is your value divided by your intact value times 100. Return JSON with one entry per task id, as in answer_format, values in degrees or percent.",
+  "agent_prompt": "Use your finite element lumbar spine model. For each task build the specimen in its inputs (lumbar FSU at the stated level, or a disc-only unit with posterior elements removed). Fix the caudal vertebra, apply the pure moment (plus preload if given) to the cranial vertebra, and record the rotation at peak moment in one direction from neutral. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in degrees; \"rom_pct\" is your value after the step divided by your intact value times 100 (axial displacement for the axial tasks). Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {
     "l45_intact_flex": {
       "rom": "deg"

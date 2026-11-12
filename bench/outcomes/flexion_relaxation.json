@@ -6,7 +6,7 @@
   "levels": [
     "T11-L5 (electrode sites)"
   ],
-  "summary": "Simulate static forward flexion and report back-muscle activation (%MVC) at each angle, and the angles where back-muscle activity stops and resumes.",
+  "summary": "Simulate static forward bending and report back-muscle activity (%MVC) at each angle, and the angles where it switches off and on.",
   "simulate": [
     "Scale the model to the study subject (table below).",
     "Impose the static posture at the task's flexion angle (check angle_def); knees straight.",
@@ -45,12 +45,14 @@
     {
       "key": "emg",
       "label": "Back-muscle EMG",
-      "unit": "%MVC"
+      "unit": "%MVC",
+      "definition": "EMG = surface EMG amplitude under the electrode, % of the study's maximal-exertion reference (MVC)"
     },
     {
       "key": "fr_angle",
-      "label": "FR angle",
-      "unit": "deg"
+      "label": "Flexion-relaxation angle",
+      "unit": "deg",
+      "definition": "Flexion angle at which back-muscle EMG falls silent (onset, flexing) or returns (cessation, extending)"
     }
   ],
   "subjects": {
@@ -204,7 +206,7 @@
   "views": [
     {
       "id": "emg_flexion_thoracic",
-      "title": "EMG vs flexion: thoracic erectors (T11)",
+      "title": "Thoracic back muscles (T11)",
       "task_ids": [
         "g20_lg_t11_18",
         "g20_lg_t11_50",
@@ -237,20 +239,12 @@
     },
     {
       "id": "emg_flexion_lumbar",
-      "title": "EMG vs flexion: lumbar erectors (L2-L5)",
+      "title": "Lumbar erector spinae",
       "task_ids": [
         "g20_ic_l3_18",
         "g20_ic_l3_50",
         "g20_ic_l3_68",
         "g20_ic_l3_92",
-        "g20_mf_l4_18",
-        "g20_mf_l4_50",
-        "g20_mf_l4_68",
-        "g20_mf_l4_92",
-        "shin_mu_30",
-        "shin_mu_50",
-        "shin_mu_70",
-        "shin_mu_90",
         "shin_lo_30",
         "shin_lo_50",
         "shin_lo_70",
@@ -283,8 +277,27 @@
       ]
     },
     {
+      "id": "emg_flexion_mf",
+      "title": "Lumbar multifidus",
+      "task_ids": [
+        "g20_mf_l4_18",
+        "g20_mf_l4_50",
+        "g20_mf_l4_68",
+        "g20_mf_l4_92",
+        "shin_mu_30",
+        "shin_mu_50",
+        "shin_mu_70",
+        "shin_mu_90"
+      ],
+      "x": "input:flexion_deg",
+      "series": [
+        "muscle",
+        "load"
+      ]
+    },
+    {
       "id": "fr_angle",
-      "title": "FR onset / cessation angle",
+      "title": "Angles where back muscles go silent",
       "task_ids": [
         "gupta_onset_trunk",
         "gupta_onset_vertebral",
@@ -307,7 +320,7 @@
   "tasks": [
     {
       "id": "g20_lg_t11_18",
-      "label": "LG(T11), 14 kg, 18.3 deg",
+      "label": "LG(T11), 14 kg, 18.3°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
@@ -334,7 +347,7 @@
     },
     {
       "id": "g20_lg_t11_50",
-      "label": "LG(T11), 14 kg, 50.5 deg",
+      "label": "LG(T11), 14 kg, 50.5°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
@@ -361,7 +374,7 @@
     },
     {
       "id": "g20_lg_t11_68",
-      "label": "LG(T11), 14 kg, 68.1 deg",
+      "label": "LG(T11), 14 kg, 68.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
@@ -388,7 +401,7 @@
     },
     {
       "id": "g20_lg_t11_92",
-      "label": "LG(T11), 14 kg, 92.1 deg",
+      "label": "LG(T11), 14 kg, 92.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
@@ -415,7 +428,7 @@
     },
     {
       "id": "g20_ic_t11_18",
-      "label": "IC(T11), 14 kg, 18.3 deg",
+      "label": "IC(T11), 14 kg, 18.3°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
@@ -442,7 +455,7 @@
     },
     {
       "id": "g20_ic_t11_50",
-      "label": "IC(T11), 14 kg, 50.5 deg",
+      "label": "IC(T11), 14 kg, 50.5°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
@@ -469,7 +482,7 @@
     },
     {
       "id": "g20_ic_t11_68",
-      "label": "IC(T11), 14 kg, 68.1 deg",
+      "label": "IC(T11), 14 kg, 68.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
@@ -496,7 +509,7 @@
     },
     {
       "id": "g20_ic_t11_92",
-      "label": "IC(T11), 14 kg, 92.1 deg",
+      "label": "IC(T11), 14 kg, 92.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
@@ -523,7 +536,7 @@
     },
     {
       "id": "g20_ic_l3_18",
-      "label": "IC(L3), 14 kg, 18.3 deg",
+      "label": "IC(L3), 14 kg, 18.3°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 18.3,
@@ -550,7 +563,7 @@
     },
     {
       "id": "g20_ic_l3_50",
-      "label": "IC(L3), 14 kg, 50.5 deg",
+      "label": "IC(L3), 14 kg, 50.5°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50.5,
@@ -577,7 +590,7 @@
     },
     {
       "id": "g20_ic_l3_68",
-      "label": "IC(L3), 14 kg, 68.1 deg",
+      "label": "IC(L3), 14 kg, 68.1°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 68.1,
@@ -604,7 +617,7 @@
     },
     {
       "id": "g20_ic_l3_92",
-      "label": "IC(L3), 14 kg, 92.1 deg",
+      "label": "IC(L3), 14 kg, 92.1°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 92.1,
@@ -631,8 +644,8 @@
     },
     {
       "id": "g20_mf_l4_18",
-      "label": "MF(L4/L5), 14 kg, 18.3 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4/L5), 14 kg, 18.3°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 18.3,
         "angle_def": "trunk flexion (load height)",
@@ -658,8 +671,8 @@
     },
     {
       "id": "g20_mf_l4_50",
-      "label": "MF(L4/L5), 14 kg, 50.5 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4/L5), 14 kg, 50.5°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 50.5,
         "angle_def": "trunk flexion (load height)",
@@ -685,8 +698,8 @@
     },
     {
       "id": "g20_mf_l4_68",
-      "label": "MF(L4/L5), 14 kg, 68.1 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4/L5), 14 kg, 68.1°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 68.1,
         "angle_def": "trunk flexion (load height)",
@@ -712,8 +725,8 @@
     },
     {
       "id": "g20_mf_l4_92",
-      "label": "MF(L4/L5), 14 kg, 92.1 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4/L5), 14 kg, 92.1°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 92.1,
         "angle_def": "trunk flexion (load height)",
@@ -739,7 +752,7 @@
     },
     {
       "id": "g24_lg_t11_18",
-      "label": "LG(T11), 10 kg, 18.3 deg",
+      "label": "LG(T11), 10 kg, 18.3°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
@@ -766,7 +779,7 @@
     },
     {
       "id": "g24_lg_t11_50",
-      "label": "LG(T11), 10 kg, 50.5 deg",
+      "label": "LG(T11), 10 kg, 50.5°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
@@ -793,7 +806,7 @@
     },
     {
       "id": "g24_lg_t11_68",
-      "label": "LG(T11), 10 kg, 68.1 deg",
+      "label": "LG(T11), 10 kg, 68.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
@@ -820,7 +833,7 @@
     },
     {
       "id": "g24_lg_t11_92",
-      "label": "LG(T11), 10 kg, 92.1 deg",
+      "label": "LG(T11), 10 kg, 92.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
@@ -847,7 +860,7 @@
     },
     {
       "id": "g24_ic_t11_18",
-      "label": "IC(T11), 10 kg, 18.3 deg",
+      "label": "IC(T11), 10 kg, 18.3°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 18.3,
@@ -874,7 +887,7 @@
     },
     {
       "id": "g24_ic_t11_50",
-      "label": "IC(T11), 10 kg, 50.5 deg",
+      "label": "IC(T11), 10 kg, 50.5°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50.5,
@@ -901,7 +914,7 @@
     },
     {
       "id": "g24_ic_t11_68",
-      "label": "IC(T11), 10 kg, 68.1 deg",
+      "label": "IC(T11), 10 kg, 68.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 68.1,
@@ -928,7 +941,7 @@
     },
     {
       "id": "g24_ic_t11_92",
-      "label": "IC(T11), 10 kg, 92.1 deg",
+      "label": "IC(T11), 10 kg, 92.1°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 92.1,
@@ -955,7 +968,7 @@
     },
     {
       "id": "g24s_lg_t11_25",
-      "label": "LG(T11), no load, 1 subj., 25 deg",
+      "label": "LG(T11), no load, 25°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 25,
@@ -982,7 +995,7 @@
     },
     {
       "id": "g24s_lg_t11_50",
-      "label": "LG(T11), no load, 1 subj., 50 deg",
+      "label": "LG(T11), no load, 50°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50,
@@ -1009,7 +1022,7 @@
     },
     {
       "id": "g24s_lg_t11_95",
-      "label": "LG(T11), no load, 1 subj., 95 deg",
+      "label": "LG(T11), no load, 95°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 95,
@@ -1036,7 +1049,7 @@
     },
     {
       "id": "g24s_ic_t11_25",
-      "label": "IC(T11), no load, 1 subj., 25 deg",
+      "label": "IC(T11), no load, 25°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 25,
@@ -1063,7 +1076,7 @@
     },
     {
       "id": "g24s_ic_t11_50",
-      "label": "IC(T11), no load, 1 subj., 50 deg",
+      "label": "IC(T11), no load, 50°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 50,
@@ -1090,7 +1103,7 @@
     },
     {
       "id": "g24s_ic_t11_95",
-      "label": "IC(T11), no load, 1 subj., 95 deg",
+      "label": "IC(T11), no load, 95°",
       "view": "emg_flexion_thoracic",
       "inputs": {
         "flexion_deg": 95,
@@ -1117,8 +1130,8 @@
     },
     {
       "id": "shin_mu_30",
-      "label": "MF(L4), no load, 30 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4), no load, 30°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 30,
         "angle_def": "torso flexion from upright",
@@ -1144,8 +1157,8 @@
     },
     {
       "id": "shin_mu_50",
-      "label": "MF(L4), no load, 50 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4), no load, 50°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 50,
         "angle_def": "torso flexion from upright",
@@ -1171,8 +1184,8 @@
     },
     {
       "id": "shin_mu_70",
-      "label": "MF(L4), no load, 70 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4), no load, 70°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 70,
         "angle_def": "torso flexion from upright",
@@ -1198,8 +1211,8 @@
     },
     {
       "id": "shin_mu_90",
-      "label": "MF(L4), no load, 90 deg",
-      "view": "emg_flexion_lumbar",
+      "label": "MF(L4), no load, 90°",
+      "view": "emg_flexion_mf",
       "inputs": {
         "flexion_deg": 90,
         "angle_def": "torso flexion from upright",
@@ -1225,7 +1238,7 @@
     },
     {
       "id": "shin_lo_30",
-      "label": "LG(L2), no load, 30 deg",
+      "label": "LG(L2), no load, 30°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 30,
@@ -1252,7 +1265,7 @@
     },
     {
       "id": "shin_lo_50",
-      "label": "LG(L2), no load, 50 deg",
+      "label": "LG(L2), no load, 50°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50,
@@ -1279,7 +1292,7 @@
     },
     {
       "id": "shin_lo_70",
-      "label": "LG(L2), no load, 70 deg",
+      "label": "LG(L2), no load, 70°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 70,
@@ -1306,7 +1319,7 @@
     },
     {
       "id": "shin_lo_90",
-      "label": "LG(L2), no load, 90 deg",
+      "label": "LG(L2), no load, 90°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 90,
@@ -1333,7 +1346,7 @@
     },
     {
       "id": "shin_il_30",
-      "label": "IC(L2), no load, 30 deg",
+      "label": "IC(L2), no load, 30°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 30,
@@ -1360,7 +1373,7 @@
     },
     {
       "id": "shin_il_50",
-      "label": "IC(L2), no load, 50 deg",
+      "label": "IC(L2), no load, 50°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 50,
@@ -1387,7 +1400,7 @@
     },
     {
       "id": "shin_il_70",
-      "label": "IC(L2), no load, 70 deg",
+      "label": "IC(L2), no load, 70°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 70,
@@ -1414,7 +1427,7 @@
     },
     {
       "id": "shin_il_90",
-      "label": "IC(L2), no load, 90 deg",
+      "label": "IC(L2), no load, 90°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 90,
@@ -1441,7 +1454,7 @@
     },
     {
       "id": "koo19_il_0",
-      "label": "IC (site n.s.), no load, 0 deg",
+      "label": "IC (site not stated), no load, 0°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 0,
@@ -1469,7 +1482,7 @@
     },
     {
       "id": "koo19_il_66",
-      "label": "IC (site n.s.), no load, 66 deg",
+      "label": "IC (site not stated), no load, 66°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 66,
@@ -1497,7 +1510,7 @@
     },
     {
       "id": "koo19_il_93",
-      "label": "IC (site n.s.), no load, 93 deg",
+      "label": "IC (site not stated), no load, 93°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 93,
@@ -1525,7 +1538,7 @@
     },
     {
       "id": "koo19_il_113",
-      "label": "IC (site n.s.), no load, 113 deg",
+      "label": "IC (site not stated), no load, 113°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 113,
@@ -1553,7 +1566,7 @@
     },
     {
       "id": "koo19_il_126",
-      "label": "IC (site n.s.), no load, 126 deg",
+      "label": "IC (site not stated), no load, 126°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 126,
@@ -1581,7 +1594,7 @@
     },
     {
       "id": "koo19_lo_0",
-      "label": "LL (site n.s.), no load, 0 deg",
+      "label": "LL (site not stated), no load, 0°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 0,
@@ -1609,7 +1622,7 @@
     },
     {
       "id": "koo19_lo_66",
-      "label": "LL (site n.s.), no load, 66 deg",
+      "label": "LL (site not stated), no load, 66°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 66,
@@ -1637,7 +1650,7 @@
     },
     {
       "id": "koo19_lo_93",
-      "label": "LL (site n.s.), no load, 93 deg",
+      "label": "LL (site not stated), no load, 93°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 93,
@@ -1665,7 +1678,7 @@
     },
     {
       "id": "koo19_lo_113",
-      "label": "LL (site n.s.), no load, 113 deg",
+      "label": "LL (site not stated), no load, 113°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 113,
@@ -1693,7 +1706,7 @@
     },
     {
       "id": "koo19_lo_126",
-      "label": "LL (site n.s.), no load, 126 deg",
+      "label": "LL (site not stated), no load, 126°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 126,
@@ -1721,7 +1734,7 @@
     },
     {
       "id": "koo20b_back_1",
-      "label": "IC+LL mean, no load, 1 deg",
+      "label": "IC+LL mean, no load, 1°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 1,
@@ -1749,7 +1762,7 @@
     },
     {
       "id": "koo20b_back_31",
-      "label": "IC+LL mean, no load, 31.4 deg",
+      "label": "IC+LL mean, no load, 31.4°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 31.4,
@@ -1777,7 +1790,7 @@
     },
     {
       "id": "koo20b_back_42",
-      "label": "IC+LL mean, no load, 42.3 deg",
+      "label": "IC+LL mean, no load, 42.3°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 42.3,
@@ -1805,7 +1818,7 @@
     },
     {
       "id": "koo20b_back_55",
-      "label": "IC+LL mean, no load, 54.9 deg",
+      "label": "IC+LL mean, no load, 54.9°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 54.9,
@@ -1833,7 +1846,7 @@
     },
     {
       "id": "koo20b_back_64",
-      "label": "IC+LL mean, no load, 63.7 deg",
+      "label": "IC+LL mean, no load, 63.7°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 63.7,
@@ -1861,7 +1874,7 @@
     },
     {
       "id": "koo20b_back_67",
-      "label": "IC+LL mean, no load, 67.4 deg",
+      "label": "IC+LL mean, no load, 67.4°",
       "view": "emg_flexion_lumbar",
       "inputs": {
         "flexion_deg": 67.4,
@@ -1889,7 +1902,7 @@
     },
     {
       "id": "gupta_onset_trunk",
-      "label": "FR onset, ES(L3), trunk angle",
+      "label": "Onset, ES(L3), trunk angle",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -1915,7 +1928,7 @@
     },
     {
       "id": "gupta_onset_vertebral",
-      "label": "FR onset, ES(L3), vertebral angle",
+      "label": "Onset, ES(L3), vertebral angle",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -1941,7 +1954,7 @@
     },
     {
       "id": "gupta_cessation_trunk",
-      "label": "FR cessation, ES(L3), trunk angle",
+      "label": "Cessation, ES(L3), trunk angle",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -1967,7 +1980,7 @@
     },
     {
       "id": "gupta_cessation_vertebral",
-      "label": "FR cessation, ES(L3), vertebral angle",
+      "label": "Cessation, ES(L3), vertebral angle",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -1993,7 +2006,7 @@
     },
     {
       "id": "desc_onset_l2_0",
-      "label": "FR onset, ES(L2), no load",
+      "label": "Onset, ES(L2), no load",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2019,7 +2032,7 @@
     },
     {
       "id": "desc_onset_l2_12",
-      "label": "FR onset, ES(L2), 12 kg",
+      "label": "Onset, ES(L2), 12 kg",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2045,7 +2058,7 @@
     },
     {
       "id": "desc_onset_l5_0",
-      "label": "FR onset, ES(L5), no load",
+      "label": "Onset, ES(L5), no load",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2071,7 +2084,7 @@
     },
     {
       "id": "desc_onset_l5_12",
-      "label": "FR onset, ES(L5), 12 kg",
+      "label": "Onset, ES(L5), 12 kg",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2097,7 +2110,7 @@
     },
     {
       "id": "desc_cessation_l2_0",
-      "label": "FR cessation, ES(L2), no load",
+      "label": "Cessation, ES(L2), no load",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -2123,7 +2136,7 @@
     },
     {
       "id": "desc_cessation_l2_12",
-      "label": "FR cessation, ES(L2), 12 kg",
+      "label": "Cessation, ES(L2), 12 kg",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -2149,7 +2162,7 @@
     },
     {
       "id": "desc_cessation_l5_0",
-      "label": "FR cessation, ES(L5), no load",
+      "label": "Cessation, ES(L5), no load",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -2175,7 +2188,7 @@
     },
     {
       "id": "desc_cessation_l5_12",
-      "label": "FR cessation, ES(L5), 12 kg",
+      "label": "Cessation, ES(L5), 12 kg",
       "view": "fr_angle",
       "inputs": {
         "event": "cessation",
@@ -2201,7 +2214,7 @@
     },
     {
       "id": "zwam_onset_lumbar",
-      "label": "FR onset, LES(L3), lumbar flexion",
+      "label": "Onset, LES(L3), lumbar flexion",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2227,7 +2240,7 @@
     },
     {
       "id": "zwam_onset_incl",
-      "label": "FR onset, LES(L3), trunk inclination",
+      "label": "Onset, LES(L3), trunk inclination",
       "view": "fr_angle",
       "inputs": {
         "event": "onset",
@@ -2253,10 +2266,9 @@
     }
   ],
   "notes": [
-    "Angle definitions differ (trunk flexion, trunk inclination, lumbar T12-S1, Gupta thigh-T1); each task states it. Ghezelbash 2020 load heights mapped to angles from Ghezelbash 2024 Fig 3c.",
-    "EMG references differ: max over 6 MVEs (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise model activity the same way.",
-    "Left out: passive moments (Dolan 1994, Zwambag 2016/2020: not EMG), FR ratio (Descarreaux), EMG timing in % cycle (Olson 2006), EMG at full flexion without angle (Toussaint 1995). More conditions in raw tests.",
-    "Ghezelbash 2020 recorded EMG with 2, 6, 10 and 14 kg held at four heights; Ghezelbash 2024 Fig 3c-d uses the 10 kg condition (its Methods line on 6 kg refers to another comparison)."
+    "Angle definitions differ (trunk flexion, trunk inclination, lumbar T12-S1, thigh-T1); each task states its angle_def. Ghezelbash 2020 load heights are mapped to angles (Ghezelbash 2024 Fig 3c).",
+    "EMG references differ: max over 6 maximal exertions (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise the model the same way.",
+    "Left out: passive moments, FR ratios, EMG timing and full-flexion EMG without an angle."
   ],
   "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task, scale the model to the study subject in `subjects`, impose the static forward-flexion posture given by flexion_deg (respect angle_def), apply the hand load, and solve for muscle activation. Report activation (%) of the muscles under the named electrode site, normalised like the study (emg_ref: max over six maximal exertions, angle-specific maximal extension, or supine MVC). For FR angle tasks (output fr_angle), sweep flexion in 1-deg steps and report the angle where back-muscle activity first falls to near zero (onset, flexing) or reappears (cessation, extending). Do not tune the model to these data. Return one JSON object following answer_format: task id -> {output key: value}.",
   "answer_format": {

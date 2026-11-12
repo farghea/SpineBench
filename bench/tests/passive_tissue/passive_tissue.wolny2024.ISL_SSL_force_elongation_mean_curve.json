@@ -1,0 +1,212 @@
+{
+ "id": "passive_tissue.wolny2024.ISL_SSL_force_elongation_mean_curve",
+ "title": "Wolny 2024 thoracic ISL+SSL averaged force-elongation curve (Th1-Th12)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "thoracic",
+ "levels": [
+  "Th1-Th12"
+ ],
+ "condition": "cadaveric (elderly donors)",
+ "quantity": {
+  "name": "force-elongation curve",
+  "definition": "authors' averaged force-elongation curve of all Th1-Th12 samples (pink \"Th1-Th12\" line in Fig 8); elongation from the 5 N preloaded length; last point = end of the averaged curve",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Wolny 2024",
+  "authors": "Wolny R, Wiczenbach T, Andrzejewska AJ, Spodnik JH",
+  "year": 2024,
+  "journal": "J Mech Behav Biomed Mater 151:106404",
+  "doi": "10.1016/j.jmbbm.2024.106404",
+  "n": 100,
+  "sample": "4 thoracic spines (body donors); 17 ALL, 19 PLL, 31 CL, 17 LF, 16 ISL+SSL bone-ligament-bone samples; human thoracic ligaments Th1-Th12, BLB samples",
+  "age": "72-90 y (77.75+-8.26)",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Bone-ligament-bone samples (frozen -20 C, thawed in saline), bones reinforced and potted in PMMA cups; preload 5 N at 0.5 /s, 60 s relaxation; preconditioning 60 cycles at 10% strain, 1 Hz, 60 s rest; tension at constant strain rate 0.5 /s to rupture; environmental chamber 36.6 C, >=95% humidity. Failure = point where further elongation gives no force increase. Transition points I/II = start/end of linear region (<1% deviation between polynomial fit and linear approximation).",
+  "how_to_simulate": [
+   "Model the thoracic ligament as a bone-ligament-bone unit with the Table 1 initial length and width",
+   "Apply a 5 N preload (defines zero elongation), then quasi-static tension along the fibres to failure",
+   "Report force at the listed elongations"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "note": "origin"
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 0.25,
+   "load": "",
+   "mean": 2.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 0.5,
+   "load": "",
+   "mean": 4.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 1.0,
+   "load": "",
+   "mean": 18.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 1.5,
+   "load": "",
+   "mean": 41.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 2.0,
+   "load": "",
+   "mean": 68.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 2.5,
+   "load": "",
+   "mean": 97.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 3.0,
+   "load": "",
+   "mean": 126.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 3.5,
+   "load": "",
+   "mean": 152.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 4.0,
+   "load": "",
+   "mean": 173.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 4.5,
+   "load": "",
+   "mean": 185.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "Th1-Th12 averaged curve",
+   "x_value": 4.67,
+   "load": "",
+   "mean": 186.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "note": "end of averaged curve"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 8 (p. 8)",
+  "method": "digitised_figure",
+  "uncertainty": "x +/-0.03 mm, y +/-3 N (line half-width at 300 dpi)",
+  "checked": true,
+  "check_notes": "Embedded 300-ppi raster; axes calibrated on outer tick marks (all ticks detected); Th1-Th12 line isolated by colour (RGB ~215,105,210), legend box masked; y = median of line pixels in +/-1.5 px column window. Re-read 2+ points by overlaying markers on the figure (e.g. 1.0 mm / 3.0 mm and curve end) - all on the line. The averaged curve ends near (not exactly at) the Table 1 mean failure point; no SD band is drawn."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve within the spread of the individual sample curves; compare shape against the averaged curve"
+ },
+ "combine_group": "passive_tissue__force_elong_curve__isl_ssl_thoracic__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "thoracic",
+  "ISL+SSL",
+  "curve",
+  "digitised",
+  "quasi-static"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.wiczenbach2025.ALL_L0",
+  "passive_tissue.wiczenbach2025.ALL_width",
+  "passive_tissue.wiczenbach2025.ALL_thickness",
+  "passive_tissue.wiczenbach2025.ALL_A0",
+  "passive_tissue.wiczenbach2025.ALL_stretch_points",
+  "passive_tissue.wiczenbach2025.ALL_stress_points"
+ ],
+ "curve": {
+  "x_name": "elongation",
+  "x_unit": "mm",
+  "y_name": "force",
+  "y_unit": "N"
+ }
+}

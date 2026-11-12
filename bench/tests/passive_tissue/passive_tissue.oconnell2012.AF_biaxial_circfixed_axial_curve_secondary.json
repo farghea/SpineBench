@@ -1,0 +1,239 @@
+{
+  "id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
+  "title": "O'Connell 2012 AF biaxial, circumferential direction held, axial stress vs axial strain - digitised from Ghezelbash 2021 Fig 7a",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus",
+  "region": "lumbar",
+  "levels": [
+    "lumbar"
+  ],
+  "condition": "mixed degeneration (T1rho 46-146 ms); severely degenerate excluded",
+  "quantity": {
+    "name": "stress-strain curve",
+    "definition": "axial nominal stress (force / reference cross-sectional area) vs axial strain with the circumferential direction held fixed, as plotted by Ghezelbash 2021 Fig 7a; primary reports 2D Lagrangian strain E (assumed plotted as E; nominal_strain = sqrt(1+2E) - 1 added)",
+    "unit": "MPa"
+  },
+  "source": {
+    "short": "O'Connell 2012",
+    "authors": "O'Connell GD, Sen S, Elliott DM",
+    "year": 2012,
+    "journal": "Biomech Model Mechanobiol 11:493-503",
+    "doi": "10.1007/s10237-011-0328-9",
+    "n": 16,
+    "sample": "16 anterior AF circumferential-axial square samples (7.1 x 7.0 x 2.1 mm) from 13 lumbar spine sections (25-80 y); whether the plotted curve is one sample or a mean is not stated in Ghezelbash 2021",
+    "age": "25-80 y",
+    "sex": "not reported",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Square circ-axial AF samples gripped on four edges; 10 min 0.5 N preload; 10 preconditioning cycles to 2 %; five strain ratios incl. circumferential-fixed; stretched at quasi-static 0.01 %/s along the primary direction, max 1.5 MPa; strain from 4 tracked beads (Lagrangian E); stress = force / reference area (protocol from the primary abstract/full text on PMC3500512).",
+    "how_to_simulate": [
+      "Square sample w=10 mm, grip width wg=7.26 mm, grip length lg=0.79 mm, thickness 2.1 mm (Ghezelbash 2021 Fig 7b)",
+      "Hold the circumferential grips fixed, pull axially, quasi-static",
+      "Nominal stress = force/(wg x thickness); strain from a central 3x3 mm square"
+    ],
+    "subject_model": null,
+    "notes": "SECONDARY digitisation (primary PDF not in donwload/). Ghezelbash 2021 Fig 7a shows the measured curve as symbols ('O'Connell et al. [61]')."
+  },
+  "data": [
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.001,
+      "load": "",
+      "mean": 0.008,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.001
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0092,
+      "load": "",
+      "mean": 0.053,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0092
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0129,
+      "load": "",
+      "mean": 0.08,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0128
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0228,
+      "load": "",
+      "mean": 0.136,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0225
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0266,
+      "load": "",
+      "mean": 0.169,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0263
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.039,
+      "load": "",
+      "mean": 0.298,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0383
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0459,
+      "load": "",
+      "mean": 0.381,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0449
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0522,
+      "load": "",
+      "mean": 0.451,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0509
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0605,
+      "load": "",
+      "mean": 0.543,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0588
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0683,
+      "load": "",
+      "mean": 0.684,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0661
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0733,
+      "load": "",
+      "mean": 0.742,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0708
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0808,
+      "load": "",
+      "mean": 0.831,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0778
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0839,
+      "load": "",
+      "mean": 0.885,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0806
+    },
+    {
+      "x": "axial stress vs axial strain (circumferential held)",
+      "x_value": 0.0885,
+      "load": "",
+      "mean": 0.98,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "nominal_strain": 0.0849
+    }
+  ],
+  "extraction": {
+    "from": "Ghezelbash et al. 2021 (SSRN 3677348) Fig 7a (PDF p.38); primary O'Connell 2012",
+    "method": "digitised_figure",
+    "uncertainty": "strain +/-0.001, stress +/-0.015 MPa",
+    "checked": true,
+    "check_notes": "Rendered at 300 dpi; axes calibrated on tick labels (x 0-0.1, y 0-1 MPa); symbol centroids by colour segmentation, overlapping symbols read visually; overlay re-plot checked (e.g. (0.0459, 0.381) and (0.0839, 0.885) on symbol centres)."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "model curve within the stated digitising uncertainty band of the measured curve over the tested range"
+  },
+  "combine_group": "passive_tissue__stress_strain_curve__af__human__biaxial_circ_fixed",
+  "tags": [
+    "human",
+    "in vitro",
+    "annulus",
+    "lumbar",
+    "curve",
+    "digitised",
+    "secondary",
+    "quasi-static",
+    "biaxial"
+  ],
+  "curve": {
+    "x_name": "axial strain (as plotted; primary Lagrangian E)",
+    "x_unit": "-",
+    "y_name": "axial nominal stress",
+    "y_unit": "MPa"
+  }
+}

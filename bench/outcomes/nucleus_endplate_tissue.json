@@ -9,13 +9,13 @@
     "L3-L4",
     "L4-L5"
   ],
-  "summary": "Simulate nucleus torsional shear, confined compression and swelling of NP/AF/endplate plugs, and whole-disc compression, shear and internal strain.",
+  "summary": "Simulate slow (quasi-static) tests of nucleus, annulus and endplate plugs and of whole discs, and report equilibrium moduli, swelling, shear and strain.",
   "simulate": [
-    "Build each specimen at its stated size: NP cylinder (8 mm), confined plug (4-5 mm), or disc with vertebral bodies.",
-    "Use the stated bath (0.15 M saline/PBS) and let the tissue swell to equilibrium before loading where stated.",
-    "Torsion: 10% axial offset, sinusoidal or ramp-hold twist. Confined compression: porous platen, ramp-hold steps to equilibrium.",
-    "Whole disc: fix the lower vertebra; apply the stated compression, shear or rotation with preload and rate as given.",
-    "Report the output as defined (|G*|, phase angle, fitted or equivalent Ha/k0, swelling stress or ratio, stiffness, strain)."
+    "Build each specimen at its stated size: NP cylinder, confined plug (4-5 mm), or disc with vertebrae.",
+    "Use the stated bath (0.15 M saline/PBS) and let the tissue swell to equilibrium before loading.",
+    "Load slowly and hold to equilibrium; report equilibrium values only (no rate or frequency effects).",
+    "Whole disc: fix the lower vertebra, apply the stated preload, then the shear, compression or rotation.",
+    "Use nominal stress (force / undeformed area) and nominal strain (ΔL / L0)."
   ],
   "inputs": [
     {
@@ -37,105 +37,59 @@
     {
       "key": "fit_model",
       "label": "Fitted model"
-    },
-    {
-      "key": "frequency_rad_s",
-      "label": "Frequency",
-      "unit": "rad/s"
-    },
-    {
-      "key": "displacement_mm",
-      "label": "Displacement",
-      "unit": "mm"
-    },
-    {
-      "key": "duration_ms",
-      "label": "Impact duration",
-      "unit": "ms"
     }
   ],
   "outputs": [
     {
-      "key": "G_dynamic",
-      "label": "|G*| dynamic shear modulus",
-      "unit": "kPa"
-    },
-    {
-      "key": "phase_angle",
-      "label": "Phase angle",
-      "unit": "deg"
-    },
-    {
-      "key": "shear_modulus_inst",
-      "label": "Instantaneous shear modulus",
-      "unit": "kPa"
-    },
-    {
       "key": "shear_modulus_eq",
       "label": "Equilibrium shear modulus",
-      "unit": "kPa"
+      "unit": "kPa",
+      "definition": "Equilibrium shear modulus = shear stress / shear strain at the end of a 600 s hold (kPa)"
     },
     {
       "key": "aggregate_modulus",
       "label": "Aggregate modulus",
-      "unit": "MPa"
-    },
-    {
-      "key": "permeability_k0",
-      "label": "Reference permeability k0",
-      "unit": "1e-15 m4/(N s)"
+      "unit": "MPa",
+      "definition": "Aggregate modulus = equilibrium nominal stress / nominal strain in confined compression, from the named fit (MPa)"
     },
     {
       "key": "swelling_stress",
       "label": "Confined swelling stress",
-      "unit": "MPa"
+      "unit": "MPa",
+      "definition": "Equilibrium axial stress of a confined plug held at fixed thickness in 0.15 M NaCl (MPa)"
     },
     {
       "key": "swelling_ratio",
       "label": "Swollen / fresh weight",
-      "unit": "-"
-    },
-    {
-      "key": "axial_stiffness",
-      "label": "Axial tangent stiffness at peak load",
-      "unit": "N/mm"
-    },
-    {
-      "key": "stiffness_ratio",
-      "label": "Stiffness / 1000 ms stiffness",
-      "unit": "-"
+      "unit": "-",
+      "definition": "Swollen / fresh wet weight at equilibrium (-)"
     },
     {
       "key": "shear_stiffness",
       "label": "Shear stiffness",
-      "unit": "N/mm"
+      "unit": "N/mm",
+      "definition": "Shear force / shear displacement of the upper vertebra, 0-150 N, 2nd cycle, 500 N preload (N/mm)"
     },
     {
       "key": "shear_strength",
-      "label": "Peak shear load",
-      "unit": "kN"
+      "label": "Shear strength",
+      "unit": "kN",
+      "definition": "Peak anterior shear force, displacement at 0.5 mm/s to failure, 500 N preload (kN)"
     },
     {
       "key": "mss_per_mm",
       "label": "Max shear strain per mm",
-      "unit": "%/mm"
+      "unit": "%/mm",
+      "definition": "Largest regional 3-D maximum shear strain in the mid-disc plane per mm of imposed translation (%/mm)"
     },
     {
       "key": "mss_per_deg",
       "label": "Max shear strain per degree",
-      "unit": "%/deg"
+      "unit": "%/deg",
+      "definition": "Largest regional 3-D maximum shear strain in the mid-disc plane per degree of imposed rotation (%/deg)"
     }
   ],
   "studies": [
-    {
-      "key": "iatridis1997a",
-      "short": "Iatridis 1997a",
-      "year": 1997,
-      "n": 13,
-      "sample": "13 grade I NP cylinders from 8 lumbar spines",
-      "doi": null,
-      "secondary": false
-    },
     {
       "key": "iatridis1997b",
       "short": "Iatridis 1997b",
@@ -173,24 +127,6 @@
       "secondary": false
     },
     {
-      "key": "elliottsetton2001",
-      "short": "Elliott & Setton 2001",
-      "year": 2001,
-      "n": 60,
-      "sample": "60 anterior AF strips, 10 non-degenerate L1-L3 discs",
-      "doi": null,
-      "secondary": false
-    },
-    {
-      "key": "jamison2013",
-      "short": "Jamison 2013",
-      "year": 2013,
-      "n": 5,
-      "sample": "5 lumbar anterior column units (disc + vertebrae)",
-      "doi": null,
-      "secondary": false
-    },
-    {
       "key": "skrzypiec2013",
       "short": "Skrzypiec 2013",
       "year": 2013,
@@ -212,42 +148,8 @@
   "shared": [],
   "views": [
     {
-      "id": "np_dyn",
-      "title": "Nucleus shear: |G*| vs frequency",
-      "x": "input:frequency_rad_s",
-      "task_ids": [
-        "np_Gdyn_1",
-        "np_Gdyn_10",
-        "np_Gdyn_100"
-      ]
-    },
-    {
-      "id": "np_phase",
-      "title": "Nucleus shear: phase angle vs frequency",
-      "x": "input:frequency_rad_s",
-      "task_ids": [
-        "np_phase_1",
-        "np_phase_10",
-        "np_phase_100"
-      ]
-    },
-    {
-      "id": "np_relax",
-      "title": "Nucleus shear: stress relaxation moduli",
-      "x": "task",
-      "task_ids": [
-        "np_mu_inst",
-        "np_mu_eq",
-        "np_mu_inst_mild",
-        "np_mu_eq_mild",
-        "np_mu_inst_severe",
-        "np_mu_eq_severe"
-      ]
-    },
-    {
       "id": "confined",
-      "title": "Confined compression: aggregate modulus",
-      "x": "task",
+      "title": "Equilibrium moduli of disc tissues",
       "task_ids": [
         "cc_NP_Ha_biphasic",
         "cc_NP_Ha_swelling",
@@ -256,294 +158,57 @@
         "cc_CEP_Ha_biphasic",
         "cc_CEP_Ha_swelling",
         "cc_AFant_HA0_nondegen",
-        "cc_AFant_HA0_degen"
-      ]
-    },
-    {
-      "id": "confined_k",
-      "title": "Confined compression: permeability",
-      "x": "task",
-      "task_ids": [
-        "cc_NP_k0_biphasic",
-        "cc_NP_k0_swelling",
-        "cc_AF_k0_biphasic",
-        "cc_AF_k0_swelling",
-        "cc_CEP_k0_biphasic",
-        "cc_CEP_k0_swelling",
-        "cc_AFant_k0_nondegen",
-        "cc_AFant_k0_degen"
-      ]
+        "cc_AFant_HA0_degen",
+        "np_mu_eq",
+        "np_mu_eq_mild",
+        "np_mu_eq_severe"
+      ],
+      "x": "task"
     },
     {
       "id": "swelling",
-      "title": "Swelling stress (confined)",
-      "x": "task",
+      "title": "Swelling at equilibrium",
       "task_ids": [
         "sw_AFant_p0_nondegen",
-        "sw_AFant_p0_degen"
-      ]
-    },
-    {
-      "id": "swelling_ratio",
-      "title": "Free swelling ratio (AF)",
-      "x": "task",
-      "task_ids": [
+        "sw_AFant_p0_degen",
         "sw_AF_ratio_water",
         "sw_AF_ratio_nacl",
         "sw_AF_ratio_plasma",
-        "sw_AF_ratio_dextran",
-        "sw_AF_ratio_30min_outer",
-        "sw_AF_ratio_30min_inner"
-      ]
-    },
-    {
-      "id": "disc_axial",
-      "title": "Whole disc: axial stiffness",
-      "x": "task",
-      "task_ids": [
-        "disc_k_2",
-        "disc_k_8"
-      ]
-    },
-    {
-      "id": "disc_rate",
-      "title": "Whole disc: stiffness vs impact duration",
-      "x": "input:duration_ms",
-      "task_ids": [
-        "disc_knorm_80",
-        "disc_knorm_160",
-        "disc_knorm_320",
-        "disc_knorm_400",
-        "disc_knorm_600",
-        "disc_knorm_800"
-      ]
+        "sw_AF_ratio_dextran"
+      ],
+      "x": "task"
     },
     {
       "id": "disc_shear",
-      "title": "Whole disc: shear stiffness",
-      "x": "task",
+      "title": "Whole disc in shear",
       "task_ids": [
         "disc_shear_k_ant",
-        "disc_shear_k_post"
-      ]
-    },
-    {
-      "id": "disc_strength",
-      "title": "Whole disc: shear strength",
-      "x": "task",
-      "task_ids": [
+        "disc_shear_k_post",
         "disc_shear_strength"
-      ]
+      ],
+      "x": "task"
     },
     {
-      "id": "disc_strain_mm",
-      "title": "Whole disc: internal shear strain (translations)",
-      "x": "task",
+      "id": "disc_strain",
+      "title": "Strain inside the disc",
       "task_ids": [
         "disc_mss_compression",
         "disc_mss_anterior_shear",
         "disc_mss_posterior_shear",
-        "disc_mss_lateral_shear"
-      ]
-    },
-    {
-      "id": "disc_strain_deg",
-      "title": "Whole disc: internal shear strain (rotations)",
-      "x": "task",
-      "task_ids": [
+        "disc_mss_lateral_shear",
         "disc_mss_flexion",
         "disc_mss_extension",
         "disc_mss_axial_rotation",
         "disc_mss_lateral_bending"
-      ]
+      ],
+      "x": "task"
     }
   ],
   "tasks": [
     {
-      "id": "np_Gdyn_1",
-      "label": "NP |G*| at 1 rad/s",
-      "view": "np_dyn",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 1
-      },
-      "output": "G_dynamic",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 7.4,
-          "sd": 11.6,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_G_dynamic",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_Gdyn_10",
-      "label": "NP |G*| at 10 rad/s",
-      "view": "np_dyn",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 10
-      },
-      "output": "G_dynamic",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 11.3,
-          "sd": 17.9,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_G_dynamic",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_Gdyn_100",
-      "label": "NP |G*| at 100 rad/s",
-      "view": "np_dyn",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 100
-      },
-      "output": "G_dynamic",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 19.8,
-          "sd": 31.4,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_G_dynamic",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_phase_1",
-      "label": "NP phase angle at 1 rad/s",
-      "view": "np_phase",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 1
-      },
-      "output": "phase_angle",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 23,
-          "sd": 5,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_phase_angle",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_phase_10",
-      "label": "NP phase angle at 10 rad/s",
-      "view": "np_phase",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 10
-      },
-      "output": "phase_angle",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 24,
-          "sd": 5,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_phase_angle",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_phase_100",
-      "label": "NP phase angle at 100 rad/s",
-      "view": "np_phase",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, 0.01 rad amplitude",
-        "condition": "grade I",
-        "frequency_rad_s": 100
-      },
-      "output": "phase_angle",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997a",
-          "mean": 30,
-          "sd": 6,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 13,
-          "test_id": "passive_tissue.iatridis1997a.NP_phase_angle",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "np_mu_inst",
-      "label": "NP instant. shear modulus",
-      "view": "np_relax",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
-        "condition": "normal (grade I)"
-      },
-      "output": "shear_modulus_inst",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997b",
-          "mean": 5.82,
-          "sd": 3.74,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 7,
-          "test_id": "passive_tissue.iatridis1997b.NP_instantaneous_shear_modulus",
-          "note": "fitted viscoelastic law parameter"
-        }
-      ]
-    },
-    {
       "id": "np_mu_eq",
-      "label": "NP equil. shear modulus",
-      "view": "np_relax",
+      "label": "NP equilibrium shear modulus",
+      "view": "confined",
       "inputs": {
         "tissue": "NP",
         "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
@@ -566,34 +231,9 @@
       ]
     },
     {
-      "id": "np_mu_inst_mild",
-      "label": "NP instant. shear modulus, mild deg.",
-      "view": "np_relax",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
-        "condition": "mild degeneration (II-III)"
-      },
-      "output": "shear_modulus_inst",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997b",
-          "mean": 17.1,
-          "sd": 10.1,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.iatridis1997b.NP_instantaneous_shear_modulus",
-          "note": "fitted viscoelastic law parameter"
-        }
-      ]
-    },
-    {
       "id": "np_mu_eq_mild",
-      "label": "NP equil. shear modulus, mild deg.",
-      "view": "np_relax",
+      "label": "NP equil. shear modulus, mild degen.",
+      "view": "confined",
       "inputs": {
         "tissue": "NP",
         "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
@@ -616,34 +256,9 @@
       ]
     },
     {
-      "id": "np_mu_inst_severe",
-      "label": "NP instant. shear modulus, severe deg.",
-      "view": "np_relax",
-      "inputs": {
-        "tissue": "NP",
-        "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
-        "condition": "severe degeneration (IV-V)"
-      },
-      "output": "shear_modulus_inst",
-      "level": "L2-L5",
-      "refs": [
-        {
-          "study": "iatridis1997b",
-          "mean": 22.5,
-          "sd": 7.8,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 7,
-          "test_id": "passive_tissue.iatridis1997b.NP_instantaneous_shear_modulus",
-          "note": "fitted viscoelastic law parameter"
-        }
-      ]
-    },
-    {
       "id": "np_mu_eq_severe",
-      "label": "NP equil. shear modulus, severe deg.",
-      "view": "np_relax",
+      "label": "NP equil. shear modulus, severe degen.",
+      "view": "confined",
       "inputs": {
         "tissue": "NP",
         "mode": "torsional shear of NP cylinder, 10% compressive offset, ramp to 0.10 rad, 600 s hold",
@@ -667,7 +282,7 @@
     },
     {
       "id": "cc_NP_Ha_biphasic",
-      "label": "NP aggregate modulus, biphasic fit",
+      "label": "NP, biphasic fit",
       "view": "confined",
       "inputs": {
         "tissue": "NP",
@@ -693,35 +308,8 @@
       ]
     },
     {
-      "id": "cc_NP_k0_biphasic",
-      "label": "NP permeability k0, biphasic fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "NP",
-        "region": "nucleus pulposus",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L1-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 1.87,
-          "sd": 1.48,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 12,
-          "test_id": "passive_tissue.cortes2014.NP_k0_biphasic",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_NP_Ha_swelling",
-      "label": "NP aggregate modulus, swelling fit",
+      "label": "NP, biphasic-swelling fit",
       "view": "confined",
       "inputs": {
         "tissue": "NP",
@@ -747,35 +335,8 @@
       ]
     },
     {
-      "id": "cc_NP_k0_swelling",
-      "label": "NP permeability k0, swelling fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "NP",
-        "region": "nucleus pulposus",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic-swelling",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L1-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 0.55,
-          "sd": 0.78,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 12,
-          "test_id": "passive_tissue.cortes2014.NP_k0_swelling",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_AF_Ha_biphasic",
-      "label": "AF aggregate modulus, biphasic fit",
+      "label": "AF, biphasic fit",
       "view": "confined",
       "inputs": {
         "tissue": "AF",
@@ -801,35 +362,8 @@
       ]
     },
     {
-      "id": "cc_AF_k0_biphasic",
-      "label": "AF permeability k0, biphasic fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "AF",
-        "region": "annulus fibrosus (posterior, outer and inner anterior pooled; radial axis)",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 18.0,
-          "sd": 12.7,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 18,
-          "test_id": "passive_tissue.cortes2014.AF_k0_biphasic",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_AF_Ha_swelling",
-      "label": "AF aggregate modulus, swelling fit",
+      "label": "AF, biphasic-swelling fit",
       "view": "confined",
       "inputs": {
         "tissue": "AF",
@@ -855,35 +389,8 @@
       ]
     },
     {
-      "id": "cc_AF_k0_swelling",
-      "label": "AF permeability k0, swelling fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "AF",
-        "region": "annulus fibrosus (posterior, outer and inner anterior pooled; radial axis)",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic-swelling",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 6.4,
-          "sd": 7.6,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 18,
-          "test_id": "passive_tissue.cortes2014.AF_k0_swelling",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_CEP_Ha_biphasic",
-      "label": "CEP aggregate modulus, biphasic fit",
+      "label": "Endplate, biphasic fit",
       "view": "confined",
       "inputs": {
         "tissue": "CEP",
@@ -909,35 +416,8 @@
       ]
     },
     {
-      "id": "cc_CEP_k0_biphasic",
-      "label": "CEP permeability k0, biphasic fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "CEP",
-        "region": "cartilaginous endplate",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L1-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 0.55,
-          "sd": 0.48,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 12,
-          "test_id": "passive_tissue.cortes2014.CEP_k0_biphasic",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_CEP_Ha_swelling",
-      "label": "CEP aggregate modulus, swelling fit",
+      "label": "Endplate, biphasic-swelling fit",
       "view": "confined",
       "inputs": {
         "tissue": "CEP",
@@ -963,35 +443,8 @@
       ]
     },
     {
-      "id": "cc_CEP_k0_swelling",
-      "label": "CEP permeability k0, swelling fit",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "CEP",
-        "region": "cartilaginous endplate",
-        "mode": "confined compression, ramp-hold stress relaxation, 4 mm plug",
-        "fit_model": "biphasic-swelling",
-        "condition": "MRI grade <= 3"
-      },
-      "output": "permeability_k0",
-      "level": "L1-L4",
-      "refs": [
-        {
-          "study": "cortes2014",
-          "mean": 0.56,
-          "sd": 0.51,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 12,
-          "test_id": "passive_tissue.cortes2014.CEP_k0_swelling",
-          "note": "per-sample fit of stated model"
-        }
-      ]
-    },
-    {
       "id": "cc_AFant_HA0_nondegen",
-      "label": "Outer ant. AF H_A0, finite biph.",
+      "label": "Outer ant. AF, finite-strain fit",
       "view": "confined",
       "inputs": {
         "tissue": "AF",
@@ -1017,35 +470,8 @@
       ]
     },
     {
-      "id": "cc_AFant_k0_nondegen",
-      "label": "Outer ant. AF k0, finite biph.",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "AF",
-        "region": "anterior outer AF (axial + radial pooled)",
-        "mode": "confined compression, ramp-hold stress relaxation, 5 mm cylinder, 0.15 M NaCl",
-        "fit_model": "finite-deformation biphasic",
-        "condition": "grades I-II"
-      },
-      "output": "permeability_k0",
-      "level": "L2-L3",
-      "refs": [
-        {
-          "study": "iatridis1998",
-          "mean": 0.18,
-          "sd": 0.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 28,
-          "test_id": "passive_tissue.iatridis1998.AF_permeability_k0_nondegen",
-          "note": "zero-strain permeability, per-specimen fit"
-        }
-      ]
-    },
-    {
       "id": "cc_AFant_HA0_degen",
-      "label": "Outer ant. AF H_A0, finite biph., degen.",
+      "label": "Outer ant. AF, finite-strain fit, degen.",
       "view": "confined",
       "inputs": {
         "tissue": "AF",
@@ -1071,35 +497,8 @@
       ]
     },
     {
-      "id": "cc_AFant_k0_degen",
-      "label": "Outer ant. AF k0, finite biph., degen.",
-      "view": "confined_k",
-      "inputs": {
-        "tissue": "AF",
-        "region": "anterior outer AF (axial + radial pooled)",
-        "mode": "confined compression, ramp-hold stress relaxation, 5 mm cylinder, 0.15 M NaCl",
-        "fit_model": "finite-deformation biphasic",
-        "condition": "grades III-V"
-      },
-      "output": "permeability_k0",
-      "level": "L2-L3",
-      "refs": [
-        {
-          "study": "iatridis1998",
-          "mean": 0.16,
-          "sd": 0.06,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 16,
-          "test_id": "passive_tissue.iatridis1998.AF_permeability_k0_degen",
-          "note": "zero-strain permeability, per-specimen fit"
-        }
-      ]
-    },
-    {
       "id": "sw_AFant_p0_nondegen",
-      "label": "AF confined swelling stress p0",
+      "label": "AF swelling stress, grades I-II",
       "view": "swelling",
       "inputs": {
         "tissue": "AF",
@@ -1125,7 +524,7 @@
     },
     {
       "id": "sw_AFant_p0_degen",
-      "label": "AF confined swelling stress p0, degen.",
+      "label": "AF swelling stress, grades III-V",
       "view": "swelling",
       "inputs": {
         "tissue": "AF",
@@ -1152,7 +551,7 @@
     {
       "id": "sw_AF_ratio_water",
       "label": "AF swelling ratio, distilled water",
-      "view": "swelling_ratio",
+      "view": "swelling",
       "inputs": {
         "tissue": "AF",
         "region": "anterior AF, 20x5x1 mm",
@@ -1178,7 +577,7 @@
     {
       "id": "sw_AF_ratio_nacl",
       "label": "AF swelling ratio, 0.9% NaCl",
-      "view": "swelling_ratio",
+      "view": "swelling",
       "inputs": {
         "tissue": "AF",
         "region": "anterior AF, 20x5x1 mm",
@@ -1204,7 +603,7 @@
     {
       "id": "sw_AF_ratio_plasma",
       "label": "AF swelling ratio, human plasma",
-      "view": "swelling_ratio",
+      "view": "swelling",
       "inputs": {
         "tissue": "AF",
         "region": "anterior AF, 20x5x1 mm",
@@ -1230,7 +629,7 @@
     {
       "id": "sw_AF_ratio_dextran",
       "label": "AF swelling ratio, 10% dextran",
-      "view": "swelling_ratio",
+      "view": "swelling",
       "inputs": {
         "tissue": "AF",
         "region": "anterior AF, 20x5x1 mm",
@@ -1250,258 +649,6 @@
           "n": 10,
           "test_id": "passive_tissue.galante1967.AF_swelling_solutions",
           "note": "ratio of mean swollen to mean fresh weight (computed by extractor)"
-        }
-      ]
-    },
-    {
-      "id": "sw_AF_ratio_30min_outer",
-      "label": "AF swelling ratio, PBS 30 min, outer",
-      "view": "swelling_ratio",
-      "inputs": {
-        "tissue": "AF",
-        "region": "outer anterior AF strip",
-        "mode": "free swelling 30 min in 0.15 M PBS",
-        "condition": "non-degenerate"
-      },
-      "output": "swelling_ratio",
-      "level": "L1-L3",
-      "refs": [
-        {
-          "study": "elliottsetton2001",
-          "mean": 1.49,
-          "sd": 0.12,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": null,
-          "test_id": "passive_tissue.elliottsetton2001.AF_swelling_ratio",
-          "note": "n per region not stated (60 strips in total)"
-        }
-      ]
-    },
-    {
-      "id": "sw_AF_ratio_30min_inner",
-      "label": "AF swelling ratio, PBS 30 min, inner",
-      "view": "swelling_ratio",
-      "inputs": {
-        "tissue": "AF",
-        "region": "inner anterior AF strip",
-        "mode": "free swelling 30 min in 0.15 M PBS",
-        "condition": "non-degenerate"
-      },
-      "output": "swelling_ratio",
-      "level": "L1-L3",
-      "refs": [
-        {
-          "study": "elliottsetton2001",
-          "mean": 1.63,
-          "sd": 0.17,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": null,
-          "test_id": "passive_tissue.elliottsetton2001.AF_swelling_ratio",
-          "note": "n per region not stated (60 strips in total)"
-        }
-      ]
-    },
-    {
-      "id": "disc_k_2",
-      "label": "Disc axial stiffness, 0.2 mm, 1000 ms",
-      "view": "disc_axial",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement",
-        "displacement_mm": 0.2,
-        "duration_ms": 1000
-      },
-      "output": "axial_stiffness",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 500,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_baseline_axial_stiffness",
-          "note": "approximate value quoted in text (\"nearly 500\" / \"850 N/mm\")"
-        }
-      ]
-    },
-    {
-      "id": "disc_k_8",
-      "label": "Disc axial stiffness, 0.8 mm, 1000 ms",
-      "view": "disc_axial",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement",
-        "displacement_mm": 0.8,
-        "duration_ms": 1000
-      },
-      "output": "axial_stiffness",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 850,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_baseline_axial_stiffness",
-          "note": "approximate value quoted in text (\"nearly 500\" / \"850 N/mm\")"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_80",
-      "label": "Disc stiffness ratio, 80 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 80
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.249,
-          "sd": 0.0581,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2; SD = SE x sqrt(n) (SE 0.026)"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_160",
-      "label": "Disc stiffness ratio, 160 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 160
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.195,
-          "sd": 0.1118,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2; SD = SE x sqrt(n) (SE 0.05)"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_320",
-      "label": "Disc stiffness ratio, 320 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 320
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.059,
-          "sd": 0.0805,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2; SD = SE x sqrt(n) (SE 0.036)"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_400",
-      "label": "Disc stiffness ratio, 400 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 400
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.122,
-          "sd": 0.085,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2; SD = SE x sqrt(n) (SE 0.038)"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_600",
-      "label": "Disc stiffness ratio, 600 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 600
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.053,
-          "sd": 0.0894,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2; SD = SE x sqrt(n) (SE 0.04)"
-        }
-      ]
-    },
-    {
-      "id": "disc_knorm_800",
-      "label": "Disc stiffness ratio, 800 vs 1000 ms",
-      "view": "disc_rate",
-      "inputs": {
-        "mode": "axial compression of disc + vertebral bodies (posterior elements removed), triangular displacement 0.5 mm",
-        "displacement_mm": 0.5,
-        "duration_ms": 800
-      },
-      "output": "stiffness_ratio",
-      "level": "lumbar",
-      "refs": [
-        {
-          "study": "jamison2013",
-          "mean": 1.044,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
-          "note": "digitised Fig 2"
         }
       ]
     },
@@ -1556,7 +703,7 @@
     {
       "id": "disc_shear_strength",
       "label": "Disc anterior shear strength",
-      "view": "disc_strength",
+      "view": "disc_shear",
       "inputs": {
         "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure"
       },
@@ -1580,7 +727,7 @@
     {
       "id": "disc_mss_compression",
       "label": "Disc max shear strain, compression",
-      "view": "disc_strain_mm",
+      "view": "disc_strain",
       "inputs": {
         "mode": "compression of hemi-body disc specimen, 100 N preload"
       },
@@ -1603,7 +750,7 @@
     {
       "id": "disc_mss_anterior_shear",
       "label": "Disc max shear strain, anterior shear",
-      "view": "disc_strain_mm",
+      "view": "disc_strain",
       "inputs": {
         "mode": "anterior shear of hemi-body disc specimen, 100 N preload"
       },
@@ -1626,7 +773,7 @@
     {
       "id": "disc_mss_posterior_shear",
       "label": "Disc max shear strain, posterior shear",
-      "view": "disc_strain_mm",
+      "view": "disc_strain",
       "inputs": {
         "mode": "posterior shear of hemi-body disc specimen, 100 N preload"
       },
@@ -1649,7 +796,7 @@
     {
       "id": "disc_mss_lateral_shear",
       "label": "Disc max shear strain, lateral shear",
-      "view": "disc_strain_mm",
+      "view": "disc_strain",
       "inputs": {
         "mode": "lateral shear of hemi-body disc specimen, 100 N preload"
       },
@@ -1672,7 +819,7 @@
     {
       "id": "disc_mss_flexion",
       "label": "Disc max shear strain, flexion",
-      "view": "disc_strain_deg",
+      "view": "disc_strain",
       "inputs": {
         "mode": "flexion of hemi-body disc specimen, 100 N preload"
       },
@@ -1695,7 +842,7 @@
     {
       "id": "disc_mss_extension",
       "label": "Disc max shear strain, extension",
-      "view": "disc_strain_deg",
+      "view": "disc_strain",
       "inputs": {
         "mode": "extension of hemi-body disc specimen, 100 N preload"
       },
@@ -1718,7 +865,7 @@
     {
       "id": "disc_mss_axial_rotation",
       "label": "Disc max shear strain, axial rotation",
-      "view": "disc_strain_deg",
+      "view": "disc_strain",
       "inputs": {
         "mode": "axial rotation of hemi-body disc specimen, 100 N preload"
       },
@@ -1741,7 +888,7 @@
     {
       "id": "disc_mss_lateral_bending",
       "label": "Disc max shear strain, lateral bending",
-      "view": "disc_strain_deg",
+      "view": "disc_strain",
       "inputs": {
         "mode": "lateral bending of hemi-body disc specimen, 100 N preload"
       },
@@ -1763,44 +910,17 @@
     }
   ],
   "notes": [
-    "Aggregate modulus and permeability are per-sample fits; Cortes biphasic and biphasic-swelling fits and Iatridis finite-deformation fits are separate tasks. Compare by fitting your model, or by reproducing the relaxation curves.",
-    "Confined compression of AF sits here (not in annulus_tissue). Endplate = Cortes 2014 cartilaginous endplate only. Skrzypiec motion segments and other segment stiffness are in segment_stiffness.",
-    "Left out (in bench/tests): Cortes E, nu, beta, M, FCD, GAG, water; Iatridis 1998 beta and M; Iatridis 1997b water; Galante water content; Jamison 0.2/0.8 mm rate curves; Costi physiological (extrapolated) strains."
+    "Quasi-static only: dynamic shear (|G*|, phase), instantaneous moduli, permeability, impact-rate and 30-min swelling data were removed.",
+    "Stress = nominal (force / undeformed area), strain = nominal (ΔL / L0), as in Ghezelbash et al. 2020 J Biomech 102:109463.",
+    "Moduli are per-sample fits of the named model (biphasic, biphasic-swelling, finite-strain); compare by fitting the same model to your response."
   ],
-  "agent_prompt": "You are given a constitutive or finite element model of human lumbar disc tissue (nucleus, annulus, cartilaginous endplate) or of a whole disc. For every task, build the specimen in its inputs (tissue, region, test mode, degeneration) and simulate the test: torsional shear of an NP cylinder at the given frequency or ramp-hold, confined compression with a porous platen and the stated bath, free or confined swelling, or whole-disc compression, shear and rotation with the stated preload, displacement and duration. Report the output exactly as defined; for fitted parameters (aggregate modulus, k0) fit the named model to your simulated response or report your equivalent parameter. Use one parameter set per tissue. Return one JSON object following answer_format (task id -> {output key: value}); use null when not simulated.",
+  "agent_prompt": "You are given a constitutive or finite element model of human lumbar disc tissue (nucleus, annulus, cartilaginous endplate) or of a whole disc. For every task, build the specimen in its inputs (tissue, region, test mode, degeneration) and simulate the quasi-static test: confined compression with a porous platen to equilibrium, torsional shear held to equilibrium, confined or free swelling in the stated bath, or whole-disc shear and rotation with the stated preload. Use nominal stress (force / undeformed area) and nominal strain (change in length / initial length). Report the output exactly as defined; for fitted moduli fit the named model to your simulated equilibrium response. Use one parameter set per tissue. Return one JSON object following answer_format (task id -> {output key: value}); use null when not simulated.",
   "answer_format": {
-    "np_Gdyn_1": {
-      "G_dynamic": "kPa"
-    },
-    "np_Gdyn_10": {
-      "G_dynamic": "kPa"
-    },
-    "np_Gdyn_100": {
-      "G_dynamic": "kPa"
-    },
-    "np_phase_1": {
-      "phase_angle": "deg"
-    },
-    "np_phase_10": {
-      "phase_angle": "deg"
-    },
-    "np_phase_100": {
-      "phase_angle": "deg"
-    },
-    "np_mu_inst": {
-      "shear_modulus_inst": "kPa"
-    },
     "np_mu_eq": {
       "shear_modulus_eq": "kPa"
     },
-    "np_mu_inst_mild": {
-      "shear_modulus_inst": "kPa"
-    },
     "np_mu_eq_mild": {
       "shear_modulus_eq": "kPa"
-    },
-    "np_mu_inst_severe": {
-      "shear_modulus_inst": "kPa"
     },
     "np_mu_eq_severe": {
       "shear_modulus_eq": "kPa"
@@ -1808,50 +928,26 @@
     "cc_NP_Ha_biphasic": {
       "aggregate_modulus": "MPa"
     },
-    "cc_NP_k0_biphasic": {
-      "permeability_k0": "1e-15 m4/(N s)"
-    },
     "cc_NP_Ha_swelling": {
       "aggregate_modulus": "MPa"
-    },
-    "cc_NP_k0_swelling": {
-      "permeability_k0": "1e-15 m4/(N s)"
     },
     "cc_AF_Ha_biphasic": {
       "aggregate_modulus": "MPa"
     },
-    "cc_AF_k0_biphasic": {
-      "permeability_k0": "1e-15 m4/(N s)"
-    },
     "cc_AF_Ha_swelling": {
       "aggregate_modulus": "MPa"
-    },
-    "cc_AF_k0_swelling": {
-      "permeability_k0": "1e-15 m4/(N s)"
     },
     "cc_CEP_Ha_biphasic": {
       "aggregate_modulus": "MPa"
     },
-    "cc_CEP_k0_biphasic": {
-      "permeability_k0": "1e-15 m4/(N s)"
-    },
     "cc_CEP_Ha_swelling": {
       "aggregate_modulus": "MPa"
-    },
-    "cc_CEP_k0_swelling": {
-      "permeability_k0": "1e-15 m4/(N s)"
     },
     "cc_AFant_HA0_nondegen": {
       "aggregate_modulus": "MPa"
     },
-    "cc_AFant_k0_nondegen": {
-      "permeability_k0": "1e-15 m4/(N s)"
-    },
     "cc_AFant_HA0_degen": {
       "aggregate_modulus": "MPa"
-    },
-    "cc_AFant_k0_degen": {
-      "permeability_k0": "1e-15 m4/(N s)"
     },
     "sw_AFant_p0_nondegen": {
       "swelling_stress": "MPa"
@@ -1870,36 +966,6 @@
     },
     "sw_AF_ratio_dextran": {
       "swelling_ratio": "-"
-    },
-    "sw_AF_ratio_30min_outer": {
-      "swelling_ratio": "-"
-    },
-    "sw_AF_ratio_30min_inner": {
-      "swelling_ratio": "-"
-    },
-    "disc_k_2": {
-      "axial_stiffness": "N/mm"
-    },
-    "disc_k_8": {
-      "axial_stiffness": "N/mm"
-    },
-    "disc_knorm_80": {
-      "stiffness_ratio": "-"
-    },
-    "disc_knorm_160": {
-      "stiffness_ratio": "-"
-    },
-    "disc_knorm_320": {
-      "stiffness_ratio": "-"
-    },
-    "disc_knorm_400": {
-      "stiffness_ratio": "-"
-    },
-    "disc_knorm_600": {
-      "stiffness_ratio": "-"
-    },
-    "disc_knorm_800": {
-      "stiffness_ratio": "-"
     },
     "disc_shear_k_ant": {
       "shear_stiffness": "N/mm"

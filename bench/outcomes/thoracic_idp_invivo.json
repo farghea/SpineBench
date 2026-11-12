@@ -9,7 +9,7 @@
     "T9-T10",
     "T10-T11"
   ],
-  "summary": "Simulate each standing posture or hand-load task for the Polga subject and report mid and lower thoracic intradiscal pressure.",
+  "summary": "Simulate each standing posture or hand-load task for the Polga subject and report mid and lower thoracic intradiscal pressure (MPa).",
   "simulate": [
     "Scale the model to the Polga subject (male, 33 y, 178 cm, 73 kg).",
     "Set the posture: trunk flexion, extension, lateral bending or axial twist as stated.",
@@ -51,7 +51,8 @@
     {
       "key": "idp",
       "label": "IDP",
-      "unit": "MPa"
+      "unit": "MPa",
+      "definition": "IDP = absolute nucleus pressure (MPa); mid = mean of T6-T7 and T7-T8, lower = mean of T9-T10 and T10-T11"
     }
   ],
   "subjects": {
@@ -82,7 +83,7 @@
   "views": [
     {
       "id": "postures",
-      "title": "Postures",
+      "title": "Standing postures",
       "task_ids": [
         "stand_mid",
         "stand_lower",
@@ -99,7 +100,7 @@
     },
     {
       "id": "hand_loads",
-      "title": "Hand loads",
+      "title": "Holding 10 kg in each hand",
       "task_ids": [
         "stand_10kg_mid",
         "stand_10kg_lower",
@@ -262,7 +263,7 @@
     },
     {
       "id": "latbend20_mid",
-      "label": "Lateral bending 20° (right) (mid)",
+      "label": "Lateral bending 20° right (mid)",
       "view": "postures",
       "inputs": {
         "posture": "standing, lateral bending to the right",
@@ -287,7 +288,7 @@
     },
     {
       "id": "latbend20_lower",
-      "label": "Lateral bending 20° (right) (lower)",
+      "label": "Lateral bending 20° right (lower)",
       "view": "postures",
       "inputs": {
         "posture": "standing, lateral bending to the right",
@@ -312,7 +313,7 @@
     },
     {
       "id": "twist30_mid",
-      "label": "Axial rotation 30° (left) (mid)",
+      "label": "Axial rotation 30° left (mid)",
       "view": "postures",
       "inputs": {
         "posture": "standing, axial twist to the left",
@@ -337,7 +338,7 @@
     },
     {
       "id": "twist30_lower",
-      "label": "Axial rotation 30° (left) (lower)",
+      "label": "Axial rotation 30° left (lower)",
       "view": "postures",
       "inputs": {
         "posture": "standing, axial twist to the left",
@@ -514,9 +515,9 @@
     }
   ],
   "notes": [
-    "Values were digitised from Schmid 2020 (mean and range of Polga 2004) via the Ghezelbash lab targets; means checked against Dreischarf 2016 and Ignasiak 2016; the Polga PDF was not available.",
-    "Meir 2007 is excluded: intraoperative stress profilometry in anaesthetised, side-lying patients, mostly scoliotic discs, so there is no loaded task to simulate.",
-    "Thoracic discs show ~0.2-0.3 MPa even unloaded, which compression-based models do not reproduce; Eq. 6 is a lumbar relation applied unchanged."
+    "Values digitised from Schmid 2020 (mean and range of Polga 2004); means checked against Dreischarf 2016.",
+    "Meir 2007 is excluded: intraoperative profilometry in anaesthetised, side-lying patients, no loaded task.",
+    "Thoracic discs show ~0.2-0.3 MPa even unloaded; Eq. 6 is a lumbar relation applied unchanged."
   ],
   "agent_prompt": "Use your spine musculoskeletal model. Scale it to the Polga 2004 subject in \"subjects\" (male, 33 y, 178 cm, 73 kg). For each task in \"tasks\", simulate the posture and hand load given in its inputs. Compute compression and flexion at T6-T7 and T7-T8 (average them for \"mid\") and at T9-T10 and T10-T11 (average for \"lower\"), and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A, A = 663 mm2 mid, 897 mm2 lower) or IDP = F/(0.66 A); say which. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with IDP in MPa.",
   "answer_format": {

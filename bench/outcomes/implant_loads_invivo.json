@@ -8,7 +8,7 @@
     "L3",
     "T10-L5 (fixator)"
   ],
-  "summary": "Simulate each activity for the implant patients and report the telemetered VBR force, its change from a reference activity, or fixator load relative to standing.",
+  "summary": "Simulate each activity for the implant patients and report the measured implant force, or its change from a reference activity.",
   "simulate": [
     "Scale the model to the patient (\"patients\") for per-patient refs, or to the cohort mean for group refs.",
     "Set the activity and posture; add hand loads, supports or limb positions as stated.",
@@ -39,23 +39,27 @@
   "outputs": [
     {
       "key": "vbr_force",
-      "label": "VBR resultant force",
-      "unit": "N"
+      "label": "Implant (VBR) force",
+      "unit": "N",
+      "definition": "Resultant force on the telemetered vertebral body replacement (VBR) at L1 (N)"
     },
     {
       "key": "vbr_force_increase",
       "label": "VBR force increase over reference",
-      "unit": "N"
+      "unit": "N",
+      "definition": "VBR force in the task minus VBR force in the reference activity (N)"
     },
     {
       "key": "vbr_force_change",
       "label": "VBR force change vs reference",
-      "unit": "%"
+      "unit": "%",
+      "definition": "(VBR force in task - in reference) / reference x 100 (%)"
     },
     {
       "key": "fixator_moment_rel",
       "label": "Fixator flexion moment, % of standing",
-      "unit": "% of standing"
+      "unit": "% of standing",
+      "definition": "Flexion moment on the telemetered internal fixator, as % of relaxed standing"
     }
   ],
   "patients": {
@@ -316,7 +320,7 @@
   "views": [
     {
       "id": "vbr_force",
-      "title": "VBR force (N)",
+      "title": "Implant force by activity",
       "task_ids": [
         "standing",
         "walking",
@@ -335,7 +339,7 @@
     },
     {
       "id": "vbr_increase",
-      "title": "VBR force increase over reference (N)",
+      "title": "Force rise over a reference posture",
       "task_ids": [
         "flex_stand_inc",
         "flex_sit_inc",
@@ -348,7 +352,7 @@
     },
     {
       "id": "vbr_change",
-      "title": "VBR force change vs reference (%)",
+      "title": "Force change vs standing or sitting",
       "task_ids": [
         "walk_pct",
         "sit_flex15_pct",
@@ -360,7 +364,7 @@
     },
     {
       "id": "fixator_rel",
-      "title": "Fixator moment, % of standing",
+      "title": "Fixator moment vs standing",
       "task_ids": [
         "fix_lie_supine",
         "fix_lie_prone",
@@ -908,7 +912,7 @@
     },
     {
       "id": "lift_max",
-      "label": "Lifting a crate from the ground (max)",
+      "label": "Lifting a crate from the floor (peak)",
       "view": "vbr_force",
       "inputs": {
         "activity": "lifting a crate from the floor (stoop or squat)",
@@ -1067,7 +1071,7 @@
     },
     {
       "id": "allfours_armleg_inc",
-      "label": "All-fours, arm + opposite leg out",
+      "label": "All-fours, one arm and opposite leg out",
       "view": "vbr_increase",
       "inputs": {
         "activity": "all-fours, outstretching one arm and the contralateral leg",
@@ -1407,9 +1411,9 @@
     }
   ],
   "notes": [
-    "The VBR carries only part of the segment load (shared with the posterior fixator, bone and graft); compare trends and ratios first, absolute N only if the implant is modelled. All VBR studies share the same 5 patients.",
-    "Per-patient values only where the paper gives no group value: Rohlmann 2008 (median of clip maxima, early post-op; WP3 zeroed at supine rest), Dreischarf 2016 (highest lift force), Rohlmann 2014a/c resting forces. Group values of Dreischarf 2015 and Rohlmann 2014c are medians of patient medians.",
-    "Not included: Rohlmann 1999/2000 fixator forces and moments (per patient and side, or only differences from the session maximum), Rohlmann 2014a top-10 peaks (ranges only), patient-10 exercises."
+    "The VBR carries only part of the segment load (shared with fixator, bone and graft): compare trends first. All VBR studies share the same 5 patients.",
+    "Per-patient values only where no group value exists (Rohlmann 2008, Dreischarf 2016, Rohlmann 2014a/c rest); several groups report medians.",
+    "Walking and lifting values are peaks of the measured force."
   ],
   "answer_format": {
     "standing": {

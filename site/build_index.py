@@ -559,6 +559,32 @@ def card_csv(path, c):
                 w.writerow(["" if v is None else v for v in row])
 
 
+def load_schematics(card_ids):
+    """site/assets/schematics/index.json: {"<card_id>" or "<card_id>/<view_id>": "file.svg"} -> the entries whose
+    file exists (the site serves site/assets directly, so nothing is copied)."""
+    d = SITE / "assets" / "schematics"
+    f = d / "index.json"
+    if not f.is_file():
+        return {}
+    try:
+        raw = json.loads(f.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        warn(f"schematics index unreadable: {e}")
+        return {}
+    keep = {}
+    for k, v in (raw.items() if isinstance(raw, dict) else []):
+        src = v.get("file") or v.get("svg") or v.get("src") if isinstance(v, dict) else v
+        if not isinstance(src, str) or not src:
+            continue
+        if k.split("/")[0] not in card_ids:
+            warn(f"schematic {k}: no such benchmark")
+        if not (d / src).is_file():
+            warn(f"schematic {k}: {src} missing")
+            continue
+        keep[k] = v
+    return keep
+
+
 def build_outcomes(real_dir, ex_dir, out):
     cards = load_cards(real_dir, ex_dir)
     odir = out / "outcomes"
@@ -603,8 +629,12 @@ def build_outcomes(real_dir, ex_dir, out):
         l0["subjects"] = {k: v for k, v in list(l0["subjects"].items())[:1]}
         l0["studies"] = l0["studies"][:1]
         ex_line = l0
+    schem = load_schematics(have)
+    for b in index:
+        b["schematic"] = schem.get(b["id"])
     (out / "outcomes.json").write_text(json.dumps(
-        {"generated": generated, "counts": counts, "benchmarks": index, "planned": planned, "agent_example": ex_line},
+        {"generated": generated, "counts": counts, "benchmarks": index, "planned": planned, "agent_example": ex_line,
+         "schematics": schem, "schematics_index": (SITE / "assets" / "schematics" / "index.json").is_file()},
         ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "benchmark.json").write_text(json.dumps(
         {"name": "SpineBench", "version": "v1", "generated": generated, "benchmarks": cards}, ensure_ascii=False, indent=1),

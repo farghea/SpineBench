@@ -11,12 +11,12 @@
     "T6-T7",
     "T8-T12"
   ],
-  "summary": "Remove structures step by step as each study did and report rotation at the stated pure moment after every step.",
+  "summary": "Cut away thoracic structures and the rib cage step by step as each study did and report rotation after every step.",
   "simulate": [
-    "Build the specimen of the view: lumbar FSU, disc-only unit, thoracic FSU, or C7-L1 spine with rib cage.",
-    "Fix the caudal vertebra; apply the pure moment (and preload, if stated) to the cranial end.",
-    "Remove structures cumulatively in the listed order; re-run the same load at every step.",
-    "Report rotation at peak moment: one direction, or full range (both directions summed) if stated.",
+    "Build the specimen of the view: T6-T7 FSU without ribs, or C7-L1/T1-T12 spine with rib cage.",
+    "Fix the caudal vertebra; apply the pure moment (and follower preload, if stated) to the cranial end.",
+    "Remove structures cumulatively in the listed order (step 0 = intact); re-run the same load at every step.",
+    "Report rotation at peak moment: one direction (rom) or both directions summed (rom_range).",
     "For % of intact tasks divide by your own intact value and multiply by 100."
   ],
   "inputs": [
@@ -51,17 +51,20 @@
     {
       "key": "rom",
       "label": "ROM, one direction",
-      "unit": "deg"
+      "unit": "deg",
+      "definition": "ROM = rotation of the upper vertebra relative to the lower at peak moment, one direction, loading branch (deg)"
     },
     {
       "key": "rom_range",
-      "label": "ROM, full range (both directions)",
-      "unit": "deg"
+      "label": "ROM, both directions summed",
+      "unit": "deg",
+      "definition": "Rotation at +peak plus at -peak moment (both directions summed), of the span or level stated (deg)"
     },
     {
       "key": "rom_pct",
       "label": "ROM, % of intact",
-      "unit": "%"
+      "unit": "%",
+      "definition": "ROM after the step / same specimen intact x 100"
     }
   ],
   "studies": [
@@ -164,7 +167,7 @@
   "views": [
     {
       "id": "t67_wilke",
-      "title": "Thoracic FSU T6-T7 without ribs (Wilke 2020), 2.5 Nm",
+      "title": "T6-T7 segment: parts removed one by one",
       "task_ids": [
         "t67_intact_flex",
         "t67_ssl_flex",
@@ -203,11 +206,14 @@
         "t67_all_ar",
         "t67_nuc_ar"
       ],
-      "x": "task"
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
     },
     {
       "id": "t_ribcage_2nm",
-      "title": "Thoracic spine with rib cage, stepwise rib cage reduction, 2 Nm",
+      "title": "Rib cage cut away step by step (2 Nm)",
       "task_ids": [
         "rc2_intact_fe",
         "rc2_im_fe",
@@ -240,7 +246,7 @@
     },
     {
       "id": "t_ribcage_pct",
-      "title": "Rib cage reduction, ROM % of intact (Liebsch 2017, 2 Nm)",
+      "title": "Rib cage cut away, % of intact (2 Nm)",
       "task_ids": [
         "rcp_im_fe",
         "rcp_mst_fe",
@@ -260,7 +266,7 @@
     },
     {
       "id": "t_ribcage_5nm",
-      "title": "Rib cage and costovertebral joints (Liebsch 2020), 5 Nm",
+      "title": "Rib joints cut, then segments isolated",
       "task_ids": [
         "rc5_intact_fe",
         "rc5_anterior_fe",
@@ -285,7 +291,7 @@
     },
     {
       "id": "t_decompression",
-      "title": "Posterior decompression with rib cage (T1-T12 ROM, 5 Nm)",
+      "title": "Posterior decompression (5 Nm)",
       "task_ids": [
         "rc5_intact_fe",
         "rc5_intact_lb",
@@ -313,7 +319,7 @@
     },
     {
       "id": "t_ribcage_fl400",
-      "title": "Rib cage removal under 400 N follower load (Sis 2016 / Mannen 2018), 5 Nm",
+      "title": "Rib cage removed, 400 N follower (5 Nm)",
       "task_ids": [
         "fl_t1t4_intact_fe",
         "fl_t1t4_noribs_fe",
@@ -340,7 +346,7 @@
   "tasks": [
     {
       "id": "t67_intact_flex",
-      "label": "Flex, 0: intact",
+      "label": "Flexion, intact",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -369,7 +375,7 @@
     },
     {
       "id": "t67_ssl_flex",
-      "label": "Flex, 1: -SSL (cum.)",
+      "label": "Flexion, step 1: SSL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -398,7 +404,7 @@
     },
     {
       "id": "t67_isl_flex",
-      "label": "Flex, 2: -ISL (cum.)",
+      "label": "Flexion, step 2: ISL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -427,7 +433,7 @@
     },
     {
       "id": "t67_lf_flex",
-      "label": "Flex, 3: -LF (cum.)",
+      "label": "Flexion, step 3: LF out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -456,7 +462,7 @@
     },
     {
       "id": "t67_fc_flex",
-      "label": "Flex, 4: -FC (cum.)",
+      "label": "Flexion, step 4: capsules out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -485,7 +491,7 @@
     },
     {
       "id": "t67_va_flex",
-      "label": "Flex, 5: -VA (cum.)",
+      "label": "Flexion, step 5: arch out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -514,7 +520,7 @@
     },
     {
       "id": "t67_pll_flex",
-      "label": "Flex, 6: -PLL (cum.)",
+      "label": "Flexion, step 6: PLL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -543,7 +549,7 @@
     },
     {
       "id": "t67_all_flex",
-      "label": "Flex, 7: -ALL (cum.)",
+      "label": "Flexion, step 7: ALL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -572,7 +578,7 @@
     },
     {
       "id": "t67_nuc_flex",
-      "label": "Flex, 8: -NUC (cum.)",
+      "label": "Flexion, step 8: nucleus out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -601,7 +607,7 @@
     },
     {
       "id": "t67_intact_ext",
-      "label": "Ext, 0: intact",
+      "label": "Extension, intact",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -630,7 +636,7 @@
     },
     {
       "id": "t67_ssl_ext",
-      "label": "Ext, 1: -SSL (cum.)",
+      "label": "Extension, step 1: SSL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -659,7 +665,7 @@
     },
     {
       "id": "t67_isl_ext",
-      "label": "Ext, 2: -ISL (cum.)",
+      "label": "Extension, step 2: ISL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -688,7 +694,7 @@
     },
     {
       "id": "t67_lf_ext",
-      "label": "Ext, 3: -LF (cum.)",
+      "label": "Extension, step 3: LF out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -717,7 +723,7 @@
     },
     {
       "id": "t67_fc_ext",
-      "label": "Ext, 4: -FC (cum.)",
+      "label": "Extension, step 4: capsules out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -746,7 +752,7 @@
     },
     {
       "id": "t67_va_ext",
-      "label": "Ext, 5: -VA (cum.)",
+      "label": "Extension, step 5: arch out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -775,7 +781,7 @@
     },
     {
       "id": "t67_pll_ext",
-      "label": "Ext, 6: -PLL (cum.)",
+      "label": "Extension, step 6: PLL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -804,7 +810,7 @@
     },
     {
       "id": "t67_all_ext",
-      "label": "Ext, 7: -ALL (cum.)",
+      "label": "Extension, step 7: ALL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -833,7 +839,7 @@
     },
     {
       "id": "t67_nuc_ext",
-      "label": "Ext, 8: -NUC (cum.)",
+      "label": "Extension, step 8: nucleus out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -862,7 +868,7 @@
     },
     {
       "id": "t67_intact_lb",
-      "label": "LB, 0: intact",
+      "label": "Lat. bending, intact",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -891,7 +897,7 @@
     },
     {
       "id": "t67_ssl_lb",
-      "label": "LB, 1: -SSL (cum.)",
+      "label": "Lat. bending, step 1: SSL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -920,7 +926,7 @@
     },
     {
       "id": "t67_isl_lb",
-      "label": "LB, 2: -ISL (cum.)",
+      "label": "Lat. bending, step 2: ISL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -949,7 +955,7 @@
     },
     {
       "id": "t67_lf_lb",
-      "label": "LB, 3: -LF (cum.)",
+      "label": "Lat. bending, step 3: LF out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -978,7 +984,7 @@
     },
     {
       "id": "t67_fc_lb",
-      "label": "LB, 4: -FC (cum.)",
+      "label": "Lat. bending, step 4: capsules out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1007,7 +1013,7 @@
     },
     {
       "id": "t67_va_lb",
-      "label": "LB, 5: -VA (cum.)",
+      "label": "Lat. bending, step 5: arch out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1036,7 +1042,7 @@
     },
     {
       "id": "t67_pll_lb",
-      "label": "LB, 6: -PLL (cum.)",
+      "label": "Lat. bending, step 6: PLL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1065,7 +1071,7 @@
     },
     {
       "id": "t67_all_lb",
-      "label": "LB, 7: -ALL (cum.)",
+      "label": "Lat. bending, step 7: ALL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1094,7 +1100,7 @@
     },
     {
       "id": "t67_nuc_lb",
-      "label": "LB, 8: -NUC (cum.)",
+      "label": "Lat. bending, step 8: nucleus out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1123,7 +1129,7 @@
     },
     {
       "id": "t67_intact_ar",
-      "label": "AR, 0: intact",
+      "label": "Axial rot., intact",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1152,7 +1158,7 @@
     },
     {
       "id": "t67_ssl_ar",
-      "label": "AR, 1: -SSL (cum.)",
+      "label": "Axial rot., step 1: SSL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1181,7 +1187,7 @@
     },
     {
       "id": "t67_isl_ar",
-      "label": "AR, 2: -ISL (cum.)",
+      "label": "Axial rot., step 2: ISL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1210,7 +1216,7 @@
     },
     {
       "id": "t67_lf_ar",
-      "label": "AR, 3: -LF (cum.)",
+      "label": "Axial rot., step 3: LF out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1239,7 +1245,7 @@
     },
     {
       "id": "t67_fc_ar",
-      "label": "AR, 4: -FC (cum.)",
+      "label": "Axial rot., step 4: capsules out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1268,7 +1274,7 @@
     },
     {
       "id": "t67_va_ar",
-      "label": "AR, 5: -VA (cum.)",
+      "label": "Axial rot., step 5: arch out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1297,7 +1303,7 @@
     },
     {
       "id": "t67_pll_ar",
-      "label": "AR, 6: -PLL (cum.)",
+      "label": "Axial rot., step 6: PLL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1326,7 +1332,7 @@
     },
     {
       "id": "t67_all_ar",
-      "label": "AR, 7: -ALL (cum.)",
+      "label": "Axial rot., step 7: ALL out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1355,7 +1361,7 @@
     },
     {
       "id": "t67_nuc_ar",
-      "label": "AR, 8: -NUC (cum.)",
+      "label": "Axial rot., step 8: nucleus out",
       "view": "t67_wilke",
       "inputs": {
         "specimen": "T6-T7 FSU, no ribs",
@@ -1384,7 +1390,7 @@
     },
     {
       "id": "rc2_intact_fe",
-      "label": "FE, 0: intact rib cage",
+      "label": "Flex+ext, intact",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1433,7 +1439,7 @@
     },
     {
       "id": "rc2_im_fe",
-      "label": "FE, 1: -intercostal muscles",
+      "label": "Flex+ext, 1: intercostals out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1461,7 +1467,7 @@
     },
     {
       "id": "rc2_mst_fe",
-      "label": "FE, 2: -sternum (sternotomy)",
+      "label": "Flex+ext, 2: sternum split",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1489,7 +1495,7 @@
     },
     {
       "id": "rc2_arc_fe",
-      "label": "FE, 3: -anterior rib cage",
+      "label": "Flex+ext, 3: front rib cage out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1517,7 +1523,7 @@
     },
     {
       "id": "rc2_rh68_fe",
-      "label": "FE, 4: -rib heads 6-8 right",
+      "label": "Flex+ext, 4: right rib heads 6-8 out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1545,7 +1551,7 @@
     },
     {
       "id": "rc2_rh_fe",
-      "label": "FE, 5: -all rib heads",
+      "label": "Flex+ext, 5: all rib heads out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1573,7 +1579,7 @@
     },
     {
       "id": "rc2_wired_fe",
-      "label": "FE: sternotomy closed with wires",
+      "label": "Flex+ext, sternum split, then wired",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1601,7 +1607,7 @@
     },
     {
       "id": "rc2_intact_lb",
-      "label": "LB, 0: intact rib cage",
+      "label": "Lat. bend, intact",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1650,7 +1656,7 @@
     },
     {
       "id": "rc2_im_lb",
-      "label": "LB, 1: -intercostal muscles",
+      "label": "Lat. bend, 1: intercostals out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1678,7 +1684,7 @@
     },
     {
       "id": "rc2_mst_lb",
-      "label": "LB, 2: -sternum (sternotomy)",
+      "label": "Lat. bend, 2: sternum split",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1706,7 +1712,7 @@
     },
     {
       "id": "rc2_arc_lb",
-      "label": "LB, 3: -anterior rib cage",
+      "label": "Lat. bend, 3: front rib cage out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1734,7 +1740,7 @@
     },
     {
       "id": "rc2_rh68_lb",
-      "label": "LB, 4: -rib heads 6-8 right",
+      "label": "Lat. bend, 4: right rib heads 6-8 out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1762,7 +1768,7 @@
     },
     {
       "id": "rc2_rh_lb",
-      "label": "LB, 5: -all rib heads",
+      "label": "Lat. bend, 5: all rib heads out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1790,7 +1796,7 @@
     },
     {
       "id": "rc2_wired_lb",
-      "label": "LB: sternotomy closed with wires",
+      "label": "Lat. bend, sternum split, then wired",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1818,7 +1824,7 @@
     },
     {
       "id": "rc2_intact_ar",
-      "label": "AR, 0: intact rib cage",
+      "label": "Axial rot., intact",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1846,7 +1852,7 @@
     },
     {
       "id": "rc2_im_ar",
-      "label": "AR, 1: -intercostal muscles",
+      "label": "Axial rot., 1: intercostals out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1874,7 +1880,7 @@
     },
     {
       "id": "rc2_mst_ar",
-      "label": "AR, 2: -sternum (sternotomy)",
+      "label": "Axial rot., 2: sternum split",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1902,7 +1908,7 @@
     },
     {
       "id": "rc2_arc_ar",
-      "label": "AR, 3: -anterior rib cage",
+      "label": "Axial rot., 3: front rib cage out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1930,7 +1936,7 @@
     },
     {
       "id": "rc2_rh68_ar",
-      "label": "AR, 4: -rib heads 6-8 right",
+      "label": "Axial rot., 4: right rib heads 6-8 out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1958,7 +1964,7 @@
     },
     {
       "id": "rc2_rh_ar",
-      "label": "AR, 5: -all rib heads",
+      "label": "Axial rot., 5: all rib heads out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -1986,7 +1992,7 @@
     },
     {
       "id": "rc2_wired_ar",
-      "label": "AR: sternotomy closed with wires",
+      "label": "Axial rot., sternum split, then wired",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2014,7 +2020,7 @@
     },
     {
       "id": "rc2_wat_arc_fe",
-      "label": "FE: anterior rib cage removed (alt.)",
+      "label": "Flex+ext, sternum and front ribs out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -2042,7 +2048,7 @@
     },
     {
       "id": "rc2_wat_arc_lb",
-      "label": "LB: anterior rib cage removed (alt.)",
+      "label": "Lat. bend, sternum and front ribs out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -2070,7 +2076,7 @@
     },
     {
       "id": "rc2_wat_fx_fe",
-      "label": "FE: transverse sternal fracture",
+      "label": "Flex+ext, sternum fractured across",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -2098,7 +2104,7 @@
     },
     {
       "id": "rc5_wat_intact_ar",
-      "label": "AR, 5 Nm + 50 N: intact rib cage",
+      "label": "Axial rot., 5 Nm, 50 N: intact",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -2126,7 +2132,7 @@
     },
     {
       "id": "rc5_wat_arc_ar",
-      "label": "AR, 5 Nm + 50 N: anterior rib cage off",
+      "label": "Axial rot., 5 Nm, 50 N: front ribs out",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -2154,7 +2160,7 @@
     },
     {
       "id": "rcp_im_fe",
-      "label": "FE, 1: -intercostal muscles",
+      "label": "Flex+ext, 1: intercostals out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2182,7 +2188,7 @@
     },
     {
       "id": "rcp_mst_fe",
-      "label": "FE, 2: -sternum (sternotomy)",
+      "label": "Flex+ext, 2: sternum split",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2210,7 +2216,7 @@
     },
     {
       "id": "rcp_arc_fe",
-      "label": "FE, 3: -anterior rib cage",
+      "label": "Flex+ext, 3: front rib cage out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2238,7 +2244,7 @@
     },
     {
       "id": "rcp_im_lb",
-      "label": "LB, 1: -intercostal muscles",
+      "label": "Lat. bend, 1: intercostals out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2266,7 +2272,7 @@
     },
     {
       "id": "rcp_mst_lb",
-      "label": "LB, 2: -sternum (sternotomy)",
+      "label": "Lat. bend, 2: sternum split",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2294,7 +2300,7 @@
     },
     {
       "id": "rcp_arc_lb",
-      "label": "LB, 3: -anterior rib cage",
+      "label": "Lat. bend, 3: front rib cage out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2322,7 +2328,7 @@
     },
     {
       "id": "rcp_rh68_lb",
-      "label": "LB, 4: -rib heads 6-8 right",
+      "label": "Lat. bend, 4: right rib heads 6-8 out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2350,7 +2356,7 @@
     },
     {
       "id": "rcp_rh_lb",
-      "label": "LB, 5: -all rib heads",
+      "label": "Lat. bend, 5: all rib heads out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2378,7 +2384,7 @@
     },
     {
       "id": "rcp_im_ar",
-      "label": "AR, 1: -intercostal muscles",
+      "label": "Axial rot., 1: intercostals out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2406,7 +2412,7 @@
     },
     {
       "id": "rcp_mst_ar",
-      "label": "AR, 2: -sternum (sternotomy)",
+      "label": "Axial rot., 2: sternum split",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2434,7 +2440,7 @@
     },
     {
       "id": "rcp_arc_ar",
-      "label": "AR, 3: -anterior rib cage",
+      "label": "Axial rot., 3: front rib cage out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2462,7 +2468,7 @@
     },
     {
       "id": "rcp_rh68_ar",
-      "label": "AR, 4: -rib heads 6-8 right",
+      "label": "Axial rot., 4: right rib heads 6-8 out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2490,7 +2496,7 @@
     },
     {
       "id": "rcp_rh_ar",
-      "label": "AR, 5: -all rib heads",
+      "label": "Axial rot., 5: all rib heads out",
       "view": "t_ribcage_pct",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2518,7 +2524,7 @@
     },
     {
       "id": "rc5_intact_fe",
-      "label": "FE, T1-T12: intact rib cage",
+      "label": "Flex+ext, T1-T12: intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2569,7 +2575,7 @@
     },
     {
       "id": "rc5_anterior_fe",
-      "label": "FE, T1-T12: -anterior rib joints",
+      "label": "Flex+ext, T1-T12: front rib joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2598,7 +2604,7 @@
     },
     {
       "id": "rc5_intact_lb",
-      "label": "LB, T1-T12: intact rib cage",
+      "label": "Lat. bend, T1-T12: intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2649,7 +2655,7 @@
     },
     {
       "id": "rc5_anterior_lb",
-      "label": "LB, T1-T12: -anterior rib joints",
+      "label": "Lat. bend, T1-T12: front rib joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2678,7 +2684,7 @@
     },
     {
       "id": "rc5_intact_ar",
-      "label": "AR, T1-T12: intact rib cage",
+      "label": "Axial rot., T1-T12: intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2729,7 +2735,7 @@
     },
     {
       "id": "rc5_anterior_ar",
-      "label": "AR, T1-T12: -anterior rib joints",
+      "label": "Axial rot., T1-T12: front rib joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "C7-L1 with rib cage",
@@ -2758,7 +2764,7 @@
     },
     {
       "id": "rcs_intact_fe",
-      "label": "FE, 6 FSUs: in situ, intact",
+      "label": "Flex+ext, 6 FSUs, intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2787,7 +2793,7 @@
     },
     {
       "id": "rcs_anterior_fe",
-      "label": "FE, 6 FSUs: in situ, -ant. joints",
+      "label": "Flex+ext, 6 FSUs, front joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2816,7 +2822,7 @@
     },
     {
       "id": "rcs_mono_fe",
-      "label": "FE, 6 FSUs: isolated, with ribs",
+      "label": "Flex+ext, 6 FSUs isolated, rib stumps",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2845,7 +2851,7 @@
     },
     {
       "id": "rcs_noribs_fe",
-      "label": "FE, 6 FSUs: isolated, -ribs/CV joints",
+      "label": "Flex+ext, 6 FSUs isolated, no ribs",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2874,7 +2880,7 @@
     },
     {
       "id": "rcs_intact_lb",
-      "label": "LB, 6 FSUs: in situ, intact",
+      "label": "Lat. bend, 6 FSUs, intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2903,7 +2909,7 @@
     },
     {
       "id": "rcs_anterior_lb",
-      "label": "LB, 6 FSUs: in situ, -ant. joints",
+      "label": "Lat. bend, 6 FSUs, front joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2932,7 +2938,7 @@
     },
     {
       "id": "rcs_mono_lb",
-      "label": "LB, 6 FSUs: isolated, with ribs",
+      "label": "Lat. bend, 6 FSUs isolated, rib stumps",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2961,7 +2967,7 @@
     },
     {
       "id": "rcs_noribs_lb",
-      "label": "LB, 6 FSUs: isolated, -ribs/CV joints",
+      "label": "Lat. bend, 6 FSUs isolated, no ribs",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -2990,7 +2996,7 @@
     },
     {
       "id": "rcs_intact_ar",
-      "label": "AR, 6 FSUs: in situ, intact",
+      "label": "Axial rot., 6 FSUs, intact",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -3019,7 +3025,7 @@
     },
     {
       "id": "rcs_anterior_ar",
-      "label": "AR, 6 FSUs: in situ, -ant. joints",
+      "label": "Axial rot., 6 FSUs, front joints cut",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -3048,7 +3054,7 @@
     },
     {
       "id": "rcs_mono_ar",
-      "label": "AR, 6 FSUs: isolated, with ribs",
+      "label": "Axial rot., 6 FSUs isolated, rib stumps",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -3077,7 +3083,7 @@
     },
     {
       "id": "rcs_noribs_ar",
-      "label": "AR, 6 FSUs: isolated, -ribs/CV joints",
+      "label": "Axial rot., 6 FSUs isolated, no ribs",
       "view": "t_ribcage_5nm",
       "inputs": {
         "specimen": "sum of T1-T2,T3-T4,...,T11-T12",
@@ -3106,7 +3112,7 @@
     },
     {
       "id": "dec_t4t5_lam_fe",
-      "label": "FE, T4-T5 1: laminectomy",
+      "label": "Flex+ext, T4-T5 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3134,7 +3140,7 @@
     },
     {
       "id": "dec_t4t5_fac_fe",
-      "label": "FE, T4-T5 2: +facetectomy",
+      "label": "Flex+ext, T4-T5 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3162,7 +3168,7 @@
     },
     {
       "id": "dec_t4t5_ctv_fe",
-      "label": "FE, T4-T5 3: +costotransversect.",
+      "label": "Flex+ext, T4-T5 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3190,7 +3196,7 @@
     },
     {
       "id": "dec_t4t5_lam_lb",
-      "label": "LB, T4-T5 1: laminectomy",
+      "label": "Lat. bend, T4-T5 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3218,7 +3224,7 @@
     },
     {
       "id": "dec_t4t5_fac_lb",
-      "label": "LB, T4-T5 2: +facetectomy",
+      "label": "Lat. bend, T4-T5 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3246,7 +3252,7 @@
     },
     {
       "id": "dec_t4t5_ctv_lb",
-      "label": "LB, T4-T5 3: +costotransversect.",
+      "label": "Lat. bend, T4-T5 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3274,7 +3280,7 @@
     },
     {
       "id": "dec_t4t5_lam_ar",
-      "label": "AR, T4-T5 1: laminectomy",
+      "label": "Axial rot., T4-T5 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3302,7 +3308,7 @@
     },
     {
       "id": "dec_t4t5_fac_ar",
-      "label": "AR, T4-T5 2: +facetectomy",
+      "label": "Axial rot., T4-T5 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3330,7 +3336,7 @@
     },
     {
       "id": "dec_t4t5_ctv_ar",
-      "label": "AR, T4-T5 3: +costotransversect.",
+      "label": "Axial rot., T4-T5 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T4-T5",
@@ -3358,7 +3364,7 @@
     },
     {
       "id": "dec_t8t9_lam_fe",
-      "label": "FE, T8-T9 1: laminectomy",
+      "label": "Flex+ext, T8-T9 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3386,7 +3392,7 @@
     },
     {
       "id": "dec_t8t9_fac_fe",
-      "label": "FE, T8-T9 2: +facetectomy",
+      "label": "Flex+ext, T8-T9 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3414,7 +3420,7 @@
     },
     {
       "id": "dec_t8t9_ctv_fe",
-      "label": "FE, T8-T9 3: +costotransversect.",
+      "label": "Flex+ext, T8-T9 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3442,7 +3448,7 @@
     },
     {
       "id": "dec_t8t9_lam_lb",
-      "label": "LB, T8-T9 1: laminectomy",
+      "label": "Lat. bend, T8-T9 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3470,7 +3476,7 @@
     },
     {
       "id": "dec_t8t9_fac_lb",
-      "label": "LB, T8-T9 2: +facetectomy",
+      "label": "Lat. bend, T8-T9 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3498,7 +3504,7 @@
     },
     {
       "id": "dec_t8t9_ctv_lb",
-      "label": "LB, T8-T9 3: +costotransversect.",
+      "label": "Lat. bend, T8-T9 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3526,7 +3532,7 @@
     },
     {
       "id": "dec_t8t9_lam_ar",
-      "label": "AR, T8-T9 1: laminectomy",
+      "label": "Axial rot., T8-T9 1: laminectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3554,7 +3560,7 @@
     },
     {
       "id": "dec_t8t9_fac_ar",
-      "label": "AR, T8-T9 2: +facetectomy",
+      "label": "Axial rot., T8-T9 2: + facetectomy",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3582,7 +3588,7 @@
     },
     {
       "id": "dec_t8t9_ctv_ar",
-      "label": "AR, T8-T9 3: +costotransversect.",
+      "label": "Axial rot., T8-T9 3: + rib joint cut",
       "view": "t_decompression",
       "inputs": {
         "specimen": "C7-L1 with rib cage, surgery at T8-T9",
@@ -3610,7 +3616,7 @@
     },
     {
       "id": "fl_t1t4_intact_fe",
-      "label": "FE, T1-T4: intact rib cage",
+      "label": "Flex+ext, T1-T4: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3638,7 +3644,7 @@
     },
     {
       "id": "fl_t1t4_noribs_fe",
-      "label": "FE, T1-T4: rib cage removed",
+      "label": "Flex+ext, T1-T4: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3666,7 +3672,7 @@
     },
     {
       "id": "fl_t1t4_intact_lb",
-      "label": "LB, T1-T4: intact rib cage",
+      "label": "Lat. bend, T1-T4: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3694,7 +3700,7 @@
     },
     {
       "id": "fl_t1t4_noribs_lb",
-      "label": "LB, T1-T4: rib cage removed",
+      "label": "Lat. bend, T1-T4: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3722,7 +3728,7 @@
     },
     {
       "id": "fl_t1t4_intact_ar",
-      "label": "AR, T1-T4: intact rib cage",
+      "label": "Axial rot., T1-T4: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3750,7 +3756,7 @@
     },
     {
       "id": "fl_t1t4_noribs_ar",
-      "label": "AR, T1-T4: rib cage removed",
+      "label": "Axial rot., T1-T4: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3778,7 +3784,7 @@
     },
     {
       "id": "fl_t4t8_intact_fe",
-      "label": "FE, T4-T8: intact rib cage",
+      "label": "Flex+ext, T4-T8: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3806,7 +3812,7 @@
     },
     {
       "id": "fl_t4t8_noribs_fe",
-      "label": "FE, T4-T8: rib cage removed",
+      "label": "Flex+ext, T4-T8: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3834,7 +3840,7 @@
     },
     {
       "id": "fl_t4t8_intact_lb",
-      "label": "LB, T4-T8: intact rib cage",
+      "label": "Lat. bend, T4-T8: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3862,7 +3868,7 @@
     },
     {
       "id": "fl_t4t8_noribs_lb",
-      "label": "LB, T4-T8: rib cage removed",
+      "label": "Lat. bend, T4-T8: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3890,7 +3896,7 @@
     },
     {
       "id": "fl_t4t8_intact_ar",
-      "label": "AR, T4-T8: intact rib cage",
+      "label": "Axial rot., T4-T8: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3918,7 +3924,7 @@
     },
     {
       "id": "fl_t4t8_noribs_ar",
-      "label": "AR, T4-T8: rib cage removed",
+      "label": "Axial rot., T4-T8: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3946,7 +3952,7 @@
     },
     {
       "id": "fl_t8t12_intact_fe",
-      "label": "FE, T8-T12: intact rib cage",
+      "label": "Flex+ext, T8-T12: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -3974,7 +3980,7 @@
     },
     {
       "id": "fl_t8t12_noribs_fe",
-      "label": "FE, T8-T12: rib cage removed",
+      "label": "Flex+ext, T8-T12: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -4002,7 +4008,7 @@
     },
     {
       "id": "fl_t8t12_intact_lb",
-      "label": "LB, T8-T12: intact rib cage",
+      "label": "Lat. bend, T8-T12: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -4030,7 +4036,7 @@
     },
     {
       "id": "fl_t8t12_noribs_lb",
-      "label": "LB, T8-T12: rib cage removed",
+      "label": "Lat. bend, T8-T12: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -4058,7 +4064,7 @@
     },
     {
       "id": "fl_t8t12_intact_ar",
-      "label": "AR, T8-T12: intact rib cage",
+      "label": "Axial rot., T8-T12: intact",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -4086,7 +4092,7 @@
     },
     {
       "id": "fl_t8t12_noribs_ar",
-      "label": "AR, T8-T12: rib cage removed",
+      "label": "Axial rot., T8-T12: rib cage removed",
       "view": "t_ribcage_fl400",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
@@ -4114,12 +4120,11 @@
     }
   ],
   "notes": [
-    "Heuer and Wilke values are medians at one moment (Heuer 7.5 Nm, Wilke 2.5 Nm). Other moments (1-10 Nm), neutral zones, Wilke T2-T3 and T10-T11, and per-segment rib cage ROM (Liebsch 2017/2020) stay in bench/tests.",
-    "rom = one direction from the neutral posture; rom_range = both directions summed (thoracic spines with rib cage). Do not compare one with the other.",
-    "Left out: Rahm 2019 (T4-L2 screw-rod construct and cyclic loading, i.e. an instrumented specimen); Healy/Lubelski local-region ROM (n 5-7); Liebsch 2017 NZ; Heuer 2008 strain and bulge; Ghezelbash 2020 review load-sharing secondaries (moment shares, not ROM).",
-    "Healy 2014 and Lubelski 2014 come from one lab with similar torsos; listed as shared in case donors overlap (not stated)."
+    "Removal is cumulative: step n has all structures of steps 1..n removed. Wilke and Liebsch values are medians (not pooled).",
+    "One direction (rom) and both directions summed (rom_range) are different outputs; never compare across them.",
+    "Healy 2014 and Lubelski 2014 (one lab) and Sis 2016 / Mannen 2018 (same 8 spines) are listed as shared samples."
   ],
-  "agent_prompt": "Use your finite element spine model. For each view build the specimen named in the task inputs (lumbar FSU, lumbar disc-only unit, thoracic FSU without ribs, or C7-L1 spine with rib cage). Fix the caudal end, apply the pure moment (plus preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. Output \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), measured T1 relative to T12 unless the level says otherwise; \"rom_pct\" is your value divided by your intact value times 100. Return JSON with one entry per task id, as in answer_format, values in degrees or percent.",
+  "agent_prompt": "Use your finite element thoracic spine model. For each task build the specimen in its inputs (T6-T7 FSU without ribs, or a C7-L1 / T1-T12 spine with rib cage). Fix the caudal end, apply the pure moment (plus follower preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), of T1 relative to T12 unless the label names another span; \"rom_pct\" is your value divided by your intact value times 100. Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {
     "t67_intact_flex": {
       "rom": "deg"

@@ -7,13 +7,13 @@
     "L4-L5",
     "L3-L4"
   ],
-  "summary": "Simulate each posture or lifting task for the study subject and report L4-L5 intradiscal pressure (MPa) or IDP relative to standing.",
+  "summary": "Simulate each posture or hand-load task for the study subject and report L4-L5 intradiscal pressure (MPa).",
   "simulate": [
-    "Scale the model to the study subject (subjects table; individual refs give their own subject in the note).",
+    "Scale the model to the study subject (subjects table).",
     "Set the posture: trunk flexion = trunk inclination from upright; sitting, lying, bending and twisting as described.",
     "Add the hand load at the stated position (both hands unless stated).",
     "Output L4-L5 compression F and L4-L5 flexion θ from standing (L3-L4 for standing_l3l4).",
-    "IDP = Ghezelbash 2016 Eq. 6: -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ² (P = F/A, MPa); or F/(0.66A). Relative tasks: IDP / IDP standing × 100."
+    "IDP = Ghezelbash 2016 Eq. 6: -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ² (P = F/A, MPa); or IDP = F/(0.66A)."
   ],
   "inputs": [
     {
@@ -49,12 +49,8 @@
     {
       "key": "idp",
       "label": "IDP",
-      "unit": "MPa"
-    },
-    {
-      "key": "idp_rel",
-      "label": "IDP relative to standing",
-      "unit": "% of standing"
+      "unit": "MPa",
+      "definition": "IDP = absolute pressure in the nucleus, measured by a needle transducer in the disc (MPa)"
     }
   ],
   "subjects": {
@@ -64,15 +60,7 @@
       "height_cm": 174,
       "weight_kg": 72,
       "disc_area_mm2": 1800,
-      "note": "72 kg (measured; Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study."
-    },
-    "rohlmann2001": {
-      "sex": "male",
-      "age": 45,
-      "height_cm": 174,
-      "weight_kg": 72,
-      "disc_area_mm2": 1800,
-      "note": "72 kg (measured; Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study."
+      "note": ""
     },
     "sato1999": {
       "sex": "male",
@@ -126,15 +114,6 @@
       "secondary": false
     },
     {
-      "key": "rohlmann2001",
-      "short": "Rohlmann 2001",
-      "year": 2001,
-      "n": 1,
-      "sample": "Wilke volunteer, IDP as % of standing",
-      "doi": "10.1080/00140130120943",
-      "secondary": false
-    },
-    {
       "key": "sato1999",
       "short": "Sato 1999",
       "year": 1999,
@@ -183,16 +162,11 @@
       "pool": false
     }
   ],
-  "shared": [
-    [
-      "wilke2001",
-      "rohlmann2001"
-    ]
-  ],
+  "shared": [],
   "views": [
     {
       "id": "standing_flexion",
-      "title": "Standing and flexion",
+      "title": "Standing, bending and twisting",
       "task_ids": [
         "standing",
         "standing_l3l4",
@@ -206,13 +180,15 @@
         "flex50",
         "flex_full",
         "flex_l4l5_5",
-        "extension"
+        "extension",
+        "latbend20",
+        "axial_rot"
       ],
       "x": "task"
     },
     {
       "id": "lifting_holding",
-      "title": "Lifting and holding",
+      "title": "Holding and lifting a crate",
       "task_ids": [
         "hold_close",
         "hold_away",
@@ -231,28 +207,6 @@
         "sit_flex_max",
         "sit_backrest",
         "lie_prone"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "bending_twisting",
-      "title": "Bending and twisting",
-      "task_ids": [
-        "latbend20",
-        "axial_rot"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "relative",
-      "title": "IDP relative to standing",
-      "task_ids": [
-        "lie_supine_rel",
-        "sit_relaxed_rel",
-        "flex_max_rel",
-        "hold_close_rel",
-        "hold_away_rel",
-        "lift_stoop_rel"
       ],
       "x": "task"
     }
@@ -901,7 +855,7 @@
     },
     {
       "id": "lift_stoop",
-      "label": "Stoop lift 19.8 kg, round back",
+      "label": "Stoop lift 19.8 kg (peak)",
       "view": "lifting_holding",
       "inputs": {
         "posture": "bent over, knees almost straight, arms hanging",
@@ -927,7 +881,7 @@
     },
     {
       "id": "lift_squat",
-      "label": "Squat lift 19.8 kg, knees bent",
+      "label": "Squat lift 19.8 kg (peak)",
       "view": "lifting_holding",
       "inputs": {
         "posture": "knees bent, back straight",
@@ -976,7 +930,7 @@
     },
     {
       "id": "sit_erect",
-      "label": "Sitting erect, back actively extended",
+      "label": "Sitting erect, back extended",
       "view": "sitting_lying",
       "inputs": {
         "posture": "sitting, actively straightening the back, no backrest",
@@ -1049,7 +1003,7 @@
     },
     {
       "id": "sit_backrest",
-      "label": "Sitting, leaning back ~15° on backrest",
+      "label": "Sitting, leaning back on backrest",
       "view": "sitting_lying",
       "inputs": {
         "posture": "armchair, erect, leaning back ~15° against the backrest",
@@ -1097,7 +1051,7 @@
     {
       "id": "latbend20",
       "label": "Lateral bending 20°",
-      "view": "bending_twisting",
+      "view": "standing_flexion",
       "inputs": {
         "posture": "standing, trunk lateral bending",
         "lateral_bend_deg": 20,
@@ -1122,7 +1076,7 @@
     {
       "id": "axial_rot",
       "label": "Axial rotation, max (lumbar 24°)",
-      "view": "bending_twisting",
+      "view": "standing_flexion",
       "inputs": {
         "posture": "standing, maximal axial twist (24° thoracolumbar-sacrum)",
         "axial_rotation_deg": 24,
@@ -1143,160 +1097,14 @@
           "note": "left 24°; right twist (17°) gave 0.6 MPa"
         }
       ]
-    },
-    {
-      "id": "lie_supine_rel",
-      "label": "Lying supine",
-      "view": "relative",
-      "inputs": {
-        "posture": "lying supine"
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 20,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
-    },
-    {
-      "id": "sit_relaxed_rel",
-      "label": "Sitting relaxed, no backrest",
-      "view": "relative",
-      "inputs": {
-        "posture": "sitting relaxed, no backrest",
-        "hand_load_kg": 0
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 90,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
-    },
-    {
-      "id": "flex_max_rel",
-      "label": "Trunk flexion, max (lumbar 36°)",
-      "view": "relative",
-      "inputs": {
-        "posture": "standing, maximal forward flexion (36° thoracolumbar-sacrum)",
-        "trunk_flexion_deg": 50,
-        "hand_load_kg": 0
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 216,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
-    },
-    {
-      "id": "hold_close_rel",
-      "label": "Holding 19.8 kg close to chest",
-      "view": "relative",
-      "inputs": {
-        "posture": "upright standing",
-        "hand_load_kg": 19.8,
-        "load_position": "crate at chest"
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 220,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
-    },
-    {
-      "id": "hold_away_rel",
-      "label": "Holding 19.8 kg 60 cm from chest",
-      "view": "relative",
-      "inputs": {
-        "posture": "upright standing",
-        "hand_load_kg": 19.8,
-        "load_position": "crate ~60 cm from chest"
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 360,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
-    },
-    {
-      "id": "lift_stoop_rel",
-      "label": "Lifting 19.8 kg (maximum)",
-      "view": "relative",
-      "inputs": {
-        "posture": "lifting the crate (stoop)",
-        "hand_load_kg": 19.8
-      },
-      "output": "idp_rel",
-      "level": "L4-L5",
-      "refs": [
-        {
-          "study": "rohlmann2001",
-          "mean": 460,
-          "sd": null,
-          "min": null,
-          "max": null,
-          "stat": "value",
-          "n": 1,
-          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
-          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
-        }
-      ]
     }
   ],
   "notes": [
-    "Nachemson 1964/1970 (values corrected by -0.25 MPa for transducer self-heating) and Schultz 1982 are early-transducer data taken from the Dreischarf 2016 review; Nachemson subjects were mostly LBP patients and only individual values exist. Weight them below the modern data.",
-    "Wilke is a single subject (72 kg). His trunk-flexion and lateral-bending angles are reconstructions from the lumbar-angle record; lifting values are dynamic peaks.",
-    "Lying IDP is mostly disc swelling pressure, which muscle-driven compression models underpredict. Relative IDP (% of standing) is a separate output and is never pooled with MPa."
+    "Nachemson 1964/1970 and Schultz 1982 are early-transducer values from the Dreischarf 2016 review (Nachemson corrected by -0.25 MPa): shown, not pooled.",
+    "Wilke 2001 is one 72 kg male; his lifts are dynamic peaks, his flexion angles reconstructed from the lumbar record.",
+    "Lying IDP is mostly disc swelling pressure, which compression-driven models underpredict."
   ],
-  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the posture, trunk angle and hand load given in its inputs for the subject of each study that has a ref in that task (see \"subjects\": sex, age, height, body mass, disc area; for studies with individual refs the cohort mean subject is enough). Compute compression and flexion at the task level (L4-L5, or L3-L4 for standing_l3l4) and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A) or IDP = F/(0.66 A); say which. For idp_rel tasks report IDP as % of your simulated standing value for the same subject. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with a number in the stated unit, or an object {study_key: number} when you simulated several subjects for that task.",
+  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the posture, trunk angle and hand load given in its inputs for the subject of each study with a ref in that task (see \"subjects\": sex, age, height, body mass, disc area; for studies with individual refs the cohort mean subject is enough). Compute compression and flexion at L4-L5 (L3-L4 for standing_l3l4) and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A) or IDP = F/(0.66 A); say which. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with IDP in MPa, or an object {study_key: number} when you simulated several subjects for that task.",
   "answer_format": {
     "standing": {
       "idp": "MPa"
@@ -1372,24 +1180,6 @@
     },
     "axial_rot": {
       "idp": "MPa"
-    },
-    "lie_supine_rel": {
-      "idp_rel": "% of standing"
-    },
-    "sit_relaxed_rel": {
-      "idp_rel": "% of standing"
-    },
-    "flex_max_rel": {
-      "idp_rel": "% of standing"
-    },
-    "hold_close_rel": {
-      "idp_rel": "% of standing"
-    },
-    "hold_away_rel": {
-      "idp_rel": "% of standing"
-    },
-    "lift_stoop_rel": {
-      "idp_rel": "% of standing"
     }
   }
 }

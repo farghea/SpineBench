@@ -50,7 +50,8 @@
     {
       "key": "emg",
       "label": "EMG",
-      "unit": "%MVC"
+      "unit": "%MVC",
+      "definition": "EMG = surface EMG amplitude under the electrode, % of the study's maximal-exertion reference (MVC)"
     }
   ],
   "subjects": {
@@ -124,7 +125,7 @@
   "views": [
     {
       "id": "height",
-      "title": "Load height",
+      "title": "Back muscles vs load height",
       "task_ids": [
         "g20_lg_t11_umbilicus",
         "g20_lg_t11_midfemur",
@@ -149,7 +150,7 @@
     },
     {
       "id": "distance",
-      "title": "Load distance",
+      "title": "Abdominals vs load distance",
       "task_ids": [
         "lar19_ra_p2",
         "lar19_ra_p3",
@@ -162,7 +163,7 @@
     },
     {
       "id": "asymmetry",
-      "title": "Load asymmetry (14 kg, mid-femur)",
+      "title": "Load turned to the left",
       "task_ids": [
         "g20_asym_lg_t11_l_0",
         "g20_asym_lg_t11_l_30",
@@ -181,11 +182,15 @@
         "g20_asym_mf_l4_r_60",
         "g20_asym_mf_l4_r_90"
       ],
-      "x": "input:asymmetry_deg"
+      "x": "input:asymmetry_deg",
+      "series": [
+        "muscle",
+        "side"
+      ]
     },
     {
       "id": "moment_dir",
-      "title": "Moment direction",
+      "title": "Direction of a chest pull",
       "task_ids": [
         "lav_ersl_0",
         "lav_ersl_30",
@@ -210,7 +215,11 @@
         "gra_es_0",
         "gra_es_180"
       ],
-      "x": "input:pull_dir_deg"
+      "x": "input:pull_dir_deg",
+      "series": [
+        "muscle",
+        "side"
+      ]
     }
   ],
   "tasks": [
@@ -552,7 +561,7 @@
     },
     {
       "id": "lar19_lg_t10_p1",
-      "label": "LG(T10), 10% BW at L5/S1",
+      "label": "LG(T10), 10% body wt at L5/S1",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -580,7 +589,7 @@
     },
     {
       "id": "lar19_lg_t10_p2",
-      "label": "LG(T10), 10% BW at shoulder",
+      "label": "LG(T10), 10% body wt at shoulder",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -608,7 +617,7 @@
     },
     {
       "id": "lar19_lg_l1_p1",
-      "label": "LG(L1), 10% BW at L5/S1",
+      "label": "LG(L1), 10% body wt at L5/S1",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -636,7 +645,7 @@
     },
     {
       "id": "lar19_lg_l1_p2",
-      "label": "LG(L1), 10% BW at shoulder",
+      "label": "LG(L1), 10% body wt at shoulder",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -664,7 +673,7 @@
     },
     {
       "id": "lar19_mf_l5_p1",
-      "label": "MF(L5), 10% BW at L5/S1",
+      "label": "MF(L5), 10% body wt at L5/S1",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -692,7 +701,7 @@
     },
     {
       "id": "lar19_mf_l5_p2",
-      "label": "MF(L5), 10% BW at shoulder",
+      "label": "MF(L5), 10% body wt at shoulder",
       "view": "height",
       "inputs": {
         "posture": "upright, knees straight",
@@ -720,7 +729,7 @@
     },
     {
       "id": "lar19_ra_p2",
-      "label": "RA, 10% BW at shoulder, close",
+      "label": "RA, 10% body wt at shoulder, close",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -748,7 +757,7 @@
     },
     {
       "id": "lar19_ra_p3",
-      "label": "RA, 10% BW at shoulder, far",
+      "label": "RA, 10% body wt at shoulder, far",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -776,7 +785,7 @@
     },
     {
       "id": "lar19_eo_p2",
-      "label": "EO, 10% BW at shoulder, close",
+      "label": "EO, 10% body wt at shoulder, close",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -804,7 +813,7 @@
     },
     {
       "id": "lar19_eo_p3",
-      "label": "EO, 10% BW at shoulder, far",
+      "label": "EO, 10% body wt at shoulder, far",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -832,7 +841,7 @@
     },
     {
       "id": "lar19_io_p2",
-      "label": "IO, 10% BW at shoulder, close",
+      "label": "IO, 10% body wt at shoulder, close",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -860,7 +869,7 @@
     },
     {
       "id": "lar19_io_p3",
-      "label": "IO, 10% BW at shoulder, far",
+      "label": "IO, 10% body wt at shoulder, far",
       "view": "distance",
       "inputs": {
         "posture": "upright, knees straight",
@@ -888,7 +897,7 @@
     },
     {
       "id": "g20_asym_lg_t11_l_0",
-      "label": "LG(T11) left (ipsi), 0 deg",
+      "label": "LG(T11) left (same side), 0°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -916,7 +925,7 @@
     },
     {
       "id": "g20_asym_lg_t11_l_30",
-      "label": "LG(T11) left (ipsi), 30 deg",
+      "label": "LG(T11) left (same side), 30°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -944,7 +953,7 @@
     },
     {
       "id": "g20_asym_lg_t11_l_60",
-      "label": "LG(T11) left (ipsi), 60 deg",
+      "label": "LG(T11) left (same side), 60°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -972,7 +981,7 @@
     },
     {
       "id": "g20_asym_lg_t11_l_90",
-      "label": "LG(T11) left (ipsi), 90 deg",
+      "label": "LG(T11) left (same side), 90°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1000,7 +1009,7 @@
     },
     {
       "id": "g20_asym_lg_t11_r_0",
-      "label": "LG(T11) right (contra), 0 deg",
+      "label": "LG(T11) right (opposite), 0°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1028,7 +1037,7 @@
     },
     {
       "id": "g20_asym_lg_t11_r_30",
-      "label": "LG(T11) right (contra), 30 deg",
+      "label": "LG(T11) right (opposite), 30°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1056,7 +1065,7 @@
     },
     {
       "id": "g20_asym_lg_t11_r_60",
-      "label": "LG(T11) right (contra), 60 deg",
+      "label": "LG(T11) right (opposite), 60°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1084,7 +1093,7 @@
     },
     {
       "id": "g20_asym_lg_t11_r_90",
-      "label": "LG(T11) right (contra), 90 deg",
+      "label": "LG(T11) right (opposite), 90°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1112,7 +1121,7 @@
     },
     {
       "id": "g20_asym_mf_l4_l_0",
-      "label": "MF(L4/L5) left (ipsi), 0 deg",
+      "label": "MF(L4/L5) left (same side), 0°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1140,7 +1149,7 @@
     },
     {
       "id": "g20_asym_mf_l4_l_30",
-      "label": "MF(L4/L5) left (ipsi), 30 deg",
+      "label": "MF(L4/L5) left (same side), 30°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1168,7 +1177,7 @@
     },
     {
       "id": "g20_asym_mf_l4_l_60",
-      "label": "MF(L4/L5) left (ipsi), 60 deg",
+      "label": "MF(L4/L5) left (same side), 60°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1196,7 +1205,7 @@
     },
     {
       "id": "g20_asym_mf_l4_l_90",
-      "label": "MF(L4/L5) left (ipsi), 90 deg",
+      "label": "MF(L4/L5) left (same side), 90°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1224,7 +1233,7 @@
     },
     {
       "id": "g20_asym_mf_l4_r_0",
-      "label": "MF(L4/L5) right (contra), 0 deg",
+      "label": "MF(L4/L5) right (opposite), 0°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1252,7 +1261,7 @@
     },
     {
       "id": "g20_asym_mf_l4_r_30",
-      "label": "MF(L4/L5) right (contra), 30 deg",
+      "label": "MF(L4/L5) right (opposite), 30°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1280,7 +1289,7 @@
     },
     {
       "id": "g20_asym_mf_l4_r_60",
-      "label": "MF(L4/L5) right (contra), 60 deg",
+      "label": "MF(L4/L5) right (opposite), 60°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1308,7 +1317,7 @@
     },
     {
       "id": "g20_asym_mf_l4_r_90",
-      "label": "MF(L4/L5) right (contra), 90 deg",
+      "label": "MF(L4/L5) right (opposite), 90°",
       "view": "asymmetry",
       "inputs": {
         "posture": "standing, flexed to mid-femur",
@@ -1336,7 +1345,7 @@
     },
     {
       "id": "lav_ersl_0",
-      "label": "ES(L3/L4) left, 50 Nm, pull 0 deg",
+      "label": "ES(L3/L4) left, 50 Nm, pull 0°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1363,7 +1372,7 @@
     },
     {
       "id": "lav_ersl_30",
-      "label": "ES(L3/L4) left, 50 Nm, pull 30 deg",
+      "label": "ES(L3/L4) left, 50 Nm, pull 30°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1390,7 +1399,7 @@
     },
     {
       "id": "lav_ersl_60",
-      "label": "ES(L3/L4) left, 50 Nm, pull 60 deg",
+      "label": "ES(L3/L4) left, 50 Nm, pull 60°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1417,7 +1426,7 @@
     },
     {
       "id": "lav_ersl_90",
-      "label": "ES(L3/L4) left, 50 Nm, pull 90 deg",
+      "label": "ES(L3/L4) left, 50 Nm, pull 90°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1444,7 +1453,7 @@
     },
     {
       "id": "lav_ersl_120",
-      "label": "ES(L3/L4) left, 50 Nm, pull 120 deg",
+      "label": "ES(L3/L4) left, 50 Nm, pull 120°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1471,7 +1480,7 @@
     },
     {
       "id": "lav_ersr_0",
-      "label": "ES(L3/L4) right, 50 Nm, pull 0 deg",
+      "label": "ES(L3/L4) right, 50 Nm, pull 0°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1498,7 +1507,7 @@
     },
     {
       "id": "lav_ersr_30",
-      "label": "ES(L3/L4) right, 50 Nm, pull 30 deg",
+      "label": "ES(L3/L4) right, 50 Nm, pull 30°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1525,7 +1534,7 @@
     },
     {
       "id": "lav_ersr_60",
-      "label": "ES(L3/L4) right, 50 Nm, pull 60 deg",
+      "label": "ES(L3/L4) right, 50 Nm, pull 60°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1552,7 +1561,7 @@
     },
     {
       "id": "lav_exol_30",
-      "label": "EO left, 50 Nm, pull 30 deg",
+      "label": "EO left, 50 Nm, pull 30°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1579,7 +1588,7 @@
     },
     {
       "id": "lav_exol_60",
-      "label": "EO left, 50 Nm, pull 60 deg",
+      "label": "EO left, 50 Nm, pull 60°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1606,7 +1615,7 @@
     },
     {
       "id": "lav_exol_90",
-      "label": "EO left, 50 Nm, pull 90 deg",
+      "label": "EO left, 50 Nm, pull 90°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1633,7 +1642,7 @@
     },
     {
       "id": "lav_exol_120",
-      "label": "EO left, 50 Nm, pull 120 deg",
+      "label": "EO left, 50 Nm, pull 120°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1660,7 +1669,7 @@
     },
     {
       "id": "lav_exol_150",
-      "label": "EO left, 50 Nm, pull 150 deg",
+      "label": "EO left, 50 Nm, pull 150°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1687,7 +1696,7 @@
     },
     {
       "id": "lav_exol_180",
-      "label": "EO left, 50 Nm, pull 180 deg",
+      "label": "EO left, 50 Nm, pull 180°",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis strapped",
@@ -1714,7 +1723,7 @@
     },
     {
       "id": "gra_ra_0",
-      "label": "RA, extension effort (pull 0 deg)",
+      "label": "RA, extension effort (pull 0°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1741,7 +1750,7 @@
     },
     {
       "id": "gra_ra_180",
-      "label": "RA, flexion effort (pull 180 deg)",
+      "label": "RA, flexion effort (pull 180°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1768,7 +1777,7 @@
     },
     {
       "id": "gra_io_0",
-      "label": "IO, extension effort (pull 0 deg)",
+      "label": "IO, extension effort (pull 0°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1795,7 +1804,7 @@
     },
     {
       "id": "gra_io_180",
-      "label": "IO, flexion effort (pull 180 deg)",
+      "label": "IO, flexion effort (pull 180°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1822,7 +1831,7 @@
     },
     {
       "id": "gra_eo_0",
-      "label": "EO, extension effort (pull 0 deg)",
+      "label": "EO, extension effort (pull 0°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1849,7 +1858,7 @@
     },
     {
       "id": "gra_eo_180",
-      "label": "EO, flexion effort (pull 180 deg)",
+      "label": "EO, flexion effort (pull 180°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1876,7 +1885,7 @@
     },
     {
       "id": "gra_es_0",
-      "label": "ES(L3), extension effort (pull 0 deg)",
+      "label": "ES(L3), extension effort (pull 0°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1903,7 +1912,7 @@
     },
     {
       "id": "gra_es_180",
-      "label": "ES(L3), flexion effort (pull 180 deg)",
+      "label": "ES(L3), flexion effort (pull 180°)",
       "view": "moment_dir",
       "inputs": {
         "posture": "upright, pelvis restrained",
@@ -1930,9 +1939,9 @@
     }
   ],
   "notes": [
-    "EMG references differ: max over 6 MVEs semi-seated (Ghezelbash), max over 6 standing MVCs (Larivière), baseline-subtracted max of 4 MVCs (Lavender), McGill MVCs (Granata).",
-    "Ghezelbash 2020 loads were always rotated to the subject's left (left = ipsilateral). Lavender pulls step toward the subject's right; 0 deg = anterior pull (extensor demand).",
-    "Not here: dynamic lifts (Koopman 2020a/b peak EMG, van Dieën 2003), unloaded bending (Koopman 2019/2020b: see flexion_relaxation). More muscles, heights, angles and magnitudes in raw tests."
+    "EMG references differ: max over 6 maximal exertions (Ghezelbash, Larivière), baseline-subtracted max of 4 MVCs (Lavender), McGill MVCs (Granata).",
+    "Ghezelbash 2020 loads were turned to the subject's left (left = same side). Chest pulls: 0° = forward pull (extensor demand), 90° = to the right.",
+    "Dynamic lifts and unloaded bending are not here (see flexion_relaxation)."
   ],
   "agent_prompt": "You are validating a trunk musculoskeletal model against EMG measured during static load holding. For each task, scale the model to the study subject in `subjects`, set the posture and load position (height, horizontal distance, asymmetry angle to the subject's left) or the external chest pull (direction it pulls the trunk: 0 = forward, 90 = to the right, 180 = backward; magnitude), solve for muscle forces, and report the activation (%) of the muscles under the named electrode site and side. Normalise each muscle's activation to its maximal activity over maximal exertions in flexion, extension, lateral bending and axial rotation, as the studies did. Do not tune the model to these data. Return one JSON object following answer_format: task id -> {\"emg\": value}.",
   "answer_format": {

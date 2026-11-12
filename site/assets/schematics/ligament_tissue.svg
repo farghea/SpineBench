@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" width="360" height="220" role="img"><title>Lumbar motion segment, side view: spinal ligaments</title><style>.bone{fill:#8a949e;fill-opacity:.16;stroke:#8a949e;stroke-width:1.3;stroke-linejoin:round}.disc{fill:#8a949e;fill-opacity:.06;stroke:#8a949e;stroke-width:1;stroke-dasharray:3 2}.oop{fill:none;stroke:#8a949e;stroke-width:1;stroke-dasharray:3 2.5}.lig{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke-width:1.8;stroke-linecap:round}.all{stroke:#3b82c4}.pll{stroke:#8b5fd1}.lf{stroke:#d9822b}.isl{stroke:#2f9e6e}.ssl{stroke:#d1495b}.cap{stroke:#b59a16}text{font-family:'IBM Plex Sans',Arial,Helvetica,sans-serif;font-size:11px;fill:#7a8590}.sm{font-size:10px}.b{font-weight:600}.tall{fill:#3b82c4}.tpll{fill:#8b5fd1}.tlf{fill:#d9822b}.tisl{fill:#2f9e6e}.tssl{fill:#d1495b}.tcap{fill:#b59a16}</style>
+<!-- upper vertebra (L4) -->
+<rect class="bone" x="40" y="20" width="92" height="62" rx="7"/>
+<rect class="oop" x="132" y="30" width="28" height="18" rx="3"/>
+<path class="bone" d="M160 28 L192 32 L266 48 L274 62 L270 74 L258 78 L198 70 L184 82 L160 80 Z"/>
+<!-- disc -->
+<rect class="disc" x="44" y="84" width="84" height="20" rx="4"/>
+<!-- lower vertebra (L5) -->
+<rect class="bone" x="40" y="106" width="92" height="62" rx="7"/>
+<rect class="oop" x="132" y="116" width="28" height="18" rx="3"/>
+<path class="bone" d="M160 114 L192 118 L266 134 L274 148 L270 160 L258 164 L198 156 L184 168 L160 166 Z"/>
+<!-- facet joint (para-sagittal, dashed): inferior articular process of L4 over superior articular process of L5 -->
+<path class="oop" d="M186 80 L194 100 L188 106"/>
+<path class="oop" d="M178 118 L176 98 L184 92"/>
+<!-- ligaments -->
+<path class="lig all" d="M35 16 L35 172"/>
+<path class="lig pll" d="M137 16 L137 172"/>
+<path class="lig lf" d="M166 81 L166 115"/>
+<ellipse class="lig cap" cx="186" cy="99" rx="13" ry="14"/>
+<path class="thin isl" d="M208 74 L210 120 M222 76 L226 124 M236 77 L242 127 M250 78 L258 131"/>
+<path class="lig ssl" d="M268 40 Q280 60 272 74 Q284 110 272 160 Q280 176 274 186"/>
+<!-- vertebra labels and orientation -->
+<text x="86" y="56" text-anchor="middle" class="b">L4</text>
+<text x="86" y="142" text-anchor="middle" class="b">L5</text>
+<text x="86" y="98" text-anchor="middle" class="sm">disc</text>
+<text x="40" y="206" class="sm">anterior</text>
+<text x="274" y="206" text-anchor="end" class="sm">posterior</text>
+<path class="oop" d="M86 202 L232 202"/>
+<!-- legend -->
+<g transform="translate(292 30)">
+<path class="lig all" d="M0 0 L16 0"/><text x="22" y="4" class="tall b">ALL</text>
+<path class="lig pll" d="M0 22 L16 22"/><text x="22" y="26" class="tpll b">PLL</text>
+<path class="lig lf" d="M0 44 L16 44"/><text x="22" y="48" class="tlf b">LF</text>
+<path class="thin isl" d="M0 66 L16 66"/><text x="22" y="70" class="tisl b">ISL</text>
+<path class="lig ssl" d="M0 88 L16 88"/><text x="22" y="92" class="tssl b">SSL</text>
+<path class="lig cap" d="M0 110 L16 110"/><text x="22" y="114" class="tcap b">Capsule</text>
+<path class="oop" d="M0 132 L16 132"/><text x="22" y="136" class="sm">out of</text><text x="22" y="147" class="sm">plane</text>
+</g>
+</svg>

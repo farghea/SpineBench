@@ -10,7 +10,7 @@
     "L4-L5",
     "L5-S1"
   ],
-  "summary": "Apply each pure moment, eccentric or combined load and report the facet contact force, or the share of axial load carried by the facets.",
+  "summary": "Apply each pure moment, compression or combined load and report the facet contact force, or the share of axial load carried by the facets.",
   "simulate": [
     "Build the specimen named in the task (FSU or multi-level lumbar spine); keep facet capsules unless stated.",
     "Fix the caudal end; apply the pure moment, axial load or imposed rotation of the task.",
@@ -55,17 +55,20 @@
     {
       "key": "facet_force",
       "label": "Facet contact force",
-      "unit": "N"
+      "unit": "N",
+      "definition": "Compressive contact force on the facet named in the task (right, loaded, or mean of both), N, positive"
     },
     {
       "key": "facet_share",
       "label": "Facet share of axial load",
-      "unit": "%"
+      "unit": "%",
+      "definition": "Facet (or neural-arch) force normal to the disc / applied axial force x 100"
     },
     {
       "key": "facet_slope",
       "label": "Facet force per applied moment",
-      "unit": "N/Nm"
+      "unit": "N/Nm",
+      "definition": "Increase in facet force per Nm of applied moment (N/Nm)"
     }
   ],
   "studies": [
@@ -205,7 +208,7 @@
   "views": [
     {
       "id": "pure_7p5",
-      "title": "Lumbar FSU, 7.5 Nm pure moment",
+      "title": "Pure moments (7.5-15 Nm)",
       "task_ids": [
         "zhu_l34_flex",
         "zhu_l34_ext",
@@ -214,14 +217,7 @@
         "sawa_l12_flex",
         "sawa_l12_ext",
         "sawa_l12_lb",
-        "sawa_l12_ar"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "pure_high",
-      "title": "Lumbar spines, 8-15 Nm moments",
-      "task_ids": [
+        "sawa_l12_ar",
         "pop_l45_flex",
         "pop_l45_ext",
         "pop_l45_lb",
@@ -242,29 +238,15 @@
     },
     {
       "id": "follower",
-      "title": "L1-L2 with 400 N follower load (Sawa 2008)",
+      "title": "Moment plus compression",
       "task_ids": [
         "sawa_fl_neutral",
         "sawa_fl_flexion",
-        "sawa_fl_extension"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "eccentric",
-      "title": "L1-L2 FSU, eccentric compression (Schendel 1993)",
-      "task_ids": [
+        "sawa_fl_extension",
         "sch_peak_extension",
         "sch_peak_axial_rotation",
         "sch_peak_lateral_bending",
-        "sch_peak_flexion"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "slope",
-      "title": "Facet force per applied moment, L1-L2 (Schendel 1993)",
-      "task_ids": [
+        "sch_peak_flexion",
         "sch_slope_extension",
         "sch_slope_flexion",
         "sch_slope_lateral_bending_right",
@@ -275,7 +257,7 @@
     },
     {
       "id": "posture_secondary",
-      "title": "Compression and imposed postures (review secondaries)",
+      "title": "Compression and imposed rotations",
       "task_ids": [
         "lor_l2l3_compression",
         "lor_l2l3_extension",
@@ -299,7 +281,7 @@
     },
     {
       "id": "share",
-      "title": "Facet share of axial load (%)",
+      "title": "Share of axial load on the facets",
       "task_ids": [
         "ivi_intact_extension",
         "ivi_intact_flexion",
@@ -320,7 +302,7 @@
   "tasks": [
     {
       "id": "zhu_l34_flex",
-      "label": "L3-L4 FSU, Flex 7.5 Nm",
+      "label": "L3-L4 FSU, flexion 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L3-L4 within L2-L5",
@@ -348,7 +330,7 @@
     },
     {
       "id": "zhu_l34_ext",
-      "label": "L3-L4 FSU, Ext 7.5 Nm",
+      "label": "L3-L4 FSU, extension 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L3-L4 within L2-L5",
@@ -387,7 +369,7 @@
     },
     {
       "id": "zhu_l34_lb",
-      "label": "L3-L4 FSU, LB 7.5 Nm",
+      "label": "L3-L4 FSU, lat. bend 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L3-L4 within L2-L5",
@@ -426,7 +408,7 @@
     },
     {
       "id": "zhu_l34_ar",
-      "label": "L3-L4 FSU, AR 7.5 Nm",
+      "label": "L3-L4 FSU, axial rot. 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L3-L4 within L2-L5",
@@ -465,7 +447,7 @@
     },
     {
       "id": "sawa_l12_flex",
-      "label": "L1-L2 FSU, Flex 7.5 Nm",
+      "label": "L1-L2 FSU, flexion 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-L2 within T12-L2",
@@ -493,7 +475,7 @@
     },
     {
       "id": "sawa_l12_ext",
-      "label": "L1-L2 FSU, Ext 7.5 Nm",
+      "label": "L1-L2 FSU, extension 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-L2 within T12-L2",
@@ -521,7 +503,7 @@
     },
     {
       "id": "sawa_l12_lb",
-      "label": "L1-L2 FSU, LB 7.5 Nm",
+      "label": "L1-L2 FSU, lat. bend 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-L2 within T12-L2",
@@ -549,7 +531,7 @@
     },
     {
       "id": "sawa_l12_ar",
-      "label": "L1-L2 FSU, AR 7.5 Nm",
+      "label": "L1-L2 FSU, axial rot. 7.5 Nm",
       "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-L2 within T12-L2",
@@ -577,8 +559,8 @@
     },
     {
       "id": "pop_l45_flex",
-      "label": "L4-L5 in L1-S spine, Flex 10 Nm",
-      "view": "pure_high",
+      "label": "L4-L5 in L1-S spine, flexion 10 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact (capsule incised for sensor)",
@@ -605,8 +587,8 @@
     },
     {
       "id": "pop_l45_ext",
-      "label": "L4-L5 in L1-S spine, Ext 10 Nm",
-      "view": "pure_high",
+      "label": "L4-L5 in L1-S spine, extension 10 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact (capsule incised for sensor)",
@@ -633,8 +615,8 @@
     },
     {
       "id": "pop_l45_lb",
-      "label": "L4-L5 in L1-S spine, LB 10 Nm",
-      "view": "pure_high",
+      "label": "L4-L5 in L1-S spine, lat. bend 10 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact (capsule incised for sensor)",
@@ -661,8 +643,8 @@
     },
     {
       "id": "pop_l45_ar",
-      "label": "L4-L5 in L1-S spine, AR 10 Nm",
-      "view": "pure_high",
+      "label": "L4-L5 in L1-S spine, axial rot. 10 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact (capsule incised for sensor)",
@@ -689,8 +671,8 @@
     },
     {
       "id": "pop_l45_po5",
-      "label": "L4-L5, AR 10 Nm + 5 deg sacral tilt",
-      "view": "pure_high",
+      "label": "L4-L5, twist 10 Nm + 5° pelvic tilt",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "sacrum tilted 5 deg left (pelvic obliquity)",
@@ -717,8 +699,8 @@
     },
     {
       "id": "pop_l45_po10",
-      "label": "L4-L5, AR 10 Nm + 10 deg sacral tilt",
-      "view": "pure_high",
+      "label": "L4-L5, twist 10 Nm + 10° pelvic tilt",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "sacrum tilted 10 deg left (pelvic obliquity)",
@@ -745,8 +727,8 @@
     },
     {
       "id": "jar_l4l5_ext",
-      "label": "L4-L5, Ext 8 Nm",
-      "view": "pure_high",
+      "label": "L4-L5, extension 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -774,8 +756,8 @@
     },
     {
       "id": "jar_l4l5_lb",
-      "label": "L4-L5, LB 8 Nm",
-      "view": "pure_high",
+      "label": "L4-L5, lat. bend 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -803,8 +785,8 @@
     },
     {
       "id": "jar_l4l5_ar",
-      "label": "L4-L5, AR 8 Nm",
-      "view": "pure_high",
+      "label": "L4-L5, axial rot. 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -832,8 +814,8 @@
     },
     {
       "id": "jar_l5s1_ext",
-      "label": "L5-S1, Ext 8 Nm",
-      "view": "pure_high",
+      "label": "L5-S1, extension 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -861,8 +843,8 @@
     },
     {
       "id": "jar_l5s1_lb",
-      "label": "L5-S1, LB 8 Nm",
-      "view": "pure_high",
+      "label": "L5-S1, lat. bend 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -890,8 +872,8 @@
     },
     {
       "id": "jar_l5s1_ar",
-      "label": "L5-S1, AR 8 Nm",
-      "view": "pure_high",
+      "label": "L5-S1, axial rot. 8 Nm",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Jaramillo 2016)",
         "condition": "intact",
@@ -920,7 +902,7 @@
     {
       "id": "wis_l2l3",
       "label": "L2-L3, extension 15 Nm + 700 N",
-      "view": "pure_high",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Wiseman 2005)",
         "condition": "intact",
@@ -948,7 +930,7 @@
     {
       "id": "wis_l3l4",
       "label": "L3-L4, extension 15 Nm + 700 N",
-      "view": "pure_high",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Wiseman 2005)",
         "condition": "intact",
@@ -976,7 +958,7 @@
     {
       "id": "wis_l4l5",
       "label": "L4-L5, extension 15 Nm + 700 N",
-      "view": "pure_high",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "lumbar spine (Wiseman 2005)",
         "condition": "intact",
@@ -1088,7 +1070,7 @@
     {
       "id": "sch_peak_extension",
       "label": "L1-L2, extension 10 Nm + 190 N",
-      "view": "eccentric",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact",
@@ -1116,7 +1098,7 @@
     {
       "id": "sch_peak_axial_rotation",
       "label": "L1-L2, torsion 10 Nm + 150 N",
-      "view": "eccentric",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact",
@@ -1143,8 +1125,8 @@
     },
     {
       "id": "sch_peak_lateral_bending",
-      "label": "L1-L2, LB 3 Nm + 160 N",
-      "view": "eccentric",
+      "label": "L1-L2, lat. bend 3 Nm + 160 N",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact",
@@ -1172,7 +1154,7 @@
     {
       "id": "sch_peak_flexion",
       "label": "L1-L2, flexion up to 7 Nm",
-      "view": "eccentric",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact",
@@ -1199,7 +1181,7 @@
     {
       "id": "sch_slope_extension",
       "label": "L1-L2, extension, slope",
-      "view": "slope",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
@@ -1225,7 +1207,7 @@
     {
       "id": "sch_slope_flexion",
       "label": "L1-L2, flexion, slope",
-      "view": "slope",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
@@ -1250,8 +1232,8 @@
     },
     {
       "id": "sch_slope_lateral_bending_right",
-      "label": "L1-L2, right LB, slope",
-      "view": "slope",
+      "label": "L1-L2, right lat. bend, slope",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
@@ -1276,8 +1258,8 @@
     },
     {
       "id": "sch_slope_lateral_bending_left",
-      "label": "L1-L2, left LB, slope",
-      "view": "slope",
+      "label": "L1-L2, left lat. bend, slope",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
@@ -1303,7 +1285,7 @@
     {
       "id": "sch_slope_axial_rotation",
       "label": "L1-L2, torsion, slope",
-      "view": "slope",
+      "view": "follower",
       "inputs": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
@@ -1367,7 +1349,7 @@
     },
     {
       "id": "lor_l2l3_extension",
-      "label": "L2-L3, 1373 N + 6-8 deg ext",
+      "label": "L2-L3, 1373 N + 6-8° ext",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
@@ -1445,7 +1427,7 @@
     },
     {
       "id": "lor_l4l5_extension",
-      "label": "L4-L5, 1373 N + 6-8 deg ext",
+      "label": "L4-L5, 1373 N + 6-8° ext",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
@@ -1512,7 +1494,7 @@
     },
     {
       "id": "rou_l5s1_flexion",
-      "label": "L5-S1, comp.+shear, 6 deg flexion",
+      "label": "L5-S1, comp.+shear, 6° flexion",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
@@ -1540,7 +1522,7 @@
     },
     {
       "id": "rou_l5s1_extension",
-      "label": "L5-S1, comp.+shear, 6 deg extension",
+      "label": "L5-S1, comp.+shear, 6° extension",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
@@ -1568,7 +1550,7 @@
     },
     {
       "id": "rou_l5s1_lateral_bending",
-      "label": "L5-S1, comp.+shear, 6 deg LB (+)",
+      "label": "L5-S1, comp.+shear, 6° lat. bend (+)",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
@@ -1596,7 +1578,7 @@
     },
     {
       "id": "rou_l5s1_lateral_bending_neg",
-      "label": "L5-S1, comp.+shear, 6 deg LB (-)",
+      "label": "L5-S1, comp.+shear, 6° lat. bend (-)",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
@@ -1624,7 +1606,7 @@
     },
     {
       "id": "bot_l2l3_flexion",
-      "label": "L2-L3, T12-L5 flexion 15 deg",
+      "label": "L2-L3, T12-L5 flexion 15°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1651,7 +1633,7 @@
     },
     {
       "id": "bot_l2l3_extension",
-      "label": "L2-L3, T12-L5 extension 15 deg",
+      "label": "L2-L3, T12-L5 extension 15°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1678,7 +1660,7 @@
     },
     {
       "id": "bot_l2l3_lateral_bending",
-      "label": "L2-L3, T12-L5 LB 10 deg",
+      "label": "L2-L3, T12-L5 lat. bend 10°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1705,7 +1687,7 @@
     },
     {
       "id": "bot_l2l3_axial_rotation",
-      "label": "L2-L3, T12-L5 AR 10 deg",
+      "label": "L2-L3, T12-L5 axial rot. 10°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1732,7 +1714,7 @@
     },
     {
       "id": "bot_l3l4_flexion",
-      "label": "L3-L4, T12-L5 flexion 15 deg",
+      "label": "L3-L4, T12-L5 flexion 15°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1759,7 +1741,7 @@
     },
     {
       "id": "bot_l3l4_extension",
-      "label": "L3-L4, T12-L5 extension 15 deg",
+      "label": "L3-L4, T12-L5 extension 15°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1786,7 +1768,7 @@
     },
     {
       "id": "bot_l3l4_lateral_bending",
-      "label": "L3-L4, T12-L5 LB 10 deg",
+      "label": "L3-L4, T12-L5 lat. bend 10°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1813,7 +1795,7 @@
     },
     {
       "id": "bot_l3l4_axial_rotation",
-      "label": "L3-L4, T12-L5 AR 10 deg",
+      "label": "L3-L4, T12-L5 axial rot. 10°",
       "view": "posture_secondary",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
@@ -1840,7 +1822,7 @@
     },
     {
       "id": "ivi_intact_extension",
-      "label": "Intact: 700 N, max extension",
+      "label": "Intact disc, 700 N, max extension",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -1869,7 +1851,7 @@
     },
     {
       "id": "ivi_intact_flexion",
-      "label": "Intact: 700 N, max flexion",
+      "label": "Intact disc, 700 N, max flexion",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -1898,7 +1880,7 @@
     },
     {
       "id": "ivi_intact_entire",
-      "label": "Intact: 700 N, whole FE cycle",
+      "label": "Intact disc, 700 N, full flex-ext cycle",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -1927,7 +1909,7 @@
     },
     {
       "id": "ivi_nucleo_extension",
-      "label": "Nucleotomy: 700 N, max extension",
+      "label": "No nucleus, 700 N, max extension",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -1956,7 +1938,7 @@
     },
     {
       "id": "ivi_nucleo_flexion",
-      "label": "Nucleotomy: 700 N, max flexion",
+      "label": "No nucleus, 700 N, max flexion",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -1985,7 +1967,7 @@
     },
     {
       "id": "ivi_nucleo_entire",
-      "label": "Nucleotomy: 700 N, whole FE cycle",
+      "label": "No nucleus, 700 N, full flex-ext cycle",
       "view": "share",
       "inputs": {
         "specimen": "L3-L4 / L4-L5 FSU",
@@ -2095,7 +2077,7 @@
     },
     {
       "id": "pol_extension",
-      "label": "Lumbar FSU, 2000 N, 2 deg extension",
+      "label": "Lumbar FSU, 2000 N, 2° extension",
       "view": "share",
       "inputs": {
         "specimen": "lumbar FSU (Pollintine 2004)",
@@ -2123,7 +2105,7 @@
     },
     {
       "id": "pol_flexion",
-      "label": "Lumbar FSU, 2000 N, 6-12 deg flexion",
+      "label": "Lumbar FSU, 2000 N, 6-12° flexion",
       "view": "share",
       "inputs": {
         "specimen": "lumbar FSU (Pollintine 2004)",
@@ -2178,10 +2160,9 @@
     }
   ],
   "notes": [
-    "Force is per facet and compressive (positive). Zhu 2008 film and gauge values are the same specimens (listed as two studies, shared); Zhu flexion gauge value is excluded because it sums tensile and compressive readings.",
-    "Excluded: Wilson 2006 (facets measured after nucleotomy, capsule and ligament sectioning: an injured specimen built for sensor calibration); Ianuzzi 2004 (capsule strain, not force); Ivicsics force vectors and capsule-free shares.",
-    "Secondary values (review, n not given) enter only where the primary is not in bench/tests; review copies of Sawa, Schendel, Zhu, Ivicsics, Wilson and Popovich are left out. Farooq flexion row is printed identical to compression in the review and is left out.",
-    "Schendel peaks are the largest single values printed in the abstract, not means."
+    "Force is per facet and compressive (positive). Zhu 2008 film and gauges are the same specimens (shared).",
+    "Review-compiled values (Ghezelbash 2020, n not given) appear only where the primary study is not in the benchmark.",
+    "Schendel peaks are the largest single values printed, not means. Excluded: sensor-calibration and capsule-strain studies."
   ],
   "agent_prompt": "Use your finite element lumbar spine model. For each task build the specimen in its inputs, fix the caudal end and apply the load: pure moment, axial or follower compression, eccentric compression, or an imposed rotation. Report the facet contact force in newtons, compressive positive, for the facet named in \"facet\" (right, mean of both, or the loaded one: ipsilateral in lateral bending, contralateral in axial rotation). For \"facet_share\" report total facet force as % of the applied axial force; for \"facet_slope\" report the slope of facet force versus applied moment (N/Nm). Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {

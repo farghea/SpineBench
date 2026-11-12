@@ -6,7 +6,7 @@
   "levels": [
     "L5-S1"
   ],
-  "summary": "Simulate maximal isometric trunk exertions in six directions; report primary moment, coupled moments and muscle EMG at MVC.",
+  "summary": "Simulate maximal trunk efforts in each direction and report the maximal moment, the off-axis moments and muscle activity.",
   "simulate": [
     "Scale the model to the study subject (table below; by sex where given).",
     "Fix pelvis and legs in the task posture (semi-seated, standing, seated or side-lying).",
@@ -56,28 +56,33 @@
   "outputs": [
     {
       "key": "moment_primary",
-      "label": "Primary moment (magnitude)",
-      "unit": "Nm"
+      "label": "Maximal moment",
+      "unit": "Nm",
+      "definition": "Peak isometric trunk moment in the effort direction, about the task's reference axis (Nm, magnitude)"
     },
     {
       "key": "moment_coupled_signed",
-      "label": "Coupled moment, signed (+flex, +right)",
-      "unit": "Nm"
+      "label": "Off-axis moment (+flex, +right)",
+      "unit": "Nm",
+      "definition": "Moment about each other axis during the same effort, signed: + flexion, + right bend, + right twist (Nm)"
     },
     {
       "key": "moment_coupled_abs",
-      "label": "Coupled moment, absolute",
-      "unit": "Nm"
+      "label": "Off-axis moment, absolute",
+      "unit": "Nm",
+      "definition": "Moment about each other axis during the same effort, absolute value (Nm)"
     },
     {
       "key": "moment_coupled_pct",
-      "label": "Coupled moment, % of same-plane MVC (signed)",
-      "unit": "%"
+      "label": "Off-axis moment, % of plane max",
+      "unit": "%",
+      "definition": "Off-axis moment as % of the subject's maximal moment in that plane, signed"
     },
     {
       "key": "emg",
       "label": "EMG at MVC",
-      "unit": "%MVC"
+      "unit": "%MVC",
+      "definition": "EMG at maximal effort under the electrode, % of that muscle's maximum over all six efforts"
     }
   ],
   "subjects": {
@@ -279,7 +284,7 @@
   "views": [
     {
       "id": "primary",
-      "title": "Primary moment",
+      "title": "Strength in each direction",
       "task_ids": [
         "ss_flex_f_primary",
         "ss_flex_m_primary",
@@ -312,7 +317,7 @@
     },
     {
       "id": "coupled",
-      "title": "Coupled moments",
+      "title": "Off-axis moments, semi-seated",
       "task_ids": [
         "ss_flex_f_coupled_lat",
         "ss_flex_f_coupled_axial",
@@ -337,7 +342,14 @@
         "ss_axl_f_coupled_sag",
         "ss_axl_f_coupled_lat",
         "ss_axl_m_coupled_sag",
-        "ss_axl_m_coupled_lat",
+        "ss_axl_m_coupled_lat"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "coupled_standing",
+      "title": "Off-axis moments, standing",
+      "task_ids": [
         "st_flex_m_abscoupled_lat",
         "st_flex_m_abscoupled_axial",
         "st_ext_m_abscoupled_lat",
@@ -359,7 +371,7 @@
     },
     {
       "id": "posture",
-      "title": "Extension MVC vs flexion angle",
+      "title": "Extension strength vs trunk angle",
       "task_ids": [
         "st_ext_m_flexm20",
         "st_ext_m_flex20",
@@ -372,11 +384,14 @@
         "sl_ext_m_lumbm20",
         "st_ext_m_primary"
       ],
-      "x": "input:flexion_deg"
+      "x": "input:flexion_deg",
+      "series": [
+        "posture"
+      ]
     },
     {
       "id": "emg",
-      "title": "EMG at MVC",
+      "title": "Muscle activity: flexion and extension",
       "task_ids": [
         "emg_ss_flex_lg",
         "emg_ss_flex_ic",
@@ -390,6 +405,21 @@
         "emg_ss_ext_ra",
         "emg_ss_ext_eo",
         "emg_ss_ext_io",
+        "emg_st_flex_rra",
+        "emg_st_flex_reo",
+        "emg_st_flex_rio",
+        "emg_st_flex_resi",
+        "emg_st_ext_rra",
+        "emg_st_ext_reo",
+        "emg_st_ext_rio",
+        "emg_st_ext_resi"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "emg_lat",
+      "title": "Muscle activity: side bending",
+      "task_ids": [
         "emg_ss_latr_lg",
         "emg_ss_latr_ic",
         "emg_ss_latr_mf",
@@ -402,6 +432,17 @@
         "emg_ss_latl_ra",
         "emg_ss_latl_eo",
         "emg_ss_latl_io",
+        "emg_st_latr_rra",
+        "emg_st_latr_reo",
+        "emg_st_latr_rio",
+        "emg_st_latr_resi"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "emg_axial",
+      "title": "Muscle activity: twisting",
+      "task_ids": [
         "emg_ss_axr_lg",
         "emg_ss_axr_ic",
         "emg_ss_axr_mf",
@@ -414,18 +455,6 @@
         "emg_ss_axl_ra",
         "emg_ss_axl_eo",
         "emg_ss_axl_io",
-        "emg_st_flex_rra",
-        "emg_st_flex_reo",
-        "emg_st_flex_rio",
-        "emg_st_flex_resi",
-        "emg_st_ext_rra",
-        "emg_st_ext_reo",
-        "emg_st_ext_rio",
-        "emg_st_ext_resi",
-        "emg_st_latr_rra",
-        "emg_st_latr_reo",
-        "emg_st_latr_rio",
-        "emg_st_latr_resi",
         "emg_st_axl_reo",
         "emg_st_axl_resi",
         "emg_st_axr_ng_ra",
@@ -447,7 +476,7 @@
   "tasks": [
     {
       "id": "ss_flex_f_primary",
-      "label": "Flex, semi-seated, F: primary",
+      "label": "Flexion, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "flexion",
@@ -473,7 +502,7 @@
     },
     {
       "id": "ss_flex_f_coupled_lat",
-      "label": "Flex, semi-seated, F: coupled lat",
+      "label": "Flexion, semi-seated, women: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "flexion",
@@ -500,7 +529,7 @@
     },
     {
       "id": "ss_flex_f_coupled_axial",
-      "label": "Flex, semi-seated, F: coupled axial",
+      "label": "Flexion, semi-seated, women: axial",
       "view": "coupled",
       "inputs": {
         "direction": "flexion",
@@ -527,7 +556,7 @@
     },
     {
       "id": "ss_flex_m_primary",
-      "label": "Flex, semi-seated, M: primary",
+      "label": "Flexion, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "flexion",
@@ -574,7 +603,7 @@
     },
     {
       "id": "ss_flex_m_coupled_lat",
-      "label": "Flex, semi-seated, M: coupled lat",
+      "label": "Flexion, semi-seated, men: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "flexion",
@@ -601,7 +630,7 @@
     },
     {
       "id": "ss_flex_m_coupled_axial",
-      "label": "Flex, semi-seated, M: coupled axial",
+      "label": "Flexion, semi-seated, men: axial",
       "view": "coupled",
       "inputs": {
         "direction": "flexion",
@@ -628,7 +657,7 @@
     },
     {
       "id": "st_flex_m_primary",
-      "label": "Flex, standing, M: primary",
+      "label": "Flexion, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "flexion",
@@ -675,8 +704,8 @@
     },
     {
       "id": "st_flex_m_abscoupled_lat",
-      "label": "Flex, standing, M: |coupled| lat",
-      "view": "coupled",
+      "label": "Flexion, standing, men: |lateral|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "flexion",
         "posture": "standing",
@@ -702,8 +731,8 @@
     },
     {
       "id": "st_flex_m_abscoupled_axial",
-      "label": "Flex, standing, M: |coupled| axial",
-      "view": "coupled",
+      "label": "Flexion, standing, men: |axial|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "flexion",
         "posture": "standing",
@@ -729,7 +758,7 @@
     },
     {
       "id": "ss_ext_f_primary",
-      "label": "Ext, semi-seated, F: primary",
+      "label": "Extension, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "extension",
@@ -755,7 +784,7 @@
     },
     {
       "id": "ss_ext_f_coupled_lat",
-      "label": "Ext, semi-seated, F: coupled lat",
+      "label": "Extension, semi-seated, women: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "extension",
@@ -782,7 +811,7 @@
     },
     {
       "id": "ss_ext_f_coupled_axial",
-      "label": "Ext, semi-seated, F: coupled axial",
+      "label": "Extension, semi-seated, women: axial",
       "view": "coupled",
       "inputs": {
         "direction": "extension",
@@ -809,7 +838,7 @@
     },
     {
       "id": "ss_ext_m_primary",
-      "label": "Ext, semi-seated, M: primary",
+      "label": "Extension, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "extension",
@@ -856,7 +885,7 @@
     },
     {
       "id": "ss_ext_m_coupled_lat",
-      "label": "Ext, semi-seated, M: coupled lat",
+      "label": "Extension, semi-seated, men: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "extension",
@@ -883,7 +912,7 @@
     },
     {
       "id": "ss_ext_m_coupled_axial",
-      "label": "Ext, semi-seated, M: coupled axial",
+      "label": "Extension, semi-seated, men: axial",
       "view": "coupled",
       "inputs": {
         "direction": "extension",
@@ -910,7 +939,7 @@
     },
     {
       "id": "st_ext_m_primary",
-      "label": "Ext, standing, M: primary",
+      "label": "Extension, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "extension",
@@ -983,8 +1012,8 @@
     },
     {
       "id": "st_ext_m_abscoupled_lat",
-      "label": "Ext, standing, M: |coupled| lat",
-      "view": "coupled",
+      "label": "Extension, standing, men: |lateral|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "extension",
         "posture": "standing",
@@ -1010,8 +1039,8 @@
     },
     {
       "id": "st_ext_m_abscoupled_axial",
-      "label": "Ext, standing, M: |coupled| axial",
-      "view": "coupled",
+      "label": "Extension, standing, men: |axial|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "extension",
         "posture": "standing",
@@ -1037,7 +1066,7 @@
     },
     {
       "id": "ss_latr_f_primary",
-      "label": "LatR, semi-seated, F: primary",
+      "label": "Bend right, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend right",
@@ -1063,7 +1092,7 @@
     },
     {
       "id": "ss_latr_f_coupled_sag",
-      "label": "LatR, semi-seated, F: coupled sag",
+      "label": "Bend right, semi-seated, women: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend right",
@@ -1090,7 +1119,7 @@
     },
     {
       "id": "ss_latr_f_coupled_axial",
-      "label": "LatR, semi-seated, F: coupled axial",
+      "label": "Bend right, semi-seated, women: axial",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend right",
@@ -1117,7 +1146,7 @@
     },
     {
       "id": "ss_latr_m_primary",
-      "label": "LatR, semi-seated, M: primary",
+      "label": "Bend right, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend right",
@@ -1143,7 +1172,7 @@
     },
     {
       "id": "ss_latr_m_coupled_sag",
-      "label": "LatR, semi-seated, M: coupled sag",
+      "label": "Bend right, semi-seated, men: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend right",
@@ -1170,7 +1199,7 @@
     },
     {
       "id": "ss_latr_m_coupled_axial",
-      "label": "LatR, semi-seated, M: coupled axial",
+      "label": "Bend right, semi-seated, men: axial",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend right",
@@ -1197,7 +1226,7 @@
     },
     {
       "id": "st_latr_m_primary",
-      "label": "LatR, standing, M: primary",
+      "label": "Bend right, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend right",
@@ -1256,8 +1285,8 @@
     },
     {
       "id": "st_latr_m_abscoupled_sag",
-      "label": "LatR, standing, M: |coupled| sag",
-      "view": "coupled",
+      "label": "Bend right, standing, men: |flexion|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -1283,8 +1312,8 @@
     },
     {
       "id": "st_latr_m_abscoupled_axial",
-      "label": "LatR, standing, M: |coupled| axial",
-      "view": "coupled",
+      "label": "Bend right, standing, men: |axial|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -1310,7 +1339,7 @@
     },
     {
       "id": "ss_latl_f_primary",
-      "label": "LatL, semi-seated, F: primary",
+      "label": "Bend left, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend left",
@@ -1336,7 +1365,7 @@
     },
     {
       "id": "ss_latl_f_coupled_sag",
-      "label": "LatL, semi-seated, F: coupled sag",
+      "label": "Bend left, semi-seated, women: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend left",
@@ -1363,7 +1392,7 @@
     },
     {
       "id": "ss_latl_f_coupled_axial",
-      "label": "LatL, semi-seated, F: coupled axial",
+      "label": "Bend left, semi-seated, women: axial",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend left",
@@ -1390,7 +1419,7 @@
     },
     {
       "id": "ss_latl_m_primary",
-      "label": "LatL, semi-seated, M: primary",
+      "label": "Bend left, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend left",
@@ -1416,7 +1445,7 @@
     },
     {
       "id": "ss_latl_m_coupled_sag",
-      "label": "LatL, semi-seated, M: coupled sag",
+      "label": "Bend left, semi-seated, men: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend left",
@@ -1443,7 +1472,7 @@
     },
     {
       "id": "ss_latl_m_coupled_axial",
-      "label": "LatL, semi-seated, M: coupled axial",
+      "label": "Bend left, semi-seated, men: axial",
       "view": "coupled",
       "inputs": {
         "direction": "lateral bend left",
@@ -1470,7 +1499,7 @@
     },
     {
       "id": "st_latl_m_primary",
-      "label": "LatL, standing, M: primary",
+      "label": "Bend left, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "lateral bend left",
@@ -1517,8 +1546,8 @@
     },
     {
       "id": "st_latl_m_abscoupled_sag",
-      "label": "LatL, standing, M: |coupled| sag",
-      "view": "coupled",
+      "label": "Bend left, standing, men: |flexion|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "standing",
@@ -1544,8 +1573,8 @@
     },
     {
       "id": "st_latl_m_abscoupled_axial",
-      "label": "LatL, standing, M: |coupled| axial",
-      "view": "coupled",
+      "label": "Bend left, standing, men: |axial|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "standing",
@@ -1571,7 +1600,7 @@
     },
     {
       "id": "ss_axr_f_primary",
-      "label": "AxR, semi-seated, F: primary",
+      "label": "Twist right, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -1597,7 +1626,7 @@
     },
     {
       "id": "ss_axr_f_coupled_sag",
-      "label": "AxR, semi-seated, F: coupled sag",
+      "label": "Twist right, semi-seated, women: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation right",
@@ -1624,7 +1653,7 @@
     },
     {
       "id": "ss_axr_f_coupled_lat",
-      "label": "AxR, semi-seated, F: coupled lat",
+      "label": "Twist right, semi-seated, women: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation right",
@@ -1651,7 +1680,7 @@
     },
     {
       "id": "ss_axr_m_primary",
-      "label": "AxR, semi-seated, M: primary",
+      "label": "Twist right, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -1677,7 +1706,7 @@
     },
     {
       "id": "ss_axr_m_coupled_sag",
-      "label": "AxR, semi-seated, M: coupled sag",
+      "label": "Twist right, semi-seated, men: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation right",
@@ -1704,7 +1733,7 @@
     },
     {
       "id": "ss_axr_m_coupled_lat",
-      "label": "AxR, semi-seated, M: coupled lat",
+      "label": "Twist right, semi-seated, men: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation right",
@@ -1731,7 +1760,7 @@
     },
     {
       "id": "st_axr_f_primary_vert",
-      "label": "AxR, standing, F: primary, vert. axis",
+      "label": "Twist right, standing, women, vert. axis",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -1757,7 +1786,7 @@
     },
     {
       "id": "st_axr_m_primary",
-      "label": "AxR, standing, M: primary",
+      "label": "Twist right, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -1828,8 +1857,8 @@
     },
     {
       "id": "st_axr_m_abscoupled_sag",
-      "label": "AxR, standing, M: |coupled| sag",
-      "view": "coupled",
+      "label": "Twist right, standing, men: |flexion|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -1855,8 +1884,8 @@
     },
     {
       "id": "st_axr_m_abscoupled_lat",
-      "label": "AxR, standing, M: |coupled| lat",
-      "view": "coupled",
+      "label": "Twist right, standing, men: |lateral|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -1882,8 +1911,8 @@
     },
     {
       "id": "st_axr_m_pctcoupled_sag",
-      "label": "AxR, standing, M: coupled sag %",
-      "view": "coupled",
+      "label": "Twist right, standing, men: flexion (%)",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -1930,8 +1959,8 @@
     },
     {
       "id": "st_axr_m_pctcoupled_lat",
-      "label": "AxR, standing, M: coupled lat %",
-      "view": "coupled",
+      "label": "Twist right, standing, men: lateral (%)",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -1978,7 +2007,7 @@
     },
     {
       "id": "st_axr_m_primary_vert",
-      "label": "AxR, standing, M: primary, vert. axis",
+      "label": "Twist right, standing, men, vert. axis",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -2004,7 +2033,7 @@
     },
     {
       "id": "se_axr_f_primary",
-      "label": "AxR, seated, F: primary",
+      "label": "Twist right, seated, women",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -2030,7 +2059,7 @@
     },
     {
       "id": "se_axr_m_primary",
-      "label": "AxR, seated, M: primary",
+      "label": "Twist right, seated, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation right",
@@ -2056,7 +2085,7 @@
     },
     {
       "id": "ss_axl_f_primary",
-      "label": "AxL, semi-seated, F: primary",
+      "label": "Twist left, semi-seated, women",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2082,7 +2111,7 @@
     },
     {
       "id": "ss_axl_f_coupled_sag",
-      "label": "AxL, semi-seated, F: coupled sag",
+      "label": "Twist left, semi-seated, women: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation left",
@@ -2109,7 +2138,7 @@
     },
     {
       "id": "ss_axl_f_coupled_lat",
-      "label": "AxL, semi-seated, F: coupled lat",
+      "label": "Twist left, semi-seated, women: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation left",
@@ -2136,7 +2165,7 @@
     },
     {
       "id": "ss_axl_m_primary",
-      "label": "AxL, semi-seated, M: primary",
+      "label": "Twist left, semi-seated, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2162,7 +2191,7 @@
     },
     {
       "id": "ss_axl_m_coupled_sag",
-      "label": "AxL, semi-seated, M: coupled sag",
+      "label": "Twist left, semi-seated, men: flexion",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation left",
@@ -2189,7 +2218,7 @@
     },
     {
       "id": "ss_axl_m_coupled_lat",
-      "label": "AxL, semi-seated, M: coupled lat",
+      "label": "Twist left, semi-seated, men: lateral",
       "view": "coupled",
       "inputs": {
         "direction": "axial rotation left",
@@ -2216,7 +2245,7 @@
     },
     {
       "id": "st_axl_f_primary_vert",
-      "label": "AxL, standing, F: primary, vert. axis",
+      "label": "Twist left, standing, women, vert. axis",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2242,7 +2271,7 @@
     },
     {
       "id": "st_axl_m_primary",
-      "label": "AxL, standing, M: primary",
+      "label": "Twist left, standing, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2301,8 +2330,8 @@
     },
     {
       "id": "st_axl_m_abscoupled_sag",
-      "label": "AxL, standing, M: |coupled| sag",
-      "view": "coupled",
+      "label": "Twist left, standing, men: |flexion|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -2328,8 +2357,8 @@
     },
     {
       "id": "st_axl_m_abscoupled_lat",
-      "label": "AxL, standing, M: |coupled| lat",
-      "view": "coupled",
+      "label": "Twist left, standing, men: |lateral|",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -2355,8 +2384,8 @@
     },
     {
       "id": "st_axl_m_pctcoupled_sag",
-      "label": "AxL, standing, M: coupled sag %",
-      "view": "coupled",
+      "label": "Twist left, standing, men: flexion (%)",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -2403,8 +2432,8 @@
     },
     {
       "id": "st_axl_m_pctcoupled_lat",
-      "label": "AxL, standing, M: coupled lat %",
-      "view": "coupled",
+      "label": "Twist left, standing, men: lateral (%)",
+      "view": "coupled_standing",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -2451,7 +2480,7 @@
     },
     {
       "id": "st_axl_m_primary_vert",
-      "label": "AxL, standing, M: primary, vert. axis",
+      "label": "Twist left, standing, men, vert. axis",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2477,7 +2506,7 @@
     },
     {
       "id": "se_axl_f_primary",
-      "label": "AxL, seated, F: primary",
+      "label": "Twist left, seated, women",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2503,7 +2532,7 @@
     },
     {
       "id": "se_axl_m_primary",
-      "label": "AxL, seated, M: primary",
+      "label": "Twist left, seated, men",
       "view": "primary",
       "inputs": {
         "direction": "axial rotation left",
@@ -2529,7 +2558,7 @@
     },
     {
       "id": "st_ext_m_flexm20",
-      "label": "Ext, standing, M, trunk -20 deg",
+      "label": "Extension, standing, men, trunk -20°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2557,7 +2586,7 @@
     },
     {
       "id": "sl_ext_m_lumbm20",
-      "label": "Ext, side-lying, M, lumbar -20 deg",
+      "label": "Extension, side-lying, men, lumbar -20°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2585,7 +2614,7 @@
     },
     {
       "id": "sl_ext_m_lumbm10",
-      "label": "Ext, side-lying, M, lumbar -10 deg",
+      "label": "Extension, side-lying, men, lumbar -10°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2613,7 +2642,7 @@
     },
     {
       "id": "sl_ext_m_lumb10",
-      "label": "Ext, side-lying, M, lumbar +10 deg",
+      "label": "Extension, side-lying, men, lumbar +10°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2641,7 +2670,7 @@
     },
     {
       "id": "st_ext_m_flex20",
-      "label": "Ext, standing, M, trunk +20 deg",
+      "label": "Extension, standing, men, trunk +20°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2669,7 +2698,7 @@
     },
     {
       "id": "sl_ext_m_lumb30",
-      "label": "Ext, side-lying, M, lumbar +30 deg",
+      "label": "Extension, side-lying, men, lumbar +30°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2697,7 +2726,7 @@
     },
     {
       "id": "st_ext_m_flex40",
-      "label": "Ext, standing, M, trunk +40 deg",
+      "label": "Extension, standing, men, trunk +40°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2725,7 +2754,7 @@
     },
     {
       "id": "sl_ext_m_lumb45",
-      "label": "Ext, side-lying, M, lumbar +45 deg",
+      "label": "Extension, side-lying, men, lumbar +45°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2753,7 +2782,7 @@
     },
     {
       "id": "st_ext_m_flex60",
-      "label": "Ext, standing, M, trunk +60 deg",
+      "label": "Extension, standing, men, trunk +60°",
       "view": "posture",
       "inputs": {
         "direction": "extension",
@@ -2781,7 +2810,7 @@
     },
     {
       "id": "emg_ss_flex_lg",
-      "label": "Flex, semi-seated: LG(T11)",
+      "label": "Flexion, semi-seated: LG(T11)",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -2830,7 +2859,7 @@
     },
     {
       "id": "emg_ss_flex_ic",
-      "label": "Flex, semi-seated: IC(L3)",
+      "label": "Flexion, semi-seated: IC(L3)",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -2879,7 +2908,7 @@
     },
     {
       "id": "emg_ss_flex_mf",
-      "label": "Flex, semi-seated: MF(L4/L5)",
+      "label": "Flexion, semi-seated: MF(L4/L5)",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -2928,7 +2957,7 @@
     },
     {
       "id": "emg_ss_flex_ra",
-      "label": "Flex, semi-seated: RA",
+      "label": "Flexion, semi-seated: RA",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -2977,7 +3006,7 @@
     },
     {
       "id": "emg_ss_flex_eo",
-      "label": "Flex, semi-seated: EO",
+      "label": "Flexion, semi-seated: EO",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3026,7 +3055,7 @@
     },
     {
       "id": "emg_ss_flex_io",
-      "label": "Flex, semi-seated: IO",
+      "label": "Flexion, semi-seated: IO",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3075,7 +3104,7 @@
     },
     {
       "id": "emg_st_flex_rra",
-      "label": "Flex, standing: RA(umb.) right",
+      "label": "Flexion, standing: RA(navel) right",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3103,7 +3132,7 @@
     },
     {
       "id": "emg_st_flex_reo",
-      "label": "Flex, standing: EO(umb. lat.) right",
+      "label": "Flexion, standing: EO(lateral) right",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3131,7 +3160,7 @@
     },
     {
       "id": "emg_st_flex_rio",
-      "label": "Flex, standing: IO(ASIS) right",
+      "label": "Flexion, standing: IO(ASIS) right",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3159,7 +3188,7 @@
     },
     {
       "id": "emg_st_flex_resi",
-      "label": "Flex, standing: IC(L3/L4) right",
+      "label": "Flexion, standing: IC(L3/L4) right",
       "view": "emg",
       "inputs": {
         "direction": "flexion",
@@ -3187,7 +3216,7 @@
     },
     {
       "id": "emg_ss_ext_lg",
-      "label": "Ext, semi-seated: LG(T11)",
+      "label": "Extension, semi-seated: LG(T11)",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3236,7 +3265,7 @@
     },
     {
       "id": "emg_ss_ext_ic",
-      "label": "Ext, semi-seated: IC(L3)",
+      "label": "Extension, semi-seated: IC(L3)",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3285,7 +3314,7 @@
     },
     {
       "id": "emg_ss_ext_mf",
-      "label": "Ext, semi-seated: MF(L4/L5)",
+      "label": "Extension, semi-seated: MF(L4/L5)",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3334,7 +3363,7 @@
     },
     {
       "id": "emg_ss_ext_ra",
-      "label": "Ext, semi-seated: RA",
+      "label": "Extension, semi-seated: RA",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3383,7 +3412,7 @@
     },
     {
       "id": "emg_ss_ext_eo",
-      "label": "Ext, semi-seated: EO",
+      "label": "Extension, semi-seated: EO",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3432,7 +3461,7 @@
     },
     {
       "id": "emg_ss_ext_io",
-      "label": "Ext, semi-seated: IO",
+      "label": "Extension, semi-seated: IO",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3481,7 +3510,7 @@
     },
     {
       "id": "emg_st_ext_rra",
-      "label": "Ext, standing: RA(umb.) right",
+      "label": "Extension, standing: RA(navel) right",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3509,7 +3538,7 @@
     },
     {
       "id": "emg_st_ext_reo",
-      "label": "Ext, standing: EO(umb. lat.) right",
+      "label": "Extension, standing: EO(lateral) right",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3537,7 +3566,7 @@
     },
     {
       "id": "emg_st_ext_rio",
-      "label": "Ext, standing: IO(ASIS) right",
+      "label": "Extension, standing: IO(ASIS) right",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3565,7 +3594,7 @@
     },
     {
       "id": "emg_st_ext_resi",
-      "label": "Ext, standing: IC(L3/L4) right",
+      "label": "Extension, standing: IC(L3/L4) right",
       "view": "emg",
       "inputs": {
         "direction": "extension",
@@ -3593,8 +3622,8 @@
     },
     {
       "id": "emg_ss_latr_lg",
-      "label": "LatR, semi-seated: LG(T11) right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: LG(T11) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3621,8 +3650,8 @@
     },
     {
       "id": "emg_ss_latr_ic",
-      "label": "LatR, semi-seated: IC(L3) right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: IC(L3) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3649,8 +3678,8 @@
     },
     {
       "id": "emg_ss_latr_mf",
-      "label": "LatR, semi-seated: MF(L4/L5) right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: MF(L4/L5) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3677,8 +3706,8 @@
     },
     {
       "id": "emg_ss_latr_ra",
-      "label": "LatR, semi-seated: RA right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: RA right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3705,8 +3734,8 @@
     },
     {
       "id": "emg_ss_latr_eo",
-      "label": "LatR, semi-seated: EO right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: EO right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3733,8 +3762,8 @@
     },
     {
       "id": "emg_ss_latr_io",
-      "label": "LatR, semi-seated: IO right",
-      "view": "emg",
+      "label": "Bend right, semi-seated: IO right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "semi-seated",
@@ -3761,8 +3790,8 @@
     },
     {
       "id": "emg_st_latr_rra",
-      "label": "LatR, standing: RA(umb.) right",
-      "view": "emg",
+      "label": "Bend right, standing: RA(navel) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -3789,8 +3818,8 @@
     },
     {
       "id": "emg_st_latr_reo",
-      "label": "LatR, standing: EO(umb. lat.) right",
-      "view": "emg",
+      "label": "Bend right, standing: EO(lateral) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -3817,8 +3846,8 @@
     },
     {
       "id": "emg_st_latr_rio",
-      "label": "LatR, standing: IO(ASIS) right",
-      "view": "emg",
+      "label": "Bend right, standing: IO(ASIS) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -3845,8 +3874,8 @@
     },
     {
       "id": "emg_st_latr_resi",
-      "label": "LatR, standing: IC(L3/L4) right",
-      "view": "emg",
+      "label": "Bend right, standing: IC(L3/L4) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend right",
         "posture": "standing",
@@ -3873,8 +3902,8 @@
     },
     {
       "id": "emg_ss_latl_lg",
-      "label": "LatL, semi-seated: LG(T11) right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: LG(T11) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -3901,8 +3930,8 @@
     },
     {
       "id": "emg_ss_latl_ic",
-      "label": "LatL, semi-seated: IC(L3) right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: IC(L3) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -3929,8 +3958,8 @@
     },
     {
       "id": "emg_ss_latl_mf",
-      "label": "LatL, semi-seated: MF(L4/L5) right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: MF(L4/L5) right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -3957,8 +3986,8 @@
     },
     {
       "id": "emg_ss_latl_ra",
-      "label": "LatL, semi-seated: RA right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: RA right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -3985,8 +4014,8 @@
     },
     {
       "id": "emg_ss_latl_eo",
-      "label": "LatL, semi-seated: EO right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: EO right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -4013,8 +4042,8 @@
     },
     {
       "id": "emg_ss_latl_io",
-      "label": "LatL, semi-seated: IO right",
-      "view": "emg",
+      "label": "Bend left, semi-seated: IO right",
+      "view": "emg_lat",
       "inputs": {
         "direction": "lateral bend left",
         "posture": "semi-seated",
@@ -4041,8 +4070,8 @@
     },
     {
       "id": "emg_ss_axr_lg",
-      "label": "AxR, semi-seated: LG(T11) right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: LG(T11) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4069,8 +4098,8 @@
     },
     {
       "id": "emg_ss_axr_ic",
-      "label": "AxR, semi-seated: IC(L3) right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: IC(L3) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4097,8 +4126,8 @@
     },
     {
       "id": "emg_ss_axr_mf",
-      "label": "AxR, semi-seated: MF(L4/L5) right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: MF(L4/5) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4125,8 +4154,8 @@
     },
     {
       "id": "emg_ss_axr_ra",
-      "label": "AxR, semi-seated: RA right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: RA right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4153,8 +4182,8 @@
     },
     {
       "id": "emg_ss_axr_eo",
-      "label": "AxR, semi-seated: EO right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: EO right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4181,8 +4210,8 @@
     },
     {
       "id": "emg_ss_axr_io",
-      "label": "AxR, semi-seated: IO right",
-      "view": "emg",
+      "label": "Twist right, semi-seated: IO right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "semi-seated",
@@ -4209,8 +4238,8 @@
     },
     {
       "id": "emg_st_axr_ng_ra",
-      "label": "AxR, standing: RA(umb.) right",
-      "view": "emg",
+      "label": "Twist right, standing: RA(navel) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4258,8 +4287,8 @@
     },
     {
       "id": "emg_st_axr_ng_eo",
-      "label": "AxR, standing: EO(rib) right",
-      "view": "emg",
+      "label": "Twist right, standing: EO(rib) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4307,8 +4336,8 @@
     },
     {
       "id": "emg_st_axr_ng_io",
-      "label": "AxR, standing: IO(ASIS) right",
-      "view": "emg",
+      "label": "Twist right, standing: IO(ASIS) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4356,8 +4385,8 @@
     },
     {
       "id": "emg_st_axr_ng_ic",
-      "label": "AxR, standing: IC(L2) right",
-      "view": "emg",
+      "label": "Twist right, standing: IC(L2) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4405,8 +4434,8 @@
     },
     {
       "id": "emg_st_axr_ng_mf",
-      "label": "AxR, standing: MF(L5) right",
-      "view": "emg",
+      "label": "Twist right, standing: MF(L5) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4454,8 +4483,8 @@
     },
     {
       "id": "emg_st_axr_ng_ld",
-      "label": "AxR, standing: LD(T12) right",
-      "view": "emg",
+      "label": "Twist right, standing: LD(T12) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation right",
         "posture": "standing",
@@ -4503,8 +4532,8 @@
     },
     {
       "id": "emg_ss_axl_lg",
-      "label": "AxL, semi-seated: LG(T11) right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: LG(T11) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4531,8 +4560,8 @@
     },
     {
       "id": "emg_ss_axl_ic",
-      "label": "AxL, semi-seated: IC(L3) right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: IC(L3) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4559,8 +4588,8 @@
     },
     {
       "id": "emg_ss_axl_mf",
-      "label": "AxL, semi-seated: MF(L4/L5) right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: MF(L4/L5) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4587,8 +4616,8 @@
     },
     {
       "id": "emg_ss_axl_ra",
-      "label": "AxL, semi-seated: RA right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: RA right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4615,8 +4644,8 @@
     },
     {
       "id": "emg_ss_axl_eo",
-      "label": "AxL, semi-seated: EO right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: EO right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4643,8 +4672,8 @@
     },
     {
       "id": "emg_ss_axl_io",
-      "label": "AxL, semi-seated: IO right",
-      "view": "emg",
+      "label": "Twist left, semi-seated: IO right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "semi-seated",
@@ -4671,8 +4700,8 @@
     },
     {
       "id": "emg_st_axl_reo",
-      "label": "AxL, standing: EO(umb. lat.) right",
-      "view": "emg",
+      "label": "Twist left, standing: EO(lateral) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4699,8 +4728,8 @@
     },
     {
       "id": "emg_st_axl_resi",
-      "label": "AxL, standing: IC(L3/L4) right",
-      "view": "emg",
+      "label": "Twist left, standing: IC(L3/L4) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4727,8 +4756,8 @@
     },
     {
       "id": "emg_st_axl_ng_ra",
-      "label": "AxL, standing: RA(umb.) right",
-      "view": "emg",
+      "label": "Twist left, standing: RA(navel) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4788,8 +4817,8 @@
     },
     {
       "id": "emg_st_axl_ng_eo",
-      "label": "AxL, standing: EO(rib) right",
-      "view": "emg",
+      "label": "Twist left, standing: EO(rib) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4837,8 +4866,8 @@
     },
     {
       "id": "emg_st_axl_ng_io",
-      "label": "AxL, standing: IO(ASIS) right",
-      "view": "emg",
+      "label": "Twist left, standing: IO(ASIS) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4898,8 +4927,8 @@
     },
     {
       "id": "emg_st_axl_ng_ic",
-      "label": "AxL, standing: IC(L2) right",
-      "view": "emg",
+      "label": "Twist left, standing: IC(L2) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4947,8 +4976,8 @@
     },
     {
       "id": "emg_st_axl_ng_mf",
-      "label": "AxL, standing: MF(L5) right",
-      "view": "emg",
+      "label": "Twist left, standing: MF(L5) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -4996,8 +5025,8 @@
     },
     {
       "id": "emg_st_axl_ng_ld",
-      "label": "AxL, standing: LD(T12) right",
-      "view": "emg",
+      "label": "Twist left, standing: LD(T12) right",
+      "view": "emg_axial",
       "inputs": {
         "direction": "axial rotation left",
         "posture": "standing",
@@ -5045,9 +5074,9 @@
     }
   ],
   "notes": [
-    "Coupled moments use three conventions (signed Nm, absolute Nm, signed % of same-plane MVC): separate outputs, never pooled. Signs: + flexion, + right lateral, + right axial.",
-    "Moment reference: L5-S1 (Ghezelbash, El Ouaaid, Larivière, Daggfeldt; Ng and Gravel dynamometer axes at L5-S1) vs vertical axis (McGill, Kumar). EMG references: max over the 6 MVCs; Ng baseline-subtracted.",
-    "Excluded: Burkhart 2018 (force at pad), Ng 2002 LBP group, Larivière 2014 (= 2009 sample), submaximal EMG/coupling (Larivière 2001/2009), Kumar EMG and McGill EMG (other references). More postures and sides in raw tests."
+    "Off-axis moments come in three forms (signed Nm, absolute Nm, % of plane max): separate outputs, never pooled.",
+    "Moments are about L5-S1 except McGill and Kumar (vertical machine axis). Ng EMG is baseline-subtracted.",
+    "Excluded: force at the pad only, LBP groups, repeated samples, submaximal efforts."
   ],
   "agent_prompt": "You are validating a trunk musculoskeletal model in maximal isometric exertions. For each task, scale the model to the study subject (`subjects`, by sex where given), fix pelvis and legs in the task posture, and maximise the trunk moment in the task direction (flexion, extension, lateral bend or axial rotation, right/left) with all muscles free. Report moments about the task's moment_ref: the primary moment as a magnitude, and coupled moments about the other two axes as the output requires (signed: + flexion, + right lateral, + right axial; absolute; or signed % of the subject's maximal moment in that plane). For EMG tasks report activation (%) of the muscles under the named electrode, normalised to that muscle's maximum over the six exertions. Do not tune the model to these data. Return one JSON object following answer_format: task id -> {output key: value}.",
   "answer_format": {

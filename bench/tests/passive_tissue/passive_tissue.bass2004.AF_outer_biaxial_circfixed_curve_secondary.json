@@ -1,0 +1,302 @@
+{
+  "id": "passive_tissue.bass2004.AF_outer_biaxial_circfixed_curve_secondary",
+  "title": "Bass 2004 outer AF biaxial (circumferential strain held at 0, axial stretch), typical specimen - digitised from Ghezelbash 2021 Fig 5b,c",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus",
+  "region": "lumbar",
+  "levels": [
+    "L3-L4",
+    "L4-L5"
+  ],
+  "condition": "non-degenerate (grade I-II)",
+  "quantity": {
+    "name": "stress-strain curve",
+    "definition": "axial and circumferential stress vs axial strain with circumferential Lagrangian strain held at E22 = 0 (Bass Fig 3a,b diamonds), as re-plotted by Ghezelbash 2021 Fig 5b,c ('Bass et al.: One Sample'); x_value = strain as plotted (equal to Bass E11), nominal_strain = sqrt(1+2E) - 1",
+    "unit": "MPa"
+  },
+  "source": {
+    "short": "Bass 2004",
+    "authors": "Bass EC, Ashford FA, Segal MR, Lotz JC",
+    "year": 2004,
+    "journal": "Ann Biomed Eng 32(9):1231-1242",
+    "doi": "",
+    "n": 5,
+    "sample": "5 outer anterior AF cruciform specimens (3 L3-L4, 2 L4-L5), 5 autopsy spines, grade I-II; curve = one typical specimen",
+    "age": "28-50 y",
+    "sex": "not reported",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Cruciform bone-AF-bone specimen (AF ~1.57 mm thick); 0.5 N preload; axial deformation at <0.0001 /s (quasi-static) while central E22 held at 0 by a feedback-controlled circumferential motor; strain from 9-pin grid (3.3 x 3.0 mm); stresses are Piola-Kirchhoff (Bass Eq 2), computation from force not stated.",
+    "how_to_simulate": [
+      "Cruciform specimen: w=20, ww=10, h=12, hw=9 mm, thickness 1.5 mm, bony ends rigid (Ghezelbash 2021 Fig 5)",
+      "Preload 0.5 N circumferentially, then fix the circumferential grips",
+      "Stretch axially, quasi-static",
+      "Track a 3x3 mm central square for strain; report axial and circumferential nominal stress vs axial nominal strain"
+    ],
+    "subject_model": null,
+    "notes": "SECONDARY digitisation: Bass Fig 3a,b has six overlapping biaxial runs, so the E22=0 run was taken from Ghezelbash 2021 Fig 5b,c. Cross-check with Bass Fig 3a diamonds: E11=0.10 -> ~0.52 MPa (agrees). Ghezelbash 2021 also plots a +-SD band to 0.1 strain (source not stated) - not extracted. Hidden point near 0.08 axial strain (panel c) omitted."
+  },
+  "data": [
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0004,
+      "load": "",
+      "mean": 0.005,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0004
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0082,
+      "load": "",
+      "mean": 0.024,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0082
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0229,
+      "load": "",
+      "mean": 0.059,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0226
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.041,
+      "load": "",
+      "mean": 0.121,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0402
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0614,
+      "load": "",
+      "mean": 0.22,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0596
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0992,
+      "load": "",
+      "mean": 0.525,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0947
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1096,
+      "load": "",
+      "mean": 0.613,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1042
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1161,
+      "load": "",
+      "mean": 0.696,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.11
+    },
+    {
+      "x": "axial stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1239,
+      "load": "",
+      "mean": 0.725,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.117
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0044,
+      "load": "",
+      "mean": 0.104,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0044
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0124,
+      "load": "",
+      "mean": 0.128,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0123
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0278,
+      "load": "",
+      "mean": 0.202,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0274
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0553,
+      "load": "",
+      "mean": 0.331,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0539
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0705,
+      "load": "",
+      "mean": 0.465,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0682
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0874,
+      "load": "",
+      "mean": 0.626,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0839
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.0987,
+      "load": "",
+      "mean": 0.785,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.0943
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1109,
+      "load": "",
+      "mean": 0.94,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1054
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1198,
+      "load": "",
+      "mean": 0.973,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1134
+    },
+    {
+      "x": "circumferential stress vs axial strain (E22 held at 0)",
+      "x_value": 0.1208,
+      "load": "",
+      "mean": 1.066,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1,
+      "nominal_strain": 0.1143
+    }
+  ],
+  "extraction": {
+    "from": "Ghezelbash et al. 2021 (Acta Biomater submission, SSRN 3677348) Fig 5b,c (PDF p.36); primary Bass 2004 Fig 3a,b",
+    "method": "digitised_figure",
+    "uncertainty": "strain +/-0.002, stress +/-0.02 MPa (low-resolution raster with watermark)",
+    "checked": true,
+    "check_notes": "Rendered at 300 dpi; axes calibrated on tick labels (x 0-0.12, y 0-1.0/1.1 MPa) and verified with a grid overlay; blue symbol centroids found by colour segmentation and re-plotted as an overlay: all fall on symbol centres. Two points re-read: panel c (0.099, 0.525), panel b (0.0553, 0.331). n=1 (typical specimen)."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "model curve within the stated digitising uncertainty band of the measured curve over the tested range"
+  },
+  "combine_group": "passive_tissue__stress_strain_curve__af_outer__human_nondegen__biaxial_circ_fixed",
+  "tags": [
+    "human",
+    "in vitro",
+    "annulus",
+    "lumbar",
+    "curve",
+    "digitised",
+    "secondary",
+    "representative",
+    "quasi-static",
+    "biaxial"
+  ],
+  "curve": {
+    "x_name": "axial Lagrangian strain E11 (as plotted)",
+    "x_unit": "-",
+    "y_name": "stress",
+    "y_unit": "MPa"
+  }
+}

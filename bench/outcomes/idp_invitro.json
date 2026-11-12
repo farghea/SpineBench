@@ -12,7 +12,7 @@
     "T4-T5",
     "T8-T9"
   ],
-  "summary": "Apply each pure moment, compression, follower or shear load to the specimen and report nucleus pressure, absolute or relative as stated.",
+  "summary": "Apply each pure moment, compression, shear or follower load to the specimen and report nucleus pressure, absolute or relative as stated.",
   "simulate": [
     "Build the specimen of the view (FSU, disc-only unit, multi-level lumbar spine, or T1-T12 with rib cage).",
     "Fix the caudal end; apply the load to the cranial end: pure moment, axial or follower compression, or shear.",
@@ -51,28 +51,33 @@
   "outputs": [
     {
       "key": "idp",
-      "label": "IDP, absolute",
-      "unit": "MPa"
+      "label": "IDP",
+      "unit": "MPa",
+      "definition": "IDP = absolute hydrostatic pressure in the nucleus, measured by a needle transducer (MPa)"
     },
     {
       "key": "idp_change",
       "label": "IDP change from reference state",
-      "unit": "MPa"
+      "unit": "MPa",
+      "definition": "IDP under the load minus IDP in the stated reference state (MPa)"
     },
     {
       "key": "idp_rel",
       "label": "IDP, % of intact",
-      "unit": "%"
+      "unit": "%",
+      "definition": "IDP after nucleus removal / same disc intact x 100, at the same axial load"
     },
     {
       "key": "idp_load_slope",
       "label": "IDP vs axial load slope",
-      "unit": "kPa/N"
+      "unit": "kPa/N",
+      "definition": "Slope of IDP vs applied axial or follower force over the stated range (kPa/N)"
     },
     {
       "key": "idp_moment_slope",
       "label": "IDP vs moment slope",
-      "unit": "kPa/Nm"
+      "unit": "kPa/Nm",
+      "definition": "Slope of IDP vs applied moment from 0 to 5 Nm, 400 N follower (kPa/Nm)"
     }
   ],
   "studies": [
@@ -185,7 +190,7 @@
   "views": [
     {
       "id": "l45_moment",
-      "title": "Lumbar L4-L5 FSU, pure moment, no preload (Heuer 2007b)",
+      "title": "Lumbar disc pressure vs moment",
       "task_ids": [
         "l45_neutral",
         "l45_fle_1",
@@ -197,48 +202,44 @@
         "l45_ext_2p5",
         "l45_ext_5",
         "l45_ext_7p5",
-        "l45_ext_10"
-      ],
-      "x": "input:moment_nm"
-    },
-    {
-      "id": "l45_steps",
-      "title": "L4-L5 IDP after stepwise resection, 7.5 Nm (Heuer 2007b)",
-      "task_ids": [
-        "l45_fle_7p5",
-        "l45s_ssl_fle",
-        "l45s_isl_fle",
-        "l45s_fl_fle",
-        "l45s_fc_fle",
-        "l45s_va_fle",
-        "l45s_pll_fle",
-        "l45s_all_fle",
-        "l45_ext_7p5",
-        "l45s_ssl_ext",
-        "l45s_isl_ext",
-        "l45s_fl_ext",
-        "l45s_fc_ext",
-        "l45s_va_ext",
-        "l45s_pll_ext",
-        "l45s_all_ext"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "lumbar_spine_abs",
-      "title": "Lumbar multi-segment spines, pure moment, absolute IDP",
-      "task_ids": [
+        "l45_ext_10",
         "rohl_neutral",
         "pop_flex_10",
         "pop_ext_10",
         "pop_lb_10",
         "pop_ar_10"
       ],
-      "x": "task"
+      "x": "input:moment_nm",
+      "series": [
+        "direction"
+      ]
+    },
+    {
+      "id": "thoracic_fsu",
+      "title": "Thoracic disc pressure vs moment",
+      "task_ids": [
+        "thor_neutral",
+        "thor_fle_2p5",
+        "thor_fle_5",
+        "thor_fle_7p5",
+        "thor_ext_2p5",
+        "thor_ext_5",
+        "thor_ext_7p5",
+        "thor_latr_2p5",
+        "thor_latr_5",
+        "thor_latr_7p5",
+        "thor_axil_2p5",
+        "thor_axil_5",
+        "thor_axil_7p5"
+      ],
+      "x": "input:moment_nm",
+      "series": [
+        "direction"
+      ]
     },
     {
       "id": "idp_change",
-      "title": "IDP rise from reference state (Schultz 1979, Rohlmann 2001)",
+      "title": "Pressure rise under a moment",
       "task_ids": [
         "rohl_chg_flex",
         "rohl_chg_ext",
@@ -256,43 +257,35 @@
       "x": "task"
     },
     {
-      "id": "thoracic_fsu",
-      "title": "Thoracic FSUs with rib stumps, pure moment (Wilke 2020b)",
+      "id": "l45_steps",
+      "title": "After removing structures",
       "task_ids": [
-        "thor_neutral",
-        "thor_fle_2p5",
-        "thor_fle_5",
-        "thor_fle_7p5",
-        "thor_ext_2p5",
-        "thor_ext_5",
-        "thor_ext_7p5",
-        "thor_latr_2p5",
-        "thor_latr_5",
-        "thor_latr_7p5",
-        "thor_axil_2p5",
-        "thor_axil_5",
-        "thor_axil_7p5"
+        "l45_fle_7p5",
+        "l45s_ssl_fle",
+        "l45s_isl_fle",
+        "l45s_fl_fle",
+        "l45s_fc_fle",
+        "l45s_va_fle",
+        "l45s_pll_fle",
+        "l45s_all_fle",
+        "l45_ext_7p5",
+        "l45s_ssl_ext",
+        "l45s_isl_ext",
+        "l45s_fl_ext",
+        "l45s_fc_ext",
+        "l45s_va_ext",
+        "l45s_pll_ext",
+        "l45s_all_ext",
+        "cann_rel_0",
+        "cann_rel_100",
+        "cann_rel_400",
+        "cann_rel_1400"
       ],
-      "x": "input:moment_nm"
-    },
-    {
-      "id": "thoracic_follower",
-      "title": "T1-T12 with rib cage, follower load (Anderson 2016)",
-      "task_ids": [
-        "and_t4t5_0",
-        "and_t4t5_200",
-        "and_t4t5_400",
-        "and_t4t5_600",
-        "and_t8t9_0",
-        "and_t8t9_200",
-        "and_t8t9_400",
-        "and_t8t9_600"
-      ],
-      "x": "input:load_n"
+      "x": "task"
     },
     {
       "id": "compression_shear",
-      "title": "Axial, eccentric and shear loads on lumbar/thoracolumbar FSUs",
+      "title": "Compression, shear and follower loads",
       "task_ids": [
         "cann_acu_50",
         "sch_400",
@@ -304,38 +297,28 @@
         "stef_upright",
         "stef_flexion15",
         "stef_extension10",
-        "stef_upright_ar"
+        "stef_upright_ar",
+        "and_t4t5_0",
+        "and_t4t5_200",
+        "and_t4t5_400",
+        "and_t4t5_600",
+        "and_t8t9_0",
+        "and_t8t9_200",
+        "and_t8t9_400",
+        "and_t8t9_600"
       ],
       "x": "task"
     },
     {
-      "id": "idp_rel",
-      "title": "Disc-only unit after 20-min nucleotomy, % of intact (Cannella 2008)",
-      "task_ids": [
-        "cann_rel_0",
-        "cann_rel_100",
-        "cann_rel_400",
-        "cann_rel_1400"
-      ],
-      "x": "input:load_n"
-    },
-    {
-      "id": "slope_load",
-      "title": "IDP vs axial / follower load slope",
+      "id": "slopes",
+      "title": "Pressure per unit load (slopes)",
       "task_ids": [
         "and_slope_t4t5_intact",
         "and_slope_t4t5_noribs",
         "and_slope_t8t9_intact",
         "and_slope_t8t9_noribs",
         "denn_slope",
-        "cann_slope"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "slope_moment",
-      "title": "IDP vs moment slope, T1-T12 with rib cage, 400 N follower (Anderson 2018)",
-      "task_ids": [
+        "cann_slope",
         "and18_t4t5_intact_flex",
         "and18_t4t5_intact_ext",
         "and18_t4t5_intact_ar",
@@ -673,7 +656,7 @@
     },
     {
       "id": "l45s_ssl_fle",
-      "label": "Flex 7.5 Nm, 1: -SSL (cum.)",
+      "label": "Flexion 7.5 Nm, step 1: SSL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -702,7 +685,7 @@
     },
     {
       "id": "l45s_isl_fle",
-      "label": "Flex 7.5 Nm, 2: -ISL (cum.)",
+      "label": "Flexion 7.5 Nm, step 2: ISL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -731,7 +714,7 @@
     },
     {
       "id": "l45s_fl_fle",
-      "label": "Flex 7.5 Nm, 3: -FL (cum.)",
+      "label": "Flexion 7.5 Nm, step 3: LF out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -760,7 +743,7 @@
     },
     {
       "id": "l45s_fc_fle",
-      "label": "Flex 7.5 Nm, 4: -FC (cum.)",
+      "label": "Flexion 7.5 Nm, step 4: capsules out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -789,7 +772,7 @@
     },
     {
       "id": "l45s_va_fle",
-      "label": "Flex 7.5 Nm, 5: -VA (cum.)",
+      "label": "Flexion 7.5 Nm, step 5: arch out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -818,7 +801,7 @@
     },
     {
       "id": "l45s_pll_fle",
-      "label": "Flex 7.5 Nm, 6: -PLL (cum.)",
+      "label": "Flexion 7.5 Nm, step 6: PLL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -847,7 +830,7 @@
     },
     {
       "id": "l45s_all_fle",
-      "label": "Flex 7.5 Nm, 7: -ALL (cum.)",
+      "label": "Flexion 7.5 Nm, step 7: ALL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -876,7 +859,7 @@
     },
     {
       "id": "l45s_ssl_ext",
-      "label": "Ext 7.5 Nm, 1: -SSL (cum.)",
+      "label": "Extension 7.5 Nm, step 1: SSL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -905,7 +888,7 @@
     },
     {
       "id": "l45s_isl_ext",
-      "label": "Ext 7.5 Nm, 2: -ISL (cum.)",
+      "label": "Extension 7.5 Nm, step 2: ISL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -934,7 +917,7 @@
     },
     {
       "id": "l45s_fl_ext",
-      "label": "Ext 7.5 Nm, 3: -FL (cum.)",
+      "label": "Extension 7.5 Nm, step 3: LF out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -963,7 +946,7 @@
     },
     {
       "id": "l45s_fc_ext",
-      "label": "Ext 7.5 Nm, 4: -FC (cum.)",
+      "label": "Extension 7.5 Nm, step 4: capsules out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -992,7 +975,7 @@
     },
     {
       "id": "l45s_va_ext",
-      "label": "Ext 7.5 Nm, 5: -VA (cum.)",
+      "label": "Extension 7.5 Nm, step 5: arch out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1021,7 +1004,7 @@
     },
     {
       "id": "l45s_pll_ext",
-      "label": "Ext 7.5 Nm, 6: -PLL (cum.)",
+      "label": "Extension 7.5 Nm, step 6: PLL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1050,7 +1033,7 @@
     },
     {
       "id": "l45s_all_ext",
-      "label": "Ext 7.5 Nm, 7: -ALL (cum.)",
+      "label": "Extension 7.5 Nm, step 7: ALL out",
       "view": "l45_steps",
       "inputs": {
         "specimen": "L4-L5 FSU",
@@ -1080,7 +1063,7 @@
     {
       "id": "rohl_neutral",
       "label": "L1-L5 spine, unloaded",
-      "view": "lumbar_spine_abs",
+      "view": "l45_moment",
       "inputs": {
         "specimen": "L1-L5 or T12-L4 spine",
         "condition": "intact",
@@ -1107,8 +1090,8 @@
     },
     {
       "id": "pop_flex_10",
-      "label": "L4-L5 in L1-S spine, Flex 10 Nm",
-      "view": "lumbar_spine_abs",
+      "label": "L4-L5 in L1-S spine, flexion 10 Nm",
+      "view": "l45_moment",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact",
@@ -1135,8 +1118,8 @@
     },
     {
       "id": "pop_ext_10",
-      "label": "L4-L5 in L1-S spine, Ext 10 Nm",
-      "view": "lumbar_spine_abs",
+      "label": "L4-L5 in L1-S spine, extension 10 Nm",
+      "view": "l45_moment",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact",
@@ -1163,8 +1146,8 @@
     },
     {
       "id": "pop_lb_10",
-      "label": "L4-L5 in L1-S spine, LB 10 Nm",
-      "view": "lumbar_spine_abs",
+      "label": "L4-L5 in L1-S spine, lat. bending 10 Nm",
+      "view": "l45_moment",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact",
@@ -1191,8 +1174,8 @@
     },
     {
       "id": "pop_ar_10",
-      "label": "L4-L5 in L1-S spine, AR 10 Nm",
-      "view": "lumbar_spine_abs",
+      "label": "L4-L5 in L1-S spine, axial rot. 10 Nm",
+      "view": "l45_moment",
       "inputs": {
         "specimen": "L1-sacrum spine",
         "condition": "intact",
@@ -1219,7 +1202,7 @@
     },
     {
       "id": "rohl_chg_flex",
-      "label": "L1-L5 spine, lowest disc, Flex 3.75 Nm",
+      "label": "Lowest disc of L1-L5, flexion 3.75 Nm",
       "view": "idp_change",
       "inputs": {
         "specimen": "L1-L5 or T12-L4 spine",
@@ -1248,7 +1231,7 @@
     },
     {
       "id": "rohl_chg_ext",
-      "label": "L1-L5 spine, lowest disc, Ext 3.75 Nm",
+      "label": "Lowest disc of L1-L5, extension 3.75 Nm",
       "view": "idp_change",
       "inputs": {
         "specimen": "L1-L5 or T12-L4 spine",
@@ -1277,7 +1260,7 @@
     },
     {
       "id": "rohl_chg_lb",
-      "label": "L1-L5 spine, lowest disc, LB 3.75 Nm",
+      "label": "Lowest disc of L1-L5, lat. bend 3.75 Nm",
       "view": "idp_change",
       "inputs": {
         "specimen": "L1-L5 or T12-L4 spine",
@@ -1306,7 +1289,7 @@
     },
     {
       "id": "rohl_chg_ar",
-      "label": "L1-L5 spine, lowest disc, AR 3.75 Nm",
+      "label": "Lowest disc of L1-L5, axial rot. 3.75 Nm",
       "view": "idp_change",
       "inputs": {
         "specimen": "L1-L5 or T12-L4 spine",
@@ -1335,7 +1318,7 @@
     },
     {
       "id": "sch_chg_flex_4p7",
-      "label": "Lumbar FSU, Flex 4.7 Nm + 400 N",
+      "label": "Lumbar FSU, flexion 4.7 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1363,7 +1346,7 @@
     },
     {
       "id": "sch_chg_flex_10p6",
-      "label": "Lumbar FSU, Flex 10.6 Nm + 400 N",
+      "label": "Lumbar FSU, flexion 10.6 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1391,7 +1374,7 @@
     },
     {
       "id": "sch_chg_ext_4p7",
-      "label": "Lumbar FSU, Ext 4.7 Nm + 400 N",
+      "label": "Lumbar FSU, extension 4.7 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1419,7 +1402,7 @@
     },
     {
       "id": "sch_chg_ext_10p6",
-      "label": "Lumbar FSU, Ext 10.6 Nm + 400 N",
+      "label": "Lumbar FSU, extension 10.6 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1447,7 +1430,7 @@
     },
     {
       "id": "sch_chg_lb_4p7",
-      "label": "Lumbar FSU, LB 4.7 Nm + 400 N",
+      "label": "Lumbar FSU, lat. bending 4.7 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1475,7 +1458,7 @@
     },
     {
       "id": "sch_chg_lb_10p6",
-      "label": "Lumbar FSU, LB 10.6 Nm + 400 N",
+      "label": "Lumbar FSU, lat. bending 10.6 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1503,7 +1486,7 @@
     },
     {
       "id": "sch_chg_ar_4p7",
-      "label": "Lumbar FSU, AR 4.7 Nm + 400 N",
+      "label": "Lumbar FSU, axial rot. 4.7 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1531,7 +1514,7 @@
     },
     {
       "id": "sch_chg_ar_10p6",
-      "label": "Lumbar FSU, AR 10.6 Nm + 400 N",
+      "label": "Lumbar FSU, axial rot. 10.6 Nm + 400 N",
       "view": "idp_change",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5 pooled)",
@@ -1762,7 +1745,7 @@
     },
     {
       "id": "thor_latr_2p5",
-      "label": "Right LB 2.5 Nm",
+      "label": "Right lat. bending 2.5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1791,7 +1774,7 @@
     },
     {
       "id": "thor_latr_5",
-      "label": "Right LB 5 Nm",
+      "label": "Right lat. bending 5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1820,7 +1803,7 @@
     },
     {
       "id": "thor_latr_7p5",
-      "label": "Right LB 7.5 Nm",
+      "label": "Right lat. bending 7.5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1849,7 +1832,7 @@
     },
     {
       "id": "thor_axil_2p5",
-      "label": "Left AR 2.5 Nm",
+      "label": "Left axial rotation 2.5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1878,7 +1861,7 @@
     },
     {
       "id": "thor_axil_5",
-      "label": "Left AR 5 Nm",
+      "label": "Left axial rotation 5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1907,7 +1890,7 @@
     },
     {
       "id": "thor_axil_7p5",
-      "label": "Left AR 7.5 Nm",
+      "label": "Left axial rotation 7.5 Nm",
       "view": "thoracic_fsu",
       "inputs": {
         "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
@@ -1937,7 +1920,7 @@
     {
       "id": "and_t4t5_0",
       "label": "T4-T5, follower 0 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -1965,7 +1948,7 @@
     {
       "id": "and_t4t5_200",
       "label": "T4-T5, follower 200 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -1993,7 +1976,7 @@
     {
       "id": "and_t4t5_400",
       "label": "T4-T5, follower 400 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2021,7 +2004,7 @@
     {
       "id": "and_t4t5_600",
       "label": "T4-T5, follower 600 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2049,7 +2032,7 @@
     {
       "id": "and_t8t9_0",
       "label": "T8-T9, follower 0 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2077,7 +2060,7 @@
     {
       "id": "and_t8t9_200",
       "label": "T8-T9, follower 200 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2105,7 +2088,7 @@
     {
       "id": "and_t8t9_400",
       "label": "T8-T9, follower 400 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2133,7 +2116,7 @@
     {
       "id": "and_t8t9_600",
       "label": "T8-T9, follower 600 N",
-      "view": "thoracic_follower",
+      "view": "compression_shear",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2241,7 +2224,7 @@
     },
     {
       "id": "frei_flexion_compression",
-      "label": "T12-L1 FSU, 500 N, 20 mm anterior offset",
+      "label": "T12-L1 FSU, 500 N, 20 mm anterior",
       "view": "compression_shear",
       "inputs": {
         "specimen": "T12-L1 FSU",
@@ -2268,7 +2251,7 @@
     },
     {
       "id": "frei_extension_compression",
-      "label": "T12-L1 FSU, 500 N, 20 mm posterior offse",
+      "label": "T12-L1 FSU, 500 N, 20 mm posterior",
       "view": "compression_shear",
       "inputs": {
         "specimen": "T12-L1 FSU",
@@ -2376,7 +2359,7 @@
     },
     {
       "id": "stef_flexion15",
-      "label": "L3-L4, 600 N, 15 deg flexion",
+      "label": "L3-L4, 600 N, 15° flexion",
       "view": "compression_shear",
       "inputs": {
         "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
@@ -2403,7 +2386,7 @@
     },
     {
       "id": "stef_extension10",
-      "label": "L3-L4, 600 N, 10 deg extension",
+      "label": "L3-L4, 600 N, 10° extension",
       "view": "compression_shear",
       "inputs": {
         "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
@@ -2430,7 +2413,7 @@
     },
     {
       "id": "stef_upright_ar",
-      "label": "L3-L4, 600 N, upright + 10 deg rotation",
+      "label": "L3-L4, 600 N, upright + 10° rotation",
       "view": "compression_shear",
       "inputs": {
         "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
@@ -2457,8 +2440,8 @@
     },
     {
       "id": "cann_rel_0",
-      "label": "ACU, 20-min denucleation, 0 N axial",
-      "view": "idp_rel",
+      "label": "Disc-only, nucleus removed, 0 N axial",
+      "view": "l45_steps",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "20-min cumulative nucleotomy",
@@ -2484,8 +2467,8 @@
     },
     {
       "id": "cann_rel_100",
-      "label": "ACU, 20-min denucleation, 100 N axial",
-      "view": "idp_rel",
+      "label": "Disc-only, nucleus removed, 100 N axial",
+      "view": "l45_steps",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "20-min cumulative nucleotomy",
@@ -2511,8 +2494,8 @@
     },
     {
       "id": "cann_rel_400",
-      "label": "ACU, 20-min denucleation, 400 N axial",
-      "view": "idp_rel",
+      "label": "Disc-only, nucleus removed, 400 N axial",
+      "view": "l45_steps",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "20-min cumulative nucleotomy",
@@ -2538,8 +2521,8 @@
     },
     {
       "id": "cann_rel_1400",
-      "label": "ACU, 20-min denucleation, 1400 N axial",
-      "view": "idp_rel",
+      "label": "Disc-only, nucleus removed, 1400 N axial",
+      "view": "l45_steps",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "20-min cumulative nucleotomy",
@@ -2565,8 +2548,8 @@
     },
     {
       "id": "and_slope_t4t5_intact",
-      "label": "T4-T5, 0-600 N follower, intact",
-      "view": "slope_load",
+      "label": "T4-T5, 0-600 N follower, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2592,8 +2575,8 @@
     },
     {
       "id": "and_slope_t4t5_noribs",
-      "label": "T4-T5, 0-600 N follower, no ribs",
-      "view": "slope_load",
+      "label": "T4-T5, 0-600 N follower, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -2619,8 +2602,8 @@
     },
     {
       "id": "and_slope_t8t9_intact",
-      "label": "T8-T9, 0-600 N follower, intact",
-      "view": "slope_load",
+      "label": "T8-T9, 0-600 N follower, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2646,8 +2629,8 @@
     },
     {
       "id": "and_slope_t8t9_noribs",
-      "label": "T8-T9, 0-600 N follower, no ribs",
-      "view": "slope_load",
+      "label": "T8-T9, 0-600 N follower, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -2674,7 +2657,7 @@
     {
       "id": "denn_slope",
       "label": "Lumbar FSU, axial 0-2000 N",
-      "view": "slope_load",
+      "view": "slopes",
       "inputs": {
         "specimen": "lumbar FSU",
         "condition": "intact",
@@ -2745,7 +2728,7 @@
     {
       "id": "cann_slope",
       "label": "Disc-only unit, axial -100 to 1400 N",
-      "view": "slope_load",
+      "view": "slopes",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "intact disc",
@@ -2771,8 +2754,8 @@
     },
     {
       "id": "and18_t4t5_intact_flex",
-      "label": "T4-T5, Flex 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T4-T5, flexion 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2799,8 +2782,8 @@
     },
     {
       "id": "and18_t4t5_intact_ext",
-      "label": "T4-T5, Ext 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T4-T5, extension 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2827,8 +2810,8 @@
     },
     {
       "id": "and18_t4t5_intact_ar",
-      "label": "T4-T5, AR 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T4-T5, axial rot. 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2855,8 +2838,8 @@
     },
     {
       "id": "and18_t4t5_noribs_flex",
-      "label": "T4-T5, Flex 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T4-T5, flexion 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -2883,8 +2866,8 @@
     },
     {
       "id": "and18_t4t5_noribs_ext",
-      "label": "T4-T5, Ext 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T4-T5, extension 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -2911,8 +2894,8 @@
     },
     {
       "id": "and18_t4t5_noribs_ar",
-      "label": "T4-T5, AR 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T4-T5, axial rot. 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -2939,8 +2922,8 @@
     },
     {
       "id": "and18_t8t9_intact_flex",
-      "label": "T8-T9, Flex 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T8-T9, flexion 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2967,8 +2950,8 @@
     },
     {
       "id": "and18_t8t9_intact_ext",
-      "label": "T8-T9, Ext 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T8-T9, extension 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -2995,8 +2978,8 @@
     },
     {
       "id": "and18_t8t9_intact_ar",
-      "label": "T8-T9, AR 0-5 Nm, intact",
-      "view": "slope_moment",
+      "label": "T8-T9, axial rot. 0-5 Nm, with rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
@@ -3023,8 +3006,8 @@
     },
     {
       "id": "and18_t8t9_noribs_flex",
-      "label": "T8-T9, Flex 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T8-T9, flexion 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -3051,8 +3034,8 @@
     },
     {
       "id": "and18_t8t9_noribs_ext",
-      "label": "T8-T9, Ext 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T8-T9, extension 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -3079,8 +3062,8 @@
     },
     {
       "id": "and18_t8t9_noribs_ar",
-      "label": "T8-T9, AR 0-5 Nm, no ribs",
-      "view": "slope_moment",
+      "label": "T8-T9, axial rot. 0-5 Nm, no rib cage",
+      "view": "slopes",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
@@ -3107,10 +3090,9 @@
     }
   ],
   "notes": [
-    "Absolute IDP (idp), rise above a reference state (idp_change) and % of intact (idp_rel) are different quantities; Schultz rises are above the 400 N preload state (0.262 MPa), Rohlmann changes above the unloaded state (~0.09 MPa).",
-    "Kept to one value per condition: Heuer flexion/extension only (LB/AR only as IDP-ROM regressions); Wilke 2020b right LB and left AR (left LB, right AR similar); Anderson 2016 absolute IDP intact only (stiffened, no-rib curves and Anderson 2018 LB slopes in bench/tests); Steffen anterior 12 mm sensor only; Frei lateral shear/eccentricity and Popovich pelvic obliquity left out.",
-    "Left out: Schultz IDP after posterior element removal, Cannella 5-15 min steps, Dennison strain-gauge sensors (sensor comparison), Anderson 2018 rib cage moment share (derived), Heuer 2007b IDP-ROM slope (derived from ROM).",
-    "Popovich reports the mean of 9 needle sensors whose nucleus/annulus position was not confirmed; treat as approximate nucleus pressure."
+    "Absolute IDP, rise above a reference state and % of intact are different outputs; Schultz rises are above the 400 N preload state (0.262 MPa), Rohlmann above unloaded (~0.09 MPa).",
+    "One value per condition: Heuer flexion/extension only; Wilke 2020b right bending and left twist (other sides similar).",
+    "Popovich is the mean of 9 needle sensors whose position was not confirmed: approximate nucleus pressure."
   ],
   "agent_prompt": "Use your finite element spine model. For each task build the specimen given in its inputs (lumbar or thoracic FSU, disc-only unit with posterior elements removed, multi-segment lumbar spine, or T1-T12 with rib cage). Fix the caudal end and apply the listed load to the cranial end: pure moment, axial or follower compression, eccentric compression, or shear. Report the nucleus pressure at the disc centre at the stated level. \"idp\" is absolute pressure in MPa; \"idp_change\" is the rise above the stated reference state; \"idp_rel\" is your value divided by your intact value times 100. For slope tasks fit pressure against load (kPa/N) or moment magnitude (kPa/Nm) over the given range. Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {
