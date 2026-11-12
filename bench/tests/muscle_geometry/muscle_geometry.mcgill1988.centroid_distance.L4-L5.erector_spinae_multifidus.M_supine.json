@@ -1,0 +1,104 @@
+{
+ "id": "muscle_geometry.mcgill1988.centroid_distance.L4-L5.erector_spinae_multifidus.M_supine",
+ "title": "McGill 1988: centroid distance of paraspinal / lumbar extensor mass at L4-L5 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_supine",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "Right erector mass (centroid)",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (GE 9800), 120 kVp",
+  "plane": "single transverse slice with the gantry tilted to the plane of the L4/L5 disc",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4/L5 disc",
+  "posture_detail": "supine, relaxed"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm; area centroid",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "McGill 1988",
+  "authors": "McGill SM, Patt N, Norman RW",
+  "year": 1988,
+  "journal": "J Biomech 21(4):329-341",
+  "doi": "",
+  "n": 13,
+  "sample": "13 active men; men referred for diagnostic CT (most with low back pain/sciatica), screened for activity level",
+  "age": "40.5 (11.9) y",
+  "sex": "13M",
+  "height_cm": 173.8,
+  "weight_kg": 89.1
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "In the plane through the L4/L5 disc (parallel to it), take the PCSA-weighted centroid of the right-side muscle (or the named portion).",
+   "Report X (lateral) and Y (AP, + anterior) from the disc centroid; compare with mean +/- SD. Centroid distance, not a moment arm."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 40.5,
+   "height_cm": 173.8,
+   "weight_kg": 89.1,
+   "disc_area_mm2": 1900.0,
+   "n": 13,
+   "source": "Table 1 (SD age 11.9, height 5.9, weight 11.7); disc area 19.0 (2.4) cm2 Table 2"
+  },
+  "notes": "Right side only. Disc centroid lies at 57.2% of trunk depth from the anterior surface. cm -> mm."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": -59.0,
+   "sd": 5.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "Y -5.9 (0.52) cm"
+  },
+  {
+   "x": "ML",
+   "side": "right",
+   "mean": 32.6,
+   "sd": 3.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "X 3.26 (0.36) cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 6",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Average/SD row re-read from text of Table 6; signs as printed (erector negative = posterior)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__l4_l5_erector_spinae_multifidus__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "CT",
+  "supine",
+  "sample:waterloo_ct_13"
+ ]
+}

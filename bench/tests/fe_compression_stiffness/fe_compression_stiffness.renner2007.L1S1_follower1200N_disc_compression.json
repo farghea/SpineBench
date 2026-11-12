@@ -24,8 +24,8 @@
   "year": 2007,
   "journal": "J Biomech 40:1326-1332",
   "doi": "10.1016/j.jbiomech.2006.05.019",
-  "n": "10 cadaveric L1-S1 spines (in vitro part; FE model data not extracted)",
-  "sample": "human cadaver lumbar spines L1-sacrum, discs grade II or better on MRI",
+  "n": 10,
+  "sample": "10 cadaveric L1-S1 spines (in vitro part; FE model data not extracted); human cadaver lumbar spines L1-sacrum, discs grade II or better on MRI",
   "age": "mean 58 y (range 41-73)",
   "sex": "7 M, 3 F",
   "height_cm": null,
@@ -38,7 +38,7 @@
    "Apply 1200 N follower load (cables tangent to the lordosis, through each segment's rotation centre)",
    "Report each disc's height loss (mean of anterior, middle, posterior)"
   ],
-  "notes": "Ten specimens; per-level n assumed 10 (not stated per figure). The lab and authors overlap Patwardhan 2003; specimens may be shared.",
+  "notes": "Ten specimens; per-level n assumed 10 (not stated per figure). The lab and authors overlap Patwardhan 2003; specimens may be shared (flagged in shared_sample_with).",
   "subject_model": null
  },
  "data": [
@@ -114,9 +114,12 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD"
  },
- "combine_group": "fe_compression_stiffness__disc_compression__L1-S1_segmental__intact__follower1200N",
+ "combine_group": "fe_compression_stiffness__disc_compression__l1_s1_segmental__intact__follower1200n",
  "shared_sample_with": [
-  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom (possible overlap: same lab/authors)"
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom_pct",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_flexibility",
+  "fe_compression_stiffness.patwardhan2003.L1S1_follower_posture"
  ],
  "tags": [
   "lumbar",

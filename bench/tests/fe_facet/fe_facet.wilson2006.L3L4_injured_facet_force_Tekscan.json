@@ -20,8 +20,8 @@
   "year": 2006,
   "journal": "J Biomech 39:348-353",
   "doi": "10.1016/j.jbiomech.2004.12.011",
-  "n": "4 specimens (human cadaveric L2-L5; 8 L3-L4 facets)",
-  "sample": "4 human cadaveric L2-L5 lumbar spines, injured at L3-L4 (nucleotomy, facet capsule sectioning, posterior ligament sectioning); Tekscan in both L3-L4 facets",
+  "n": 4,
+  "sample": "4 specimens (human cadaveric L2-L5; 8 L3-L4 facets); 4 human cadaveric L2-L5 lumbar spines, injured at L3-L4 (nucleotomy, facet capsule sectioning, posterior ligament sectioning); Tekscan in both L3-L4 facets",
   "age": "average 76",
   "sex": "",
   "height_cm": null,
@@ -586,7 +586,7 @@
   "template": true,
   "rule": "min <= model <= max (linear calibration); widen by the method overestimation (18-50%)"
  },
- "combine_group": "fe_facet__facet_force__L3-L4__injured_nucleotomy_capsules_ligaments__7.5Nm",
+ "combine_group": "fe_facet__facet_force__l3_l4__injured_nucleotomy_capsules_ligaments__7_5nm",
  "tags": [
   "lumbar",
   "in vitro",
@@ -595,5 +595,8 @@
   "injured",
   "method validation",
   "human"
+ ],
+ "shared_sample_with": [
+  "fe_facet.wilson2006.L3L4_injured_facet_pressure_Tekscan"
  ]
 }

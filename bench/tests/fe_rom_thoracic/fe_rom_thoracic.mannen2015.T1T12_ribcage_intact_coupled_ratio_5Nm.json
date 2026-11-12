@@ -1,0 +1,132 @@
+{
+ "id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_coupled_ratio_5Nm",
+ "title": "T1-T12 out-of-plane rotation ratios with true ribs (Mannen 2015)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "long segment with rib cage (true ribs)",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "coupled_ratio",
+  "definition": "out-of-plane rotation ROM as % of in-plane ROM for that bending mode (per-specimen normalised, mean (SD))",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Mannen 2015",
+  "authors": "Mannen EM, Anderson JT, Arnold PM, Friis EA",
+  "year": 2015,
+  "journal": "J Biomech 48:2060-2066",
+  "doi": "10.1016/j.jbiomech.2015.03.021",
+  "n": 7,
+  "sample": "7 fresh-frozen human T1-T12 thoracic spines with true ribs (T1-T10) and sternum, all white males",
+  "age": "71 (7) y, range 59-82; per specimen 82, 59, 76, 69, 66, 70, 73",
+  "sex": "7 M",
+  "height_cm": "70 (1) in = ~178 cm",
+  "weight_kg": "209 (46) lbs = ~95 kg"
+ },
+ "protocol": {
+  "summary": "T1-T12 with true ribs and sternum; T12 fixed, pure moments +/-5 Nm at T1, 1 deg/s, 5 cycles (3rd analysed), random order of modes; T1 motion vs T12 by Euler decomposition.",
+  "how_to_simulate": [
+   "Model T1-T12 with ribs 1-10, costal cartilage and sternum (no floating ribs, no muscles); fix T12",
+   "Apply pure moments +/-5 Nm to T1 in FE, LB, AR without preload",
+   "Report T1 rotation relative to T12"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "FE_total -> LB",
+   "load": "5 Nm",
+   "mean": 14.0,
+   "sd": 9.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "FE_total -> AR",
+   "load": "5 Nm",
+   "mean": 18.2,
+   "sd": 26.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "LB_total -> FE",
+   "load": "5 Nm",
+   "mean": 24.0,
+   "sd": 15.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "LB_total -> AR",
+   "load": "5 Nm",
+   "mean": 12.4,
+   "sd": 8.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "AR_total -> FE",
+   "load": "5 Nm",
+   "mean": 25.5,
+   "sd": 17.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "AR_total -> LB",
+   "load": "5 Nm",
+   "mean": 12.1,
+   "sd": 10.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read from text layer (Table 2 columns aligned by layout)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__coupled_ratio__T1-T12__ribcage_intact__5Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "long segment"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "true ribs 1-10 with costal cartilage and sternum, costovertebral joints, ligaments; floating ribs 11-12 and all muscles removed"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "5, 3rd analysed",
+  "branch": "0 Nm to peak moment per direction",
+  "preload": "none",
+  "device": "novel 6-DOF spine tester, Optotrak pin in T1 potting"
+ }
+}

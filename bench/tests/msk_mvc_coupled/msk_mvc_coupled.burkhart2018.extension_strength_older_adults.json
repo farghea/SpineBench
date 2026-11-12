@@ -1,0 +1,103 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "thoracic pad (≈T5-T7)"
+ ],
+ "condition": "in vivo older adults (mobility-limited, community dwelling)",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "tags": [
+  "in vivo",
+  "strength",
+  "extension",
+  "seated",
+  "older adults",
+  "dynamic 1RM"
+ ],
+ "id": "msk_mvc_coupled.burkhart2018.extension_strength_older_adults",
+ "title": "Maximal trunk extension strength (force at seatback pad), seated Keiser machine, older adults by sex",
+ "subcategory": "extension strength (force)",
+ "source": {
+  "short": "Burkhart 2018",
+  "authors": "Burkhart KA, Bruno AG, Bouxsein ML, Bean JF, Anderson DE",
+  "year": 2018,
+  "journal": "J Orthop Res 36(1):498-505",
+  "doi": "10.1002/jor.23630",
+  "n": 49,
+  "sample": "49 older adults (34 F, 15 M; 67-96 yr) from the Boston RISE cohort, at risk of mobility decline; 8 with moderate-severe LBP",
+  "age": "all 78.24±7.2; F 76.82±6.2; M 81.47±8.5",
+  "sex": "34 F, 15 M",
+  "height_cm": "all 162±10; F 159±10; M 169±10",
+  "weight_kg": "all 75.87±16.1; F 74.63±18.2; M 78.67±9.6"
+ },
+ "quantity": {
+  "name": "trunk extension strength",
+  "definition": "one-repetition maximum extension force resisted at the seatback extension bar (quasi-static push through 15 deg ROM centred on neutral; resistance increased from 222 N until failure); force, not moment",
+  "unit": "N"
+ },
+ "protocol": {
+  "summary": "Seated on a Keiser Pneumatic Lower Back machine; push back slowly through ~15 deg range centred on neutral spine, pause, release; incremental resistance (start 222 N) until failure (6.2±1.8 repetitions). Bar height above seat measured per subject (not reported). The authors' model assumed 35 deg posterior pelvic tilt and 21 deg lumbar lordosis, and applied the force at the thoracic vertebra nearest bar height (women mostly T5; men T5 13%, T6 47%, T7 40%).",
+  "how_to_simulate": [
+   "Seated posture: posterior pelvic tilt 35 deg, lumbar lordosis 21 deg (as in the authors' model), pelvis on seat",
+   "Apply a posteriorly-directed external resistance at the thoracic level of the bar (≈T5 women, ≈T6-T7 men)",
+   "Increase force until muscles can no longer equilibrate it; compare maximal force with sex-specific mean ± SD",
+   "Use Table 1 anthropometry (older adults); expect generic MMS 100 N/cm2 to over-predict by ~38%"
+  ],
+  "subject_model": {
+   "sex": "F and M separately",
+   "age": "F 76.8, M 81.5",
+   "height_cm": "F 159, M 169",
+   "weight_kg": "F 74.6, M 78.7",
+   "disc_area_mm2": null,
+   "source": "Table 1"
+  },
+  "notes": "Dynamic quasi-static 1RM, not a strict isometric MVC; moment cannot be computed without bar heights. Model-predicted strengths and apparent MMS (75.5±20.4 N/cm2) in Table 2 are model outputs, not stored as targets. No EMG."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "component": "primary (force at pad)",
+   "sex": "all",
+   "mean": 542.0,
+   "sd": 148.5,
+   "n": 49,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "extension",
+   "component": "primary (force at pad)",
+   "sex": "F",
+   "mean": 496.2,
+   "sd": 121.9,
+   "n": 34,
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "extension",
+   "component": "primary (force at pad)",
+   "sex": "M",
+   "mean": 645.9,
+   "sd": 154.5,
+   "n": 15,
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (measured trunk extension strength); Table 1 (anthropometry)",
+  "method": "table",
+  "uncertainty": "none (table)",
+  "checked": true,
+  "check_notes": "Re-read Table 2: 542.0 (148.5), 496.2 (121.9), 645.9 (154.5) N; Table 1 ages/heights/weights re-checked."
+ },
+ "combine_group": "msk_mvc_coupled__extension_strength_force__thoracic_pad__seated_keiser_older_adults__extension"
+}

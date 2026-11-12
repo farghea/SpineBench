@@ -21,8 +21,8 @@
   "year": 2014,
   "journal": "PLoS One 9(7):e102005",
   "doi": "10.1371/journal.pone.0102005",
-  "n": "5 patients (4 M, 1 F) with telemeterised VBR (WP1-WP4 at L1, WP5 at L3); 3-5 patients per exercise",
-  "sample": "in vivo; A3 compression fracture; posterior internal fixator (2 segments in 3 patients, 4 segments in WP3 and WP4) + telemeterised VBR; measurements few days to 65 months post-op",
+  "n": 5,
+  "sample": "5 patients (4 M, 1 F) with telemeterised VBR (WP1-WP4 at L1, WP5 at L3); 3-5 patients per exercise; in vivo; A3 compression fracture; posterior internal fixator (2 segments in 3 patients, 4 segments in WP3 and WP4) + telemeterised VBR; measurements few days to 65 months post-op",
   "age": "62-71 y (WP1 62, WP2 71, WP3 69, WP4 63, WP5 66)",
   "sex": "4 M, 1 F (WP3)",
   "height_cm": "168-180 (WP1 168, WP2 169, WP3 168, WP4 170, WP5 180)",
@@ -483,14 +483,14 @@
   "from": "Fig 4 (Ex 7-9) and Fig 5 (Ex 10-11); text Results",
   "method": "digitised_figure",
   "uncertainty": "+-3 N (1 px = 1.09 N Fig 4; 1.04 N Fig 5)",
-  "checked": false,
-  "check_notes": ""
+  "checked": true,
+  "check_notes": "Double-check (msk_invivo lead): re-digitised independently from the rendered figure - Rohlmann 2014c Fig 1: WP1 one-leg max 31 vs 31 N, WP2 one-leg max 150 vs 151 N, WP1 pelvis-lift median 253 vs 254 N (within +/-3 N). Other figures (2-5) not re-digitised point by point; same tool and calibration procedure."
  },
  "pass_rule": {
   "template": true,
   "rule": "model force increase (exercise minus rest) within the patient range; group: within range of patient medians; ranking of exercises preserved"
  },
- "combine_group": "msk_implant_loads__vbr_resultant_force_increase_vs_rest__L1-L3__all_fours_physio_exercises__no_load",
+ "combine_group": "msk_implant_loads__vbr_resultant_force_increase_vs_rest__l1_l3__all_fours_physio_exercises__no_load",
  "tags": [
   "in vivo",
   "telemetry",
@@ -500,5 +500,26 @@
   "digitised",
   "all-fours"
  ],
- "shared_sample_with": []
+ "shared_sample_with": [
+  "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+  "msk_implant_loads.dreischarf2015.standing_flexion_resultant_force",
+  "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+  "msk_implant_loads.rohlmann2008.lying_positions",
+  "msk_implant_loads.rohlmann2008.sitting_activities",
+  "msk_implant_loads.rohlmann2008.standing_walking_activities",
+  "msk_implant_loads.rohlmann2011.sitting_relative_force",
+  "msk_implant_loads.rohlmann2013.longterm_standing_walking",
+  "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_anterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_lateral_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_posterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_bending_moment",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_force",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_torsional_moment",
+  "msk_implant_loads.rohlmann2014b.carrying_force_increase",
+  "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+  "msk_implant_loads.rohlmann2014c_physio.lateral_position_leg_abduction",
+  "msk_implant_loads.rohlmann2014c_physio.prone_exercises",
+  "msk_implant_loads.rohlmann2014c_physio.supine_exercises"
+ ]
 }

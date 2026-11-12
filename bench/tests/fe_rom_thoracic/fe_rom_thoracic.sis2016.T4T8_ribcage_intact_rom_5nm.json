@@ -1,0 +1,128 @@
+{
+ "id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_rom_5nm",
+ "title": "T4-T8 ROM inside T1-T12 rib cage specimen, follower load 0 N (Sis 2016)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "segment within long specimen with rib cage",
+ "region": "thoracic",
+ "levels": [
+  "T4-T8"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "rotation range at +/-5 Nm (full range for LB/FE/AR; one direction for flexion/extension columns), 3rd of 5 cycles, Euler decomposition of Optotrak pin motion; region = segment between the two tracked vertebrae",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Sis 2016",
+  "authors": "Sis HL, Mannen EM, Wong BM, Cadel ES, Bouxsein ML, Anderson DE, Friis EA",
+  "year": 2016,
+  "journal": "J Biomech 49(14):3252-3259",
+  "doi": "10.1016/j.jbiomech.2016.08.003",
+  "n": 8,
+  "sample": "8 fresh-frozen human T1-T12 thoracic spines with intact rib cage (same specimens as Anderson 2016)",
+  "age": "66.9 +/- 4.4 y",
+  "sex": "4 M, 4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T1-T12 with intact rib cage, T1/T12 potted; FS20 spine tester, pure moment +/-5 Nm at T1, 1 deg/s, 5 cycles (3rd analysed); follower load 0, 200, 400 N via cables through eyelets at estimated centres of rotation (T1-T11). Optotrak pins in left pedicles of T1, T2, T4, T5, T8, T9, T11.",
+  "how_to_simulate": [
+   "Fix T12, apply pure moments +/-5 Nm to T1 in LB, FE, AR",
+   "Model the full rib cage (sternum, costal cartilage, ribs, costovertebral joints)",
+   "Report rotation of the upper vs lower tracked vertebra of T4-T8 (Euler decomposition)"
+  ],
+  "subject_model": null,
+  "notes": "Mean (SD), n=8 (cells with <5 contributing specimens reported as missing). Note T11 pin used for T11-T12 FSU (T12 potted) and T8-T12 region. NZ/EZ stiffness (Tables 3-4) not extracted."
+ },
+ "data": [
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": 6.1,
+   "sd": 4.57,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": 5.17,
+   "sd": 3.27,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": 8.85,
+   "sd": 6.41,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": 3.7,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm",
+   "mean": 1.44,
+   "sd": 0.81,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed (0.01 deg)",
+  "checked": true,
+  "check_notes": "Parsed from text layer (split digits such as '0.9 2' re-joined); SDs mapped to non-missing cells; spot-checked T1/T2 0 N and Lower 400 N rows."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__rom__middle_t4-t8__ribcage_intact__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "segment_in_long_specimen"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "full rib cage with sternum, costal cartilage, ribs, costovertebral joints and ligaments; muscles (incl. intercostals presumably) removed"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "5, 3rd analysed",
+  "branch": "peak of 3rd cycle",
+  "preload": "none",
+  "device": "FS20 spine tester (Applied Test Systems), Optotrak"
+ },
+ "specimen_levels": "T1-T12",
+ "shared_sample_with": [
+  "fe_rom_thoracic.anderson2016.* (same 8 specimens, stated)",
+  "fe_rom_thoracic.anderson2018.* (same specimens per Anderson 2018)",
+  "fe_rom_thoracic.mannen2015.* (probable overlap - same lab, check)"
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "id": "fe_resection_lumbar.schmidt2007.lumbar_wilke2001group_intact_secondary",
+ "title": "Lumbar segment ROM at 7.5 Nm, intact (Wilke 2001 group, re-plotted in Schmidt 2007)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "clinical defect (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (level not stated; likely L4-L5)"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "one-sided rotation at 7.5 Nm; median, SD (half-length of dot-ended bar), min-max",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Schmidt 2007",
+  "authors": "Schmidt H, Heuer F, Drumm J, Klezl Z, Claes L, Wilke HJ",
+  "year": 2007,
+  "journal": "Clin Biomech 22:377-384",
+  "doi": "10.1016/j.clinbiomech.2006.11.008",
+  "n": 6,
+  "sample": "secondary re-plot: two groups of 6 lumbar specimens from Wilke et al. 2006 (bilateral hemifacetectomy; median age 57, 28-68) and Wilke et al. 2001 (nucleotomy; median age 50, 43-57); level not stated in Schmidt 2007 (FE model is L4-L5; Wilke 2025 Table 4 lists Wilke 2001 as L4-L5 and Wilke 2006 as L3-S1)",
+  "age": "see sample",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Ulm protocol: pure moments 7.5 Nm flexion/extension, no preload, unconstrained; in vitro ROM median with SD and min/max as re-plotted in Schmidt 2007 Fig 6.",
+  "how_to_simulate": [
+   "Fix caudal vertebra; apply pure moment 7.5 Nm in flexion and extension without preload",
+   "Report segmental rotation at 7.5 Nm, intact and after the defect",
+   "Hemifacetectomy = removal of FL and both inferior articular processes of the upper vertebra with the corresponding capsules; nucleotomy = nucleus removed via right lateral approach"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data (re-plotted). Error bars: thick dot-ended line = median ± SD (dots symmetric about the median), thin capped line = min-max. The third group in Fig 6 (w/o SSL&ISL, dark grey) is Heuer 2007a's group and matched Table 1 medians within 0.02 deg (6.18/4.09 intact, 6.63/4.51 w/oSSL&ISL) - not re-extracted; but its min/max in Fig 6 (flexion ~4.1-9.6) disagree with Heuer 2007a Fig 4 (4.15-8.14) and Schmidt says each group had 6 specimens vs 8 in Heuer 2007a: treat Schmidt Fig 6 spreads with caution."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": 2.07,
+   "min": 4.14,
+   "max": 8.13,
+   "median": 6.69,
+   "n": 6
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": 1.33,
+   "min": 2.87,
+   "max": 6.11,
+   "median": 3.84,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 (white bars = Wilke 2006 group, light grey = Wilke 2001 group)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.1 deg for medians (method reproduced Heuer 2007a values within 0.02 deg), ±0.15 deg for SD and min/max; extension min of the Wilke 2001 group partly hidden by its SD marker",
+  "checked": true,
+  "check_notes": "Gridlines calibrated (0-14 deg, 33.3 px/deg at 300 dpi); bar ends cross-checked on the Heuer group against Heuer 2007a Table 1 (|diff| <= 0.02 deg); SD dots symmetric about median (6.73 vs 6.72)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-median| <= 1 SD (PASS); min <= model <= max (SUFFICIENT) - the Schmidt 2007 grading"
+ },
+ "combine_group": "secondary__fe_resection_lumbar__rom__lumbar_unspecified__wilke2001group_intact__7_5nm",
+ "shared_sample_with": [
+  "wilke2025: Wilke 2001 (n=6, L4-L5) listed in Wilke 2025 Table 4",
+  "kettler2011: Ulm database"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "secondary",
+  "intact"
+ ]
+}

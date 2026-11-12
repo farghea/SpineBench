@@ -20,8 +20,8 @@
   "year": 2014,
   "journal": "J Biomech 47(8):1757-1766",
   "doi": "10.1016/j.jbiomech.2014.04.002",
-  "n": "10 specimens (L1-L5, from Rohlmann et al. 2001b Spine 26:E557)",
-  "sample": "human cadaveric L1-L5 lumbar spines, 10 specimens (primary: Rohlmann A, Neller S, Claes L, Bergmann G, Wilke HJ 2001, Spine 26:E557-E561)",
+  "n": 10,
+  "sample": "10 specimens (L1-L5, from Rohlmann et al. 2001b Spine 26:E557); human cadaveric L1-L5 lumbar spines, 10 specimens (primary: Rohlmann A, Neller S, Claes L, Bergmann G, Wilke HJ 2001, Spine 26:E557-E561)",
   "age": "",
   "sex": "",
   "height_cm": null,
@@ -80,9 +80,10 @@
   "template": true,
   "rule": "min <= model <= max (PASS); also compare with 8-model range (fe_model_comparison.dreischarf2014.L1L5_models_rom_pure_moment)"
  },
- "combine_group": "secondary__fe_rom_lumbar_multi__rom__L1-L5_total__intact__7.5Nm",
+ "combine_group": "secondary__fe_rom_lumbar_multi__rom__l1_l5_total__intact__7_5nm",
  "shared_sample_with": [
-  "rohlmann2001b: primary source of these 10 specimens (Spine 26:E557, not in bench PDFs)"
+  "rohlmann2001b: primary source of these 10 specimens (Spine 26:E557, not in bench PDFs)",
+  "fe_model_comparison.dreischarf2014.L1L5_invitro_curve_secondary"
  ],
  "tags": [
   "lumbar",

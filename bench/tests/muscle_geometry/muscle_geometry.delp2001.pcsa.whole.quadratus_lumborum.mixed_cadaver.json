@@ -1,0 +1,112 @@
+{
+ "id": "muscle_geometry.delp2001.pcsa.whole.quadratus_lumborum.mixed_cadaver",
+ "title": "Delp 2001: pcsa of quadratus lumborum at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "pcsa",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "quadratus_lumborum",
+ "muscle_as_reported": "QL proximal, QL distal, QL total",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction (sarcomere length)",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle / column",
+  "posture_detail": "cadaver, supine position"
+ },
+ "quantity": {
+  "name": "pcsa",
+  "definition": "physiological CSA = muscle volume (mass/density) / fibre length (x cos pennation if stated)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Delp 2001",
+  "authors": "Delp SL, Suryanarayanan S, Murray WM, Uhlir J, Triolo RJ",
+  "year": 2001,
+  "journal": "J Biomech 34:371-375 (technical note)",
+  "doi": "",
+  "n": 5,
+  "sample": "5 cadavers (3 F, 2 M; 4 unembalmed, 1 embalmed); cadaveric specimens, mean age 67 (9.1) y (2 unknown), height 170.6 (4.2) cm, mass 76.2 (13.3) kg",
+  "age": "67 (9.1) y",
+  "sex": "3F/2M",
+  "height_cm": 170.6,
+  "weight_kg": 76.2
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Sum the PCSA (or F_max / specific tension) of all model elements of quadratus lumborum, one side (or the named fascicle).",
+   "Compare with the cadaveric mean +/- SD; note specific tension and fibre-length normalisation used by the source."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": 67,
+   "height_cm": 170.6,
+   "weight_kg": 76.2,
+   "disc_area_mm2": null,
+   "n": 5,
+   "source": "Table 1"
+  },
+  "notes": "PCSA = muscle volume (mass/density) / optimal fascicle length. Table 3 compares with other studies' anatomical CSA (other authors; not stored)."
+ },
+ "data": [
+  {
+   "x": "QL proximal",
+   "side": "unspecified",
+   "mean": 160.0,
+   "sd": 60.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "1.6 (0.6) cm2"
+  },
+  {
+   "x": "QL distal",
+   "side": "unspecified",
+   "mean": 120.0,
+   "sd": 40.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "1.2 (0.4) cm2"
+  },
+  {
+   "x": "QL total",
+   "side": "unspecified",
+   "mean": 280.0,
+   "sd": 50.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "as_reported": "2.8 (0.5) cm2 (abstract)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (+ abstract totals)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 rows single-line in text; re-read; abstract totals checked."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__pcsa__whole_quadratus_lumborum__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "pcsa",
+  "cadaver",
+  "architecture"
+ ]
+}

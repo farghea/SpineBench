@@ -1,0 +1,84 @@
+{
+ "id": "fe_idp_invitro.schultz1979.lumbarFSU_preload400N_idp_abs",
+ "title": "Intradiscal pressure under 400 N axial compressive preload (lumbar FSUs)",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "IDP under compression",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact, 400 N axial preload",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute intradiscal needle pressure under 400 N compressive preload before moments; mean only (SD not given here; reported in Part II, Berkson 1979)",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Schultz 1979",
+  "authors": "Schultz AB, Warwick DN, Berkson MH, Nachemson AL",
+  "year": 1979,
+  "journal": "J Biomech Eng 101:46-52",
+  "doi": "",
+  "n": 42,
+  "sample": "42 lumbar motion segments from 23 cadavers (16 segments from 10 F, 26 from 13 M); posterior elements removed in the first 18; human cadaver lumbar FSUs L1-L2 to L4-L5 (levels pooled; 3 segments from a Marfan donor, 1 herniated disc), degeneration grade 0-4",
+  "age": "21-60 y (mean 43)",
+  "sex": "10 F / 13 M donors",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Single FSUs, vertebrae embedded in epoxy and screwed into fixtures, disc mid-plane horizontal; inferior fixture clamped (rotatable to 0/90/180/270 deg); superior vertebra unconstrained. 400 N compressive preload (vertical strings + pneumatic cylinder) maintained during moments. Moments applied by weights via strings and pulleys on 20 cm arms in >= 3 increments, static, non-repetitive; readings 15 s after each increment (15-25 s to record). Rotations seldom allowed > 8 deg. Motions of the superior vertebral body centre from 6 dial gauges (0.01 mm). IDP by Nachemson needle (membrane-tipped) in the disc, 5 kPa resolution, re-zeroed between sequences. Posterior elements (facets bilaterally, ligamenta flava, inter- and supraspinous ligaments) then removed in the first 18 segments and tests repeated.",
+  "how_to_simulate": [
+   "Model a lumbar FSU, inferior vertebra fixed",
+   "Apply 400 N axial compression through the disc centre",
+   "Report nucleus pressure"
+  ],
+  "notes": "Values are means over all segments tested at each load level (n per cell not given; some segments did not reach 10.6 Nm because rotations were limited to ~8 deg); '(a)' cells = 3 specimens. Levels L1-L2 to L4-L5 pooled. Resection: one step only - removal of all posterior-element connections (bilateral facet joints, ligamenta flava, inter- and supraspinous ligaments) in 18 of 42 segments; values are absolute, not % intact, and intact means are over all 42 segments (not paired).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "400 N axial",
+   "mean": 262,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled",
+   "note": "Table 3 caption (\"mean initial pressure was 262 kPa\"); text cites Part II"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3 caption / text",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "262 kPa confirmed in Table 3 caption and Results text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "within ±25% of 262 kPa (no SD available)"
+ },
+ "combine_group": "fe_idp_invitro__idp_abs__lumbar_pooled__intact__compression400n",
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+  "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+  "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_coupled10Nm",
+  "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_coupled10Nm",
+  "fe_idp_invitro.schultz1979.lumbarFSU_intact_idp_increase",
+  "fe_idp_invitro.schultz1979.lumbarFSU_woPE_idp_increase"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "FSU",
+  "IDP",
+  "absolute"
+ ]
+}

@@ -1,0 +1,379 @@
+{
+ "id": "fe_rom_lumbar_fsu.spenciner2006.ACU_disc_only_nz",
+ "title": "neutral zone of isolated lumbar discs (anterior column units) about principal and combined moment axes",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_fsu",
+ "subcategory": "disc-only (anterior column unit)",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "anterior column unit (posterior elements removed), no preload",
+ "quantity": {
+  "name": "neutral zone",
+  "definition": "NZ = rotation-axis intercept of the steepest-slope tangent (Spenciner Fig 3 definition); mean ± SD",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Spenciner 2006",
+  "authors": "Spenciner D, Greene D, Paiva J, Palumbo M, Crisco J",
+  "year": 2006,
+  "journal": "Spine J 6:248-257",
+  "doi": "10.1016/j.spinee.2005.08.020",
+  "n": 7,
+  "sample": "7 lumbar anterior column units (4 L2-L3, 3 L4-L5) from 4 spines; human cadaver ACUs: posterior elements removed by bilateral pedicle transection, ALL and PLL intact; disc grade (Thompson) 1.9-3.7",
+  "age": "mean 63.3 ± 3.0 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "ACUs potted (urethane) to mid-vertebral body, disc mid-transverse plane perpendicular to the vertical axis. Pure unconstrained moments 0 ± 8 Nm, sinusoidal 0.1 Hz, about 3 principal and 10 combined axes (servohydraulic frame + universal joints + linear bearing tables; off-axis moments < 4%); 4 preconditioning cycles, 5th cycle analysed; initial axis pair re-tested at the end and averaged. No axial compressive force applied (stated in Discussion). Coordinate origin at mid-sagittal/mid-transverse disc planes, 2/3 disc depth posterior to the anterior wall.",
+  "how_to_simulate": [
+   "Model a lumbar disc-only unit (both vertebral bodies, disc, ALL, PLL; no posterior elements); fix the inferior body",
+   "Apply pure moments of ±8 Nm (no preload) about the flexion-extension, lateral bending and axial rotation axes and the listed combined axes (vector sums of unit principal axes)",
+   "Report per direction: ROM = rotation about the moment axis at 8 Nm; flexibility = steepest linear slope (deg/Nm); NZ = rotation-axis intercept of that tangent line (extrapolated, not the zero-load laxity)"
+  ],
+  "notes": "NZ here = intercept of the high-flexibility tangent with the rotation axis (Fig 3), not the Wilke zero-load NZ. Levels pooled (L2-L3 and L4-L5). ROM is one direction from neutral. Testing order effect: ROM +1.4 deg and NZ +1.1 deg between first and last test of the same axis.",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "±8 Nm, no preload",
+   "mean": 5.15,
+   "sd": 0.95,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "extension",
+   "load": "±8 Nm, no preload",
+   "mean": 3.78,
+   "sd": 1.28,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "±8 Nm, no preload",
+   "mean": 3.73,
+   "sd": 1.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "±8 Nm, no preload",
+   "mean": 3.73,
+   "sd": 1.33,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "±8 Nm, no preload",
+   "mean": 2.63,
+   "sd": 1.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "axial_rotation_right",
+   "load": "±8 Nm, no preload",
+   "mean": 2.9,
+   "sd": 1.47,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Fig 4 (digitised)"
+  },
+  {
+   "x": "combined_FLE_plus_LAR",
+   "load": "±8 Nm about combined axis +X,+Y, no preload",
+   "mean": 4.2,
+   "sd": 0.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_LAR_plus_RLB",
+   "load": "±8 Nm about combined axis +X,+Y,+Z, no preload",
+   "mean": 3.9,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_LAR_plus_LLB",
+   "load": "±8 Nm about combined axis +X,+Y,-Z, no preload",
+   "mean": 4.1,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_RLB",
+   "load": "±8 Nm about combined axis +X,+Z, no preload",
+   "mean": 4.5,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_RAR",
+   "load": "±8 Nm about combined axis +X,-Y, no preload",
+   "mean": 3.8,
+   "sd": 1.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_RAR_plus_RLB",
+   "load": "±8 Nm about combined axis +X,-Y,+Z, no preload",
+   "mean": 3.4,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_RAR_plus_LLB",
+   "load": "±8 Nm about combined axis +X,-Y,-Z, no preload",
+   "mean": 3.6,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_FLE_plus_LLB",
+   "load": "±8 Nm about combined axis +X,-Z, no preload",
+   "mean": 4.6,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_LAR_plus_RLB",
+   "load": "±8 Nm about combined axis +Y,+Z, no preload",
+   "mean": 3.5,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_LAR_plus_LLB",
+   "load": "±8 Nm about combined axis +Y,-Z, no preload",
+   "mean": 3.5,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_LAR",
+   "load": "±8 Nm about combined axis -X,+Y, no preload",
+   "mean": 3.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_LAR_plus_RLB",
+   "load": "±8 Nm about combined axis -X,+Y,+Z, no preload",
+   "mean": 3.5,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_LAR_plus_LLB",
+   "load": "±8 Nm about combined axis -X,+Y,-Z, no preload",
+   "mean": 3.6,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_RLB",
+   "load": "±8 Nm about combined axis -X,+Z (printed -X,+Y), no preload",
+   "mean": 4.0,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_RAR",
+   "load": "±8 Nm about combined axis -X,-Y, no preload",
+   "mean": 3.5,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_RAR_plus_RLB",
+   "load": "±8 Nm about combined axis -X,-Y,+Z, no preload",
+   "mean": 3.2,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_RAR_plus_LLB",
+   "load": "±8 Nm about combined axis -X,-Y,-Z, no preload",
+   "mean": 3.4,
+   "sd": 1.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_EXT_plus_LLB",
+   "load": "±8 Nm about combined axis -X,-Z, no preload",
+   "mean": 3.4,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_RAR_plus_RLB",
+   "load": "±8 Nm about combined axis -Y,+Z, no preload",
+   "mean": 3.5,
+   "sd": 1.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  },
+  {
+   "x": "combined_RAR_plus_LLB",
+   "load": "±8 Nm about combined axis -Y,-Z, no preload",
+   "mean": 3.4,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3/L4-L5 ACUs pooled",
+   "note": "Table 1"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4 (principal axes) and Table 1 (combined axes)",
+  "method": "digitised_figure",
+  "uncertainty": "principal axes digitised: ±0.005 deg/Nm flexibility, ±0.05 deg ROM/NZ; SD ±0.01 deg/Nm / ±0.1 deg; Table 1 values as printed",
+  "checked": true,
+  "check_notes": "Bars located by colour and calibrated on gridlines (flexibility 1029 px per deg/Nm; rotation 55.5 px/deg); SD = mean of whisker half-lengths. Visual check: FLE ROM 10.3, NZ 5.15, flexibility 0.65 match the figure. Table 1 re-read from page image (OCR misread ± as 6); '7 5±2.2' = 7.5±2.2; row '-X,+Y EXT+RLB' is printed so (axis label typo; should be -X,+Z). Theoretical flexibility column not extracted (derived)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_fsu__nz__l2_l3_l4_l5_pooled__disc_only_acu__8nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.spenciner2006.ACU_disc_only_rom",
+  "fe_rom_lumbar_fsu.spenciner2006.ACU_disc_only_flexibility"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "FSU",
+  "disc only",
+  "combined axes",
+  "digitised"
+ ]
+}

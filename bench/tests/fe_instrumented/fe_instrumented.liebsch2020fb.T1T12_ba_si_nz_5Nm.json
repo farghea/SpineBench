@@ -1,0 +1,100 @@
+{
+ "id": "fe_instrumented.liebsch2020fb.T1T12_ba_si_nz_5Nm",
+ "title": "T1-T12 neutral zone with rib cage after VBR T6 bilateral + short T5-T7 (5 Nm)",
+ "subcategory": "instrumented NZ",
+ "layer": "outcome",
+ "category": "fe_instrumented",
+ "region": "thoracic",
+ "levels": [
+  "T1-T12"
+ ],
+ "condition": "VBR T6 bilateral + short T5-T7",
+ "source": {
+  "short": "Liebsch 2020 FB",
+  "authors": "Liebsch C, Kocak T, Aleinikov V, Kerimbayev T, Akshulakov S, Jansen JU, Vogt M, Wilke HJ",
+  "year": 2020,
+  "journal": "Front Bioeng Biotechnol 8:572",
+  "doi": "10.3389/fbioe.2020.00572",
+  "n": 6,
+  "sample": "6 fresh-frozen human C7-L1 thoracic spines with intact rib cage (anatomy dept. Aachen)",
+  "age": "81 +/- 13 y (63-99); per specimen ranges 60-65, 96-100, 96-100, 80-85, 90-95, 70-75",
+  "sex": "4 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null,
+  "bmd": "38 +/- 35 mgHA/cm3 (2-96), i.e. very osteoporotic"
+ },
+ "protocol": {
+  "summary": "C7-L1 with intact rib cage, C7 and L1 potted; pure moments +-5 Nm FE/LB/AR applied displacement-controlled at 1 deg/s, 3.5 cycles (3rd full cycle evaluated), no preload; Vicon optical tracking of all vertebrae. Steps tested cumulatively in fixed order.",
+  "how_to_simulate": [
+   "Fix L1, apply pure moments +-5 Nm to C7 in FE, LB, AR, no preload; full rib cage modelled",
+   "Model the surgical step (VBR at T6 with uni- or bilateral approach; pedicle screws T4,T5,T7,T8 or T5,T7; 5.5 mm rods)",
+   "Report T1-T12 primary full-range ROM (and NZ, coupled ROM) at 5 Nm; compare with medians and min-max of 6 specimens"
+  ],
+  "subject_model": null,
+  "notes": "Test order (cumulative): 1 intact (extracted separately in fe_rom_thoracic.liebsch2020fb.*); 2 UA+LI: unilateral (left) approach, T6 vertebral body + adjacent discs + left 6th rib head and costovertebral/costotransverse ligaments removed, 3D-printed titanium VBR at T6, pedicle-screw-rod instrumentation T4-T8 (long); 3 UA+SI: as step 2 but rods shortened to T5-T7 (short instrumentation); 4 BA+LI: bilateral approach (entire T6 vertebra incl. posterior bony structures and ligaments removed, right 6th rib head cut ~50 mm from costotransverse joint), VBR + long T4-T8 instrumentation; 5 BA+SI: as step 4 with short T5-T7 instrumentation Osteoporotic old donors (BMD 38+-35 mgHA/cm3)."
+ },
+ "tags": [
+  "thoracic",
+  "rib cage",
+  "in vitro",
+  "instrumented",
+  "vertebral body replacement",
+  "human",
+  "osteoporotic"
+ ],
+ "quantity": {
+  "name": "NZ",
+  "definition": "total T1-T12 neutral zone in the primary plane (grey part of bar), median of 6; kept separate from ROM",
+  "unit": "deg"
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 11.0,
+   "n": 6,
+   "step": "5 BA+SI: as step 4 with short T5-T7 instrumentation"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 12.9,
+   "n": 6,
+   "step": "5 BA+SI: as step 4 with short T5-T7 instrumentation"
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.3,
+   "n": 6,
+   "step": "5 BA+SI: as step 4 with short T5-T7 instrumentation"
+  }
+ ],
+ "extraction": {
+  "from": "Figs 3 (FE), 4 (LB), 5 (AR) of Liebsch 2020; bars = medians, whiskers = ranges (min-max), grey part = NZ",
+  "method": "digitised_figure",
+  "uncertainty": "+-0.3 deg (pixel scan of the embedded figure images at ~9.3 px/deg); NZ +-0.4 deg",
+  "checked": true,
+  "check_notes": "Digitised by colour-mask pixel scan of embedded figure images (bar top, NZ boundary, whisker traced through bar centre). Cross-checks: intact medians reproduce the D1 intact values within 0.1 deg (FE 26.2 vs 26.3, LB 33.8 vs 33.9, AR 32.4 vs 32.5) and the red intact reference line; ratios of digitised medians reproduce the relative changes printed under each figure within ~1-2 % (e.g. LB BA+LI 27.1 -> -19.8% vs IC, printed -20%; AR UA+SI 36.6 -> +13%, printed +13%). Printed changes appear to be medians of per-specimen changes, so a few differ more (coupled AR BA+LI vs IC: -26% from medians vs -16% printed)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-median| <= 50% (no spread given for NZ)"
+ },
+ "combine_group": "fe_instrumented__nz__t1_t12__ba_si_vbr_t6__5nm",
+ "shared_sample_with": [
+  "fe_instrumented.liebsch2020fb.T1T12_ba_si_rom_5Nm"
+ ]
+}

@@ -20,8 +20,8 @@
   "year": 2003,
   "journal": "J Orthop Res 21:540-546",
   "doi": "10.1016/S0736-0266(02)00202-4",
-  "n": "21 cadaveric L1-sacrum spines (neutral path); 15 of them also with flexed path",
-  "sample": "human cadaver ligamentous lumbar spines L1-sacrum, mild-moderate degeneration, no bridging osteophytes",
+  "n": 21,
+  "sample": "21 cadaveric L1-sacrum spines (neutral path); 15 of them also with flexed path; human cadaver ligamentous lumbar spines L1-sacrum, mild-moderate degeneration, no bridging osteophytes",
   "age": "mean 51.6 (SD 14.6) y",
   "sex": "16 M, 4 F, 1 unknown",
   "height_cm": null,
@@ -35,7 +35,7 @@
    "Apply flexion to 8 Nm and extension to 6 Nm under each preload",
    "Report total sagittal ROM of L1 relative to the sacrum (full flexion to full extension) and the bilinear flexibility coefficients a1 (low flexion moments), a3 (low extension moments), a1/a2, a3/a4"
   ],
-  "notes": "ROM = total L1-sacrum rotation from 8 Nm flexion to 6 Nm extension (not per level). Order of preloads not randomised; 0 N ROM repeated at end in 14 specimens was 8% larger than at start. Per-level ROM not reported.",
+  "notes": "ROM = total L1-sacrum rotation from 8 Nm flexion to 6 Nm extension (not per level). Order of preloads not randomised; 0 N ROM repeated at end in 14 specimens was 8% larger than at start. Per-level ROM not reported. Possible specimen overlap with Renner 2007 (same Loyola/Hines lab and authors; Renner used 10 L1-S1 spines, 7M/3F, mean 58 y) - flagged in shared_sample_with.",
   "subject_model": null
  },
  "data": [
@@ -161,9 +161,14 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD; ROM decreases monotonically with preload (>= 400 N)"
  },
- "combine_group": "fe_rom_lumbar_multi__rom__L1-S1_total__intact_follower__8Nm_flex_6Nm_ext",
+ "combine_group": "fe_rom_lumbar_multi__rom__l1_s1_total__intact_follower__8nm_flex_6nm_ext",
  "shared_sample_with": [
-  "fe_rom_lumbar_multi.renner2007.L1S1_follower1200N_rom (possible overlap: same Loyola/Hines lab, 10 L1-S1 specimens)"
+  "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+  "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+  "fe_compression_stiffness.renner2007.L1S1_follower1200N_disc_compression",
+  "fe_compression_stiffness.patwardhan2003.L1S1_follower_posture",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_flexibility",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom_pct"
  ],
  "tags": [
   "lumbar",

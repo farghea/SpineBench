@@ -1,0 +1,137 @@
+{
+ "id": "fe_rom_thoracic.wilke2017.T10T11_fsu_costovertebral_nz_7.5Nm",
+ "title": "T10-T11 FSU NZ with costovertebral joints at +/-7.5 Nm (Wilke 2017)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "FSU",
+ "region": "thoracic",
+ "levels": [
+  "T10-T11"
+ ],
+ "condition": "fsu_costovertebral",
+ "quantity": {
+  "name": "NZ",
+  "definition": "neutral zone per direction: rotation at 0 Nm of the unloading branch relative to hysteresis midpoint (polynomial fit), 3rd cycle; mean +/- SD",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Wilke 2017",
+  "authors": "Wilke HJ, Herkommer A, Werner K, Liebsch C",
+  "year": 2017,
+  "journal": "PLoS One 12(5):e0177823",
+  "doi": "10.1371/journal.pone.0177823",
+  "n": 6,
+  "sample": "6 human T10-T11 FSUs with costovertebral joints (ribs cut ~1.5 cm lateral); part of 68 FSUs from 29 donors (per-FSU age/sex: 54m,69m,60m,51m,63f,44f)",
+  "age": "57 +/- 8 y",
+  "sex": "4 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Monosegmental FSUs with costovertebral joints, rib stumps ~1.5 cm, all ligaments; upper half of cranial and lower half of caudal vertebra in PMMA (joints kept free); pure moments +/-7.5 Nm in LB, FE, AR; 1 deg/s (AR 0.5 deg/s); 3.5 cycles, 3rd evaluated; no preload.",
+  "how_to_simulate": [
+   "Model the FSU with disc, ligaments, facet capsules and both costovertebral joints with ~1.5 cm rib stumps (no rest of rib cage)",
+   "Fix caudal vertebra, apply pure moment +/-7.5 Nm to cranial vertebra, no preload",
+   "Report rotation at +/-7.5 Nm in each direction (and NZ at 0 Nm)"
+  ],
+  "subject_model": null,
+  "notes": "Values digitised from Figs 3-5 (mean bars with SD error bars, n=6/7). Per-specimen values and hysteresis curves are in S1 and S5-S7 Datasets (not in download folder). Wilke 2017 is not itself listed in Wilke 2025 Table 3, but Liebsch 2022 (listed) re-evaluated 47 FSUs from donors 1-25 tested at 7.5 Nm at 5 Nm - probably these specimens."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": 0.53,
+   "sd": 0.14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": 0.58,
+   "sd": 0.16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_left",
+   "load": "7.5 Nm",
+   "mean": 0.64,
+   "sd": 0.08,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_right",
+   "load": "7.5 Nm",
+   "mean": 0.59,
+   "sd": 0.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_left",
+   "load": "7.5 Nm",
+   "mean": 0.35,
+   "sd": 0.18,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_right",
+   "load": "7.5 Nm",
+   "mean": 0.53,
+   "sd": 0.27,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Figs 3 (FE), 4 (LB), 5 (AR)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.05 deg means, +/-0.1 deg SD (automated pixel detection at 200 dpi, 51 px/deg; bar borders and error-bar caps)",
+  "checked": true,
+  "check_notes": "Text values reproduced: T1-T2 flexion 7.1 (7.10), extension 6.7 (6.69), T7-T8 FE 2.8 (2.78/2.82), T2-T3 flexion SD 49 % (2.0/4.09), T1-T2 LB 5.9 (5.87/5.92), T7-T8 LB 3.7 (3.74/3.69), T1-T2 AR 6.2 (6.23/6.18), T6-T7 AR 5.9 (5.87/5.96), T11-T12 AR 3.3 (3.32); NZ ranges per plane match text (FE 0.6-2.1, LB 0.7-2.0, AR 0.4-1.2)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__nz__T10-T11__fsu_costovertebral__7.5Nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "FSU",
+  "Ulm",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "rib heads with costovertebral (and costotransverse, if within 1.5 cm) joints; ribs cut ~1.5 cm from the joint; no sternum/anterior rib cage"
+ },
+ "loading": {
+  "moment_Nm": 7.5,
+  "rate": "1 deg/s FE/LB, 0.5 deg/s AR",
+  "cycles": "3.5, 3rd evaluated",
+  "branch": "peak of loading branch at +/-7.5 Nm",
+  "preload": "none",
+  "device": "Ulm spine tester (gantry, balancing weights), 6-DOF load cell"
+ },
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2022spinej (probable: Liebsch 2022 re-evaluated at 5 Nm 47 FSUs of donors 1-25 originally tested at 7.5 Nm, likely the Wilke 2017 series)",
+  "fe_rom_thoracic.wilke2025.*_fsu_costovertebral_* (probable, via Liebsch 2022)"
+ ]
+}

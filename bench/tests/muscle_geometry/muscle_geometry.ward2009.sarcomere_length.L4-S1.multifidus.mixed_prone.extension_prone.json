@@ -1,0 +1,93 @@
+{
+ "id": "muscle_geometry.ward2009.sarcomere_length.L4-S1.multifidus.mixed_prone.extension_prone",
+ "title": "Ward 2009: sarcomere length of multifidus at L4-S1 (mixed, prone)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "L4-S1"
+ ],
+ "condition": "mixed_prone_extension_prone",
+ "muscle": "multifidus",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "prone",
+ "imaging": {
+  "modality": "intraoperative biopsy + laser diffraction",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "multifidus between L4 and S1",
+  "posture_detail": ""
+ },
+ "quantity": {
+  "name": "sarcomere_length",
+  "definition": "sarcomere length (micrometres)",
+  "unit": "um"
+ },
+ "source": {
+  "short": "Ward 2009",
+  "authors": "Ward SR, Kim CW, Eng CM, Gottschalk LJ, Tomiya A, Garfin SR, Lieber RL",
+  "year": 2009,
+  "journal": "J Bone Joint Surg Am 91:176-185",
+  "doi": "10.2106/JBJS.G.01311",
+  "n": 8,
+  "sample": "8 cadaveric lumbar spines; formalin-fixed cadavers (T12-sacrum, fixed supine/neutral), age 84 (3) y, height 170.5 (11.1) cm, weight 81.1 (15.3) kg; plus 16 surgical patients for intraoperative biopsies",
+  "age": "84 (SE 3) y",
+  "sex": "not stated",
+  "height_cm": 170.5,
+  "weight_kg": 81.1
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model prone in near-extension (operating table).",
+   "Compute multifidus (L4-S1 fascicles) sarcomere length = fibre length / optimal fibre length x 2.7 um.",
+   "Compare with the biopsy mean +/- SE."
+  ],
+  "subject_model": {
+   "sex": "unspecified",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 8,
+   "source": "16 spine-surgery patients (Table II); biopsies L4-S1"
+  },
+  "notes": "Abstract/results give mean +/- standard ERROR (stored in \"se\"; sd left empty). Patients undergoing spine surgery (in vivo, under anaesthesia)."
+ },
+ "data": [
+  {
+   "x": "in vivo sarcomere length",
+   "side": "unspecified",
+   "mean": 1.98,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "as_reported": "1.98 ± 0.15 mm (sic) in extension (prone)",
+   "note": "printed 'mm'; micrometres",
+   "se": 0.15
+  }
+ ],
+ "extraction": {
+  "from": "Abstract",
+  "method": "text",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Abstract values re-read."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__sarcomere_length__l4_s1_multifidus__mixed_prone_extension_prone__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "sarcomere_length",
+  "in vivo",
+  "intraoperative"
+ ]
+}

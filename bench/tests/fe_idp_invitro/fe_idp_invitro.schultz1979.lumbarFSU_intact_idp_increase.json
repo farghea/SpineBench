@@ -1,0 +1,187 @@
+{
+ "id": "fe_idp_invitro.schultz1979.lumbarFSU_intact_idp_increase",
+ "title": "Intradiscal pressure increase due to 4.7 and 10.6 Nm moments, intact lumbar FSUs",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "IDP increase under moments",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact, 400 N axial preload",
+ "quantity": {
+  "name": "IDP increase",
+  "definition": "increase of intradiscal (needle, nucleus) pressure above the value under 400 N preload alone (mean initial 262 kPa); RELATIVE (increase), not absolute; mean (SD)",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Schultz 1979",
+  "authors": "Schultz AB, Warwick DN, Berkson MH, Nachemson AL",
+  "year": 1979,
+  "journal": "J Biomech Eng 101:46-52",
+  "doi": "",
+  "n": 42,
+  "sample": "42 lumbar motion segments from 23 cadavers (16 segments from 10 F, 26 from 13 M); posterior elements removed in the first 18; human cadaver lumbar FSUs L1-L2 to L4-L5 (levels pooled; 3 segments from a Marfan donor, 1 herniated disc), degeneration grade 0-4",
+  "age": "21-60 y (mean 43)",
+  "sex": "10 F / 13 M donors",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Single FSUs, vertebrae embedded in epoxy and screwed into fixtures, disc mid-plane horizontal; inferior fixture clamped (rotatable to 0/90/180/270 deg); superior vertebra unconstrained. 400 N compressive preload (vertical strings + pneumatic cylinder) maintained during moments. Moments applied by weights via strings and pulleys on 20 cm arms in >= 3 increments, static, non-repetitive; readings 15 s after each increment (15-25 s to record). Rotations seldom allowed > 8 deg. Motions of the superior vertebral body centre from 6 dial gauges (0.01 mm). IDP by Nachemson needle (membrane-tipped) in the disc, 5 kPa resolution, re-zeroed between sequences. Posterior elements (facets bilaterally, ligamenta flava, inter- and supraspinous ligaments) then removed in the first 18 segments and tests repeated.",
+  "how_to_simulate": [
+   "Model a lumbar FSU; fix the inferior vertebra; leave the superior vertebra unconstrained",
+   "Apply 400 N axial compressive preload (vertical, through the disc centre) and keep it during moment loading",
+   "Apply flexion, extension, right/left lateral bending and clockwise torsion moments of 4.7 and 10.6 Nm (static)",
+   "Report the principal rotation of the superior vertebra (one direction, from the preloaded position), coupled rotations/translations of its body centre, and nucleus pressure increase above the preloaded pressure"
+  ],
+  "notes": "Values are means over all segments tested at each load level (n per cell not given; some segments did not reach 10.6 Nm because rotations were limited to ~8 deg); '(a)' cells = 3 specimens. Levels L1-L2 to L4-L5 pooled. Resection: one step only - removal of all posterior-element connections (bilateral facet joints, ligamenta flava, inter- and supraspinous ligaments) in 18 of 42 segments; values are absolute, not % intact, and intact means are over all 42 segments (not paired).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "4.7 Nm + 400 N axial preload",
+   "mean": 95,
+   "sd": 71,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "extension",
+   "load": "4.7 Nm + 400 N axial preload",
+   "mean": 52,
+   "sd": 108,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "4.7 Nm + 400 N axial preload",
+   "mean": 121,
+   "sd": 116,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "4.7 Nm + 400 N axial preload",
+   "mean": 126,
+   "sd": 82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "axial_rotation_clockwise",
+   "load": "4.7 Nm + 400 N axial preload",
+   "mean": 18,
+   "sd": 22,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "flexion",
+   "load": "10.6 Nm + 400 N axial preload",
+   "mean": 267,
+   "sd": 122,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "extension",
+   "load": "10.6 Nm + 400 N axial preload",
+   "mean": 49,
+   "sd": 202,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "10.6 Nm + 400 N axial preload",
+   "mean": 281,
+   "sd": 140,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "lateral_bending_left",
+   "load": "10.6 Nm + 400 N axial preload",
+   "mean": 256,
+   "sd": 134,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  },
+  {
+   "x": "axial_rotation_clockwise",
+   "load": "10.6 Nm + 400 N axial preload",
+   "mean": 32,
+   "sd": 37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1-L5 FSUs pooled"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed (5 kPa resolution)",
+  "checked": true,
+  "check_notes": "Re-read Table 3 from page image: all values confirmed; destroyed-group extension and right LB at 10.6 Nm empty in source."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (SDs often exceed means)"
+ },
+ "combine_group": "fe_idp_invitro__idp_increase__lumbar_pooled__intact_axial400n__4_7nm",
+ "also_in_groups": [
+  "fe_idp_invitro__idp_increase__lumbar_pooled__intact_axial400n__10_6nm"
+ ],
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+  "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+  "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_coupled10Nm",
+  "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_coupled10Nm",
+  "fe_idp_invitro.schultz1979.lumbarFSU_woPE_idp_increase",
+  "fe_idp_invitro.schultz1979.lumbarFSU_preload400N_idp_abs"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "FSU",
+  "IDP",
+  "relative",
+  "preload"
+ ]
+}

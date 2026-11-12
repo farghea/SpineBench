@@ -1,0 +1,101 @@
+{
+ "id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade3_nz",
+ "title": "Lumbar L1-L2..L4-L5 pooled neutral zone at ±7.5 Nm, degeneration grade 3 (Kettler 2011)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_fsu",
+ "subcategory": "intact, by degeneration grade",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact, radiographic degeneration grade 3",
+ "quantity": {
+  "name": "neutral zone",
+  "definition": "full-range neutral zone (sum of both directions), original data before statistical modelling, mean ± SD over segments of all levels pooled",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Kettler 2011",
+  "authors": "Kettler A, Rohlmann F, Ring C, Mack C, Wilke HJ",
+  "year": 2011,
+  "journal": "Eur Spine J 20:578-584",
+  "doi": "10.1007/s00586-010-1635-z",
+  "n": 203,
+  "sample": "203 human lumbar segments (L1-L2 to L4-L5; mono- and polysegmental specimens, up to 4 discs) from 111 donors in the Ulm in vitro database; radiographic degeneration grade 0-3 (Wilke system)",
+  "age": "donors 18-99 y (Table 1; text 19-99), median 56, mean 55.9 ± 15.2 (known for 107)",
+  "sex": "45 F / 61 M / 5 unknown donors",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Ulm database: pure moments ±7.5 Nm without axial preload, five uncontrolled DOF unconstrained, same spine tester; third loading cycle evaluated. ROM = rotation between +7.5 and -7.5 Nm (full range); NZ = laxity at 0 Nm. Levels L1-L2..L4-L5 pooled (L5-S1 excluded). Rate not stated (Ulm standard, Wilke 1998).",
+  "how_to_simulate": [
+   "Fix the caudal vertebra; leave the cranial end free; no preload",
+   "Apply ±7.5 Nm pure moments in flexion/extension, left/right lateral bending, left/right axial rotation (3 cycles, evaluate the 3rd)",
+   "Report full-range ROM (+7.5 to -7.5 Nm) and NZ for each plane; compare per degeneration grade (grade 0 = no degeneration)",
+   "Pooled over L1-L2..L4-L5: compare a level-averaged model or the level of interest with care"
+  ],
+  "subject_model": null,
+  "notes": "ROM and NZ are sums of both directions (flex+ext, left+right). Original data = mean ± SD of all levels pooled (Figs 2-4 left); model estimates = level-adjusted general-linear-model means with 95% CI (Figs 2-4 right, Tables 3-4)."
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 2.43,
+   "sd": 1.02,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 1.6,
+   "sd": 1.12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": 0.78,
+   "sd": 0.61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Figs 2-4 left panels (original data)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.15 deg (mean = whisker midpoint; SD = half whisker length); validated against text: AR ROM grade 0/3 = 3.9/5.2 (digitised 3.89/5.19), AR NZ 0.5/0.8 (0.48/0.78)",
+  "checked": true,
+  "check_notes": "Gridlines calibrated per panel (0-14 deg); model-estimate panels digitised with the same code reproduced text/Table 3 values (FE ROM 9.5/8.9/8.3/6.4) within 0.1 deg."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_fsu__nz__l1l2_l4l5_pooled__intact_degeneration_grade3__7_5nm",
+ "shared_sample_with": [
+  "wilke2025: Ulm database; Wilke 2025 pools the same institutional data (largely overlapping specimens)",
+  "heuer2007a/heuer2008: Ulm specimens of 2005-2008 likely included (not itemised)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "pooled levels",
+  "degeneration",
+  "neutral zone"
+ ]
+}

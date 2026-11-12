@@ -1,0 +1,93 @@
+{
+ "id": "muscle_geometry.ward2009.sarcomere_length.whole.multifidus.mixed_cadaver",
+ "title": "Ward 2009: sarcomere length of multifidus at whole (mixed, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "mixed_cadaver",
+ "muscle": "multifidus",
+ "muscle_as_reported": "multifidus (whole, T12-sacrum, one side)",
+ "sex": "mixed",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection + laser diffraction",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "whole multifidus, one side, T12-sacrum",
+  "posture_detail": "cadaver fixed in supine neutral lumbar posture"
+ },
+ "quantity": {
+  "name": "sarcomere_length",
+  "definition": "sarcomere length (micrometres)",
+  "unit": "um"
+ },
+ "source": {
+  "short": "Ward 2009",
+  "authors": "Ward SR, Kim CW, Eng CM, Gottschalk LJ, Tomiya A, Garfin SR, Lieber RL",
+  "year": 2009,
+  "journal": "J Bone Joint Surg Am 91:176-185",
+  "doi": "10.2106/JBJS.G.01311",
+  "n": 8,
+  "sample": "8 cadaveric lumbar spines; formalin-fixed cadavers (T12-sacrum, fixed supine/neutral), age 84 (3) y, height 170.5 (11.1) cm, weight 81.1 (15.3) kg; plus 16 surgical patients for intraoperative biopsies",
+  "age": "84 (SE 3) y",
+  "sex": "not stated",
+  "height_cm": 170.5,
+  "weight_kg": 81.1
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Put the model in the specimen/subject posture stated in the protocol.",
+   "Compute sarcomere length = (current fibre length / optimal fibre length) x optimal sarcomere length (e.g. 2.7 um) for multifidus.",
+   "Compare with measured sarcomere length (um)."
+  ],
+  "subject_model": {
+   "sex": "unspecified",
+   "age": 84,
+   "height_cm": 170.5,
+   "weight_kg": 81.1,
+   "disc_area_mm2": null,
+   "n": 8,
+   "source": "Table I (mean +/- SE)"
+  },
+  "notes": "Abstract/results give mean +/- standard ERROR (stored in \"se\"; sd left empty)."
+ },
+ "data": [
+  {
+   "x": "multifidus sarcomere length (fixed cadaver)",
+   "side": "unilateral",
+   "mean": 2.27,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "as_reported": "2.27 ± 0.06 mm (sic)",
+   "note": "printed 'mm' in abstract; micrometres",
+   "se": 0.06
+  }
+ ],
+ "extraction": {
+  "from": "Abstract / Results text",
+  "method": "text",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Abstract values re-read. Per-level values (Fig. 4) not digitised."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__sarcomere_length__whole_multifidus__mixed_cadaver__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "sarcomere_length",
+  "cadaver",
+  "architecture"
+ ]
+}

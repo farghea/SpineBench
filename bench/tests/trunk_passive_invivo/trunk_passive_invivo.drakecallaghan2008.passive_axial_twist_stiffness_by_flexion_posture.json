@@ -1,0 +1,188 @@
+{
+ "id": "trunk_passive_invivo.drakecallaghan2008.passive_axial_twist_stiffness_by_flexion_posture",
+ "title": "In vivo passive lumbar axial twist stiffness in neutral and six flexion/extension postures (kneeling, thorax fixed)",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (pelvis vs thorax)"
+ ],
+ "condition": "passive (relaxed, EMG monitored), 7 flexion-extension postures",
+ "quantity": {
+  "name": "axial twist secant stiffness (normalised to neutral)",
+  "definition": "axial twist moment about L4/L5 at peak twist divided by peak twist angle (start-to-peak differences), each repeat; normalised to the neutral-posture value per session; posture normalised to max flexion/extension",
+  "unit": "fraction of neutral (moment in Nm)"
+ },
+ "source": {
+  "short": "Drake & Callaghan 2008",
+  "authors": "Drake JDM, Callaghan JP",
+  "year": 2008,
+  "journal": "Clin Biomech 23:510-519",
+  "doi": "10.1016/j.clinbiomech.2007.12.005",
+  "n": 10,
+  "sample": "10 healthy young males, no LBP in previous year, university population; tested in 2 sessions (morning/afternoon)",
+  "age": "23.3 (2.6) y",
+  "sex": "10 M",
+  "height_cm": 179,
+  "weight_kg": 75.6
+ },
+ "protocol": {
+  "summary": "Kneeling; upper body fixed by an adjustable rigid harness of padded wooden supports (thorax fixed), lower body fixed to a cradle resting on a frictionless table (2500 nylon ball bearings); a force couple via cables/pulleys rotated the lower body (pelvis) to the left until no further rotation with increasing moment (each trial <10 s, mean velocity 28.6 (8.1) deg/s). Axial twist moment computed about the centre of L4/L5 from a load cell; angles from Optotrak clusters on chest and pelvis (lumbar = pelvis vs thorax). Seven starting flexion-extension postures (FEP): neutral kneeling, mild/mid/max flexion, mild/mid/max extension (normalised to max flexion/extension; postures reached 93.2% max flexion and 93.4% max extension). Relaxed: instructed not to activate muscles; 14 EMG channels (bilateral RA, EO, IO, LD, thoracic and lumbar ES) monitored; kneeling effort <1% MVC. 3 trials per posture per session.",
+  "how_to_simulate": [
+   "Model kneeling posture with thorax fixed and pelvis free to rotate axially (frictionless support), lumbar spine pre-set to the flexion/extension posture (fractions of the model's max flexion/extension; mild/mid/max)",
+   "Set all muscle activations to zero (passive tissues and passive muscle only)",
+   "Rotate the pelvis relative to the thorax (left axial twist) until the passive moment about L4/L5 reaches ~83 Nm (mean applied moment) and record the twist angle",
+   "Compute secant stiffness = moment / peak twist angle; normalise stiffness and angle to the neutral-posture values and compare per posture; compare coupled lateral bend"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 23.3,
+   "height_cm": 179,
+   "weight_kg": 75.6,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 means"
+  },
+  "notes": "Absolute neutral stiffness not reported; ratio of reported means 82.6 Nm / 39.4 deg ~ 2.1 Nm/deg (derived, approximate). Max-flexion value from text; other postures digitised from Fig 5."
+ },
+ "data": [
+  {
+   "x": "axial twist secant stiffness, neutral posture (reference)",
+   "series": "neutral",
+   "load": "passive left axial twist to end range",
+   "mean": 1.0,
+   "sd": null,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "max flexion",
+   "load": "passive left axial twist to end range",
+   "mean": 0.81,
+   "sd": 0.166,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "text (81.0%, SD 16.6); digitised bar 0.82",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "mid flexion",
+   "load": "passive left axial twist to end range",
+   "mean": 0.94,
+   "sd": 0.21,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "digitised Fig 5",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "mild flexion",
+   "load": "passive left axial twist to end range",
+   "mean": 1.05,
+   "sd": 0.22,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "digitised Fig 5",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "mild extension",
+   "load": "passive left axial twist to end range",
+   "mean": 1.05,
+   "sd": 0.16,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "digitised Fig 5",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "mid extension",
+   "load": "passive left axial twist to end range",
+   "mean": 1.23,
+   "sd": 0.22,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "digitised Fig 5",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "max extension",
+   "load": "passive left axial twist to end range",
+   "mean": 1.3,
+   "sd": 0.27,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "digitised Fig 5",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "axial twist secant stiffness normalised to neutral",
+   "series": "max and mid extension pooled",
+   "load": "passive left axial twist",
+   "mean": 1.254,
+   "sd": 0.244,
+   "n": 10,
+   "unit": "fraction of neutral",
+   "source_detail": "text (125.4%, SD 24.4)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "applied axial twist moment at end range (all postures, no posture effect)",
+   "series": "all postures",
+   "load": "passive left axial twist",
+   "mean": 82.6,
+   "sd": 18.1,
+   "n": 10,
+   "unit": "Nm",
+   "source_detail": "text",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5 (p.516) bars mean +- SD; Results text p.515",
+  "method": "digitised_figure",
+  "uncertainty": "+-0.02 (fraction of neutral) for digitised bars and SDs; text values exact",
+  "checked": true,
+  "check_notes": "Bars digitised by pixel column scans against tick-label centres (pdftotext -bbox); check: max flexion digitised 0.823 vs text 0.810 (SD 0.164 vs 0.166); mean of max/mid extension digitised 1.265 vs text 1.254 -> systematic ~+0.01, within stated uncertainty; values rounded to 2 decimals."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "normalised stiffness within +-1 SD per posture; correct ordering (flexion < neutral < extension)"
+ },
+ "combine_group": "trunk_passive_invivo__passive_axial_twist_stiffness__lumbar__relaxed_kneeling_thorax_fixed__flexion_extension_postures",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "axial rotation"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.drakecallaghan2008.passive_axial_twist_angle_by_flexion_posture"
+ ]
+}

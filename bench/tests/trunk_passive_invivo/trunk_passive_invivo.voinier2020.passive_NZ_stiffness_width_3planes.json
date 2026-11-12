@@ -1,0 +1,263 @@
+{
+ "id": "trunk_passive_invivo.voinier2020.passive_NZ_stiffness_width_3planes",
+ "title": "In vivo passive lumbar torso neutral-zone stiffness and width in flexion/extension, lateral bending and axial twist: controls vs adult scoliosis",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (torso relative to pelvis)"
+ ],
+ "condition": "passive (EMG-verified relaxed)",
+ "quantity": {
+  "name": "neutral-zone stiffness, neutral-zone width and outside-NZ gain",
+  "definition": "torque about the pelvis/L5-S1 (applied force x measured moment arm to L5-S1; axial twist arm 0.297 m) vs torso angle relative to the lower-extremity IMS; loading/unloading branches fitted with a double sigmoid; NZ limits = inflection points of its 2nd derivative; NZ stiffness = linear slope within NZ; outside-NZ fitted with an exponential law adapted from McGill 1994 whose gain beta (1/deg) is reported (larger = stiffer); loading/unloading and left/right averaged",
+  "unit": "mixed (see data[].unit)"
+ },
+ "source": {
+  "short": "Voinier 2020",
+  "authors": "Voinier SD, Agnew MJ, Carmouche JJ",
+  "year": 2020,
+  "journal": "Clin Biomech 80:105162",
+  "doi": "10.1016/j.clinbiomech.2020.105162",
+  "n": 31,
+  "sample": "31 adults: 17 healthy controls (age 30.0 (9.3) y, 47% female, 174.6 (9.9) cm, 74.0 (9.9) kg, BMI 24.1) and 14 adult degenerative lumbar scoliosis patients (Cobb 15-75 deg; 61.6 (10.3) y, 79% female, 158.4 (8.2) cm, 65.9 (11.7) kg, BMI 26.5)",
+  "age": "controls 30.0 (9.32) y; scoliosis 61.64 (10.27) y",
+  "sex": "controls 47% F; scoliosis 79% F",
+  "height_cm": 174.6,
+  "weight_kg": 73.96
+ },
+ "protocol": {
+  "summary": "Lateral bend: supine, pelvis fixed at ASIS by posts, thighs/shanks strapped, upper torso on a cradle floating on nylon bearings; flexion/extension: same rig side-lying with cushions; axial twist: kneeling on an ergonomic chair on a rotating platform, upper torso strapped to a fixed support (lower body rotates). Assistant moved the subject between comfortable limits (VAS discomfort <5, max 30 deg) at 5 deg/s for 10 cycles; cycles 3-10 analysed. Relaxation: EMG of external oblique and lumbar erector spinae below baseline + 2 SD (trial repeated if exceeded >10% of trial).",
+  "how_to_simulate": [
+   "Posture: flexion/extension side-lying, lateral bending supine, both with pelvis and legs fixed and the thorax free (frictionless support); axial twist kneeling with thorax fixed and pelvis rotated",
+   "Set all muscle activations to zero (passive muscle force-length and ligament/disc only)",
+   "Impose trunk-pelvis rotation cyclically between +-30 deg (or the model's comfortable range) and compute the passive moment about L5-S1 (total moment transmitted between thorax/upper body and pelvis)",
+   "Fit the moment-angle curve: slope around neutral (neutral zone, Nm/deg) and compare with the control group (scoliosis group only for scoliotic models)"
+  ],
+  "subject_model": {
+   "sex": "mixed (47% F)",
+   "age": 30.0,
+   "height_cm": 174.6,
+   "weight_kg": 73.96,
+   "disc_area_mm2": null,
+   "source": "Table 1, control group means"
+  },
+  "notes": "Angle = whole torso relative to pelvis/lower extremity (IMS sensors), i.e. lumbar plus some thoracolumbar motion. NZ width not computed for flexion/extension. Watt 2022 used the control NZ stiffness as quartile-1 stiffness for all planes."
+ },
+ "data": [
+  {
+   "x": "neutral zone width, lateral bending",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 33.4,
+   "sd": 6.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "deg"
+  },
+  {
+   "x": "neutral zone width, axial twist",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 33.8,
+   "sd": 7.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "deg"
+  },
+  {
+   "x": "neutral zone stiffness, lateral bending",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.199,
+   "sd": 0.059,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "neutral zone stiffness, axial twist",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.157,
+   "sd": 0.076,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "neutral zone stiffness, flexion/extension",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.181,
+   "sd": 0.055,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, lateral bending",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.266,
+   "sd": 0.078,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "1/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, axial twist",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.283,
+   "sd": 0.095,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "1/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, flexion/extension",
+   "series": "control",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.316,
+   "sd": 0.139,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "unit": "1/deg"
+  },
+  {
+   "x": "neutral zone width, lateral bending",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 22.7,
+   "sd": 7.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg"
+  },
+  {
+   "x": "neutral zone width, axial twist",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 37.9,
+   "sd": 6.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "deg"
+  },
+  {
+   "x": "neutral zone stiffness, lateral bending",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.376,
+   "sd": 0.148,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "neutral zone stiffness, axial twist",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.204,
+   "sd": 0.082,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "neutral zone stiffness, flexion/extension",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.289,
+   "sd": 0.143,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "Nm/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, lateral bending",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.34,
+   "sd": 0.183,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "1/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, axial twist",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.367,
+   "sd": 0.124,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "1/deg"
+  },
+  {
+   "x": "beta gain parameter outside NZ, flexion/extension",
+   "series": "scoliosis (pathology)",
+   "load": "passive cyclic motion between comfortable ROM limits (<=30 deg each way), 5 deg/s",
+   "mean": 0.308,
+   "sd": 0.143,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14,
+   "unit": "1/deg"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (p.5); Table 1 (p.2); methods p.2-3",
+  "method": "table",
+  "uncertainty": "tabulated",
+  "checked": true,
+  "check_notes": "All 32 values re-read from the rendered Table 2 image (pdftotext cut the last column); subject data from Table 1."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__passive_neutral_zone_stiffness__lumbar_torso__relaxed__side_lying_supine_kneeling",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "neutral zone",
+  "pathology",
+  "scoliosis"
+ ]
+}

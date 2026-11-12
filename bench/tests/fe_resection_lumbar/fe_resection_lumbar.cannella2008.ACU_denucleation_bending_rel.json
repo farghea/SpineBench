@@ -1,0 +1,193 @@
+{
+ "id": "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel",
+ "title": "NZ and ROM in AR, LB, FE after 20-min denucleation, normalised to intact (lumbar ACUs)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "denucleation",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "denucleation 20 min (DS2)",
+ "quantity": {
+  "name": "NZ and ROM relative to intact",
+  "definition": "NZ and one-direction ROM after denucleation divided by the same specimen's intact value; mean ± SD (upper whisker); NZ and ROM are separate data items",
+  "unit": "ratio (intact = 1)"
+ },
+ "source": {
+  "short": "Cannella 2008",
+  "authors": "Cannella M, Arthur A, Allen S, Keane M, Joshi A, Vresilovic E, Marcolongo M",
+  "year": 2008,
+  "journal": "J Biomech 41:2104-2111",
+  "doi": "10.1016/j.jbiomech.2008.04.037",
+  "n": 12,
+  "sample": "12 cadaveric anterior column units in two data sets of 6 (DS1: 2 T12-L1, 2 L2-L3, 2 L4-L5; DS2: L1-L2, L2-L3, L3-L4, 3 L4-L5); human cadaver ACUs (posterior elements removed), no severe degeneration",
+  "age": "DS1 47 ± 19 y (30-64); DS2 49 ± 13 y (26-65)",
+  "sex": "3 M / 3 F per data set",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "ACUs potted in Smooth-Cast 300 on a servohydraulic frame (Instron 8874); DS2 in a Spenciner-type pure-moment jig (6-DOF load cell, XY table; ~5% off-axis loads), DS2 displacements corrected for jig stiffness (1700 N/mm, 30 Nm/deg torsion, 10 Nm/deg bending). DS1: preconditioning 50 cycles at 3% disc height (1 Hz), then axial 150 N tension to 1500 N compression, 5 cycles, 0.1 Hz; nucleus pressure needle (14 G, transducer) through the anterior annulus, tip in the nucleus at half the minor-axis length from the outer wall. DS2: preconditioning 50 cycles 50-150 N compression (1 Hz), then separately axial 150 N tension to 1000 N compression and ±7.5 Nm AR, LB, FE, 5 sinusoidal cycles at 0.1 Hz. 5th cycle analysed. Neutral position = midpoint of zero-load positions of loading/unloading; NZ = difference between loading and unloading curves at zero load (Wilke 1998); ROM = maximum displacement/rotation in one direction from neutral.",
+  "how_to_simulate": [
+   "Model a lumbar disc-only unit (vertebral bodies + disc, no posterior elements); fix the inferior body",
+   "Apply ±7.5 Nm pure moments in axial rotation, lateral bending and flexion-extension, no preload (5 cycles, use the 5th)",
+   "Report ROM (max rotation in each direction from the neutral midpoint) and NZ (loading-unloading gap at zero moment) separately"
+  ],
+  "notes": "Resection steps (posterolateral 2 mm automated Nucleotome, under 50 N compression): DS1 intact -> intact with pressure needle -> denucleation 5, 10, 15, 20 min cumulative (dry nucleus removed ~37/60/84/100% of the 20-min amount; 20 min ≈ 0.15 g dry); DS2 intact -> single 20-min denucleation. Values after denucleation are normalised to the same specimen's intact value (relative, not absolute).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "axial_rotation_nz",
+   "load": "±7.5 Nm, no preload",
+   "mean": 2.58,
+   "sd": 0.62,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "axial_rotation_rom_right",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.59,
+   "sd": 0.42,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "axial_rotation_rom_left",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.7,
+   "sd": 0.43,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "lateral_bending_nz",
+   "load": "±7.5 Nm, no preload",
+   "mean": 2.67,
+   "sd": 1.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "lateral_bending_rom_right",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.35,
+   "sd": 0.25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "lateral_bending_rom_left",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.28,
+   "sd": 0.24,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "flexion_extension_nz",
+   "load": "±7.5 Nm, no preload",
+   "mean": 2.42,
+   "sd": 0.85,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "flexion_extension_rom_extension",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.39,
+   "sd": 0.27,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  },
+  {
+   "x": "flexion_extension_rom_flexion",
+   "load": "±7.5 Nm, no preload",
+   "mean": 1.39,
+   "sd": 0.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "step": "DS2 20 min",
+   "level": "DS2 ACUs pooled",
+   "note": "Fig 6a"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6a",
+  "method": "digitised_figure",
+  "uncertainty": "±0.02 (127 px/unit); SD ±0.03",
+  "checked": true,
+  "check_notes": "Matches text: NZ +150% AR (2.58), +165% LB (2.67), +140% FE (2.42); ROM +57-68% AR (1.59/1.70), +33-26% LB (1.35/1.28), +37% FE (1.39/1.39)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_resection_lumbar__nz_rom_rel__lumbar_pooled__denucleation_acu__7_5nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.cannella2008.ACU_intact_rom",
+  "fe_rom_lumbar_fsu.cannella2008.ACU_intact_nz",
+  "fe_compression_stiffness.cannella2008.ACU_intact_axial_rom",
+  "fe_compression_stiffness.cannella2008.ACU_intact_axial_nz",
+  "fe_idp_invitro.cannella2008.ACU_intact_idp_abs",
+  "fe_idp_invitro.cannella2008.ACU_intact_idp_load_slope",
+  "fe_resection_lumbar.cannella2008.ACU_denucleation_axial_rel",
+  "fe_idp_invitro.cannella2008.ACU_denucleation_idp_rel"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "disc only",
+  "resection",
+  "nucleotomy",
+  "relative",
+  "digitised"
+ ]
+}

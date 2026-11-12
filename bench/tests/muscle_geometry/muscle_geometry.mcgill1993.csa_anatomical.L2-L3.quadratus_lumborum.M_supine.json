@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.mcgill1993.csa_anatomical.L2-L3.quadratus_lumborum.M_supine",
+ "title": "McGill 1993: csa anatomical of quadratus lumborum at L2-L3 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "M_supine",
+ "muscle": "quadratus_lumborum",
+ "muscle_as_reported": "Quadratus lumb.",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI Philips Gyroscan, spin echo TR 500 TE 20",
+  "plane": "transverse slices (scanner axial, trunk in anatomic supine position); for each level the slice closest to the disc centre (within 5 mm)",
+  "slice_thickness_mm": 5,
+  "level_definition": "disc level: column labelled with the vertebra above the disc (e.g. \"L3\" = L3/L4), inferred from Table 5 which uses disc labels",
+  "posture_detail": "supine, knees extended"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "McGill 1993",
+  "authors": "McGill SM, Santaguida L, Stevens J",
+  "year": 1993,
+  "journal": "Clin Biomech 8:171-178",
+  "doi": "",
+  "n": 15,
+  "sample": "15 young men; healthy, no history of disabling back disease",
+  "age": "25.3 (3.6) y",
+  "sex": "15M",
+  "height_cm": 176.1,
+  "weight_kg": 81.5
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine (lying; lordosis as when lying, no gravity load on trunk).",
+   "Select all quadratus lumborum fascicles whose path crosses the plane at L2-L3 (transverse slices (scanner axial, trunk in anatomic supine position); for each level the slice closest to the disc centre (within 5 mm)), one side.",
+   "Sum their PCSA; divide each PCSA by cos(angle between fascicle and plane normal) to get anatomical CSA.",
+   "Compare the one-side total with the measured mean +/- SD (bilateral sums are labelled side=bilateral_sum)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 25.3,
+   "height_cm": 176.1,
+   "weight_kg": 81.5,
+   "n": 15,
+   "source": "Methods (SD age 3.6, weight 10.7, height 6.8); disc area Table 2",
+   "disc_area_mm2": 1332
+  },
+  "notes": "Raw area in the transverse MRI slice. Erector mass and abdominal wall areas include intermuscular spaces (slightly larger than the sum of components)."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 552.0,
+   "sd": 192.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "552 (192) mm2 [col L2]"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 614.0,
+   "sd": 189.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "614 (189) mm2 [col L2]"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Every cell transcribed from rendered pages 175-176 (PDF text layer is OCR-garbled); re-checked column alignment against the column headers."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__l2_l3_quadratus_lumborum__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "MRI",
+  "supine",
+  "sample:waterloo_mri_15"
+ ]
+}

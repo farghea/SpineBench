@@ -1,0 +1,88 @@
+{
+ "id": "muscle_geometry.santaguida1995.tendon_length.whole.psoas.M_cadaver.internal",
+ "title": "Santaguida 1995: tendon length of psoas major at whole (M, cadaver)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "fascicle_architecture",
+ "region": "lumbar",
+ "levels": [
+  "whole"
+ ],
+ "condition": "M_cadaver_internal",
+ "muscle": "psoas",
+ "muscle_as_reported": "psoas major",
+ "sex": "M",
+ "posture": "cadaver",
+ "imaging": {
+  "modality": "dissection",
+  "plane": "n/a",
+  "slice_thickness_mm": null,
+  "level_definition": "",
+  "posture_detail": ""
+ },
+ "quantity": {
+  "name": "tendon_length",
+  "definition": "tendon length",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Santaguida 1995",
+  "authors": "Santaguida PL, McGill SM",
+  "year": 1995,
+  "journal": "J Biomech 28(3):339-345",
+  "doi": "",
+  "n": 15,
+  "sample": "15 males (MRI) + 7 male embalmed cadavers; MRI: young healthy men (same demographics as McGill 1993: 25.3 y, 176.1 cm, 81.5 kg; very likely the same subjects); cadavers for architecture",
+  "age": "25.3 (3.6) y (MRI)",
+  "sex": "M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Compare the model psoas tendon (external = distal free tendon; internal = central tendon within the belly) or muscle length in neutral posture with the cadaver values."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 7,
+   "source": "7 male embalmed cadavers (2 used in a pilot study)"
+  },
+  "notes": "Number of specimens contributing is not stated (7 dissected, 2 used as pilot). Pennation could not be measured reliably."
+ },
+ "data": [
+  {
+   "x": "internal_tendon_length",
+   "side": "unspecified",
+   "mean": 68.0,
+   "sd": 19.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "as_reported": "68 (±19) mm"
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Values from Results text, re-read."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__tendon_length__whole_psoas__m_cadaver_internal__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "tendon_length",
+  "cadaver"
+ ]
+}

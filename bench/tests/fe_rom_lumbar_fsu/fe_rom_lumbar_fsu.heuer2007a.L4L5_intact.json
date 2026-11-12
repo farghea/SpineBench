@@ -20,8 +20,8 @@
   "year": 2007,
   "journal": "J Biomech 40:271-280",
   "doi": "10.1016/j.jbiomech.2006.01.007",
-  "n": "8 human cadaveric L4-L5 FSUs evaluated (two further specimens failed at 10 Nm flexion after posterior-element removal and were excluded); n=3 at 10 Nm for stages w/oFC to w/oNUC",
-  "sample": "fresh-frozen human L4-L5 segments, no bony defects, low degeneration (Mimura grade <2)",
+  "n": 8,
+  "sample": "fresh-frozen human L4-L5 segments, no bony defects, low degeneration (Mimura grade <2); 8 human cadaveric L4-L5 FSUs evaluated (two further specimens failed at 10 Nm flexion after posterior-element removal and were excluded); n=3 at 10 Nm for stages w/oFC to w/oNUC",
   "age": "median 52 (range 38-59)",
   "sex": "4 M / 4 F (per Heuer 2007b, same specimens)",
   "height_cm": null,
@@ -275,19 +275,30 @@
   "template": true,
   "rule": "min <= model <= max (PASS); |model-median| <= 25% (GOOD)"
  },
- "combine_group": "fe_rom_lumbar_fsu__rom__L4-L5__intact__7.5Nm",
+ "combine_group": "fe_rom_lumbar_fsu__rom__l4_l5__intact__7_5nm",
  "also_in_groups": [
-  "fe_rom_lumbar_fsu__rom__L4-L5__intact__1Nm",
-  "fe_rom_lumbar_fsu__rom__L4-L5__intact__2.5Nm",
-  "fe_rom_lumbar_fsu__rom__L4-L5__intact__5Nm",
-  "fe_rom_lumbar_fsu__rom__L4-L5__intact__10Nm"
+  "fe_rom_lumbar_fsu__rom__l4_l5__intact__1nm",
+  "fe_rom_lumbar_fsu__rom__l4_l5__intact__2_5nm",
+  "fe_rom_lumbar_fsu__rom__l4_l5__intact__5nm",
+  "fe_rom_lumbar_fsu__rom__l4_l5__intact__10nm"
  ],
  "shared_sample_with": [
   "fe_idp_invitro.heuer2007b.L4L5_intact",
   "heuer2007b: same 8 L4-L5 specimens (IDP, translations)",
   "wilke2025: Heuer 2007a/b listed in Wilke 2025 Table 4 (n=8 L4-L5) - pooled into Wilke 2025 L4-L5 data",
   "kettler2011: Ulm database 7.5 Nm lumbar segments of ~2000-2010 likely include these specimens (not itemised)",
-  "schmidt2007: Fig 6 re-plots this group's intact and w/oSSL&ISL flexion/extension at 7.5 Nm"
+  "schmidt2007: Fig 6 re-plots this group's intact and w/oSSL&ISL flexion/extension at 7.5 Nm",
+  "fe_idp_invitro.heuer2007b.L4L5_idp_rom_regression",
+  "fe_idp_invitro.heuer2007b.L4L5_woALL",
+  "fe_idp_invitro.heuer2007b.L4L5_woFC",
+  "fe_idp_invitro.heuer2007b.L4L5_woFL",
+  "fe_idp_invitro.heuer2007b.L4L5_woISL",
+  "fe_idp_invitro.heuer2007b.L4L5_woPLL",
+  "fe_idp_invitro.heuer2007b.L4L5_woSSL",
+  "fe_idp_invitro.heuer2007b.L4L5_woVA",
+  "fe_resection_lumbar.heuer2007b.L4L5_axial_rotation_elevation",
+  "fe_rom_lumbar_fsu.wilke2025.L4L5_intact",
+  "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_nz"
  ],
  "tags": [
   "lumbar",

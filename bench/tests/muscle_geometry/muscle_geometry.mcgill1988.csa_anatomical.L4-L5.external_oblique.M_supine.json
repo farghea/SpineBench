@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.mcgill1988.csa_anatomical.L4-L5.external_oblique.M_supine",
+ "title": "McGill 1988: csa anatomical of external oblique at L4-L5 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_supine",
+ "muscle": "external_oblique",
+ "muscle_as_reported": "External oblique",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (GE 9800), 120 kVp",
+  "plane": "single transverse slice with the gantry tilted to the plane of the L4/L5 disc",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4/L5 disc",
+  "posture_detail": "supine, relaxed"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "McGill 1988",
+  "authors": "McGill SM, Patt N, Norman RW",
+  "year": 1988,
+  "journal": "J Biomech 21(4):329-341",
+  "doi": "",
+  "n": 13,
+  "sample": "13 active men; men referred for diagnostic CT (most with low back pain/sciatica), screened for activity level",
+  "age": "40.5 (11.9) y",
+  "sex": "13M",
+  "height_cm": 173.8,
+  "weight_kg": 89.1
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a plane through the L4/L5 disc centre parallel to the disc (gantry was tilted to the disc).",
+   "Sum the anatomical CSA of external oblique elements crossing the plane, each side (PCSA/cos(angle between fibre and plane normal)).",
+   "Compare right and left with mean +/- SD."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 40.5,
+   "height_cm": 173.8,
+   "weight_kg": 89.1,
+   "disc_area_mm2": 1900.0,
+   "n": 13,
+   "source": "Table 1 (SD age 11.9, height 5.9, weight 11.7); disc area 19.0 (2.4) cm2 Table 2"
+  },
+  "notes": "Uncorrected (anatomic) area in the disc-parallel CT slice. cm2 -> mm2."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 990.0,
+   "sd": 310.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "9.9 (3.1) cm2"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 1130.0,
+   "sd": 300.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "11.3 (3.0) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Average/SD rows compared with rendered Table 2 (p. 335); individual-subject rows not stored."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__l4_l5_external_oblique__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "CT",
+  "supine",
+  "sample:waterloo_ct_13"
+ ]
+}

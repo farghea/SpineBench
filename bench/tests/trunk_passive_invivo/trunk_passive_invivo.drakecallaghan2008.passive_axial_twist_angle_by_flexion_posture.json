@@ -1,0 +1,229 @@
+{
+ "id": "trunk_passive_invivo.drakecallaghan2008.passive_axial_twist_angle_by_flexion_posture",
+ "title": "In vivo passive lumbar axial twist range and coupled lateral bend in neutral and six flexion/extension postures",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_moment_angle",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (pelvis vs thorax)"
+ ],
+ "condition": "passive (relaxed, EMG monitored), 7 flexion-extension postures",
+ "quantity": {
+  "name": "peak passive axial twist angle and coupled lateral bend",
+  "definition": "pelvis-vs-thorax axial rotation at end range (start-to-peak), absolute and normalised to neutral; coupled off-axis lateral bend at peak twist",
+  "unit": "mixed (deg, % of neutral)"
+ },
+ "source": {
+  "short": "Drake & Callaghan 2008",
+  "authors": "Drake JDM, Callaghan JP",
+  "year": 2008,
+  "journal": "Clin Biomech 23:510-519",
+  "doi": "10.1016/j.clinbiomech.2007.12.005",
+  "n": 10,
+  "sample": "10 healthy young males, no LBP in previous year, university population; tested in 2 sessions (morning/afternoon)",
+  "age": "23.3 (2.6) y",
+  "sex": "10 M",
+  "height_cm": 179,
+  "weight_kg": 75.6
+ },
+ "protocol": {
+  "summary": "Kneeling; upper body fixed by an adjustable rigid harness of padded wooden supports (thorax fixed), lower body fixed to a cradle resting on a frictionless table (2500 nylon ball bearings); a force couple via cables/pulleys rotated the lower body (pelvis) to the left until no further rotation with increasing moment (each trial <10 s, mean velocity 28.6 (8.1) deg/s). Axial twist moment computed about the centre of L4/L5 from a load cell; angles from Optotrak clusters on chest and pelvis (lumbar = pelvis vs thorax). Seven starting flexion-extension postures (FEP): neutral kneeling, mild/mid/max flexion, mild/mid/max extension (normalised to max flexion/extension; postures reached 93.2% max flexion and 93.4% max extension). Relaxed: instructed not to activate muscles; 14 EMG channels (bilateral RA, EO, IO, LD, thoracic and lumbar ES) monitored; kneeling effort <1% MVC. 3 trials per posture per session.",
+  "how_to_simulate": [
+   "Model kneeling posture with thorax fixed and pelvis free to rotate axially (frictionless support), lumbar spine pre-set to the flexion/extension posture (fractions of the model's max flexion/extension; mild/mid/max)",
+   "Set all muscle activations to zero (passive tissues and passive muscle only)",
+   "Rotate the pelvis relative to the thorax (left axial twist) until the passive moment about L4/L5 reaches ~83 Nm (mean applied moment) and record the twist angle",
+   "Report peak twist angle (absolute and relative to neutral) and coupled lateral bend; compare per posture"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 23.3,
+   "height_cm": 179,
+   "weight_kg": 75.6,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1 means"
+  },
+  "notes": "Applied end-range moment 82.6 (18.1) Nm, not different between postures."
+ },
+ "data": [
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "max flexion",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": 13.8,
+   "sd": 8.9,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "text (13.8%, SD 8.9)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "mid flexion",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": 7.1,
+   "sd": 7.0,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "digitised Fig 6",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "mild flexion",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": -0.9,
+   "sd": 6.5,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "digitised Fig 6",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "mild extension",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": -8.4,
+   "sd": 8.3,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "digitised Fig 6",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "mid extension",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": -18.2,
+   "sd": 8.5,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "digitised Fig 6",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle, % change vs neutral",
+   "series": "max extension",
+   "load": "passive left axial twist to end range (~83 Nm)",
+   "mean": -23.8,
+   "sd": 7.8,
+   "n": 10,
+   "unit": "% of neutral",
+   "source_detail": "text (-23.8%, SD 7.8)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle",
+   "series": "neutral",
+   "load": "passive left axial twist to end range",
+   "mean": 39.4,
+   "sd": 8.8,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle",
+   "series": "max flexion",
+   "load": "passive left axial twist to end range",
+   "mean": 43.9,
+   "sd": 8.9,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "peak axial twist angle",
+   "series": "max extension",
+   "load": "passive left axial twist to end range",
+   "mean": 30.1,
+   "sd": 7.8,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "coupled lateral bend angle at peak twist",
+   "series": "max flexion",
+   "load": "passive left axial twist",
+   "mean": 11.4,
+   "sd": 6.3,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text (groupings as printed; mid extension appears in two groups in the paper)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "coupled lateral bend angle at peak twist",
+   "series": "mid flexion / max extension / mid extension",
+   "load": "passive left axial twist",
+   "mean": 6.5,
+   "sd": 4.5,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text (groupings as printed; mid extension appears in two groups in the paper)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "coupled lateral bend angle at peak twist",
+   "series": "mid extension / mild flexion / mild extension",
+   "load": "passive left axial twist",
+   "mean": 4.4,
+   "sd": 3.8,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text (groupings as printed; mid extension appears in two groups in the paper)",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 (p.516) bars mean +- SD; Results text p.515",
+  "method": "digitised_figure",
+  "uncertainty": "+-0.5 % for digitised bars, +-1 % for SDs; text values exact",
+  "checked": true,
+  "check_notes": "Bars read against the zero line and tick-label centres (10.03 px per %); max flexion (13.8) and max extension (-23.8, SD 7.8) digitised values agree with text within 0.1-0.2 %. Mid flexion 7.1 and mid extension -18.2 confirmed by pixel scan."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD; ordering of postures"
+ },
+ "combine_group": "trunk_passive_invivo__passive_axial_twist_angle__lumbar__relaxed_kneeling_thorax_fixed__flexion_extension_postures",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "axial rotation",
+  "coupling"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.drakecallaghan2008.passive_axial_twist_stiffness_by_flexion_posture"
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "id": "muscle_geometry.wood1996.centroid_distance.L4-L5.psoas.M_unspecified.lean_bmi_lt25",
+ "title": "Wood 1996: centroid distance of psoas major at L4-L5 (M, unspecified)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_unspecified_lean_bmi_lt25",
+ "muscle": "psoas",
+ "muscle_as_reported": "psoas",
+ "sex": "M",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "MRI, T1-weighted, 500 mm FOV",
+  "plane": "transverse image at the L4-L5 level (scanner axial)",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4-L5",
+  "posture_detail": "not stated (MRI; presumably supine)"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Wood 1996",
+  "authors": "Wood S, Pearsall DJ, Ross R, Reid JG",
+  "year": 1996,
+  "journal": "Clin Biomech 11(3):139-144",
+  "doi": "10.1016/0268-0033(95)00018-6",
+  "n": 26,
+  "sample": "26 males; males with BMI 19.7-39.5 (lean to obese)",
+  "age": "40.5 (14.4) y",
+  "sex": "26M",
+  "height_cm": 174.5,
+  "weight_kg": 87.3
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model (scan posture not stated; presumably supine).",
+   "At the L4-L5 level take the PCSA-weighted centroid of the muscle in the transverse plane.",
+   "Report AP (+ anterior) and |ML| from the vertebral/disc centroid; centroid distance, not moment arm."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 37.2,
+   "height_cm": 175.3,
+   "weight_kg": 68.7,
+   "disc_area_mm2": null,
+   "n": 6,
+   "source": "Table 1 (BMI < 25)"
+  },
+  "notes": "Authors call these moment arms (muscle centroid to vertebral centroid)."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "unspecified",
+   "mean": 4.0,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "as_reported": "AP -0.4 (0.5) cm",
+   "note": "paper sign convention is + posterior (paraspinal positive, rectus negative); sign flipped to + anterior"
+  },
+  {
+   "x": "ML",
+   "side": "unspecified",
+   "mean": 47.0,
+   "sd": 2.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "as_reported": "ML -4.7 (0.2) cm",
+   "note": "printed negative (side convention); stored unsigned"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All values read from the rendered (rotated) Table 1 on p.142; text layer had OCR errors (e.g. BMI 25-30 mass printed 93.5 in text layer, 83.5 on the page)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__l4_l5_psoas__m_unspecified_lean_bmi_lt25__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "obesity"
+ ]
+}

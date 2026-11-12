@@ -1,0 +1,255 @@
+{
+ "id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+ "title": "Descarreaux 2008: total trunk angle at FRP onset and cessation, by fatigue and load (ES L2, L5)",
+ "subcategory": "FR onset/cessation angles",
+ "levels": [
+  "L2",
+  "L5 (electrode levels)"
+ ],
+ "condition": "standing flexion-extension; no fatigue vs fatigue (Sorensen); no load vs 12 kg",
+ "quantity": {
+  "name": "total trunk angle at FRP onset (EMG silence begins in flexion) and FRP cessation (EMG returns in extension)",
+  "definition": "total trunk flexion angle (deg) at the instant of ES myoelectric silence onset/cessation; main-effect means (pooled over the other factor); +/- as printed (text gives no SD/SEM label)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Descarreaux 2008",
+  "authors": "Descarreaux M, Lafond D, Jeffrey-Gauthier R, Centomo H, Cantin V",
+  "year": 2008,
+  "journal": "BMC Musculoskelet Disord 9:10",
+  "doi": "10.1186/1471-2474-9-10",
+  "n": 20,
+  "sample": "20 healthy adults (9 M, 11 F) without LBP",
+  "age": "23.9 +/- 4.0",
+  "sex": "9M/11F",
+  "height_cm": 170,
+  "weight_kg": 64.1
+ },
+ "protocol": {
+  "summary": "3 trials x 4 conditions (no fatigue/no load, no fatigue/load, fatigue/no load, fatigue/load).",
+  "how_to_simulate": [
+   "Scale to protocol.subject_model",
+   "Quasi-static trunk flexion to maximum (knees ~168 deg, i.e. nearly straight) and return",
+   "Hand load: none, or 12 kg barbell held with elbows at 90 deg, upper arms along the trunk",
+   "Output: trunk angle at which modelled ES activation at L2/L5 level falls below threshold (onset) and rises again (cessation)"
+  ],
+  "subject_model": {
+   "sex": "9 M / 11 F",
+   "age": 23.9,
+   "height_cm": 170,
+   "weight_kg": 64.1,
+   "bmi": 22.2,
+   "sd": {
+    "age": 4.0,
+    "height_cm": 10,
+    "weight_kg": 13.1,
+    "bmi": 3.2
+   },
+   "source": "Descarreaux 2008 Table 1 (mean +/- SD)"
+  },
+  "notes": "Surface Ag-AgCl EMG bilaterally over erector spinae at L2 and L5 levels (Merletti orientation), 900 Hz, 10-450 Hz band-pass; rectified, normalised to MVC (%MVC, LIDO dynamometer, 20 deg hip/trunk flexion). Onset/cessation of silence by visual inspection of the rectified EMG. Kinematics: Optotrak LEDs on acromion, mid iliac crest, greater trochanter, lateral knee, lateral malleolus; 'total trunk angle' (not further defined in the text). Task: 5 s flexion to maximum, 3 s hold, 5 s extension (auditory cue), arms by the side; load: 12 kg barbell with elbows flexed 90 deg and upper arms along the trunk (light plastic panel replica when unloaded); fatigue: Sorensen test to exhaustion (138 +/- 37 s)."
+ },
+ "data": [
+  {
+   "x": "onset ES-L2, no fatigue",
+   "load": "none",
+   "mean": 84.9,
+   "sd": 4.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text p.4"
+  },
+  {
+   "x": "onset ES-L2, fatigue",
+   "load": "none",
+   "mean": 77.3,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text"
+  },
+  {
+   "x": "onset ES-L5, no fatigue",
+   "load": "none",
+   "mean": 74.7,
+   "sd": 4.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "src": "text"
+  },
+  {
+   "x": "onset ES-L5, fatigue",
+   "load": "none",
+   "mean": 70.4,
+   "sd": 3.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "src": "text"
+  },
+  {
+   "x": "cessation ES-L2, no fatigue",
+   "load": "none",
+   "mean": 93.0,
+   "sd": 3.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text"
+  },
+  {
+   "x": "cessation ES-L2, fatigue",
+   "load": "none",
+   "mean": 84.4,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text"
+  },
+  {
+   "x": "cessation ES-L5, no fatigue",
+   "load": "none",
+   "mean": 92.0,
+   "sd": 4.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text"
+  },
+  {
+   "x": "cessation ES-L5, fatigue",
+   "load": "none",
+   "mean": 84.9,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 17,
+   "src": "text"
+  },
+  {
+   "x": "onset ES-L2, no load",
+   "load": "none",
+   "mean": 79.2,
+   "sd": 4.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised; sd = error-bar length"
+  },
+  {
+   "x": "onset ES-L2, 12 kg load",
+   "load": "12 kg barbell, elbows 90 deg",
+   "mean": 83.1,
+   "sd": 4.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "onset ES-L5, no load",
+   "load": "none",
+   "mean": 69.8,
+   "sd": 3.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "onset ES-L5, 12 kg load",
+   "load": "12 kg barbell, elbows 90 deg",
+   "mean": 75.5,
+   "sd": 4.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "cessation ES-L2, no load",
+   "load": "none",
+   "mean": 88.5,
+   "sd": 3.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "cessation ES-L2, 12 kg load",
+   "load": "12 kg barbell, elbows 90 deg",
+   "mean": 90.2,
+   "sd": 3.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "cessation ES-L5, no load",
+   "load": "none",
+   "mean": 87.1,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  },
+  {
+   "x": "cessation ES-L5, 12 kg load",
+   "load": "12 kg barbell, elbows 90 deg",
+   "mean": 90.0,
+   "sd": 3.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 4 digitised"
+  }
+ ],
+ "extraction": {
+  "from": "Descarreaux 2008 Results text p.4-5 (fatigue effect, same values as Fig 3) and Fig 4 (load effect, digitised)",
+  "method": "digitised_figure",
+  "uncertainty": "text rows exact; Fig 4 rows +/-0.5 deg (300 dpi, 10.5 px/deg); n in fatigue rows inferred from the ANOVA df (F1,16 -> 17; F1,15 -> 16)",
+  "checked": true,
+  "check_notes": "Digitisation validated on Fig 3 (same axes) against the text: L2 onset no fatigue 85.0 vs 84.9, L5 74.9 vs 74.7. Fig 4 caption says 'no fatigue = black; fatigue = grey' (copy error) - black = no load, grey = load per the text ('significant increase in FRP onset angle during loading')."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_onset_cessation_total_trunk_angle__es_l2_l5__standing_flexion__none_or_12kg",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.descarreaux2008.flexion_relaxation_ratio"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG %MVC",
+  "fatigue",
+  "healthy"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

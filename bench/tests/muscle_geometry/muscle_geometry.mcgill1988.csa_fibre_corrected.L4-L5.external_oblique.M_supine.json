@@ -1,0 +1,104 @@
+{
+ "id": "muscle_geometry.mcgill1988.csa_fibre_corrected.L4-L5.external_oblique.M_supine",
+ "title": "McGill 1988: csa fibre corrected of external oblique at L4-L5 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_supine",
+ "muscle": "external_oblique",
+ "muscle_as_reported": "External oblique = 0.884 x anatomic area",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "CT (GE 9800), 120 kVp",
+  "plane": "single transverse slice with the gantry tilted to the plane of the L4/L5 disc",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4/L5 disc",
+  "posture_detail": "supine, relaxed"
+ },
+ "quantity": {
+  "name": "csa_fibre_corrected",
+  "definition": "anatomical CSA multiplied by cosine of fibre angle to the plane normal (authors may call it PCSA/physiological area; NOT volume/fibre-length PCSA); assumed 45 deg fibre angle and +25% out-of-slice factor (Eq. 1)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "McGill 1988",
+  "authors": "McGill SM, Patt N, Norman RW",
+  "year": 1988,
+  "journal": "J Biomech 21(4):329-341",
+  "doi": "",
+  "n": 13,
+  "sample": "13 active men; men referred for diagnostic CT (most with low back pain/sciatica), screened for activity level",
+  "age": "40.5 (11.9) y",
+  "sex": "13M",
+  "height_cm": 173.8,
+  "weight_kg": 89.1
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine; plane through the L4/L5 disc parallel to it.",
+   "Sum the PCSA of model external oblique fascicles crossing the plane, each side.",
+   "Compare with the corrected (\"physiologic\") area; note the correction factors are assumptions of the paper."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 40.5,
+   "height_cm": 173.8,
+   "weight_kg": 89.1,
+   "disc_area_mm2": 1900.0,
+   "n": 13,
+   "source": "Table 1 (SD age 11.9, height 5.9, weight 11.7); disc area 19.0 (2.4) cm2 Table 2"
+  },
+  "notes": "Authors call it physiologic area; it is an angle-corrected anatomical area (not volume/fibre-length PCSA)."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 880.0,
+   "sd": 270.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "8.8 (2.7) cm2"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 1000.0,
+   "sd": 210.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "as_reported": "10.0 (2.1) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Average/SD row re-read from text (Table 3)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_fibre_corrected__l4_l5_external_oblique__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_fibre_corrected",
+  "in vivo",
+  "CT",
+  "supine",
+  "sample:waterloo_ct_13"
+ ]
+}

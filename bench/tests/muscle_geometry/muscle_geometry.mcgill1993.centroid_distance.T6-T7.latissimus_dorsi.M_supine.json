@@ -1,0 +1,128 @@
+{
+ "id": "muscle_geometry.mcgill1993.centroid_distance.T6-T7.latissimus_dorsi.M_supine",
+ "title": "McGill 1993: centroid distance of latissimus dorsi at T6-T7 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "thoracic",
+ "levels": [
+  "T6-T7"
+ ],
+ "condition": "M_supine",
+ "muscle": "latissimus_dorsi",
+ "muscle_as_reported": "Latissimus dorsi",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI Philips Gyroscan, spin echo TR 500 TE 20",
+  "plane": "transverse slices (scanner axial, trunk in anatomic supine position); for each level the slice closest to the disc centre (within 5 mm)",
+  "slice_thickness_mm": 5,
+  "level_definition": "disc level: column labelled with the vertebra above the disc (e.g. \"L3\" = L3/L4), inferred from Table 5 which uses disc labels",
+  "posture_detail": "supine, knees extended"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "McGill 1993",
+  "authors": "McGill SM, Santaguida L, Stevens J",
+  "year": 1993,
+  "journal": "Clin Biomech 8:171-178",
+  "doi": "",
+  "n": 15,
+  "sample": "15 young men; healthy, no history of disabling back disease",
+  "age": "25.3 (3.6) y",
+  "sex": "15M",
+  "height_cm": 176.1,
+  "weight_kg": 81.5
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine with knees extended.",
+   "Cut a transverse plane (perpendicular to the body long axis) through the T6-T7 disc centre.",
+   "Take the PCSA-weighted centroid of latissimus dorsi on each side; report Y (AP, + anterior) and |X| (lateral) from the disc centroid.",
+   "Compare per side. Raw centroid distances (uncorrected), not moment arms."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 25.3,
+   "height_cm": 176.1,
+   "weight_kg": 81.5,
+   "n": 15,
+   "source": "Methods (SD age 3.6, weight 10.7, height 6.8); disc area Table 2",
+   "disc_area_mm2": 741
+  },
+  "notes": "Raw (uncorrected) distances measured in the slice."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": -12.0,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "Y -12 (3) mm"
+  },
+  {
+   "x": "ML",
+   "side": "right",
+   "mean": 155.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "X 155 (7) mm"
+  },
+  {
+   "x": "AP",
+   "side": "left",
+   "mean": -11.0,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "Y -11 (7) mm"
+  },
+  {
+   "x": "ML",
+   "side": "left",
+   "mean": 153.0,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "X -153 (5) mm",
+   "note": "printed negative for the left side; stored unsigned"
+  }
+ ],
+ "extraction": {
+  "from": "Tables 3 (X) and 4 (Y)",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Every cell transcribed from rendered pages 175-176 (PDF text layer is OCR-garbled); re-checked column alignment against the column headers."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__t6_t7_latissimus_dorsi__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "supine",
+  "sample:waterloo_mri_15"
+ ]
+}

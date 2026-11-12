@@ -1,0 +1,91 @@
+{
+ "id": "muscle_geometry.reid1985.muscle_volume.xiphoid_to_pubis.rectus_abdominis.mixed_unspecified",
+ "title": "Reid 1985: muscle volume of rectus abdominis at xiphoid_to_pubis (mixed, unspecified)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "xiphoid_to_pubis"
+ ],
+ "condition": "mixed_unspecified",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "CT (archival)",
+  "plane": "transverse scans at 0.5-2.0 cm intervals from xiphoid to symphysis pubis, normalised to 15 slices per subject",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle between xiphoid and pubis (average over slices)",
+  "posture_detail": "not stated (archival CT, presumably supine)"
+ },
+ "quantity": {
+  "name": "muscle_volume",
+  "definition": "muscle volume; volume between xiphoid and pubis only",
+  "unit": "cm3"
+ },
+ "source": {
+  "short": "Reid 1985",
+  "authors": "Reid JG, Costigan PA",
+  "year": 1985,
+  "journal": "J Orthop Sports Phys Ther 6(5):278-280",
+  "doi": "",
+  "n": 28,
+  "sample": "28 living subjects (16 M, 12 F); archival CT scans",
+  "age": "M 54.6 (15.1), F 52.1 (16.1) y",
+  "sex": "16M/12F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "For each muscle, compute cross-sections of the model muscle on 15 equally spaced transverse planes from the xiphoid to the pubic symphysis.",
+   "Average the (anatomical) cross-sectional area over those slices, and compute the muscle volume.",
+   "Compare: ES left/right per side, ES total = both sides; RA value likely both sides together (paper does not split RA)."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 28,
+   "source": "Table 1: M age 54.6, height 172.6 (n=10), mass 74.7 (n=10); F age 52.1, height 159.4 (n=10), mass 63.8 (n=10)"
+  },
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "unspecified",
+   "mean": 356.16,
+   "sd": 125.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 28,
+   "as_reported": "356.16 (125.82) cm3"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Values verified on rendered pages 279-280. Text prints ES total 31.74 and right 15.72 cm2; Table 2 prints 31.75 and 15.73 (table used)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__muscle_volume__xiphoid_to_pubis_rectus_abdominis__mixed_unspecified__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "muscle_volume",
+  "in vivo",
+  "CT"
+ ]
+}

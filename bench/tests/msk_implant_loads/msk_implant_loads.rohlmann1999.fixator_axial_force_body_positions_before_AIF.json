@@ -20,8 +20,8 @@
   "year": 1999,
   "journal": "Eur Spine J 8:354-359",
   "doi": "",
-  "n": "10 patients (4 M, 6 F) with paired telemeterised internal spinal fixators (9 evaluable before AIF, 10 after)",
-  "sample": "in vivo; 3 degenerative instability, 4 fresh and 3 old vertebral compression fractures; bisegmental fixator, later anterior interbody fusion (AIF) with iliac-crest graft",
+  "n": 10,
+  "sample": "10 patients (4 M, 6 F) with paired telemeterised internal spinal fixators (9 evaluable before AIF, 10 after); in vivo; 3 degenerative instability, 4 fresh and 3 old vertebral compression fractures; bisegmental fixator, later anterior interbody fusion (AIF) with iliac-crest graft",
   "age": "34-72 y (per patient in patients)",
   "sex": "4 M (P2, P4, P5, P6), 6 F",
   "height_cm": "157-185 (per patient)",
@@ -1673,14 +1673,14 @@
   "from": "Table 2",
   "method": "table",
   "uncertainty": "as printed",
-  "checked": false,
-  "check_notes": ""
+  "checked": true,
+  "check_notes": "Double-check (msk_invivo lead): every number in data[] was found in the pdftotext output of the source table (minus signs rendered as \"2\" or \"–\" in the PDF text layer; trailing zeros dropped, e.g. -3.280 -> -3.28); sign of several values confirmed against the table text."
  },
  "pass_rule": {
   "template": true,
   "rule": "sign and ordering across body positions per patient (standing vs lying); absolute agreement only for fixator-including models (within +-30% or +-30 N / +-1 Nm)"
  },
- "combine_group": "msk_implant_loads__fixator_axial_force_abs__T10-L5__body_positions__before_AIF",
+ "combine_group": "msk_implant_loads__fixator_axial_force_abs__t10_l5__body_positions__before_aif",
  "tags": [
   "in vivo",
   "telemetry",
@@ -1690,5 +1690,11 @@
   "per patient",
   "per side"
  ],
- "shared_sample_with": []
+ "shared_sample_with": [
+  "msk_implant_loads.rohlmann1999.fixator_axial_force_body_positions_after_AIF",
+  "msk_implant_loads.rohlmann1999.fixator_sagittal_moment_body_positions_after_AIF",
+  "msk_implant_loads.rohlmann1999.fixator_sagittal_moment_body_positions_before_AIF",
+  "msk_implant_loads.rohlmann2000.fixator_load_carrying",
+  "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing"
+ ]
 }

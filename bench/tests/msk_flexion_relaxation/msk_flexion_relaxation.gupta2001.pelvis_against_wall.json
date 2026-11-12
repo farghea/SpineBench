@@ -1,0 +1,182 @@
+{
+ "region": "lumbar",
+ "levels": [
+  "T1-S1 (whole trunk)"
+ ],
+ "quantity": {
+  "name": "FR angles (onset SP1 / full flexion MFF / cessation SP2)",
+  "definition": "flexion angle at the first silent position SP1 (EMG silence begins in flexion), at maximum forward flexion MFF, and at SP2 (activity resumes in extension); Angles from photographs (35 mm camera, 3 m, right side) with skin markers: Trunk angle (TA) = angle between the long axis of the thigh and the line D1 spinous process - hip-joint centre; Hip angle (HA) = angle between the pelvic plane (ASIS-PSIS line) and the thigh axis; Vertebral angle (VA) = angle between the pelvic plane and the line PSIS - D1 spinous process; all as flexion from erect (deg).",
+  "unit": "deg"
+ },
+ "id": "msk_flexion_relaxation.gupta2001.pelvis_against_wall",
+ "title": "Gupta 2001: erector spinae silence angles, bending with the pelvis held against a wall",
+ "subcategory": "FR onset angles, restricted pelvis",
+ "condition": "forward bending with buttocks held against a wall (pelvic motion restricted), no load",
+ "source": {
+  "short": "Gupta 2001",
+  "authors": "Gupta A",
+  "year": 2001,
+  "journal": "J Biomech 34:491-496 (PII S0021-9290(00)00213-X)",
+  "doi": "",
+  "n": 25,
+  "sample": "25 healthy young subjects (15 M, 10 F), no back symptoms; weighted task: 11 of the males",
+  "age": "27.4 (20-35)",
+  "sex": "15M/10F",
+  "height_cm": 158,
+  "weight_kg": 52.0
+ },
+ "protocol": {
+  "summary": "Same subjects and task as normal bending but with the buttocks against a wall.",
+  "how_to_simulate": [
+   "Scale as protocol.subject_model",
+   "Forward flexion with pelvic rotation restricted (hip flexion ~19 deg at MFF)",
+   "No hand load",
+   "Output: vertebral/trunk angle at lumbar ES silence; SP2 absent (ES active from the start of extension)"
+  ],
+  "subject_model": {
+   "sex": "15 M / 10 F",
+   "age": 27.4,
+   "height_cm": 158,
+   "weight_kg": 52.0,
+   "ranges": {
+    "age": "20-35",
+    "height_cm": "154-176",
+    "weight_kg": "43-75"
+   },
+   "source": "Gupta 2001 Table 1 (as printed: mean height 1.58 m, weight 52.0 kg)",
+   "weighted_task_subgroup": {
+    "n": 11,
+    "sex": "M",
+    "age": 22.8,
+    "height_cm": 165,
+    "weight_kg": 59.0,
+    "ranges": {
+     "age": "22-28",
+     "height_cm": "160-176",
+     "weight_kg": "54-75"
+    },
+    "source": "Gupta 2001 Table 2"
+   }
+  },
+  "notes": "Surface EMG bilaterally over erector spinae at the L3 spinous-process level ~5 cm from the midline (also abdominals, hamstrings, hip extensors); silence = oscilloscope amplitude dropping abruptly to zero (visual, photograph triggered); no normalisation needed (on/off only). SP1 at 28% (hip) and 75% (vertebral) of maximum flexion (text p.493)."
+ },
+ "data": [
+  {
+   "x": "SP1 trunk angle",
+   "load": "none",
+   "mean": 56.1,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP1 hip angle",
+   "load": "none",
+   "mean": 18.9,
+   "sd": 4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP1 vertebral angle",
+   "load": "none",
+   "mean": 42.9,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF trunk angle",
+   "load": "none",
+   "mean": 57.3,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF hip angle",
+   "load": "none",
+   "mean": 19.3,
+   "sd": 4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF vertebral angle",
+   "load": "none",
+   "mean": 43.5,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP2",
+   "load": "none",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "note": "not observed: erector spinae active from the very beginning of extension"
+  },
+  {
+   "x": "SP1 as % of maximum hip flexion",
+   "load": "none",
+   "mean": 28,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  },
+  {
+   "x": "SP1 as % of maximum vertebral flexion",
+   "load": "none",
+   "mean": 75,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  }
+ ],
+ "extraction": {
+  "from": "Gupta 2001 Table 3 (pelvis against wall) and text p.493",
+  "method": "table",
+  "uncertainty": "SD as printed",
+  "checked": true,
+  "check_notes": "Checked against page image."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_angles_gupta_def__trunk_hip_vertebral__standing_flexion_pelvis_restricted__none",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.gupta2001.normal_bending",
+  "msk_flexion_relaxation.gupta2001.weights_front_back"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG on/off",
+  "healthy"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

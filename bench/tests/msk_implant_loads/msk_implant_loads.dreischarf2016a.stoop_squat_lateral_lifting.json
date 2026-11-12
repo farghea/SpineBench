@@ -1,0 +1,367 @@
+{
+ "layer": "outcome",
+ "category": "msk_implant_loads",
+ "region": "lumbar",
+ "id": "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+ "title": "Dreischarf 2016a: VBR force, trunk inclination and knee bending in stoop vs squat lifting and lateral lifting",
+ "subcategory": "lifting",
+ "levels": [
+  "L1 (WP1, WP2, WP4) / L3 (WP5) VBR"
+ ],
+ "condition": "lifting a crate (4-10.8 kg) from the ground by stoop or squat technique, or laterally with one hand",
+ "quantity": {
+  "name": "VBR resultant force in lifting",
+  "definition": "ABSOLUTE maxima of the resultant VBR force (N); RELATIVE squat/stoop ratio of maximal resultant force (%, median and range over sessions); RELATIVE lateral vs frontal difference; trunk inclination and knee-bending at the time of maximal force (deg)",
+  "unit": "N / % / deg"
+ },
+ "source": {
+  "short": "Dreischarf 2016a",
+  "authors": "Dreischarf M, Rohlmann A, Graichen F, Bergmann G, Schmidt H",
+  "year": 2016,
+  "journal": "J Biomech 49:890-895",
+  "doi": "10.1016/j.jbiomech.2015.09.034",
+  "n": 4,
+  "sample": "4 male patients with telemeterised VBR (3 x L1, 1 x L3); 17 sessions, 104 stoop/squat lifts, 26 lateral lifts",
+  "age": "62-71",
+  "sex": "M",
+  "height_cm": "168-180",
+  "weight_kg": "60-74",
+  "patients": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006"
+   },
+   "WP4": {
+    "sex": "M",
+    "age": 63,
+    "height_cm": 170,
+    "weight_kg": 60,
+    "bmi": 21,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "01/2008"
+   },
+   "WP5": {
+    "sex": "M",
+    "age": 66,
+    "height_cm": 180,
+    "weight_kg": 63,
+    "bmi": 19,
+    "fractured_vertebra": "L3",
+    "implant_level": "L3 VBR",
+    "fixation": "internal fixator L2-L4",
+    "implantation": "07/2008"
+   },
+   "implant_note": "VBR replaces parts of the fractured vertebral body and the adjacent discs; posterior internal fixator remains in situ",
+   "source": "Dreischarf 2016a Table 1 (WP4 fixation T11-L3 there)",
+   "disc_area_mm2": null
+  }
+ },
+ "protocol": {
+  "summary": "Bottle crate lifted from the ground 2-4 times per technique per session; weights per patient in Table 1 (mostly 10.8 kg; also 10, 7, 4.3, 4 kg).",
+  "how_to_simulate": [
+   "Model each patient (subject_model)",
+   "Stoop: knees ~10 deg, trunk inclination ~52 deg at max force; squat: knees ~45 deg, trunk ~39 deg (medians in data)",
+   "Hand load: crate (10.8 kg typical) held in both hands in front just after lift-off; lateral lift: same crate in one hand beside the feet",
+   "Output: segment compression at the VBR level; compare the squat/stoop ratio and lateral/front ratio",
+   "A whole-spine MSK model outputs total segment compression at the implant level, not the implant share; compare trends/relative changes unless the model includes the VBR and posterior fixator"
+  ],
+  "subject_model": {
+   "WP1": {
+    "sex": "M",
+    "age": 62,
+    "height_cm": 168,
+    "weight_kg": 66,
+    "bmi": 23,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "09/2006"
+   },
+   "WP2": {
+    "sex": "M",
+    "age": 71,
+    "height_cm": 169,
+    "weight_kg": 74,
+    "bmi": 26,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T12-L2",
+    "implantation": "11/2006"
+   },
+   "WP4": {
+    "sex": "M",
+    "age": 63,
+    "height_cm": 170,
+    "weight_kg": 60,
+    "bmi": 21,
+    "fractured_vertebra": "L1",
+    "implant_level": "L1 VBR",
+    "fixation": "internal fixator T11-L3",
+    "implantation": "01/2008"
+   },
+   "WP5": {
+    "sex": "M",
+    "age": 66,
+    "height_cm": 180,
+    "weight_kg": 63,
+    "bmi": 19,
+    "fractured_vertebra": "L3",
+    "implant_level": "L3 VBR",
+    "fixation": "internal fixator L2-L4",
+    "implantation": "07/2008"
+   },
+   "implant_note": "VBR replaces parts of the fractured vertebral body and the adjacent discs; posterior internal fixator remains in situ",
+   "source": "Dreischarf 2016a Table 1",
+   "disc_area_mm2": null
+  },
+  "notes": "Load measured on a telemeterised vertebral body replacement (modified Synex, 6 load components, accuracy ~2% force / 5% moment of 3000 N / 20 Nm calibration range) that shares the load with the posterior internal fixator, residual vertebral bone and bone graft; the VBR force is NOT the total spinal load. Maximal forces occurred shortly after crate lift-off, not at maximal inclination."
+ },
+ "data": [
+  {
+   "x": "absolute maximum resultant force over all sessions, WP1",
+   "load": "crate (weights per Table 1)",
+   "mean": 1090,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "unit": "N",
+   "patient": "WP1"
+  },
+  {
+   "x": "absolute maximum resultant force, WP2",
+   "load": "crate (weights per Table 1)",
+   "mean": 1420,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "unit": "N",
+   "patient": "WP2"
+  },
+  {
+   "x": "absolute maximum resultant force, WP4",
+   "load": "crate (weights per Table 1)",
+   "mean": 1635,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "unit": "N",
+   "patient": "WP4"
+  },
+  {
+   "x": "absolute maximum resultant force, WP5",
+   "load": "crate (weights per Table 1)",
+   "mean": 1400,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "unit": "N",
+   "patient": "WP5"
+  },
+  {
+   "x": "squat/stoop force ratio, WP1",
+   "load": "crate",
+   "mean": null,
+   "sd": null,
+   "min": 93,
+   "max": 108,
+   "median": 98,
+   "n": null,
+   "unit": "%",
+   "patient": "WP1"
+  },
+  {
+   "x": "squat/stoop force ratio, WP2",
+   "load": "crate",
+   "mean": null,
+   "sd": null,
+   "min": 100,
+   "max": 117,
+   "median": 109,
+   "n": null,
+   "unit": "%",
+   "patient": "WP2"
+  },
+  {
+   "x": "squat/stoop force ratio, WP4",
+   "load": "crate",
+   "mean": null,
+   "sd": null,
+   "min": 113,
+   "max": 120,
+   "median": 118,
+   "n": null,
+   "unit": "%",
+   "patient": "WP4"
+  },
+  {
+   "x": "squat/stoop force ratio, WP5",
+   "load": "crate",
+   "mean": null,
+   "sd": null,
+   "min": 85,
+   "max": 104,
+   "median": 90,
+   "n": null,
+   "unit": "%",
+   "patient": "WP5"
+  },
+  {
+   "x": "squat vs stoop, average difference in resultant force",
+   "load": "crate",
+   "mean": 4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "unit": "% (squat higher)"
+  },
+  {
+   "x": "frontal vs lateral one-hand lifting, average difference (lateral lower)",
+   "load": "same crate",
+   "mean": 14,
+   "sd": null,
+   "min": -1,
+   "max": 25,
+   "median": null,
+   "n": 4,
+   "unit": "%",
+   "note": "range printed as '1 to 25%' with the sign lost; 'in only one session ... differences of 1%'; 8 of 9 sessions higher in front"
+  },
+  {
+   "x": "trunk inclination at max force, stoop",
+   "load": "none",
+   "mean": null,
+   "sd": null,
+   "min": 48,
+   "max": 67,
+   "median": 52,
+   "n": 4,
+   "unit": "deg"
+  },
+  {
+   "x": "trunk inclination at max force, squat",
+   "load": "none",
+   "mean": null,
+   "sd": null,
+   "min": 29,
+   "max": 40,
+   "median": 39,
+   "n": 4,
+   "unit": "deg"
+  },
+  {
+   "x": "knee bending at max force, stoop",
+   "load": "none",
+   "mean": null,
+   "sd": null,
+   "min": 5,
+   "max": 12,
+   "median": 10,
+   "n": 4,
+   "unit": "deg"
+  },
+  {
+   "x": "knee bending at max force, squat",
+   "load": "none",
+   "mean": null,
+   "sd": null,
+   "min": 38,
+   "max": 54,
+   "median": 45,
+   "n": 4,
+   "unit": "deg"
+  },
+  {
+   "x": "maximal trunk inclination during stoop lift",
+   "load": "none",
+   "mean": 63,
+   "sd": null,
+   "min": 59,
+   "max": 70,
+   "median": null,
+   "n": 4,
+   "unit": "deg"
+  },
+  {
+   "x": "maximal knee bending during squat lift",
+   "load": "none",
+   "mean": 56,
+   "sd": null,
+   "min": 52,
+   "max": 66,
+   "median": null,
+   "n": 4,
+   "unit": "deg"
+  }
+ ],
+ "extraction": {
+  "from": "Dreischarf 2016a abstract and Results 3.1-3.2 text (Figs 2-3 per-patient bars not digitised)",
+  "method": "text",
+  "uncertainty": "text values",
+  "checked": true,
+  "check_notes": "Re-read Results; all values match. 'average of alpha_max = 63 deg' printed as average (stored as mean)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "relative change: model sign correct and |model - measured| <= half the inter-patient range (or 25 percentage points where no range is given)"
+ },
+ "combine_group": "msk_implant_loads__vbr_resultant_force_lifting__l1_l3__stoop_squat_lateral__crate_4_10p8kg",
+ "tags": [
+  "in vivo",
+  "implant",
+  "VBR",
+  "absolute and relative",
+  "lifting"
+ ],
+ "shared_sample_with": [
+  "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+  "msk_implant_loads.dreischarf2015.standing_flexion_resultant_force",
+  "msk_implant_loads.rohlmann2008.lying_positions",
+  "msk_implant_loads.rohlmann2008.sitting_activities",
+  "msk_implant_loads.rohlmann2008.standing_walking_activities",
+  "msk_implant_loads.rohlmann2011.sitting_relative_force",
+  "msk_implant_loads.rohlmann2013.longterm_standing_walking",
+  "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_anterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_lateral_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_posterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_bending_moment",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_force",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_torsional_moment",
+  "msk_implant_loads.rohlmann2014b.carrying_force_increase",
+  "msk_implant_loads.rohlmann2014c_physio.all_fours_exercises",
+  "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+  "msk_implant_loads.rohlmann2014c_physio.lateral_position_leg_abduction",
+  "msk_implant_loads.rohlmann2014c_physio.prone_exercises",
+  "msk_implant_loads.rohlmann2014c_physio.supine_exercises"
+ ]
+}

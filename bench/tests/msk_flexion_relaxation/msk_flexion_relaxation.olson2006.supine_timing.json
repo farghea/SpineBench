@@ -1,0 +1,214 @@
+{
+ "id": "msk_flexion_relaxation.olson2006.supine_timing",
+ "title": "Olson 2006: muscle on/off timing in supine trunk flexion (sit-up) - FR absent in lumbar paraspinals",
+ "subcategory": "FR timing (% cycle), supine",
+ "levels": [
+  "L3-L4 (electrode)"
+ ],
+ "condition": "supine trunk flexion-extension (sit-up), legs restrained, 10 s cycle",
+ "quantity": {
+  "name": "EMG off/on time and peak angles (supine)",
+  "definition": "as olson2006.standing_fr_timing; inclination relative to vertical",
+  "unit": "% cycle / deg"
+ },
+ "source": {
+  "short": "Olson 2006",
+  "authors": "Olson M, Solomonow M, Li L",
+  "year": 2006,
+  "journal": "J Biomech 39:2545-2554",
+  "doi": "10.1016/j.jbiomech.2005.09.009",
+  "n": 13,
+  "sample": "13 healthy male college students",
+  "age": "20 +/- 1 (18-23)",
+  "sex": "M",
+  "height_cm": 178,
+  "weight_kg": 82
+ },
+ "protocol": {
+  "summary": "5 cycles supine (sit-up) with legs restrained under a 13.7 kg box (2.3 kg box + 11.4 kg).",
+  "how_to_simulate": [
+   "Scale to protocol.subject_model",
+   "Supine trunk flexion (sit-up) to peak lumbar flexion 44 deg / inclination 13 deg from vertical, legs fixed",
+   "No hand load",
+   "Output: LP should be silent through flexion and active only in extension (51-67% cycle); RA/EO/RF on/off timing"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 20,
+   "height_cm": 178,
+   "weight_kg": 82,
+   "sd": {
+    "age": 1,
+    "height_cm": 6,
+    "weight_kg": 11
+   },
+   "ranges": {
+    "age": "18-23",
+    "height_cm": "168-191",
+    "weight_kg": "73-115"
+   },
+   "source": "Olson 2006 Sec 2.1"
+  },
+  "notes": "Surface EMG (right side): lumbar paraspinal LP at L3-L4, 3 cm lateral to the spinous processes; RA 3 cm and EO 15 cm lateral to the umbilicus; RF, SM, BF on the thigh. On/off threshold 5% of the maximal linear envelope across all trials (10 Hz envelope), confirmed on raw EMG. Kinematics: markers on 12th rib, iliac crest, greater trochanter; lumbar flexion angle = rib-iliac line vs iliac-trochanter line; inclination = trunk vs vertical. Cycle: 5 s flexion to touch toes + 5 s extension (metronome 1 beat/s), barefoot, feet shoulder width."
+ },
+ "data": [
+  {
+   "x": "peak lumbar flexion angle (deg)",
+   "load": "none",
+   "mean": 44,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "deg"
+  },
+  {
+   "x": "timing of peak lumbar flexion (% cycle)",
+   "load": "none",
+   "mean": 48,
+   "sd": 3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "peak inclination angle (deg)",
+   "load": "none",
+   "mean": 13,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "deg"
+  },
+  {
+   "x": "timing of peak inclination (% cycle)",
+   "load": "none",
+   "mean": 49,
+   "sd": 5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "RA EMG off (% cycle)",
+   "load": "none",
+   "mean": 31,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "RA EMG on (% cycle)",
+   "load": "none",
+   "mean": 74,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "EO EMG off (% cycle)",
+   "load": "none",
+   "mean": 54,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "EO EMG on (% cycle)",
+   "load": "none",
+   "mean": 76,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "RF EMG off (% cycle)",
+   "load": "none",
+   "mean": 30,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "RF EMG on (% cycle)",
+   "load": "none",
+   "mean": 74,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13,
+   "unit": "% cycle"
+  },
+  {
+   "x": "LP EMG on (extension, % cycle)",
+   "load": "none",
+   "mean": 51,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "% cycle"
+  },
+  {
+   "x": "LP EMG off (extension, % cycle)",
+   "load": "none",
+   "mean": 67,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "unit": "% cycle"
+  }
+ ],
+ "extraction": {
+  "from": "Olson 2006 Table 1 (supine) and Table 4",
+  "method": "table",
+  "uncertainty": "SD as printed",
+  "checked": true,
+  "check_notes": "Supine inclination is 13 +/- 14 deg (page image); pdftotext merged it as '13714'. n for RA/EO/RF taken from Fig 4 caption (N = 13)."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_timing_pct_cycle__lumbar_paraspinal_l3_l4__supine_situp__none",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.olson2006.standing_fr_timing"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG on/off",
+  "healthy",
+  "male",
+  "supine"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

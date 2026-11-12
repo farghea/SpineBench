@@ -1,0 +1,101 @@
+{
+ "id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact_nz",
+ "title": "L3-L4 intact neutral zone at ±7.5 Nm, Ulm 30-year database (Wilke 2025)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_fsu",
+ "subcategory": "intact (pooled database)",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "intact, mono- and polysegmental specimens mixed",
+ "quantity": {
+  "name": "neutral zone",
+  "definition": "full-range neutral zone (both directions summed), median and median absolute deviation (field 'mad') over segments",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Wilke 2025",
+  "authors": "Wilke HJ, Kienle A, Werner K, Liebsch C",
+  "year": 2025,
+  "journal": "JOR Spine 8:e70052",
+  "doi": "10.1002/jsp2.70052",
+  "n": 596,
+  "sample": "Ulm institutional database 1995-2024: intact human lumbar FSUs T12-S1 from mono- (n~300) and polysegmental specimens (n~290), 36 lumbar publications (Table 4); FE n=590, LB n=596, AR n=590",
+  "age": "lumbar: median 57 (18-99), mean 56 ± 16",
+  "sex": "lumbar: 215 F / 345 M (36 n.a.)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pure moments 7.5 Nm (lumbar) without axial preload; five uncontrolled DOF unconstrained (gimbal on travelling gantry with balancing weights); caudal end rigidly fixed, cranial end to gimbal; PMMA half-embedding; quasi-static 0.5-1 deg/s; 3.5 cycles, 3rd full cycle evaluated; ROM and NZ from the hysteresis curve (zero points by polynomial fit); rotations by RVDT, goniometric linkage, Zebris ultrasound or Vicon (<=0.1 deg). Outliers beyond 2 SD excluded.",
+  "how_to_simulate": [
+   "Fix the caudal vertebra of the FSU; cranial vertebra free in all DOF; no preload",
+   "Apply ±7.5 Nm pure moments in flexion/extension, left/right lateral bending, left/right axial rotation (3 cycles; evaluate 3rd)",
+   "Report full-range ROM (sum of both directions) and NZ at 0 Nm per plane",
+   "Compare with median ± MAD of the level"
+  ],
+  "subject_model": null,
+  "notes": "ROM and NZ are both-direction totals. Per-level data mix monosegmental and polysegmental specimens (polysegmental ROM at L4-L5 is 10-27% lower, Fig 6). Thoracic (5 Nm, ± rib cage) and cervical (2.5 Nm) data exist in the paper but belong to other groups."
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.54,
+   "n": 93,
+   "mad": 0.67
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.73,
+   "n": 92,
+   "mad": 0.66
+  },
+  {
+   "x": "axial_rotation_total",
+   "load": "±7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.39,
+   "n": 94,
+   "mad": 0.21
+  }
+ ],
+ "extraction": {
+  "from": "Figure 3 (horizontal bars, lumbar rows)",
+  "method": "digitised_figure",
+  "uncertainty": "±0.1 deg (1 px = 0.034 deg at 400 dpi; outline ~2 px); MAD = mean half-width of whisker, ±0.1 deg",
+  "checked": true,
+  "check_notes": "Gridlines calibrated per panel (0-20 deg); medians read as bar-end outline position, cross-checked with a second (saturation) method within 0.05 deg; L4-L5 FE median 10.33 consistent with Heuer 2007a (6.19+4.10=10.29) and with mono/poly means of Fig 6 (n-weighted 10.32)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-median| <= 1.5 MAD (~1 SD)"
+ },
+ "combine_group": "fe_rom_lumbar_fsu__nz__l3_l4__intact__7_5nm",
+ "shared_sample_with": [
+  "wilke2025 sources at L3-L4: incl. Quint 1998b/2008, Rohlmann 2001, Wilke 2006/2012, ...",
+  "kettler2011: same Ulm database (L1-L2..L4-L5)"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "database",
+  "median",
+  "neutral zone"
+ ]
+}

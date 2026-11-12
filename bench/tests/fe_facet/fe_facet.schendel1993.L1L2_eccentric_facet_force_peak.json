@@ -20,8 +20,8 @@
   "year": 1993,
   "journal": "J Biomech 26(4/5):427-438",
   "doi": "",
-  "n": "5 specimens (human L1-L2 FSUs; facet data from 4)",
-  "sample": "5 fresh human L1-L2 motion segments (from T12-L3 sections); strain gauges failed in one, so facet force n=4",
+  "n": 5,
+  "sample": "5 specimens (human L1-L2 FSUs; facet data from 4); 5 fresh human L1-L2 motion segments (from T12-L3 sections); strain gauges failed in one, so facet force n=4",
   "age": "38-70 (63, 38, 70, 68, 67)",
   "sex": "3 F, 2 M",
   "height_cm": null,
@@ -99,7 +99,7 @@
   "template": true,
   "rule": "model facet force <= reported value + 30% at the given load (indicative only)"
  },
- "combine_group": "fe_facet__facet_force__L1-L2__eccentric_compression__peak",
+ "combine_group": "fe_facet__facet_force__l1_l2__eccentric_compression__peak",
  "shared_sample_with": [
   "fe_facet.schendel1993.L1L2_eccentric_facet_force_slope"
  ],

@@ -1,0 +1,115 @@
+{
+ "id": "fe_resection_thoracic.mannen2018.T1T4_ribcage_removed_fl400n_nz_stiffness_5nm_fl400n",
+ "title": "T1-T4 NZS after rib cage removal with 400 N follower load (Mannen 2018)",
+ "layer": "outcome",
+ "category": "fe_resection_thoracic",
+ "subcategory": "rib cage removal with follower load",
+ "region": "thoracic",
+ "levels": [
+  "T1-T4"
+ ],
+ "condition": "ribcage_removed_fl400n",
+ "quantity": {
+  "name": "NZS",
+  "definition": "neutral-zone stiffness (slope of moment-angle curve in that zone), 3rd cycle",
+  "unit": "Nm/deg"
+ },
+ "source": {
+  "short": "Mannen 2018",
+  "authors": "Mannen EM, Friis EA, Sis HL, Wong BM, Cadel ES, Anderson DE",
+  "year": 2018,
+  "journal": "J Mech Behav Biomed Mater 84:258-264 (author manuscript)",
+  "doi": "10.1016/j.jmbbm.2018.05.019",
+  "n": 8,
+  "sample": "8 fresh-frozen human T1-T12 thoracic spines, tested with intact rib cage and after rib cage removal (same specimens as Sis 2016 / Anderson 2016)",
+  "age": "66.9 +/- 4.4 y",
+  "sex": "4 M, 4 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T1-T12, T1/T12 potted; 400 N follower load (cables through ball-joint rods in vertebral bodies T3-T11); pure moment +/-5 Nm at T1, 1 deg/s, 5 cycles, 3rd analysed; tested with rib cage intact (data = Sis 2016 400 N) and after removal of the entire rib cage. Optotrak pins at T1, T4, T8 (T12 potted).",
+  "how_to_simulate": [
+   "Model T1-T12 ligamentous spine WITHOUT rib cage; fix T12",
+   "Apply 400 N follower load along the spinal curvature (T1-T11), then pure moments +/-5 Nm at T1 in LB, FE, AR",
+   "Report rotation between the tracked vertebrae of the region"
+  ],
+  "subject_model": null,
+  "notes": "Only the rib-cage-removed condition is written here: the intact-rib-cage values in Table 1/2 are the same data as Sis 2016 400 N regional values (identical except Lower LB ROM 5.14 vs 5.07 and Lower AR ROM 12.16 vs 12.2)."
+ },
+ "data": [
+  {
+   "x": "LB_total",
+   "load": "5 Nm + 400 N follower",
+   "mean": 3.12,
+   "sd": 3.04,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "FE_total",
+   "load": "5 Nm + 400 N follower",
+   "mean": 1.29,
+   "sd": 1.09,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm + 400 N follower",
+   "mean": 0.51,
+   "sd": 0.31,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (No Ribs rows)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read from text layer."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__nz_stiffness__upper_t1-t4__ribcage_removed_fl400n__5nm_fl400n",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "follower load",
+  "stiffness"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "none"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "5, 3rd analysed",
+  "branch": "zone slopes",
+  "preload": "400 N follower load",
+  "device": "Applied Test Systems spine tester"
+ },
+ "resection": {
+  "step_index": 1,
+  "step_name": "rib cage removed",
+  "sequence": [
+   "rib cage intact",
+   "rib cage removed"
+  ],
+  "cumulative": true
+ },
+ "specimen_levels": "T1-T12",
+ "shared_sample_with": [
+  "fe_rom_thoracic.sis2016.* (same specimens)"
+ ]
+}

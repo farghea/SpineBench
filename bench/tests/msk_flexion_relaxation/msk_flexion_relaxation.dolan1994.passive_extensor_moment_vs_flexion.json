@@ -1,0 +1,331 @@
+{
+ "id": "msk_flexion_relaxation.dolan1994.passive_extensor_moment_vs_flexion",
+ "title": "Dolan 1994: 'passive' (EMG-silent) lumbar extensor moment vs % lumbar flexion, men and women",
+ "subcategory": "passive extensor moment at EMG silence",
+ "levels": [
+  "lumbar (L1-S1)"
+ ],
+ "condition": "isometric upward pulls at different amounts of lumbar flexion (calibration)",
+ "quantity": {
+  "name": "passive extensor moment I",
+  "definition": "intercept of the extensor moment-EMG relationship = extensor moment resisted with zero erector spinae EMG (Nm), averaged over all pulls in each % lumbar flexion band; mean (SEM)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Dolan 1994",
+  "authors": "Dolan P, Mannion AF, Adams MA",
+  "year": 1994,
+  "journal": "J Biomech 27(8):1077-1085 (PII 0021-9290(93)E0012-E)",
+  "doi": "",
+  "n": 149,
+  "sample": "149 healthy volunteers (126 women, mostly nurses; 23 men), no severe LBP history",
+  "age": "W 27.6 (18-45); M 30.6 (22-39)",
+  "sex": "23M/126F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "6-12 isometric calibrations per subject from slightly lordotic to fully flexed.",
+  "how_to_simulate": [
+   "Scale to the sex-specific mean in protocol.subject_model",
+   "Impose lumbar flexion = flexion_pct x the subject's lumbar range (53-57 deg)",
+   "Output: the extensor moment carried by passive tissues (ligaments, disc, passive muscle) at L1-S1 with all extensor muscles inactive",
+   "Compare with data[].mean (also usable as trunk_passive_invivo)"
+  ],
+  "subject_model": {
+   "women": {
+    "n": 126,
+    "age": 27.6,
+    "weight_kg": 61.9,
+    "height_cm": 165,
+    "lumbar_rof_deg": 56.8,
+    "em_max_Nm": 245,
+    "sd": {
+     "age": 5.8,
+     "weight_kg": 8.1,
+     "height_cm": 6,
+     "lumbar_rof_deg": 8.9,
+     "em_max_Nm": 51
+    }
+   },
+   "men": {
+    "n": 23,
+    "age": 30.6,
+    "weight_kg": 77.7,
+    "height_cm": 179,
+    "lumbar_rof_deg": 53.3,
+    "em_max_Nm": 430,
+    "sd": {
+     "age": 5.3,
+     "weight_kg": 9.2,
+     "height_cm": 7,
+     "lumbar_rof_deg": 7.7,
+     "em_max_Nm": 116
+    }
+   },
+   "source": "Dolan 1994 Table 1 (page image; pdftotext garbled several entries: men height SD 7, ROF SD 7.7, EMmax range 272-640, women ROF range 33.7-74.8)"
+  },
+  "notes": "EMG: surface electrodes over the left erector spinae belly at T10 and L3 (raw EMG used only inside each subject's own EMG-moment calibration; the passive moment I is the EM-axis intercept). Lumbar flexion from the 3-Space Isotrak (sensors over L1 and S1 spinous processes), expressed as % of the range erect standing -> full toe-touch flexion. Isometric pulls on a floor load cell in a frame (thighs against a crossbar, hips strapped). Regressions: women I = 4.91e-5 F^3 + 0.7573 B - 24.8 (R2 0.321); men I = 7.97e-5 F^3 + 12.9 (R2 0.389), F = % flexion, B = body mass (kg). Could equally be filed under trunk_passive_invivo."
+ },
+ "data": [
+  {
+   "x": "women, flexion <40% (average 31.7%)",
+   "load": "none",
+   "mean": 27.4,
+   "sd": 3.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 31.7,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 40-50% (average 46.0%)",
+   "load": "none",
+   "mean": 28.1,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 46.0,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 50-60% (average 55.4%)",
+   "load": "none",
+   "mean": 30.5,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 55.4,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 60-70% (average 64.7%)",
+   "load": "none",
+   "mean": 35.5,
+   "sd": 1.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 64.7,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 70-80% (average 75.0%)",
+   "load": "none",
+   "mean": 39.7,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 75.0,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 80-90% (average 85.2%)",
+   "load": "none",
+   "mean": 48.6,
+   "sd": 2.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 85.2,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 90-95% (average 92.1%)",
+   "load": "none",
+   "mean": 59.6,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 92.1,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion 95-100% (average 97.0%)",
+   "load": "none",
+   "mean": 71.0,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 97.0,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "women, flexion >100% (average 102.4%)",
+   "load": "none",
+   "mean": 76.7,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 102.4,
+   "sex": "F",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion <40% (average 33.4%)",
+   "load": "none",
+   "mean": 19.8,
+   "sd": 9.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 33.4,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 40-50% (average 46.2%)",
+   "load": "none",
+   "mean": 20.0,
+   "sd": 4.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 46.2,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 50-60% (average 56.4%)",
+   "load": "none",
+   "mean": 33.8,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 56.4,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 60-70% (average 64.6%)",
+   "load": "none",
+   "mean": 42.7,
+   "sd": 6.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 64.6,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 70-80% (average 74.5%)",
+   "load": "none",
+   "mean": 43.3,
+   "sd": 6.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 74.5,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 80-90% (average 84.2%)",
+   "load": "none",
+   "mean": 31.8,
+   "sd": 9.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 84.2,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 90-95% (average 92.0%)",
+   "load": "none",
+   "mean": 72.3,
+   "sd": 9.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 92.0,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion 95-100% (average 97.3%)",
+   "load": "none",
+   "mean": 84.0,
+   "sd": 8.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 97.3,
+   "sex": "M",
+   "spread": "SEM"
+  },
+  {
+   "x": "men, flexion >100% (average 102.4%)",
+   "load": "none",
+   "mean": 120.5,
+   "sd": 9.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "flexion_pct": 102.4,
+   "sex": "M",
+   "spread": "SEM"
+  }
+ ],
+ "extraction": {
+  "from": "Dolan 1994 Table 2 (and Table 1 for subjects)",
+  "method": "table",
+  "uncertainty": "'sd' holds the SEM over pulls (not subjects); per-band n of pulls not given",
+  "checked": true,
+  "check_notes": "Table 2 checked against the page image (p.1081). Table 1 corrected from the image (see subject_model.source)."
+ },
+ "combine_group": "msk_flexion_relaxation__passive_extensor_moment__lumbar__isometric_flexed_postures__none",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.dolan1994.lifting_peak_moment_passive_share"
+ ],
+ "tags": [
+  "in vivo",
+  "passive moment",
+  "healthy",
+  "SEM",
+  "trunk_passive_invivo"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

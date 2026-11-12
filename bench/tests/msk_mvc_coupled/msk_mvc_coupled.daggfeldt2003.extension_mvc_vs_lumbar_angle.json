@@ -1,0 +1,130 @@
+{
+ "layer": "outcome",
+ "category": "msk_mvc_coupled",
+ "region": "lumbar",
+ "levels": [
+  "L5-S1"
+ ],
+ "condition": "in vivo healthy",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "tags": [
+  "in vivo",
+  "MVC",
+  "extension",
+  "side-lying",
+  "posture effect",
+  "male"
+ ],
+ "id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+ "title": "Maximal voluntary back-extension moment about L5/S1 at five lumbar flexion-extension angles (side-lying swivel table), males",
+ "subcategory": "primary MVC moment vs lumbar posture",
+ "source": {
+  "short": "Daggfeldt 2003",
+  "authors": "Daggfeldt K, Thorstensson A",
+  "year": 2003,
+  "journal": "J Biomech 36:815-825",
+  "doi": "10.1016/S0021-9290(03)00015-0",
+  "n": 4,
+  "sample": "4 healthy tall males (chosen for MR resolution)",
+  "age": "27±3.0",
+  "sex": "M",
+  "height_cm": "190±7",
+  "weight_kg": "82.5±7.6"
+ },
+ "quantity": {
+  "name": "maximal voluntary isometric extension moment",
+  "definition": "group mean (SD) maximal static back-extension torque about the L5/S1 disc (placed over the swivel-table centre of rotation)",
+  "unit": "Nm"
+ },
+ "protocol": {
+  "summary": "Subjects lying on their right side; pelvis and straight legs tightly fixed to a vertical board; back fixed to another board on a swivel table whose centre of rotation was under the L5/S1 disc; torque from a force transducer on a wire fixing the swivel table (known lever arm). Five angles between leg/pelvis board and trunk board: -45, -30, -10, +10, +20 deg (positive = lumbar extension). IAP measured simultaneously (oesophageal-gastric transducer).",
+  "how_to_simulate": [
+   "Side-lying (gravity acting laterally, so no sagittal gravitational moment), pelvis and legs fixed",
+   "Set lumbar flexion-extension angle between pelvis and trunk to -45, -30, -10, +10, +20 deg (MR: -34.7±5.6 deg swivel ≈ T11-S1 angle 18.6 deg; +20 deg ≈ T11-S1 73.3 deg)",
+   "Maximal voluntary back extension against the trunk board",
+   "Compare predicted maximal extension moment about L5-S1 with mean ± SD; check the ~2.7x increase from +20 to -45 deg"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 27,
+   "height_cm": 190,
+   "weight_kg": 82.5,
+   "disc_area_mm2": null,
+   "source": "Methods 2.1"
+  },
+  "notes": "Signs of angles reconstructed from text ('positive angular direction coincides with lumbar back extension'; minus signs lost in PDF text layer, confirmed on Fig 2 axis labels). The IAP-generated torque in Fig 2 is a model output (not stored). Measured IAP 12-19 kPa at maximal effort (Fig 3) not stored here."
+ },
+ "data": [
+  {
+   "x": "swivel table -45 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 297.6,
+   "sd": 48.1,
+   "n": 4,
+   "from": "Fig 2",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "swivel table -30 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 289.6,
+   "sd": 50.5,
+   "n": 4,
+   "from": "Fig 2",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "swivel table -10 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 239.6,
+   "sd": 24.2,
+   "n": 4,
+   "from": "Fig 2",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "swivel table +10 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 178.0,
+   "sd": 35.8,
+   "n": 4,
+   "from": "Fig 2",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "swivel table +20 deg",
+   "component": "primary",
+   "sex": "M",
+   "mean": 109.2,
+   "sd": 17.8,
+   "n": 4,
+   "from": "text (Fig 8 caption: 109.2±17.8 Nm at the most extended position = swivel +20 deg); Fig 2 digitised 108.9±15.9",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2 (bars), Fig 8 caption text",
+  "method": "digitised_figure",
+  "uncertainty": "±3 Nm (1.26 px/Nm at 200 dpi)",
+  "checked": true,
+  "check_notes": "Bars digitised by pixel analysis (tick calibration 0-350 Nm). Cross-check: -45/+20 ratio 297.6/109.2 = 2.72 vs text '2.7 times'; +20 deg bar 108.9±15.9 vs caption 109.2±17.8 (caption used)."
+ },
+ "combine_group": "msk_mvc_coupled__mvc_moment__l5s1__side_lying_swivel_table_male__extension_vs_lumbar_angle"
+}

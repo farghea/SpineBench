@@ -1,0 +1,315 @@
+{
+ "id": "kinematics.ghasemi2021.lp_ratio_lateral_bending_normal",
+ "title": "Lumbopelvic ratio L/P vs % trunk motion, right and left lateral bending, normal-weight young males",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "thorax-pelvis",
+  "pelvis"
+ ],
+ "condition": "normal-weight healthy males, standing, right and left lateral bending",
+ "quantity": {
+  "name": "lumbopelvic ratio L/P",
+  "definition": "total lumbar rotation / total pelvis rotation at 10% steps of full trunk motion (cumulative from upright)",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Ghasemi 2021",
+  "authors": "Ghasemi M, Arjmand N",
+  "year": 2021,
+  "journal": "J Biomech 123:110539",
+  "doi": "10.1016/j.jbiomech.2021.110539",
+  "n": 18,
+  "sample": "18 young healthy males: 9 normal-weight (BMI 23.9 SD 1.3) and 9 age/height-matched obese (BMI 35.3 SD 2.6); no recent back pain",
+  "age": "normal-weight 23.6 (SD 1.1) y; obese 26.9 (SD 3.9) y",
+  "sex": "male",
+  "height_cm": "normal-weight 178.1 (SD 5.7); obese 176.6 (SD 4.0)",
+  "weight_kg": "normal-weight 75.9 (SD 7.1); obese 110.1 (SD 10.6)"
+ },
+ "protocol": {
+  "summary": "L/P at ten intervals of trunk motion during maximal voluntary right and left lateral bending (Fig 6cd), normal-weight group.",
+  "how_to_use": [
+   "Normalise the target trunk angle by the full trunk RoM in that direction (kinematics.ghasemi2021.rom_trunk_normal) and pick the 10% interval.",
+   "Split the pelvis+lumbar rotation as pelvis = trunk/(1+L/P), lumbar = trunk - pelvis (here trunk = thorax vs lab, lumbar = thorax vs pelvis, so trunk = pelvis + lumbar).",
+   "L/P is cumulative (total angles from upright), not incremental; interpolate linearly between interval end points.",
+   "For obese subjects use the obese test (lateral bending and right axial rotation ratios ~37% lower).",
+   "Use SD for robustness runs; data are young males only."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "10-camera Vicon, Plug-in-Gait markers + thoracic (C7,T10,CLAV,STRN) and pelvic (ASIS/PSIS) clusters; XYZ Euler angles of thorax and pelvis vs lab, lumbar = thorax relative to pelvis",
+   "posture": "standing, knees extended, no feet pivoting",
+   "task": "maximal voluntary flexion, extension, right/left lateral bending, right/left axial rotation from relaxed upright standing, unloaded"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "L/P = total lumbar rotation / total pelvis rotation (both cumulative from upright, in the plane of motion), at 10..100% of the full trunk motion (same in-house code as Tafazzol 2014 / Narimani 2018). Several normal-weight lower caps hidden behind obese bars; SD from upper cap then. Group effect significant (p~0.02, ~37% lower in obese) for right/left lateral bending and right axial rotation; not significant for flexion, extension, left rotation (Table 1 ANOVA). No group x interval interaction."
+ },
+ "data": [
+  {
+   "x": "10% of full trunk motion",
+   "load": null,
+   "mean": 5.82,
+   "sd": 2.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "20% of full trunk motion",
+   "load": null,
+   "mean": 5.69,
+   "sd": 2.43,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "30% of full trunk motion",
+   "load": null,
+   "mean": 5.69,
+   "sd": 2.43,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "40% of full trunk motion",
+   "load": null,
+   "mean": 5.54,
+   "sd": 2.28,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "50% of full trunk motion",
+   "load": null,
+   "mean": 5.31,
+   "sd": 2.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "60% of full trunk motion",
+   "load": null,
+   "mean": 5.16,
+   "sd": 2.04,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "70% of full trunk motion",
+   "load": null,
+   "mean": 5.03,
+   "sd": 1.94,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "80% of full trunk motion",
+   "load": null,
+   "mean": 4.94,
+   "sd": 1.75,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "90% of full trunk motion",
+   "load": null,
+   "mean": 4.9,
+   "sd": 1.55,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "100% of full trunk motion",
+   "load": null,
+   "mean": 4.69,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "10% of full trunk motion",
+   "load": null,
+   "mean": 5.72,
+   "sd": 2.16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "20% of full trunk motion",
+   "load": null,
+   "mean": 5.41,
+   "sd": 2.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "30% of full trunk motion",
+   "load": null,
+   "mean": 4.97,
+   "sd": 1.74,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "40% of full trunk motion",
+   "load": null,
+   "mean": 4.72,
+   "sd": 1.68,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "50% of full trunk motion",
+   "load": null,
+   "mean": 4.67,
+   "sd": 1.68,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "60% of full trunk motion",
+   "load": null,
+   "mean": 4.67,
+   "sd": 1.83,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "70% of full trunk motion",
+   "load": null,
+   "mean": 4.76,
+   "sd": 2.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "80% of full trunk motion",
+   "load": null,
+   "mean": 4.86,
+   "sd": 2.33,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "90% of full trunk motion",
+   "load": null,
+   "mean": 4.78,
+   "sd": 2.49,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "100% of full trunk motion",
+   "load": null,
+   "mean": 4.4,
+   "sd": 2.29,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "phase": "left lateral bending"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6c/d",
+  "method": "digitised_figure",
+  "uncertainty": "6c: means ±0.05, SD ±0.15 (47 px per unit); 6d: means ±0.05, SD ±0.15 (47 px per unit)",
+  "checked": true,
+  "check_notes": "Digitised by colour segmentation at 300 dpi (red filled circles = opened red mask centroids; open blue squares = border-template match ignoring red-covered pixels; caps = extreme rows of coloured horizontal segments). SD = half cap-to-cap distance, or |cap - mean| when one cap was hidden. Independent manual re-check: 6a obese 10% circle rows 1215-1238 -> 3.24 (vs 3.25); 6c normal 50% square edges 1738/1760 -> 5.31 (vs 5.31)."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__lp_ratio__lumbar-pelvis__healthy_standing__lateral_bending_by_interval",
+ "tags": [
+  "in vivo",
+  "skin markers (optical)",
+  "Vicon",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "normal weight"
+ ],
+ "shared_sample_with": []
+}

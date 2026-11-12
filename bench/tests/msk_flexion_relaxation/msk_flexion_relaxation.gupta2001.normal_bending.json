@@ -1,0 +1,223 @@
+{
+ "region": "lumbar",
+ "levels": [
+  "T1-S1 (whole trunk)"
+ ],
+ "quantity": {
+  "name": "FR angles (onset SP1 / full flexion MFF / cessation SP2)",
+  "definition": "flexion angle at the first silent position SP1 (EMG silence begins in flexion), at maximum forward flexion MFF, and at SP2 (activity resumes in extension); Angles from photographs (35 mm camera, 3 m, right side) with skin markers: Trunk angle (TA) = angle between the long axis of the thigh and the line D1 spinous process - hip-joint centre; Hip angle (HA) = angle between the pelvic plane (ASIS-PSIS line) and the thigh axis; Vertebral angle (VA) = angle between the pelvic plane and the line PSIS - D1 spinous process; all as flexion from erect (deg).",
+  "unit": "deg"
+ },
+ "id": "msk_flexion_relaxation.gupta2001.normal_bending",
+ "title": "Gupta 2001: erector spinae silence angles, normal forward bending (25 subjects)",
+ "subcategory": "FR onset/cessation angles, unloaded",
+ "condition": "standing, knees straight, bend forward to touch toes and return (10 s), no load",
+ "source": {
+  "short": "Gupta 2001",
+  "authors": "Gupta A",
+  "year": 2001,
+  "journal": "J Biomech 34:491-496 (PII S0021-9290(00)00213-X)",
+  "doi": "",
+  "n": 25,
+  "sample": "25 healthy young subjects (15 M, 10 F), no back symptoms; weighted task: 11 of the males",
+  "age": "27.4 (20-35)",
+  "sex": "15M/10F",
+  "height_cm": 158,
+  "weight_kg": 52.0
+ },
+ "protocol": {
+  "summary": "Forward bending to maximum flexion with straight knees and return; repeated twice; 10 s per task.",
+  "how_to_simulate": [
+   "Scale the model to protocol.subject_model (mixed sex; mean 158 cm, 52 kg)",
+   "Simulate quasi-static forward flexion with straight knees from erect to full flexion (trunk angle 116 deg relative to thigh line), using the measured hip/vertebral split",
+   "No hand load",
+   "Output: the vertebral (and trunk/hip) angle at which the model's lumbar erector spinae (L3 region) activation drops to ~0; compare with SP1; SP2 for the return"
+  ],
+  "subject_model": {
+   "sex": "15 M / 10 F",
+   "age": 27.4,
+   "height_cm": 158,
+   "weight_kg": 52.0,
+   "ranges": {
+    "age": "20-35",
+    "height_cm": "154-176",
+    "weight_kg": "43-75"
+   },
+   "source": "Gupta 2001 Table 1 (as printed: mean height 1.58 m, weight 52.0 kg)",
+   "weighted_task_subgroup": {
+    "n": 11,
+    "sex": "M",
+    "age": 22.8,
+    "height_cm": 165,
+    "weight_kg": 59.0,
+    "ranges": {
+     "age": "22-28",
+     "height_cm": "160-176",
+     "weight_kg": "54-75"
+    },
+    "source": "Gupta 2001 Table 2"
+   }
+  },
+  "notes": "Surface EMG bilaterally over erector spinae at the L3 spinous-process level ~5 cm from the midline (also abdominals, hamstrings, hip extensors); silence = oscilloscope amplitude dropping abruptly to zero (visual, photograph triggered); no normalisation needed (on/off only). Abstract: SP1 at 57% of max hip and 84% of max vertebral flexion; SP2 at 64% / 88% (Results p.493)."
+ },
+ "data": [
+  {
+   "x": "SP1 trunk angle",
+   "load": "none",
+   "mean": 80.3,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP1 hip angle",
+   "load": "none",
+   "mean": 39.4,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP1 vertebral angle",
+   "load": "none",
+   "mean": 47.1,
+   "sd": 5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF trunk angle",
+   "load": "none",
+   "mean": 116.2,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF hip angle",
+   "load": "none",
+   "mean": 68.8,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "MFF vertebral angle",
+   "load": "none",
+   "mean": 57.1,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP2 trunk angle",
+   "load": "none",
+   "mean": 85.6,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP2 hip angle",
+   "load": "none",
+   "mean": 44.3,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP2 vertebral angle",
+   "load": "none",
+   "mean": 50.3,
+   "sd": 4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25
+  },
+  {
+   "x": "SP1 as % of maximum hip flexion",
+   "load": "none",
+   "mean": 57,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  },
+  {
+   "x": "SP1 as % of maximum vertebral flexion",
+   "load": "none",
+   "mean": 84,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  },
+  {
+   "x": "SP2 as % of maximum hip flexion",
+   "load": "none",
+   "mean": 64,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  },
+  {
+   "x": "SP2 as % of maximum vertebral flexion",
+   "load": "none",
+   "mean": 88,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 25,
+   "unit": "%"
+  }
+ ],
+ "extraction": {
+  "from": "Gupta 2001 Table 3 (normal bending) and Results text p.493 / abstract (% values)",
+  "method": "table",
+  "uncertainty": "SD as printed (integer)",
+  "checked": true,
+  "check_notes": "Table 3 compared against the page image (p.494). Text: 'Average maximum flexion was 68.8 (SD 11) for the hip and 57.1 (SD 8) for the vertebrae' matches."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_angles_gupta_def__trunk_hip_vertebral__standing_flexion__none",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.gupta2001.pelvis_against_wall",
+  "msk_flexion_relaxation.gupta2001.weights_front_back"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG on/off",
+  "healthy"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

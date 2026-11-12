@@ -1,0 +1,243 @@
+{
+ "id": "fe_rom_lumbar_multi.rohlmann2001a.L1L5_intact_segmental_rom",
+ "title": "Intersegmental rotation under 3.75 Nm pure moments, 4-segment lumbar spine, intact",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "intact multisegment",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2/T12-L1 (above)",
+  "L2-L3, L3-L4 / L1-L2, L2-L3 (bridged)",
+  "L4-L5/L3-L4 (below)"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "intersegmental rotation in the loading plane at 3.75 Nm (one side, from unloaded neutral; LB/AR averaged L/R), 3rd cycle, median (min-max)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Rohlmann 2001a",
+  "authors": "Rohlmann A, Neller S, Bergmann G, Graichen F, Claes L, Wilke HJ",
+  "year": 2001,
+  "journal": "Eur Spine J",
+  "doi": "10.1007/s005860100295",
+  "n": 7,
+  "sample": "human cadaver lumbar spines, fresh-frozen, ligaments/capsules intact; 7 specimens (4 L1-L5, 3 T12-L4 four-segment spines)",
+  "age": "text: mean 28 (range 16-69); Table 1 ages 69, 28, 16, 28, 19, 42, 22 (mean 32)",
+  "sex": "2F, 5M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Four-segment specimens (L1-L5 or T12-L4) potted in PMMA cups; lower end fixed, upper end in a gimbal with stepper motors applying pure moments ±3.75 Nm, 1.7 deg/s, three cycles, 3rd cycle evaluated, no preload, 5 uncontrolled DOF. Moments in FE, left/right LB, left/right AR (LB and AR averaged over both sides). IDP: 1.2 mm flexible piezo-resistive sensor (MIPM) in the nucleus of all four discs (X-ray checked); intersegmental rotation in the loading plane by ultrasound motion analysis (Zebris). Conditions in order: (1) intact; (2) intact + bisegmental internal fixator bridging the middle vertebra (Schanz screws 5 mm in the 4 adjacent pedicles); (3) corpectomy of the bridged vertebra (both adjacent discs and body removed, posterior ligament and pedicles kept) with a cylindrical wooden graft + fixator; (4) corpectomy with fixator, no graft. Disc/segment positions pooled over specimens: above = L1-L2 (or T12-L1), bridged = L2-L3 & L3-L4 (or L1-L2 & L2-L3), below = L4-L5 (or L3-L4).",
+  "how_to_simulate": [
+   "Model a 4-segment lumbar spine (L1-L5); fix L5 caudal endplate, apply pure moment ±3.75 Nm at L1 in FE, LB, AR with no preload.",
+   "Simulate each condition: intact; bisegmental posterior fixator L2-L4 (bridging L3); L3 corpectomy with a rigid graft + fixator; corpectomy with fixator only.",
+   "Report for each disc the change of nucleus pressure from the unloaded state to the 3.75 Nm peak, and each segment's rotation in the loading plane (one side; LB/AR averaged L/R); compare with median and range."
+  ],
+  "subject_model": null,
+  "notes": "Changes of IDP are relative to the unloaded neutral pressure (absolute neutral ~0.09 MPa, see fe_idp_invitro.rohlmann2001a test). In bridged segments with graft/corpectomy the two bridged discs no longer exist (IDP only for intact and fixator). Bridged-segment graft and corpectomy rotations are plotted identically for both bridged segments in Figs 2-5 (as digitised)."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 2.9,
+   "max": 4.1,
+   "median": 3.6,
+   "n": 7,
+   "level": "disc/segment above"
+  },
+  {
+   "x": "flexion",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 3.01,
+   "max": 6.31,
+   "median": 3.8,
+   "n": 7,
+   "level": "bridged 1 (upper)"
+  },
+  {
+   "x": "flexion",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 2.5,
+   "max": 4.8,
+   "median": 3.2,
+   "n": 7,
+   "level": "bridged 2 (lower)"
+  },
+  {
+   "x": "flexion",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 2.5,
+   "max": 6.11,
+   "median": 3.7,
+   "n": 7,
+   "level": "disc/segment below"
+  },
+  {
+   "x": "extension",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 1.31,
+   "max": 2.2,
+   "median": 1.6,
+   "n": 7,
+   "level": "disc/segment above"
+  },
+  {
+   "x": "extension",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 1.31,
+   "max": 2.2,
+   "median": 1.7,
+   "n": 7,
+   "level": "bridged 1 (upper)"
+  },
+  {
+   "x": "extension",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 1.2,
+   "max": 2.0,
+   "median": 1.4,
+   "n": 7,
+   "level": "bridged 2 (lower)"
+  },
+  {
+   "x": "extension",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 1.1,
+   "max": 4.6,
+   "median": 1.91,
+   "n": 7,
+   "level": "disc/segment below"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 1.45,
+   "max": 3.57,
+   "median": 2.76,
+   "n": 7,
+   "level": "disc/segment above"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 2.93,
+   "max": 5.55,
+   "median": 3.57,
+   "n": 7,
+   "level": "bridged 1 (upper)"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 3.22,
+   "max": 5.77,
+   "median": 4.15,
+   "n": 7,
+   "level": "bridged 2 (lower)"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 3.03,
+   "max": 7.37,
+   "median": 4.48,
+   "n": 7,
+   "level": "disc/segment below"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 0.65,
+   "max": 1.55,
+   "median": 1.25,
+   "n": 7,
+   "level": "disc/segment above"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 0.4,
+   "max": 1.0,
+   "median": 0.55,
+   "n": 7,
+   "level": "bridged 1 (upper)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 0.3,
+   "max": 1.5,
+   "median": 0.6,
+   "n": 7,
+   "level": "bridged 2 (lower)"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "3.75 Nm pure moment",
+   "mean": null,
+   "sd": null,
+   "min": 0.4,
+   "max": 2.34,
+   "median": 1.0,
+   "n": 7,
+   "level": "disc/segment below"
+  }
+ ],
+ "extraction": {
+  "from": "Figs 2-5 (median bars, max triangles, min squares)",
+  "method": "digitised_figure",
+  "uncertainty": "bars ±0.03 deg; marker centres ±0.08 deg (Fig 2), ±0.12 (Fig 3), ±0.15 (Fig 4), ±0.05 (Fig 5) - half marker height",
+  "checked": true,
+  "check_notes": "Figures are 400 dpi CCITT images (pdfimages). Axes calibrated from tick marks; bars from top-edge rows (horizontal opening), markers by 9x9 morphological opening (triangle centre corrected +4 px for clipped apex, checked on raw pixels), missing edges re-read by row-fill scan. Every value re-checked visually against a downscaled render of each figure. Text checks: AR rotation ~1 deg per lumbar level (intact medians 0.55-1.25 deg); disc above fixator ext difference highly significant (median 0.029 -> 0.036/0.103/0.120)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max"
+ },
+ "combine_group": "fe_rom_lumbar_multi__rom__l1_l5_4seg_positions__intact__3_75nm",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multisegment",
+  "pure moment",
+  "digitised",
+  "ROM"
+ ],
+ "shared_sample_with": [
+  "rohlmann2001a: same 7 specimens in all four conditions (intact, fixator, graft, corpectomy)"
+ ]
+}

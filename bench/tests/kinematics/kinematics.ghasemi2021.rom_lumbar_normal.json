@@ -1,0 +1,152 @@
+{
+ "id": "kinematics.ghasemi2021.rom_lumbar_normal",
+ "title": "Lumbar range of motion in six directions, normal-weight young males (Vicon)",
+ "layer": "input",
+ "category": "kinematics",
+ "subcategory": "lumbopelvic rhythm",
+ "region": "lumbar",
+ "levels": [
+  "thorax-pelvis"
+ ],
+ "condition": "healthy normal-weight males, standing, maximal voluntary motion",
+ "quantity": {
+  "name": "range of motion",
+  "definition": "thorax relative to pelvis (total lumbar rotation) at maximal voluntary motion, deg",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Ghasemi 2021",
+  "authors": "Ghasemi M, Arjmand N",
+  "year": 2021,
+  "journal": "J Biomech 123:110539",
+  "doi": "10.1016/j.jbiomech.2021.110539",
+  "n": 18,
+  "sample": "18 young healthy males: 9 normal-weight (BMI 23.9 SD 1.3) and 9 age/height-matched obese (BMI 35.3 SD 2.6); no recent back pain",
+  "age": "normal-weight 23.6 (SD 1.1) y; obese 26.9 (SD 3.9) y",
+  "sex": "male",
+  "height_cm": "normal-weight 178.1 (SD 5.7); obese 176.6 (SD 4.0)",
+  "weight_kg": "normal-weight 75.9 (SD 7.1); obese 110.1 (SD 10.6)"
+ },
+ "protocol": {
+  "summary": "Normal-weight young males performed maximal voluntary motion in all six directions; lumbar RoM from Vicon Euler angles (Fig 5).",
+  "how_to_use": [
+   "Use these lumbar ranges as the end-of-range targets of the normal-weight group for each of the six directions (from upright).",
+   "Decompose the trunk angle at full range as trunk = pelvis + lumbar (flexion: 51.1 + 71.1 = 122.2 vs 122.4 deg measured, normal-weight).",
+   "For intermediate trunk angles apply the interval L/P ratios (kinematics.ghasemi2021.lp_ratio_*).",
+   "Obesity: lumbar flexion ~9 deg smaller and pelvis right lateral bending ~5 deg larger (only significant differences, p<=0.05); other directions are not different."
+  ],
+  "measurement": {
+   "method": "skin markers (optical)",
+   "device": "10-camera Vicon, Plug-in-Gait markers + thoracic (C7,T10,CLAV,STRN) and pelvic (ASIS/PSIS) clusters; XYZ Euler angles of thorax and pelvis vs lab, lumbar = thorax relative to pelvis",
+   "posture": "standing, knees extended, no feet pivoting",
+   "task": "maximal voluntary flexion, extension, right/left lateral bending, right/left axial rotation from relaxed upright standing, unloaded"
+  },
+  "equations": [],
+  "subject_model": null,
+  "notes": "Values read from bar chart; SD = half the distance between the two error-bar caps (both caps detected for all bars). Text checks: trunk flexion ~122/115, lumbar flexion ~71/62, pelvis axial rotation ~55/60, trunk extension ~48/48, pelvis lateral bending ~9/13 deg (normal/obese) – all consistent."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": null,
+   "mean": 71.1,
+   "sd": 7.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "flexion"
+  },
+  {
+   "x": "extension",
+   "load": null,
+   "mean": 30.1,
+   "sd": 9.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "extension"
+  },
+  {
+   "x": "right lateral bending",
+   "load": null,
+   "mean": 41.3,
+   "sd": 5.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "right lateral bending"
+  },
+  {
+   "x": "left lateral bending",
+   "load": null,
+   "mean": 41.3,
+   "sd": 7.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "left lateral bending"
+  },
+  {
+   "x": "right axial rotation",
+   "load": null,
+   "mean": 33.7,
+   "sd": 6.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "right axial rotation"
+  },
+  {
+   "x": "left axial rotation",
+   "load": null,
+   "mean": 32.1,
+   "sd": 6.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "group": "normal-weight",
+   "segment": "lumbar",
+   "phase": "left axial rotation"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5b",
+  "method": "digitised_figure",
+  "uncertainty": "means ±0.5 deg, SD ±1 deg (Fig 5b, 4.9 px/deg)",
+  "checked": true,
+  "check_notes": "Re-digitised with a second method (column scan of bar top and error-bar line ends): all means within 0.2 deg; sum pelvis+lumbar matches trunk within 0.3 deg for flexion in both groups."
+ },
+ "pass_rule": {
+  "template": false,
+  "rule": "input data – not graded; use for robustness checks"
+ },
+ "combine_group": "kinematics__range_of_motion__lumbar__healthy_standing__all_directions",
+ "tags": [
+  "in vivo",
+  "skin markers (optical)",
+  "Vicon",
+  "standing",
+  "healthy",
+  "male only",
+  "young adults",
+  "3D",
+  "normal weight"
+ ],
+ "shared_sample_with": []
+}

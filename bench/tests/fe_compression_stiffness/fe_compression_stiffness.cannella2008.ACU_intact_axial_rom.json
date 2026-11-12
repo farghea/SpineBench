@@ -1,0 +1,146 @@
+{
+ "id": "fe_compression_stiffness.cannella2008.ACU_intact_axial_rom",
+ "title": "Axial range of motion (tension and compression) of intact lumbar anterior column units",
+ "layer": "outcome",
+ "category": "fe_compression_stiffness",
+ "subcategory": "disc-only axial",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "anterior column unit, intact disc",
+ "quantity": {
+  "name": "axial ROM",
+  "definition": "tROM / cROM = max axial displacement in tension / compression from the neutral midpoint, 5th cycle; mean ± SD",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Cannella 2008",
+  "authors": "Cannella M, Arthur A, Allen S, Keane M, Joshi A, Vresilovic E, Marcolongo M",
+  "year": 2008,
+  "journal": "J Biomech 41:2104-2111",
+  "doi": "10.1016/j.jbiomech.2008.04.037",
+  "n": 12,
+  "sample": "12 cadaveric anterior column units in two data sets of 6 (DS1: 2 T12-L1, 2 L2-L3, 2 L4-L5; DS2: L1-L2, L2-L3, L3-L4, 3 L4-L5); human cadaver ACUs (posterior elements removed), no severe degeneration",
+  "age": "DS1 47 ± 19 y (30-64); DS2 49 ± 13 y (26-65)",
+  "sex": "3 M / 3 F per data set",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "ACUs potted in Smooth-Cast 300 on a servohydraulic frame (Instron 8874); DS2 in a Spenciner-type pure-moment jig (6-DOF load cell, XY table; ~5% off-axis loads), DS2 displacements corrected for jig stiffness (1700 N/mm, 30 Nm/deg torsion, 10 Nm/deg bending). DS1: preconditioning 50 cycles at 3% disc height (1 Hz), then axial 150 N tension to 1500 N compression, 5 cycles, 0.1 Hz; nucleus pressure needle (14 G, transducer) through the anterior annulus, tip in the nucleus at half the minor-axis length from the outer wall. DS2: preconditioning 50 cycles 50-150 N compression (1 Hz), then separately axial 150 N tension to 1000 N compression and ±7.5 Nm AR, LB, FE, 5 sinusoidal cycles at 0.1 Hz. 5th cycle analysed. Neutral position = midpoint of zero-load positions of loading/unloading; NZ = difference between loading and unloading curves at zero load (Wilke 1998); ROM = maximum displacement/rotation in one direction from neutral.",
+  "how_to_simulate": [
+   "Model a lumbar disc-only unit; fix the inferior body",
+   "Apply axial load from 150 N tension to 1000 N (DS2) or 1500 N (DS1) compression, 0.1 Hz, 5 cycles",
+   "Report compressive and tensile ROM (max displacement from the neutral midpoint) and axial NZ (loading-unloading gap at zero load) in mm"
+  ],
+  "notes": "Resection steps (posterolateral 2 mm automated Nucleotome, under 50 N compression): DS1 intact -> intact with pressure needle -> denucleation 5, 10, 15, 20 min cumulative (dry nucleus removed ~37/60/84/100% of the 20-min amount; 20 min ≈ 0.15 g dry); DS2 intact -> single 20-min denucleation. Values after denucleation are normalised to the same specimen's intact value (relative, not absolute).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "tension",
+   "load": "150 N tension / 1500 N compression",
+   "mean": 0.34,
+   "sd": 0.15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS1 ACUs pooled",
+   "note": "intact"
+  },
+  {
+   "x": "compression",
+   "load": "150 N tension / 1500 N compression",
+   "mean": 0.98,
+   "sd": 0.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS1 ACUs pooled",
+   "note": "intact"
+  },
+  {
+   "x": "tension",
+   "load": "150 N tension / 1500 N compression",
+   "mean": 0.33,
+   "sd": 0.19,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS1 ACUs pooled",
+   "note": "intact with pressure needle"
+  },
+  {
+   "x": "compression",
+   "load": "150 N tension / 1500 N compression",
+   "mean": 0.98,
+   "sd": 0.16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS1 ACUs pooled",
+   "note": "intact with pressure needle"
+  },
+  {
+   "x": "tension",
+   "load": "150 N tension / 1000 N compression",
+   "mean": 0.61,
+   "sd": 0.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS2 ACUs pooled",
+   "note": "intact"
+  },
+  {
+   "x": "compression",
+   "load": "150 N tension / 1000 N compression",
+   "mean": 1.04,
+   "sd": 0.38,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "level": "DS2 ACUs pooled",
+   "note": "intact"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read Table 2 from the page image: values confirmed (OCR rendered ± as 7)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_compression_stiffness__axial_rom__lumbar_pooled__disc_only_acu__150_1500n",
+ "shared_sample_with": [
+  "fe_rom_lumbar_fsu.cannella2008.ACU_intact_rom",
+  "fe_rom_lumbar_fsu.cannella2008.ACU_intact_nz",
+  "fe_compression_stiffness.cannella2008.ACU_intact_axial_nz",
+  "fe_idp_invitro.cannella2008.ACU_intact_idp_abs",
+  "fe_idp_invitro.cannella2008.ACU_intact_idp_load_slope",
+  "fe_resection_lumbar.cannella2008.ACU_denucleation_axial_rel",
+  "fe_idp_invitro.cannella2008.ACU_denucleation_idp_rel",
+  "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "disc only",
+  "axial"
+ ]
+}

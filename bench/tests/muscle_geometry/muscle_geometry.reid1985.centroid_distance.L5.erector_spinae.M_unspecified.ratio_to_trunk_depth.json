@@ -1,0 +1,92 @@
+{
+ "id": "muscle_geometry.reid1985.centroid_distance.L5.erector_spinae.M_unspecified.ratio_to_trunk_depth",
+ "title": "Reid 1985: centroid distance of erector spinae at L5 (M, unspecified)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L5"
+ ],
+ "condition": "M_unspecified_ratio_to_trunk_depth",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "",
+ "sex": "M",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "CT (archival)",
+  "plane": "transverse scans at 0.5-2.0 cm intervals from xiphoid to symphysis pubis, normalised to 15 slices per subject",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle between xiphoid and pubis (average over slices)",
+  "posture_detail": "not stated (archival CT, presumably supine)"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm; distance of muscle from the vertebral centreline divided by AP trunk depth measured at L5 (level of the distance measurement assumed to be L5; not stated explicitly)",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Reid 1985",
+  "authors": "Reid JG, Costigan PA",
+  "year": 1985,
+  "journal": "J Orthop Sports Phys Ther 6(5):278-280",
+  "doi": "",
+  "n": 28,
+  "sample": "28 living subjects (16 M, 12 F); archival CT scans",
+  "age": "M 54.6 (15.1), F 52.1 (16.1) y",
+  "sex": "16M/12F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "At L5, take the model muscle centroid AP distance from the vertebral body centre (transverse plane).",
+   "Divide by the model/subject AP trunk depth at L5 and compare the ratio."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 54.6,
+   "height_cm": 172.6,
+   "weight_kg": 74.7,
+   "disc_area_mm2": null,
+   "n": 10,
+   "source": "Table 1"
+  },
+  "notes": "Dimensionless ratio; the paper calls it the moment-arm ratio (centroid distance, not a true moment arm)."
+ },
+ "data": [
+  {
+   "x": "AP_ratio_to_trunk_depth",
+   "side": "unspecified",
+   "mean": -0.293,
+   "sd": 0.054,
+   "min": -0.38,
+   "max": -0.2,
+   "median": null,
+   "n": 10,
+   "as_reported": "0.293 (0.054), range 0.2-0.38",
+   "note": "sign set negative (posterior)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 4",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Values verified on rendered pages 279-280. Text prints ES total 31.74 and right 15.72 cm2; Table 2 prints 31.75 and 15.73 (table used)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__l5_erector_spinae__m_unspecified_ratio_to_trunk_depth__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "CT",
+  "ratio"
+ ]
+}

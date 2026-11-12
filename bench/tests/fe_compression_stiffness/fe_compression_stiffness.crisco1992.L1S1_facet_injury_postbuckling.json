@@ -1,0 +1,128 @@
+{
+ "id": "fe_compression_stiffness.crisco1992.L1S1_facet_injury_postbuckling",
+ "title": "Post-buckling frontal-plane vertebral rotations at 78 N vertical load - L5-S1 disc injured + L5 inferior facets removed (FAC)",
+ "layer": "outcome",
+ "category": "fe_compression_stiffness",
+ "subcategory": "post-buckling rotation",
+ "region": "lumbar",
+ "levels": [
+  "L1-S1"
+ ],
+ "condition": "L5-S1 disc injured + L5 inferior facets removed (FAC)",
+ "quantity": {
+  "name": "post-buckling lateral rotation",
+  "definition": "frontal-plane rotation theta_k (L1..L5) at the maximum applied load 78 N; mean (SD) of the whole lumbar specimens",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Crisco 1992",
+  "authors": "Crisco JJ, Panjabi MM, Yamamoto I, Oxland TR",
+  "year": 1992,
+  "journal": "Clin Biomech 7:27-32",
+  "doi": "",
+  "n": 6,
+  "sample": "6 fresh-frozen ligamentous lumbar spines (3 L2-S1, 3 L1-S1); human cadaver whole lumbar spines, muscles removed",
+  "age": "mean 55 y (range 50-62)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Sacrum and most superior vertebra cast in polyester resin; specimen oriented with L4 superior endplate horizontal. Vertical axial dead-weight load applied to the superior vertebra (via loading jig, counterweights cancel jig/mounting weight), increased in 20 or 40 N steps, 30 s hold per step; superior vertebra free to move in the frontal plane but restrained in anterior-posterior translation by linear bearings (sagittal buckling prevented). Frontal-plane rotations of each vertebra by stereophoto/radiogrammetry. Buckling load = load at which at least one vertebra rotated > 1.2 deg (upper bound, discrete steps). Conditions in order: intact (INT), L5-S1 disc injury (DISC), plus removal of L5 inferior facets (FAC).",
+  "how_to_simulate": [
+   "Model ligamentous L1-S1 (or L2-S1); fix sacrum; orient so the L4 superior endplate is horizontal",
+   "Apply a vertical (non-follower) compressive dead load to the superior vertebra; let the top vertebra translate/rotate freely in the frontal plane but block anterior-posterior translation",
+   "Increase load in 20-40 N steps; find the load at which any vertebra rotates > 1.2 deg laterally (buckling); report frontal-plane rotations after buckling",
+   "Repeat after L5-S1 disc injury and after removing the L5 inferior facets (injury details in Crisco 1992 Part I)"
+  ],
+  "notes": "Buckling loads are upper bounds (discrete dead-weight steps). Specimen 5 has no intact value. Postbuckling rotation definition: frontal-plane rotation theta_k of vertebra Lk as reported in Tables 4-6 (relative vertebral rotation; theta_5 is L5 on S1).",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "lateral_rotation",
+   "load": "78 N vertical dead load (post-buckling)",
+   "mean": 1.7,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L1 (theta1)",
+   "note": "Table 6; n not stated"
+  },
+  {
+   "x": "lateral_rotation",
+   "load": "78 N vertical dead load (post-buckling)",
+   "mean": 3.5,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L2 (theta2)",
+   "note": "Table 6; n not stated"
+  },
+  {
+   "x": "lateral_rotation",
+   "load": "78 N vertical dead load (post-buckling)",
+   "mean": 3.4,
+   "sd": 1.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L3 (theta3)",
+   "note": "Table 6; n not stated"
+  },
+  {
+   "x": "lateral_rotation",
+   "load": "78 N vertical dead load (post-buckling)",
+   "mean": 3.7,
+   "sd": 2.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L4 (theta4)",
+   "note": "Table 6; n not stated"
+  },
+  {
+   "x": "lateral_rotation",
+   "load": "78 N vertical dead load (post-buckling)",
+   "mean": 7.2,
+   "sd": 4.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "level": "L5 (theta5)",
+   "note": "Table 6; n not stated"
+  }
+ ],
+ "extraction": {
+  "from": "Table 6",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Re-read Table 6 experiment row from page image: all 5 mean (SD) pairs confirmed. Model rows (linear/exponential theory) not extracted."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD; rotation largest at L5 after injury"
+ },
+ "combine_group": "fe_compression_stiffness__postbuckling_rotation__l1_s1__facet_injury__vertical_78n",
+ "shared_sample_with": [
+  "fe_compression_stiffness.crisco1992.L1S1_L2S1_intact_buckling",
+  "fe_compression_stiffness.crisco1992.L1S1_L2S1_disc_injury_buckling",
+  "fe_compression_stiffness.crisco1992.L1S1_L2S1_facet_injury_buckling"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "buckling",
+  "vertical load",
+  "injury"
+ ]
+}

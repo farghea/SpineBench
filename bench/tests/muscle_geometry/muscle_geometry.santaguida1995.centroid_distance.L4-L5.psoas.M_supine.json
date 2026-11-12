@@ -1,0 +1,104 @@
+{
+ "id": "muscle_geometry.santaguida1995.centroid_distance.L4-L5.psoas.M_supine",
+ "title": "Santaguida 1995: centroid distance of psoas major at L4-L5 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "centroid_distance",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_supine",
+ "muscle": "psoas",
+ "muscle_as_reported": "psoas major, right side",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI Philips Gyroscan 1.5 T, spin echo TR 500 TE 20",
+  "plane": "transverse slices 10 mm apart T12-mid sacrum; values given at disc levels",
+  "slice_thickness_mm": 5,
+  "level_definition": "intervertebral disc",
+  "posture_detail": "supine, neutral lumbar curvature (knees extended)"
+ },
+ "quantity": {
+  "name": "centroid_distance",
+  "definition": "distance from the vertebral-body (or disc) centroid to the muscle area centroid in the image plane; AP signed (+ anterior, - posterior), ML unsigned lateral distance. NOT a true moment arm",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Santaguida 1995",
+  "authors": "Santaguida PL, McGill SM",
+  "year": 1995,
+  "journal": "J Biomech 28(3):339-345",
+  "doi": "",
+  "n": 15,
+  "sample": "15 males (MRI) + 7 male embalmed cadavers; MRI: young healthy men (same demographics as McGill 1993: 25.3 y, 176.1 cm, 81.5 kg; very likely the same subjects); cadavers for architecture",
+  "age": "25.3 (3.6) y (MRI)",
+  "sex": "M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine (neutral lordosis).",
+   "At the L4-L5 disc, take the PCSA-weighted centroid of the right psoas paths in the transverse plane.",
+   "Report X (lateral) and Y (AP, + anterior) from the disc centre; centroid distance, not moment arm."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 25.3,
+   "height_cm": 176.1,
+   "weight_kg": 81.5,
+   "disc_area_mm2": null,
+   "n": 15,
+   "source": "Methods (SD 3.6 y, 6.8 cm, 10.7 kg)"
+  },
+  "notes": "Authors call these X/Y moment arms (disc centroid to muscle centroid). No effect of lordosis (flexed/neutral/extended, n=5 subset) was found (values not tabulated)."
+ },
+ "data": [
+  {
+   "x": "AP",
+   "side": "right",
+   "mean": 1.4,
+   "sd": 3.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "Y 1.4±3.5 mm, range -6.5 to 8.4"
+  },
+  {
+   "x": "ML",
+   "side": "right",
+   "mean": 49.5,
+   "sd": 4.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "as_reported": "X 49.5±4.1 mm, range 43.83-60.59"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Verified on rendered page 343; the L5/S1 X range upper bound partly illegible in text layer (47.7-66.39)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__centroid_distance__l4_l5_psoas__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "centroid_distance",
+  "in vivo",
+  "MRI",
+  "supine",
+  "sample:waterloo_mri_15"
+ ]
+}

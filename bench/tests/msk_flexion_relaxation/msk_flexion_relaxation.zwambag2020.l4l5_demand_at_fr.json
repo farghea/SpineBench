@@ -1,0 +1,212 @@
+{
+ "id": "msk_flexion_relaxation.zwambag2020.l4l5_demand_at_fr",
+ "title": "Zwambag 2020: L4/L5 external moment demand at flexion relaxation (measured) and model partition",
+ "subcategory": "FR critical point (moment)",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "standing flexion; control, 2.3, 4.5, 6.8 kg counterweight at T5",
+ "quantity": {
+  "name": "L4/L5 extensor moment demand at LES inactivation",
+  "definition": "MEASURED: external L4/L5 moment demand (inverse dynamics) at the instant the lumbar ES became inactive, mean +/- SEM. Rows tagged model_output are the authors' passive-tissue model partition, NOT data.",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Zwambag 2020",
+  "authors": "Zwambag DP, Brown SHM",
+  "year": 2020,
+  "journal": "J Biomech 102:109431",
+  "doi": "10.1016/j.jbiomech.2019.109431",
+  "n": 10,
+  "sample": "same 10 healthy males as Zwambag 2016",
+  "age": "25 +/- 2.5",
+  "sex": "M",
+  "height_cm": 181,
+  "weight_kg": 82
+ },
+ "protocol": {
+  "summary": "Re-analysis of the Zwambag 2016 data set with a passive tissue model (48 muscle fascicles, 14 ligaments, disc).",
+  "how_to_simulate": [
+   "Scale to protocol.subject_model (male, 25 y, 181 cm, 82 kg)",
+   "Quasi-static trunk flexion to full flexion (T12/S1 ~53 deg)",
+   "External load: an upward cable force at ~T5 equal to the counterweight (0, 22.2, 44.5, 66.7 N) via an overhead pulley; no hand load",
+   "Output: lumbar flexion, trunk inclination and the external L4/L5 moment at the instant the model's lumbar ES activation reaches ~0 (critical point)"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 25,
+   "height_cm": 181,
+   "weight_kg": 82,
+   "sd": {
+    "age": 2.5,
+    "height_cm": 5.8,
+    "weight_kg": 11.2
+   },
+   "source": "Zwambag 2016 Sec 2.1 (same in Zwambag 2020)"
+  },
+  "notes": "Surface EMG bilateral: lumbar ES at L3, thoracic ES at T9, latissimus at T12, RA 2 cm lateral to navel, EO 14 cm lateral to midline, IO 2 cm medial/inferior to ASIS; fine-wire multifidus 1.5 cm lateral to L1 and L4 spinous processes. EMG high-pass 100 Hz, rectified, 2.5 Hz low-pass, %MVIC. Critical point = LES activity crosses mean + 2 SD of its quiet (full-flexion) period for > 20 ms. Lumbar flexion = T12 vs S1 rigid bodies (0 = neutral standing); trunk inclination = T12 rigid body vs horizontal (0 = standing). L4/L5 moment from a 2-D dynamic bottom-up linked-segment model (force plate). Task: flex to full flexion in 3 s, hold 3 s, return in 3 s; counterweights 0/5/10/15 lb (0/2.3/4.5/6.8 kg) on a cable attached at ~T5 over an overhead pulley (reduces the flexion moment). Lumbar ES became inactive ~2-3 deg before full spine flexion (T12/S1 53 +/- 1.38 deg) in the control condition. Only the demand rows are targets."
+ },
+ "data": [
+  {
+   "x": "L4/L5 demand, control",
+   "load": "none",
+   "mean": 94,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 demand, 2.3 kg",
+   "load": "2.3 kg counterweight",
+   "mean": 79,
+   "sd": 2.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 demand, 4.5 kg",
+   "load": "4.5 kg counterweight",
+   "mean": 66,
+   "sd": 3.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 demand, 6.8 kg",
+   "load": "6.8 kg counterweight",
+   "mean": 62,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "spread": "SEM"
+  },
+  {
+   "x": "full spine flexion T12/S1 (deg), control",
+   "load": "none",
+   "mean": 53,
+   "sd": 1.38,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  },
+  {
+   "x": "lumbar flexion at FR (deg), control / 2.3 / 4.5 / 6.8 kg",
+   "load": "none",
+   "mean": 51,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM",
+   "note": "2.3 kg: 50.8 +/- 1.2; 4.5 kg: 49.7 +/- 1.1; 6.8 kg: 48.6 +/- 1.2"
+  },
+  {
+   "x": "MODEL: disc moment, control",
+   "load": "none",
+   "mean": 15,
+   "sd": 0.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  },
+  {
+   "x": "MODEL: ligament moment, control",
+   "load": "none",
+   "mean": 28,
+   "sd": 2.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  },
+  {
+   "x": "MODEL: passive muscle moment, control",
+   "load": "none",
+   "mean": 41,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  },
+  {
+   "x": "MODEL: active muscle moment, control",
+   "load": "none",
+   "mean": 10,
+   "sd": 5.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  },
+  {
+   "x": "MODEL: active muscle moment, 4.5 kg",
+   "load": "none",
+   "mean": -5,
+   "sd": 4.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  },
+  {
+   "x": "MODEL: active muscle moment, 6.8 kg",
+   "load": "none",
+   "mean": -6,
+   "sd": 5.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "model_output": true
+  }
+ ],
+ "extraction": {
+  "from": "Zwambag 2020 Table 1 and Results text p.4",
+  "method": "table",
+  "uncertainty": "'sd' holds SEM",
+  "checked": true,
+  "check_notes": "Table 1 checked against the page image; negative active moments (-5, -6 Nm) lost by pdftotext, restored from the image."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_critical_point_l4l5_moment_lumbar_flexion__lumbar_es_l3__standing_flexion__torso_counterweight",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.zwambag2016.critical_point_counterweights"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "healthy",
+  "male",
+  "SEM",
+  "partly model output"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

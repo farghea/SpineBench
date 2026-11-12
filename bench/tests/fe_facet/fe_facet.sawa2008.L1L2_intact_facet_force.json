@@ -20,8 +20,8 @@
   "year": 2008,
   "journal": "J Biomech 41:2647-2653",
   "doi": "10.1016/j.jbiomech.2008.06.010",
-  "n": "6 specimens (human cadaveric T12-L2)",
-  "sample": "6 fresh-frozen human cadaveric T12-L2 segments screened for degeneration; facet loads at L1-L2 (gauges on L2 superior facets)",
+  "n": 6,
+  "sample": "6 specimens (human cadaveric T12-L2); 6 fresh-frozen human cadaveric T12-L2 segments screened for degeneration; facet loads at L1-L2 (gauges on L2 superior facets)",
   "age": "median 58 (range 40-82)",
   "sex": "",
   "height_cm": null,
@@ -126,7 +126,7 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD"
  },
- "combine_group": "fe_facet__facet_force__L1-L2__intact__7.5Nm",
+ "combine_group": "fe_facet__facet_force__l1_l2__intact__7_5nm",
  "tags": [
   "lumbar",
   "in vitro",
@@ -134,5 +134,9 @@
   "strain gauges",
   "neural network",
   "human"
+ ],
+ "shared_sample_with": [
+  "fe_facet.sawa2008.L1L2_follower400N_facet_force",
+  "fe_rom_lumbar_fsu.sawa2008.L1L2_intact"
  ]
 }

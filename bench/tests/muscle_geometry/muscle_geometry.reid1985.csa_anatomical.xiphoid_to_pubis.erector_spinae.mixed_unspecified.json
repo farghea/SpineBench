@@ -1,0 +1,113 @@
+{
+ "id": "muscle_geometry.reid1985.csa_anatomical.xiphoid_to_pubis.erector_spinae.mixed_unspecified",
+ "title": "Reid 1985: csa anatomical of erector spinae at xiphoid_to_pubis (mixed, unspecified)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "xiphoid_to_pubis"
+ ],
+ "condition": "mixed_unspecified",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "left/right erector, erector spinae (total)",
+ "sex": "mixed",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "CT (archival)",
+  "plane": "transverse scans at 0.5-2.0 cm intervals from xiphoid to symphysis pubis, normalised to 15 slices per subject",
+  "slice_thickness_mm": null,
+  "level_definition": "whole muscle between xiphoid and pubis (average over slices)",
+  "posture_detail": "not stated (archival CT, presumably supine)"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction); average CSA over 15 normalised slices xiphoid-pubis (not a single level)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Reid 1985",
+  "authors": "Reid JG, Costigan PA",
+  "year": 1985,
+  "journal": "J Orthop Sports Phys Ther 6(5):278-280",
+  "doi": "",
+  "n": 28,
+  "sample": "28 living subjects (16 M, 12 F); archival CT scans",
+  "age": "M 54.6 (15.1), F 52.1 (16.1) y",
+  "sex": "16M/12F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "For each muscle, compute cross-sections of the model muscle on 15 equally spaced transverse planes from the xiphoid to the pubic symphysis.",
+   "Average the (anatomical) cross-sectional area over those slices, and compute the muscle volume.",
+   "Compare: ES left/right per side, ES total = both sides; RA value likely both sides together (paper does not split RA)."
+  ],
+  "subject_model": {
+   "sex": "mixed",
+   "age": null,
+   "height_cm": null,
+   "weight_kg": null,
+   "disc_area_mm2": null,
+   "n": 28,
+   "source": "Table 1: M age 54.6, height 172.6 (n=10), mass 74.7 (n=10); F age 52.1, height 159.4 (n=10), mass 63.8 (n=10)"
+  },
+  "notes": "Whether multifidus is included is not stated. Ratios ES/RA (Table 3) are derived and not stored."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 1602.0,
+   "sd": 393.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 28,
+   "as_reported": "16.02 (3.93) cm2"
+  },
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 1573.0,
+   "sd": 423.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 28,
+   "as_reported": "15.73 (4.23) cm2"
+  },
+  {
+   "x": "value",
+   "side": "bilateral_sum",
+   "mean": 3175.0,
+   "sd": 811.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 28,
+   "as_reported": "31.75 (8.11) cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Values verified on rendered pages 279-280. Text prints ES total 31.74 and right 15.72 cm2; Table 2 prints 31.75 and 15.73 (table used)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__xiphoid_to_pubis_erector_spinae__mixed_unspecified__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "CT"
+ ]
+}

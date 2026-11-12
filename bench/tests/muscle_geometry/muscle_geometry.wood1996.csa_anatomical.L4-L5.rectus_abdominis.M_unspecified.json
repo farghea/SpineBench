@@ -1,0 +1,94 @@
+{
+ "id": "muscle_geometry.wood1996.csa_anatomical.L4-L5.rectus_abdominis.M_unspecified",
+ "title": "Wood 1996: csa anatomical of rectus abdominis at L4-L5 (M, unspecified)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_unspecified",
+ "muscle": "rectus_abdominis",
+ "muscle_as_reported": "rectus abdominis",
+ "sex": "M",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "MRI, T1-weighted, 500 mm FOV",
+  "plane": "transverse image at the L4-L5 level (scanner axial)",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4-L5",
+  "posture_detail": "not stated (MRI; presumably supine)"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Wood 1996",
+  "authors": "Wood S, Pearsall DJ, Ross R, Reid JG",
+  "year": 1996,
+  "journal": "Clin Biomech 11(3):139-144",
+  "doi": "10.1016/0268-0033(95)00018-6",
+  "n": 26,
+  "sample": "26 males; males with BMI 19.7-39.5 (lean to obese)",
+  "age": "40.5 (14.4) y",
+  "sex": "26M",
+  "height_cm": 174.5,
+  "weight_kg": 87.3
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model unspecified.",
+   "Select all rectus abdominis fascicles whose path crosses the plane at L4-L5 (transverse image at the L4-L5 level (scanner axial)), one side.",
+   "Sum their PCSA; divide each PCSA by cos(angle between fascicle and plane normal) to get anatomical CSA.",
+   "Compare the one-side total with the measured mean +/- SD (bilateral sums are labelled side=bilateral_sum)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 40.5,
+   "height_cm": 174.5,
+   "weight_kg": 87.3,
+   "disc_area_mm2": null,
+   "n": 26,
+   "source": "Table 1 (all subjects)"
+  },
+  "notes": "Trunk CSA (all) 677.6 (188.5) cm2. Muscle CSA as % trunk CSA also tabulated (not stored)."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "unspecified",
+   "mean": 850.0,
+   "sd": 210.0,
+   "min": 510.0,
+   "max": 1380.0,
+   "median": null,
+   "n": 26,
+   "as_reported": "8.5 (2.1) cm2",
+   "note": "side not stated; magnitudes match one-side values of other studies"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "All values read from the rendered (rotated) Table 1 on p.142; text layer had OCR errors (e.g. BMI 25-30 mass printed 93.5 in text layer, 83.5 on the page)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__l4_l5_rectus_abdominis__m_unspecified__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "MRI",
+  "obesity"
+ ]
+}

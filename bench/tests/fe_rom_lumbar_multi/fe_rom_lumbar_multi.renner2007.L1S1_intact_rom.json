@@ -25,8 +25,8 @@
   "year": 2007,
   "journal": "J Biomech 40:1326-1332",
   "doi": "10.1016/j.jbiomech.2006.05.019",
-  "n": "10 cadaveric L1-S1 spines (in vitro part; FE model data not extracted)",
-  "sample": "human cadaver lumbar spines L1-sacrum, discs grade II or better on MRI",
+  "n": 10,
+  "sample": "10 cadaveric L1-S1 spines (in vitro part; FE model data not extracted); human cadaver lumbar spines L1-sacrum, discs grade II or better on MRI",
   "age": "mean 58 y (range 41-73)",
   "sex": "7 M, 3 F",
   "height_cm": null,
@@ -39,7 +39,7 @@
    "Add ~14 N axial load (apparatus); for the preload test add an 800 N follower load passing near each segment's centre of rotation (tangent to the lordosis)",
    "Report per-level and L1-S1 total ROM as the sum of both directions (flexion+extension, left+right LB, left+right torsion)"
   ],
-  "notes": "Ten specimens; per-level n assumed 10 (not stated per figure). The lab and authors overlap Patwardhan 2003; specimens may be shared.",
+  "notes": "Ten specimens; per-level n assumed 10 (not stated per figure). The lab and authors overlap Patwardhan 2003; specimens may be shared (flagged in shared_sample_with).",
   "subject_model": null
  },
  "data": [
@@ -271,12 +271,16 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD"
  },
- "combine_group": "fe_rom_lumbar_multi__rom__L1-S1_segmental__intact__8Nm_flex_6Nm_ext",
+ "combine_group": "fe_rom_lumbar_multi__rom__l1_s1_segmental__intact__8nm_flex_6nm_ext",
  "also_in_groups": [
-  "fe_rom_lumbar_multi__rom__L1-S1_segmental__intact__LB6Nm_AR4Nm"
+  "fe_rom_lumbar_multi__rom__l1_s1_segmental__intact__lb6nm_ar4nm"
  ],
  "shared_sample_with": [
-  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom (possible overlap: same lab/authors)"
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom_pct",
+  "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_flexibility",
+  "fe_compression_stiffness.patwardhan2003.L1S1_follower_posture",
+  "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom"
  ],
  "tags": [
   "lumbar",

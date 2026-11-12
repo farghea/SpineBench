@@ -36,8 +36,8 @@
   "year": 2023,
   "journal": "Comput Biol Med 165:107376",
   "doi": "10.1016/j.compbiomed.2023.107376",
-  "n": "6 male volunteers (2 normal weight, 2 overweight, 2 obese)",
-  "sample": "male volunteers; body shape predicted from anthropometric measurements; trunk mass per level by scaling Visible Human Male cross-sections (BSB method)",
+  "n": 6,
+  "sample": "6 male volunteers (2 normal weight, 2 overweight, 2 obese); male volunteers; body shape predicted from anthropometric measurements; trunk mass per level by scaling Visible Human Male cross-sections (BSB method)",
   "age": "26-51 y (NW1 31, NW2 51, OW1 26, OW2 26, OB1 29, OB2 26)",
   "sex": "male",
   "height_cm": null,
@@ -480,7 +480,7 @@
   "template": false,
   "rule": "input data – not graded; use for robustness checks"
  },
- "combine_group": "anthropometry__segment_mass__vertebral_level_trunk__adults__-",
+ "combine_group": "anthropometry__segment_mass__vertebral_level_trunk__adults__none",
  "tags": [
   "model-estimated",
   "3D body scan",
@@ -488,5 +488,6 @@
   "adults",
   "obese",
   "small n"
- ]
+ ],
+ "shared_sample_with": []
 }

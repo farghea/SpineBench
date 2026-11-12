@@ -1,0 +1,93 @@
+{
+ "id": "muscle_geometry.sasaki2017.csa_anatomical.L2-L3.erector_spinae.M_supine.age70s",
+ "title": "Sasaki 2017: csa anatomical of erector spinae at L2-L3 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "M_supine_age70s",
+ "muscle": "erector_spinae",
+ "muscle_as_reported": "erector spinae",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Philips Achieva, axial T2 FSE",
+  "plane": "axial slices parallel to the vertebral endplates at each disc level",
+  "slice_thickness_mm": null,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "supine (triangular pillows under head and knees for rounded backs)"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction); total muscle outline area including intramuscular fat (fatty infiltration % reported separately, Table 3); mean of left and right",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Sasaki 2017",
+  "authors": "Sasaki T, Yoshimura N, Hashizume H, et al.",
+  "year": 2017,
+  "journal": "PLoS ONE 12(11):e0187765",
+  "doi": "10.1371/journal.pone.0187765",
+  "n": 796,
+  "sample": "796 adults (241 M, 555 F); community-dwelling Japanese adults (Wakayama Spine Study), ~39% with low back pain",
+  "age": "M 63.1 (14.1), F 63.7 (12.8) y",
+  "sex": "241M/555F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine.",
+   "Cut a plane through the L2-L3 disc parallel to the endplates.",
+   "Sum the anatomical CSA (PCSA/cos angle) of erector spinae elements crossing that plane, per side; compare the one-side value (paper = mean of left and right)."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 73.7,
+   "height_cm": 163.5,
+   "weight_kg": 64.6,
+   "disc_area_mm2": null,
+   "n": 46,
+   "source": "Table 1 (age stratum)"
+  },
+  "notes": "Erector spinae and multifidus traced separately. Older Japanese community population."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "both_mean",
+   "mean": 1720.0,
+   "sd": 300.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "as_reported": "17.2±3.0 cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 values re-read from text; two decimal-point misprints noted."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__l2_l3_erector_spinae__m_supine_age70s__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "MRI",
+  "supine",
+  "age strata"
+ ]
+}

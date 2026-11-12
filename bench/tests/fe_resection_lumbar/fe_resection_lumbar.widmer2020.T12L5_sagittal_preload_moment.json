@@ -1,0 +1,93 @@
+{
+ "id": "fe_resection_lumbar.widmer2020.T12L5_sagittal_preload_moment",
+ "title": "Sagittal torsional preload of passive structures in neutral position",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "stepwise resection",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "neutral position, change in moment after each resection",
+ "quantity": {
+  "name": "preload moment",
+  "definition": "change in sagittal moment at the neutral position after removal of a structure (largest contributors, text values)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Widmer 2020",
+  "authors": "Widmer J, Cornaz F, Scheibler G, Spirig JM, Snedeker JG, Farshad M",
+  "year": 2020,
+  "journal": "Spine J 20:1705-1716",
+  "doi": "10.1016/j.spinee.2020.05.541",
+  "n": 32,
+  "sample": "32 lumbar/thoracolumbar FSUs with little to moderate degeneration (7 L4-L5, 9 L3-L4, 3 L2-L3, 7 L1-L2, 6 T12-L1), subgroup of 50 segments from 22 fresh-frozen cadavers (Pfirrmann 5 and segments with spondylophyte contribution >15% excluded)",
+  "age": "48-84 y in the 27 Table 1 rows readable by text extraction (see Table 1)",
+  "sex": "mostly male (Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Individualised 3D-printed clamps; caudal vertebra fixed on an x-y table (free translation orthogonal to loading -> pure bending moments / pure shear). Intact: load-controlled +-7.5 Nm (FE, LB, AR), +-150 N (AS, PS, LS) to determine displacement magnitudes; intact and after each of 7(8) resection steps: DISPLACEMENT-controlled to the same rotation/translation; rates 1 deg/s FE and LB, 0.5 deg/s AR, 0.5 mm/s shear; 5 preload cycles, 6th cycle evaluated; LB, AR, LS pooled left/right. Axial compression data excluded (below accuracy).",
+  "how_to_simulate": [
+   "Fix caudal vertebra allowing translation orthogonal to the loading direction",
+   "Find the intact rotation at 7.5 Nm (FE, LB, AR) or translation at 150 N (shear) and impose it as displacement",
+   "Remove structures cumulatively in the paper's order and record the drop in resisting moment/force at the imposed displacement",
+   "Report each structure's contribution as % of the intact moment (median over specimens)"
+  ],
+  "subject_model": null,
+  "notes": "Resection order: (1) intertransverse ligaments ITL (transverse processes cut), (2) ISL & SSL (spinous processes cut), (3) facet joint capsules FJC (incised), (4) facet joints FJ (articular processes cut), (5) ligamentum flavum LF (laminae cut), (6) ALL, (7) PLL, (8) spondylophytes if present; remaining structure = intervertebral disc IVD. Contribution of each structure = moment (or force) reduction caused by its removal at the intact displacement, expressed as % of the intact resisting load; spondylophyte share subtracted and the rest rescaled to 100%."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "neutral",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.25,
+   "n": 32,
+   "structure": "LF",
+   "note": "main contributor to preload in extension"
+  },
+  {
+   "x": "flexion",
+   "load": "neutral",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.36,
+   "n": 32,
+   "structure": "IVD",
+   "note": "main contributor to preload in flexion"
+  }
+ ],
+ "extraction": {
+  "from": "Results text (values per structure in Fig 8)",
+  "method": "text",
+  "uncertainty": "exact; other structures only in Fig 8 (not digitised)",
+  "checked": true,
+  "check_notes": "Text: 'LF is the main contributor for preload in extension (0.25 Nm), IVD most preload in flexion (0.36 Nm)'."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "indicative: model neutral-position ligament/disc preload moments of the same sign and order of magnitude"
+ },
+ "combine_group": "fe_resection_lumbar__preload_moment__lumbar_pooled__neutral__0nm",
+ "shared_sample_with": [
+  "fe_resection_lumbar.widmer2020.T12L5_stepwise_moment_contribution"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "resection",
+  "preload",
+  "human"
+ ]
+}

@@ -1,0 +1,167 @@
+{
+ "id": "muscle_geometry.gungor2015.regression.L3-S1.erector_spinae_multifidus.mixed_supine.csa_anatomical_total",
+ "title": "Gungor 2015: regressions of total paraspinal (ESM) CSA on sex, height, weight",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "mixed_supine",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "",
+ "sex": "mixed",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Siemens Avanto, T2-weighted",
+  "plane": "axial-oblique slice parallel to the intervertebral disc (one per disc level)",
+  "slice_thickness_mm": null,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "head-first supine, arms at sides, knees slightly flexed on a cushion"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Gungor 2015",
+  "authors": "Gungor C, Tang R, Sesek RF, Foreman KB, Gallagher S, Davis GA",
+  "year": 2015,
+  "journal": "J Biomech Eng 137:071012",
+  "doi": "10.1115/1.4029984",
+  "n": 112,
+  "sample": "112 patients (58 F, 54 M); historical clinical lumbar MRI patient population aged 21-39 (L3/L4 54F/53M, L4/L5 50F/44M, L5/S1 41F/35M)",
+  "age": "F 29.3 (5.2), M 30.1 (5.7) y",
+  "sex": "58F/54M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "Minus signs are lost in the PDF text layer; signs verified on the rendered page (Table 5). Table 8 (other authors' equations) not stored."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "bilateral_sum",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 107,
+   "as_reported": "{'intercept': -9.262, 'XG': 7.146, 'XH': 0.244, 'XW': 0.209}",
+   "predicted": "total (L+R) ESM anatomical CSA, cm2",
+   "level": "L3-L4",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (XG: female 0, male 1)",
+   "equation": "-9.262 + 7.146*XG + 0.244*XH + 0.209*XW",
+   "coefficients": {
+    "intercept": -9.262,
+    "XG": 7.146,
+    "XH": 0.244,
+    "XW": 0.209
+   },
+   "predictor_units": {
+    "XG": "female=0, male=1",
+    "XH": "cm",
+    "XW": "kg"
+   },
+   "r2": 0.537,
+   "r2_adj": 0.524,
+   "see": 7.61,
+   "p": "0.000",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "bilateral_sum",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 94,
+   "as_reported": "{'intercept': -20.378, 'XH': 0.358, 'XW': 0.138}",
+   "predicted": "total (L+R) ESM anatomical CSA, cm2",
+   "level": "L4-L5",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (XG: female 0, male 1)",
+   "equation": "-20.378 + 0.358*XH + 0.138*XW",
+   "coefficients": {
+    "intercept": -20.378,
+    "XH": 0.358,
+    "XW": 0.138
+   },
+   "predictor_units": {
+    "XG": "female=0, male=1",
+    "XH": "cm",
+    "XW": "kg"
+   },
+   "r2": 0.398,
+   "r2_adj": 0.385,
+   "see": 7.04,
+   "p": "0.000",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "bilateral_sum",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 76,
+   "as_reported": "{'intercept': -20.3, 'XG': -6.811, 'XH': 0.356, 'XW': 0.135}",
+   "predicted": "total (L+R) ESM anatomical CSA, cm2",
+   "level": "L5-S1",
+   "muscle": "erector_spinae_multifidus",
+   "sex": "both (XG: female 0, male 1)",
+   "equation": "-20.3 + -6.811*XG + 0.356*XH + 0.135*XW",
+   "coefficients": {
+    "intercept": -20.3,
+    "XG": -6.811,
+    "XH": 0.356,
+    "XW": 0.135
+   },
+   "predictor_units": {
+    "XG": "female=0, male=1",
+    "XH": "cm",
+    "XW": "kg"
+   },
+   "r2": 0.209,
+   "r2_adj": 0.176,
+   "see": 9.22,
+   "p": "0.001",
+   "output_unit": "cm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 5",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Verified against rendered Table 5 (p. 071012-5)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "regression"
+ ]
+}

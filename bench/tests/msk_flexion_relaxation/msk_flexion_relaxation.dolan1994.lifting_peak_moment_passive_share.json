@@ -1,0 +1,646 @@
+{
+ "id": "msk_flexion_relaxation.dolan1994.lifting_peak_moment_passive_share",
+ "title": "Dolan 1994: peak extensor moment, lumbar flexion and passive share during stoop/squat/freestyle lifts",
+ "subcategory": "passive share during lifting",
+ "levels": [
+  "lumbar (L1-S1)"
+ ],
+ "condition": "lifting 0, 10, 20 kg from the floor (stoop, squat, freestyle)",
+ "quantity": {
+  "name": "peak extensor moment and passive share",
+  "definition": "peak lumbar extensor moment (Nm, from EMG calibration), % lumbar flexion at that instant, passive moment I (Nm) and I as % of peak EM; mean +/- SD",
+  "unit": "Nm / %"
+ },
+ "source": {
+  "short": "Dolan 1994",
+  "authors": "Dolan P, Mannion AF, Adams MA",
+  "year": 1994,
+  "journal": "J Biomech 27(8):1077-1085 (PII 0021-9290(93)E0012-E)",
+  "doi": "",
+  "n": 149,
+  "sample": "149 healthy volunteers (126 women, mostly nurses; 23 men), no severe LBP history",
+  "age": "W 27.6 (18-45); M 30.6 (22-39)",
+  "sex": "23M/126F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Lifts of a pen (0 kg), 10 kg and 20 kg weight-lifter's discs; stoop/squat over ~4 s; EMG and Isotrak at 28 Hz.",
+  "how_to_simulate": [
+   "Scale to the sex-specific mean (protocol.subject_model)",
+   "Reproduce the lift posture at peak moment (lumbar flexion % in the data)",
+   "Hand load per row (0, 10 or 20 kg disc held in both hands)",
+   "Output: L1-S1 extensor moment and its passive part (passive ligament/disc/muscle) vs active part"
+  ],
+  "subject_model": {
+   "women": {
+    "n": 126,
+    "age": 27.6,
+    "weight_kg": 61.9,
+    "height_cm": 165,
+    "lumbar_rof_deg": 56.8,
+    "em_max_Nm": 245,
+    "sd": {
+     "age": 5.8,
+     "weight_kg": 8.1,
+     "height_cm": 6,
+     "lumbar_rof_deg": 8.9,
+     "em_max_Nm": 51
+    }
+   },
+   "men": {
+    "n": 23,
+    "age": 30.6,
+    "weight_kg": 77.7,
+    "height_cm": 179,
+    "lumbar_rof_deg": 53.3,
+    "em_max_Nm": 430,
+    "sd": {
+     "age": 5.3,
+     "weight_kg": 9.2,
+     "height_cm": 7,
+     "lumbar_rof_deg": 7.7,
+     "em_max_Nm": 116
+    }
+   },
+   "source": "Dolan 1994 Table 1 (page image; pdftotext garbled several entries: men height SD 7, ROF SD 7.7, EMmax range 272-640, women ROF range 33.7-74.8)"
+  },
+  "notes": "EMG: surface electrodes over the left erector spinae belly at T10 and L3 (raw EMG used only inside each subject's own EMG-moment calibration; the passive moment I is the EM-axis intercept). Lumbar flexion from the 3-Space Isotrak (sensors over L1 and S1 spinous processes), expressed as % of the range erect standing -> full toe-touch flexion. Isometric pulls on a floor load cell in a frame (thighs against a crossbar, hips strapped). Regressions: women I = 4.91e-5 F^3 + 0.7573 B - 24.8 (R2 0.321); men I = 7.97e-5 F^3 + 12.9 (R2 0.389), F = % flexion, B = body mass (kg). Eight subjects lifting 'with as much lordosis as possible' still flexed 57.5% (SD 13.9%)."
+ },
+ "data": [
+  {
+   "x": "women, stoop 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 210,
+   "sd": 61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, stoop 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 96,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, stoop 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 65.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, stoop 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 31.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "%"
+  },
+  {
+   "x": "women, stoop 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 100,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, stoop 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 276,
+   "sd": 111,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, stoop 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 97,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, stoop 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 85.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, stoop 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 30.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "%"
+  },
+  {
+   "x": "men, stoop 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 100,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, squat 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 226,
+   "sd": 61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, squat 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 84,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, squat 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 51.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, squat 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 22.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "%"
+  },
+  {
+   "x": "women, squat 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 87,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, squat 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 278,
+   "sd": 85,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, squat 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 81,
+   "sd": 16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, squat 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 55.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, squat 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 20.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "%"
+  },
+  {
+   "x": "men, squat 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 82,
+   "sd": 17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 0 kg: peak extensor moment",
+   "load": "0 kg",
+   "mean": 164,
+   "sd": 60,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 0 kg: lumbar flexion at peak EM",
+   "load": "0 kg",
+   "mean": 81,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 0 kg: passive moment I at peak EM",
+   "load": "0 kg",
+   "mean": 47.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 0 kg: I as % of peak EM",
+   "load": "0 kg",
+   "mean": 29.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "%"
+  },
+  {
+   "x": "women, freestyle 0 kg: peak flexion during the lift",
+   "load": "0 kg",
+   "mean": 83,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 0 kg: peak extensor moment",
+   "load": "0 kg",
+   "mean": 209,
+   "sd": 20,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 0 kg: lumbar flexion at peak EM",
+   "load": "0 kg",
+   "mean": 78,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 0 kg: passive moment I at peak EM",
+   "load": "0 kg",
+   "mean": 50.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 0 kg: I as % of peak EM",
+   "load": "0 kg",
+   "mean": 24.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "%"
+  },
+  {
+   "x": "men, freestyle 0 kg: peak flexion during the lift",
+   "load": "0 kg",
+   "mean": 79,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 244,
+   "sd": 65,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 85,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 52.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 21.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "%"
+  },
+  {
+   "x": "women, freestyle 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 88,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 10 kg: peak extensor moment",
+   "load": "10 kg",
+   "mean": 328,
+   "sd": 109,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 10 kg: lumbar flexion at peak EM",
+   "load": "10 kg",
+   "mean": 79,
+   "sd": 16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 10 kg: passive moment I at peak EM",
+   "load": "10 kg",
+   "mean": 52.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 10 kg: I as % of peak EM",
+   "load": "10 kg",
+   "mean": 16.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "%"
+  },
+  {
+   "x": "men, freestyle 10 kg: peak flexion during the lift",
+   "load": "10 kg",
+   "mean": 82,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 20 kg: peak extensor moment",
+   "load": "20 kg",
+   "mean": 311,
+   "sd": 83,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 20 kg: lumbar flexion at peak EM",
+   "load": "20 kg",
+   "mean": 90,
+   "sd": 13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "women, freestyle 20 kg: passive moment I at peak EM",
+   "load": "20 kg",
+   "mean": 58.2,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "Nm"
+  },
+  {
+   "x": "women, freestyle 20 kg: I as % of peak EM",
+   "load": "20 kg",
+   "mean": 18.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "%"
+  },
+  {
+   "x": "women, freestyle 20 kg: peak flexion during the lift",
+   "load": "20 kg",
+   "mean": 93,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 126,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 20 kg: peak extensor moment",
+   "load": "20 kg",
+   "mean": 384,
+   "sd": 140,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 20 kg: lumbar flexion at peak EM",
+   "load": "20 kg",
+   "mean": 85,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  },
+  {
+   "x": "men, freestyle 20 kg: passive moment I at peak EM",
+   "load": "20 kg",
+   "mean": 61.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "Nm"
+  },
+  {
+   "x": "men, freestyle 20 kg: I as % of peak EM",
+   "load": "20 kg",
+   "mean": 16.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "%"
+  },
+  {
+   "x": "men, freestyle 20 kg: peak flexion during the lift",
+   "load": "20 kg",
+   "mean": 86,
+   "sd": 12,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 23,
+   "unit": "% of range"
+  }
+ ],
+ "extraction": {
+  "from": "Dolan 1994 Table 3",
+  "method": "table",
+  "uncertainty": "+/- = SD; men freestyle 0 kg SD (20 Nm) as printed",
+  "checked": true,
+  "check_notes": "Checked against the page image (p.1081); pdftotext had garbled most +/- entries."
+ },
+ "combine_group": "msk_flexion_relaxation__passive_extensor_moment_share__lumbar__lifting_from_floor__0_20kg",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.dolan1994.passive_extensor_moment_vs_flexion"
+ ],
+ "tags": [
+  "in vivo",
+  "passive moment",
+  "lifting",
+  "healthy"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

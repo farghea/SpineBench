@@ -1,0 +1,254 @@
+{
+ "id": "msk_flexion_relaxation.descarreaux2008.flexion_relaxation_ratio",
+ "title": "Descarreaux 2008: flexion-relaxation ratio (ES L2, L5) by load and fatigue",
+ "subcategory": "FR ratio",
+ "levels": [
+  "L2",
+  "L5 (electrode levels)"
+ ],
+ "condition": "standing flexion-extension, load and fatigue main effects",
+ "quantity": {
+  "name": "flexion relaxation ratio (FRR)",
+  "definition": "RMS EMG during the movement phase (flexion: FRRF; extension: FRRE) divided by RMS EMG during the relaxed full-flexion phase (dimensionless; EMG %MVC-normalised)",
+  "unit": "ratio"
+ },
+ "source": {
+  "short": "Descarreaux 2008",
+  "authors": "Descarreaux M, Lafond D, Jeffrey-Gauthier R, Centomo H, Cantin V",
+  "year": 2008,
+  "journal": "BMC Musculoskelet Disord 9:10",
+  "doi": "10.1186/1471-2474-9-10",
+  "n": 20,
+  "sample": "20 healthy adults (9 M, 11 F) without LBP",
+  "age": "23.9 +/- 4.0",
+  "sex": "9M/11F",
+  "height_cm": 170,
+  "weight_kg": 64.1
+ },
+ "protocol": {
+  "summary": "As descarreaux2008.frp_angles.",
+  "how_to_simulate": [
+   "Scale to protocol.subject_model",
+   "Flexion (5 s), full-flexion hold (3 s), extension (5 s)",
+   "Hand load: none or 12 kg barbell at elbows 90 deg",
+   "Output: model ES activation RMS in flexion (or extension) phase / RMS in full flexion"
+  ],
+  "subject_model": {
+   "sex": "9 M / 11 F",
+   "age": 23.9,
+   "height_cm": 170,
+   "weight_kg": 64.1,
+   "bmi": 22.2,
+   "sd": {
+    "age": 4.0,
+    "height_cm": 10,
+    "weight_kg": 13.1,
+    "bmi": 3.2
+   },
+   "source": "Descarreaux 2008 Table 1 (mean +/- SD)"
+  },
+  "notes": "Surface Ag-AgCl EMG bilaterally over erector spinae at L2 and L5 levels (Merletti orientation), 900 Hz, 10-450 Hz band-pass; rectified, normalised to MVC (%MVC, LIDO dynamometer, 20 deg hip/trunk flexion). Onset/cessation of silence by visual inspection of the rectified EMG. Kinematics: Optotrak LEDs on acromion, mid iliac crest, greater trochanter, lateral knee, lateral malleolus; 'total trunk angle' (not further defined in the text). Task: 5 s flexion to maximum, 3 s hold, 5 s extension (auditory cue), arms by the side; load: 12 kg barbell with elbows flexed 90 deg and upper arms along the trunk (light plastic panel replica when unloaded); fatigue: Sorensen test to exhaustion (138 +/- 37 s). No significant effect of load or fatigue on FRR (P > 0.05). A model with zero activation in full flexion gives an infinite FRR - use a small floor or compare activation drop instead."
+ },
+ "data": [
+  {
+   "x": "FRR flexion ES-L2, no load",
+   "load": "none",
+   "mean": 3.92,
+   "sd": 0.58,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 black"
+  },
+  {
+   "x": "FRR flexion ES-L2, 12 kg load",
+   "load": "12 kg barbell",
+   "mean": 3.56,
+   "sd": 0.54,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 grey"
+  },
+  {
+   "x": "FRR flexion ES-L5, no load",
+   "load": "none",
+   "mean": 4.91,
+   "sd": 0.94,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 black"
+  },
+  {
+   "x": "FRR flexion ES-L5, 12 kg load",
+   "load": "12 kg barbell",
+   "mean": 4.51,
+   "sd": 0.88,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 grey"
+  },
+  {
+   "x": "FRR extension ES-L2, no load",
+   "load": "none",
+   "mean": 6.08,
+   "sd": 0.99,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 black"
+  },
+  {
+   "x": "FRR extension ES-L2, 12 kg load",
+   "load": "12 kg barbell",
+   "mean": 6.55,
+   "sd": 1.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 grey"
+  },
+  {
+   "x": "FRR extension ES-L5, no load",
+   "load": "none",
+   "mean": 8.48,
+   "sd": 1.69,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 black"
+  },
+  {
+   "x": "FRR extension ES-L5, 12 kg load",
+   "load": "12 kg barbell",
+   "mean": 8.6,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 5 grey"
+  },
+  {
+   "x": "FRR flexion ES-L2, no fatigue",
+   "load": "none",
+   "mean": 3.78,
+   "sd": 0.56,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 black"
+  },
+  {
+   "x": "FRR flexion ES-L2, fatigue",
+   "load": "none",
+   "mean": 3.69,
+   "sd": 0.52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 grey"
+  },
+  {
+   "x": "FRR flexion ES-L5, no fatigue",
+   "load": "none",
+   "mean": 4.4,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 black"
+  },
+  {
+   "x": "FRR flexion ES-L5, fatigue",
+   "load": "none",
+   "mean": 4.99,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 grey"
+  },
+  {
+   "x": "FRR extension ES-L2, no fatigue",
+   "load": "none",
+   "mean": 6.52,
+   "sd": 1.03,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 black"
+  },
+  {
+   "x": "FRR extension ES-L2, fatigue",
+   "load": "none",
+   "mean": 6.16,
+   "sd": 1.01,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 grey"
+  },
+  {
+   "x": "FRR extension ES-L5, no fatigue",
+   "load": "none",
+   "mean": 8.07,
+   "sd": 1.57,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 black"
+  },
+  {
+   "x": "FRR extension ES-L5, fatigue",
+   "load": "none",
+   "mean": 9.03,
+   "sd": 1.82,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20,
+   "src": "Fig 6 grey"
+  }
+ ],
+ "extraction": {
+  "from": "Descarreaux 2008 Figs 5 and 6 (bar charts, page 7)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 (300 dpi, 44.5 px per unit); sd = error-bar length (SD vs SEM not stated)",
+  "checked": true,
+  "check_notes": "Two independent readings (visual at 150 dpi; pixel bar-top detection at 300 dpi) agree within 0.07 for all Fig 5 bars."
+ },
+ "combine_group": "msk_flexion_relaxation__flexion_relaxation_ratio__es_l2_l5__standing_flexion_extension__none_or_12kg",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.descarreaux2008.frp_angles"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "FRR",
+  "healthy"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

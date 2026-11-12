@@ -21,8 +21,8 @@
   "year": 2014,
   "journal": "J Biomech 47:1712-1717",
   "doi": "10.1016/j.jbiomech.2014.02.021",
-  "n": "9 specimens (7 L4-L5, 2 L3-L4); 8 nucleotomy group + 1 L4-L5 control",
-  "sample": "9 fresh-frozen male human lumbar FSUs (7 L4-L5, 2 L3-L4); 8 in nucleotomy group, 1 intact control",
+  "n": 9,
+  "sample": "9 specimens (7 L4-L5, 2 L3-L4); 8 nucleotomy group + 1 L4-L5 control; 9 fresh-frozen male human lumbar FSUs (7 L4-L5, 2 L3-L4); 8 in nucleotomy group, 1 intact control",
   "age": "median 50 (range 40-59)",
   "sex": "all male",
   "height_cm": null,
@@ -304,9 +304,9 @@
   "template": true,
   "rule": "q1 <= model <= q3 (PASS), inside whiskers (WARN); sign of nucleotomy effect must be an increase"
  },
- "combine_group": "fe_facet__facet_load_share__L3-L4_L4-L5__intact_vs_nucleotomy__700N_FE5deg",
+ "combine_group": "fe_facet__facet_load_share__l3_l4_l4_l5__intact_vs_nucleotomy__700n_fe5deg",
  "also_in_groups": [
-  "fe_resection_lumbar__facet_load_share__L3-L4_L4-L5__nucleotomy__700N_FE5deg"
+  "fe_resection_lumbar__facet_load_share__l3_l4_l4_l5__nucleotomy__700n_fe5deg"
  ],
  "tags": [
   "lumbar",
@@ -317,5 +317,8 @@
   "displacement control",
   "relative",
   "human"
+ ],
+ "shared_sample_with": [
+  "fe_facet.ivicsics2014.L3L5_nucleotomy_facet_force_vector"
  ]
 }

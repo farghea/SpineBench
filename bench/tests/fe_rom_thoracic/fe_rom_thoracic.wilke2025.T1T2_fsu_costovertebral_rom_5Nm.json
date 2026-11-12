@@ -1,0 +1,124 @@
+{
+ "id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
+ "title": "T1-T2 FSU ROM at 5 Nm, pooled Ulm database (Wilke 2025)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "FSU",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2"
+ ],
+ "condition": "fsu_costovertebral",
+ "quantity": {
+  "name": "ROM",
+  "definition": "full-range ROM (both directions combined) at +/-5 Nm, 3rd cycle; median with median absolute deviation (MAD) over pooled studies; outliers > 2 SD excluded",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Wilke 2025",
+  "authors": "Wilke HJ, et al. (Ulm in vitro database)",
+  "year": 2025,
+  "journal": "JOR Spine 8(1):e70052",
+  "doi": "10.1002/jsp2.70052",
+  "n": 14,
+  "sample": "pooled Ulm database: T1-T2 monosegmental FSUs with costovertebral joints (FE n=14, LB n=14, AR n=13); thoracic FSU pool 129 FSUs, donors 57 (37-80) y, 49 F/80 M",
+  "age": "57 (37-80) y median (range), thoracic FSU pool",
+  "sex": "49 F / 80 M (thoracic FSU pool)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pooled data collection of Ulm in vitro tests 1995-2024 with standard pure moments (5 Nm thoracic), 1 deg/s, 3.5 cycles, 3rd evaluated; monosegmental thoracic FSUs (sources Liebsch 2020 Spine J and Liebsch 2022 Spine J) prepared with costovertebral and costotransverse joints and >=2 cm of ribs.",
+  "how_to_simulate": [
+   "Model the FSU with disc, ligaments, facets and costovertebral/costotransverse joints with ~2 cm rib stumps",
+   "Fix caudal vertebra, apply pure moment +/-5 Nm to cranial vertebra, no preload",
+   "Report full-range rotation (flexion+extension, left+right) at peak moment"
+  ],
+  "subject_model": null,
+  "notes": "POOLED DATABASE - overlaps Liebsch 2020 Spine J, Liebsch 2022 Spine J and (through Liebsch 2022, donors 1-25 originally tested at 7.5 Nm) probably Wilke 2017-era FSUs re-evaluated at 5 Nm. Do not pool with those studies. T12-L1 is classed lumbar in this paper. Full data in Supporting Information (not in download folder)."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.26,
+   "n": 14,
+   "mad": 2.77
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.35,
+   "n": 14,
+   "mad": 1.52
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.42,
+   "n": 13,
+   "mad": 1.78
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (thoracic rows)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 deg medians, +/-0.15 deg MAD (automated pixel detection at 300 dpi, 22 px/deg); MAD null where whisker caps hidden",
+  "checked": true,
+  "check_notes": "Bar ends and ring centres checked visually on zoomed LB/FE crops (e.g. LB T1-T2 ROM 8.35, ring 4.95; FE T1-T2 ROM 8.26); MAD from symmetric cap pairs where both visible, else from the outer cap."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__rom__t1_t2__fsu_costovertebral__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "FSU",
+  "Ulm",
+  "pooled_database",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "rib heads with costovertebral and costotransverse joints, >=2 cm rib stumps"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5, 3rd evaluated",
+  "branch": "full range at +/-5 Nm",
+  "preload": "none",
+  "device": "Ulm spine tester"
+ },
+ "pooled_from": [
+  {
+   "study": "Liebsch & Wilke 2020 Spine J (Liebsch 2020b)",
+   "n": "8 per level",
+   "levels": "T1-T2, T3-T4, T5-T6, T7-T8, T9-T10, T11-T12"
+  },
+  {
+   "study": "Liebsch & Wilke 2022 Spine J",
+   "n": "11/4/13/4/11/4/13/4/14/4/13 for T1-T2..T11-T12",
+   "levels": "T1-T2..T11-T12"
+  }
+ ],
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2022spinej (same FSUs)",
+  "fe_rom_thoracic.liebsch2020spinej (same FSUs)",
+  "fe_resection_thoracic.liebsch2020.*_monoseg_with_ribs_rom_5Nm (same FSUs as Liebsch 2020 Spine J)"
+ ]
+}

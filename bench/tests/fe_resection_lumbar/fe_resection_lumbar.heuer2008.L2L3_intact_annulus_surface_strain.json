@@ -1,0 +1,289 @@
+{
+ "id": "fe_resection_lumbar.heuer2008.L2L3_intact_annulus_surface_strain",
+ "title": "L2-L3 outer annulus surface strain extremes, intact (Heuer 2008)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "stepwise resection - disc deformation",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "annulus surface strain",
+  "definition": "maximum and minimum over the scanned outer annulus surface of the median (n=6) strain map, axial (z-z) and circumferential (phi-phi) components; lateral bending = right, axial rotation = left (Fig 2)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Heuer 2008",
+  "authors": "Heuer F, Schmidt H, Wilke HJ",
+  "year": 2008,
+  "journal": "J Biomech 41:1953-1960",
+  "doi": "10.1016/j.jbiomech.2008.03.023",
+  "n": 6,
+  "sample": "6 human cadaveric L2-L3 FSUs from the same donor spines as Heuer 2007a/b (which used L4-L5)",
+  "age": "median 51 (range 38-59)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "15 min 500 N axial preconditioning; L3 caudal end fixed to laser-scanner base, L2 cranial end on the spine-tester gimbal (unconstrained); pure moments 2.5, 5, 7.5 Nm in flexion/extension, lateral bending, axial rotation (and 500 N axial compression for scans); RoM evaluated from the 2nd loading cycle; for surface scans specimens were driven to the maximal deflection and held (4 s laser scan). No preload during bending.",
+  "how_to_simulate": [
+   "Fix the caudal half of L3; L2 free (no preload)",
+   "Apply pure moments 2.5, 5, 7.5 Nm in flexion, extension, right lateral bending, left axial rotation (and 500 N axial compression for bulge/strain)",
+   "Report L2-L3 rotation at peak moment; for bulge report radial outer-annulus displacement at mid disc height at the anterior, left lateral, left posterolateral, posterior points (translation of L2 removed); for strain report max/min outer-annulus surface strains (axial z-z, circumferential phi-phi)",
+   "Defects cumulative: (1) remove vertebral arches incl. SSL/ISL/FL and facets, (2) remove PLL and ALL, (3) nucleotomy (right posterolateral oblique incision, 2.9 g)"
+  ],
+  "subject_model": null,
+  "notes": "Stage order: INTACT -> w/oVA -> w/oALL (PLL+ALL removed) -> w/oNUC. Values absolute (deg, mm, %), not % intact. Bulge sign: + outward, - inward. Posterior/posterolateral landmarks not accessible in intact specimens."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "500 N axial compression",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.0,
+   "n": 6,
+   "component": "circumferential_max"
+  },
+  {
+   "x": "compression",
+   "load": "500 N axial compression",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -2.1,
+   "n": 6,
+   "component": "circumferential_min"
+  },
+  {
+   "x": "compression",
+   "load": "500 N axial compression",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 2.6,
+   "n": 6,
+   "component": "axial_max"
+  },
+  {
+   "x": "compression",
+   "load": "500 N axial compression",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -4.7,
+   "n": 6,
+   "component": "axial_min"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.7,
+   "n": 6,
+   "component": "circumferential_max"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -7.6,
+   "n": 6,
+   "component": "circumferential_min"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 7.2,
+   "n": 6,
+   "component": "axial_max"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -12.7,
+   "n": 6,
+   "component": "axial_min"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.5,
+   "n": 6,
+   "component": "circumferential_max"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -3.0,
+   "n": 6,
+   "component": "circumferential_min"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.4,
+   "n": 6,
+   "component": "axial_max"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -4.9,
+   "n": 6,
+   "component": "axial_min"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 4.1,
+   "n": 6,
+   "component": "circumferential_max"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -7.1,
+   "n": 6,
+   "component": "circumferential_min"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 9.7,
+   "n": 6,
+   "component": "axial_max"
+  },
+  {
+   "x": "lateral_bending",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -17.3,
+   "n": 6,
+   "component": "axial_min"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 0.8,
+   "n": 6,
+   "component": "circumferential_max"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -2.7,
+   "n": 6,
+   "component": "circumferential_min"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.8,
+   "n": 6,
+   "component": "axial_max"
+  },
+  {
+   "x": "axial_rotation",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": -2.1,
+   "n": 6,
+   "component": "axial_min"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Table 2 rendered at 200 dpi: all Min. values negative (minus signs lost in text layer); magnitudes match text layer; text quotes (9.7% LB intact, 15.1% w/oVA, 22.6% flexion w/oALL, 2.0/2.6% compression) agree."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-value| <= 50% of reported value (strain maps are noisy); sign of extremes correct"
+ },
+ "combine_group": "fe_resection_lumbar__annulus_surface_strain__l2_l3__heuer2008_intact__7_5nm",
+ "shared_sample_with": [
+  "heuer2007a: same donor spines (different level, L4-L5) - donor-level overlap only",
+  "wilke2025: Heuer 2008b (n=6 L2-L3) listed in Wilke 2025 Table 4 - pooled in Wilke 2025 L2-L3 data",
+  "kettler2011: Ulm database likely contains these L2-L3 segments"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "L2-L3",
+  "annulus strain",
+  "disc"
+ ]
+}

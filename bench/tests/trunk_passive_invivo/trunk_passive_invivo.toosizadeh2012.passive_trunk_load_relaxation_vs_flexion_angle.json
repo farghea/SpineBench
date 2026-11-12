@@ -1,0 +1,300 @@
+{
+ "id": "trunk_passive_invivo.toosizadeh2012.passive_trunk_load_relaxation_vs_flexion_angle",
+ "title": "In vivo passive trunk load-relaxation: initial moment and 16-min moment drop at 30-100% of flexion-relaxation angle (standing frame, pelvis rotated)",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_viscoelastic",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (moment about L5/S1)"
+ ],
+ "condition": "passive (EMG biofeedback to minimise activation); static flexion held 16 min",
+ "quantity": {
+  "name": "passive extension moment about L5/S1 during load-relaxation",
+  "definition": "moment = load-cell force on the T8 harness rod x vertical distance from rod to L5/S1 centre of rotation; initial moment = mean of first 3 s, moment drop = initial - mean of last 3 s of the 16-min hold; lumbar flexion from IMUs, targets as % of each subject's FR angle; NZ = range around upright where slope < 0.1 Nm/deg and moment < 7 Nm, normalised by FR angle",
+  "unit": "mixed (Nm, %)"
+ },
+ "source": {
+  "short": "Toosizadeh 2012",
+  "authors": "Toosizadeh N, Nussbaum MA, Bazrgari B, Madigan ML",
+  "year": 2012,
+  "journal": "PLoS ONE 7(11):e48625",
+  "doi": "10.1371/journal.pone.0048625",
+  "n": 10,
+  "sample": "10 healthy young adults without LBP (5 M: 24.4 (4.2) y, 179.9 (6.9) cm, 71 (7.3) kg; 5 F: 23.8 (2.6) y, 164.4 (3.9) cm, 57.9 (5.1) kg); flexion-relaxation (FR) angle 58.2 (12.0) deg after creep",
+  "age": "M 24.4 (4.2), F 23.8 (2.6) y",
+  "sex": "5 M, 5 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Participant stands in a rigid frame, pelvis restrained; trunk held roughly upright by a harness-rod at T8; lumbar flexion induced by rotating pelvis and lower limbs together forward/upward at ~3 deg/s about an axis aligned with L5/S1 (footrest height adjusted), held 16 min at 30, 40, 60, 80 or 100% FR angle (one level per session, randomised), then returned. EMG of longissimus and rectus abdominis used as biofeedback. Sessions before 9:00. FR angle measured after creep (full passive flexion).",
+  "how_to_simulate": [
+   "Model upright trunk with thorax (T8) fixed and pelvis rotated about the L5/S1 axis to impose lumbar flexion (no gravity moment needed beyond the paper's net measurement; model should output the moment at the T8 constraint transferred to L5/S1)",
+   "Set muscle activations to zero; impose lumbar flexion of 30-100% of the model's FR angle (~58 deg mean) at 3 deg/s",
+   "Report the passive moment about L5/S1 at the start of the hold (compare with initial moment); for viscoelastic models also hold 16 min and compare the moment drop"
+  ],
+  "subject_model": {
+   "sex": "5 M / 5 F",
+   "age": 24.1,
+   "height_cm": 172.2,
+   "weight_kg": 64.5,
+   "disc_area_mm2": null,
+   "source": "Methods (mean of male and female group means; derived)"
+  },
+  "notes": "Incomplete data for 4 trials at 30% FR and 1 outlier excluded at 100% FR (n slightly < 10 there). Best-fit curves from the paper: initial moment = 13.99 exp(0.0158 x) - 13.31 (R2 0.99); moment drop = 3.11 exp(0.0212 x) - 1.871 (R2 0.93); NZ change = 38.88 exp(0.0067 x) - 37.29 (x = % FR). Viscoelastic model parameters (Table 1, Fig 6) not extracted. Watt 2022 reviewed this study (standing) but did not use it in the quantitative synthesis."
+ },
+ "data": [
+  {
+   "x": 30,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "initial moment (first 3 s of relaxation phase)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 9.1,
+   "sd": 5.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 40,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "initial moment (first 3 s of relaxation phase)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 13.4,
+   "sd": 5.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 60,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "initial moment (first 3 s of relaxation phase)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 22.7,
+   "sd": 9.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 80,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "initial moment (first 3 s of relaxation phase)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 31.4,
+   "sd": 8.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 100,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "initial moment (first 3 s of relaxation phase)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 51.8,
+   "sd": 21.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 30,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "moment drop over 16 min (initial minus final 3 s)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 4.5,
+   "sd": 4.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 40,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "moment drop over 16 min (initial minus final 3 s)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 5.3,
+   "sd": 7.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 60,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "moment drop over 16 min (initial minus final 3 s)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 10.8,
+   "sd": 8.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 80,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "moment drop over 16 min (initial minus final 3 s)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 10.6,
+   "sd": 8.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 100,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "moment drop over 16 min (initial minus final 3 s)",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 22.9,
+   "sd": 18.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm"
+  },
+  {
+   "x": 30,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "change in normalised neutral zone after exposure",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 11.7,
+   "sd": 6.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "% change"
+  },
+  {
+   "x": 40,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "change in normalised neutral zone after exposure",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 15.9,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "% change"
+  },
+  {
+   "x": 60,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "change in normalised neutral zone after exposure",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 20.1,
+   "sd": 11.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "% change"
+  },
+  {
+   "x": 80,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "change in normalised neutral zone after exposure",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 25.6,
+   "sd": 21.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "% change"
+  },
+  {
+   "x": 100,
+   "x_unit": "% of flexion-relaxation (FR) angle",
+   "series": "change in normalised neutral zone after exposure",
+   "load": "16 min static lumbar flexion (load-relaxation)",
+   "mean": 40.9,
+   "sd": 17.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "% change"
+  },
+  {
+   "x": "moment drop as % of initial moment (all conditions)",
+   "series": "pooled",
+   "mean": 41,
+   "sd": 22,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "%",
+   "source_detail": "text p.5"
+  },
+  {
+   "x": "time to 90% of total moment drop",
+   "series": "pooled",
+   "mean": 5.9,
+   "sd": 3.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "min",
+   "source_detail": "text p.5"
+  },
+  {
+   "x": "flexion-relaxation angle (lumbar, after creep)",
+   "series": "pooled",
+   "mean": 58.2,
+   "sd": 12.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "source_detail": "text p.2"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4a-c (p.5; mean + SD), text p.2 and p.5",
+  "method": "digitised_figure",
+  "uncertainty": "initial moment +-0.5 Nm, moment drop +-0.3 Nm, NZ change +-0.5 %; SD (cap) +-0.5 units (pixel analysis at 300 dpi: 6.4, 10.1 and 6.6 px per unit)",
+  "checked": true,
+  "check_notes": "Dot centres located from dark-run midpoints in columns +-6 px from each x tick and whisker caps by following the error line upward; values agree with the printed exponential fits (e.g. fit at 100% FR: 13.99e^1.58-13.31 = 54.5 vs 51.8 digitised; at 60%: 22.8 vs 22.7) and with the visual reading of the figure."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__passive_load_relaxation_moment_l5s1__lumbar__relaxed_standing_frame_pelvis_rotated__pct_fr_angle",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "viscoelastic",
+  "flexion"
+ ]
+}

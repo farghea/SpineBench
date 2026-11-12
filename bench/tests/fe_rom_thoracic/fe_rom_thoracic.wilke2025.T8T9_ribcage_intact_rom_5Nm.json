@@ -1,0 +1,133 @@
+{
+ "id": "fe_rom_thoracic.wilke2025.T8T9_ribcage_intact_rom_5Nm",
+ "title": "T8-T9 segmental ROM inside rib cage specimens at 5 Nm, pooled Ulm database (Wilke 2025)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "segment within long specimen",
+ "region": "thoracic",
+ "levels": [
+  "T8-T9"
+ ],
+ "condition": "ribcage_intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "full-range segmental ROM measured optically inside C7-L1 rib cage specimens loaded with +/-5 Nm; median only (white circles in Fig 3)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Wilke 2025",
+  "authors": "Wilke HJ, et al. (Ulm in vitro database)",
+  "year": 2025,
+  "journal": "JOR Spine 8(1):e70052",
+  "doi": "10.1002/jsp2.70052",
+  "n": 26,
+  "sample": "pooled Ulm database: T8-T9 segments inside C7-L1 specimens with entire rib cage (FE/LB n=23, AR n=26 per level)",
+  "age": "55 (26-99) y median (range), rib cage pool",
+  "sex": "176 F / 110 M (as printed for rib cage pool, Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pooled Ulm polysegmental C7-L1 specimens with entire rib cage, pure moments +/-5 Nm, 1 deg/s, 3.5 cycles; segmental motion by optical tracking.",
+  "how_to_simulate": [
+   "Model C7-L1 with entire rib cage, fix L1, load C7 with +/-5 Nm pure moments, no preload",
+   "Report full-range T8-T9 rotation at peak moment"
+  ],
+  "subject_model": null,
+  "notes": "POOLED: Liebsch 2018 and Liebsch 2019 are the same 8 specimens yet both listed in Table 3 (possible double counting inside this pool); also includes Liebsch 2020 and Liebsch 2020 FB intact data. Do not pool with those studies."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.52,
+   "n": 23
+  },
+  {
+   "x": "LB_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.71,
+   "n": 23
+  },
+  {
+   "x": "AR_total",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.13,
+   "n": 26
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3 (white ring markers)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.1 deg (ring centre from white interior, 300 dpi)",
+  "checked": true,
+  "check_notes": "Ring centres verified visually for LB T1-T2 (4.95) and LB T7-T8 (~1.9)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model within [min,max] of specimens (median as target)"
+ },
+ "combine_group": "fe_rom_thoracic__rom__t8_t9__ribcage_intact__5nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "rib cage",
+  "segment_in_long_specimen",
+  "Ulm",
+  "pooled_database",
+  "digitised"
+ ],
+ "ribcage": {
+  "present": true,
+  "intact_structures": "entire rib cage (sternum, costal cartilage, ribs, intercostal muscles in most source studies)"
+ },
+ "loading": {
+  "moment_Nm": 5,
+  "rate": "1 deg/s",
+  "cycles": "3.5, 3rd evaluated",
+  "branch": "full range at +/-5 Nm",
+  "preload": "none",
+  "device": "Ulm spine tester"
+ },
+ "pooled_from": [
+  {
+   "study": "Liebsch 2018 J Biomech",
+   "n": 8
+  },
+  {
+   "study": "Liebsch 2019 J Biomech (same 8 specimens as 2018)",
+   "n": 8
+  },
+  {
+   "study": "Liebsch & Wilke 2020 Front Bioeng (6 levels)",
+   "n": 8
+  },
+  {
+   "study": "Liebsch 2020a (3D-printed VBR, intact state)",
+   "n": 6
+  },
+  {
+   "study": "Liebsch 2020c Front Bioeng (Liebsch 2020 FB, intact state)",
+   "n": 6
+  }
+ ],
+ "specimen_levels": "C7-L1",
+ "shared_sample_with": [
+  "fe_rom_thoracic.liebsch2018.*",
+  "fe_rom_thoracic.liebsch2019.*",
+  "fe_resection_thoracic.liebsch2020.*_ribcage_intact_rom_5Nm",
+  "fe_rom_thoracic.liebsch2020fb.*"
+ ]
+}

@@ -1,0 +1,213 @@
+{
+ "id": "fe_resection_lumbar.heuer2008.L2L3_woALL",
+ "title": "L2-L3 ROM under pure moments, w/o posterior structures, PLL and ALL (Heuer 2008)",
+ "layer": "outcome",
+ "category": "fe_resection_lumbar",
+ "subcategory": "stepwise resection",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "cumulative defect 2 of 3: w/o posterior structures, PLL and ALL",
+ "quantity": {
+  "name": "ROM",
+  "definition": "one-sided rotation at peak moment, 2nd loading cycle, median of 6 specimens (no spread reported)",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Heuer 2008",
+  "authors": "Heuer F, Schmidt H, Wilke HJ",
+  "year": 2008,
+  "journal": "J Biomech 41:1953-1960",
+  "doi": "10.1016/j.jbiomech.2008.03.023",
+  "n": 6,
+  "sample": "6 human cadaveric L2-L3 FSUs from the same donor spines as Heuer 2007a/b (which used L4-L5)",
+  "age": "median 51 (range 38-59)",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "15 min 500 N axial preconditioning; L3 caudal end fixed to laser-scanner base, L2 cranial end on the spine-tester gimbal (unconstrained); pure moments 2.5, 5, 7.5 Nm in flexion/extension, lateral bending, axial rotation (and 500 N axial compression for scans); RoM evaluated from the 2nd loading cycle; for surface scans specimens were driven to the maximal deflection and held (4 s laser scan). No preload during bending.",
+  "how_to_simulate": [
+   "Fix the caudal half of L3; L2 free (no preload)",
+   "Apply pure moments 2.5, 5, 7.5 Nm in flexion, extension, right lateral bending, left axial rotation (and 500 N axial compression for bulge/strain)",
+   "Report L2-L3 rotation at peak moment; for bulge report radial outer-annulus displacement at mid disc height at the anterior, left lateral, left posterolateral, posterior points (translation of L2 removed); for strain report max/min outer-annulus surface strains (axial z-z, circumferential phi-phi)",
+   "Defects cumulative: (1) remove vertebral arches incl. SSL/ISL/FL and facets, (2) remove PLL and ALL, (3) nucleotomy (right posterolateral oblique incision, 2.9 g)"
+  ],
+  "subject_model": null,
+  "notes": "Stage order: INTACT -> w/oVA -> w/oALL (PLL+ALL removed) -> w/oNUC. Values absolute (deg, mm, %), not % intact. Bulge sign: + outward, - inward. Posterior/posterolateral landmarks not accessible in intact specimens."
+ },
+ "data": [
+  {
+   "x": "flexion",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.74,
+   "n": 6,
+   "moment_Nm": 2.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "flexion",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.44,
+   "n": 6,
+   "moment_Nm": 5.0,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "flexion",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.92,
+   "n": 6,
+   "moment_Nm": 7.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "extension",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 4.03,
+   "n": 6,
+   "moment_Nm": 2.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "extension",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.21,
+   "n": 6,
+   "moment_Nm": 5.0,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "extension",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 8.2,
+   "n": 6,
+   "moment_Nm": 7.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.8,
+   "n": 6,
+   "moment_Nm": 2.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 5.39,
+   "n": 6,
+   "moment_Nm": 5.0,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "lateral_bending_right",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 6.64,
+   "n": 6,
+   "moment_Nm": 7.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "2.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 1.76,
+   "n": 6,
+   "moment_Nm": 2.5,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 3.06,
+   "n": 6,
+   "moment_Nm": 5.0,
+   "step": "2 w/oALL"
+  },
+  {
+   "x": "axial_rotation_left",
+   "load": "7.5 Nm",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": 4.06,
+   "n": 6,
+   "moment_Nm": 7.5,
+   "step": "2 w/oALL"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Parsed from text layer and compared with Table 1; 7.5 Nm intact values agree with Results text (5.2, 3.4, 5.8, 2.2 deg)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-median| <= max(0.5 deg, 25%) (no spread reported)"
+ },
+ "combine_group": "fe_resection_lumbar__rom__l2_l3__heuer2008_stepwise_woall__7_5nm",
+ "shared_sample_with": [
+  "heuer2007a: same donor spines (different level, L4-L5) - donor-level overlap only",
+  "wilke2025: Heuer 2008b (n=6 L2-L3) listed in Wilke 2025 Table 4 - pooled in Wilke 2025 L2-L3 data",
+  "kettler2011: Ulm database likely contains these L2-L3 segments"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "L2-L3",
+  "median",
+  "resection"
+ ]
+}

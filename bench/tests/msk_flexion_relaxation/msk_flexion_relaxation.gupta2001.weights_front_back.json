@@ -1,0 +1,259 @@
+{
+ "region": "lumbar",
+ "levels": [
+  "T1-S1 (whole trunk)"
+ ],
+ "quantity": {
+  "name": "FR angles (onset SP1 / full flexion MFF / cessation SP2)",
+  "definition": "flexion angle at the first silent position SP1 (EMG silence begins in flexion), at maximum forward flexion MFF, and at SP2 (activity resumes in extension); Angles from photographs (35 mm camera, 3 m, right side) with skin markers: Trunk angle (TA) = angle between the long axis of the thigh and the line D1 spinous process - hip-joint centre; Hip angle (HA) = angle between the pelvic plane (ASIS-PSIS line) and the thigh axis; Vertebral angle (VA) = angle between the pelvic plane and the line PSIS - D1 spinous process; all as flexion from erect (deg).",
+  "unit": "deg"
+ },
+ "id": "msk_flexion_relaxation.gupta2001.weights_front_back",
+ "title": "Gupta 2001: silence angles with 22 lb held in front or tied posteriorly (11 men)",
+ "subcategory": "FR onset/cessation angles, loaded",
+ "condition": "forward bending with no load, 22 lb in the hands in front, or 22 lb tied around the iliac crest",
+ "source": {
+  "short": "Gupta 2001",
+  "authors": "Gupta A",
+  "year": 2001,
+  "journal": "J Biomech 34:491-496 (PII S0021-9290(00)00213-X)",
+  "doi": "",
+  "n": 11,
+  "sample": "11 healthy males (subset of the 25)",
+  "age": "22.8 (22-28)",
+  "sex": "M",
+  "height_cm": 165,
+  "weight_kg": 59.0
+ },
+ "protocol": {
+  "summary": "Eleven males repeated the bending task holding 22 lb in front and with 22 lb tied posteriorly around the iliac crest.",
+  "how_to_simulate": [
+   "Scale to the weighted-task subgroup (male, 22.8 y, 165 cm, 59 kg; Table 2)",
+   "Forward flexion with straight knees",
+   "Hand load: 22 lb (10.0 kg) in both hands hanging in front; or the same mass attached to the pelvis posteriorly (iliac crest)",
+   "Output: vertebral/hip/trunk angle at lumbar ES silence (SP1) and reactivation (SP2)"
+  ],
+  "subject_model": {
+   "n": 11,
+   "sex": "M",
+   "age": 22.8,
+   "height_cm": 165,
+   "weight_kg": 59.0,
+   "ranges": {
+    "age": "22-28",
+    "height_cm": "160-176",
+    "weight_kg": "54-75"
+   },
+   "source": "Gupta 2001 Table 2"
+  },
+  "notes": "Surface EMG bilaterally over erector spinae at the L3 spinous-process level ~5 cm from the midline (also abdominals, hamstrings, hip extensors); silence = oscilloscope amplitude dropping abruptly to zero (visual, photograph triggered); no normalisation needed (on/off only). Significance (Table 4 footnotes): hip SP1 posterior weight p<0.02; vertebral SP1 with weights p<0.05."
+ },
+ "data": [
+  {
+   "x": "SP1 trunk angle, normal",
+   "load": "none",
+   "mean": 90.7,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 trunk angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 91.9,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 trunk angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 86.2,
+   "sd": 13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 trunk angle, normal",
+   "load": "none",
+   "mean": 101.2,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 trunk angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 98.0,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 trunk angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 101.6,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 hip angle, normal",
+   "load": "none",
+   "mean": 37.5,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 hip angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 37.2,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 hip angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 29.7,
+   "sd": 7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 hip angle, normal",
+   "load": "none",
+   "mean": 35.2,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 hip angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 31.1,
+   "sd": 5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 hip angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 29.9,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 vertebral angle, normal",
+   "load": "none",
+   "mean": 55.2,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 vertebral angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 56.7,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP1 vertebral angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 60.1,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 vertebral angle, normal",
+   "load": "none",
+   "mean": 54.3,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 vertebral angle, weight in front (hands)",
+   "load": "22 lb (~10 kg) held in the hands in front",
+   "mean": 54.1,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "SP2 vertebral angle, weight posterior",
+   "load": "22 lb (~10 kg) tied on the back around the iliac crest",
+   "mean": 57.4,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Gupta 2001 Table 4",
+  "method": "table",
+  "uncertainty": "SD as printed",
+  "checked": true,
+  "check_notes": "Compared all 18 values with Table 4 text extraction and page image."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_angles_gupta_def__trunk_hip_vertebral__standing_flexion__10kg_front_or_pelvis",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.gupta2001.normal_bending",
+  "msk_flexion_relaxation.gupta2001.pelvis_against_wall"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG on/off",
+  "hand load",
+  "healthy",
+  "male"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

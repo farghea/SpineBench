@@ -1,0 +1,250 @@
+{
+ "id": "trunk_passive_invivo.beach2005.passive_lumbar_flexion_zone_slopes_sitting",
+ "title": "In vivo passive lumbar flexion stiffness (low/transition/high zone slopes), side-lying, before and after 1-2 h of sitting",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (L1-sacrum)"
+ ],
+ "condition": "passive (lumbar ES < 5% MVC); baseline and after prolonged sitting",
+ "quantity": {
+  "name": "passive flexion moment-angle zone slopes",
+  "definition": "moment about L4-L5 (force x perpendicular distance from cradle force application to L4-L5) vs lumbar flexion angle (Isotrak source over sacrum, sensor over L1 spinous process) normalised to the max angle of the first trial (Trial 1a); 6th-order polynomial fit differentiated to find low and high breakpoints; slopes of linear fits in the low, transition and high zones",
+  "unit": "Nm per % of Trial-1a max flexion"
+ },
+ "source": {
+  "short": "Beach 2005",
+  "authors": "Beach TAC, Parkinson RJ, Stothart JP, Callaghan JP",
+  "year": 2005,
+  "journal": "Spine J 5:145-154",
+  "doi": "10.1016/j.spinee.2004.07.036",
+  "n": 12,
+  "sample": "12 university students (6 M: 24.5 (1.9) y, 1.77 (0.06) m, 76.8 (15.0) kg; 6 F: 23.3 (1.8) y, 1.62 (0.06) m, 58.6 (7.0) kg)",
+  "age": "M 24.5 (1.9), F 23.3 (1.8) y",
+  "sex": "6 M, 6 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Frictionless jig (McGill type): right side-lying, lower body strapped to a fixed platform, upper body strapped to a floating cradle on nylon ball bearings, arms folded around a column on the cradle; ASIS aligned for repeatability. Experimenter pushed the top of the cradle into flexion until voluntary end range; trials with ES > 5% MVC repeated; 3 trials per session; sessions before and after each hour of seated deskwork (stool, no back support).",
+  "how_to_simulate": [
+   "Model side-lying (no gravity in the sagittal plane), pelvis and lower limbs fixed, thorax/upper body free on a frictionless support",
+   "Set all muscle activations to zero (passive muscle force-length, ligaments, discs)",
+   "Flex the lumbar spine (L1 relative to sacrum) from neutral to the model's max flexion and compute the passive moment about L4-L5 (moment that must be applied to the upper body)",
+   "Normalise angle to max flexion, identify low/high breakpoints from the slope change and compare zone slopes with session 1 (baseline) values"
+  ],
+  "subject_model": {
+   "sex": "6 M / 6 F",
+   "age": 23.9,
+   "height_cm": 169.5,
+   "weight_kg": 67.7,
+   "disc_area_mm2": null,
+   "source": "Table 1 (mean of the male and female group means; derived)"
+  },
+  "notes": "Angle normalised to each subject's Trial-1a max passive flexion (absolute angles not tabulated). Breakpoint locations (Fig 3) and max flexion angles (Fig 5) not digitised. Watt 2022 reviewed this study (not in its quantitative synthesis)."
+ },
+ "data": [
+  {
+   "x": "low stiffness zone slope",
+   "series": "session 1 (before sitting, baseline)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.0,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "transition stiffness zone slope",
+   "series": "session 1 (before sitting, baseline)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.1,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "high stiffness zone slope",
+   "series": "session 1 (before sitting, baseline)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.7,
+   "sd": 0.3,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "low stiffness zone slope",
+   "series": "session 2 (after 1 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.1,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "transition stiffness zone slope",
+   "series": "session 2 (after 1 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.2,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "high stiffness zone slope",
+   "series": "session 2 (after 1 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 1.0,
+   "sd": 0.7,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "low stiffness zone slope",
+   "series": "session 3 (after 2 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.0,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "transition stiffness zone slope",
+   "series": "session 3 (after 2 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.2,
+   "sd": 0.1,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "high stiffness zone slope",
+   "series": "session 3 (after 2 h sitting)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 1.0,
+   "sd": 0.9,
+   "n": 12,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "low stiffness zone slope",
+   "series": "men (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.1,
+   "sd": 0.1,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "transition stiffness zone slope",
+   "series": "men (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.2,
+   "sd": 0.1,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "high stiffness zone slope",
+   "series": "men (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 1.1,
+   "sd": 0.9,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "low stiffness zone slope",
+   "series": "women (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.0,
+   "sd": 0.0,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "transition stiffness zone slope",
+   "series": "women (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.2,
+   "sd": 0.1,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "high stiffness zone slope",
+   "series": "women (all sessions)",
+   "load": "passive flexion to voluntary end range, side-lying",
+   "mean": 0.7,
+   "sd": 0.3,
+   "n": 6,
+   "unit": "Nm/% max flexion (Trial 1a)",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Tables 1-3 (p.146, 149)",
+  "method": "table",
+  "uncertainty": "tabulated to 0.1 Nm/% (coarse rounding)",
+  "checked": true,
+  "check_notes": "All 15 slope pairs re-read from pdftotext of Tables 2-3 (clean). Session 1 = baseline (pre-sitting) for passive model comparison."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "session-1 zone slopes: |model-mean| <= 1 SD"
+ },
+ "combine_group": "trunk_passive_invivo__passive_flexion_zone_slopes__lumbar__relaxed_side_lying__pct_max_flexion",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "flexion",
+  "creep/sitting"
+ ]
+}

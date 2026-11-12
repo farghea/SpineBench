@@ -1,0 +1,281 @@
+{
+ "id": "muscle_geometry.wood1996.regression.L4-L5.all_trunk.M_unspecified.csa_and_centroid",
+ "title": "Wood 1996: regressions of L4-L5 muscle CSA and centroid distances on anthropometry (males)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "regression",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "M_unspecified",
+ "muscle": "all_trunk",
+ "muscle_as_reported": "",
+ "sex": "M",
+ "posture": "unspecified",
+ "imaging": {
+  "modality": "MRI, T1-weighted, 500 mm FOV",
+  "plane": "transverse image at the L4-L5 level (scanner axial)",
+  "slice_thickness_mm": 10,
+  "level_definition": "L4-L5",
+  "posture_detail": "not stated (MRI; presumably supine)"
+ },
+ "quantity": {
+  "name": "regression",
+  "definition": "regression equation(s) predicting a muscle-geometry quantity from anthropometry",
+  "unit": ""
+ },
+ "source": {
+  "short": "Wood 1996",
+  "authors": "Wood S, Pearsall DJ, Ross R, Reid JG",
+  "year": 1996,
+  "journal": "Clin Biomech 11(3):139-144",
+  "doi": "10.1016/0268-0033(95)00018-6",
+  "n": 26,
+  "sample": "26 males; males with BMI 19.7-39.5 (lean to obese)",
+  "age": "40.5 (14.4) y",
+  "sex": "26M",
+  "height_cm": 174.5,
+  "weight_kg": 87.3
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Evaluate the regression equation with the subject anthropometry (units as given in data).",
+   "Compare the model quantity (as defined for the predicted variable) with the predicted value +/- SE of prediction."
+  ],
+  "subject_model": null,
+  "notes": "Outputs use the paper sign conventions (ML negative, AP + posterior). Table 3 (psoas CSA predicted by earlier formulae) not stored."
+ },
+ "data": [
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -0.926, 'supra_cristal_plane_cm': 0.231, 'hip_diameter_cm': 0.165}",
+   "predicted": "csa_anatomical",
+   "muscle": "rectus_abdominis",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-0.926 + 0.231*supra_cristal_plane_cm + 0.165*hip_diameter_cm",
+   "coefficients": {
+    "intercept": -0.926,
+    "supra_cristal_plane_cm": 0.231,
+    "hip_diameter_cm": 0.165
+   },
+   "r2": 0.396,
+   "p": "0.003",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -25.241, 'subcostal_width_cm': 0.708, 'width_between_ASIS_cm': 1.039}",
+   "predicted": "csa_anatomical",
+   "muscle": "obliques_combined",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-25.241 + 0.708*subcostal_width_cm + 1.039*width_between_ASIS_cm",
+   "coefficients": {
+    "intercept": -25.241,
+    "subcostal_width_cm": 0.708,
+    "width_between_ASIS_cm": 1.039
+   },
+   "r2": 0.331,
+   "p": "0.010",
+   "output_unit": "cm2"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -6.851, 'lean_body_mass_kg': 0.042}",
+   "predicted": "ML centroid distance (printed negative)",
+   "muscle": "erector_spinae_multifidus",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-6.851 + 0.042*lean_body_mass_kg",
+   "coefficients": {
+    "intercept": -6.851,
+    "lean_body_mass_kg": 0.042
+   },
+   "r2": 0.282,
+   "p": "0.005",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -2.188, 'body_fat_pct': -0.024, 'width_between_ASIS_cm': -0.081}",
+   "predicted": "ML centroid distance (printed negative)",
+   "muscle": "psoas",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-2.188 + -0.024*body_fat_pct + -0.081*width_between_ASIS_cm",
+   "coefficients": {
+    "intercept": -2.188,
+    "body_fat_pct": -0.024,
+    "width_between_ASIS_cm": -0.081
+   },
+   "r2": 0.271,
+   "p": "0.027",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -10.221, 'body_fat_pct': -0.116}",
+   "predicted": "ML centroid distance (printed negative)",
+   "muscle": "obliques_combined",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-10.221 + -0.116*body_fat_pct",
+   "coefficients": {
+    "intercept": -10.221,
+    "body_fat_pct": -0.116
+   },
+   "r2": 0.333,
+   "p": "0.002",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': -4.332, 'sitting_height_cm': 0.104}",
+   "predicted": "AP centroid distance (paper convention + posterior)",
+   "muscle": "erector_spinae_multifidus",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "-4.332 + 0.104*sitting_height_cm",
+   "coefficients": {
+    "intercept": -4.332,
+    "sitting_height_cm": 0.104
+   },
+   "r2": 0.445,
+   "p": "0.001",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': 7.546, 'width_between_ASIS_cm': -0.319}",
+   "predicted": "AP centroid distance (+ posterior)",
+   "muscle": "psoas",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "7.546 + -0.319*width_between_ASIS_cm",
+   "coefficients": {
+    "intercept": 7.546,
+    "width_between_ASIS_cm": -0.319
+   },
+   "r2": 0.273,
+   "p": "0.006",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': 0.297, 'BMI': -0.177}",
+   "predicted": "AP centroid distance (+ posterior)",
+   "muscle": "obliques_combined",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "0.297 + -0.177*BMI",
+   "coefficients": {
+    "intercept": 0.297,
+    "BMI": -0.177
+   },
+   "r2": 0.217,
+   "p": "0.016",
+   "output_unit": "cm"
+  },
+  {
+   "x": "equation",
+   "side": "unspecified",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 26,
+   "as_reported": "{'intercept': 5.977, 'waist_hip_ratio': -11.039, 'subcostal_width_cm': -0.206}",
+   "predicted": "AP centroid distance (+ posterior)",
+   "muscle": "rectus_abdominis",
+   "level": "L4-L5",
+   "sex": "M",
+   "equation": "5.977 + -11.039*waist_hip_ratio + -0.206*subcostal_width_cm",
+   "coefficients": {
+    "intercept": 5.977,
+    "waist_hip_ratio": -11.039,
+    "subcostal_width_cm": -0.206
+   },
+   "r2": 0.503,
+   "p": "0.000",
+   "output_unit": "cm"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 2 rows re-read from text (coefficients in brackets); signs as printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": null,
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "regression",
+  "regression"
+ ]
+}

@@ -1,0 +1,175 @@
+{
+ "id": "msk_flexion_relaxation.toussaint1995.l3_t9_emg_full_flexion_lifting",
+ "title": "Toussaint 1995: L3 and T9 erector spinae EMG (%SIC) and L5/S1 torque at maximal flexion during lifting",
+ "subcategory": "EMG at full flexion (normalised)",
+ "levels": [
+  "L3",
+  "T9 (electrode levels)",
+  "L5-S1 (torque)"
+ ],
+ "condition": "dynamic lowering-lifting with a lifting device; task 1 no barbell, tasks 2-3 15.3 kg barbell",
+ "quantity": {
+  "name": "normalised ES EMG and L5/S1 torque at maximal flexion",
+  "definition": "erector spinae EMG at L3 and T9 (3 cm lateral) normalised to angle-specific maximal isometric contraction (%SIC) at the instant of maximal flexion; net L5/S1 torque (Nm, linked-segment model); mean (SD)",
+  "unit": "%SIC / Nm"
+ },
+ "source": {
+  "short": "Toussaint 1995",
+  "authors": "Toussaint HM, de Winter AF, de Haas Y, de Looze MP, van Dieen JH, Kingma I",
+  "year": 1995,
+  "journal": "J Biomech 28(2):199-210 (PII 0021-9290(94)00051-5)",
+  "doi": "",
+  "n": 6,
+  "sample": "6 healthy male students",
+  "age": "21.8 +/- 0.7",
+  "sex": "M",
+  "height_cm": 184,
+  "weight_kg": 70.8
+ },
+ "protocol": {
+  "summary": "Lowering then lifting a barbell guided by a lifting device (lowest level 19.5 cm or 29.4 cm = 30% of leg length); EMG normalised per L5/S1 angle with isometric maxima over 9 trunk angles.",
+  "how_to_simulate": [
+   "Scale to male, 21.8 y, 184 cm, 70.8 kg",
+   "Posture at maximal flexion of the lowering-lifting cycle (L5/S1 flexion ~55 deg, hip ~40 deg)",
+   "Hand load: none (task 1) or 15.3 kg barbell held in both hands at 19.5 cm (task 2) or 29.4 cm (task 3) above the floor",
+   "Output: L3-level vs T9-level ES activation (%) and net L5/S1 moment"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 21.8,
+   "height_cm": 184,
+   "weight_kg": 70.8,
+   "sd": {
+    "age": 0.7,
+    "height_cm": 5,
+    "weight_kg": 4.9
+   },
+   "source": "Toussaint 1995 Methods"
+  },
+  "notes": "Electrodes Ag-AgCl 3 cm lateral to midline at T9, L1, L3, L5 (+ 6 cm lateral at L3); L1, L3, L5 very similar. Barbell mass 15.3 kg in Table 1 (15.4 kg in figure captions). FR at L3 begins ~30% of movement time while T9 EMG rises to ~105% SIC (text)."
+ },
+ "data": [
+  {
+   "x": "task 1 (no barbell): L3 EMG",
+   "load": "none",
+   "mean": 3.3,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 1: T9 EMG",
+   "load": "none",
+   "mean": 18.9,
+   "sd": 12.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 1: L5/S1 torque",
+   "load": "none",
+   "mean": 102.5,
+   "sd": 7.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm"
+  },
+  {
+   "x": "task 2 (15.3 kg, lowest 19.5 cm): L3 EMG",
+   "load": "15.3 kg barbell",
+   "mean": 10.4,
+   "sd": 10.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 2: T9 EMG",
+   "load": "15.3 kg barbell",
+   "mean": 93.8,
+   "sd": 37.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 2: L5/S1 torque",
+   "load": "15.3 kg barbell",
+   "mean": 165.1,
+   "sd": 23.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm"
+  },
+  {
+   "x": "task 3 (15.3 kg, lowest 29.4 cm): L3 EMG",
+   "load": "15.3 kg barbell",
+   "mean": 20.9,
+   "sd": 21.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 3: T9 EMG",
+   "load": "15.3 kg barbell",
+   "mean": 93.7,
+   "sd": 38.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "%SIC"
+  },
+  {
+   "x": "task 3: L5/S1 torque",
+   "load": "15.3 kg barbell",
+   "mean": 177.4,
+   "sd": 13.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "unit": "Nm"
+  }
+ ],
+ "extraction": {
+  "from": "Toussaint 1995 Table 2",
+  "method": "table",
+  "uncertainty": "SD as printed",
+  "checked": true,
+  "check_notes": "Scanned PDF; Table 2 checked against the page image (p.206)."
+ },
+ "combine_group": "msk_flexion_relaxation__es_emg_at_full_flexion_pct_sic__l3_t9__lowering_lifting__0_15kg",
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG normalised",
+  "lifting",
+  "healthy",
+  "male"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}

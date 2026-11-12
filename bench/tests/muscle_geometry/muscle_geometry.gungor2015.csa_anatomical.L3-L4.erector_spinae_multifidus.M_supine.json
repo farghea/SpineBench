@@ -1,0 +1,116 @@
+{
+ "id": "muscle_geometry.gungor2015.csa_anatomical.L3-L4.erector_spinae_multifidus.M_supine",
+ "title": "Gungor 2015: csa anatomical of paraspinal / lumbar extensor mass at L3-L4 (M, supine)",
+ "layer": "property",
+ "category": "muscle_geometry",
+ "subcategory": "csa_anatomical",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "M_supine",
+ "muscle": "erector_spinae_multifidus",
+ "muscle_as_reported": "erector spinae muscles (ESM) = ES group + transversospinalis (multifidus, rotatores) + interspinales/intertransversarii",
+ "sex": "M",
+ "posture": "supine",
+ "imaging": {
+  "modality": "MRI 1.5 T Siemens Avanto, T2-weighted",
+  "plane": "axial-oblique slice parallel to the intervertebral disc (one per disc level)",
+  "slice_thickness_mm": null,
+  "level_definition": "intervertebral disc level",
+  "posture_detail": "head-first supine, arms at sides, knees slightly flexed on a cushion"
+ },
+ "quantity": {
+  "name": "csa_anatomical",
+  "definition": "anatomical cross-sectional area of the muscle in the image plane (as cut, not corrected for fibre direction)",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Gungor 2015",
+  "authors": "Gungor C, Tang R, Sesek RF, Foreman KB, Gallagher S, Davis GA",
+  "year": 2015,
+  "journal": "J Biomech Eng 137:071012",
+  "doi": "10.1115/1.4029984",
+  "n": 112,
+  "sample": "112 patients (58 F, 54 M); historical clinical lumbar MRI patient population aged 21-39 (L3/L4 54F/53M, L4/L5 50F/44M, L5/S1 41F/35M)",
+  "age": "F 29.3 (5.2), M 30.1 (5.7) y",
+  "sex": "58F/54M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "",
+  "how_to_simulate": [
+   "Pose the model supine with slight hip/knee flexion.",
+   "Cut a plane through the L3-L4 disc centre parallel to the disc.",
+   "Sum the anatomical CSA of all posterior paraspinal elements (longissimus, iliocostalis, spinalis, multifidus, rotatores, interspinales/intertransversarii) crossing that plane, per side (PCSA / cos(angle to plane normal)).",
+   "Compare right, left and total with mean +/- SD."
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 30.1,
+   "height_cm": 178.6,
+   "weight_kg": 84.5,
+   "disc_area_mm2": null,
+   "n": 53,
+   "source": "Table 1 (per level)"
+  },
+  "notes": "Patients scanned clinically (historical dataset; not screened as healthy); population was overweight on average (BMI ~27-28)."
+ },
+ "data": [
+  {
+   "x": "value",
+   "side": "right",
+   "mean": 2953.0,
+   "sd": 522.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 53,
+   "as_reported": "29.53 (5.22) cm2"
+  },
+  {
+   "x": "value",
+   "side": "left",
+   "mean": 2962.0,
+   "sd": 523.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 53,
+   "as_reported": "29.62 (5.23) cm2"
+  },
+  {
+   "x": "value",
+   "side": "bilateral_sum",
+   "mean": 5915.0,
+   "sd": 1028.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 53,
+   "as_reported": "59.15 (10.28) cm2 total"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "",
+  "checked": true,
+  "check_notes": "Table 3 single-line rows; re-read all values against the PDF text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "muscle_geometry__csa_anatomical__l3_l4_erector_spinae_multifidus__m_supine__no_load",
+ "shared_sample_with": [],
+ "tags": [
+  "muscle_geometry",
+  "csa_anatomical",
+  "in vivo",
+  "MRI",
+  "supine",
+  "patients"
+ ]
+}

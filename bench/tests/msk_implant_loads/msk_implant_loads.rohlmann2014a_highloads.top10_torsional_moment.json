@@ -21,8 +21,8 @@
   "year": 2014,
   "journal": "PLoS One 9(5):e98510",
   "doi": "10.1371/journal.pone.0098510",
-  "n": "5 patients (4 M, 1 F) with telemeterised VBR (L1 in WP1-WP4, L3 in WP5); >13,500 trial datasets, 97 sessions",
-  "sample": "in vivo, A3 compression fracture, posterior internal fixator + telemeterised VBR; measurements from a few days to 65 months post-op",
+  "n": 5,
+  "sample": "5 patients (4 M, 1 F) with telemeterised VBR (L1 in WP1-WP4, L3 in WP5); >13,500 trial datasets, 97 sessions; in vivo, A3 compression fracture, posterior internal fixator + telemeterised VBR; measurements from a few days to 65 months post-op",
   "age": "WP1 62, WP2 71, WP3 69, WP4 63, WP5 66 y",
   "sex": "4 M, 1 F (WP3)",
   "height_cm": "WP1 168, WP2 169, WP3 168, WP4 170, WP5 180",
@@ -1003,14 +1003,14 @@
   "from": "Table 4",
   "method": "table",
   "uncertainty": "as printed; signs and italic/bold read from the rendered page (text layer renders minus as \"2\")",
-  "checked": false,
-  "check_notes": ""
+  "checked": true,
+  "check_notes": "Double-check (msk_invivo lead): every number in data[] was found in the pdftotext output of the source table (minus signs rendered as \"2\" or \"–\" in the PDF text layer; trailing zeros dropped, e.g. -3.280 -> -3.28); sign of several values confirmed against the table text."
  },
  "pass_rule": {
   "template": true,
   "rule": "order of magnitude (model within factor 2 of patient maximum) and activity ranking"
  },
- "combine_group": "msk_implant_loads__vbr_max_torsional_moment_abs__L1-L3__daily_activities_top10__various_weights",
+ "combine_group": "msk_implant_loads__vbr_max_torsional_moment_abs__l1_l3__daily_activities_top10__various_weights",
  "tags": [
   "in vivo",
   "telemetry",
@@ -1020,5 +1020,26 @@
   "per patient",
   "torsional moment"
  ],
- "shared_sample_with": []
+ "shared_sample_with": [
+  "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+  "msk_implant_loads.dreischarf2015.standing_flexion_resultant_force",
+  "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+  "msk_implant_loads.rohlmann2008.lying_positions",
+  "msk_implant_loads.rohlmann2008.sitting_activities",
+  "msk_implant_loads.rohlmann2008.standing_walking_activities",
+  "msk_implant_loads.rohlmann2011.sitting_relative_force",
+  "msk_implant_loads.rohlmann2013.longterm_standing_walking",
+  "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_anterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_lateral_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_posterior_shear",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_bending_moment",
+  "msk_implant_loads.rohlmann2014a_highloads.top10_resultant_force",
+  "msk_implant_loads.rohlmann2014b.carrying_force_increase",
+  "msk_implant_loads.rohlmann2014c_physio.all_fours_exercises",
+  "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+  "msk_implant_loads.rohlmann2014c_physio.lateral_position_leg_abduction",
+  "msk_implant_loads.rohlmann2014c_physio.prone_exercises",
+  "msk_implant_loads.rohlmann2014c_physio.supine_exercises"
+ ]
 }

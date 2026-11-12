@@ -1,0 +1,185 @@
+{
+ "id": "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
+ "title": "Zwambag 2016: L4/L5 moment, lumbar flexion and trunk inclination at lumbar ES inactivation, with torso counterweights",
+ "subcategory": "FR critical point (angle and moment)",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "standing flexion; 0, 5, 10, 15 lb counterweight pulling the torso up at T5",
+ "quantity": {
+  "name": "critical point of lumbar ES inactivation",
+  "definition": "external L4/L5 extensor moment (Nm, inverse dynamics), lumbar flexion (T12-S1, deg) and trunk inclination (T12 vs horizontal from standing, deg) at the critical point; mean +/- SEM (Fig 2 caption: 'Mean (+ SEM)'; Zwambag 2020 Table 1 labels the same moments mean +/- SEM)",
+  "unit": "Nm / deg"
+ },
+ "source": {
+  "short": "Zwambag 2016",
+  "authors": "Zwambag DP, Brown SHM",
+  "year": 2016,
+  "journal": "J Electromyogr Kinesiol 30:38-45",
+  "doi": "10.1016/j.jelekin.2016.05.008",
+  "n": 10,
+  "sample": "10 healthy males, no LBP history",
+  "age": "25 +/- 2.5",
+  "sex": "M",
+  "height_cm": 181,
+  "weight_kg": 82
+ },
+ "protocol": {
+  "summary": "3 blocks x 4 counterweight conditions, randomised.",
+  "how_to_simulate": [
+   "Scale to protocol.subject_model (male, 25 y, 181 cm, 82 kg)",
+   "Quasi-static trunk flexion to full flexion (T12/S1 ~53 deg)",
+   "External load: an upward cable force at ~T5 equal to the counterweight (0, 22.2, 44.5, 66.7 N) via an overhead pulley; no hand load",
+   "Output: lumbar flexion, trunk inclination and the external L4/L5 moment at the instant the model's lumbar ES activation reaches ~0 (critical point)"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 25,
+   "height_cm": 181,
+   "weight_kg": 82,
+   "sd": {
+    "age": 2.5,
+    "height_cm": 5.8,
+    "weight_kg": 11.2
+   },
+   "source": "Zwambag 2016 Sec 2.1 (same in Zwambag 2020)"
+  },
+  "notes": "Surface EMG bilateral: lumbar ES at L3, thoracic ES at T9, latissimus at T12, RA 2 cm lateral to navel, EO 14 cm lateral to midline, IO 2 cm medial/inferior to ASIS; fine-wire multifidus 1.5 cm lateral to L1 and L4 spinous processes. EMG high-pass 100 Hz, rectified, 2.5 Hz low-pass, %MVIC. Critical point = LES activity crosses mean + 2 SD of its quiet (full-flexion) period for > 20 ms. Lumbar flexion = T12 vs S1 rigid bodies (0 = neutral standing); trunk inclination = T12 rigid body vs horizontal (0 = standing). L4/L5 moment from a 2-D dynamic bottom-up linked-segment model (force plate). Task: flex to full flexion in 3 s, hold 3 s, return in 3 s; counterweights 0/5/10/15 lb (0/2.3/4.5/6.8 kg) on a cable attached at ~T5 over an overhead pulley (reduces the flexion moment). Data pooled left/right (no side difference)."
+ },
+ "data": [
+  {
+   "x": "L4/L5 moment at CP, 0 lb",
+   "load": "none",
+   "mean": 93.7,
+   "sd": 2.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm",
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 moment at CP, 5 lb",
+   "load": "5 lb (2.3 kg) counterweight at T5",
+   "mean": 78.9,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm",
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 moment at CP, 10 lb",
+   "load": "10 lb (4.5 kg) counterweight at T5",
+   "mean": 66.5,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm",
+   "spread": "SEM"
+  },
+  {
+   "x": "L4/L5 moment at CP, 15 lb",
+   "load": "15 lb (6.8 kg) counterweight at T5",
+   "mean": 61.4,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "Nm",
+   "spread": "SEM"
+  },
+  {
+   "x": "lumbar flexion at CP, 0 lb",
+   "load": "none",
+   "mean": 51.8,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  },
+  {
+   "x": "lumbar flexion at CP, 5 lb",
+   "load": "5 lb counterweight",
+   "mean": 50.8,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  },
+  {
+   "x": "lumbar flexion at CP, 10 lb",
+   "load": "10 lb counterweight",
+   "mean": 49.7,
+   "sd": 1.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  },
+  {
+   "x": "lumbar flexion at CP, 15 lb",
+   "load": "15 lb counterweight",
+   "mean": 48.6,
+   "sd": 1.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  },
+  {
+   "x": "trunk inclination at CP, all conditions (no effect)",
+   "load": "0-15 lb",
+   "mean": 100.4,
+   "sd": 0.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "unit": "deg",
+   "spread": "SEM"
+  }
+ ],
+ "extraction": {
+  "from": "Zwambag 2016 Results Sec 3.1 text (values also plotted in Fig 2)",
+  "method": "text",
+  "uncertainty": "the 'sd' field holds the SEM (convert: SD = SEM x sqrt(10))",
+  "checked": true,
+  "check_notes": "Re-read Sec 3.1; same values reappear in Zwambag 2020 (rounded: 94/79/66/62 Nm; 51/50.8/49.7/48.6 deg)."
+ },
+ "combine_group": "msk_flexion_relaxation__fr_critical_point_l4l5_moment_lumbar_flexion__lumbar_es_l3__standing_flexion__torso_counterweight",
+ "shared_sample_with": [
+  "msk_flexion_relaxation.zwambag2020.l4l5_demand_at_fr"
+ ],
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG %MVC",
+  "healthy",
+  "male",
+  "SEM"
+ ],
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "region": "lumbar",
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (angles); for SEM-reported data use SD = SEM x sqrt(n)"
+ }
+}
