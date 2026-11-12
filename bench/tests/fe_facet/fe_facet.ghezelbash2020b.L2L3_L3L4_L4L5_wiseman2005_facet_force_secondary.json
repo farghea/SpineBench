@@ -1,99 +1,99 @@
 {
- "id": "fe_facet.ghezelbash2020b.L2L3_L3L4_L4L5_wiseman2005_facet_force_secondary",
- "title": "Facet force at L2-L3, L3-L4, L4-L5 - Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005 (secondary, Ghezelbash 2020 review)",
- "layer": "outcome",
- "category": "fe_facet",
- "subcategory": "secondary compilation",
- "region": "lumbar",
- "levels": [
-  "L2-L3",
-  "L3-L4",
-  "L4-L5"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "facet force",
-  "definition": "facet force +/- SD (pressure sensor) under 15 Nm extension + 700 N compression",
-  "unit": "N"
- },
- "source": {
-  "short": "Ghezelbash 2020b",
-  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
-  "year": 2020,
-  "journal": "J Biomech 102:109441",
-  "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 2005,
-  "sample": "not stated in review (see primary: Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005); human cadaveric lumbar specimens of Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005, as compiled in Ghezelbash et al. 2020 Table 2",
-  "age": "",
-  "sex": "",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "15 Nm extension with 700 N compression; pressure sensor.",
-  "how_to_simulate": [
-   "Apply 700 N compression plus 15 Nm extension",
-   "Report facet force at L2-L3, L3-L4, L4-L5"
+  "id": "fe_facet.ghezelbash2020b.L2L3_L3L4_L4L5_wiseman2005_facet_force_secondary",
+  "title": "Facet force at L2-L3, L3-L4, L4-L5 - Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005 (secondary, Ghezelbash 2020 review)",
+  "layer": "outcome",
+  "category": "fe_facet",
+  "subcategory": "secondary compilation",
+  "region": "lumbar",
+  "levels": [
+    "L2-L3",
+    "L3-L4",
+    "L4-L5"
   ],
-  "subject_model": null,
-  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005."
- },
- "data": [
-  {
-   "x": "extension",
-   "load": "15 Nm + 700 N compression",
-   "mean": 76.7,
-   "sd": 49.5,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "level": "L2-L3"
+  "condition": "intact",
+  "quantity": {
+    "name": "facet force",
+    "definition": "facet force +/- SD (pressure sensor) under 15 Nm extension + 700 N compression",
+    "unit": "N"
   },
-  {
-   "x": "extension",
-   "load": "15 Nm + 700 N compression",
-   "mean": 83.2,
-   "sd": 80.2,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "level": "L3-L4"
+  "source": {
+    "short": "Ghezelbash 2020b",
+    "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+    "year": 2020,
+    "journal": "J Biomech 102:109441",
+    "doi": "10.1016/j.jbiomech.2019.109441",
+    "n": null,
+    "sample": "not stated in review (see primary: Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005); human cadaveric lumbar specimens of Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005, as compiled in Ghezelbash et al. 2020 Table 2",
+    "age": "",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "extension",
-   "load": "15 Nm + 700 N compression",
-   "mean": 72.5,
-   "sd": 70.7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "level": "L4-L5"
-  }
- ],
- "extraction": {
-  "from": "Table 2 (summary of in vitro facet force measurements)",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
- },
- "combine_group": "secondary__fe_facet__facet_force__l4_l5__intact__15nm_700n",
- "tags": [
-  "lumbar",
-  "in vitro",
-  "secondary",
-  "facet force",
-  "pressure sensor"
- ],
- "also_in_groups": [
-  "secondary__fe_facet__facet_force__l2_l3__intact__15nm_700n",
-  "secondary__fe_facet__facet_force__l3_l4__intact__15nm_700n"
- ]
+  "protocol": {
+    "summary": "15 Nm extension with 700 N compression; pressure sensor.",
+    "how_to_simulate": [
+      "Apply 700 N compression plus 15 Nm extension",
+      "Report facet force at L2-L3, L3-L4, L4-L5"
+    ],
+    "subject_model": null,
+    "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA 2005."
+  },
+  "data": [
+    {
+      "x": "extension",
+      "load": "15 Nm + 700 N compression",
+      "mean": 76.7,
+      "sd": 49.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "level": "L2-L3"
+    },
+    {
+      "x": "extension",
+      "load": "15 Nm + 700 N compression",
+      "mean": 83.2,
+      "sd": 80.2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "level": "L3-L4"
+    },
+    {
+      "x": "extension",
+      "load": "15 Nm + 700 N compression",
+      "mean": 72.5,
+      "sd": 70.7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "level": "L4-L5"
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (summary of in vitro facet force measurements)",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | 2026-11-12: source.n was the primary paper year (2005); primary n not available here, set to null."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+  },
+  "combine_group": "secondary__fe_facet__facet_force__l4_l5__intact__15nm_700n",
+  "tags": [
+    "lumbar",
+    "in vitro",
+    "secondary",
+    "facet force",
+    "pressure sensor"
+  ],
+  "also_in_groups": [
+    "secondary__fe_facet__facet_force__l2_l3__intact__15nm_700n",
+    "secondary__fe_facet__facet_force__l3_l4__intact__15nm_700n"
+  ]
 }

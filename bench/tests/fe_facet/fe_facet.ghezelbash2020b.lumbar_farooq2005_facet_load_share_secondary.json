@@ -1,81 +1,81 @@
 {
- "id": "fe_facet.ghezelbash2020b.lumbar_farooq2005_facet_load_share_secondary",
- "title": "Facet load share at lumbar (variable) - Farooq et al. 2005 (as cited in the review) (secondary, Ghezelbash 2020 review)",
- "layer": "outcome",
- "category": "fe_facet",
- "subcategory": "secondary compilation",
- "region": "lumbar",
- "levels": [
-  "lumbar (variable)"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "facet load share",
-  "definition": "% of compressive force transmitted via the neural arc, mean +/- SD (stress profilometry)",
-  "unit": "%"
- },
- "source": {
-  "short": "Ghezelbash 2020b",
-  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
-  "year": 2020,
-  "journal": "J Biomech 102:109441",
-  "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 2005,
-  "sample": "not stated in review (see primary: Farooq et al. 2005 (as cited in the review)); human cadaveric lumbar specimens of Farooq et al. 2005 (as cited in the review), as compiled in Ghezelbash et al. 2020 Table 2",
-  "age": "",
-  "sex": "",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Stress profilometry; load share of neural arc (not facet force in N).",
-  "how_to_simulate": [
-   "Apply 1.5 kN compression (and 2-8 deg flexion)",
-   "Compute % of compression transmitted through the neural arc"
+  "id": "fe_facet.ghezelbash2020b.lumbar_farooq2005_facet_load_share_secondary",
+  "title": "Facet load share at lumbar (variable) - Farooq et al. 2005 (as cited in the review) (secondary, Ghezelbash 2020 review)",
+  "layer": "outcome",
+  "category": "fe_facet",
+  "subcategory": "secondary compilation",
+  "region": "lumbar",
+  "levels": [
+    "lumbar (variable)"
   ],
-  "subject_model": null,
-  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Farooq et al. 2005 (as cited in the review)."
- },
- "data": [
-  {
-   "x": "compression",
-   "load": "1500 N compression",
-   "mean": 52.9,
-   "sd": 8.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null
+  "condition": "intact",
+  "quantity": {
+    "name": "facet load share",
+    "definition": "% of compressive force transmitted via the neural arc, mean +/- SD (stress profilometry)",
+    "unit": "%"
   },
-  {
-   "x": "flexion",
-   "load": "1.5 kN compression + 2-8 deg flexion",
-   "mean": 52.9,
-   "sd": 8.0,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "note": "value printed identical to the compression row in the review; verify in primary"
-  }
- ],
- "extraction": {
-  "from": "Table 2 (summary of in vitro facet force measurements)",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
- },
- "combine_group": "secondary__fe_facet__facet_load_share__lumbar_pooled__intact__1500n",
- "tags": [
-  "lumbar",
-  "in vitro",
-  "secondary",
-  "facet load share",
-  "stress profilometry"
- ]
+  "source": {
+    "short": "Ghezelbash 2020b",
+    "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+    "year": 2020,
+    "journal": "J Biomech 102:109441",
+    "doi": "10.1016/j.jbiomech.2019.109441",
+    "n": null,
+    "sample": "not stated in review (see primary: Farooq et al. 2005 (as cited in the review)); human cadaveric lumbar specimens of Farooq et al. 2005 (as cited in the review), as compiled in Ghezelbash et al. 2020 Table 2",
+    "age": "",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Stress profilometry; load share of neural arc (not facet force in N).",
+    "how_to_simulate": [
+      "Apply 1.5 kN compression (and 2-8 deg flexion)",
+      "Compute % of compression transmitted through the neural arc"
+    ],
+    "subject_model": null,
+    "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Farooq et al. 2005 (as cited in the review)."
+  },
+  "data": [
+    {
+      "x": "compression",
+      "load": "1500 N compression",
+      "mean": 52.9,
+      "sd": 8.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null
+    },
+    {
+      "x": "flexion",
+      "load": "1.5 kN compression + 2-8 deg flexion",
+      "mean": 52.9,
+      "sd": 8.0,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "note": "value printed identical to the compression row in the review; verify in primary"
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (summary of in vitro facet force measurements)",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | 2026-11-12: source.n was the primary paper year (2005); primary n not available here, set to null."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+  },
+  "combine_group": "secondary__fe_facet__facet_load_share__lumbar_pooled__intact__1500n",
+  "tags": [
+    "lumbar",
+    "in vitro",
+    "secondary",
+    "facet load share",
+    "stress profilometry"
+  ]
 }

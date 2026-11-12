@@ -1,90 +1,90 @@
 {
- "id": "fe_facet.ghezelbash2020b.lumbar_yangking1984_facet_load_share_secondary",
- "title": "Facet load share at lumbar (variable) - Yang KH, King A 1984 (Spine 9:557) (secondary, Ghezelbash 2020 review)",
- "layer": "outcome",
- "category": "fe_facet",
- "subcategory": "secondary compilation",
- "region": "lumbar",
- "levels": [
-  "lumbar (variable)"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "facet load share",
-  "definition": "% of compression transmitted via both facets (intervertebral load cell), mean +/- SD",
-  "unit": "%"
- },
- "source": {
-  "short": "Ghezelbash 2020b",
-  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
-  "year": 2020,
-  "journal": "J Biomech 102:109441",
-  "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 1984,
-  "sample": "not stated in review (see primary: Yang KH, King A 1984 (Spine 9:557)); human cadaveric lumbar specimens of Yang KH, King A 1984 (Spine 9:557), as compiled in Ghezelbash et al. 2020 Table 2",
-  "age": "",
-  "sex": "",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Eccentric compression 1.1 kN; intervertebral load cell.",
-  "how_to_simulate": [
-   "Apply 1.1 kN compression centrally or 10 mm anterior/posterior eccentric",
-   "Compute % carried by both facets"
+  "id": "fe_facet.ghezelbash2020b.lumbar_yangking1984_facet_load_share_secondary",
+  "title": "Facet load share at lumbar (variable) - Yang KH, King A 1984 (Spine 9:557) (secondary, Ghezelbash 2020 review)",
+  "layer": "outcome",
+  "category": "fe_facet",
+  "subcategory": "secondary compilation",
+  "region": "lumbar",
+  "levels": [
+    "lumbar (variable)"
   ],
-  "subject_model": null,
-  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Yang KH, King A 1984 (Spine 9:557)."
- },
- "data": [
-  {
-   "x": "compression",
-   "load": "1.1 kN compression + 10 mm anterior eccentricity",
-   "mean": 22.3,
-   "sd": 2.4,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null
+  "condition": "intact",
+  "quantity": {
+    "name": "facet load share",
+    "definition": "% of compression transmitted via both facets (intervertebral load cell), mean +/- SD",
+    "unit": "%"
   },
-  {
-   "x": "compression",
-   "load": "1.1 kN compression",
-   "mean": 25.1,
-   "sd": 5,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null
+  "source": {
+    "short": "Ghezelbash 2020b",
+    "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+    "year": 2020,
+    "journal": "J Biomech 102:109441",
+    "doi": "10.1016/j.jbiomech.2019.109441",
+    "n": null,
+    "sample": "not stated in review (see primary: Yang KH, King A 1984 (Spine 9:557)); human cadaveric lumbar specimens of Yang KH, King A 1984 (Spine 9:557), as compiled in Ghezelbash et al. 2020 Table 2",
+    "age": "",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "compression",
-   "load": "1.1 kN compression + 10 mm posterior eccentricity",
-   "mean": 30.4,
-   "sd": 7,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null
-  }
- ],
- "extraction": {
-  "from": "Table 2 (summary of in vitro facet force measurements)",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
- },
- "combine_group": "secondary__fe_facet__facet_load_share__lumbar_pooled__intact__1_1kn",
- "tags": [
-  "lumbar",
-  "in vitro",
-  "secondary",
-  "facet load share",
-  "load cell"
- ]
+  "protocol": {
+    "summary": "Eccentric compression 1.1 kN; intervertebral load cell.",
+    "how_to_simulate": [
+      "Apply 1.1 kN compression centrally or 10 mm anterior/posterior eccentric",
+      "Compute % carried by both facets"
+    ],
+    "subject_model": null,
+    "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Yang KH, King A 1984 (Spine 9:557)."
+  },
+  "data": [
+    {
+      "x": "compression",
+      "load": "1.1 kN compression + 10 mm anterior eccentricity",
+      "mean": 22.3,
+      "sd": 2.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null
+    },
+    {
+      "x": "compression",
+      "load": "1.1 kN compression",
+      "mean": 25.1,
+      "sd": 5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null
+    },
+    {
+      "x": "compression",
+      "load": "1.1 kN compression + 10 mm posterior eccentricity",
+      "mean": 30.4,
+      "sd": 7,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (summary of in vitro facet force measurements)",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | 2026-11-12: source.n was the primary paper year (1984); primary n not available here, set to null."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+  },
+  "combine_group": "secondary__fe_facet__facet_load_share__lumbar_pooled__intact__1_1kn",
+  "tags": [
+    "lumbar",
+    "in vitro",
+    "secondary",
+    "facet load share",
+    "load cell"
+  ]
 }

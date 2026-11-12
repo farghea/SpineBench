@@ -1,105 +1,105 @@
 {
- "id": "fe_resection_lumbar.ghezelbash2020b.L2L5_lu2005_load_sharing_secondary",
- "title": "Load sharing at L2-L5 - Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints) (secondary, Ghezelbash 2020 review)",
- "layer": "outcome",
- "category": "fe_resection_lumbar",
- "subcategory": "secondary compilation",
- "region": "lumbar",
- "levels": [
-  "L2-L5"
- ],
- "condition": "intact -> disc sectioned / posterior elements dissected",
- "quantity": {
-  "name": "load sharing",
-  "definition": "contribution (%) to anterior-posterior shear stiffness, from the change after sectioning the disc (disc) or dissecting the posterior elements (posterior elements)",
-  "unit": "%"
- },
- "source": {
-  "short": "Ghezelbash 2020b",
-  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
-  "year": 2020,
-  "journal": "J Biomech 102:109441",
-  "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 2005,
-  "sample": "not stated in review (see primary: Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints)); human cadaveric lumbar specimens of Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints), as compiled in Ghezelbash et al. 2020 Table 1",
-  "age": "",
-  "sex": "",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Shear forces up to 250 N anterior or posterior on L2-L5 specimens; contributions derived from stiffness change after sectioning.",
-  "how_to_simulate": [
-   "Apply up to 250 N anterior or posterior shear to L2-L5",
-   "Compute shear stiffness intact, after sectioning the disc, and after dissecting the posterior elements",
-   "Express each stiffness change as % of intact"
+  "id": "fe_resection_lumbar.ghezelbash2020b.L2L5_lu2005_load_sharing_secondary",
+  "title": "Load sharing at L2-L5 - Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints) (secondary, Ghezelbash 2020 review)",
+  "layer": "outcome",
+  "category": "fe_resection_lumbar",
+  "subcategory": "secondary compilation",
+  "region": "lumbar",
+  "levels": [
+    "L2-L5"
   ],
-  "subject_model": null,
-  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints)."
- },
- "data": [
-  {
-   "x": "anterior_shear",
-   "load": "up to 250 N anterior shear",
-   "mean": 22.8,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "structure": "disc (disc sectioned)"
+  "condition": "intact -> disc sectioned / posterior elements dissected",
+  "quantity": {
+    "name": "load sharing",
+    "definition": "contribution (%) to anterior-posterior shear stiffness, from the change after sectioning the disc (disc) or dissecting the posterior elements (posterior elements)",
+    "unit": "%"
   },
-  {
-   "x": "anterior_shear",
-   "load": "up to 250 N anterior shear",
-   "mean": 77.7,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "structure": "posterior elements (dissected)"
+  "source": {
+    "short": "Ghezelbash 2020b",
+    "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+    "year": 2020,
+    "journal": "J Biomech 102:109441",
+    "doi": "10.1016/j.jbiomech.2019.109441",
+    "n": null,
+    "sample": "not stated in review (see primary: Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints)); human cadaveric lumbar specimens of Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints), as compiled in Ghezelbash et al. 2020 Table 1",
+    "age": "",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
   },
-  {
-   "x": "posterior_shear",
-   "load": "up to 250 N posterior shear",
-   "mean": 23.9,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "structure": "disc (disc sectioned)"
+  "protocol": {
+    "summary": "Shear forces up to 250 N anterior or posterior on L2-L5 specimens; contributions derived from stiffness change after sectioning.",
+    "how_to_simulate": [
+      "Apply up to 250 N anterior or posterior shear to L2-L5",
+      "Compute shear stiffness intact, after sectioning the disc, and after dissecting the posterior elements",
+      "Express each stiffness change as % of intact"
+    ],
+    "subject_model": null,
+    "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Lu WW, Luk KD, Holmes AD, Cheung KM, Leong JC 2005 (Pure shear properties of lumbar spinal joints)."
   },
-  {
-   "x": "posterior_shear",
-   "load": "up to 250 N posterior shear",
-   "mean": 79.0,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": null,
-   "structure": "posterior elements (dissected)"
-  }
- ],
- "extraction": {
-  "from": "Table 1 (load-sharing contributions, in vitro and FE)",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Re-read against the rendered Table 1 image (page 4, 200 dpi); footnote symbols checked (dagger = disc sectioned, # = posterior elements dissected, double dagger = sum of capsular, flavum and supra/interspinous ligaments, || = capsular ligaments)."
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model - value| <= 10 percentage points (template; no SD reported)"
- },
- "combine_group": "secondary__fe_resection_lumbar__load_sharing__l2_l5__shear__250n",
- "tags": [
-  "lumbar",
-  "in vitro",
-  "secondary",
-  "load sharing",
-  "shear"
- ]
+  "data": [
+    {
+      "x": "anterior_shear",
+      "load": "up to 250 N anterior shear",
+      "mean": 22.8,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "structure": "disc (disc sectioned)"
+    },
+    {
+      "x": "anterior_shear",
+      "load": "up to 250 N anterior shear",
+      "mean": 77.7,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "structure": "posterior elements (dissected)"
+    },
+    {
+      "x": "posterior_shear",
+      "load": "up to 250 N posterior shear",
+      "mean": 23.9,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "structure": "disc (disc sectioned)"
+    },
+    {
+      "x": "posterior_shear",
+      "load": "up to 250 N posterior shear",
+      "mean": 79.0,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": null,
+      "structure": "posterior elements (dissected)"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (load-sharing contributions, in vitro and FE)",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Re-read against the rendered Table 1 image (page 4, 200 dpi); footnote symbols checked (dagger = disc sectioned, # = posterior elements dissected, double dagger = sum of capsular, flavum and supra/interspinous ligaments, || = capsular ligaments). | 2026-11-12: source.n was the primary paper year (2005); primary n not available here, set to null."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model - value| <= 10 percentage points (template; no SD reported)"
+  },
+  "combine_group": "secondary__fe_resection_lumbar__load_sharing__l2_l5__shear__250n",
+  "tags": [
+    "lumbar",
+    "in vitro",
+    "secondary",
+    "load sharing",
+    "shear"
+  ]
 }

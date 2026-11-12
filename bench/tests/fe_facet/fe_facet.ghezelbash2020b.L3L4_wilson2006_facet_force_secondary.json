@@ -1,84 +1,84 @@
 {
- "id": "fe_facet.ghezelbash2020b.L3L4_wilson2006_facet_force_secondary",
- "title": "Facet force at L3-L4 - Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348) (secondary, Ghezelbash 2020 review)",
- "layer": "outcome",
- "category": "fe_facet",
- "subcategory": "secondary compilation",
- "region": "lumbar",
- "levels": [
-  "L3-L4"
- ],
- "condition": "intact",
- "quantity": {
-  "name": "facet force",
-  "definition": "min/max contact force between left and right facets (pressure-sensitive film)",
-  "unit": "N"
- },
- "source": {
-  "short": "Ghezelbash 2020b",
-  "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
-  "year": 2020,
-  "journal": "J Biomech 102:109441",
-  "doi": "10.1016/j.jbiomech.2019.109441",
-  "n": 2006,
-  "sample": "not stated in review (see primary: Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348)); human cadaveric lumbar specimens of Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348), as compiled in Ghezelbash et al. 2020 Table 2",
-  "age": "",
-  "sex": "",
-  "height_cm": null,
-  "weight_kg": null
- },
- "protocol": {
-  "summary": "Pure moments 7.5 Nm; Tekscan film. Cross-check: Dreischarf 2014 Fig 2c red ranges digitised as 10-50 N (extension) and 54-109 N (AR), consistent.",
-  "how_to_simulate": [
-   "Apply 7.5 Nm pure moment in extension and axial rotation",
-   "Report L3-L4 facet contact force (left and right)"
+  "id": "fe_facet.ghezelbash2020b.L3L4_wilson2006_facet_force_secondary",
+  "title": "Facet force at L3-L4 - Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348) (secondary, Ghezelbash 2020 review)",
+  "layer": "outcome",
+  "category": "fe_facet",
+  "subcategory": "secondary compilation",
+  "region": "lumbar",
+  "levels": [
+    "L3-L4"
   ],
-  "subject_model": null,
-  "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348)."
- },
- "data": [
-  {
-   "x": "extension",
-   "load": "7.5 Nm",
-   "mean": null,
-   "sd": null,
-   "min": 9.0,
-   "max": 48.0,
-   "median": null,
-   "n": null
+  "condition": "intact",
+  "quantity": {
+    "name": "facet force",
+    "definition": "min/max contact force between left and right facets (pressure-sensitive film)",
+    "unit": "N"
   },
-  {
-   "x": "axial_rotation",
-   "load": "7.5 Nm",
-   "mean": null,
-   "sd": null,
-   "min": 53.3,
-   "max": 109.0,
-   "median": null,
-   "n": null
-  }
- ],
- "extraction": {
-  "from": "Table 2 (summary of in vitro facet force measurements)",
-  "method": "table",
-  "uncertainty": "as printed",
-  "checked": true,
-  "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | verified 2026-11-12 sign check: OK (positive force ranges, consistent with Wilson 2006 Fig 3 p4)"
- },
- "pass_rule": {
-  "template": true,
-  "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
- },
- "combine_group": "secondary__fe_facet__facet_force__l3_l4__intact__7_5nm",
- "tags": [
-  "lumbar",
-  "in vitro",
-  "secondary",
-  "facet force",
-  "pressure film"
- ],
- "shared_sample_with": [
-  "wilson2006: primary (other fork)",
-  "fe_model_comparison.dreischarf2014.lumbar_invitro_facet_force_secondary (same data re-plotted: 10-50 N, 54-109 N)"
- ]
+  "source": {
+    "short": "Ghezelbash 2020b",
+    "authors": "Ghezelbash F, Schmidt H, Shirazi-Adl A, El-Rich M",
+    "year": 2020,
+    "journal": "J Biomech 102:109441",
+    "doi": "10.1016/j.jbiomech.2019.109441",
+    "n": 4,
+    "sample": "not stated in review (see primary: Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348)); human cadaveric lumbar specimens of Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348), as compiled in Ghezelbash et al. 2020 Table 2",
+    "age": "",
+    "sex": "",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Pure moments 7.5 Nm; Tekscan film. Cross-check: Dreischarf 2014 Fig 2c red ranges digitised as 10-50 N (extension) and 54-109 N (AR), consistent.",
+    "how_to_simulate": [
+      "Apply 7.5 Nm pure moment in extension and axial rotation",
+      "Report L3-L4 facet contact force (left and right)"
+    ],
+    "subject_model": null,
+    "notes": "Secondary data compiled in a review (Ghezelbash et al.'s review). Sample size, specimen age, rate and cycles are not given in the review; use the primary paper for these. Primary source: Wilson DC, Niosi CA, Zhu QA, Oxland TR, Wilson DR 2006 (J Biomech 39:348)."
+  },
+  "data": [
+    {
+      "x": "extension",
+      "load": "7.5 Nm",
+      "mean": null,
+      "sd": null,
+      "min": 9.0,
+      "max": 48.0,
+      "median": null,
+      "n": null
+    },
+    {
+      "x": "axial_rotation",
+      "load": "7.5 Nm",
+      "mean": null,
+      "sd": null,
+      "min": 53.3,
+      "max": 109.0,
+      "median": null,
+      "n": null
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (summary of in vitro facet force measurements)",
+    "method": "table",
+    "uncertainty": "as printed",
+    "checked": true,
+    "check_notes": "Re-read against the rendered Table 2 image (page 5, 200 dpi): every value, +/-, min/max, units and level labels match the pdftotext output. | verified 2026-11-12 sign check: OK (positive force ranges, consistent with Wilson 2006 Fig 3 p4) | 2026-11-12: source.n was the primary paper year (2006); set to n=4 from the primary study in SpineBench."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD (mean+/-SD) or min <= model <= max (ranges); widen for facet-force method bias (Wilson 2006)"
+  },
+  "combine_group": "secondary__fe_facet__facet_force__l3_l4__intact__7_5nm",
+  "tags": [
+    "lumbar",
+    "in vitro",
+    "secondary",
+    "facet force",
+    "pressure film"
+  ],
+  "shared_sample_with": [
+    "wilson2006: primary (other fork)",
+    "fe_model_comparison.dreischarf2014.lumbar_invitro_facet_force_secondary (same data re-plotted: 10-50 N, 54-109 N)"
+  ]
 }
