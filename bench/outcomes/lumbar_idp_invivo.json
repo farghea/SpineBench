@@ -62,17 +62,17 @@
       "sex": "male",
       "age": 45,
       "height_cm": 174,
-      "weight_kg": 70,
+      "weight_kg": 72,
       "disc_area_mm2": 1800,
-      "note": "70 kg during the measurements; 72 kg measured 2.5 y later (used by Ghezelbash lab validation)"
+      "note": "72 kg (measured; Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study."
     },
     "rohlmann2001": {
       "sex": "male",
       "age": 45,
       "height_cm": 174,
-      "weight_kg": 70,
+      "weight_kg": 72,
       "disc_area_mm2": 1800,
-      "note": "same volunteer as Wilke 2001 (relative values)"
+      "note": "72 kg (measured; Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study."
     },
     "sato1999": {
       "sex": "male",
@@ -1293,7 +1293,7 @@
   ],
   "notes": [
     "Nachemson 1964/1970 (values corrected by -0.25 MPa for transducer self-heating) and Schultz 1982 are early-transducer data taken from the Dreischarf 2016 review; Nachemson subjects were mostly LBP patients and only individual values exist. Weight them below the modern data.",
-    "Wilke is a single subject (70 kg at measurement; Ghezelbash lab validation uses 72 kg). His trunk-flexion and lateral-bending angles are reconstructions from the lumbar-angle record; lifting values are dynamic peaks.",
+    "Wilke is a single subject (72 kg). His trunk-flexion and lateral-bending angles are reconstructions from the lumbar-angle record; lifting values are dynamic peaks.",
     "Lying IDP is mostly disc swelling pressure, which muscle-driven compression models underpredict. Relative IDP (% of standing) is a separate output and is never pooled with MPa."
   ],
   "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the posture, trunk angle and hand load given in its inputs for the subject of each study that has a ref in that task (see \"subjects\": sex, age, height, body mass, disc area; for studies with individual refs the cohort mean subject is enough). Compute compression and flexion at the task level (L4-L5, or L3-L4 for standing_l3l4) and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A) or IDP = F/(0.66 A); say which. For idp_rel tasks report IDP as % of your simulated standing value for the same subject. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with a number in the stated unit, or an object {study_key: number} when you simulated several subjects for that task.",

@@ -2255,7 +2255,8 @@
   "notes": [
     "Angle definitions differ (trunk flexion, trunk inclination, lumbar T12-S1, Gupta thigh-T1); each task states it. Ghezelbash 2020 load heights mapped to angles from Ghezelbash 2024 Fig 3c.",
     "EMG references differ: max over 6 MVEs (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise model activity the same way.",
-    "Left out: passive moments (Dolan 1994, Zwambag 2016/2020: not EMG), FR ratio (Descarreaux), EMG timing in % cycle (Olson 2006), EMG at full flexion without angle (Toussaint 1995). More conditions in raw tests."
+    "Left out: passive moments (Dolan 1994, Zwambag 2016/2020: not EMG), FR ratio (Descarreaux), EMG timing in % cycle (Olson 2006), EMG at full flexion without angle (Toussaint 1995). More conditions in raw tests.",
+    "Ghezelbash 2020 recorded EMG with 2, 6, 10 and 14 kg held at four heights; Ghezelbash 2024 Fig 3c-d uses the 10 kg condition (its Methods line on 6 kg refers to another comparison)."
   ],
   "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task, scale the model to the study subject in `subjects`, impose the static forward-flexion posture given by flexion_deg (respect angle_def), apply the hand load, and solve for muscle activation. Report activation (%) of the muscles under the named electrode site, normalised like the study (emg_ref: max over six maximal exertions, angle-specific maximal extension, or supine MVC). For FR angle tasks (output fr_angle), sweep flexion in 1-deg steps and report the angle where back-muscle activity first falls to near zero (onset, flexing) or reappears (cessation, extending). Do not tune the model to these data. Return one JSON object following answer_format: task id -> {output key: value}.",
   "answer_format": {

@@ -15,7 +15,7 @@
   "simulate": [
     "Build the intact ligamentous specimen named in the task (FSU, or multi-level L1-S1 / L1-L5); fix the caudal vertebra (sacrum).",
     "Apply a pure moment to the cranial vertebra in the task direction; leave the other 5 DOF free.",
-    "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force.",
+    "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force. Panjabi 1994 tasks: 100 N compression kept along the specimen axis during bending (model it as a follower load or an axial load that rotates with the top vertebra).",
     "Report rotation of each upper vertebra relative to the one below (segmental) and of the cranial end relative to the caudal end (total), at peak moment, loading branch.",
     "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
   ],
@@ -235,8 +235,6 @@
         "T12L1_fe_7p5",
         "T12L1_lbr_7p5",
         "T12L1_arr_7p5",
-        "L1L2_flex_7p5",
-        "L1L2_ext_7p5",
         "L1L2_lb_7p5",
         "L1L2_ar_7p5",
         "L1L2_fe_7p5",
@@ -249,10 +247,6 @@
         "L2L3_fe_7p5",
         "L2L3_lbr_7p5",
         "L2L3_arr_7p5",
-        "L3L4_flex_7p5",
-        "L3L4_ext_7p5",
-        "L3L4_lb_7p5",
-        "L3L4_ar_7p5",
         "L3L4_fe_7p5",
         "L3L4_lbr_7p5",
         "L3L4_arr_7p5",
@@ -263,10 +257,6 @@
         "L4L5_fe_7p5",
         "L4L5_lbr_7p5",
         "L4L5_arr_7p5",
-        "L5S1_flex_7p5",
-        "L5S1_ext_7p5",
-        "L5S1_lb_7p5",
-        "L5S1_ar_7p5",
         "L5S1_fe_7p5",
         "L5S1_lbr_7p5",
         "L5S1_arr_7p5",
@@ -366,6 +356,55 @@
         "L1L5pooled_arr_7p5_nz"
       ],
       "x": "task"
+    },
+    {
+      "id": "ax100_seg",
+      "title": "100 N axial preload: segmental, 7.5 Nm (Panjabi 1994)",
+      "task_ids": [
+        "L1L2_flex_7p5_ax100",
+        "L1L2_ext_7p5_ax100",
+        "L1L2_lb_7p5_ax100",
+        "L1L2_ar_7p5_ax100",
+        "L2L3_flex_7p5_ax100",
+        "L2L3_ext_7p5_ax100",
+        "L2L3_lb_7p5_ax100",
+        "L2L3_ar_7p5_ax100",
+        "L3L4_flex_7p5_ax100",
+        "L3L4_ext_7p5_ax100",
+        "L3L4_lb_7p5_ax100",
+        "L3L4_ar_7p5_ax100",
+        "L4L5_flex_7p5_ax100",
+        "L4L5_ext_7p5_ax100",
+        "L4L5_lb_7p5_ax100",
+        "L4L5_ar_7p5_ax100",
+        "L5S1_flex_7p5_ax100",
+        "L5S1_ext_7p5_ax100",
+        "L5S1_lb_7p5_ax100",
+        "L5S1_ar_7p5_ax100"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "ax100_moment",
+      "title": "100 N axial preload: L4-L5 ROM vs moment",
+      "task_ids": [
+        "L4L5_flex_2p5_ax100",
+        "L4L5_flex_5_ax100",
+        "L4L5_flex_10_ax100",
+        "L4L5_ext_2p5_ax100",
+        "L4L5_ext_5_ax100",
+        "L4L5_ext_10_ax100",
+        "L4L5_lb_2p5_ax100",
+        "L4L5_lb_5_ax100",
+        "L4L5_lb_10_ax100",
+        "L4L5_ar_2p5_ax100",
+        "L4L5_ar_5_ax100",
+        "L4L5_ar_10_ax100"
+      ],
+      "x": "input:moment_nm",
+      "series": [
+        "direction"
+      ]
     }
   ],
   "tasks": [
@@ -562,60 +601,6 @@
       ]
     },
     {
-      "id": "L1L2_flex_7p5",
-      "label": "L1-L2 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "flexion (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L1-L2",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 4.24,
-          "sd": 1.28,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L1L2_ext_7p5",
-      "label": "L1-L2 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "extension (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L1-L2",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 3.75,
-          "sd": 1.03,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
       "id": "L1L2_lb_7p5",
       "label": "L1-L2 · Lateral bending · 7.5 Nm",
       "view": "seg_7p5",
@@ -630,28 +615,6 @@
       "level": "L1-L2",
       "refs": [
         {
-          "study": "panjabi1994",
-          "mean": 4.26,
-          "sd": 1.4,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.5,
-          "sd": 1.04,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
           "study": "sawa2008",
           "mean": 3.6,
           "sd": 1.2,
@@ -662,17 +625,7 @@
           "test_id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
           "note": "one side; inside T12-L2"
         }
-      ],
-      "pooled": {
-        "mean": 3.7273,
-        "sd": 1.1562,
-        "N": 11,
-        "k": 2,
-        "studies": [
-          "panjabi1994",
-          "sawa2008"
-        ]
-      }
+      ]
     },
     {
       "id": "L1L2_ar_7p5",
@@ -689,28 +642,6 @@
       "level": "L1-L2",
       "refs": [
         {
-          "study": "panjabi1994",
-          "mean": 1.27,
-          "sd": 1.24,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.53,
-          "sd": 1.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 5,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
           "study": "sawa2008",
           "mean": 1.3,
           "sd": 0.6,
@@ -721,17 +652,7 @@
           "test_id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
           "note": "one side; inside T12-L2"
         }
-      ],
-      "pooled": {
-        "mean": 1.3455,
-        "sd": 0.8464,
-        "N": 11,
-        "k": 2,
-        "studies": [
-          "panjabi1994",
-          "sawa2008"
-        ]
-      }
+      ]
     },
     {
       "id": "L1L2_fe_7p5",
@@ -929,17 +850,6 @@
           "n": 6,
           "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
           "note": "FSU, 2nd cycle"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 6.69,
-          "sd": 1.56,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -968,17 +878,6 @@
           "n": 6,
           "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
           "note": "FSU, 2nd cycle"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.15,
-          "sd": 1.12,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1007,28 +906,6 @@
           "n": 6,
           "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
           "note": "right; FSU, 2nd cycle"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 5.21,
-          "sd": 1.52,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 5.45,
-          "sd": 1.23,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1057,28 +934,6 @@
           "n": 6,
           "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
           "note": "left; FSU, 2nd cycle"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.28,
-          "sd": 1.13,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.44,
-          "sd": 0.49,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1229,136 +1084,6 @@
           "n": 165,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
           "note": "mono- and polysegmental mixed; MAD 1.23"
-        }
-      ]
-    },
-    {
-      "id": "L3L4_flex_7p5",
-      "label": "L3-L4 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "flexion (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 6.6,
-          "sd": 1.89,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L3L4_ext_7p5",
-      "label": "L3-L4 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "extension (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 1.99,
-          "sd": 1.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L3L4_lb_7p5",
-      "label": "L3-L4 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "lateral bending (one side)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 4.74,
-          "sd": 1.91,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 5.08,
-          "sd": 1.12,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L3L4_ar_7p5",
-      "label": "L3-L4 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "axial rotation (one side)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L3-L4",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 1.67,
-          "sd": 1.35,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.83,
-          "sd": 0.86,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1537,17 +1262,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 8.61,
-          "sd": 2.67,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1576,17 +1290,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.16,
-          "sd": 1.53,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1615,28 +1318,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "right; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 4.42,
-          "sd": 2.82,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 4.64,
-          "sd": 1.31,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1665,28 +1346,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "left; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.65,
-          "sd": 0.84,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.13,
-          "sd": 1.04,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -1935,136 +1594,6 @@
           "wilke2025"
         ]
       }
-    },
-    {
-      "id": "L5S1_flex_7p5",
-      "label": "L5-S1 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "flexion (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L5-S1",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 8.61,
-          "sd": 2.13,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L5S1_ext_7p5",
-      "label": "L5-S1 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "extension (one direction)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L5-S1",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 5.62,
-          "sd": 2.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L5S1_lb_7p5",
-      "label": "L5-S1 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "lateral bending (one side)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L5-S1",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 3.69,
-          "sd": 2.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 4.31,
-          "sd": 2.21,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        }
-      ]
-    },
-    {
-      "id": "L5S1_ar_7p5",
-      "label": "L5-S1 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
-      "inputs": {
-        "specimen": "FSU",
-        "moment_nm": 7.5,
-        "direction": "axial rotation (one side)",
-        "follower_n": 0,
-        "axial_n": 0
-      },
-      "output": "rom_segmental",
-      "level": "L5-S1",
-      "refs": [
-        {
-          "study": "panjabi1994",
-          "mean": 0.57,
-          "sd": 0.54,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.43,
-          "sd": 0.59,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        }
-      ]
     },
     {
       "id": "L5S1_fe_7p5",
@@ -2572,29 +2101,8 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 6.41,
-          "sd": 1.89,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
-      ],
-      "pooled": {
-        "mean": 4.8258,
-        "sd": 2.3685,
-        "N": 19,
-        "k": 2,
-        "studies": [
-          "guan2007",
-          "panjabi1994"
-        ]
-      }
+      ]
     },
     {
       "id": "L4L5_flex_4",
@@ -2648,17 +2156,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 7.98,
-          "sd": 2.47,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -2687,17 +2184,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 9.12,
-          "sd": 2.76,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -2776,29 +2262,8 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 2.21,
-          "sd": 1.05,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
-      ],
-      "pooled": {
-        "mean": 1.5521,
-        "sd": 1.0578,
-        "N": 19,
-        "k": 2,
-        "studies": [
-          "guan2007",
-          "panjabi1994"
-        ]
-      }
+      ]
     },
     {
       "id": "L4L5_ext_4",
@@ -2852,17 +2317,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 2.21,
-          "sd": 2.12,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -2891,17 +2345,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.55,
-          "sd": 1.5,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -3002,40 +2445,8 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "right; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 2.89,
-          "sd": 1.83,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.24,
-          "sd": 1.04,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
         }
-      ],
-      "pooled": {
-        "mean": 2.6518,
-        "sd": 1.3077,
-        "N": 19,
-        "k": 2,
-        "studies": [
-          "guan2007",
-          "panjabi1994"
-        ]
-      }
+      ]
     },
     {
       "id": "L4L5_lb_4",
@@ -3100,28 +2511,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "right; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 3.86,
-          "sd": 2.37,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 4.14,
-          "sd": 2.14,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -3150,28 +2539,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "right; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 4.86,
-          "sd": 2.79,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 5.08,
-          "sd": 1.55,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -3228,28 +2595,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "left; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.25,
-          "sd": 0.35,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.54,
-          "sd": 1.07,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -3278,28 +2623,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "left; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.54,
-          "sd": 0.77,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.94,
-          "sd": 0.95,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -3328,28 +2651,6 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "left; FSU; min-max over specimens"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 0.76,
-          "sd": 0.73,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "left; 100 N axial preload; L1-S1 specimen"
-        },
-        {
-          "study": "panjabi1994",
-          "mean": 1.41,
-          "sd": 1.49,
-          "min": null,
-          "max": null,
-          "stat": "mean",
-          "n": 9,
-          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
-          "note": "right; 100 N axial preload; L1-S1 specimen"
         }
       ]
     },
@@ -4118,11 +3419,1051 @@
           "note": "degeneration grade 0; levels pooled"
         }
       ]
+    },
+    {
+      "id": "L1L2_flex_7p5_ax100",
+      "label": "L1-L2 · Flexion · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.24,
+          "sd": 1.28,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L1L2_ext_7p5_ax100",
+      "label": "L1-L2 · Extension · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.75,
+          "sd": 1.03,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lb_7p5_ax100",
+      "label": "L1-L2 · Lateral bending · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.26,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.5,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L1L2_ar_7p5_ax100",
+      "label": "L1-L2 · Axial rotation · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.27,
+          "sd": 1.24,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.53,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L2L3_flex_7p5_ax100",
+      "label": "L2-L3 · Flexion · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 6.69,
+          "sd": 1.56,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ext_7p5_ax100",
+      "label": "L2-L3 · Extension · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.15,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lb_7p5_ax100",
+      "label": "L2-L3 · Lateral bending · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 5.21,
+          "sd": 1.52,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.45,
+          "sd": 1.23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ar_7p5_ax100",
+      "label": "L2-L3 · Axial rotation · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.28,
+          "sd": 1.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.44,
+          "sd": 0.49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L3L4_flex_7p5_ax100",
+      "label": "L3-L4 · Flexion · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 6.6,
+          "sd": 1.89,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ext_7p5_ax100",
+      "label": "L3-L4 · Extension · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.99,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lb_7p5_ax100",
+      "label": "L3-L4 · Lateral bending · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.74,
+          "sd": 1.91,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.08,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ar_7p5_ax100",
+      "label": "L3-L4 · Axial rotation · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.67,
+          "sd": 1.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.83,
+          "sd": 0.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_7p5_ax100",
+      "label": "L4-L5 · Flexion · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 8.61,
+          "sd": 2.67,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_7p5_ax100",
+      "label": "L4-L5 · Extension · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.16,
+          "sd": 1.53,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_7p5_ax100",
+      "label": "L4-L5 · Lateral bending · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.42,
+          "sd": 2.82,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.64,
+          "sd": 1.31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_7p5_ax100",
+      "label": "L4-L5 · Axial rotation · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.65,
+          "sd": 0.84,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.13,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L5S1_flex_7p5_ax100",
+      "label": "L5-S1 · Flexion · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 8.61,
+          "sd": 2.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ext_7p5_ax100",
+      "label": "L5-S1 · Extension · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 5.62,
+          "sd": 2.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lb_7p5_ax100",
+      "label": "L5-S1 · Lateral bending · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.69,
+          "sd": 2.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.31,
+          "sd": 2.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ar_7p5_ax100",
+      "label": "L5-S1 · Axial rotation · 7.5 Nm · 100 N",
+      "view": "ax100_seg",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.57,
+          "sd": 0.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.43,
+          "sd": 0.59,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_2p5_ax100",
+      "label": "L4-L5 · Flexion · 2.5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 2.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 6.41,
+          "sd": 1.89,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_5_ax100",
+      "label": "L4-L5 · Flexion · 5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 7.98,
+          "sd": 2.47,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_10_ax100",
+      "label": "L4-L5 · Flexion · 10 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 10,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 9.12,
+          "sd": 2.76,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_2p5_ax100",
+      "label": "L4-L5 · Extension · 2.5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 2.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 1.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_5_ax100",
+      "label": "L4-L5 · Extension · 5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 2.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_10_ax100",
+      "label": "L4-L5 · Extension · 10 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 10,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.55,
+          "sd": 1.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_2p5_ax100",
+      "label": "L4-L5 · Lateral bending · 2.5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 2.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.89,
+          "sd": 1.83,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.24,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_5_ax100",
+      "label": "L4-L5 · Lateral bending · 5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.86,
+          "sd": 2.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.14,
+          "sd": 2.14,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_10_ax100",
+      "label": "L4-L5 · Lateral bending · 10 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 10,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.86,
+          "sd": 2.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.08,
+          "sd": 1.55,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_2p5_ax100",
+      "label": "L4-L5 · Axial rotation · 2.5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 2.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.25,
+          "sd": 0.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.54,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_5_ax100",
+      "label": "L4-L5 · Axial rotation · 5 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.54,
+          "sd": 0.77,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.94,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_10_ax100",
+      "label": "L4-L5 · Axial rotation · 10 Nm · 100 N",
+      "view": "ax100_moment",
+      "inputs": {
+        "specimen": "segment in L1-S1 specimen",
+        "moment_nm": 10,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.76,
+          "sd": 0.73,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.41,
+          "sd": 1.49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
+        }
+      ]
     }
   ],
   "notes": [
     "One direction (e.g. \"Flexion\") and full range (\"Flexion+extension\", \"L+R\") are separate tasks; never compare across them.",
-    "Segmental tasks pool isolated FSUs and segments inside multi-level specimens (see ref notes); Panjabi 1994 used a 100 N axial preload, kept with the no-preload tasks.",
+    "Segmental tasks pool isolated FSUs and segments inside multi-level specimens (see ref notes). Panjabi 1994 (100 N axial preload) is in its own views.",
     "Many refs are medians (Wilke 2025, Heuer) and are not pooled; Wilke 2025, Kettler 2011 and Heuer share Ulm specimens."
   ],
   "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, or a 4-segment L1-L5), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
@@ -4146,12 +4487,6 @@
       "rom_segmental": "deg"
     },
     "T12L1_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ext_7p5": {
       "rom_segmental": "deg"
     },
     "L1L2_lb_7p5": {
@@ -4190,18 +4525,6 @@
     "L2L3_arr_7p5": {
       "rom_segmental": "deg"
     },
-    "L3L4_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ar_7p5": {
-      "rom_segmental": "deg"
-    },
     "L3L4_fe_7p5": {
       "rom_segmental": "deg"
     },
@@ -4230,18 +4553,6 @@
       "rom_segmental": "deg"
     },
     "L4L5_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ar_7p5": {
       "rom_segmental": "deg"
     },
     "L5S1_fe_7p5": {
@@ -4414,6 +4725,102 @@
     },
     "L1L5pooled_arr_7p5_nz": {
       "nz": "deg"
+    },
+    "L1L2_flex_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_ext_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_lb_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_ar_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_flex_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_ext_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_lb_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_ar_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_flex_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_ext_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_lb_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_ar_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_flex_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_ext_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_lb_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_ar_7p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_2p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_10_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_2p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_10_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_2p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_10_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_2p5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_5_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_10_ax100": {
+      "rom_segmental": "deg"
     }
   }
 }

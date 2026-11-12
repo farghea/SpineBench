@@ -1,366 +1,366 @@
 {
- "id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
- "title": "Wilke volunteer: L4-L5 IDP relative to standing (Rohlmann 2001 Ergonomics)",
- "layer": "outcome",
- "category": "msk_idp_lumbar",
- "subcategory": "L4-L5 in vivo, relative IDP",
- "region": "lumbar",
- "levels": [
-  "L4-L5"
- ],
- "condition": "various postures and exercises; reference = relaxed standing (0.50 MPa = 100%)",
- "quantity": {
-  "name": "IDP relative to standing",
-  "definition": "RELATIVE: peak L4-L5 IDP of the Wilke volunteer as % of the value in relaxed standing (0.50 MPa = 100%)",
-  "unit": "% of standing"
- },
- "source": {
-  "short": "Rohlmann 2001b",
-  "authors": "Rohlmann A, Claes LE, Bergmann G, Graichen F, Neef P, Wilke HJ",
-  "year": 2001,
-  "journal": "Ergonomics 44(8):781-794",
-  "doi": "10.1080/00140130120943",
-  "n": 1,
-  "sample": "1 subject (male volunteer) for IDP; the Wilke 1999 volunteer (45 y, 70 kg, L4-L5 area 1800 mm2); fixator loads of 10 patients in the same paper are in msk_implant_loads",
-  "age": "45",
-  "sex": "M",
-  "height_cm": null,
-  "weight_kg": 70
- },
- "protocol": {
-  "summary": "Wilke 1999/2001 volunteer IDP normalised to relaxed standing (0.50 MPa); peak values.",
-  "how_to_simulate": [
-   "Scale the model to the Wilke volunteer (protocol.subject_model)",
-   "Simulate relaxed standing and the posture in data[].x",
-   "Output: L4-L5 IDP via Ghezelbash 2016 Eq. 6 with A = 1800 mm2 (or L4-L5 compression) for both",
-   "Compare 100 x task / standing with data[].mean"
+  "id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+  "title": "Wilke volunteer: L4-L5 IDP relative to standing (Rohlmann 2001 Ergonomics)",
+  "layer": "outcome",
+  "category": "msk_idp_lumbar",
+  "subcategory": "L4-L5 in vivo, relative IDP",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5"
   ],
-  "subject_model": {
-   "sex": "male",
-   "age": 45,
-   "height_cm": 174,
-   "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
-   "weight_kg": 70,
-   "weight_kg_anthropometry": 72,
-   "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
-   "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the Ghezelbash lab validation targets (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
-   "disc_area_mm2": 1800,
-   "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
-   "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
-   "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
+  "condition": "various postures and exercises; reference = relaxed standing (0.50 MPa = 100%)",
+  "quantity": {
+    "name": "IDP relative to standing",
+    "definition": "RELATIVE: peak L4-L5 IDP of the Wilke volunteer as % of the value in relaxed standing (0.50 MPa = 100%)",
+    "unit": "% of standing"
   },
-  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Relative IDP - never pool with absolute IDP. Many rows are dynamic (walking, jogging, trampoline)."
- },
- "data": [
-  {
-   "x": "lying supine",
-   "load": "none",
-   "mean": 20,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "source": {
+    "short": "Rohlmann 2001b",
+    "authors": "Rohlmann A, Claes LE, Bergmann G, Graichen F, Neef P, Wilke HJ",
+    "year": 2001,
+    "journal": "Ergonomics 44(8):781-794",
+    "doi": "10.1080/00140130120943",
+    "n": 1,
+    "sample": "1 subject (male volunteer) for IDP; the Wilke 1999 volunteer (45 y, 70 kg, L4-L5 area 1800 mm2); fixator loads of 10 patients in the same paper are in msk_implant_loads",
+    "age": "45",
+    "sex": "M",
+    "height_cm": null,
+    "weight_kg": 72
   },
-  {
-   "x": "lying prone",
-   "load": "none",
-   "mean": 22,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "protocol": {
+    "summary": "Wilke 1999/2001 volunteer IDP normalised to relaxed standing (0.50 MPa); peak values.",
+    "how_to_simulate": [
+      "Scale the model to the Wilke volunteer (protocol.subject_model)",
+      "Simulate relaxed standing and the posture in data[].x",
+      "Output: L4-L5 IDP via Ghezelbash 2016 Eq. 6 with A = 1800 mm2 (or L4-L5 compression) for both",
+      "Compare 100 x task / standing with data[].mean"
+    ],
+    "subject_model": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
+      "weight_kg": 72,
+      "weight_kg_anthropometry": 72,
+      "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
+      "weight_which_applies": "72 kg (measured body mass; used by the Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study.",
+      "disc_area_mm2": 1800,
+      "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
+      "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
+      "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
+    },
+    "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+    "notes": "Relative IDP - never pool with absolute IDP. Many rows are dynamic (walking, jogging, trampoline)."
   },
-  {
-   "x": "lying lateral",
-   "load": "none",
-   "mean": 24,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "data": [
+    {
+      "x": "lying supine",
+      "load": "none",
+      "mean": 20,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "lying prone",
+      "load": "none",
+      "mean": 22,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "lying lateral",
+      "load": "none",
+      "mean": 24,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "sitting relaxed without backrest",
+      "load": "none",
+      "mean": 90,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "sitting erect, actively straightening/extending the back",
+      "load": "none",
+      "mean": 110,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "sitting on a stool with a padded wedge (9.5 deg)",
+      "load": "none",
+      "mean": 86,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "walking (peak)",
+      "load": "none",
+      "mean": 130,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "walking (minimum)",
+      "load": "none",
+      "mean": 80,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "standing trunk flexion, 36 deg TL-S",
+      "load": "none",
+      "mean": 216,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "standing trunk extension, 19 deg TL-S",
+      "load": "none",
+      "mean": 120,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "lifting a 19.8 kg case (maximum)",
+      "load": "none",
+      "mean": 460,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "holding the 19.8 kg case close to the body at chest level",
+      "load": "none",
+      "mean": 220,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "holding the 19.8 kg case 60 cm away from the chest",
+      "load": "none",
+      "mean": 360,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "bouncing on a physiotherapy ball, minimum",
+      "load": "none",
+      "mean": 80,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "bouncing on a physiotherapy ball, maximum",
+      "load": "none",
+      "mean": 120,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "walking with crutches, minimum",
+      "load": "none",
+      "mean": 60,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "walking with crutches, maximum",
+      "load": "none",
+      "mean": 160,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "climbing stairs (max)",
+      "load": "none",
+      "mean": 140,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "walking down stairs (max)",
+      "load": "none",
+      "mean": 120,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "jogging with tennis shoes (max)",
+      "load": "none",
+      "mean": 170,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "light jumping on a trampoline (max)",
+      "load": "none",
+      "mean": 240,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "high jumping on a trampoline (max)",
+      "load": "none",
+      "mean": 380,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "trampoline (minimum)",
+      "load": "none",
+      "mean": 70,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "light skipping (max)",
+      "load": "none",
+      "mean": 240,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "crouching on hands and knees",
+      "load": "none",
+      "mean": 40,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "arching the back on hands and knees",
+      "load": "none",
+      "mean": 164,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "hollowing the back on hands and knees",
+      "load": "none",
+      "mean": 86,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    }
+  ],
+  "extraction": {
+    "from": "Rohlmann 2001 Ergonomics Results text p.787-790 (also Figs 2-3)",
+    "method": "text",
+    "uncertainty": "text values (peaks)",
+    "checked": true,
+    "check_notes": "Re-read p.787-790; every % matches. Consistent with Wilke 2001 absolute values (216% = 1.08 MPa, 460% = 2.3, 360% = 1.8). Body lifting by arms and parallel bars stated as 'the same ... as lying supine' (20%) - not added as rows. verified 2026-11-12 independent check: OK (all 27 % values vs Results text pp.787-790; n=1 volunteer) | 2026-11-12: subject weight set to 72 kg (user decision)."
   },
-  {
-   "x": "sitting relaxed without backrest",
-   "load": "none",
-   "mean": 90,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "sitting erect, actively straightening/extending the back",
-   "load": "none",
-   "mean": 110,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "sitting on a stool with a padded wedge (9.5 deg)",
-   "load": "none",
-   "mean": 86,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "walking (peak)",
-   "load": "none",
-   "mean": 130,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "walking (minimum)",
-   "load": "none",
-   "mean": 80,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "standing trunk flexion, 36 deg TL-S",
-   "load": "none",
-   "mean": 216,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "standing trunk extension, 19 deg TL-S",
-   "load": "none",
-   "mean": 120,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "lifting a 19.8 kg case (maximum)",
-   "load": "none",
-   "mean": 460,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "holding the 19.8 kg case close to the body at chest level",
-   "load": "none",
-   "mean": 220,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "holding the 19.8 kg case 60 cm away from the chest",
-   "load": "none",
-   "mean": 360,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "bouncing on a physiotherapy ball, minimum",
-   "load": "none",
-   "mean": 80,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "bouncing on a physiotherapy ball, maximum",
-   "load": "none",
-   "mean": 120,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "walking with crutches, minimum",
-   "load": "none",
-   "mean": 60,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "walking with crutches, maximum",
-   "load": "none",
-   "mean": 160,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "climbing stairs (max)",
-   "load": "none",
-   "mean": 140,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "walking down stairs (max)",
-   "load": "none",
-   "mean": 120,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "jogging with tennis shoes (max)",
-   "load": "none",
-   "mean": 170,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "light jumping on a trampoline (max)",
-   "load": "none",
-   "mean": 240,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "high jumping on a trampoline (max)",
-   "load": "none",
-   "mean": 380,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "trampoline (minimum)",
-   "load": "none",
-   "mean": 70,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "light skipping (max)",
-   "load": "none",
-   "mean": 240,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "crouching on hands and knees",
-   "load": "none",
-   "mean": 40,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "arching the back on hands and knees",
-   "load": "none",
-   "mean": 164,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
-  },
-  {
-   "x": "hollowing the back on hands and knees",
-   "load": "none",
-   "mean": 86,
-   "sd": null,
-   "min": null,
-   "max": null,
-   "median": null,
-   "n": 1
+  "combine_group": "msk_idp_lumbar__idp_rel_standing__l4_l5__postures_exercises__various",
+  "shared_sample_with": [
+    "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
+    "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
+    "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
+    "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg",
+    "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
+    "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
+    "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
+    "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
+    "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
+    "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+    "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+    "msk_idp_lumbar.wilke2001.L4L5_lying"
+  ],
+  "tags": [
+    "lumbar",
+    "in vivo",
+    "IDP",
+    "relative",
+    "single subject",
+    "Wilke volunteer"
+  ],
+  "pass_rule": {
+    "template": false,
+    "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+    "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
   }
- ],
- "extraction": {
-  "from": "Rohlmann 2001 Ergonomics Results text p.787-790 (also Figs 2-3)",
-  "method": "text",
-  "uncertainty": "text values (peaks)",
-  "checked": true,
-  "check_notes": "Re-read p.787-790; every % matches. Consistent with Wilke 2001 absolute values (216% = 1.08 MPa, 460% = 2.3, 360% = 1.8). Body lifting by arms and parallel bars stated as 'the same ... as lying supine' (20%) - not added as rows. verified 2026-11-12 independent check: OK (all 27 % values vs Results text pp.787-790; n=1 volunteer)"
- },
- "combine_group": "msk_idp_lumbar__idp_rel_standing__l4_l5__postures_exercises__various",
- "shared_sample_with": [
-  "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
-  "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
-  "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
-  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg",
-  "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
-  "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
-  "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
-  "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
-  "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
-  "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
-  "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
-  "msk_idp_lumbar.wilke2001.L4L5_lying"
- ],
- "tags": [
-  "lumbar",
-  "in vivo",
-  "IDP",
-  "relative",
-  "single subject",
-  "Wilke volunteer"
- ],
- "pass_rule": {
-  "template": false,
-  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
-  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
- }
 }

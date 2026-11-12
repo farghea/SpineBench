@@ -25,7 +25,7 @@
     "age": "45",
     "sex": "M",
     "height_cm": 174,
-    "weight_kg": 70
+    "weight_kg": 72
   },
   "protocol": {
     "summary": "Single healthy male volunteer, telemetric pressure transducer in L4-L5 nucleus, ~24 h recording at 300 Hz; postures/exercises self-performed; values are the peak or plateau of the recorded pressure curve.",
@@ -41,10 +41,10 @@
       "age": 45,
       "height_cm": 174,
       "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
-      "weight_kg": 70,
+      "weight_kg": 72,
       "weight_kg_anthropometry": 72,
       "weight_source": "Wilke 2001 p.S119 (Discussion): 'His weight was 70 kg when we performed the measurements and 72 kg when we took the anthropometric data' (anthropometry ~2.5 yr after the IDP study, p.S117 Sec 3.2: 'body mass amounted to 72 kg', Soehnle scale +/-0.15 kg). 70 kg also in Wilke 1999, Rohlmann 2001 Ergonomics p.784 and V05 Table 2.",
-      "weight_which_applies": "70 kg is the mass during the IDP measurements (the condition simulated here; self-reported). 72 kg is the measured anthropometric mass 2.5 yr later; the authors call the 2001 measured data 'probably more reliable' and say his weight 'stayed almost constant'. Ghezelbash 2016 (U01 Fig 5 caption), Bruno 2015 Table 3 and the Ghezelbash lab validation targets (subjects.wilke.weight_kg) use 72 kg. Recommended: simulate with 72 kg (measured, consistent with the anthropometric data set) and report the 70 kg variant as sensitivity (3% difference).",
+      "weight_which_applies": "72 kg (measured body mass; used by the Ghezelbash lab validation). Wilke 2001 also mentions ~70 kg self-reported during the IDP study.",
       "disc_area_mm2": 1800,
       "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
       "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
@@ -85,7 +85,7 @@
     "method": "text",
     "uncertainty": "'about 1.0 MPa'; 1.0 vs 1.1 MPa depending on source (see alt_values)",
     "checked": true,
-    "check_notes": "DISCREPANCY flagged: Wilke 2001 Results give ~1.0 MPa for holding at chest level; its abstract's 1.1 MPa is 'lifting ... close to the body'; Rohlmann 2001 gives 220% (=1.1). The Ghezelbash lab validation targets uses 1.1 MPa. U01 and G2020 figures plot 1.0. Kept 1.0 as mean (the holding task) with 1.1 as alt_value."
+    "check_notes": "DISCREPANCY flagged: Wilke 2001 Results give ~1.0 MPa for holding at chest level; its abstract's 1.1 MPa is 'lifting ... close to the body'; Rohlmann 2001 gives 220% (=1.1). The Ghezelbash lab validation targets uses 1.1 MPa. U01 and G2020 figures plot 1.0. Kept 1.0 as mean (the holding task) with 1.1 as alt_value. | 2026-11-12: subject weight set to 72 kg (user decision)."
   },
   "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__standing__19_8kg_held_close",
   "tags": [
