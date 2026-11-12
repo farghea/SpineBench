@@ -1039,7 +1039,7 @@
       '<li>Pooled value: n-weighted mean of studies that report a mean; SD combines within- and between-study spread; overlapping samples count once; medians are not pooled; at least two studies.</li>' +
       '<li>Created and maintained by <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</li>' +
       '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. https://sites.google.com/view/farshidghezelbash/home. Please also cite the original studies behind the values you use.</li>' +
-      '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>.</li></ul>' +
+      '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>. Downloads require accepting the <a href="#terms">Terms of use</a>.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
   }
   function notFound(msg) {
@@ -1060,6 +1060,60 @@
     var parts = raw.split('/').map(function (p) { try { return decodeURIComponent(p); } catch (e) { return p; } });
     return { page: parts[0] || 'home', arg: parts[1] || '', sub: parts.slice(2).join('/') };
   }
+
+  // ---------- terms of use (accepted with a tick before any data download) ----------
+  var TERMS_VERSION = '2026-11-12';
+  var TERMS = [
+    ['Research and education only', 'You may use SpineBench data, benchmark cards, schematics and code only for non-commercial research and education.'],
+    ['No commercial use', 'Commercial use is not allowed. This includes using the data in, or to build, train, validate or market, any product, software, service or model that is sold or used commercially, and selling or licensing the data.'],
+    ['Cite', 'Cite SpineBench (Ghezelbash F., SpineBench) and the original studies behind the values you use.'],
+    ['Sharing', 'You may share the data with others only for non-commercial research or education, with these terms attached and with attribution.'],
+    ['No warranty', 'Values were extracted from published studies and may contain errors. They are provided as is, without any warranty. Check them against the original papers. Not for clinical decisions.'],
+    ['Other uses', 'For any other use, contact the author.']
+  ];
+  function termsAccepted() { try { return localStorage.getItem('sb-terms') === TERMS_VERSION; } catch (e) { return !!S.termsOk; } }
+  function acceptTerms() { S.termsOk = true; try { localStorage.setItem('sb-terms', TERMS_VERSION); } catch (e) { /* private mode: remember for this visit */ } }
+  function termsList() {
+    return '<ol class="terms">' + TERMS.map(function (t) { return '<li><b>' + esc(t[0]) + '.</b> ' + esc(t[1]) + '</li>'; }).join('') + '</ol>';
+  }
+  function viewTerms() {
+    setTitle('Terms of use');
+    main.innerHTML = '<div class="stack prose"><div><h1>Terms of use</h1><p class="lede">By downloading SpineBench data you agree to these terms (version ' + TERMS_VERSION + '). They apply in addition to the CC BY-NC 4.0 licence.</p></div>' +
+      termsList() +
+      '<p>Author: <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</p>' +
+      '<p class="muted small">' + (termsAccepted() ? 'You accepted these terms in this browser.' : 'You will be asked to accept these terms before your first download.') + '</p></div>';
+  }
+  function termsGate(href, name) {
+    var old = $('#terms-modal'); if (old) old.parentNode.removeChild(old);
+    var box = document.createElement('div');
+    box.id = 'terms-modal'; box.className = 'modal-back';
+    box.innerHTML = '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="tm-h"><h2 id="tm-h">Terms of use</h2>' +
+      '<p class="muted small">Please read and accept before downloading.</p>' + termsList() +
+      '<label class="tick"><input type="checkbox" id="tm-ok"> I have read and agree to the <a href="#terms" target="_blank" rel="noopener">Terms of use</a>.</label>' +
+      '<div class="btns"><button type="button" class="btn" id="tm-no">Cancel</button><button type="button" class="btn primary" id="tm-go" disabled>Agree and download</button></div></div>';
+    document.body.appendChild(box);
+    var ok = $('#tm-ok', box), go = $('#tm-go', box);
+    var close = function () { document.removeEventListener('keydown', esc_); if (box.parentNode) box.parentNode.removeChild(box); };
+    var esc_ = function (e) { if (e.key === 'Escape') close(); };
+    document.addEventListener('keydown', esc_);
+    ok.addEventListener('change', function () { go.disabled = !ok.checked; });
+    $('#tm-no', box).addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    go.addEventListener('click', function () {
+      if (!ok.checked) return;
+      acceptTerms(); close();
+      var a = document.createElement('a'); a.href = href; a.setAttribute('download', name || ''); a.style.display = 'none';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+    ok.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[download]') : null;
+    if (!a || termsAccepted()) return;
+    e.preventDefault(); e.stopPropagation();
+    termsGate(a.getAttribute('href'), a.getAttribute('download'));
+  }, true);
+
   function route(opts) {
     opts = opts || {};
     destroyCharts();
@@ -1074,6 +1128,7 @@
         case 'b': p = viewBench(r.arg, r.sub); break;
         case 'agents': p = viewAgents(); break;
         case 'about': p = viewAbout(); break;
+        case 'terms': p = viewTerms(); break;
         case 'test': case 'group': case 'category': case 'browse': case 'groups': case 'search': p = oldLink(r.page, r.arg); break;
         default: p = notFound('Unknown page "' + r.page + '".');
       }
