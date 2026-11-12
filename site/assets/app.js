@@ -1030,7 +1030,7 @@
   function viewAbout() {
     setTitle('About');
     var c = S.index.counts || {};
-    main.innerHTML = '<div class="stack prose"><div><img class="about-logo" src="assets/logo_full.svg" alt="SpineBench"><h1>About SpineBench</h1></div><ul class="lines">' +
+    main.innerHTML = '<div class="stack prose"><div><h1>About SpineBench</h1></div><ul class="lines">' +
       '<li>SpineBench collects published human measurements to validate thoracic and lumbar spine models: ' + esc(c.benchmarks) + ' outcome benchmarks, ' +
       esc(c.tasks) + ' tasks, ' + esc(c.studies) + ' studies.</li>' +
       '<li>A benchmark is one outcome (e.g. disc pressure, range of motion). A task is one condition a model can simulate; every study’s value for it is shown side by side.</li>' +
