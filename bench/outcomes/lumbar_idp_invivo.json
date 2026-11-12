@@ -1,0 +1,1395 @@
+{
+  "id": "lumbar_idp_invivo",
+  "title": "Lumbar disc pressure in vivo",
+  "domain": "msk",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5",
+    "L3-L4"
+  ],
+  "summary": "Simulate each posture or lifting task for the study subject and report L4-L5 intradiscal pressure (MPa) or IDP relative to standing.",
+  "simulate": [
+    "Scale the model to the study subject (subjects table; individual refs give their own subject in the note).",
+    "Set the posture: trunk flexion = trunk inclination from upright; sitting, lying, bending and twisting as described.",
+    "Add the hand load at the stated position (both hands unless stated).",
+    "Output L4-L5 compression F and L4-L5 flexion θ from standing (L3-L4 for standing_l3l4).",
+    "IDP = Ghezelbash 2016 Eq. 6: -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ² (P = F/A, MPa); or F/(0.66A). Relative tasks: IDP / IDP standing × 100."
+  ],
+  "inputs": [
+    {
+      "key": "posture",
+      "label": "Posture"
+    },
+    {
+      "key": "trunk_flexion_deg",
+      "label": "Trunk flexion",
+      "unit": "deg"
+    },
+    {
+      "key": "lateral_bend_deg",
+      "label": "Lateral bending",
+      "unit": "deg"
+    },
+    {
+      "key": "axial_rotation_deg",
+      "label": "Axial rotation",
+      "unit": "deg"
+    },
+    {
+      "key": "hand_load_kg",
+      "label": "Hand load",
+      "unit": "kg"
+    },
+    {
+      "key": "load_position",
+      "label": "Load position"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "idp",
+      "label": "IDP",
+      "unit": "MPa"
+    },
+    {
+      "key": "idp_rel",
+      "label": "IDP relative to standing",
+      "unit": "% of standing"
+    }
+  ],
+  "subjects": {
+    "wilke2001": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "weight_kg": 70,
+      "disc_area_mm2": 1800,
+      "note": "70 kg during the measurements; 72 kg measured 2.5 y later (used by Ghezelbash lab validation)"
+    },
+    "rohlmann2001": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "weight_kg": 70,
+      "disc_area_mm2": 1800,
+      "note": "same volunteer as Wilke 2001 (relative values)"
+    },
+    "sato1999": {
+      "sex": "male",
+      "age": 24.5,
+      "height_cm": 173.4,
+      "weight_kg": 72.6,
+      "disc_area_mm2": 1585,
+      "note": "cohort means of 8; disc area 1340-1890 mm2"
+    },
+    "takahashi2006": {
+      "sex": "male",
+      "age": 25.3,
+      "height_cm": 176,
+      "weight_kg": 72.3,
+      "disc_area_mm2": 1970,
+      "note": "means of 3 (Dreischarf 2016); Ghezelbash lab uses 1910 mm2"
+    },
+    "nachemson1964": {
+      "sex": "male",
+      "age": 48,
+      "height_cm": 174,
+      "weight_kg": 78,
+      "disc_area_mm2": 1995,
+      "note": "mean of 4 individuals (Dreischarf 2016 Table 2); each ref note gives the individual"
+    },
+    "nachemson1970": {
+      "sex": "6M/7F",
+      "age": 31,
+      "height_cm": 173,
+      "weight_kg": 66,
+      "disc_area_mm2": 1732,
+      "note": "mean of 13 individuals (Dreischarf 2016 Table 2); each ref note gives the individual"
+    },
+    "schultz1982": {
+      "sex": "1M/3F",
+      "age": 21.8,
+      "height_cm": 174,
+      "weight_kg": 63,
+      "disc_area_mm2": null,
+      "note": "group means; L3-L4 disc area not reported"
+    }
+  },
+  "studies": [
+    {
+      "key": "wilke2001",
+      "short": "Wilke 2001",
+      "year": 2001,
+      "n": 1,
+      "sample": "1 healthy male volunteer (data of Wilke 1999)",
+      "doi": "10.1016/S0268-0033(00)00103-0",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2001",
+      "short": "Rohlmann 2001",
+      "year": 2001,
+      "n": 1,
+      "sample": "Wilke volunteer, IDP as % of standing",
+      "doi": "10.1080/00140130120943",
+      "secondary": false
+    },
+    {
+      "key": "sato1999",
+      "short": "Sato 1999",
+      "year": 1999,
+      "n": 8,
+      "sample": "8 healthy young men",
+      "doi": "10.1097/00007632-199912010-00008",
+      "secondary": false
+    },
+    {
+      "key": "takahashi2006",
+      "short": "Takahashi 2006",
+      "year": 2006,
+      "n": 3,
+      "sample": "3 healthy young men",
+      "doi": "10.1097/01.brs.0000192636.69129.fb",
+      "secondary": false
+    },
+    {
+      "key": "nachemson1964",
+      "short": "Nachemson 1964",
+      "year": 1964,
+      "n": 4,
+      "sample": "4 male LBP patients, L4-L5, early transducer",
+      "doi": "10.1016/j.jbiomech.2015.12.038",
+      "secondary": true,
+      "pool": false
+    },
+    {
+      "key": "nachemson1970",
+      "short": "Nachemson 1964/1970",
+      "year": 1970,
+      "n": 13,
+      "sample": "13 patients and volunteers (6M/7F), L3-L4, early transducer",
+      "doi": "10.1016/j.jbiomech.2015.12.038",
+      "secondary": true,
+      "pool": false
+    },
+    {
+      "key": "schultz1982",
+      "short": "Schultz 1982",
+      "year": 1982,
+      "n": 4,
+      "sample": "4 volunteers without LBP (1M/3F), L3-L4",
+      "doi": "10.1016/j.jbiomech.2015.12.038",
+      "secondary": true,
+      "pool": false
+    }
+  ],
+  "shared": [
+    [
+      "wilke2001",
+      "rohlmann2001"
+    ]
+  ],
+  "views": [
+    {
+      "id": "standing_flexion",
+      "title": "Standing and flexion",
+      "task_ids": [
+        "standing",
+        "standing_l3l4",
+        "stand_10kg",
+        "flex10",
+        "flex10_10kg",
+        "flex20",
+        "flex20_10kg",
+        "flex30",
+        "flex30_10kg",
+        "flex50",
+        "flex_full",
+        "flex_l4l5_5",
+        "extension"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "lifting_holding",
+      "title": "Lifting and holding",
+      "task_ids": [
+        "hold_close",
+        "hold_away",
+        "lift_stoop",
+        "lift_squat"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "sitting_lying",
+      "title": "Sitting and lying",
+      "task_ids": [
+        "sit_relaxed",
+        "sit_erect",
+        "sit_flex20",
+        "sit_flex_max",
+        "sit_backrest",
+        "lie_prone"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "bending_twisting",
+      "title": "Bending and twisting",
+      "task_ids": [
+        "latbend20",
+        "axial_rot"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "relative",
+      "title": "IDP relative to standing",
+      "task_ids": [
+        "lie_supine_rel",
+        "sit_relaxed_rel",
+        "flex_max_rel",
+        "hold_close_rel",
+        "hold_away_rel",
+        "lift_stoop_rel"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "standing",
+      "label": "Standing, relaxed",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.5,
+          "sd": null,
+          "min": 0.43,
+          "max": 0.5,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
+          "note": "min-max = repeated standing"
+        },
+        {
+          "study": "sato1999",
+          "mean": 0.54,
+          "sd": 0.179,
+          "min": 0.22,
+          "max": 0.75,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_standing",
+          "note": "cohort mean (Table 2, via secondary source); per-subject rows not used"
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 0.344,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing",
+          "note": "group mean digitised from Ghezelbash 2020 Fig 4a"
+        },
+        {
+          "study": "nachemson1964",
+          "mean": 0.61,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson1964.L4L5_standing_v05",
+          "note": "No. 8 (1964a,b): M, 49 y, 67 kg, 163 cm, L4-L5 1780 mm2; corrected (orig. 0.86)"
+        },
+        {
+          "study": "nachemson1964",
+          "mean": 0.59,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson1964.L4L5_standing_v05",
+          "note": "No. 16 (1964a,b): M, 52 y, 75 kg, 175 cm, L4-L5 2160 mm2; corrected (orig. 0.84)"
+        },
+        {
+          "study": "nachemson1964",
+          "mean": 0.67,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson1964.L4L5_standing_v05",
+          "note": "No. 6 (1964b): M, 49 y, 94 kg, 183 cm, L4-L5 2060 mm2; corrected (orig. 0.92)"
+        },
+        {
+          "study": "nachemson1964",
+          "mean": 0.34,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson1964.L4L5_standing_v05",
+          "note": "No. 8 (1964b): M, 43 y, 74 kg, 176 cm, L4-L5 1980 mm2; corrected (orig. 0.59)"
+        }
+      ],
+      "pooled": {
+        "mean": 0.4877,
+        "sd": 0.1674,
+        "N": 12,
+        "k": 3,
+        "studies": [
+          "wilke2001",
+          "sato1999",
+          "takahashi2006"
+        ]
+      }
+    },
+    {
+      "id": "standing_l3l4",
+      "label": "Standing, relaxed (L3-L4)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "schultz1982",
+          "mean": 0.27,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_idp_lumbar.schultz1982.L3L4_standing_v05",
+          "note": "group mean, via Dreischarf 2016"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.48,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&M 1964a,b No. 15: M, 52 y, 83 kg, 179 cm, L3-L4 1990 mm2; corrected (orig. 0.73)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.69,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&M 1964a,b No. 17: F, 35 y, 76 kg, 160 cm, L3-L4 1380 mm2; corrected (orig. 0.94)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&M 1964a,b No. 18: M, 34 y, 64 kg, 173 cm, L3-L4 1570 mm2; corrected (orig. 0.8)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.82,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&M 1964a,b No. 19: M, 37 y, 93 kg, 186 cm, L3-L4 2060 mm2; corrected (orig. 1.07)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.33,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 1: M, 60 y, 70 kg, 173 cm, L3-L4 2070 mm2; corrected (orig. 0.58)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 2: M, 37 y, 69 kg, 180 cm, L3-L4 1830 mm2; corrected (orig. 0.55)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.31,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 3: F, 14 y, 50 kg, 174 cm, L3-L4 1810 mm2; corrected (orig. 0.56)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 4: F, 29 y, 59 kg, 170 cm, L3-L4 1710 mm2; corrected (orig. 0.8)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.47,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 5: F, 20 y, 66 kg, 171 cm, L3-L4 1700 mm2; corrected (orig. 0.72)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.44,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 6: F, 24 y, 57 kg, 168 cm, L3-L4 1600 mm2; corrected (orig. 0.69)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 7: M, 23 y, 61 kg, 179 cm, L3-L4 1630 mm2; corrected (orig. 0.95)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 8: F, 20 y, 58 kg, 172 cm, L3-L4 1670 mm2; corrected (orig. 0.75)"
+        },
+        {
+          "study": "nachemson1970",
+          "mean": 0.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
+          "note": "N&E 1970 No. 9: F, 24 y, 58 kg, 165 cm, L3-L4 1500 mm2; corrected (orig. 0.75)"
+        }
+      ]
+    },
+    {
+      "id": "stand_10kg",
+      "label": "Standing, 5 kg in each hand",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 10,
+        "load_position": "5 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 0.42,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing_10kg",
+          "note": "digitised group mean"
+        }
+      ]
+    },
+    {
+      "id": "flex10",
+      "label": "Trunk flexion 10°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 10,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.58,
+          "sd": null,
+          "min": 0.5,
+          "max": 0.67,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
+          "note": "trunk angle = Ghezelbash 2016 reconstruction of the lumbar-angle record; min-max = figure error marker"
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 0.672,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg",
+          "note": "digitised group mean"
+        }
+      ],
+      "pooled": {
+        "mean": 0.649,
+        "sd": 0.046,
+        "N": 4,
+        "k": 2,
+        "studies": [
+          "wilke2001",
+          "takahashi2006"
+        ]
+      }
+    },
+    {
+      "id": "flex10_10kg",
+      "label": "Trunk flexion 10°, 5 kg in each hand",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 10,
+        "hand_load_kg": 10,
+        "load_position": "5 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 0.793,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg_10kg",
+          "note": "digitised group mean"
+        }
+      ]
+    },
+    {
+      "id": "flex20",
+      "label": "Trunk flexion 20°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 1.013,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg",
+          "note": "digitised group mean"
+        }
+      ]
+    },
+    {
+      "id": "flex20_10kg",
+      "label": "Trunk flexion 20°, 5 kg in each hand",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 20,
+        "hand_load_kg": 10,
+        "load_position": "5 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 1.166,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg_10kg",
+          "note": "digitised group mean"
+        }
+      ]
+    },
+    {
+      "id": "flex30",
+      "label": "Trunk flexion 30°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.96,
+          "sd": null,
+          "min": 0.92,
+          "max": 1.01,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
+          "note": "trunk angle = Ghezelbash 2016 reconstruction of the lumbar-angle record; min-max = figure error marker"
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 1.211,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg",
+          "note": "digitised group mean"
+        }
+      ],
+      "pooled": {
+        "mean": 1.1482,
+        "sd": 0.1255,
+        "N": 4,
+        "k": 2,
+        "studies": [
+          "wilke2001",
+          "takahashi2006"
+        ]
+      }
+    },
+    {
+      "id": "flex30_10kg",
+      "label": "Trunk flexion 30°, 5 kg in each hand",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 30,
+        "hand_load_kg": 10,
+        "load_position": "5 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 1.463,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg_10kg",
+          "note": "digitised group mean"
+        }
+      ]
+    },
+    {
+      "id": "flex50",
+      "label": "Trunk flexion 50° (lumbar max 36°)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, forward bending",
+        "trunk_flexion_deg": 50,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 1.08,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg",
+          "note": "trunk angle = Ghezelbash 2016 reconstruction of the lumbar-angle record; = 36° thoracolumbar-sacrum flexion point"
+        }
+      ]
+    },
+    {
+      "id": "flex_full",
+      "label": "Full trunk flexion (~107°)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, fingertips toward floor",
+        "trunk_flexion_deg": 107,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 1.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
+          "note": "107° from Ghezelbash 2016 reconstruction"
+        }
+      ]
+    },
+    {
+      "id": "flex_l4l5_5",
+      "label": "Flexed standing, L4-L5 flexed 5°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing flexed forward until L4-L5 is flexed 5°",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 1.32,
+          "sd": 0.223,
+          "min": 0.9,
+          "max": 1.49,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
+          "note": "cohort mean (Table 2 via secondary); trunk angle not reported"
+        }
+      ]
+    },
+    {
+      "id": "extension",
+      "label": "Trunk extension, max (lumbar 19°)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, maximal backward extension (19° thoracolumbar-sacrum)",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
+          "note": "angle = thoracolumbar junction to sacrum"
+        }
+      ]
+    },
+    {
+      "id": "hold_close",
+      "label": "Holding 19.8 kg close to chest",
+      "view": "lifting_holding",
+      "inputs": {
+        "posture": "upright standing, elbows flexed",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 19.8,
+        "load_position": "crate at chest, ~25 cm anterior to L5-S1"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 1.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
+          "note": "abstract and Rohlmann 2001 (220%) give 1.1 MPa"
+        }
+      ]
+    },
+    {
+      "id": "hold_away",
+      "label": "Holding 19.8 kg 60 cm from chest",
+      "view": "lifting_holding",
+      "inputs": {
+        "posture": "upright standing, arms forward, elbows straight",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 19.8,
+        "load_position": "crate ~60 cm from chest, ~55 cm anterior to L5-S1"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 1.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lift_stoop",
+      "label": "Stoop lift 19.8 kg, round back",
+      "view": "lifting_holding",
+      "inputs": {
+        "posture": "bent over, knees almost straight, arms hanging",
+        "trunk_flexion_deg": 70,
+        "hand_load_kg": 19.8,
+        "load_position": "crate below the shoulders"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 2.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
+          "note": "dynamic peak; 70° = static reconstruction (Arjmand 2011, Ghezelbash 2016)"
+        }
+      ]
+    },
+    {
+      "id": "lift_squat",
+      "label": "Squat lift 19.8 kg, knees bent",
+      "view": "lifting_holding",
+      "inputs": {
+        "posture": "knees bent, back straight",
+        "hand_load_kg": 19.8,
+        "load_position": "crate in front, both hands"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 1.72,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
+          "note": "dynamic peak; lowering 1.68 MPa; posture at peak not reported"
+        }
+      ]
+    },
+    {
+      "id": "sit_relaxed",
+      "label": "Sitting relaxed, no backrest",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting on a stool, relaxed, no backrest",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.46,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+          "note": "summary value (abstract)"
+        }
+      ]
+    },
+    {
+      "id": "sit_erect",
+      "label": "Sitting erect, back actively extended",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting, actively straightening the back, no backrest",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sit_flex20",
+      "label": "Sitting, bent forward ~20°",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting on a stool, trunk bent forward, straight back, no arm support",
+        "trunk_flexion_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.63,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sit_flex_max",
+      "label": "Sitting, maximal forward flexion",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting on a stool, bent fully forward, no arm support",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.83,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sit_backrest",
+      "label": "Sitting, leaning back ~15° on backrest",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "armchair, erect, leaning back ~15° against the backrest",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.33,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lie_prone",
+      "label": "Lying prone",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "lying prone"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_lying",
+          "note": "lying lateral 0.12 MPa"
+        }
+      ]
+    },
+    {
+      "id": "latbend20",
+      "label": "Lateral bending 20°",
+      "view": "bending_twisting",
+      "inputs": {
+        "posture": "standing, trunk lateral bending",
+        "lateral_bend_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.52,
+          "sd": null,
+          "min": 0.43,
+          "max": 0.58,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
+          "note": "trunk angle = Ghezelbash 2016 reconstruction of the lumbar-angle record; peak 0.59 MPa at max bending (18-23° lumbar)"
+        }
+      ]
+    },
+    {
+      "id": "axial_rot",
+      "label": "Axial rotation, max (lumbar 24°)",
+      "view": "bending_twisting",
+      "inputs": {
+        "posture": "standing, maximal axial twist (24° thoracolumbar-sacrum)",
+        "axial_rotation_deg": 24,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
+          "note": "left 24°; right twist (17°) gave 0.6 MPa"
+        }
+      ]
+    },
+    {
+      "id": "lie_supine_rel",
+      "label": "Lying supine",
+      "view": "relative",
+      "inputs": {
+        "posture": "lying supine"
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 20,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    },
+    {
+      "id": "sit_relaxed_rel",
+      "label": "Sitting relaxed, no backrest",
+      "view": "relative",
+      "inputs": {
+        "posture": "sitting relaxed, no backrest",
+        "hand_load_kg": 0
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 90,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    },
+    {
+      "id": "flex_max_rel",
+      "label": "Trunk flexion, max (lumbar 36°)",
+      "view": "relative",
+      "inputs": {
+        "posture": "standing, maximal forward flexion (36° thoracolumbar-sacrum)",
+        "trunk_flexion_deg": 50,
+        "hand_load_kg": 0
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 216,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    },
+    {
+      "id": "hold_close_rel",
+      "label": "Holding 19.8 kg close to chest",
+      "view": "relative",
+      "inputs": {
+        "posture": "upright standing",
+        "hand_load_kg": 19.8,
+        "load_position": "crate at chest"
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 220,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    },
+    {
+      "id": "hold_away_rel",
+      "label": "Holding 19.8 kg 60 cm from chest",
+      "view": "relative",
+      "inputs": {
+        "posture": "upright standing",
+        "hand_load_kg": 19.8,
+        "load_position": "crate ~60 cm from chest"
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 360,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    },
+    {
+      "id": "lift_stoop_rel",
+      "label": "Lifting 19.8 kg (maximum)",
+      "view": "relative",
+      "inputs": {
+        "posture": "lifting the crate (stoop)",
+        "hand_load_kg": 19.8
+      },
+      "output": "idp_rel",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 460,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.rohlmann2001.L4L5_idp_relative_to_standing",
+          "note": "Wilke volunteer; 100% = 0.50 MPa standing"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Nachemson 1964/1970 (values corrected by -0.25 MPa for transducer self-heating) and Schultz 1982 are early-transducer data taken from the Dreischarf 2016 review; Nachemson subjects were mostly LBP patients and only individual values exist. Weight them below the modern data.",
+    "Wilke is a single subject (70 kg at measurement; Ghezelbash lab validation uses 72 kg). His trunk-flexion and lateral-bending angles are reconstructions from the lumbar-angle record; lifting values are dynamic peaks.",
+    "Lying IDP is mostly disc swelling pressure, which muscle-driven compression models underpredict. Relative IDP (% of standing) is a separate output and is never pooled with MPa."
+  ],
+  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the posture, trunk angle and hand load given in its inputs for the subject of each study that has a ref in that task (see \"subjects\": sex, age, height, body mass, disc area; for studies with individual refs the cohort mean subject is enough). Compute compression and flexion at the task level (L4-L5, or L3-L4 for standing_l3l4) and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A) or IDP = F/(0.66 A); say which. For idp_rel tasks report IDP as % of your simulated standing value for the same subject. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with a number in the stated unit, or an object {study_key: number} when you simulated several subjects for that task.",
+  "answer_format": {
+    "standing": {
+      "idp": "MPa"
+    },
+    "standing_l3l4": {
+      "idp": "MPa"
+    },
+    "stand_10kg": {
+      "idp": "MPa"
+    },
+    "flex10": {
+      "idp": "MPa"
+    },
+    "flex10_10kg": {
+      "idp": "MPa"
+    },
+    "flex20": {
+      "idp": "MPa"
+    },
+    "flex20_10kg": {
+      "idp": "MPa"
+    },
+    "flex30": {
+      "idp": "MPa"
+    },
+    "flex30_10kg": {
+      "idp": "MPa"
+    },
+    "flex50": {
+      "idp": "MPa"
+    },
+    "flex_full": {
+      "idp": "MPa"
+    },
+    "flex_l4l5_5": {
+      "idp": "MPa"
+    },
+    "extension": {
+      "idp": "MPa"
+    },
+    "hold_close": {
+      "idp": "MPa"
+    },
+    "hold_away": {
+      "idp": "MPa"
+    },
+    "lift_stoop": {
+      "idp": "MPa"
+    },
+    "lift_squat": {
+      "idp": "MPa"
+    },
+    "sit_relaxed": {
+      "idp": "MPa"
+    },
+    "sit_erect": {
+      "idp": "MPa"
+    },
+    "sit_flex20": {
+      "idp": "MPa"
+    },
+    "sit_flex_max": {
+      "idp": "MPa"
+    },
+    "sit_backrest": {
+      "idp": "MPa"
+    },
+    "lie_prone": {
+      "idp": "MPa"
+    },
+    "latbend20": {
+      "idp": "MPa"
+    },
+    "axial_rot": {
+      "idp": "MPa"
+    },
+    "lie_supine_rel": {
+      "idp_rel": "% of standing"
+    },
+    "sit_relaxed_rel": {
+      "idp_rel": "% of standing"
+    },
+    "flex_max_rel": {
+      "idp_rel": "% of standing"
+    },
+    "hold_close_rel": {
+      "idp_rel": "% of standing"
+    },
+    "hold_away_rel": {
+      "idp_rel": "% of standing"
+    },
+    "lift_stoop_rel": {
+      "idp_rel": "% of standing"
+    }
+  }
+}

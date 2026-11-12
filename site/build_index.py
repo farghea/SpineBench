@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """Build the SpineBench site data.
 
-Collects bench/tests/**/*.json and writes, under site/data/:
+Outcome benchmarks (what the site shows): reads bench/outcomes/*.json and writes, under site/data/:
+  outcomes.json           index of benchmarks (+ counts, planned ones not written yet)
+  outcomes/<id>.json/.csv one card with pooled values (same rule as tools/pool_outcomes.py) / tasks x refs
+  benchmark.json          every card in one file
+  agent_tasks.jsonl       one line per card: the tasks WITHOUT reference values
+  answers.json            {card id: {task id: {output, unit, refs, pooled}}}: the hidden answers
+
+Raw per-test data (footer "Raw data" link) collects bench/tests/**/*.json and writes:
   index.json            light index (one entry per test) + taxonomy, groups, counts
   tests/<id>.json/.csv  one file per test
   groups/<id>.json/.csv one file per combine_group (all member tests)
@@ -11,7 +18,8 @@ Collects bench/tests/**/*.json and writes, under site/data/:
 
 Usage:
   python3 site/build_index.py               # real tests only (what the Pages workflow runs)
-  python3 site/build_index.py --examples    # also include site/dev/examples (placeholder data)
+  python3 site/build_index.py --examples    # also include site/dev/examples (placeholder data,
+                                            # outcome cards in site/dev/examples/outcomes)
 """
 import argparse
 import csv
@@ -110,6 +118,8 @@ def load_tests(dirs):
         if not base.is_dir():
             continue
         for path in sorted(base.rglob("*.json")):
+            if "outcomes" in path.relative_to(base).parts:
+                continue
             try:
                 t = json.loads(path.read_text(encoding="utf-8"))
             except Exception as e:  # noqa: BLE001
@@ -228,6 +238,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tests", default=str(ROOT / "bench" / "tests"))
     ap.add_argument("--groups", default=str(ROOT / "bench" / "groups"))
+    ap.add_argument("--outcomes", default=str(ROOT / "bench" / "outcomes"))
     ap.add_argument("--out", default=str(SITE / "data"))
     ap.add_argument("--examples", action="store_true", help="include placeholder tests from site/dev/examples")
     a = ap.parse_args()
@@ -355,6 +366,253 @@ def main():
     c = index["counts"]
     print(f"{c['tests']} tests ({c['examples']} examples), {c['studies']} studies, {c['points']} data points, "
           f"{c['subjects']} subjects/specimens, {c['groups']} pooled groups -> {out}")
+    build_outcomes(Path(a.outcomes), SITE / "dev" / "examples" / "outcomes" if a.examples else None, out)
+
+
+# ---------------------------------------------------------------- outcome benchmarks
+# The v1 benchmarks in display order (bench/OUTCOMES.md). Cards not written yet show as "in preparation".
+KNOWN_OUTCOMES = [
+    ("lumbar_idp_invivo", "Lumbar disc pressure in vivo", "msk"),
+    ("thoracic_idp_invivo", "Thoracic disc pressure in vivo", "msk"),
+    ("implant_loads_invivo", "Spinal implant loads in vivo", "msk"),
+    ("flexion_relaxation", "Flexion-relaxation", "msk"),
+    ("emg_load_holding", "Trunk EMG in static load holding", "msk"),
+    ("maximal_exertions", "Maximal trunk exertions", "msk"),
+    ("lumbar_rom", "Lumbar range of motion", "fe"),
+    ("thoracic_rom", "Thoracic range of motion", "fe"),
+    ("stepwise_resection", "Stepwise removal of structures", "fe"),
+    ("idp_invitro", "Disc pressure in vitro", "fe"),
+    ("facet_forces", "Facet joint forces", "fe"),
+    ("segment_stiffness", "Segment force-displacement", "fe"),
+    ("annulus_tissue", "Annulus fibrosus", "tissue"),
+    ("nucleus_endplate_tissue", "Nucleus, endplate and whole disc", "tissue"),
+    ("ligament_tissue", "Spinal ligaments", "tissue"),
+    ("ribcage_tissue", "Rib cage tissue and joints", "tissue"),
+]
+REF_KEYS = ("study", "stat", "mean", "sd", "median", "min", "max", "n", "test_id", "note", "exclude_from_pool")
+
+
+def pool_task(t, shared, nopool=frozenset()):
+    """Fallback only (used if tools/pool_outcomes.py cannot be run). Same rule as tools/pool_outcomes.py: n-weighted mean of mean/value refs; studies with "pool": false and
+    refs with "exclude_from_pool" are left out; several refs of one study are first combined into one study-level
+    mean/SD; a study overlapping one already counted (`shared` groups) is skipped; medians not pooled; >= 2 studies."""
+    refs = [r for r in t.get("refs", []) if r.get("stat") in ("mean", "value") and isinstance(r.get("mean"), (int, float))
+            and not isinstance(r.get("mean"), bool) and r.get("study") not in nopool and not r.get("exclude_from_pool")]
+    by = {}
+    for r in refs:
+        by.setdefault(r["study"], []).append(r)
+    refs = []
+    for st, rs in by.items():
+        if len(rs) == 1:
+            refs.append(rs[0]); continue
+        vals = [r["mean"] for r in rs]; mu = sum(vals) / len(vals)
+        if all(r.get("n") in (None, 1) and not isinstance(r.get("sd"), (int, float)) for r in rs):
+            # individuals -> study mean, SD across them, n = count
+            sdv = (sum((v - mu) ** 2 for v in vals) / (len(vals) - 1)) ** 0.5
+            refs.append({"study": st, "mean": mu, "sd": sdv, "n": len(rs), "stat": "mean"})
+        else:  # same subjects reported twice (e.g. left/right) -> average, n counted once
+            sds = [r["sd"] for r in rs if isinstance(r.get("sd"), (int, float))]
+            refs.append({"study": st, "mean": mu, "sd": sum(sds) / len(sds) if sds else None,
+                         "n": max((r.get("n") or 1) for r in rs), "stat": "mean"})
+    seen, use = set(), []
+    for r in refs:
+        s = r["study"]
+        if s in seen or any(s in p and (p - {s}) & seen for p in shared):
+            continue
+        seen.add(s); use.append(r)
+    if len(use) < 2:
+        return None
+    ns = [r.get("n") or 1 for r in use]; N = sum(ns)
+    m = sum(n * r["mean"] for n, r in zip(ns, use)) / N
+    ss = sum((n - 1) * (r["sd"] ** 2) for n, r in zip(ns, use) if isinstance(r.get("sd"), (int, float)))
+    ss += sum(n * (r["mean"] - m) ** 2 for n, r in zip(ns, use))
+    sd = (ss / (N - 1)) ** 0.5 if N > 1 else None
+    return {"mean": round(m, 4), "sd": round(sd, 4) if sd is not None else None, "N": N, "k": len(use),
+            "studies": [r["study"] for r in use]}
+
+
+def run_pool_tool(cards):
+    """Pool with tools/pool_outcomes.py itself: it rewrites bench/outcomes in place, so run a copy of it on copies
+    of the cards in a temp folder. Returns {card id: {task id: pooled}} or None (then pool_task's values stay)."""
+    import subprocess, tempfile
+    tool = ROOT / "tools" / "pool_outcomes.py"
+    if not tool.is_file():
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        (tmp / "tools").mkdir(); (tmp / "bench" / "outcomes").mkdir(parents=True)
+        shutil.copyfile(tool, tmp / "tools" / "pool_outcomes.py")
+        names = {}
+        for i, c in enumerate(cards):
+            name = f"{i:03d}.json"; names[name] = c["id"]
+            (tmp / "bench" / "outcomes" / name).write_text(json.dumps(c, ensure_ascii=False), encoding="utf-8")
+        try:
+            subprocess.run([sys.executable, "-I", str(tmp / "tools" / "pool_outcomes.py")], check=True,
+                           capture_output=True, text=True, timeout=120)
+        except Exception as e:  # noqa: BLE001
+            warn(f"tools/pool_outcomes.py failed ({getattr(e, 'stderr', '') or e}); using the built-in copy of its rule")
+            return None
+        out = {}
+        for name, cid in names.items():
+            c = json.loads((tmp / "bench" / "outcomes" / name).read_text(encoding="utf-8"))
+            out[cid] = {t["id"]: t.get("pooled") for t in c.get("tasks", []) if isinstance(t, dict) and "id" in t}
+        return out
+
+
+def card_n(card):
+    """Total subjects/specimens of a card; studies linked through `shared` count once (largest n)."""
+    n = {s["key"]: (s.get("n") if isinstance(s.get("n"), int) else 0) for s in card["studies"]}
+    parent = {k: k for k in n}
+    def find(k):
+        while parent[k] != k:
+            k = parent[k]
+        return k
+    for pair in card.get("shared", []):
+        ks = [k for k in pair if k in parent]
+        for k in ks[1:]:
+            parent[find(k)] = find(ks[0])
+    comp = {}
+    for k, v in n.items():
+        comp[find(k)] = max(comp.get(find(k), 0), v)
+    return sum(comp.values())
+
+
+def study_uid(s):
+    return f"{str(s.get('short', s.get('key'))).lower()}|{s.get('year', '')}"
+
+
+def load_cards(real_dir, ex_dir):
+    cards, seen = [], {}
+    for base, is_ex in ((real_dir, False), (ex_dir, True)):
+        if not base or not base.is_dir():
+            continue
+        for p in sorted(base.glob("*.json")):
+            try:
+                c = json.loads(p.read_text(encoding="utf-8"))
+            except Exception as e:  # noqa: BLE001  (a card may be half-written right now)
+                warn(f"{p}: not valid JSON ({e}); skipped")
+                continue
+            if not isinstance(c, dict) or not isinstance(c.get("tasks"), list) or not isinstance(c.get("studies"), list):
+                warn(f"{p}: not an outcome card (needs tasks and studies); skipped")
+                continue
+            c.setdefault("id", p.stem)
+            if c["id"] in seen:
+                warn(f"{p}: duplicate card id {c['id']} (first in {seen[c['id']]}); skipped")
+                continue
+            seen[c["id"]] = p
+            if is_ex:
+                c["example"] = True
+            for k, d in (("levels", []), ("simulate", []), ("inputs", []), ("outputs", []), ("views", []),
+                         ("notes", []), ("shared", []), ("subjects", {}), ("answer_format", {})):
+                if not isinstance(c.get(k), type(d)):
+                    c[k] = d
+            c["studies"] = [s for s in c["studies"] if isinstance(s, dict) and s.get("key")]
+            c["tasks"] = [t for t in c["tasks"] if isinstance(t, dict) and t.get("id")]
+            shared = [set(x) for x in c["shared"] if isinstance(x, (list, tuple))]
+            nopool = frozenset(st["key"] for st in c["studies"] if st.get("pool") is False)
+            for t in c["tasks"]:
+                t["refs"] = [r for r in t.get("refs") or [] if isinstance(r, dict)]
+                if not isinstance(t.get("inputs"), dict):
+                    t["inputs"] = {}
+                pooled = pool_task(t, shared, nopool)
+                if pooled:
+                    t["pooled"] = pooled
+                else:
+                    t.pop("pooled", None)
+            cards.append(c)
+    pooled = run_pool_tool(cards)
+    if pooled is not None:
+        for c in cards:
+            got = pooled.get(c["id"], {})
+            for t in c["tasks"]:
+                if got.get(t["id"]):
+                    t["pooled"] = got[t["id"]]
+                else:
+                    t.pop("pooled", None)
+    order = {k[0]: i for i, k in enumerate(KNOWN_OUTCOMES)}
+    cards.sort(key=lambda c: (bool(c.get("example")), order.get(c["id"], 99), c["id"]))
+    return cards
+
+
+def card_csv(path, c):
+    in_keys = [i["key"] for i in c["inputs"] if isinstance(i, dict) and i.get("key")]
+    units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
+    studies = {s["key"]: s for s in c["studies"]}
+    cols = (["benchmark", "task_id", "task", "view", "level", "output", "unit"] + [f"in_{k}" for k in in_keys] +
+            ["study", "year", "study_n", "stat", "mean", "sd", "median", "min", "max", "n", "secondary", "pooled_in", "test_id", "note",
+             "pooled_mean", "pooled_sd", "pooled_N", "pooled_k"])
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(cols)
+        for t in c["tasks"]:
+            p = t.get("pooled") or {}
+            for r in t["refs"]:
+                s = studies.get(r.get("study"), {})
+                row = [c["id"], t["id"], t.get("label", ""), t.get("view", ""), t.get("level", ""), t.get("output", ""),
+                       units.get(t.get("output"), "")] + [t["inputs"].get(k, "") for k in in_keys] + [
+                       s.get("short", r.get("study")), s.get("year", ""), s.get("n", ""), r.get("stat", ""),
+                       r.get("mean"), r.get("sd"), r.get("median"), r.get("min"), r.get("max"), r.get("n"),
+                       "yes" if s.get("secondary") else "",
+                       "yes" if r.get("study") in (p.get("studies") or []) else "", r.get("test_id", ""), r.get("note", ""),
+                       p.get("mean"), p.get("sd"), p.get("N"), p.get("k")]
+                w.writerow(["" if v is None else v for v in row])
+
+
+def build_outcomes(real_dir, ex_dir, out):
+    cards = load_cards(real_dir, ex_dir)
+    odir = out / "outcomes"
+    shutil.rmtree(odir, ignore_errors=True)
+    odir.mkdir(parents=True, exist_ok=True)
+    generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    index, all_studies, lines, answers = [], {}, [], {}
+    for c in cards:
+        fn = safe_name(c["id"])
+        (odir / f"{fn}.json").write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
+        card_csv(odir / f"{fn}.csv", c)
+        years = [s["year"] for s in c["studies"] if isinstance(s.get("year"), int)]
+        for s in c["studies"]:
+            u = study_uid(s) + ("|ex" if c.get("example") else "")
+            all_studies[u] = max(all_studies.get(u, 0), s.get("n") if isinstance(s.get("n"), int) else 0)
+        index.append({
+            "id": c["id"], "file": fn, "title": c.get("title", c["id"]), "domain": c.get("domain", ""),
+            "region": c.get("region", ""), "levels": c["levels"], "summary": c.get("summary", ""),
+            "tasks": len(c["tasks"]), "studies": len(c["studies"]), "N": card_n(c),
+            "years": [min(years), max(years)] if years else [], "example": bool(c.get("example")),
+        })
+        units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
+        lines.append({
+            "id": c["id"], "title": c.get("title", ""), "domain": c.get("domain", ""), "levels": c["levels"],
+            "agent_prompt": c.get("agent_prompt", ""), "answer_format": c["answer_format"],
+            "simulate": c["simulate"], "inputs": c["inputs"], "outputs": c["outputs"], "subjects": c["subjects"],
+            "studies": [{k: s.get(k) for k in ("key", "short", "year", "n", "sample")} for s in c["studies"]],
+            "tasks": [{k: t[k] for k in ("id", "label", "inputs", "output", "level") if k in t} for t in c["tasks"]],
+            **({"example": True} if c.get("example") else {}),
+        })
+        answers[c["id"]] = {t["id"]: {"output": t.get("output", ""), "unit": units.get(t.get("output"), ""),
+                                      "refs": [{k: r.get(k) for k in REF_KEYS if k in r} for r in t["refs"]],
+                                      "pooled": t.get("pooled")} for t in c["tasks"]}
+    have = {c["id"] for c in cards}
+    planned = [{"id": i, "title": t, "domain": d} for i, t, d in KNOWN_OUTCOMES if i not in have]
+    counts = {"benchmarks": len(cards), "tasks": sum(len(c["tasks"]) for c in cards), "studies": len(all_studies),
+              "N": int(sum(all_studies.values())), "examples": sum(1 for c in cards if c.get("example"))}
+    ex_line = None
+    if lines:
+        l0 = dict(lines[0]); l0["tasks"] = l0["tasks"][:1]
+        l0["answer_format"] = {k: v for k, v in list(l0["answer_format"].items())[:1]}
+        l0["subjects"] = {k: v for k, v in list(l0["subjects"].items())[:1]}
+        l0["studies"] = l0["studies"][:1]
+        ex_line = l0
+    (out / "outcomes.json").write_text(json.dumps(
+        {"generated": generated, "counts": counts, "benchmarks": index, "planned": planned, "agent_example": ex_line},
+        ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (out / "benchmark.json").write_text(json.dumps(
+        {"name": "SpineBench", "version": "v1", "generated": generated, "benchmarks": cards}, ensure_ascii=False, indent=1),
+        encoding="utf-8")
+    (out / "agent_tasks.jsonl").write_text("".join(json.dumps(l, ensure_ascii=False) + "\n" for l in lines), encoding="utf-8")
+    (out / "answers.json").write_text(json.dumps(
+        {"generated": generated, "answers": answers}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{counts['benchmarks']} outcome benchmarks ({counts['examples']} examples), {counts['tasks']} tasks, "
+          f"{counts['studies']} studies, N = {counts['N']}; {len(planned)} not written yet")
 
 
 if __name__ == "__main__":

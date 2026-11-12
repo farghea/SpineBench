@@ -1,0 +1,443 @@
+{
+  "id": "ex_lumbar_idp",
+  "example": true,
+  "title": "Lumbar disc pressure in vivo (example)",
+  "domain": "msk",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5"
+  ],
+  "summary": "Simulate each posture and report L4-L5 intradiscal pressure.",
+  "simulate": [
+    "Scale the model to each study subject (table below).",
+    "Set the posture and hand load of the task.",
+    "Solve for muscle forces; read L4-L5 compression and flexion.",
+    "Convert to IDP with the study's disc area.",
+    "Report IDP in MPa per task."
+  ],
+  "inputs": [
+    {
+      "key": "posture",
+      "label": "Posture"
+    },
+    {
+      "key": "trunk_flexion_deg",
+      "label": "Trunk flexion",
+      "unit": "°"
+    },
+    {
+      "key": "hand_load_kg",
+      "label": "Hand load",
+      "unit": "kg"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "idp",
+      "label": "IDP",
+      "unit": "MPa"
+    }
+  ],
+  "subjects": {
+    "wilke2001": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "weight_kg": 70,
+      "disc_area_mm2": 1800
+    },
+    "sato1999": {
+      "sex": "8 M",
+      "age": 35,
+      "height_cm": 170,
+      "weight_kg": 66,
+      "disc_area_mm2": 1600
+    },
+    "takahashi2006": {
+      "sex": "3 M",
+      "age": 25.3,
+      "height_cm": 176,
+      "weight_kg": 72.3,
+      "disc_area_mm2": 1970
+    }
+  },
+  "studies": [
+    {
+      "key": "wilke2001",
+      "short": "Wilke 2001",
+      "year": 2001,
+      "n": 1,
+      "sample": "1 healthy male",
+      "doi": "10.1016/S0268-0033(00)00103-0",
+      "secondary": false
+    },
+    {
+      "key": "sato1999",
+      "short": "Sato 1999",
+      "year": 1999,
+      "n": 8,
+      "sample": "8 healthy men",
+      "doi": "10.1097/00007632-199912010-00008",
+      "secondary": false
+    },
+    {
+      "key": "takahashi2006",
+      "short": "Takahashi 2006",
+      "year": 2006,
+      "n": 3,
+      "sample": "3 healthy young men",
+      "doi": "10.1097/01.brs.0000192636.69129.fb",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "sato1999",
+      "takahashi2006"
+    ]
+  ],
+  "views": [
+    {
+      "id": "standing_flexion",
+      "title": "Standing and flexion",
+      "task_ids": [
+        "standing",
+        "flex10",
+        "flex20",
+        "flex30",
+        "flexed"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "load_rest",
+      "title": "Loads, sitting, lying",
+      "task_ids": [
+        "stand_10kg",
+        "flex30_10kg",
+        "sitting",
+        "lying"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "standing",
+      "label": "Standing, relaxed",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "upright standing",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.5,
+          "sd": null,
+          "median": null,
+          "min": 0.43,
+          "max": 0.5,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
+          "note": ""
+        },
+        {
+          "study": "sato1999",
+          "mean": 0.54,
+          "sd": 0.179,
+          "median": null,
+          "min": 0.22,
+          "max": 0.75,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_standing",
+          "note": ""
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 0.344,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "flex10",
+      "label": "Trunk flexion 10°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, trunk flexed",
+        "trunk_flexion_deg": 10,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.58,
+          "sd": null,
+          "median": null,
+          "min": 0.5,
+          "max": 0.67,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
+          "note": ""
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 0.672,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "flex20",
+      "label": "Trunk flexion 20°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, trunk flexed",
+        "trunk_flexion_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 1.013,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "flex30",
+      "label": "Trunk flexion 30°",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, trunk flexed",
+        "trunk_flexion_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.96,
+          "sd": null,
+          "median": null,
+          "min": 0.92,
+          "max": 1.01,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
+          "note": ""
+        },
+        {
+          "study": "takahashi2006",
+          "mean": 1.211,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "flexed",
+      "label": "Flexed forward (L4-L5 5°)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, flexed forward",
+        "trunk_flexion_deg": null,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 1.32,
+          "sd": 0.223,
+          "median": null,
+          "min": 0.9,
+          "max": 1.49,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "stand_10kg",
+      "label": "Standing, 5 kg per hand",
+      "view": "load_rest",
+      "inputs": {
+        "posture": "upright standing",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 10
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 0.42,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing_10kg",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "flex30_10kg",
+      "label": "Flexion 30°, 5 kg per hand",
+      "view": "load_rest",
+      "inputs": {
+        "posture": "standing, trunk flexed",
+        "trunk_flexion_deg": 30,
+        "hand_load_kg": 10
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "takahashi2006",
+          "mean": 1.463,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg_10kg",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sitting",
+      "label": "Sitting, leaning back on backrest",
+      "view": "load_rest",
+      "inputs": {
+        "posture": "relaxed sitting, armchair",
+        "trunk_flexion_deg": null,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.33,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lying",
+      "label": "Lying prone",
+      "view": "load_rest",
+      "inputs": {
+        "posture": "lying prone",
+        "trunk_flexion_deg": null,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.1,
+          "sd": null,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_lying",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "EXAMPLE card for site development. Values are taken from bench/tests but the card is not curated.",
+    "Wilke 2001 is a single subject; its range is the spread of repeated trials.",
+    "Sato 1999 and Takahashi 2006 are flagged as a shared sample here only to exercise the pooling rule."
+  ],
+  "agent_prompt": "You have a lumbar spine musculoskeletal model. For each task, scale the model to the study subject given, set the posture and hand load, and report L4-L5 intradiscal pressure (MPa). Return JSON {task_id: {\"idp\": value}}.",
+  "answer_format": {
+    "standing": {
+      "idp": "MPa"
+    },
+    "flex10": {
+      "idp": "MPa"
+    },
+    "flex20": {
+      "idp": "MPa"
+    },
+    "flex30": {
+      "idp": "MPa"
+    },
+    "flexed": {
+      "idp": "MPa"
+    },
+    "stand_10kg": {
+      "idp": "MPa"
+    },
+    "flex30_10kg": {
+      "idp": "MPa"
+    },
+    "sitting": {
+      "idp": "MPa"
+    },
+    "lying": {
+      "idp": "MPa"
+    }
+  }
+}

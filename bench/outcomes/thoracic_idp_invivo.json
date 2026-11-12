@@ -1,0 +1,572 @@
+{
+  "id": "thoracic_idp_invivo",
+  "title": "Thoracic disc pressure in vivo",
+  "domain": "msk",
+  "region": "thoracic",
+  "levels": [
+    "T6-T7",
+    "T7-T8",
+    "T9-T10",
+    "T10-T11"
+  ],
+  "summary": "Simulate each standing posture or hand-load task for the Polga subject and report mid and lower thoracic intradiscal pressure.",
+  "simulate": [
+    "Scale the model to the Polga subject (male, 33 y, 178 cm, 73 kg).",
+    "Set the posture: trunk flexion, extension, lateral bending or axial twist as stated.",
+    "Add the hand load: 10 kg per hand, arms at the sides or elbows at 90°.",
+    "Output compression F and flexion θ at T6-T7 and T7-T8 (average = mid) and T9-T10 and T10-T11 (average = lower).",
+    "IDP = Ghezelbash 2016 Eq. 6 with P = F/A (A = 663 mm2 mid, 897 mm2 lower; θ = segment flexion), or IDP = F/(0.66A)."
+  ],
+  "inputs": [
+    {
+      "key": "posture",
+      "label": "Posture"
+    },
+    {
+      "key": "flexion_deg",
+      "label": "Trunk flexion (+) / extension (-)",
+      "unit": "deg"
+    },
+    {
+      "key": "lateral_bend_deg",
+      "label": "Lateral bending",
+      "unit": "deg"
+    },
+    {
+      "key": "axial_rotation_deg",
+      "label": "Axial rotation",
+      "unit": "deg"
+    },
+    {
+      "key": "hand_load_kg",
+      "label": "Total hand load",
+      "unit": "kg"
+    },
+    {
+      "key": "arm_position",
+      "label": "Arm position"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "idp",
+      "label": "IDP",
+      "unit": "MPa"
+    }
+  ],
+  "subjects": {
+    "polga2004": {
+      "sex": "male (modelled; cohort 4M/2F)",
+      "age": 33,
+      "height_cm": 178,
+      "weight_kg": 73,
+      "disc_area_mm2": {
+        "mid": 663,
+        "lower": 897
+      },
+      "note": "Bruno 2015 Table 3; age = midpoint of 19-47 y; areas = Kishimoto 2016 CT, 4M:2F weighted"
+    }
+  },
+  "studies": [
+    {
+      "key": "polga2004",
+      "short": "Polga 2004",
+      "year": 2004,
+      "n": 6,
+      "sample": "6 healthy volunteers (4M/2F), mid and lower thoracic discs",
+      "doi": "10.1097/01.BRS.0000127179.13271.78",
+      "secondary": false
+    }
+  ],
+  "shared": [],
+  "views": [
+    {
+      "id": "postures",
+      "title": "Postures",
+      "task_ids": [
+        "stand_mid",
+        "stand_lower",
+        "flex30_mid",
+        "flex30_lower",
+        "ext15_mid",
+        "ext15_lower",
+        "latbend20_mid",
+        "latbend20_lower",
+        "twist30_mid",
+        "twist30_lower"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "hand_loads",
+      "title": "Hand loads",
+      "task_ids": [
+        "stand_10kg_mid",
+        "stand_10kg_lower",
+        "elbows90_10kg_mid",
+        "elbows90_10kg_lower",
+        "flex30_10kg_mid",
+        "flex30_10kg_lower"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "stand_mid",
+      "label": "Standing, relaxed (mid)",
+      "view": "postures",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.01,
+          "sd": null,
+          "min": 0.87,
+          "max": 1.15,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.stand",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "stand_lower",
+      "label": "Standing, relaxed (lower)",
+      "view": "postures",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 0.86,
+          "sd": null,
+          "min": 0.59,
+          "max": 1.05,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.stand",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "flex30_mid",
+      "label": "Flexion 30° (mid)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, forward flexion",
+        "flexion_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 0.94,
+          "sd": null,
+          "min": 0.78,
+          "max": 1.14,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.flex30",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "flex30_lower",
+      "label": "Flexion 30° (lower)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, forward flexion",
+        "flexion_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.09,
+          "sd": null,
+          "min": 0.84,
+          "max": 1.24,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.flex30",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "ext15_mid",
+      "label": "Extension 15° (mid)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, backward extension",
+        "flexion_deg": -15,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.16,
+          "sd": null,
+          "min": 0.82,
+          "max": 1.77,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.ext15",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "ext15_lower",
+      "label": "Extension 15° (lower)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, backward extension",
+        "flexion_deg": -15,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 0.99,
+          "sd": null,
+          "min": 0.72,
+          "max": 1.34,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.ext15",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "latbend20_mid",
+      "label": "Lateral bending 20° (right) (mid)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, lateral bending to the right",
+        "lateral_bend_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.06,
+          "sd": null,
+          "min": 0.76,
+          "max": 1.19,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.latbend20",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "latbend20_lower",
+      "label": "Lateral bending 20° (right) (lower)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, lateral bending to the right",
+        "lateral_bend_deg": 20,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.22,
+          "sd": null,
+          "min": 0.98,
+          "max": 1.5,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.latbend20",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "twist30_mid",
+      "label": "Axial rotation 30° (left) (mid)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, axial twist to the left",
+        "axial_rotation_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.11,
+          "sd": null,
+          "min": 0.98,
+          "max": 1.22,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.twist30",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "twist30_lower",
+      "label": "Axial rotation 30° (left) (lower)",
+      "view": "postures",
+      "inputs": {
+        "posture": "standing, axial twist to the left",
+        "axial_rotation_deg": 30,
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.01,
+          "sd": null,
+          "min": 0.85,
+          "max": 1.19,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.twist30",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "stand_10kg_mid",
+      "label": "Standing, 10 kg in each hand (mid)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand at the sides"
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.61,
+          "sd": null,
+          "min": 1.38,
+          "max": 1.78,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.10kg",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "stand_10kg_lower",
+      "label": "Standing, 10 kg in each hand (lower)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand at the sides"
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.43,
+          "sd": null,
+          "min": 1.04,
+          "max": 1.69,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.10kg",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "elbows90_10kg_mid",
+      "label": "10 kg each hand, elbows 90° (mid)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "upright standing, elbows flexed 90°",
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand, upper arms vertical, forearms horizontal"
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 2.61,
+          "sd": null,
+          "min": 2.24,
+          "max": 2.97,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.10kg_elbows90",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "elbows90_10kg_lower",
+      "label": "10 kg each hand, elbows 90° (lower)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "upright standing, elbows flexed 90°",
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand, upper arms vertical, forearms horizontal"
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 2.29,
+          "sd": null,
+          "min": 1.96,
+          "max": 2.57,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.10kg_elbows90",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "flex30_10kg_mid",
+      "label": "Flexion 30°, 10 kg in each hand (mid)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "standing, forward flexion",
+        "flexion_deg": 30,
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "T6-T7/T7-T8",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.14,
+          "sd": null,
+          "min": 0.82,
+          "max": 1.45,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.flex30_10kg",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    },
+    {
+      "id": "flex30_10kg_lower",
+      "label": "Flexion 30°, 10 kg in each hand (lower)",
+      "view": "hand_loads",
+      "inputs": {
+        "posture": "standing, forward flexion",
+        "flexion_deg": 30,
+        "hand_load_kg": 20,
+        "arm_position": "10 kg per hand, arms hanging"
+      },
+      "output": "idp",
+      "level": "T9-T10/T10-T11",
+      "refs": [
+        {
+          "study": "polga2004",
+          "mean": 1.4,
+          "sd": null,
+          "min": 1.04,
+          "max": 1.97,
+          "stat": "mean",
+          "n": null,
+          "test_id": "msk_idp_thoracic.polga2004.flex30_10kg",
+          "note": "min-max = range of individuals; n per level not reported (6 volunteers)"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Values were digitised from Schmid 2020 (mean and range of Polga 2004) via the Ghezelbash lab targets; means checked against Dreischarf 2016 and Ignasiak 2016; the Polga PDF was not available.",
+    "Meir 2007 is excluded: intraoperative stress profilometry in anaesthetised, side-lying patients, mostly scoliotic discs, so there is no loaded task to simulate.",
+    "Thoracic discs show ~0.2-0.3 MPa even unloaded, which compression-based models do not reproduce; Eq. 6 is a lumbar relation applied unchanged."
+  ],
+  "agent_prompt": "Use your spine musculoskeletal model. Scale it to the Polga 2004 subject in \"subjects\" (male, 33 y, 178 cm, 73 kg). For each task in \"tasks\", simulate the posture and hand load given in its inputs. Compute compression and flexion at T6-T7 and T7-T8 (average them for \"mid\") and at T9-T10 and T10-T11 (average for \"lower\"), and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A, A = 663 mm2 mid, 897 mm2 lower) or IDP = F/(0.66 A); say which. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with IDP in MPa.",
+  "answer_format": {
+    "stand_mid": {
+      "idp": "MPa"
+    },
+    "stand_lower": {
+      "idp": "MPa"
+    },
+    "flex30_mid": {
+      "idp": "MPa"
+    },
+    "flex30_lower": {
+      "idp": "MPa"
+    },
+    "ext15_mid": {
+      "idp": "MPa"
+    },
+    "ext15_lower": {
+      "idp": "MPa"
+    },
+    "latbend20_mid": {
+      "idp": "MPa"
+    },
+    "latbend20_lower": {
+      "idp": "MPa"
+    },
+    "twist30_mid": {
+      "idp": "MPa"
+    },
+    "twist30_lower": {
+      "idp": "MPa"
+    },
+    "stand_10kg_mid": {
+      "idp": "MPa"
+    },
+    "stand_10kg_lower": {
+      "idp": "MPa"
+    },
+    "elbows90_10kg_mid": {
+      "idp": "MPa"
+    },
+    "elbows90_10kg_lower": {
+      "idp": "MPa"
+    },
+    "flex30_10kg_mid": {
+      "idp": "MPa"
+    },
+    "flex30_10kg_lower": {
+      "idp": "MPa"
+    }
+  }
+}

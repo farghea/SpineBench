@@ -1,0 +1,913 @@
+{
+  "id": "ex_lumbar_rom",
+  "example": true,
+  "title": "Lumbar range of motion (example)",
+  "domain": "fe",
+  "region": "lumbar",
+  "levels": [
+    "L4-L5"
+  ],
+  "summary": "Apply pure moments to the intact L4-L5 segment and report its rotation in the loading plane.",
+  "simulate": [
+    "Use an intact ligamentous L4-L5 segment (no muscles).",
+    "Fix the lower vertebra; apply a pure moment to the upper one.",
+    "No preload.",
+    "Report main rotation (deg) at each moment, one direction."
+  ],
+  "inputs": [
+    {
+      "key": "direction",
+      "label": "Direction"
+    },
+    {
+      "key": "moment_nm",
+      "label": "Moment",
+      "unit": "Nm"
+    },
+    {
+      "key": "preload_n",
+      "label": "Preload",
+      "unit": "N"
+    },
+    {
+      "key": "level",
+      "label": "Level"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "rom",
+      "label": "Rotation",
+      "unit": "deg"
+    }
+  ],
+  "studies": [
+    {
+      "key": "panjabi1994",
+      "short": "Panjabi 1994",
+      "year": 1994,
+      "n": 9,
+      "sample": "9 lumbosacral spines (L1-S1 / L2-S1), male",
+      "doi": "",
+      "secondary": false
+    },
+    {
+      "key": "guan2007",
+      "short": "Guan 2007",
+      "year": 2007,
+      "n": 10,
+      "sample": "10 T12-S1 ligamentous columns",
+      "doi": "10.1016/j.jbiomech.2006.09.027",
+      "secondary": false
+    }
+  ],
+  "shared": [],
+  "views": [
+    {
+      "id": "curve",
+      "title": "Flexion and extension vs moment",
+      "task_ids": [
+        "fle_0p5",
+        "fle_1",
+        "fle_1p5",
+        "fle_2",
+        "fle_2p5",
+        "fle_3",
+        "fle_3p5",
+        "fle_4",
+        "fle_5",
+        "fle_7p5",
+        "fle_10",
+        "ext_0p5",
+        "ext_1",
+        "ext_1p5",
+        "ext_2",
+        "ext_2p5",
+        "ext_3",
+        "ext_3p5",
+        "ext_4",
+        "ext_5",
+        "ext_7p5",
+        "ext_10"
+      ],
+      "x": "input:moment_nm"
+    },
+    {
+      "id": "bars",
+      "title": "Bending and rotation at 2.5 Nm",
+      "task_ids": [
+        "lbl_2p5",
+        "lbr_2p5",
+        "axl_2p5"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fle_0p5",
+      "label": "L4-L5 flexion, 0.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 0.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.04,
+          "sd": 1.08,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_1",
+      "label": "L4-L5 flexion, 1 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 1,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.84,
+          "sd": 1.39,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_1p5",
+      "label": "L4-L5 flexion, 1.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 1.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 2.44,
+          "sd": 1.57,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_2",
+      "label": "L4-L5 flexion, 2 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 2,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 2.98,
+          "sd": 1.69,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_2p5",
+      "label": "L4-L5 flexion, 2.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 2.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 6.41,
+          "sd": 1.89,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        },
+        {
+          "study": "guan2007",
+          "mean": 3.4,
+          "sd": 1.81,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_3",
+      "label": "L4-L5 flexion, 3 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 3,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 3.8,
+          "sd": 1.88,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_3p5",
+      "label": "L4-L5 flexion, 3.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 3.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 4.14,
+          "sd": 1.96,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_4",
+      "label": "L4-L5 flexion, 4 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 4,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 4.43,
+          "sd": 2.01,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_5",
+      "label": "L4-L5 flexion, 5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 7.98,
+          "sd": 2.47,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_7p5",
+      "label": "L4-L5 flexion, 7.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 8.61,
+          "sd": 2.67,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "fle_10",
+      "label": "L4-L5 flexion, 10 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "flexion",
+        "moment_nm": 10,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 9.12,
+          "sd": 2.76,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_0p5",
+      "label": "L4-L5 extension, 0.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 0.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.17,
+          "sd": 0.18,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_1",
+      "label": "L4-L5 extension, 1 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 1,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.39,
+          "sd": 0.29,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_1p5",
+      "label": "L4-L5 extension, 1.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 1.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.58,
+          "sd": 0.42,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_2",
+      "label": "L4-L5 extension, 2 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 2,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.76,
+          "sd": 0.55,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_2p5",
+      "label": "L4-L5 extension, 2.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 2.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 1.05,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        },
+        {
+          "study": "guan2007",
+          "mean": 0.96,
+          "sd": 0.66,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_3",
+      "label": "L4-L5 extension, 3 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 3,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.13,
+          "sd": 0.77,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_3p5",
+      "label": "L4-L5 extension, 3.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 3.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.29,
+          "sd": 0.86,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_4",
+      "label": "L4-L5 extension, 4 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 4,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.47,
+          "sd": 0.96,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_5",
+      "label": "L4-L5 extension, 5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 2.12,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_7p5",
+      "label": "L4-L5 extension, 7.5 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.16,
+          "sd": 1.53,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ext_10",
+      "label": "L4-L5 extension, 10 Nm",
+      "view": "curve",
+      "inputs": {
+        "direction": "extension",
+        "moment_nm": 10,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.55,
+          "sd": 1.5,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lbl_2p5",
+      "label": "L4-L5 lateral bending left, 2.5 Nm",
+      "view": "bars",
+      "inputs": {
+        "direction": "lateral bending left",
+        "moment_nm": 2.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.24,
+          "sd": 1.04,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        },
+        {
+          "study": "guan2007",
+          "mean": 2.02,
+          "sd": 0.96,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lbr_2p5",
+      "label": "L4-L5 lateral bending right, 2.5 Nm",
+      "view": "bars",
+      "inputs": {
+        "direction": "lateral bending right",
+        "moment_nm": 2.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 2.89,
+          "sd": 1.83,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        },
+        {
+          "study": "guan2007",
+          "mean": 2.54,
+          "sd": 1.29,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "axl_2p5",
+      "label": "L4-L5 axial rotation left, 2.5 Nm",
+      "view": "bars",
+      "inputs": {
+        "direction": "axial rotation left",
+        "moment_nm": 2.5,
+        "preload_n": 0,
+        "level": "L4-L5"
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.25,
+          "sd": 0.35,
+          "median": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "EXAMPLE card for site development; not curated.",
+    "Panjabi 1994 tested multi-segment specimens; L4-L5 rotation is the segmental value within L1-S1."
+  ],
+  "agent_prompt": "You have an FE model of the intact L4-L5 segment. Apply each pure moment (no preload) in the given direction and report the rotation in the loading plane (deg). Return JSON {task_id: {\"rom\": value}}.",
+  "answer_format": {
+    "fle_0p5": {
+      "rom": "deg"
+    },
+    "fle_1": {
+      "rom": "deg"
+    },
+    "fle_1p5": {
+      "rom": "deg"
+    },
+    "fle_2": {
+      "rom": "deg"
+    },
+    "fle_2p5": {
+      "rom": "deg"
+    },
+    "fle_3": {
+      "rom": "deg"
+    },
+    "fle_3p5": {
+      "rom": "deg"
+    },
+    "fle_4": {
+      "rom": "deg"
+    },
+    "fle_5": {
+      "rom": "deg"
+    },
+    "fle_7p5": {
+      "rom": "deg"
+    },
+    "fle_10": {
+      "rom": "deg"
+    },
+    "ext_0p5": {
+      "rom": "deg"
+    },
+    "ext_1": {
+      "rom": "deg"
+    },
+    "ext_1p5": {
+      "rom": "deg"
+    },
+    "ext_2": {
+      "rom": "deg"
+    },
+    "ext_2p5": {
+      "rom": "deg"
+    },
+    "ext_3": {
+      "rom": "deg"
+    },
+    "ext_3p5": {
+      "rom": "deg"
+    },
+    "ext_4": {
+      "rom": "deg"
+    },
+    "ext_5": {
+      "rom": "deg"
+    },
+    "ext_7p5": {
+      "rom": "deg"
+    },
+    "ext_10": {
+      "rom": "deg"
+    },
+    "lbl_2p5": {
+      "rom": "deg"
+    },
+    "lbr_2p5": {
+      "rom": "deg"
+    },
+    "axl_2p5": {
+      "rom": "deg"
+    }
+  }
+}

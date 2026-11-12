@@ -1,0 +1,3100 @@
+{
+  "id": "annulus_tissue",
+  "title": "Annulus fibrosus",
+  "domain": "tissue",
+  "region": "lumbar",
+  "levels": [
+    "L1-L2",
+    "L2-L3",
+    "L3-L4",
+    "L4-L5"
+  ],
+  "summary": "Simulate each annulus test mode (lamella, uniaxial circumferential/axial/radial, biaxial, shear, bone-AF-bone) and report the requested modulus, ratio or failure value.",
+  "simulate": [
+    "Build the specimen of each mode at its stated size: lamella or strip, cruciform, cube/sheet/cylinder, or bone-AF-bone slice.",
+    "Orient fibres for the region (outer/inner, anterior/posterior); fibre angle about 23-50 deg to the transverse plane.",
+    "Grip the ends (strips), shear plates or embedded bone; leave lateral faces free unless the mode is biaxial.",
+    "Load quasi-statically in the stated direction to the stated strain, stress or failure; use equilibrium response where stated.",
+    "Report the outcome as defined: toe/linear/tangent modulus, Poisson ratio, stress at strain, shear modulus, failure value."
+  ],
+  "inputs": [
+    {
+      "key": "mode",
+      "label": "Test mode"
+    },
+    {
+      "key": "region",
+      "label": "Region"
+    },
+    {
+      "key": "condition",
+      "label": "Condition"
+    },
+    {
+      "key": "stress_band",
+      "label": "Stress band"
+    },
+    {
+      "key": "lateral",
+      "label": "Lateral strain direction"
+    },
+    {
+      "key": "stress_MPa",
+      "label": "Stress",
+      "unit": "MPa"
+    },
+    {
+      "key": "strain",
+      "label": "Strain",
+      "unit": "-"
+    },
+    {
+      "key": "E11",
+      "label": "Axial strain E11",
+      "unit": "-"
+    },
+    {
+      "key": "E22",
+      "label": "Circ. strain E22",
+      "unit": "-"
+    },
+    {
+      "key": "prestrain_pct",
+      "label": "Tensile prestrain",
+      "unit": "%"
+    },
+    {
+      "key": "shear_strain",
+      "label": "Shear strain",
+      "unit": "rad"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "E_low",
+      "label": "Modulus, 0-0.1 MPa band",
+      "unit": "MPa"
+    },
+    {
+      "key": "E_medium",
+      "label": "Modulus, 0.1-0.5 MPa band",
+      "unit": "MPa"
+    },
+    {
+      "key": "E_high",
+      "label": "Modulus, 0.5-1 MPa band",
+      "unit": "MPa"
+    },
+    {
+      "key": "toe_modulus",
+      "label": "Toe-region modulus",
+      "unit": "MPa"
+    },
+    {
+      "key": "linear_modulus",
+      "label": "Linear-region modulus",
+      "unit": "MPa"
+    },
+    {
+      "key": "single_linear_modulus",
+      "label": "Modulus, single linear fit <20% strain",
+      "unit": "MPa"
+    },
+    {
+      "key": "tangent_modulus",
+      "label": "Tangent modulus at given stress",
+      "unit": "MPa"
+    },
+    {
+      "key": "compressive_modulus",
+      "label": "Compressive modulus",
+      "unit": "MPa"
+    },
+    {
+      "key": "transition_strain",
+      "label": "Toe-to-linear transition strain",
+      "unit": "-"
+    },
+    {
+      "key": "poisson",
+      "label": "Poisson's ratio",
+      "unit": "-"
+    },
+    {
+      "key": "stress",
+      "label": "Stress at given strain",
+      "unit": "MPa"
+    },
+    {
+      "key": "axial_stress",
+      "label": "Axial stress S11",
+      "unit": "MPa"
+    },
+    {
+      "key": "failure_stress",
+      "label": "Failure (ultimate) stress",
+      "unit": "MPa"
+    },
+    {
+      "key": "failure_strain",
+      "label": "Failure strain",
+      "unit": "%"
+    },
+    {
+      "key": "failure_elongation",
+      "label": "Elongation at failure",
+      "unit": "mm"
+    },
+    {
+      "key": "modulus_at_failure",
+      "label": "Modulus at failure",
+      "unit": "MPa"
+    },
+    {
+      "key": "eq_shear_modulus",
+      "label": "Equilibrium shear modulus",
+      "unit": "kPa"
+    },
+    {
+      "key": "force",
+      "label": "Force",
+      "unit": "N"
+    },
+    {
+      "key": "stiffness",
+      "label": "Stiffness",
+      "unit": "N/mm"
+    },
+    {
+      "key": "stiffness_reduction",
+      "label": "Stiffness reduction vs intact",
+      "unit": "%"
+    }
+  ],
+  "studies": [
+    {
+      "key": "holzapfel2005",
+      "short": "Holzapfel 2005",
+      "year": 2005,
+      "n": 11,
+      "sample": "11 lumbar discs, grade I-II; single lamellae from 4 sites",
+      "doi": "10.1007/s10237-004-0053-8",
+      "secondary": false
+    },
+    {
+      "key": "galante1967",
+      "short": "Galante 1967",
+      "year": 1967,
+      "n": 38,
+      "sample": "38 anterior AF strips from 6 autopsy lumbar spines",
+      "doi": "10.3109/ort.1967.38.suppl-100.01",
+      "secondary": false
+    },
+    {
+      "key": "elliottsetton2001",
+      "short": "Elliott & Setton 2001",
+      "year": 2001,
+      "n": 60,
+      "sample": "60 anterior AF strips, 10 non-degenerate L1-L3 discs, 7 donors",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "oconnell2009",
+      "short": "O'Connell 2009",
+      "year": 2009,
+      "n": 13,
+      "sample": "outer anterior AF strips, L3-L5; 7 non-degenerate, 6 degenerate",
+      "doi": "10.1115/1.3212104",
+      "secondary": false
+    },
+    {
+      "key": "wagnerlotz2004",
+      "short": "Wagner & Lotz 2004",
+      "year": 2004,
+      "n": 11,
+      "sample": "11 circumferential anterior AF strips, grade I-II, 6 spines",
+      "doi": "10.1016/j.orthres.2003.12.012",
+      "secondary": false
+    },
+    {
+      "key": "bass2004",
+      "short": "Bass 2004",
+      "year": 2004,
+      "n": 5,
+      "sample": "5 outer anterior AF cruciform specimens, grade I-II",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "fujita1997",
+      "short": "Fujita 1997",
+      "year": 1997,
+      "n": 183,
+      "sample": "183 radial AF strips, 15 grade I-II discs, 8 spines",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "fujita2000",
+      "short": "Fujita 2000",
+      "year": 2000,
+      "n": 86,
+      "sample": "30 AF cubes + 56 lamellar sheets, grade I-II discs",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "iatridis1999",
+      "short": "Iatridis 1999",
+      "year": 1999,
+      "n": 13,
+      "sample": "13 axial AF cylinders, L3-L4; 7 non-degenerate, 6 degenerate",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "green1993",
+      "short": "Green 1993",
+      "year": 1993,
+      "n": 22,
+      "sample": "22 bone-AF-bone slices from 7 cadaveric lumbar spines",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "adamsgreen1993",
+      "short": "Adams & Green 1993",
+      "year": 1993,
+      "n": 11,
+      "sample": "11 lateral bone-AF-bone slices from 6 cadaveric lumbar spines",
+      "doi": null,
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "adamsgreen1993",
+      "green1993"
+    ]
+  ],
+  "views": [
+    {
+      "id": "lamella",
+      "title": "Single lamella (along fibre)",
+      "x": "task",
+      "task_ids": [
+        "lam_VLe_E_low",
+        "lam_VLe_E_medium",
+        "lam_VLe_E_high",
+        "lam_VLi_E_low",
+        "lam_VLi_E_medium",
+        "lam_VLi_E_high",
+        "lam_De_E_low",
+        "lam_De_E_medium",
+        "lam_De_E_high",
+        "lam_Di_E_low",
+        "lam_Di_E_medium",
+        "lam_Di_E_high",
+        "lam_cross_E_low"
+      ]
+    },
+    {
+      "id": "fibre_strip",
+      "title": "Along fibre, multi-lamella strip (failure)",
+      "x": "task",
+      "task_ids": [
+        "fib_strip_fail_stress",
+        "fib_strip_fail_elong"
+      ]
+    },
+    {
+      "id": "circ",
+      "title": "Uniaxial circumferential",
+      "x": "task",
+      "task_ids": [
+        "circ_toe_outer",
+        "circ_lin_outer",
+        "circ_toe_inner",
+        "circ_lin_inner",
+        "circ_toe_outer_dg",
+        "circ_lin_outer_dg",
+        "circ_trans_outer",
+        "circ_nu_ax_outer",
+        "circ_nu_ax_inner",
+        "circ_nu_rad_outer",
+        "circ_nu_ax_outer_dg",
+        "circ_tan_0p4",
+        "circ_comp",
+        "circ_fail_stress"
+      ]
+    },
+    {
+      "id": "circ_curve",
+      "title": "Circumferential stress-strain",
+      "x": "input:strain",
+      "task_ids": [
+        "circ_curve_wl_02",
+        "circ_curve_wl_04",
+        "circ_curve_wl_06",
+        "circ_curve_wl_08",
+        "circ_curve_bass_032",
+        "circ_curve_bass_055",
+        "circ_curve_bass_082"
+      ]
+    },
+    {
+      "id": "axial",
+      "title": "Uniaxial axial",
+      "x": "task",
+      "task_ids": [
+        "ax_toe_outer",
+        "ax_lin_outer",
+        "ax_toe_inner",
+        "ax_lin_inner",
+        "ax_single_outer",
+        "ax_single_outer_dg",
+        "ax_nu_circ_outer",
+        "ax_nu_circ_inner",
+        "ax_nu_rad_outer",
+        "ax_nu_outer_dg"
+      ]
+    },
+    {
+      "id": "axial_curve",
+      "title": "Axial stress-strain",
+      "x": "input:strain",
+      "task_ids": [
+        "ax_curve_bass_106",
+        "ax_curve_bass_200",
+        "ax_curve_bass_285"
+      ]
+    },
+    {
+      "id": "radial",
+      "title": "Uniaxial radial",
+      "x": "task",
+      "task_ids": [
+        "rad_toe_outer",
+        "rad_lin_outer",
+        "rad_toe_outer_dg",
+        "rad_lin_outer_dg",
+        "rad_nu31_outer",
+        "rad_nu_outer",
+        "rad_lin_outer_all",
+        "rad_fs_outer_all",
+        "rad_lin_inner_all",
+        "rad_fs_inner_all"
+      ]
+    },
+    {
+      "id": "biaxial",
+      "title": "Biaxial",
+      "x": "task",
+      "task_ids": [
+        "biax_e22_neg",
+        "biax_e22_pos",
+        "biax_uniax"
+      ]
+    },
+    {
+      "id": "shear",
+      "title": "Shear (cubes and lamellar sheets)",
+      "x": "task",
+      "task_ids": [
+        "sh_cube_G12",
+        "sh_cube_G23",
+        "sh_cube_G31",
+        "sh_sheet_outer_axial",
+        "sh_sheet_outer_circ",
+        "sh_sheet_inner_axial",
+        "sh_sheet_inner_circ"
+      ]
+    },
+    {
+      "id": "shear_torsion",
+      "title": "Shear (torsion): G_eq vs shear strain",
+      "x": "input:shear_strain",
+      "task_ids": [
+        "sh_torsion_geq_02",
+        "sh_torsion_geq_05",
+        "sh_torsion_geq_07",
+        "sh_torsion_geq_10",
+        "sh_torsion_geq_15",
+        "sh_torsion_geq_02_dg",
+        "sh_torsion_geq_07_dg",
+        "sh_torsion_geq_15_dg"
+      ]
+    },
+    {
+      "id": "bone_af",
+      "title": "Bone-AF-bone / failure",
+      "x": "task",
+      "task_ids": [
+        "baf_fs_outer_ant",
+        "baf_fstrain_outer_ant",
+        "baf_Efail_outer_ant",
+        "baf_fs_outer_post",
+        "baf_fstrain_outer_post",
+        "baf_Efail_outer_post",
+        "baf_fs_inner_ant",
+        "baf_lat_maxforce",
+        "baf_lat_stiffness",
+        "baf_lat_cut1",
+        "baf_lat_cut7"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "lam_VLe_E_low",
+      "label": "VLe lamella along fibre, E 0-0.1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral external",
+        "condition": "non-degenerate",
+        "stress_band": "0-0.1 MPa"
+      },
+      "output": "E_low",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 5.96,
+          "sd": 3.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Elow",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_VLe_E_medium",
+      "label": "VLe lamella along fibre, E 0.1-0.5 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral external",
+        "condition": "non-degenerate",
+        "stress_band": "0.1-0.5 MPa"
+      },
+      "output": "E_medium",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 32.5,
+          "sd": 12.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Emedium",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_VLe_E_high",
+      "label": "VLe lamella along fibre, E 0.5-1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral external",
+        "condition": "non-degenerate",
+        "stress_band": "0.5-1 MPa"
+      },
+      "output": "E_high",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 77.6,
+          "sd": 20.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Ehigh",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_VLi_E_low",
+      "label": "VLi lamella along fibre, E 0-0.1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral internal",
+        "condition": "non-degenerate",
+        "stress_band": "0-0.1 MPa"
+      },
+      "output": "E_low",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 3.79,
+          "sd": 2.61,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Elow",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_VLi_E_medium",
+      "label": "VLi lamella along fibre, E 0.1-0.5 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral internal",
+        "condition": "non-degenerate",
+        "stress_band": "0.1-0.5 MPa"
+      },
+      "output": "E_medium",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 13.9,
+          "sd": 8.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Emedium",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_VLi_E_high",
+      "label": "VLi lamella along fibre, E 0.5-1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "ventrolateral internal",
+        "condition": "non-degenerate",
+        "stress_band": "0.5-1 MPa"
+      },
+      "output": "E_high",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 27.5,
+          "sd": 12.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Ehigh",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_De_E_low",
+      "label": "De lamella along fibre, E 0-0.1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal external",
+        "condition": "non-degenerate",
+        "stress_band": "0-0.1 MPa"
+      },
+      "output": "E_low",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 8.01,
+          "sd": 6.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Elow",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_De_E_medium",
+      "label": "De lamella along fibre, E 0.1-0.5 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal external",
+        "condition": "non-degenerate",
+        "stress_band": "0.1-0.5 MPa"
+      },
+      "output": "E_medium",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 24.1,
+          "sd": 12.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Emedium",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_De_E_high",
+      "label": "De lamella along fibre, E 0.5-1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal external",
+        "condition": "non-degenerate",
+        "stress_band": "0.5-1 MPa"
+      },
+      "output": "E_high",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 64.8,
+          "sd": 48.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Ehigh",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_Di_E_low",
+      "label": "Di lamella along fibre, E 0-0.1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal internal",
+        "condition": "non-degenerate",
+        "stress_band": "0-0.1 MPa"
+      },
+      "output": "E_low",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 3.8,
+          "sd": 5.02,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Elow",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_Di_E_medium",
+      "label": "Di lamella along fibre, E 0.1-0.5 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal internal",
+        "condition": "non-degenerate",
+        "stress_band": "0.1-0.5 MPa"
+      },
+      "output": "E_medium",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 14.0,
+          "sd": 8.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Emedium",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_Di_E_high",
+      "label": "Di lamella along fibre, E 0.5-1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension along fibre",
+        "region": "dorsal internal",
+        "condition": "non-degenerate",
+        "stress_band": "0.5-1 MPa"
+      },
+      "output": "E_high",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 31.2,
+          "sd": 19.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Ehigh",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "lam_cross_E_low",
+      "label": "Lamella across fibres, E 0-0.1 MPa",
+      "view": "lamella",
+      "inputs": {
+        "mode": "single lamella, tension transverse to fibre",
+        "region": "mixed sites",
+        "condition": "non-degenerate",
+        "stress_band": "0-0.1 MPa"
+      },
+      "output": "E_low",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "holzapfel2005",
+          "mean": 0.22,
+          "sd": 0.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "passive_tissue.holzapfel2005.AF_lamella_crossfibre_Elow",
+          "note": "2 of 7 failed below 0.1 MPa and were excluded"
+        }
+      ]
+    },
+    {
+      "id": "fib_strip_fail_stress",
+      "label": "Fibre-dir. strip, failure stress",
+      "view": "fibre_strip",
+      "inputs": {
+        "mode": "uniaxial tension along fibre (multi-lamella strip)",
+        "region": "anterior AF",
+        "condition": "autopsy, mixed"
+      },
+      "output": "failure_stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "galante1967",
+          "mean": 10.49,
+          "sd": 3.2927,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "passive_tissue.galante1967.AF_anterior_fibre_ult_stress",
+          "note": "14 strips with pure fibre direction (all 18: 8.83 MPa); SD = SE x sqrt(n) (SE 0.88)"
+        }
+      ]
+    },
+    {
+      "id": "fib_strip_fail_elong",
+      "label": "Fibre-dir. strip, failure elongation",
+      "view": "fibre_strip",
+      "inputs": {
+        "mode": "uniaxial tension along fibre (multi-lamella strip)",
+        "region": "anterior AF",
+        "condition": "autopsy, mixed"
+      },
+      "output": "failure_elongation",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "galante1967",
+          "mean": 3.15,
+          "sd": 0.6735,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "passive_tissue.galante1967.AF_anterior_fibre_failure_elongation",
+          "note": "10 mm central section, clamp-to-clamp; SD = SE x sqrt(n) (SE 0.18)"
+        }
+      ]
+    },
+    {
+      "id": "circ_toe_outer",
+      "label": "Circ. toe modulus, outer anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 2.52,
+          "sd": 2.27,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_circ_E_toe",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 2.7,
+          "sd": 2.33,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_E_toe_nondegen",
+          "note": "quasi-static ramp, bilinear fit"
+        }
+      ],
+      "pooled": {
+        "mean": 2.5667,
+        "sd": 2.2416,
+        "N": 27,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "circ_lin_outer",
+      "label": "Circ. linear modulus, outer anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 17.45,
+          "sd": 14.29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_circ_E_linear",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 20.9,
+          "sd": 13.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_E_linear_nondegen",
+          "note": "quasi-static ramp, bilinear fit"
+        }
+      ],
+      "pooled": {
+        "mean": 18.3444,
+        "sd": 13.9161,
+        "N": 27,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "circ_toe_inner",
+      "label": "Circ. toe modulus, inner anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 1.7,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_circ_E_toe",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "circ_lin_inner",
+      "label": "Circ. linear modulus, inner anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 5.6,
+          "sd": 4.67,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_circ_E_linear",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "circ_toe_outer_dg",
+      "label": "Circ. toe modulus, outer, degenerate",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 4.2,
+          "sd": 2.99,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_E_toe_degen",
+          "note": "grade 3.9+-0.7"
+        }
+      ]
+    },
+    {
+      "id": "circ_lin_outer_dg",
+      "label": "Circ. linear modulus, outer, degenerate",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 22.9,
+          "sd": 10.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_E_linear_degen",
+          "note": "grade 3.9+-0.7"
+        }
+      ]
+    },
+    {
+      "id": "circ_trans_outer",
+      "label": "Circ. transition strain, outer anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "transition_strain",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.09,
+          "sd": 0.06,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_transition_strain_nondegen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "circ_nu_ax_outer",
+      "label": "Circ. load: Poisson (axial), outer",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "axial"
+      },
+      "output": "poisson",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 1.77,
+          "sd": 0.65,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_poisson",
+          "note": "nu12, optical, equilibrium"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 2.27,
+          "sd": 0.87,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_poisson_nondegen",
+          "note": "in-plane (imaged face) Poisson ratio"
+        }
+      ],
+      "pooled": {
+        "mean": 1.9759,
+        "sd": 0.7654,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "circ_nu_ax_inner",
+      "label": "Circ. load: Poisson (axial), inner",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "axial"
+      },
+      "output": "poisson",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 1.86,
+          "sd": 2.06,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_poisson",
+          "note": "nu12"
+        }
+      ]
+    },
+    {
+      "id": "circ_nu_rad_outer",
+      "label": "Circ. load: Poisson (radial), outer",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "radial"
+      },
+      "output": "poisson",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.33,
+          "sd": 0.68,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_poisson",
+          "note": "nu13"
+        }
+      ]
+    },
+    {
+      "id": "circ_nu_ax_outer_dg",
+      "label": "Circ. load: Poisson, outer, degenerate",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "condition": "degenerate",
+        "lateral": "axial"
+      },
+      "output": "poisson",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 1.88,
+          "sd": 1.01,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_circ_poisson_degen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "circ_tan_0p4",
+      "label": "Circ. tangent modulus at 0.4 MPa",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate",
+        "stress_MPa": 0.4
+      },
+      "output": "tangent_modulus",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 13.2,
+          "sd": 5.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_tangent_modulus_0p4MPa",
+          "note": "derivative of per-specimen exponential fit at 0.4 MPa"
+        }
+      ]
+    },
+    {
+      "id": "circ_comp",
+      "label": "Circ. compressive modulus",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial compression, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate"
+      },
+      "output": "compressive_modulus",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 0.235,
+          "sd": 0.127,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_compressive_modulus",
+          "note": "linear fit to -0.04 MPa"
+        }
+      ]
+    },
+    {
+      "id": "circ_fail_stress",
+      "label": "Circ. failure stress, anterior",
+      "view": "circ",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF",
+        "condition": "autopsy, mixed"
+      },
+      "output": "failure_stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "galante1967",
+          "mean": 3.43,
+          "sd": 1.1232,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.galante1967.AF_anterior_circ_ult_stress",
+          "note": "SD = SE x sqrt(n) (SE 0.29)"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_wl_02",
+      "label": "Circ. stress at strain 0.02 (full depth)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate",
+        "strain": 0.02
+      },
+      "output": "stress",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 0.0125,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_circ_stress_strain_mean_fit",
+          "note": "derived: mean-coefficient exponential fit evaluated (not a mean curve)"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_wl_04",
+      "label": "Circ. stress at strain 0.04 (full depth)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate",
+        "strain": 0.04
+      },
+      "output": "stress",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 0.0362,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_circ_stress_strain_mean_fit",
+          "note": "derived: mean-coefficient exponential fit evaluated (not a mean curve)"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_wl_06",
+      "label": "Circ. stress at strain 0.06 (full depth)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate",
+        "strain": 0.06
+      },
+      "output": "stress",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 0.081,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_circ_stress_strain_mean_fit",
+          "note": "derived: mean-coefficient exponential fit evaluated (not a mean curve)"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_wl_08",
+      "label": "Circ. stress at strain 0.08 (full depth)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "anterior AF (full depth strip)",
+        "condition": "non-degenerate",
+        "strain": 0.08
+      },
+      "output": "stress",
+      "level": "L2-L5",
+      "refs": [
+        {
+          "study": "wagnerlotz2004",
+          "mean": 0.1658,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.wagnerlotz2004.AF_circ_stress_strain_mean_fit",
+          "note": "derived: mean-coefficient exponential fit evaluated (not a mean curve)"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_bass_032",
+      "label": "Circ. stress at strain 0.032 (outer)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.032
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.108,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_circ_curve",
+          "note": "one representative specimen, digitised; Lagrangian strain/2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_bass_055",
+      "label": "Circ. stress at strain 0.055 (outer)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.055
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.267,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_circ_curve",
+          "note": "one representative specimen, digitised; Lagrangian strain/2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "circ_curve_bass_082",
+      "label": "Circ. stress at strain 0.082 (outer)",
+      "view": "circ_curve",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.082
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.643,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_circ_curve",
+          "note": "one representative specimen, digitised; Lagrangian strain/2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "ax_toe_outer",
+      "label": "Axial toe modulus, outer anterior",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.27,
+          "sd": 0.28,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_axial_E_toe",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "ax_lin_outer",
+      "label": "Axial linear modulus, outer anterior",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.82,
+          "sd": 0.71,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_axial_E_linear",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "ax_toe_inner",
+      "label": "Axial toe modulus, inner anterior",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.34,
+          "sd": 0.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_axial_E_toe",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "ax_lin_inner",
+      "label": "Axial linear modulus, inner anterior",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.96,
+          "sd": 1.17,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_axial_E_linear",
+          "note": "equilibrium (incremental stress relaxation), bilinear fit"
+        }
+      ]
+    },
+    {
+      "id": "ax_single_outer",
+      "label": "Axial modulus, linear fit <20%, outer",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "single_linear_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.42,
+          "sd": 0.11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_axial_E_linear_nondegen",
+          "note": "whole response below 20% strain treated as linear"
+        }
+      ]
+    },
+    {
+      "id": "ax_single_outer_dg",
+      "label": "Axial modulus <20%, outer, degenerate",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "degenerate"
+      },
+      "output": "single_linear_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.32,
+          "sd": 0.11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_axial_E_linear_degen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ax_nu_circ_outer",
+      "label": "Axial load: Poisson (circ.), outer",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "circumferential"
+      },
+      "output": "poisson",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.66,
+          "sd": 0.22,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_poisson",
+          "note": "nu21"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 0.61,
+          "sd": 0.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_axial_poisson_nondegen",
+          "note": "in-plane (imaged face) Poisson ratio"
+        }
+      ],
+      "pooled": {
+        "mean": 0.6381,
+        "sd": 0.2747,
+        "N": 16,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "ax_nu_circ_inner",
+      "label": "Axial load: Poisson (circ.), inner",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "inner anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "circumferential"
+      },
+      "output": "poisson",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 1.58,
+          "sd": 0.67,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.elliottsetton2001.AF_inner_poisson",
+          "note": "nu21"
+        }
+      ]
+    },
+    {
+      "id": "ax_nu_rad_outer",
+      "label": "Axial load: Poisson (radial), outer",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "radial"
+      },
+      "output": "poisson",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.14,
+          "sd": 0.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_poisson",
+          "note": "nu23"
+        }
+      ]
+    },
+    {
+      "id": "ax_nu_outer_dg",
+      "label": "Axial load: Poisson, outer, degenerate",
+      "view": "axial",
+      "inputs": {
+        "mode": "uniaxial tension, axial",
+        "region": "outer anterior AF",
+        "condition": "degenerate",
+        "lateral": "circumferential"
+      },
+      "output": "poisson",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.61,
+          "sd": 0.28,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_axial_poisson_degen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "ax_curve_bass_106",
+      "label": "Axial stress at strain 0.106 (outer)",
+      "view": "axial_curve",
+      "inputs": {
+        "mode": "uniaxial tension, axial (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.106
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.022,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_axial_curve",
+          "note": "one representative specimen, digitised"
+        }
+      ]
+    },
+    {
+      "id": "ax_curve_bass_200",
+      "label": "Axial stress at strain 0.200 (outer)",
+      "view": "axial_curve",
+      "inputs": {
+        "mode": "uniaxial tension, axial (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.2
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.055,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_axial_curve",
+          "note": "one representative specimen, digitised"
+        }
+      ]
+    },
+    {
+      "id": "ax_curve_bass_285",
+      "label": "Axial stress at strain 0.285 (outer)",
+      "view": "axial_curve",
+      "inputs": {
+        "mode": "uniaxial tension, axial (cruciform, transverse free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "strain": 0.285
+      },
+      "output": "stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.141,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_uniaxial_axial_curve",
+          "note": "one representative specimen, digitised"
+        }
+      ]
+    },
+    {
+      "id": "rad_toe_outer",
+      "label": "Radial toe modulus, outer anterior",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.19,
+          "sd": 0.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_radial_E_toe",
+          "note": "preliminary n=3, excluded from the authors' statistics"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 0.14,
+          "sd": 0.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_radial_E_toe_nondegen",
+          "note": ""
+        }
+      ],
+      "pooled": {
+        "mean": 0.155,
+        "sd": 0.051,
+        "N": 10,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "rad_lin_outer",
+      "label": "Radial linear modulus, outer anterior",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.45,
+          "sd": 0.25,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_radial_E_linear",
+          "note": "preliminary n=3"
+        },
+        {
+          "study": "oconnell2009",
+          "mean": 0.29,
+          "sd": 0.08,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_radial_E_linear_nondegen",
+          "note": ""
+        }
+      ],
+      "pooled": {
+        "mean": 0.338,
+        "sd": 0.1553,
+        "N": 10,
+        "k": 2,
+        "studies": [
+          "elliottsetton2001",
+          "oconnell2009"
+        ]
+      }
+    },
+    {
+      "id": "rad_toe_outer_dg",
+      "label": "Radial toe modulus, outer, degenerate",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "degenerate"
+      },
+      "output": "toe_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.3,
+          "sd": 0.09,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_radial_E_toe_degen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "rad_lin_outer_dg",
+      "label": "Radial linear modulus, outer, degenerate",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.35,
+          "sd": 0.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_radial_E_linear_degen",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "rad_nu31_outer",
+      "label": "Radial load: Poisson (circ.), outer",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "circumferential"
+      },
+      "output": "poisson",
+      "level": "L1-L3",
+      "refs": [
+        {
+          "study": "elliottsetton2001",
+          "mean": 0.51,
+          "sd": 0.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "passive_tissue.elliottsetton2001.AF_outer_poisson",
+          "note": "nu31, n=3"
+        }
+      ]
+    },
+    {
+      "id": "rad_nu_outer",
+      "label": "Radial load: in-plane Poisson, outer",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "lateral": "in imaged plane"
+      },
+      "output": "poisson",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "oconnell2009",
+          "mean": 0.79,
+          "sd": 0.42,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.oconnell2009.AF_outer_radial_poisson_nondegen",
+          "note": "lateral direction = imaged plane (not stated as circ. or axial)"
+        }
+      ]
+    },
+    {
+      "id": "rad_lin_outer_all",
+      "label": "Radial linear modulus, outer (all sites)",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "fujita1997",
+          "mean": 0.42,
+          "sd": 0.45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 67,
+          "test_id": "passive_tissue.fujita1997.AF_radial_tangent_modulus",
+          "note": "tangent modulus of best-fit linear region; grades I-II pooled, all circumferential sites; 0.5 %/s"
+        }
+      ]
+    },
+    {
+      "id": "rad_fs_outer_all",
+      "label": "Radial failure stress, outer (all sites)",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "outer AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "failure_stress",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "fujita1997",
+          "mean": 0.28,
+          "sd": 0.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 67,
+          "test_id": "passive_tissue.fujita1997.AF_radial_ult_stress",
+          "note": "grades I-II pooled, all circumferential sites; 0.5 %/s"
+        }
+      ]
+    },
+    {
+      "id": "rad_lin_inner_all",
+      "label": "Radial linear modulus, inner (all sites)",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "inner AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "linear_modulus",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "fujita1997",
+          "mean": 0.44,
+          "sd": 0.46,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 59,
+          "test_id": "passive_tissue.fujita1997.AF_radial_tangent_modulus",
+          "note": "tangent modulus of best-fit linear region; grades I-II pooled, all circumferential sites; 0.5 %/s"
+        }
+      ]
+    },
+    {
+      "id": "rad_fs_inner_all",
+      "label": "Radial failure stress, inner (all sites)",
+      "view": "radial",
+      "inputs": {
+        "mode": "uniaxial tension, radial",
+        "region": "inner AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "failure_stress",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "fujita1997",
+          "mean": 0.34,
+          "sd": 0.23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 59,
+          "test_id": "passive_tissue.fujita1997.AF_radial_ult_stress",
+          "note": "grades I-II pooled, all circumferential sites; 0.5 %/s"
+        }
+      ]
+    },
+    {
+      "id": "biax_e22_neg",
+      "label": "Biaxial, E22 = -0.025: S11 at E11 0.07",
+      "view": "biaxial",
+      "inputs": {
+        "mode": "biaxial (cruciform), axial stretch, circ. strain held",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "E11": 0.07,
+        "E22": -0.025
+      },
+      "output": "axial_stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.16,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_biaxial_points",
+          "note": "one representative specimen; Lagrangian strain, 2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "biax_e22_pos",
+      "label": "Biaxial, E22 = +0.025: S11 at E11 0.07",
+      "view": "biaxial",
+      "inputs": {
+        "mode": "biaxial (cruciform), axial stretch, circ. strain held",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "E11": 0.07,
+        "E22": 0.025
+      },
+      "output": "axial_stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.56,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_biaxial_points",
+          "note": "one representative specimen; Lagrangian strain, 2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "biax_uniax",
+      "label": "Uniaxial axial: S11 at E11 0.07",
+      "view": "biaxial",
+      "inputs": {
+        "mode": "uniaxial axial (cruciform, circ. free)",
+        "region": "outer anterior AF",
+        "condition": "non-degenerate",
+        "E11": 0.07,
+        "E22": null
+      },
+      "output": "axial_stress",
+      "level": "L3-L5",
+      "refs": [
+        {
+          "study": "bass2004",
+          "mean": 0.02,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.bass2004.AF_outer_biaxial_points",
+          "note": "one representative specimen; Lagrangian strain, 2nd PK stress"
+        }
+      ]
+    },
+    {
+      "id": "sh_cube_G12",
+      "label": "Shear G12 (cube, horiz. plane)",
+      "view": "shear",
+      "inputs": {
+        "mode": "simple shear of 3.2 mm cube, perpendicular to lamella, horizontal plane",
+        "region": "AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 25.34,
+          "sd": 16.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 30,
+          "test_id": "passive_tissue.fujita2000.AF_cube_G12",
+          "note": "equilibrium after 20 min relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_cube_G23",
+      "label": "Shear G23 (cube, vertical plane)",
+      "view": "shear",
+      "inputs": {
+        "mode": "simple shear of 3.2 mm cube, perpendicular to lamella, vertical plane",
+        "region": "AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 32.12,
+          "sd": 18.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 30,
+          "test_id": "passive_tissue.fujita2000.AF_cube_G23",
+          "note": "equilibrium after 20 min relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_cube_G31",
+      "label": "Shear G31 (cube, lamellar plane)",
+      "view": "shear",
+      "inputs": {
+        "mode": "simple shear of 3.2 mm cube, in the lamellar plane",
+        "region": "AF, anterior + posterolateral",
+        "condition": "non-degenerate"
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 56.04,
+          "sd": 36.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 30,
+          "test_id": "passive_tissue.fujita2000.AF_cube_G31",
+          "note": "equilibrium after 20 min relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_sheet_outer_axial",
+      "label": "Sheet shear (axial), outer, 0% prestrain",
+      "view": "shear",
+      "inputs": {
+        "mode": "in-plane shear of lamellar sheet along axial direction",
+        "region": "outer AF",
+        "condition": "non-degenerate",
+        "prestrain_pct": 0
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 223.6,
+          "sd": 112,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "passive_tissue.fujita2000.AF_outer_sheet_axial_shear",
+          "note": "equilibrium; 5%/10% tensile prestrain raise it (test file)"
+        }
+      ]
+    },
+    {
+      "id": "sh_sheet_outer_circ",
+      "label": "Sheet shear (circ.), outer, 0% prestrain",
+      "view": "shear",
+      "inputs": {
+        "mode": "in-plane shear of lamellar sheet along circ direction",
+        "region": "outer AF",
+        "condition": "non-degenerate",
+        "prestrain_pct": 0
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 110.6,
+          "sd": 56,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "passive_tissue.fujita2000.AF_outer_sheet_circ_shear",
+          "note": "equilibrium; 5%/10% tensile prestrain raise it (test file)"
+        }
+      ]
+    },
+    {
+      "id": "sh_sheet_inner_axial",
+      "label": "Sheet shear (axial), inner, 0% prestrain",
+      "view": "shear",
+      "inputs": {
+        "mode": "in-plane shear of lamellar sheet along axial direction",
+        "region": "inner AF",
+        "condition": "non-degenerate",
+        "prestrain_pct": 0
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 73.4,
+          "sd": 32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "passive_tissue.fujita2000.AF_inner_sheet_axial_shear",
+          "note": "equilibrium; 5%/10% tensile prestrain raise it (test file)"
+        }
+      ]
+    },
+    {
+      "id": "sh_sheet_inner_circ",
+      "label": "Sheet shear (circ.), inner, 0% prestrain",
+      "view": "shear",
+      "inputs": {
+        "mode": "in-plane shear of lamellar sheet along circ direction",
+        "region": "inner AF",
+        "condition": "non-degenerate",
+        "prestrain_pct": 0
+      },
+      "output": "eq_shear_modulus",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "fujita2000",
+          "mean": 61.0,
+          "sd": 36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "passive_tissue.fujita2000.AF_inner_sheet_circ_shear",
+          "note": "equilibrium; 5%/10% tensile prestrain raise it (test file)"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_02",
+      "label": "Torsion G_eq at shear strain 0.02",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "non-degenerate",
+        "shear_strain": 0.02
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 106,
+          "sd": 44,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+          "note": "digitised Fig 4a; 900 s relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_05",
+      "label": "Torsion G_eq at shear strain 0.05",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "non-degenerate",
+        "shear_strain": 0.05
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 78,
+          "sd": 24,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+          "note": "digitised Fig 4a; 900 s relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_07",
+      "label": "Torsion G_eq at shear strain 0.07",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "non-degenerate",
+        "shear_strain": 0.07
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 67,
+          "sd": 22,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+          "note": "digitised Fig 4a; 900 s relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_10",
+      "label": "Torsion G_eq at shear strain 0.1",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "non-degenerate",
+        "shear_strain": 0.1
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 46,
+          "sd": 11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+          "note": "digitised Fig 4a; 900 s relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_15",
+      "label": "Torsion G_eq at shear strain 0.15",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "non-degenerate",
+        "shear_strain": 0.15
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 27,
+          "sd": 6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+          "note": "digitised Fig 4a; 900 s relaxation"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_02_dg",
+      "label": "Torsion G_eq at strain 0.02, degenerate",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "degenerate",
+        "shear_strain": 0.02
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 138,
+          "sd": 62,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_degen",
+          "note": "digitised Fig 4a"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_07_dg",
+      "label": "Torsion G_eq at strain 0.07, degenerate",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "degenerate",
+        "shear_strain": 0.07
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 84,
+          "sd": 29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_degen",
+          "note": "digitised Fig 4a"
+        }
+      ]
+    },
+    {
+      "id": "sh_torsion_geq_15_dg",
+      "label": "Torsion G_eq at strain 0.15, degenerate",
+      "view": "shear_torsion",
+      "inputs": {
+        "mode": "torsional shear of axial AF cylinder, 35 kPa compression",
+        "region": "AF (L3-L4)",
+        "condition": "degenerate",
+        "shear_strain": 0.15
+      },
+      "output": "eq_shear_modulus",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "iatridis1999",
+          "mean": 32,
+          "sd": 8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_degen",
+          "note": "digitised Fig 4a"
+        }
+      ]
+    },
+    {
+      "id": "baf_fs_outer_ant",
+      "label": "Bone-AF-bone failure stress, outer ant.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer anterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "failure_stress",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 1.7,
+          "sd": 0.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_anterior_axial_ult_stress",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "baf_fstrain_outer_ant",
+      "label": "Bone-AF-bone failure strain, outer ant.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer anterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "failure_strain",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 65,
+          "sd": 16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_anterior_axial_ult_strain",
+          "note": "failure displacement / unloaded height"
+        }
+      ]
+    },
+    {
+      "id": "baf_Efail_outer_ant",
+      "label": "Bone-AF-bone E at failure, outer ant.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer anterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "modulus_at_failure",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 7.2,
+          "sd": 3.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_anterior_axial_E_failure",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "baf_fs_outer_post",
+      "label": "Bone-AF-bone failure stress, outer post.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer posterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "failure_stress",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 3.8,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_posterior_axial_ult_stress",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "baf_fstrain_outer_post",
+      "label": "Bone-AF-bone failure strain, outer post.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer posterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "failure_strain",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 34,
+          "sd": 11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_posterior_axial_ult_strain",
+          "note": "failure displacement / unloaded height"
+        }
+      ]
+    },
+    {
+      "id": "baf_Efail_outer_post",
+      "label": "Bone-AF-bone E at failure, outer post.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "outer posterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "modulus_at_failure",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 27.2,
+          "sd": 10.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "passive_tissue.green1993.AF_outer_posterior_axial_E_failure",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "baf_fs_inner_ant",
+      "label": "Bone-AF-bone failure stress, inner ant.",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial (vertical) tension of bone-AF-bone slice, 4 mm/s",
+        "region": "inner anterior AF",
+        "condition": "cadaveric"
+      },
+      "output": "failure_stress",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "green1993",
+          "mean": 0.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 3,
+          "test_id": "passive_tissue.green1993.AF_inner_anterior_axial_ult_stress",
+          "note": "n=3, no SD"
+        }
+      ]
+    },
+    {
+      "id": "baf_lat_maxforce",
+      "label": "Lateral slice, max force (~70% EUTS)",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial tension of 30 mm wide lateral bone-AF-bone slice",
+        "region": "lateral AF",
+        "condition": "cadaveric"
+      },
+      "output": "force",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "adamsgreen1993",
+          "mean": 226.8,
+          "sd": 88.5,
+          "min": 160,
+          "max": 402,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.adamsgreen1993.AF_lateral_max_force",
+          "note": "computed from per-specimen table; not a failure load"
+        }
+      ]
+    },
+    {
+      "id": "baf_lat_stiffness",
+      "label": "Lateral slice, intact stiffness",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial tension of 30 mm wide lateral bone-AF-bone slice",
+        "region": "lateral AF",
+        "condition": "cadaveric"
+      },
+      "output": "stiffness",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "adamsgreen1993",
+          "mean": 213.9,
+          "sd": 89.4,
+          "min": 125,
+          "max": 379,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.adamsgreen1993.AF_lateral_stiffness_intact",
+          "note": "computed from per-specimen table; linear region at ~70% EUTS"
+        }
+      ]
+    },
+    {
+      "id": "baf_lat_cut1",
+      "label": "Lateral slice, stiffness loss, 1 cut",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial tension of 30 mm wide lateral bone-AF-bone slice, 1 vertical cut (15 mm width)",
+        "region": "lateral AF",
+        "condition": "cadaveric"
+      },
+      "output": "stiffness_reduction",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "adamsgreen1993",
+          "mean": 33,
+          "sd": 8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width",
+          "note": "at 70% EUTS"
+        }
+      ]
+    },
+    {
+      "id": "baf_lat_cut7",
+      "label": "Lateral slice, stiffness loss, 7 cuts",
+      "view": "bone_af",
+      "inputs": {
+        "mode": "axial tension of 30 mm wide lateral bone-AF-bone slice, 7 vertical cuts (3.75 mm width)",
+        "region": "lateral AF",
+        "condition": "cadaveric"
+      },
+      "output": "stiffness_reduction",
+      "level": "L1-L5",
+      "refs": [
+        {
+          "study": "adamsgreen1993",
+          "mean": 73,
+          "sd": 8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width",
+          "note": "at 70% EUTS"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Modulus definitions are never mixed: toe, linear-region, single-fit, tangent-at-stress and stress-band moduli are separate outputs; Elliott values are equilibrium, others quasi-static.",
+    "Degenerated tissue is in separate tasks (suffix _dg). Bass curves and biaxial points are one representative specimen; Wagner curve is the mean-coefficient fit (derived).",
+    "Left out (in bench/tests): Holzapfel fibre angles and dimensions, Fujita 1997 middle layer/site/grade/rate rows and yield/ultimate strain, Fujita 2000 5-10% prestrain and site rows, Iatridis 1999 dynamic |G*|, Green fatigue, O'Connell transition strains (radial, degenerate), Elliott representative curves, AF confined compression/swelling (nucleus_endplate_tissue card)."
+  ],
+  "agent_prompt": "You are given a constitutive or finite element model of human lumbar annulus fibrosus. For every task in this card, build the specimen described by its inputs (test mode, region, degeneration, and the strain, stress band or shear strain where given), apply the stated boundary conditions and quasi-static loading, and compute the requested output exactly as defined: toe or linear-region modulus from a bilinear fit, stress-band modulus, tangent modulus at the given stress, Poisson ratio from lateral/axial strain, stress at the given strain, equilibrium shear modulus, or failure stress/strain. Use the same model parameters for all tasks; do not refit per task. Return one JSON object following answer_format: task id -> {output key: value} in the stated units. Use null for tasks your model cannot simulate.",
+  "answer_format": {
+    "lam_VLe_E_low": {
+      "E_low": "MPa"
+    },
+    "lam_VLe_E_medium": {
+      "E_medium": "MPa"
+    },
+    "lam_VLe_E_high": {
+      "E_high": "MPa"
+    },
+    "lam_VLi_E_low": {
+      "E_low": "MPa"
+    },
+    "lam_VLi_E_medium": {
+      "E_medium": "MPa"
+    },
+    "lam_VLi_E_high": {
+      "E_high": "MPa"
+    },
+    "lam_De_E_low": {
+      "E_low": "MPa"
+    },
+    "lam_De_E_medium": {
+      "E_medium": "MPa"
+    },
+    "lam_De_E_high": {
+      "E_high": "MPa"
+    },
+    "lam_Di_E_low": {
+      "E_low": "MPa"
+    },
+    "lam_Di_E_medium": {
+      "E_medium": "MPa"
+    },
+    "lam_Di_E_high": {
+      "E_high": "MPa"
+    },
+    "lam_cross_E_low": {
+      "E_low": "MPa"
+    },
+    "fib_strip_fail_stress": {
+      "failure_stress": "MPa"
+    },
+    "fib_strip_fail_elong": {
+      "failure_elongation": "mm"
+    },
+    "circ_toe_outer": {
+      "toe_modulus": "MPa"
+    },
+    "circ_lin_outer": {
+      "linear_modulus": "MPa"
+    },
+    "circ_toe_inner": {
+      "toe_modulus": "MPa"
+    },
+    "circ_lin_inner": {
+      "linear_modulus": "MPa"
+    },
+    "circ_toe_outer_dg": {
+      "toe_modulus": "MPa"
+    },
+    "circ_lin_outer_dg": {
+      "linear_modulus": "MPa"
+    },
+    "circ_trans_outer": {
+      "transition_strain": "-"
+    },
+    "circ_nu_ax_outer": {
+      "poisson": "-"
+    },
+    "circ_nu_ax_inner": {
+      "poisson": "-"
+    },
+    "circ_nu_rad_outer": {
+      "poisson": "-"
+    },
+    "circ_nu_ax_outer_dg": {
+      "poisson": "-"
+    },
+    "circ_tan_0p4": {
+      "tangent_modulus": "MPa"
+    },
+    "circ_comp": {
+      "compressive_modulus": "MPa"
+    },
+    "circ_fail_stress": {
+      "failure_stress": "MPa"
+    },
+    "circ_curve_wl_02": {
+      "stress": "MPa"
+    },
+    "circ_curve_wl_04": {
+      "stress": "MPa"
+    },
+    "circ_curve_wl_06": {
+      "stress": "MPa"
+    },
+    "circ_curve_wl_08": {
+      "stress": "MPa"
+    },
+    "circ_curve_bass_032": {
+      "stress": "MPa"
+    },
+    "circ_curve_bass_055": {
+      "stress": "MPa"
+    },
+    "circ_curve_bass_082": {
+      "stress": "MPa"
+    },
+    "ax_toe_outer": {
+      "toe_modulus": "MPa"
+    },
+    "ax_lin_outer": {
+      "linear_modulus": "MPa"
+    },
+    "ax_toe_inner": {
+      "toe_modulus": "MPa"
+    },
+    "ax_lin_inner": {
+      "linear_modulus": "MPa"
+    },
+    "ax_single_outer": {
+      "single_linear_modulus": "MPa"
+    },
+    "ax_single_outer_dg": {
+      "single_linear_modulus": "MPa"
+    },
+    "ax_nu_circ_outer": {
+      "poisson": "-"
+    },
+    "ax_nu_circ_inner": {
+      "poisson": "-"
+    },
+    "ax_nu_rad_outer": {
+      "poisson": "-"
+    },
+    "ax_nu_outer_dg": {
+      "poisson": "-"
+    },
+    "ax_curve_bass_106": {
+      "stress": "MPa"
+    },
+    "ax_curve_bass_200": {
+      "stress": "MPa"
+    },
+    "ax_curve_bass_285": {
+      "stress": "MPa"
+    },
+    "rad_toe_outer": {
+      "toe_modulus": "MPa"
+    },
+    "rad_lin_outer": {
+      "linear_modulus": "MPa"
+    },
+    "rad_toe_outer_dg": {
+      "toe_modulus": "MPa"
+    },
+    "rad_lin_outer_dg": {
+      "linear_modulus": "MPa"
+    },
+    "rad_nu31_outer": {
+      "poisson": "-"
+    },
+    "rad_nu_outer": {
+      "poisson": "-"
+    },
+    "rad_lin_outer_all": {
+      "linear_modulus": "MPa"
+    },
+    "rad_fs_outer_all": {
+      "failure_stress": "MPa"
+    },
+    "rad_lin_inner_all": {
+      "linear_modulus": "MPa"
+    },
+    "rad_fs_inner_all": {
+      "failure_stress": "MPa"
+    },
+    "biax_e22_neg": {
+      "axial_stress": "MPa"
+    },
+    "biax_e22_pos": {
+      "axial_stress": "MPa"
+    },
+    "biax_uniax": {
+      "axial_stress": "MPa"
+    },
+    "sh_cube_G12": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_cube_G23": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_cube_G31": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_sheet_outer_axial": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_sheet_outer_circ": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_sheet_inner_axial": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_sheet_inner_circ": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_02": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_05": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_07": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_10": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_15": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_02_dg": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_07_dg": {
+      "eq_shear_modulus": "kPa"
+    },
+    "sh_torsion_geq_15_dg": {
+      "eq_shear_modulus": "kPa"
+    },
+    "baf_fs_outer_ant": {
+      "failure_stress": "MPa"
+    },
+    "baf_fstrain_outer_ant": {
+      "failure_strain": "%"
+    },
+    "baf_Efail_outer_ant": {
+      "modulus_at_failure": "MPa"
+    },
+    "baf_fs_outer_post": {
+      "failure_stress": "MPa"
+    },
+    "baf_fstrain_outer_post": {
+      "failure_strain": "%"
+    },
+    "baf_Efail_outer_post": {
+      "modulus_at_failure": "MPa"
+    },
+    "baf_fs_inner_ant": {
+      "failure_stress": "MPa"
+    },
+    "baf_lat_maxforce": {
+      "force": "N"
+    },
+    "baf_lat_stiffness": {
+      "stiffness": "N/mm"
+    },
+    "baf_lat_cut1": {
+      "stiffness_reduction": "%"
+    },
+    "baf_lat_cut7": {
+      "stiffness_reduction": "%"
+    }
+  }
+}

@@ -1,0 +1,1507 @@
+{
+  "id": "implant_loads_invivo",
+  "title": "Spinal implant loads in vivo",
+  "domain": "msk",
+  "region": "lumbar+thoracic",
+  "levels": [
+    "L1",
+    "L3",
+    "T10-L5 (fixator)"
+  ],
+  "summary": "Simulate each activity for the implant patients and report the telemetered VBR force, its change from a reference activity, or fixator load relative to standing.",
+  "simulate": [
+    "Scale the model to the patient (\"patients\") for per-patient refs, or to the cohort mean for group refs.",
+    "Set the activity and posture; add hand loads, supports or limb positions as stated.",
+    "VBR tasks: output the resultant force across the implant level (L1; L3 for WP5).",
+    "Fixator tasks: output the load on the bridged segments (state which: compression or flexion moment) as % of standing.",
+    "Increase and change tasks: simulate the reference activity with the same model and report the difference (N) or change (%)."
+  ],
+  "inputs": [
+    {
+      "key": "activity",
+      "label": "Activity"
+    },
+    {
+      "key": "trunk_inclination_deg",
+      "label": "Trunk inclination",
+      "unit": "deg"
+    },
+    {
+      "key": "hand_load_kg",
+      "label": "Hand load",
+      "unit": "kg"
+    },
+    {
+      "key": "reference",
+      "label": "Reference activity"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "vbr_force",
+      "label": "VBR resultant force",
+      "unit": "N"
+    },
+    {
+      "key": "vbr_force_increase",
+      "label": "VBR force increase over reference",
+      "unit": "N"
+    },
+    {
+      "key": "vbr_force_change",
+      "label": "VBR force change vs reference",
+      "unit": "%"
+    },
+    {
+      "key": "fixator_moment_rel",
+      "label": "Fixator flexion moment, % of standing",
+      "unit": "% of standing"
+    }
+  ],
+  "patients": {
+    "WP1": {
+      "sex": "M",
+      "age": 62,
+      "height_cm": 168,
+      "weight_kg": 66,
+      "implant_level": "L1 VBR",
+      "fixation": "internal fixator T12-L2"
+    },
+    "WP2": {
+      "sex": "M",
+      "age": 71,
+      "height_cm": 169,
+      "weight_kg": 74,
+      "implant_level": "L1 VBR",
+      "fixation": "internal fixator T12-L2"
+    },
+    "WP3": {
+      "sex": "F",
+      "age": 69,
+      "height_cm": 168,
+      "weight_kg": 64,
+      "implant_level": "L1 VBR",
+      "fixation": "internal fixator T11-L3"
+    },
+    "WP4": {
+      "sex": "M",
+      "age": 63,
+      "height_cm": 170,
+      "weight_kg": 60,
+      "implant_level": "L1 VBR",
+      "fixation": "internal fixator T11-L3"
+    },
+    "WP5": {
+      "sex": "M",
+      "age": 66,
+      "height_cm": 180,
+      "weight_kg": 63,
+      "implant_level": "L3 VBR",
+      "fixation": "internal fixator L2-L4"
+    }
+  },
+  "subjects": {
+    "rohlmann2008": {
+      "sex": "2M/1F",
+      "age": 67,
+      "height_cm": 168,
+      "weight_kg": 68,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\"; 3-27 days post-op"
+    },
+    "rohlmann2014a": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\""
+    },
+    "rohlmann2014c": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\"; 3-5 patients per exercise"
+    },
+    "dreischarf2015": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\"; >6 months post-op"
+    },
+    "dreischarf2016a": {
+      "sex": "male",
+      "age": 66,
+      "height_cm": 172,
+      "weight_kg": 66,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\""
+    },
+    "rohlmann2011": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\""
+    },
+    "rohlmann2013": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\""
+    },
+    "rohlmann2014b": {
+      "sex": "4M/1F",
+      "age": 66,
+      "height_cm": 171,
+      "weight_kg": 65,
+      "patients": [
+        "WP1",
+        "WP2",
+        "WP3",
+        "WP4",
+        "WP5"
+      ],
+      "note": "cohort mean; per-patient data in \"patients\""
+    },
+    "rohlmann2001": {
+      "sex": "4M/6F",
+      "age": 51,
+      "height_cm": 168,
+      "weight_kg": 72,
+      "note": "cohort mean of 10; bisegmental fixators between T10 and L5 (Rohlmann 2001 Table 1)"
+    }
+  },
+  "studies": [
+    {
+      "key": "rohlmann2008",
+      "short": "Rohlmann 2008",
+      "year": 2008,
+      "n": 3,
+      "sample": "3 L1 VBR patients, first post-operative month",
+      "doi": "10.1016/j.clinbiomech.2007.09.011",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2011",
+      "short": "Rohlmann 2011",
+      "year": 2011,
+      "n": 5,
+      "sample": "5 VBR patients (4M/1F), sitting variants",
+      "doi": "10.1016/j.spinee.2011.06.017",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2013",
+      "short": "Rohlmann 2013",
+      "year": 2013,
+      "n": 5,
+      "sample": "5 VBR patients, standing and walking up to 65 months",
+      "doi": "10.1007/s00586-013-3057-1",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2014a",
+      "short": "Rohlmann 2014a",
+      "year": 2014,
+      "n": 5,
+      "sample": "5 VBR patients, loads lying relaxed supine",
+      "doi": "10.1371/journal.pone.0098510",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2014b",
+      "short": "Rohlmann 2014b",
+      "year": 2014,
+      "n": 5,
+      "sample": "5 VBR patients, carrying weights",
+      "doi": "10.1080/00140139.2014.887789",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2014c",
+      "short": "Rohlmann 2014c",
+      "year": 2014,
+      "n": 5,
+      "sample": "5 VBR patients, physiotherapy exercises",
+      "doi": "10.1371/journal.pone.0102005",
+      "secondary": false
+    },
+    {
+      "key": "dreischarf2015",
+      "short": "Dreischarf 2015",
+      "year": 2015,
+      "n": 5,
+      "sample": "5 VBR patients, standing and sitting flexion",
+      "doi": "10.1016/j.jbiomech.2015.01.007",
+      "secondary": false
+    },
+    {
+      "key": "dreischarf2016a",
+      "short": "Dreischarf 2016",
+      "year": 2016,
+      "n": 4,
+      "sample": "4 male VBR patients, stoop and squat lifting",
+      "doi": "10.1016/j.jbiomech.2015.09.034",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2001",
+      "short": "Rohlmann 2001",
+      "year": 2001,
+      "n": 10,
+      "sample": "10 patients (4M/6F) with telemetered internal fixators",
+      "doi": "10.1080/00140130120943",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "rohlmann2008",
+      "rohlmann2011",
+      "rohlmann2013",
+      "rohlmann2014a",
+      "rohlmann2014b",
+      "rohlmann2014c",
+      "dreischarf2015",
+      "dreischarf2016a"
+    ]
+  ],
+  "views": [
+    {
+      "id": "vbr_force",
+      "title": "VBR force (N)",
+      "task_ids": [
+        "standing",
+        "walking",
+        "lie_supine",
+        "lie_prone",
+        "all_fours",
+        "sit_unsupported",
+        "sit_hands",
+        "sit_flex",
+        "sit_arms90",
+        "stand_latbend",
+        "stand_flex_max",
+        "lift_max"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "vbr_increase",
+      "title": "VBR force increase over reference (N)",
+      "task_ids": [
+        "flex_stand_inc",
+        "flex_sit_inc",
+        "bridging_inc",
+        "legs_raise_inc",
+        "allfours_armleg_inc",
+        "backpack_inc"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "vbr_change",
+      "title": "VBR force change vs reference (%)",
+      "task_ids": [
+        "walk_pct",
+        "sit_flex15_pct",
+        "sit_ext10_pct",
+        "sit_backrest_pct",
+        "sit_office_pct"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "fixator_rel",
+      "title": "Fixator moment, % of standing",
+      "task_ids": [
+        "fix_lie_supine",
+        "fix_lie_prone",
+        "fix_sit_relaxed",
+        "fix_sit_erect",
+        "fix_walk",
+        "fix_flex",
+        "fix_ext"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "standing",
+      "label": "Standing, unsupported",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "relaxed upright standing, arms hanging"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 353,
+          "max": 473,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP1; median of 4 clip maxima",
+          "median": 448
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 280,
+          "max": 300,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP2; median of 3 clip maxima",
+          "median": 296
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 140,
+          "max": 263,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP3; median of 3 clip maxima; zeroed at supine rest",
+          "median": 148
+        }
+      ]
+    },
+    {
+      "id": "walking",
+      "label": "Walking, unsupported",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "level walking (peak)"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP1; single clip maximum",
+          "median": 443
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 382,
+          "max": 416,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP2; median of 2 clip maxima",
+          "median": 399
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 209,
+          "max": 223,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP3; median of 2 clip maxima; zeroed at supine rest",
+          "median": 216
+        }
+      ]
+    },
+    {
+      "id": "lie_supine",
+      "label": "Lying supine",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "lying supine, relaxed"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 51,
+          "max": 65,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.lying_positions",
+          "note": "WP1; median of 12 clip maxima",
+          "median": 59
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 69,
+          "max": 76,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.lying_positions",
+          "note": "WP2; median of 4 clip maxima",
+          "median": 72
+        },
+        {
+          "study": "rohlmann2014a",
+          "mean": 42,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+          "note": "WP1; average lying relaxed"
+        },
+        {
+          "study": "rohlmann2014a",
+          "mean": 84,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+          "note": "WP2; average lying relaxed"
+        },
+        {
+          "study": "rohlmann2014a",
+          "mean": 55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+          "note": "WP3; average lying relaxed"
+        },
+        {
+          "study": "rohlmann2014a",
+          "mean": 60,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+          "note": "WP4; average lying relaxed"
+        },
+        {
+          "study": "rohlmann2014a",
+          "mean": 96,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014a_highloads.supine_rest_loads",
+          "note": "WP5; average lying relaxed"
+        }
+      ]
+    },
+    {
+      "id": "lie_prone",
+      "label": "Lying prone",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "lying prone, relaxed"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 54,
+          "max": 57,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.lying_positions",
+          "note": "WP1; median of 2 clip maxima",
+          "median": 55
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 85,
+          "max": 117,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.lying_positions",
+          "note": "WP2; median of 4 clip maxima",
+          "median": 92
+        }
+      ]
+    },
+    {
+      "id": "all_fours",
+      "label": "Kneeling on hands and knees",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "relaxed all-fours position"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2014c",
+          "mean": 81,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+          "note": "WP1; average resting force"
+        },
+        {
+          "study": "rohlmann2014c",
+          "mean": 169,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+          "note": "WP2; average resting force"
+        },
+        {
+          "study": "rohlmann2014c",
+          "mean": 74,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+          "note": "WP4; average resting force"
+        },
+        {
+          "study": "rohlmann2014c",
+          "mean": 121,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.all_fours_rest_force",
+          "note": "WP5; average resting force"
+        }
+      ]
+    },
+    {
+      "id": "sit_unsupported",
+      "label": "Sitting, unsupported",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "sitting on bed edge/stool, no backrest, arms hanging"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 369,
+          "max": 437,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP1; median of 5 clip maxima",
+          "median": 431
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 329,
+          "max": 437,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP2; median of 6 clip maxima",
+          "median": 353
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 195,
+          "max": 230,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP3; median of 4 clip maxima; zeroed at supine rest",
+          "median": 217
+        }
+      ]
+    },
+    {
+      "id": "sit_hands",
+      "label": "Sitting, supported by hands",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "sitting, hands supporting on the seat"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 151,
+          "max": 419,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP1; median of 33 clip maxima",
+          "median": 263
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 289,
+          "max": 366,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP2; median of 10 clip maxima",
+          "median": 325
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 163,
+          "max": 246,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP3; median of 6 clip maxima; zeroed at supine rest",
+          "median": 188
+        }
+      ]
+    },
+    {
+      "id": "sit_flex",
+      "label": "Sitting, upper-body flexion",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "sitting, trunk flexed forward, unsupported"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 380,
+          "max": 531,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP1; median of 7 clip maxima",
+          "median": 497
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 504,
+          "max": 556,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP2; median of 3 clip maxima",
+          "median": 508
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 356,
+          "max": 439,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP3; median of 4 clip maxima; zeroed at supine rest; assisted",
+          "median": 421
+        }
+      ]
+    },
+    {
+      "id": "sit_arms90",
+      "label": "Sitting, both arms raised 90°",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "sitting, both straight arms elevated forward to 90°"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 412,
+          "max": 532,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP1; median of 6 clip maxima",
+          "median": 462
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 501,
+          "max": 528,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP2; median of 3 clip maxima",
+          "median": 520
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 335,
+          "max": 384,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.sitting_activities",
+          "note": "WP3; median of 4 clip maxima; zeroed at supine rest",
+          "median": 370
+        }
+      ]
+    },
+    {
+      "id": "stand_latbend",
+      "label": "Standing, lateral bending",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "standing lateral bending, unsupported"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 302,
+          "max": 338,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP2; median of 4 clip maxima",
+          "median": 328
+        },
+        {
+          "study": "rohlmann2008",
+          "mean": null,
+          "sd": null,
+          "min": 150,
+          "max": 169,
+          "stat": "median",
+          "n": 1,
+          "test_id": "msk_implant_loads.rohlmann2008.standing_walking_activities",
+          "note": "WP3; median of 4 clip maxima; zeroed at supine rest; assisted",
+          "median": 165
+        }
+      ]
+    },
+    {
+      "id": "stand_flex_max",
+      "label": "Standing flexion, max (~53°)",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "standing forward flexion, at maximal trunk inclination",
+        "trunk_inclination_deg": 53
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "dreischarf2015",
+          "mean": null,
+          "sd": null,
+          "min": 423,
+          "max": 596,
+          "stat": "median",
+          "n": 5,
+          "test_id": "msk_implant_loads.dreischarf2015.standing_flexion_resultant_force",
+          "note": "median of 5 patient medians (min-max = their range); inclination 44-66°",
+          "median": 436
+        }
+      ]
+    },
+    {
+      "id": "lift_max",
+      "label": "Lifting a crate from the ground (max)",
+      "view": "vbr_force",
+      "inputs": {
+        "activity": "lifting a crate from the floor (stoop or squat)",
+        "hand_load_kg": "4-10.8"
+      },
+      "output": "vbr_force",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "dreischarf2016a",
+          "mean": 1090,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+          "note": "WP1; highest force over all sessions"
+        },
+        {
+          "study": "dreischarf2016a",
+          "mean": 1420,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+          "note": "WP2; highest force over all sessions"
+        },
+        {
+          "study": "dreischarf2016a",
+          "mean": 1635,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+          "note": "WP4; highest force over all sessions"
+        },
+        {
+          "study": "dreischarf2016a",
+          "mean": 1400,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_implant_loads.dreischarf2016a.stoop_squat_lateral_lifting",
+          "note": "WP5; highest force over all sessions"
+        }
+      ]
+    },
+    {
+      "id": "flex_stand_inc",
+      "label": "Standing flexion, max (~53°)",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "standing forward flexion, at maximal inclination",
+        "trunk_inclination_deg": 53,
+        "reference": "upright standing"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "dreischarf2015",
+          "mean": null,
+          "sd": null,
+          "min": 209,
+          "max": 352,
+          "stat": "median",
+          "n": 5,
+          "test_id": "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+          "note": "median of 5 patient medians",
+          "median": 330
+        }
+      ]
+    },
+    {
+      "id": "flex_sit_inc",
+      "label": "Sitting flexion, max (~30°)",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "sitting on a stool, forward flexion, at maximal inclination",
+        "trunk_inclination_deg": 30,
+        "reference": "upright sitting"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "dreischarf2015",
+          "mean": null,
+          "sd": null,
+          "min": 105,
+          "max": 264,
+          "stat": "median",
+          "n": 5,
+          "test_id": "msk_implant_loads.dreischarf2015.flexion_force_increase_standing_vs_sitting",
+          "note": "median of 5 patient medians",
+          "median": 193
+        }
+      ]
+    },
+    {
+      "id": "bridging_inc",
+      "label": "Bridging (pelvis lift), supine",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "supine, lifting the pelvis (bridging)",
+        "reference": "supine rest"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2014c",
+          "mean": null,
+          "sd": null,
+          "min": 163,
+          "max": 477,
+          "stat": "median",
+          "n": 5,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.supine_exercises",
+          "note": "median of 5 patient medians",
+          "median": 254
+        }
+      ]
+    },
+    {
+      "id": "legs_raise_inc",
+      "label": "Raising both straight legs, supine",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "supine, lifting both straight legs",
+        "reference": "supine rest"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2014c",
+          "mean": null,
+          "sd": null,
+          "min": 165,
+          "max": 221,
+          "stat": "median",
+          "n": 3,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.supine_exercises",
+          "note": "median of 3 patient medians",
+          "median": 217
+        }
+      ]
+    },
+    {
+      "id": "allfours_armleg_inc",
+      "label": "All-fours, arm + opposite leg out",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "all-fours, outstretching one arm and the contralateral leg",
+        "reference": "all-fours rest"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2014c",
+          "mean": null,
+          "sd": null,
+          "min": 199,
+          "max": 340,
+          "stat": "median",
+          "n": 4,
+          "test_id": "msk_implant_loads.rohlmann2014c_physio.all_fours_exercises",
+          "note": "median of 4 patient medians",
+          "median": 222
+        }
+      ]
+    },
+    {
+      "id": "backpack_inc",
+      "label": "Standing with a 10 kg backpack",
+      "view": "vbr_increase",
+      "inputs": {
+        "activity": "standing, 10 kg backpack",
+        "hand_load_kg": 0,
+        "reference": "standing without load"
+      },
+      "output": "vbr_force_increase",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2014b",
+          "mean": 35,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_implant_loads.rohlmann2014b.carrying_force_increase",
+          "note": "average of 4 patients (text)"
+        }
+      ]
+    },
+    {
+      "id": "walk_pct",
+      "label": "Walking vs standing",
+      "view": "vbr_change",
+      "inputs": {
+        "activity": "level walking (peak)",
+        "reference": "relaxed standing"
+      },
+      "output": "vbr_force_change",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2013",
+          "mean": 71,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "msk_implant_loads.rohlmann2013.longterm_standing_walking",
+          "note": "average over 5 patients, ~100 N"
+        }
+      ]
+    },
+    {
+      "id": "sit_flex15_pct",
+      "label": "Sitting, upper body flexed 15°",
+      "view": "vbr_change",
+      "inputs": {
+        "activity": "sitting on a stool, upper body flexed",
+        "trunk_inclination_deg": 15,
+        "reference": "upright sitting on a stool"
+      },
+      "output": "vbr_force_change",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2011",
+          "mean": 48,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_implant_loads.rohlmann2011.sitting_relative_force",
+          "note": "mean of patient medians"
+        }
+      ]
+    },
+    {
+      "id": "sit_ext10_pct",
+      "label": "Sitting, upper body extended 10°",
+      "view": "vbr_change",
+      "inputs": {
+        "activity": "sitting on a stool, upper body extended",
+        "trunk_inclination_deg": -10,
+        "reference": "upright sitting on a stool"
+      },
+      "output": "vbr_force_change",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2011",
+          "mean": -19,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_implant_loads.rohlmann2011.sitting_relative_force",
+          "note": "mean of patient medians"
+        }
+      ]
+    },
+    {
+      "id": "sit_backrest_pct",
+      "label": "Sitting, leaning on chair backrest",
+      "view": "vbr_change",
+      "inputs": {
+        "activity": "sitting on a chair, leaning against the backrest",
+        "reference": "same chair, no backrest contact"
+      },
+      "output": "vbr_force_change",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2011",
+          "mean": -36,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "msk_implant_loads.rohlmann2011.sitting_relative_force",
+          "note": "mean of patient medians"
+        }
+      ]
+    },
+    {
+      "id": "sit_office_pct",
+      "label": "Sitting on an office chair",
+      "view": "vbr_change",
+      "inputs": {
+        "activity": "sitting on an office chair (with backrest)",
+        "reference": "sitting on a stool"
+      },
+      "output": "vbr_force_change",
+      "level": "L1 (L3 in WP5)",
+      "refs": [
+        {
+          "study": "rohlmann2011",
+          "mean": -41,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "msk_implant_loads.rohlmann2011.sitting_relative_force",
+          "note": "mean of patient medians"
+        }
+      ]
+    },
+    {
+      "id": "fix_lie_supine",
+      "label": "Lying supine",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "lying supine",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 26,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_lie_prone",
+      "label": "Lying prone",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "lying prone",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 32,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_sit_relaxed",
+      "label": "Sitting relaxed",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "sitting relaxed, no backrest",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 89,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_sit_erect",
+      "label": "Sitting erect",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "sitting erect, actively straightening the back",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 100,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_walk",
+      "label": "Walking",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "level walking (peak)",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 128,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_flex",
+      "label": "Standing trunk flexion",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "standing, trunk flexion",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 127,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    },
+    {
+      "id": "fix_ext",
+      "label": "Standing trunk extension",
+      "view": "fixator_rel",
+      "inputs": {
+        "activity": "standing, trunk extension",
+        "reference": "relaxed standing"
+      },
+      "output": "fixator_moment_rel",
+      "level": "bridged lumbar segments",
+      "refs": [
+        {
+          "study": "rohlmann2001",
+          "mean": 124,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_implant_loads.rohlmann2001.fixator_moment_relative_to_standing",
+          "note": "mean of 10 patients"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The VBR carries only part of the segment load (shared with the posterior fixator, bone and graft); compare trends and ratios first, absolute N only if the implant is modelled. All VBR studies share the same 5 patients.",
+    "Per-patient values only where the paper gives no group value: Rohlmann 2008 (median of clip maxima, early post-op; WP3 zeroed at supine rest), Dreischarf 2016 (highest lift force), Rohlmann 2014a/c resting forces. Group values of Dreischarf 2015 and Rohlmann 2014c are medians of patient medians.",
+    "Not included: Rohlmann 1999/2000 fixator forces and moments (per patient and side, or only differences from the session maximum), Rohlmann 2014a top-10 peaks (ranges only), patient-10 exercises."
+  ],
+  "answer_format": {
+    "standing": {
+      "vbr_force": "N"
+    },
+    "walking": {
+      "vbr_force": "N"
+    },
+    "lie_supine": {
+      "vbr_force": "N"
+    },
+    "lie_prone": {
+      "vbr_force": "N"
+    },
+    "all_fours": {
+      "vbr_force": "N"
+    },
+    "sit_unsupported": {
+      "vbr_force": "N"
+    },
+    "sit_hands": {
+      "vbr_force": "N"
+    },
+    "sit_flex": {
+      "vbr_force": "N"
+    },
+    "sit_arms90": {
+      "vbr_force": "N"
+    },
+    "stand_latbend": {
+      "vbr_force": "N"
+    },
+    "stand_flex_max": {
+      "vbr_force": "N"
+    },
+    "lift_max": {
+      "vbr_force": "N"
+    },
+    "flex_stand_inc": {
+      "vbr_force_increase": "N"
+    },
+    "flex_sit_inc": {
+      "vbr_force_increase": "N"
+    },
+    "bridging_inc": {
+      "vbr_force_increase": "N"
+    },
+    "legs_raise_inc": {
+      "vbr_force_increase": "N"
+    },
+    "allfours_armleg_inc": {
+      "vbr_force_increase": "N"
+    },
+    "backpack_inc": {
+      "vbr_force_increase": "N"
+    },
+    "walk_pct": {
+      "vbr_force_change": "%"
+    },
+    "sit_flex15_pct": {
+      "vbr_force_change": "%"
+    },
+    "sit_ext10_pct": {
+      "vbr_force_change": "%"
+    },
+    "sit_backrest_pct": {
+      "vbr_force_change": "%"
+    },
+    "sit_office_pct": {
+      "vbr_force_change": "%"
+    },
+    "fix_lie_supine": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_lie_prone": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_sit_relaxed": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_sit_erect": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_walk": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_flex": {
+      "fixator_moment_rel": "% of standing"
+    },
+    "fix_ext": {
+      "fixator_moment_rel": "% of standing"
+    }
+  },
+  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the activity in its inputs for the patients listed in \"subjects\" for the ref study (per-patient refs: each patient in \"patients\"; group refs: the cohort mean). VBR tasks: report the resultant force across the implant level (L1, L3 for WP5). Increase and change tasks: also simulate the reference activity and report the difference in N or the change in %. Fixator tasks: report the bridged-segment load as % of standing and say which quantity you used. State whether the implant is modelled. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with a number in the stated unit, or an object {patient_id: number} for per-patient tasks."
+}

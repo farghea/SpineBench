@@ -1,0 +1,5657 @@
+{
+  "id": "thoracic_rom",
+  "title": "Thoracic range of motion",
+  "domain": "fe",
+  "region": "thoracic",
+  "levels": [
+    "T1-T2",
+    "T2-T3",
+    "T3-T4",
+    "T4-T5",
+    "T5-T6",
+    "T6-T7",
+    "T7-T8",
+    "T8-T9",
+    "T9-T10",
+    "T10-T11",
+    "T11-T12",
+    "T1-T12"
+  ],
+  "summary": "Apply pure moments to thoracic specimens with intact rib cage or as FSUs and report total, regional and segmental rotation.",
+  "simulate": [
+    "Build the specimen in the task: T1-T12 with intact rib cage (ribs, costal cartilage, sternum), or a single FSU with rib heads but no rib cage.",
+    "Fix the caudal vertebra (T12, or the lower FSU vertebra); apply a pure moment to the cranial vertebra (T1); leave the other 5 DOF free.",
+    "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force.",
+    "Report rotation of each upper vertebra relative to the one below (segmental), of the region end vertebrae (regional), and of T1 relative to T12 (total), at peak moment.",
+    "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
+  ],
+  "inputs": [
+    {
+      "key": "specimen",
+      "label": "Specimen"
+    },
+    {
+      "key": "rib_cage",
+      "label": "Rib cage"
+    },
+    {
+      "key": "moment_nm",
+      "label": "Pure moment",
+      "unit": "Nm"
+    },
+    {
+      "key": "direction",
+      "label": "Direction"
+    },
+    {
+      "key": "follower_n",
+      "label": "Follower load",
+      "unit": "N"
+    },
+    {
+      "key": "axial_n",
+      "label": "Axial preload",
+      "unit": "N"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "rom_segmental",
+      "label": "Segmental ROM",
+      "unit": "deg"
+    },
+    {
+      "key": "rom_total",
+      "label": "Total / regional ROM",
+      "unit": "deg"
+    },
+    {
+      "key": "nz",
+      "label": "Neutral zone",
+      "unit": "deg"
+    }
+  ],
+  "studies": [
+    {
+      "key": "mannen2015",
+      "short": "Mannen 2015",
+      "year": 2015,
+      "n": 7,
+      "sample": "7 T1-T12 spines with true ribs and sternum",
+      "doi": "10.1016/j.jbiomech.2015.03.021",
+      "secondary": false
+    },
+    {
+      "key": "healy2014",
+      "short": "Healy 2014",
+      "year": 2014,
+      "n": 9,
+      "sample": "9 C7-L1 torsos, intact rib cage",
+      "doi": "10.1016/j.spinee.2013.11.035",
+      "secondary": false
+    },
+    {
+      "key": "lubelski2014",
+      "short": "Lubelski 2014",
+      "year": 2014,
+      "n": 10,
+      "sample": "10 C7-L1 torsos, intact rib cage",
+      "doi": "10.1016/j.spinee.2014.03.026",
+      "secondary": false
+    },
+    {
+      "key": "liebsch2017",
+      "short": "Liebsch 2017",
+      "year": 2017,
+      "n": 6,
+      "sample": "6 C7-L1 spines with entire rib cage, 2 Nm",
+      "doi": "10.1371/journal.pone.0178733",
+      "secondary": false
+    },
+    {
+      "key": "liebsch2018",
+      "short": "Liebsch 2018",
+      "year": 2018,
+      "n": 8,
+      "sample": "8 C7-L1 spines with rib cage, 0/400 N follower",
+      "doi": "10.1016/j.jbiomech.2018.06.025",
+      "secondary": false
+    },
+    {
+      "key": "liebsch2020",
+      "short": "Liebsch 2020",
+      "year": 2020,
+      "n": 8,
+      "sample": "8 C7-L1 rib cage specimens, then monosegments",
+      "doi": "10.3389/fbioe.2020.00046",
+      "secondary": false
+    },
+    {
+      "key": "liebsch2020fb",
+      "short": "Liebsch 2020 FB",
+      "year": 2020,
+      "n": 6,
+      "sample": "6 C7-L1 spines with intact rib cage",
+      "doi": "10.3389/fbioe.2020.00572",
+      "secondary": false
+    },
+    {
+      "key": "sis2016",
+      "short": "Sis 2016",
+      "year": 2016,
+      "n": 8,
+      "sample": "8 T1-T12 spines with rib cage, 0/200/400 N follower",
+      "doi": "10.1016/j.jbiomech.2016.08.003",
+      "secondary": false
+    },
+    {
+      "key": "rahm2019",
+      "short": "Rahm 2019",
+      "year": 2019,
+      "n": 5,
+      "sample": "5 C7-L2 spines with intact rib cage",
+      "doi": "10.1016/j.clinbiomech.2019.10.008",
+      "secondary": false
+    },
+    {
+      "key": "orbach2023",
+      "short": "Orbach 2023",
+      "year": 2023,
+      "n": 7,
+      "sample": "7 T1-L5 spines with rib cage (T1-T12: n=5)",
+      "doi": "10.1002/jsp2.1257",
+      "secondary": false
+    },
+    {
+      "key": "watkins2005",
+      "short": "Watkins 2005",
+      "year": 2005,
+      "n": 10,
+      "sample": "10 T1-T12 spines with rib cage (via Mannen 2015)",
+      "doi": "",
+      "secondary": true
+    },
+    {
+      "key": "wilke2025",
+      "short": "Wilke 2025",
+      "year": 2025,
+      "n": 26,
+      "sample": "Ulm pool: 23-26 rib cage specimens, 6-16 FSUs/level",
+      "doi": "10.1002/jsp2.70052",
+      "secondary": false
+    },
+    {
+      "key": "wilke2017",
+      "short": "Wilke 2017",
+      "year": 2017,
+      "n": 68,
+      "sample": "68 FSUs with costovertebral joints, 6-7 per level",
+      "doi": "10.1371/journal.pone.0177823",
+      "secondary": false
+    },
+    {
+      "key": "liebsch2022",
+      "short": "Liebsch 2022",
+      "year": 2022,
+      "n": 22,
+      "sample": "22 grade-0 FSUs (of 95), levels pooled",
+      "doi": "10.1016/j.spinee.2022.06.010",
+      "secondary": false
+    },
+    {
+      "key": "oxland1992",
+      "short": "Oxland 1992",
+      "year": 1992,
+      "n": 11,
+      "sample": "11 T11-L1 specimens, no ribs, T11-T12 level",
+      "doi": "10.1002/jor.1100100412",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "liebsch2018",
+      "liebsch2020"
+    ],
+    [
+      "liebsch2018",
+      "wilke2025"
+    ],
+    [
+      "liebsch2020",
+      "wilke2025"
+    ],
+    [
+      "liebsch2020fb",
+      "wilke2025"
+    ],
+    [
+      "liebsch2020",
+      "liebsch2022"
+    ],
+    [
+      "liebsch2022",
+      "wilke2025"
+    ],
+    [
+      "wilke2017",
+      "liebsch2022"
+    ],
+    [
+      "wilke2017",
+      "wilke2025"
+    ],
+    [
+      "sis2016",
+      "mannen2015"
+    ]
+  ],
+  "views": [
+    {
+      "id": "total",
+      "title": "Total T1-T12 ROM, rib cage intact",
+      "task_ids": [
+        "T1T12_fe_5",
+        "T1T12_lbr_5",
+        "T1T12_arr_5",
+        "T1T12_flex_5",
+        "T1T12_ext_5",
+        "T1T12_lb_5",
+        "T1T12_ar_5",
+        "T1T12_arr_5_ax50",
+        "T1T12_fe_2",
+        "T1T12_lbr_2",
+        "T1T12_arr_2",
+        "T1T12_flex_8",
+        "T1T12_ext_8",
+        "T1T12_lb_8",
+        "T1T12_ar_8"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "regional",
+      "title": "Regional ROM in rib cage (5 Nm)",
+      "task_ids": [
+        "T1T4_fe_5",
+        "T1T4_lbr_5",
+        "T1T4_arr_5",
+        "T4T8_fe_5",
+        "T4T8_lbr_5",
+        "T4T8_arr_5",
+        "T8T12_fe_5",
+        "T8T12_lbr_5",
+        "T8T12_arr_5"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "seg_ribcage",
+      "title": "Segmental ROM inside rib cage (5 Nm)",
+      "task_ids": [
+        "T1T2_fe_5_rc",
+        "T1T2_lbr_5_rc",
+        "T1T2_arr_5_rc",
+        "T2T3_fe_5_rc",
+        "T2T3_lbr_5_rc",
+        "T2T3_arr_5_rc",
+        "T3T4_fe_5_rc",
+        "T3T4_lbr_5_rc",
+        "T3T4_arr_5_rc",
+        "T4T5_fe_5_rc",
+        "T4T5_lbr_5_rc",
+        "T4T5_arr_5_rc",
+        "T5T6_fe_5_rc",
+        "T5T6_lbr_5_rc",
+        "T5T6_arr_5_rc",
+        "T7T8_fe_5_rc",
+        "T7T8_lbr_5_rc",
+        "T7T8_arr_5_rc",
+        "T8T9_fe_5_rc",
+        "T8T9_lbr_5_rc",
+        "T8T9_arr_5_rc",
+        "T9T10_fe_5_rc",
+        "T9T10_lbr_5_rc",
+        "T9T10_arr_5_rc",
+        "T11T12_fe_5_rc",
+        "T11T12_lbr_5_rc",
+        "T11T12_arr_5_rc"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "seg_fsu",
+      "title": "FSU without rib cage (5 Nm)",
+      "task_ids": [
+        "T1T2_fe_5_fsu",
+        "T1T2_lbr_5_fsu",
+        "T1T2_arr_5_fsu",
+        "T3T4_fe_5_fsu",
+        "T3T4_lbr_5_fsu",
+        "T3T4_arr_5_fsu",
+        "T5T6_fe_5_fsu",
+        "T5T6_lbr_5_fsu",
+        "T5T6_arr_5_fsu",
+        "T7T8_fe_5_fsu",
+        "T7T8_lbr_5_fsu",
+        "T7T8_arr_5_fsu",
+        "T9T10_fe_5_fsu",
+        "T9T10_lbr_5_fsu",
+        "T9T10_arr_5_fsu",
+        "T11T12_fe_5_fsu",
+        "T11T12_lbr_5_fsu",
+        "T11T12_arr_5_fsu",
+        "pooled_flex_5_fsu",
+        "pooled_ext_5_fsu",
+        "pooled_lb_5_fsu",
+        "pooled_ar_5_fsu"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "fsu_7p5",
+      "title": "FSU without rib cage (7.5 Nm, one direction)",
+      "task_ids": [
+        "T1T2_flex_7p5_fsu",
+        "T1T2_ext_7p5_fsu",
+        "T1T2_lb_7p5_fsu",
+        "T1T2_ar_7p5_fsu",
+        "T3T4_flex_7p5_fsu",
+        "T3T4_ext_7p5_fsu",
+        "T3T4_lb_7p5_fsu",
+        "T3T4_ar_7p5_fsu",
+        "T5T6_flex_7p5_fsu",
+        "T5T6_ext_7p5_fsu",
+        "T5T6_lb_7p5_fsu",
+        "T5T6_ar_7p5_fsu",
+        "T7T8_flex_7p5_fsu",
+        "T7T8_ext_7p5_fsu",
+        "T7T8_lb_7p5_fsu",
+        "T7T8_ar_7p5_fsu",
+        "T9T10_flex_7p5_fsu",
+        "T9T10_ext_7p5_fsu",
+        "T9T10_lb_7p5_fsu",
+        "T9T10_ar_7p5_fsu",
+        "T11T12_flex_7p5_fsu",
+        "T11T12_ext_7p5_fsu",
+        "T11T12_lb_7p5_fsu",
+        "T11T12_ar_7p5_fsu"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "follower",
+      "title": "Follower load (5 Nm, rib cage intact)",
+      "task_ids": [
+        "T1T4_fe_5",
+        "T1T4_fe_5_fl200",
+        "T1T4_fe_5_fl400",
+        "T1T4_lbr_5",
+        "T1T4_lbr_5_fl200",
+        "T1T4_lbr_5_fl400",
+        "T1T4_arr_5",
+        "T1T4_arr_5_fl200",
+        "T1T4_arr_5_fl400",
+        "T4T8_fe_5",
+        "T4T8_fe_5_fl200",
+        "T4T8_fe_5_fl400",
+        "T4T8_lbr_5",
+        "T4T8_lbr_5_fl200",
+        "T4T8_lbr_5_fl400",
+        "T4T8_arr_5",
+        "T4T8_arr_5_fl200",
+        "T4T8_arr_5_fl400",
+        "T8T12_fe_5",
+        "T8T12_fe_5_fl200",
+        "T8T12_fe_5_fl400",
+        "T8T12_lbr_5",
+        "T8T12_lbr_5_fl200",
+        "T8T12_lbr_5_fl400",
+        "T8T12_arr_5",
+        "T8T12_arr_5_fl200",
+        "T8T12_arr_5_fl400",
+        "T1T12_flex_5",
+        "T1T12_flex_5_fl400",
+        "T1T12_ext_5",
+        "T1T12_ext_5_fl400",
+        "T1T12_lb_5",
+        "T1T12_lb_5_fl400",
+        "T1T12_ar_5",
+        "T1T12_ar_5_fl400"
+      ],
+      "x": "input:follower_n"
+    },
+    {
+      "id": "nz",
+      "title": "Neutral zone T1-T12 (full range, 5 Nm)",
+      "task_ids": [
+        "T1T12_fe_5_nz",
+        "T1T12_lbr_5_nz",
+        "T1T12_arr_5_nz"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T1T12_fe_5",
+      "label": "T1-T12 · Flexion+extension · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 17.3,
+          "sd": 7.0,
+          "min": 8.0,
+          "max": 25.8,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_5Nm",
+          "note": "true ribs + sternum"
+        },
+        {
+          "study": "healy2014",
+          "mean": 26.9,
+          "sd": 10.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_resection_thoracic.healy2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "lubelski2014",
+          "mean": 23.72,
+          "sd": 11.36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.lubelski2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 28.4,
+          "sd": null,
+          "min": 16.0,
+          "max": 40.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 26.3,
+          "sd": null,
+          "min": 10.1,
+          "max": 31.3,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 23.0923,
+        "sd": 10.2464,
+        "N": 26,
+        "k": 3,
+        "studies": [
+          "mannen2015",
+          "healy2014",
+          "lubelski2014"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_lbr_5",
+      "label": "T1-T12 · Lateral bending L+R · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 23.3,
+          "sd": 8.4,
+          "min": 11.2,
+          "max": 35.7,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_5Nm",
+          "note": "true ribs + sternum"
+        },
+        {
+          "study": "healy2014",
+          "mean": 42.06,
+          "sd": 19.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_resection_thoracic.healy2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "lubelski2014",
+          "mean": 47.44,
+          "sd": 14.77,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.lubelski2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 35.0,
+          "sd": null,
+          "min": 22.6,
+          "max": 56.4,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 33.9,
+          "sd": null,
+          "min": 11.7,
+          "max": 39.9,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 39.0785,
+        "sd": 17.6735,
+        "N": 26,
+        "k": 3,
+        "studies": [
+          "mannen2015",
+          "healy2014",
+          "lubelski2014"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_arr_5",
+      "label": "T1-T12 · Axial rotation L+R · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 26.3,
+          "sd": 12.2,
+          "min": 13.3,
+          "max": 44.6,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_5Nm",
+          "note": "true ribs + sternum"
+        },
+        {
+          "study": "healy2014",
+          "mean": 43.69,
+          "sd": 16.87,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_resection_thoracic.healy2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "lubelski2014",
+          "mean": 44.91,
+          "sd": 18.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.lubelski2014.T1T12_ribcage_intact_rom_5Nm",
+          "note": "robot pure moment"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 28.8,
+          "sd": null,
+          "min": 23.9,
+          "max": 45.0,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 32.5,
+          "sd": null,
+          "min": 10.8,
+          "max": 42.2,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_rom_5Nm",
+          "note": "C7-L1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 39.4773,
+        "sd": 17.9084,
+        "N": 26,
+        "k": 3,
+        "studies": [
+          "mannen2015",
+          "healy2014",
+          "lubelski2014"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_flex_5",
+      "label": "T1-T12 · Flexion · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 7.7,
+          "sd": 3.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_5Nm",
+          "note": "0 Nm to peak"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 10.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ext_5",
+      "label": "T1-T12 · Extension · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 9.6,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_5Nm",
+          "note": "0 Nm to peak"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 10.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "T1T12_lb_5",
+      "label": "T1-T12 · Lateral bending · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 12.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": "left"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 12.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": "right"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ar_5",
+      "label": "T1-T12 · Axial rotation · 5 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 11.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": "left"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 11.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_rom_5Nm",
+          "note": "right"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_arr_5_ax50",
+      "label": "T1-T12 · Axial rot. L+R · 5 Nm · 50 N",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 50
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 23.03,
+          "sd": null,
+          "min": 6.17,
+          "max": 51.44,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_5Nm_ax50n",
+          "note": "50 N axial preload; via Mannen 2015 Table 3 (secondary)"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_fe_2",
+      "label": "T1-T12 · Flexion+extension · 2 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 2,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 6.2,
+          "sd": 3.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_2Nm",
+          "note": "read at 2 Nm on 5 Nm cycles"
+        },
+        {
+          "study": "liebsch2017",
+          "mean": 10.5,
+          "sd": 4.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.liebsch2017.T1T12_ribcage_intact_rom_2Nm",
+          "note": "C7-L1 specimen, 2 Nm cycles"
+        },
+        {
+          "study": "watkins2005",
+          "mean": 7.93,
+          "sd": null,
+          "min": 2.64,
+          "max": 15.64,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
+          "note": "via Mannen 2015 Table 3 (secondary)"
+        }
+      ],
+      "pooled": {
+        "mean": 8.0739,
+        "sd": 2.9982,
+        "N": 23,
+        "k": 3,
+        "studies": [
+          "mannen2015",
+          "liebsch2017",
+          "watkins2005"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_lbr_2",
+      "label": "T1-T12 · Lateral bending L+R · 2 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 2,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 8.5,
+          "sd": 3.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_rom_2Nm",
+          "note": "read at 2 Nm on 5 Nm cycles"
+        },
+        {
+          "study": "liebsch2017",
+          "mean": 14.9,
+          "sd": 3.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.liebsch2017.T1T12_ribcage_intact_rom_2Nm",
+          "note": "C7-L1 specimen, 2 Nm cycles"
+        },
+        {
+          "study": "watkins2005",
+          "mean": 10.36,
+          "sd": null,
+          "min": 1.92,
+          "max": 26.81,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
+          "note": "via Mannen 2015 Table 3 (secondary)"
+        }
+      ],
+      "pooled": {
+        "mean": 10.9783,
+        "sd": 3.6488,
+        "N": 23,
+        "k": 3,
+        "studies": [
+          "mannen2015",
+          "liebsch2017",
+          "watkins2005"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_arr_2",
+      "label": "T1-T12 · Axial rotation L+R · 2 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 2,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2017",
+          "mean": 20.4,
+          "sd": 7.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.liebsch2017.T1T12_ribcage_intact_rom_2Nm",
+          "note": "C7-L1 specimen, 2 Nm cycles"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_flex_8",
+      "label": "T1-T12 · Flexion · 8 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12 (within T1-L5)",
+        "rib_cage": "intact",
+        "moment_nm": 8,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 16.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "T1-L5 specimen, T1 vs T12; IQR 15.4 to 18.8; magnitude (source signed)"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ext_8",
+      "label": "T1-T12 · Extension · 8 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12 (within T1-L5)",
+        "rib_cage": "intact",
+        "moment_nm": 8,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 17.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "T1-L5 specimen, T1 vs T12; IQR 16.7 to 18.9; magnitude (source signed)"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_lb_8",
+      "label": "T1-T12 · Lateral bending · 8 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12 (within T1-L5)",
+        "rib_cage": "intact",
+        "moment_nm": 8,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 16.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "right; T1-L5 specimen, T1 vs T12; IQR 15.3 to 17.5; magnitude (source signed)"
+        },
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 18.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "left; T1-L5 specimen, T1 vs T12; IQR 16.6 to 18.0; magnitude (source signed)"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ar_8",
+      "label": "T1-T12 · Axial rotation · 8 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "T1-T12 (within T1-L5)",
+        "rib_cage": "intact",
+        "moment_nm": 8,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 27.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "left; T1-L5 specimen, T1 vs T12; IQR 26.9 to 31.7; magnitude (source signed)"
+        },
+        {
+          "study": "orbach2023",
+          "mean": null,
+          "median": 31.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.orbach2023.T1T12_ribcage_intact_coupled_rom_8Nm",
+          "note": "right; T1-L5 specimen, T1 vs T12; IQR 29.0 to 33.9; magnitude (source signed)"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_fe_5",
+      "label": "T1-T4 · Flexion+extension · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 12.3,
+          "sd": 8.09,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_fe_5_fl200",
+      "label": "T1-T4 · Flexion+extension · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 10.8,
+          "sd": 6.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_fe_5_fl400",
+      "label": "T1-T4 · Flexion+extension · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 9.07,
+          "sd": 5.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_lbr_5",
+      "label": "T1-T4 · Lateral bending L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 6.06,
+          "sd": 4.34,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_lbr_5_fl200",
+      "label": "T1-T4 · Lateral bending L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 1.36,
+          "sd": 1.55,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_lbr_5_fl400",
+      "label": "T1-T4 · Lateral bending L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 1.43,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_arr_5",
+      "label": "T1-T4 · Axial rotation L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 10.2,
+          "sd": 5.29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_arr_5_fl200",
+      "label": "T1-T4 · Axial rotation L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 6.58,
+          "sd": 2.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T4_arr_5_fl400",
+      "label": "T1-T4 · Axial rotation L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T4",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 6.69,
+          "sd": 3.42,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T4_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_fe_5",
+      "label": "T4-T8 · Flexion+extension · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 5.17,
+          "sd": 3.27,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_fe_5_fl200",
+      "label": "T4-T8 · Flexion+extension · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 5.02,
+          "sd": 3.62,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_fe_5_fl400",
+      "label": "T4-T8 · Flexion+extension · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 4.64,
+          "sd": 3.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_lbr_5",
+      "label": "T4-T8 · Lateral bending L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 6.1,
+          "sd": 4.57,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_lbr_5_fl200",
+      "label": "T4-T8 · Lateral bending L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 1.67,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_lbr_5_fl400",
+      "label": "T4-T8 · Lateral bending L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 0.71,
+          "sd": 0.53,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_arr_5",
+      "label": "T4-T8 · Axial rotation L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 8.85,
+          "sd": 6.41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_arr_5_fl200",
+      "label": "T4-T8 · Axial rotation L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 8.66,
+          "sd": 6.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T4T8_arr_5_fl400",
+      "label": "T4-T8 · Axial rotation L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T4-T8",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 7.72,
+          "sd": 5.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T8_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_fe_5",
+      "label": "T8-T12 · Flexion+extension · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 7.88,
+          "sd": 4.36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_fe_5_fl200",
+      "label": "T8-T12 · Flexion+extension · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 7.93,
+          "sd": 4.64,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_fe_5_fl400",
+      "label": "T8-T12 · Flexion+extension · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 7.33,
+          "sd": 4.49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_lbr_5",
+      "label": "T8-T12 · Lateral bending L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 13.7,
+          "sd": 5.55,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_lbr_5_fl200",
+      "label": "T8-T12 · Lateral bending L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 8.62,
+          "sd": 3.65,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_lbr_5_fl400",
+      "label": "T8-T12 · Lateral bending L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 5.07,
+          "sd": 3.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_arr_5",
+      "label": "T8-T12 · Axial rotation L+R · 5 Nm",
+      "view": "regional",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 13.1,
+          "sd": 3.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_rom_5nm",
+          "note": "region inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_arr_5_fl200",
+      "label": "T8-T12 · Axial rotation L+R · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 14.0,
+          "sd": 4.43,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl200n_rom_5nm_fl200n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T8T12_arr_5_fl400",
+      "label": "T8-T12 · Axial rotation L+R · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T8-T12",
+      "refs": [
+        {
+          "study": "sis2016",
+          "mean": 12.2,
+          "sd": 3.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T12_ribcage_intact_fl400n_rom_5nm_fl400n",
+          "note": "region inside T1-T12; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_flex_5_fl400",
+      "label": "T1-T12 · Flexion · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion (one direction)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 6.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ext_5_fl400",
+      "label": "T1-T12 · Extension · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "extension (one direction)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 5.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_lb_5_fl400",
+      "label": "T1-T12 · Lateral bending · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 3.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "left; 5 Nm"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 3.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "right; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T12_ar_5_fl400",
+      "label": "T1-T12 · Axial rotation · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 8.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "left; 5 Nm"
+        },
+        {
+          "study": "liebsch2018",
+          "mean": null,
+          "median": 8.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.liebsch2018.T1T12_ribcage_intact_FL400N_rom_5Nm_FL400N",
+          "note": "right; 5 Nm"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_fe_5_rc",
+      "label": "T1-T2 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.23,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.5,
+          "sd": null,
+          "min": 1.4,
+          "max": 11.4,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 7.23,
+          "sd": 5.73,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T2_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_lbr_5_rc",
+      "label": "T1-T2 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.96,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.3,
+          "sd": null,
+          "min": 2.5,
+          "max": 7.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 2.96,
+          "sd": 1.76,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T2_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_arr_5_rc",
+      "label": "T1-T2 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 5.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 5.2,
+          "sd": null,
+          "min": 1.6,
+          "max": 8.4,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 4.76,
+          "sd": 3.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T1T2_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T2T3_fe_5_rc",
+      "label": "T2-T3 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.75,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T2T3_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 4.6,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T2T3_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T2T3_lbr_5_rc",
+      "label": "T2-T3 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.06,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T2T3_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 4.6,
+          "sd": 2.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T2T3_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T2T3_arr_5_rc",
+      "label": "T2-T3 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.15,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T2T3_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 3.9,
+          "sd": 1.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T2T3_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_fe_5_rc",
+      "label": "T3-T4 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.25,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.4,
+          "sd": null,
+          "min": 0.4,
+          "max": 4.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 2.6,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_lbr_5_rc",
+      "label": "T3-T4 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.29,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 4.1,
+          "sd": null,
+          "min": 1.6,
+          "max": 7.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 3.6,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_arr_5_rc",
+      "label": "T3-T4 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.51,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.2,
+          "sd": null,
+          "min": 0.6,
+          "max": 4.8,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 3.7,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T3T4_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T4T5_fe_5_rc",
+      "label": "T4-T5 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T4-T5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.25,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T4T5_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 1.53,
+          "sd": 1.06,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T5_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 1.8,
+          "sd": 1.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T4T5_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ],
+      "pooled": {
+        "mean": 1.6338,
+        "sd": 1.1124,
+        "N": 13,
+        "k": 2,
+        "studies": [
+          "sis2016",
+          "rahm2019"
+        ]
+      }
+    },
+    {
+      "id": "T4T5_lbr_5_rc",
+      "label": "T4-T5 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T4-T5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.07,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T4T5_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 1.95,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T5_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 2.5,
+          "sd": 2.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T4T5_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ],
+      "pooled": {
+        "mean": 2.1615,
+        "sd": 1.505,
+        "N": 13,
+        "k": 2,
+        "studies": [
+          "sis2016",
+          "rahm2019"
+        ]
+      }
+    },
+    {
+      "id": "T4T5_arr_5_rc",
+      "label": "T4-T5 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T4-T5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.36,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T4T5_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 1.78,
+          "sd": 1.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T4T5_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 2.9,
+          "sd": 2.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T4T5_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ],
+      "pooled": {
+        "mean": 2.2108,
+        "sd": 1.7832,
+        "N": 13,
+        "k": 2,
+        "studies": [
+          "sis2016",
+          "rahm2019"
+        ]
+      }
+    },
+    {
+      "id": "T5T6_fe_5_rc",
+      "label": "T5-T6 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.27,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 1.4,
+          "sd": null,
+          "min": 0.3,
+          "max": 5.3,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 1.3,
+          "sd": 0.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_lbr_5_rc",
+      "label": "T5-T6 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.91,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.1,
+          "sd": null,
+          "min": 0.9,
+          "max": 5.4,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 1.5,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_arr_5_rc",
+      "label": "T5-T6 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.88,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.3,
+          "sd": null,
+          "min": 0.2,
+          "max": 5.0,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "rahm2019",
+          "mean": 2.4,
+          "sd": 1.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_thoracic.rahm2019.T5T6_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L2"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_fe_5_rc",
+      "label": "T7-T8 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.44,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.1,
+          "sd": null,
+          "min": 0.3,
+          "max": 4.4,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_lbr_5_rc",
+      "label": "T7-T8 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.96,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.2,
+          "sd": null,
+          "min": 0.7,
+          "max": 6.3,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_arr_5_rc",
+      "label": "T7-T8 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.47,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.2,
+          "sd": null,
+          "min": 0.8,
+          "max": 4.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T8T9_fe_5_rc",
+      "label": "T8-T9 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T8-T9",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.52,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T8T9_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 1.57,
+          "sd": 1.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T9_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T8T9_lbr_5_rc",
+      "label": "T8-T9 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T8-T9",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.71,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T8T9_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 2.47,
+          "sd": 1.68,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T9_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T8T9_arr_5_rc",
+      "label": "T8-T9 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T8-T9",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.13,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T8T9_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "sis2016",
+          "mean": 4.05,
+          "sd": 2.32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T8T9_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_fe_5_rc",
+      "label": "T9-T10 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.79,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.3,
+          "sd": null,
+          "min": 1.0,
+          "max": 4.1,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_lbr_5_rc",
+      "label": "T9-T10 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.69,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.7,
+          "sd": null,
+          "min": 1.4,
+          "max": 4.8,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_arr_5_rc",
+      "label": "T9-T10 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.89,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.9,
+          "sd": null,
+          "min": 2.2,
+          "max": 5.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_fe_5_rc",
+      "label": "T11-T12 · Flexion+extension · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.52,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.4,
+          "sd": null,
+          "min": 2.1,
+          "max": 5.3,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 3.9,
+          "sd": 2.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T11T12_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12; T11 vs potted T12"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_lbr_5_rc",
+      "label": "T11-T12 · Lateral bending L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.16,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 23,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.6,
+          "sd": null,
+          "min": 1.5,
+          "max": 5.8,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 7.85,
+          "sd": 3.48,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T11T12_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12; T11 vs potted T12"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_arr_5_rc",
+      "label": "T11-T12 · Axial rotation L+R · 5 Nm",
+      "view": "seg_ribcage",
+      "inputs": {
+        "specimen": "within rib cage specimen",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 26,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_ribcage_intact_rom_5Nm",
+          "note": "Ulm pool of C7-L1 rib cage specimens"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.7,
+          "sd": null,
+          "min": 1.3,
+          "max": 6.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_ribcage_intact_rom_5Nm",
+          "note": "inside C7-L1"
+        },
+        {
+          "study": "sis2016",
+          "mean": 3.18,
+          "sd": 1.71,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "fe_rom_thoracic.sis2016.T11T12_ribcage_intact_rom_5nm",
+          "note": "inside T1-T12; T11 vs potted T12"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_fe_5_fsu",
+      "label": "T1-T2 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 8.26,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 2.77"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.3,
+          "sd": null,
+          "min": 2.2,
+          "max": 13.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_lbr_5_fsu",
+      "label": "T1-T2 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 8.35,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.52"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.9,
+          "sd": null,
+          "min": 3.6,
+          "max": 9.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_arr_5_fsu",
+      "label": "T1-T2 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 8.42,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 13,
+          "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.78"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 7.9,
+          "sd": null,
+          "min": 2.9,
+          "max": 12.1,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_fe_5_fsu",
+      "label": "T3-T4 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.41"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.5,
+          "sd": null,
+          "min": 1.3,
+          "max": 7.1,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_lbr_5_fsu",
+      "label": "T3-T4 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.58,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 13,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 0.71"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.2,
+          "sd": null,
+          "min": 3.1,
+          "max": 8.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_arr_5_fsu",
+      "label": "T3-T4 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 7.96,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.37"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 6.5,
+          "sd": null,
+          "min": 1.9,
+          "max": 8.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_fe_5_fsu",
+      "label": "T5-T6 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.63,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.07"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.9,
+          "sd": null,
+          "min": 1.5,
+          "max": 6.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_lbr_5_fsu",
+      "label": "T5-T6 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.45,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.2"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 5.1,
+          "sd": null,
+          "min": 2.5,
+          "max": 7.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_arr_5_fsu",
+      "label": "T5-T6 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 8.73,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 13,
+          "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.86"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 5.7,
+          "sd": null,
+          "min": 1.9,
+          "max": 8.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_fe_5_fsu",
+      "label": "T7-T8 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.13,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 16,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 0.82"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.9,
+          "sd": null,
+          "min": 1.7,
+          "max": 5.7,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_lbr_5_fsu",
+      "label": "T7-T8 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 5.04,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 16,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.77"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 4.2,
+          "sd": null,
+          "min": 0.9,
+          "max": 8.3,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_arr_5_fsu",
+      "label": "T7-T8 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 7.51,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 15,
+          "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.15"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 5.6,
+          "sd": null,
+          "min": 1.4,
+          "max": 8.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_fe_5_fsu",
+      "label": "T9-T10 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.09"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.0,
+          "sd": null,
+          "min": 1.1,
+          "max": 6.0,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_lbr_5_fsu",
+      "label": "T9-T10 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 5.17,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.93"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 3.9,
+          "sd": null,
+          "min": 1.8,
+          "max": 7.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_arr_5_fsu",
+      "label": "T9-T10 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.56,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.18"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 5.7,
+          "sd": null,
+          "min": 2.8,
+          "max": 7.2,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_fe_5_fsu",
+      "label": "T11-T12 · Flexion+extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.09,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.56"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 2.8,
+          "sd": null,
+          "min": 2.2,
+          "max": 7.1,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_lbr_5_fsu",
+      "label": "T11-T12 · Lateral bending L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 5.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.3"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 4.2,
+          "sd": null,
+          "min": 2.2,
+          "max": 7.5,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_arr_5_fsu",
+      "label": "T11-T12 · Axial rotation L+R · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.57,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
+          "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.22"
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 4.0,
+          "sd": null,
+          "min": 1.8,
+          "max": 8.1,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
+          "note": "monosegment cut from rib cage specimen, rib heads kept"
+        }
+      ]
+    },
+    {
+      "id": "pooled_flex_5_fsu",
+      "label": "T1-T12 pooled FSU · Flexion · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2..T11-T12 pooled",
+      "refs": [
+        {
+          "study": "liebsch2022",
+          "mean": 2.97,
+          "sd": null,
+          "min": 1.31,
+          "max": 4.74,
+          "stat": "mean",
+          "median": 2.75,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "grade 0 discs; levels pooled; min-max; IQR 2.54 to 3.55"
+        }
+      ]
+    },
+    {
+      "id": "pooled_ext_5_fsu",
+      "label": "T1-T12 pooled FSU · Extension · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2..T11-T12 pooled",
+      "refs": [
+        {
+          "study": "liebsch2022",
+          "mean": 3.71,
+          "sd": null,
+          "min": 1.25,
+          "max": 5.31,
+          "stat": "mean",
+          "median": 3.56,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "grade 0 discs; levels pooled; min-max; IQR 2.86 to 4.04"
+        }
+      ]
+    },
+    {
+      "id": "pooled_lb_5_fsu",
+      "label": "T1-T12 pooled FSU · Lat. bending · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2..T11-T12 pooled",
+      "refs": [
+        {
+          "study": "liebsch2022",
+          "mean": 3.98,
+          "sd": null,
+          "min": 2.32,
+          "max": 6.85,
+          "stat": "mean",
+          "median": 3.83,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "left; grade 0 discs; levels pooled; min-max; IQR 3.27 to 4.79"
+        },
+        {
+          "study": "liebsch2022",
+          "mean": 3.96,
+          "sd": null,
+          "min": 2.36,
+          "max": 6.82,
+          "stat": "mean",
+          "median": 3.76,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "right; grade 0 discs; levels pooled; min-max; IQR 3.33 to 4.81"
+        }
+      ]
+    },
+    {
+      "id": "pooled_ar_5_fsu",
+      "label": "T1-T12 pooled FSU · Axial rot. · 5 Nm",
+      "view": "seg_fsu",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2..T11-T12 pooled",
+      "refs": [
+        {
+          "study": "liebsch2022",
+          "mean": 4.15,
+          "sd": null,
+          "min": 2.27,
+          "max": 7.05,
+          "stat": "mean",
+          "median": 3.93,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "left; grade 0 discs; levels pooled; min-max; IQR 3.63 to 5.12"
+        },
+        {
+          "study": "liebsch2022",
+          "mean": 4.19,
+          "sd": null,
+          "min": 2.26,
+          "max": 7.07,
+          "stat": "mean",
+          "median": 3.96,
+          "n": 22,
+          "test_id": "fe_rom_thoracic.liebsch2022spinej.T1T12pooled_fsu_costovertebral_grade0_rom_5Nm",
+          "note": "right; grade 0 discs; levels pooled; min-max; IQR 3.61 to 5.16"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_flex_7p5_fsu",
+      "label": "T1-T2 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 7.1,
+          "sd": 0.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_ext_7p5_fsu",
+      "label": "T1-T2 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 6.69,
+          "sd": 0.39,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_lb_7p5_fsu",
+      "label": "T1-T2 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.87,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.92,
+          "sd": 1.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T1T2_ar_7p5_fsu",
+      "label": "T1-T2 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T1-T2",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 6.18,
+          "sd": 1.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 6.23,
+          "sd": 1.18,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T1T2_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_flex_7p5_fsu",
+      "label": "T3-T4 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.82,
+          "sd": 1.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_ext_7p5_fsu",
+      "label": "T3-T4 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.76,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_lb_7p5_fsu",
+      "label": "T3-T4 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.64,
+          "sd": 1.84,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.59,
+          "sd": 1.91,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T3T4_ar_7p5_fsu",
+      "label": "T3-T4 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T3-T4",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.82,
+          "sd": 1.23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.81,
+          "sd": 1.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T3T4_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_flex_7p5_fsu",
+      "label": "T5-T6 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.88,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_ext_7p5_fsu",
+      "label": "T5-T6 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.82,
+          "sd": 1.36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_lb_7p5_fsu",
+      "label": "T5-T6 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.1,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.06,
+          "sd": 1.32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T5T6_ar_7p5_fsu",
+      "label": "T5-T6 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T5-T6",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.69,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.74,
+          "sd": 1.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T5T6_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_flex_7p5_fsu",
+      "label": "T7-T8 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 2.78,
+          "sd": 0.55,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_ext_7p5_fsu",
+      "label": "T7-T8 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 2.82,
+          "sd": 0.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_lb_7p5_fsu",
+      "label": "T7-T8 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.74,
+          "sd": 0.89,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 3.69,
+          "sd": 0.84,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T7T8_ar_7p5_fsu",
+      "label": "T7-T8 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T7-T8",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 4.78,
+          "sd": 0.64,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 4.77,
+          "sd": 0.62,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.wilke2017.T7T8_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_flex_7p5_fsu",
+      "label": "T9-T10 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.54,
+          "sd": 0.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_ext_7p5_fsu",
+      "label": "T9-T10 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.49,
+          "sd": 0.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_lb_7p5_fsu",
+      "label": "T9-T10 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 4.5,
+          "sd": 1.25,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 4.45,
+          "sd": 1.18,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T9T10_ar_7p5_fsu",
+      "label": "T9-T10 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T9-T10",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 5.14,
+          "sd": 1.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 5.15,
+          "sd": 1.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T9T10_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        }
+      ]
+    },
+    {
+      "id": "T11T12_flex_7p5_fsu",
+      "label": "T11-T12 · Flexion · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.6,
+          "sd": 0.73,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        },
+        {
+          "study": "oxland1992",
+          "mean": 2.7,
+          "sd": 1.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T11T12_fsu_no_ribs_rom_7.5Nm",
+          "note": "no ribs (T11-L1 specimen)"
+        }
+      ],
+      "pooled": {
+        "mean": 3.0176,
+        "sd": 1.1914,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "wilke2017",
+          "oxland1992"
+        ]
+      }
+    },
+    {
+      "id": "T11T12_ext_7p5_fsu",
+      "label": "T11-T12 · Extension · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.55,
+          "sd": 0.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "rib stumps ~1.5 cm"
+        },
+        {
+          "study": "oxland1992",
+          "mean": 2.4,
+          "sd": 1.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T11T12_fsu_no_ribs_rom_7.5Nm",
+          "note": "no ribs (T11-L1 specimen)"
+        }
+      ],
+      "pooled": {
+        "mean": 2.8059,
+        "sd": 1.2682,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "wilke2017",
+          "oxland1992"
+        ]
+      }
+    },
+    {
+      "id": "T11T12_lb_7p5_fsu",
+      "label": "T11-T12 · Lateral bending · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.87,
+          "sd": 0.68,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 3.83,
+          "sd": 0.66,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "oxland1992",
+          "mean": 3.5,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T11T12_fsu_no_ribs_rom_7.5Nm",
+          "note": "no ribs (T11-L1 specimen)"
+        }
+      ],
+      "pooled": {
+        "mean": 3.6235,
+        "sd": 0.9624,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "wilke2017",
+          "oxland1992"
+        ]
+      }
+    },
+    {
+      "id": "T11T12_ar_7p5_fsu",
+      "label": "T11-T12 · Axial rotation · 7.5 Nm",
+      "view": "fsu_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T11-T12",
+      "refs": [
+        {
+          "study": "wilke2017",
+          "mean": 3.32,
+          "sd": 0.93,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "left; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "wilke2017",
+          "mean": 3.32,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.wilke2017.T11T12_fsu_costovertebral_rom_7.5Nm",
+          "note": "right; rib stumps ~1.5 cm"
+        },
+        {
+          "study": "oxland1992",
+          "mean": 1.8,
+          "sd": 0.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T11T12_fsu_no_ribs_rom_7.5Nm",
+          "note": "no ribs (T11-L1 specimen)"
+        }
+      ],
+      "pooled": {
+        "mean": 2.3365,
+        "sd": 1.0691,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "wilke2017",
+          "oxland1992"
+        ]
+      }
+    },
+    {
+      "id": "T1T12_fe_5_nz",
+      "label": "T1-T12 · NZ Flexion+extension · 5 Nm",
+      "view": "nz",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 2.3,
+          "sd": 1.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 9.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 8.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "T1T12_lbr_5_nz",
+      "label": "T1-T12 · NZ Lateral bending L+R · 5 Nm",
+      "view": "nz",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 4.5,
+          "sd": 3.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 16.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 14.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "T1T12_arr_5_nz",
+      "label": "T1-T12 · NZ Axial rotation L+R · 5 Nm",
+      "view": "nz",
+      "inputs": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "mannen2015",
+          "mean": 3.0,
+          "sd": 1.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.mannen2015.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020",
+          "mean": null,
+          "median": 4.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_thoracic.liebsch2020.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        },
+        {
+          "study": "liebsch2020fb",
+          "mean": null,
+          "median": 5.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.liebsch2020fb.T1T12_ribcage_intact_nz_5Nm",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "One direction (e.g. \"Flexion\") and full range (\"Flexion+extension\", \"L+R\") are separate tasks; moment differs between tasks (2, 5, 7.5, 8 Nm) and only same-moment values share a task.",
+    "Rib cage roughly halves segmental ROM: compare \"inside rib cage\" tasks only with rib-cage models and FSU tasks with FSU models.",
+    "Most Ulm values (Wilke 2025, Liebsch) are medians and overlap the same donors; Watkins 2005 values come via a secondary source."
+  ],
+  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", or a single FSU at the task level with rib heads but no rib cage. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "answer_format": {
+    "T1T12_fe_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_lbr_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_arr_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_flex_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_ext_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_lb_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_ar_5": {
+      "rom_total": "deg"
+    },
+    "T1T12_arr_5_ax50": {
+      "rom_total": "deg"
+    },
+    "T1T12_fe_2": {
+      "rom_total": "deg"
+    },
+    "T1T12_lbr_2": {
+      "rom_total": "deg"
+    },
+    "T1T12_arr_2": {
+      "rom_total": "deg"
+    },
+    "T1T12_flex_8": {
+      "rom_total": "deg"
+    },
+    "T1T12_ext_8": {
+      "rom_total": "deg"
+    },
+    "T1T12_lb_8": {
+      "rom_total": "deg"
+    },
+    "T1T12_ar_8": {
+      "rom_total": "deg"
+    },
+    "T1T4_fe_5": {
+      "rom_total": "deg"
+    },
+    "T1T4_fe_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T1T4_fe_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T4_lbr_5": {
+      "rom_total": "deg"
+    },
+    "T1T4_lbr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T1T4_lbr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T4_arr_5": {
+      "rom_total": "deg"
+    },
+    "T1T4_arr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T1T4_arr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T4T8_fe_5": {
+      "rom_total": "deg"
+    },
+    "T4T8_fe_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T4T8_fe_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T4T8_lbr_5": {
+      "rom_total": "deg"
+    },
+    "T4T8_lbr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T4T8_lbr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T4T8_arr_5": {
+      "rom_total": "deg"
+    },
+    "T4T8_arr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T4T8_arr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T8T12_fe_5": {
+      "rom_total": "deg"
+    },
+    "T8T12_fe_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T8T12_fe_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T8T12_lbr_5": {
+      "rom_total": "deg"
+    },
+    "T8T12_lbr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T8T12_lbr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T8T12_arr_5": {
+      "rom_total": "deg"
+    },
+    "T8T12_arr_5_fl200": {
+      "rom_total": "deg"
+    },
+    "T8T12_arr_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T12_flex_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T12_ext_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T12_lb_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T12_ar_5_fl400": {
+      "rom_total": "deg"
+    },
+    "T1T2_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T2T3_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T2T3_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T2T3_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T4T5_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T4T5_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T4T5_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T8T9_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T8T9_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T8T9_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_fe_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_lbr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_arr_5_rc": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_fe_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_lbr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_arr_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "pooled_flex_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "pooled_ext_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "pooled_lb_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "pooled_ar_5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T2_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T3T4_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T5T6_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T7T8_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T9T10_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_flex_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_ext_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_lb_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T11T12_ar_7p5_fsu": {
+      "rom_segmental": "deg"
+    },
+    "T1T12_fe_5_nz": {
+      "nz": "deg"
+    },
+    "T1T12_lbr_5_nz": {
+      "nz": "deg"
+    },
+    "T1T12_arr_5_nz": {
+      "nz": "deg"
+    }
+  }
+}

@@ -1,0 +1,4419 @@
+{
+  "id": "lumbar_rom",
+  "title": "Lumbar range of motion",
+  "domain": "fe",
+  "region": "lumbar",
+  "levels": [
+    "T12-L1",
+    "L1-L2",
+    "L2-L3",
+    "L3-L4",
+    "L4-L5",
+    "L5-S1"
+  ],
+  "summary": "Apply pure moments (optionally with preload) to intact lumbar specimens and report segmental and total rotation per task.",
+  "simulate": [
+    "Build the intact ligamentous specimen named in the task (FSU, or multi-level L1-S1 / L1-L5); fix the caudal vertebra (sacrum).",
+    "Apply a pure moment to the cranial vertebra in the task direction; leave the other 5 DOF free.",
+    "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force.",
+    "Report rotation of each upper vertebra relative to the one below (segmental) and of the cranial end relative to the caudal end (total), at peak moment, loading branch.",
+    "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
+  ],
+  "inputs": [
+    {
+      "key": "specimen",
+      "label": "Specimen"
+    },
+    {
+      "key": "moment_nm",
+      "label": "Pure moment",
+      "unit": "Nm"
+    },
+    {
+      "key": "direction",
+      "label": "Direction"
+    },
+    {
+      "key": "follower_n",
+      "label": "Follower load",
+      "unit": "N"
+    },
+    {
+      "key": "axial_n",
+      "label": "Axial preload",
+      "unit": "N"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "rom_segmental",
+      "label": "Segmental ROM",
+      "unit": "deg"
+    },
+    {
+      "key": "rom_total",
+      "label": "Total ROM (whole specimen)",
+      "unit": "deg"
+    },
+    {
+      "key": "nz",
+      "label": "Neutral zone",
+      "unit": "deg"
+    }
+  ],
+  "studies": [
+    {
+      "key": "panjabi1994",
+      "short": "Panjabi 1994",
+      "year": 1994,
+      "n": 9,
+      "sample": "9 L1-S1/L2-S1 spines, 100 N axial preload",
+      "doi": "",
+      "secondary": false
+    },
+    {
+      "key": "guan2007",
+      "short": "Guan 2007",
+      "year": 2007,
+      "n": 10,
+      "sample": "10 T12-S1 ligamentous columns, to 4 Nm",
+      "doi": "10.1016/j.jbiomech.2006.09.027",
+      "secondary": false
+    },
+    {
+      "key": "cook2015",
+      "short": "Cook 2015",
+      "year": 2015,
+      "n": 42,
+      "sample": "42 L1-S1 spines, 204 FSUs, split by sex",
+      "doi": "10.14444/2005",
+      "secondary": false
+    },
+    {
+      "key": "renner2007",
+      "short": "Renner 2007",
+      "year": 2007,
+      "n": 10,
+      "sample": "10 L1-S1 spines, 0 and 800 N follower",
+      "doi": "10.1016/j.jbiomech.2006.05.019",
+      "secondary": false
+    },
+    {
+      "key": "patwardhan2003",
+      "short": "Patwardhan 2003",
+      "year": 2003,
+      "n": 21,
+      "sample": "21 L1-S1 spines, follower 0-1200 N",
+      "doi": "10.1016/S0736-0266(02)00202-4",
+      "secondary": false
+    },
+    {
+      "key": "wilke2025",
+      "short": "Wilke 2025",
+      "year": 2025,
+      "n": 596,
+      "sample": "Ulm database, 596 intact lumbar FSUs (T12-S1)",
+      "doi": "10.1002/jsp2.70052",
+      "secondary": false
+    },
+    {
+      "key": "heuer2007a",
+      "short": "Heuer 2007a",
+      "year": 2007,
+      "n": 8,
+      "sample": "8 L4-L5 FSUs, low degeneration",
+      "doi": "10.1016/j.jbiomech.2006.01.007",
+      "secondary": false
+    },
+    {
+      "key": "heuer2008",
+      "short": "Heuer 2008",
+      "year": 2008,
+      "n": 6,
+      "sample": "6 L2-L3 FSUs, same donors as Heuer 2007a",
+      "doi": "10.1016/j.jbiomech.2008.03.023",
+      "secondary": false
+    },
+    {
+      "key": "sawa2008",
+      "short": "Sawa 2008",
+      "year": 2008,
+      "n": 6,
+      "sample": "6 T12-L2 specimens, L1-L2 rotation",
+      "doi": "10.1016/j.jbiomech.2008.06.010",
+      "secondary": false
+    },
+    {
+      "key": "schultz1979",
+      "short": "Schultz 1979",
+      "year": 1979,
+      "n": 42,
+      "sample": "42 lumbar FSUs (L1-L5 pooled), 400 N axial",
+      "doi": "",
+      "secondary": false
+    },
+    {
+      "key": "kettler2011",
+      "short": "Kettler 2011",
+      "year": 2011,
+      "n": 96,
+      "sample": "96 grade-0 segments (of 203), L1-L5 pooled",
+      "doi": "10.1007/s00586-010-1635-z",
+      "secondary": false
+    },
+    {
+      "key": "oxland1992",
+      "short": "Oxland 1992",
+      "year": 1992,
+      "n": 11,
+      "sample": "11 T11-L1 specimens, T12-L1 level",
+      "doi": "10.1002/jor.1100100412",
+      "secondary": false
+    },
+    {
+      "key": "rohlmann2001a",
+      "short": "Rohlmann 2001a",
+      "year": 2001,
+      "n": 7,
+      "sample": "7 four-segment spines (L1-L5 or T12-L4)",
+      "doi": "10.1007/s005860100295",
+      "secondary": false
+    },
+    {
+      "key": "gornet2011",
+      "short": "Gornet 2011",
+      "year": 2011,
+      "n": 5,
+      "sample": "5 L1-S1 spines, L4-L5, 450 N follower",
+      "doi": "10.1115/1.4004862",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "patwardhan2003",
+      "renner2007"
+    ],
+    [
+      "heuer2007a",
+      "heuer2008"
+    ],
+    [
+      "heuer2007a",
+      "wilke2025"
+    ],
+    [
+      "heuer2008",
+      "wilke2025"
+    ],
+    [
+      "kettler2011",
+      "wilke2025"
+    ],
+    [
+      "heuer2007a",
+      "kettler2011"
+    ],
+    [
+      "heuer2008",
+      "kettler2011"
+    ],
+    [
+      "rohlmann2001a",
+      "wilke2025"
+    ]
+  ],
+  "views": [
+    {
+      "id": "seg_7p5",
+      "title": "Segmental ROM at 7.5 Nm",
+      "task_ids": [
+        "T12L1_flex_7p5",
+        "T12L1_ext_7p5",
+        "T12L1_lb_7p5",
+        "T12L1_ar_7p5",
+        "T12L1_fe_7p5",
+        "T12L1_lbr_7p5",
+        "T12L1_arr_7p5",
+        "L1L2_flex_7p5",
+        "L1L2_ext_7p5",
+        "L1L2_lb_7p5",
+        "L1L2_ar_7p5",
+        "L1L2_fe_7p5",
+        "L1L2_lbr_7p5",
+        "L1L2_arr_7p5",
+        "L2L3_flex_7p5",
+        "L2L3_ext_7p5",
+        "L2L3_lb_7p5",
+        "L2L3_ar_7p5",
+        "L2L3_fe_7p5",
+        "L2L3_lbr_7p5",
+        "L2L3_arr_7p5",
+        "L3L4_flex_7p5",
+        "L3L4_ext_7p5",
+        "L3L4_lb_7p5",
+        "L3L4_ar_7p5",
+        "L3L4_fe_7p5",
+        "L3L4_lbr_7p5",
+        "L3L4_arr_7p5",
+        "L4L5_flex_7p5",
+        "L4L5_ext_7p5",
+        "L4L5_lb_7p5",
+        "L4L5_ar_7p5",
+        "L4L5_fe_7p5",
+        "L4L5_lbr_7p5",
+        "L4L5_arr_7p5",
+        "L5S1_flex_7p5",
+        "L5S1_ext_7p5",
+        "L5S1_lb_7p5",
+        "L5S1_ar_7p5",
+        "L5S1_fe_7p5",
+        "L5S1_lbr_7p5",
+        "L5S1_arr_7p5",
+        "L1L5pooled_fe_7p5",
+        "L1L5pooled_lbr_7p5",
+        "L1L5pooled_arr_7p5"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "total",
+      "title": "Total ROM (whole specimen)",
+      "task_ids": [
+        "L1S1_fe_8_6",
+        "L1S1_lbr_6",
+        "L1S1_arr_4",
+        "4seg_flex_3p75",
+        "4seg_ext_3p75",
+        "4seg_lb_3p75",
+        "4seg_ar_3p75"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "rom_moment",
+      "title": "ROM vs moment (L4-L5, one direction)",
+      "task_ids": [
+        "L4L5_flex_1",
+        "L4L5_flex_2p5",
+        "L4L5_flex_4",
+        "L4L5_flex_5",
+        "L4L5_flex_7p5",
+        "L4L5_flex_10",
+        "L4L5_ext_1",
+        "L4L5_ext_2p5",
+        "L4L5_ext_4",
+        "L4L5_ext_5",
+        "L4L5_ext_7p5",
+        "L4L5_ext_10",
+        "L4L5_lb_1",
+        "L4L5_lb_2p5",
+        "L4L5_lb_4",
+        "L4L5_lb_5",
+        "L4L5_lb_7p5",
+        "L4L5_lb_10",
+        "L4L5_ar_1",
+        "L4L5_ar_2p5",
+        "L4L5_ar_5",
+        "L4L5_ar_7p5",
+        "L4L5_ar_10"
+      ],
+      "x": "input:moment_nm"
+    },
+    {
+      "id": "follower",
+      "title": "Follower load (8 Nm flexion / 6 Nm extension)",
+      "task_ids": [
+        "L1S1_fe_8_6",
+        "L1S1_fe_8_6_fl200",
+        "L1S1_fe_8_6_fl400",
+        "L1S1_fe_8_6_fl800",
+        "L1S1_fe_8_6_fl1200",
+        "L1L2_fe_8_6",
+        "L1L2_fe_8_6_fl800",
+        "L2L3_fe_8_6",
+        "L2L3_fe_8_6_fl800",
+        "L3L4_fe_8_6",
+        "L3L4_fe_8_6_fl800",
+        "L4L5_fe_8_6",
+        "L4L5_fe_8_6_fl800",
+        "L5S1_fe_8_6",
+        "L5S1_fe_8_6_fl800",
+        "L4L5_fe_8_6_fl450"
+      ],
+      "x": "input:follower_n"
+    },
+    {
+      "id": "axial",
+      "title": "FSU under 400 N axial preload",
+      "task_ids": [
+        "L1L5pooled_flex_10p6_ax400",
+        "L1L5pooled_ext_10p6_ax400",
+        "L1L5pooled_lb_10p6_ax400",
+        "L1L5pooled_ar_10p6_ax400"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "nz",
+      "title": "Neutral zone (full range, 7.5 Nm)",
+      "task_ids": [
+        "L4L5_fe_7p5_nz",
+        "L4L5_lbr_7p5_nz",
+        "L4L5_arr_7p5_nz",
+        "L1L5pooled_fe_7p5_nz",
+        "L1L5pooled_lbr_7p5_nz",
+        "L1L5pooled_arr_7p5_nz"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T12L1_flex_7p5",
+      "label": "T12-L1 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "oxland1992",
+          "mean": 2.9,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T12L1_fsu_no_ribs_rom_7.5Nm",
+          "note": "inside T11-L1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_ext_7p5",
+      "label": "T12-L1 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "oxland1992",
+          "mean": 3.9,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T12L1_fsu_no_ribs_rom_7.5Nm",
+          "note": "inside T11-L1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_lb_7p5",
+      "label": "T12-L1 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "oxland1992",
+          "mean": 3.7,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T12L1_fsu_no_ribs_rom_7.5Nm",
+          "note": "inside T11-L1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_ar_7p5",
+      "label": "T12-L1 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "oxland1992",
+          "mean": 1.2,
+          "sd": 0.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "fe_rom_thoracic.oxland1992.T12L1_fsu_no_ribs_rom_7.5Nm",
+          "note": "inside T11-L1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_fe_7p5",
+      "label": "T12-L1 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 5.56,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 13,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.T12L1_intact",
+          "note": "mono- and polysegmental mixed; MAD 2.28"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_lbr_7p5",
+      "label": "T12-L1 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.81,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 14,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.T12L1_intact",
+          "note": "mono- and polysegmental mixed; MAD 3.0"
+        }
+      ]
+    },
+    {
+      "id": "T12L1_arr_7p5",
+      "label": "T12-L1 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T12-L1",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.04,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.T12L1_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.0"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_flex_7p5",
+      "label": "L1-L2 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.24,
+          "sd": 1.28,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_ext_7p5",
+      "label": "L1-L2 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.75,
+          "sd": 1.03,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lb_7p5",
+      "label": "L1-L2 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.26,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.5,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "sawa2008",
+          "mean": 3.6,
+          "sd": 1.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
+          "note": "one side; inside T12-L2"
+        }
+      ],
+      "pooled": {
+        "mean": 3.7273,
+        "sd": 1.1562,
+        "N": 11,
+        "k": 2,
+        "studies": [
+          "panjabi1994",
+          "sawa2008"
+        ]
+      }
+    },
+    {
+      "id": "L1L2_ar_7p5",
+      "label": "L1-L2 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.27,
+          "sd": 1.24,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.53,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "sawa2008",
+          "mean": 1.3,
+          "sd": 0.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
+          "note": "one side; inside T12-L2"
+        }
+      ],
+      "pooled": {
+        "mean": 1.3455,
+        "sd": 0.8464,
+        "N": 11,
+        "k": 2,
+        "studies": [
+          "panjabi1994",
+          "sawa2008"
+        ]
+      }
+    },
+    {
+      "id": "L1L2_fe_7p5",
+      "label": "L1-L2 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "sawa2008",
+          "mean": 7.2,
+          "sd": 0.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.sawa2008.L1L2_intact",
+          "note": "inside T12-L2"
+        },
+        {
+          "study": "cook2015",
+          "mean": 8.59,
+          "sd": 2.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 6.09,
+          "sd": 1.82,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.43,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 38,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.37"
+        }
+      ],
+      "pooled": {
+        "mean": 7.22,
+        "sd": 0.5503,
+        "N": 7,
+        "k": 2,
+        "studies": [
+          "sawa2008",
+          "cook2015"
+        ]
+      }
+    },
+    {
+      "id": "L1L2_lbr_7p5",
+      "label": "L1-L2 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 8.34,
+          "sd": 2.51,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 6.35,
+          "sd": 1.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 7.32,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 39,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.62"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_arr_7p5",
+      "label": "L1-L2 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 3.03,
+          "sd": 1.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 2.29,
+          "sd": 1.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.44,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 37,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
+          "note": "mono- and polysegmental mixed; MAD 0.85"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_flex_7p5",
+      "label": "L2-L3 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 5.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "FSU, 2nd cycle"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 6.69,
+          "sd": 1.56,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ext_7p5",
+      "label": "L2-L3 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 3.36,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "FSU, 2nd cycle"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.15,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lb_7p5",
+      "label": "L2-L3 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 5.79,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "right; FSU, 2nd cycle"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.21,
+          "sd": 1.52,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.45,
+          "sd": 1.23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ar_7p5",
+      "label": "L2-L3 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 2.15,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "left; FSU, 2nd cycle"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.28,
+          "sd": 1.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.44,
+          "sd": 0.49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_7p5",
+      "label": "L2-L3 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 9.35,
+          "sd": 2.25,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 6.91,
+          "sd": 1.82,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 8.36,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 165,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.59"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lbr_7p5",
+      "label": "L2-L3 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 10.54,
+          "sd": 3.02,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 8.38,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 9.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 166,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.81"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_arr_7p5",
+      "label": "L2-L3 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 4.55,
+          "sd": 2.52,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 3.26,
+          "sd": 2.24,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 3.99,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 165,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.23"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_flex_7p5",
+      "label": "L3-L4 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 6.6,
+          "sd": 1.89,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ext_7p5",
+      "label": "L3-L4 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.99,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lb_7p5",
+      "label": "L3-L4 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 4.74,
+          "sd": 1.91,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.08,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ar_7p5",
+      "label": "L3-L4 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 1.67,
+          "sd": 1.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.83,
+          "sd": 0.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_7p5",
+      "label": "L3-L4 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 10.12,
+          "sd": 2.78,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 7.87,
+          "sd": 2.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 7.79,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 93,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.34"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lbr_7p5",
+      "label": "L3-L4 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 11.02,
+          "sd": 2.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 9.16,
+          "sd": 2.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 9.12,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 92,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.69"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_arr_7p5",
+      "label": "L3-L4 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 5.67,
+          "sd": 3.03,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 4.3,
+          "sd": 1.96,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.98,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 94,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.28"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_7p5",
+      "label": "L4-L5 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.19,
+          "sd": null,
+          "min": 4.15,
+          "max": 8.14,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 8.61,
+          "sd": 2.67,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_7p5",
+      "label": "L4-L5 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.1,
+          "sd": null,
+          "min": 3.22,
+          "max": 4.93,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.16,
+          "sd": 1.53,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_7p5",
+      "label": "L4-L5 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.15,
+          "sd": null,
+          "min": 3.98,
+          "max": 6.53,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "right; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.42,
+          "sd": 2.82,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.64,
+          "sd": 1.31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_7p5",
+      "label": "L4-L5 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 2.7,
+          "sd": null,
+          "min": 1.13,
+          "max": 3.67,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "left; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.65,
+          "sd": 0.84,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.13,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_7p5",
+      "label": "L4-L5 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 12.71,
+          "sd": 3.41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 9.26,
+          "sd": 2.69,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 10.33,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 216,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.74"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 10.76,
+          "sd": 2.72,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 132,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 9.63,
+          "sd": 2.31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 84,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
+          "note": "inside polysegmental specimens"
+        }
+      ],
+      "pooled": {
+        "mean": 10.2009,
+        "sd": 2.5064,
+        "N": 133,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "wilke2025"
+        ]
+      }
+    },
+    {
+      "id": "L4L5_lbr_7p5",
+      "label": "L4-L5 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 11.09,
+          "sd": 2.64,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 7.24,
+          "sd": 2.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 9.48,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 224,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.85"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 9.81,
+          "sd": 2.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 140,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 8.72,
+          "sd": 2.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 84,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
+          "note": "inside polysegmental specimens"
+        }
+      ],
+      "pooled": {
+        "mean": 9.2643,
+        "sd": 2.5957,
+        "N": 141,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "wilke2025"
+        ]
+      }
+    },
+    {
+      "id": "L4L5_arr_7p5",
+      "label": "L4-L5 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 5.9,
+          "sd": 3.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 3.54,
+          "sd": 1.65,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.58,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 221,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.2"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 5.23,
+          "sd": 1.77,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 131,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 3.83,
+          "sd": 1.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 90,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
+          "note": "inside polysegmental specimens"
+        }
+      ],
+      "pooled": {
+        "mean": 4.5314,
+        "sd": 1.6936,
+        "N": 132,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "wilke2025"
+        ]
+      }
+    },
+    {
+      "id": "L5S1_flex_7p5",
+      "label": "L5-S1 · Flexion · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 8.61,
+          "sd": 2.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ext_7p5",
+      "label": "L5-S1 · Extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 5.62,
+          "sd": 2.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lb_7p5",
+      "label": "L5-S1 · Lateral bending · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 3.69,
+          "sd": 2.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.31,
+          "sd": 2.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ar_7p5",
+      "label": "L5-S1 · Axial rotation · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "panjabi1994",
+          "mean": 0.57,
+          "sd": 0.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.43,
+          "sd": 0.59,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_7p5",
+      "label": "L5-S1 · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 14.24,
+          "sd": 4.08,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 10.55,
+          "sd": 3.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 10.75,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 65,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
+          "note": "mono- and polysegmental mixed; MAD 3.2"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lbr_7p5",
+      "label": "L5-S1 · Lateral bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 8.89,
+          "sd": 2.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 6.42,
+          "sd": 1.99,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 6.41,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 61,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
+          "note": "mono- and polysegmental mixed; MAD 2.14"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_arr_7p5",
+      "label": "L5-S1 · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "cook2015",
+          "mean": 4.27,
+          "sd": 1.96,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
+          "note": "female FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "cook2015",
+          "mean": 3.56,
+          "sd": 2.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
+          "note": "male FSUs inside L1-S1; per-level n not reported"
+        },
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 4.04,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 61,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
+          "note": "mono- and polysegmental mixed; MAD 1.26"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_fe_7p5",
+      "label": "L1-L5 pool · Flexion+extension · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 9.9,
+          "sd": 2.62,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 96,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0",
+          "note": "degeneration grade 0; mono+polysegmental; levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_lbr_7p5",
+      "label": "L1-L5 pool · Lat. bending L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 10.5,
+          "sd": 2.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 96,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0",
+          "note": "degeneration grade 0; mono+polysegmental; levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_arr_7p5",
+      "label": "L1-L5 pool · Axial rotation L+R · 7.5 Nm",
+      "view": "seg_7p5",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 3.89,
+          "sd": 1.81,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 96,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0",
+          "note": "degeneration grade 0; mono+polysegmental; levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1S1_fe_8_6",
+      "label": "L1-S1 · Flexion+extension · 8/6 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 49.35,
+          "sd": 9.77,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "~14 N axial from loading apparatus"
+        },
+        {
+          "study": "patwardhan2003",
+          "mean": 53.4,
+          "sd": 13.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 21,
+          "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+          "note": "0 N follower, neutral path"
+        }
+      ]
+    },
+    {
+      "id": "L1S1_lbr_6",
+      "label": "L1-S1 · Lateral bending L+R · 6 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": 6,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 48.18,
+          "sd": 10.59,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "L1S1_arr_4",
+      "label": "L1-S1 · Axial rotation L+R · 4 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": 4,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 12.91,
+          "sd": 3.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "4seg_flex_3p75",
+      "label": "4-segment · Flexion · 3.75 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-L5 or T12-L4 (4 segments)",
+        "moment_nm": 3.75,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001a",
+          "mean": 13,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001a.L1L5_intact_total_rom",
+          "note": "\"about\" (text); 4 L1-L5 + 3 T12-L4"
+        }
+      ]
+    },
+    {
+      "id": "4seg_ext_3p75",
+      "label": "4-segment · Extension · 3.75 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-L5 or T12-L4 (4 segments)",
+        "moment_nm": 3.75,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001a",
+          "mean": 9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001a.L1L5_intact_total_rom",
+          "note": "\"about\" (text); 4 L1-L5 + 3 T12-L4"
+        }
+      ]
+    },
+    {
+      "id": "4seg_lb_3p75",
+      "label": "4-segment · Lateral bending · 3.75 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-L5 or T12-L4 (4 segments)",
+        "moment_nm": 3.75,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001a",
+          "mean": 15,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001a.L1L5_intact_total_rom",
+          "note": "\"about\" (text); 4 L1-L5 + 3 T12-L4; L/R averaged"
+        }
+      ]
+    },
+    {
+      "id": "4seg_ar_3p75",
+      "label": "4-segment · Axial rotation · 3.75 Nm",
+      "view": "total",
+      "inputs": {
+        "specimen": "L1-L5 or T12-L4 (4 segments)",
+        "moment_nm": 3.75,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001a",
+          "mean": 4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001a.L1L5_intact_total_rom",
+          "note": "\"about\" (text); 4 L1-L5 + 3 T12-L4; L/R averaged"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_1",
+      "label": "L4-L5 · Flexion · 1 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 1,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.84,
+          "sd": 1.39,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 0.75,
+          "sd": null,
+          "min": 0.39,
+          "max": 1.54,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_2p5",
+      "label": "L4-L5 · Flexion · 2.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 3.4,
+          "sd": 1.81,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 3.13,
+          "sd": null,
+          "min": 1.67,
+          "max": 4.54,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 6.41,
+          "sd": 1.89,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 4.8258,
+        "sd": 2.3685,
+        "N": 19,
+        "k": 2,
+        "studies": [
+          "guan2007",
+          "panjabi1994"
+        ]
+      }
+    },
+    {
+      "id": "L4L5_flex_4",
+      "label": "L4-L5 · Flexion · 4 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 4,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 4.43,
+          "sd": 2.01,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_5",
+      "label": "L4-L5 · Flexion · 5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.02,
+          "sd": null,
+          "min": 3.31,
+          "max": 6.82,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 7.98,
+          "sd": 2.47,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_flex_10",
+      "label": "L4-L5 · Flexion · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 7.14,
+          "sd": null,
+          "min": 4.86,
+          "max": 9.49,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 9.12,
+          "sd": 2.76,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_1",
+      "label": "L4-L5 · Extension · 1 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 1,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.39,
+          "sd": 0.29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 0.66,
+          "sd": null,
+          "min": 0.35,
+          "max": 1.68,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_2p5",
+      "label": "L4-L5 · Extension · 2.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 0.96,
+          "sd": 0.66,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 1.89,
+          "sd": null,
+          "min": 1.13,
+          "max": 2.87,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 1.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 1.5521,
+        "sd": 1.0578,
+        "N": 19,
+        "k": 2,
+        "studies": [
+          "guan2007",
+          "panjabi1994"
+        ]
+      }
+    },
+    {
+      "id": "L4L5_ext_4",
+      "label": "L4-L5 · Extension · 4 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 4,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.47,
+          "sd": 0.96,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "inside T12-S1; SD from whiskers"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_5",
+      "label": "L4-L5 · Extension · 5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 3.14,
+          "sd": null,
+          "min": 2.51,
+          "max": 4.09,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 2.21,
+          "sd": 2.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ext_10",
+      "label": "L4-L5 · Extension · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.92,
+          "sd": null,
+          "min": 3.87,
+          "max": 5.77,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.55,
+          "sd": 1.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_1",
+      "label": "L4-L5 · Lateral bending · 1 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 1,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 1.47,
+          "sd": 0.83,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "right; inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "guan2007",
+          "mean": 1.15,
+          "sd": 0.61,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "left; inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 1.28,
+          "sd": null,
+          "min": 0.77,
+          "max": 1.78,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "right; FSU; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_2p5",
+      "label": "L4-L5 · Lateral bending · 2.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 2.54,
+          "sd": 1.29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "right; inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "guan2007",
+          "mean": 2.02,
+          "sd": 0.96,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "left; inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 2.81,
+          "sd": null,
+          "min": 2.02,
+          "max": 3.83,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "right; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 2.89,
+          "sd": 1.83,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.24,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ],
+      "pooled": {
+        "mean": 2.6518,
+        "sd": 1.3077,
+        "N": 19,
+        "k": 2,
+        "studies": [
+          "guan2007",
+          "panjabi1994"
+        ]
+      }
+    },
+    {
+      "id": "L4L5_lb_4",
+      "label": "L4-L5 · Lateral bending · 4 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 4,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "guan2007",
+          "mean": 3.22,
+          "sd": 1.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "right; inside T12-S1; SD from whiskers"
+        },
+        {
+          "study": "guan2007",
+          "mean": 2.55,
+          "sd": 1.14,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.guan2007.T12S1_intact_curve",
+          "note": "left; inside T12-S1; SD from whiskers"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_5",
+      "label": "L4-L5 · Lateral bending · 5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.19,
+          "sd": null,
+          "min": 3.3,
+          "max": 5.54,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "right; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 3.86,
+          "sd": 2.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.14,
+          "sd": 2.14,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lb_10",
+      "label": "L4-L5 · Lateral bending · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.12,
+          "sd": null,
+          "min": 4.53,
+          "max": 7.16,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "right; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 4.86,
+          "sd": 2.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 5.08,
+          "sd": 1.55,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_1",
+      "label": "L4-L5 · Axial rotation · 1 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 1,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 0.36,
+          "sd": null,
+          "min": 0.1,
+          "max": 0.74,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "left; FSU; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_2p5",
+      "label": "L4-L5 · Axial rotation · 2.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 0.98,
+          "sd": null,
+          "min": 0.31,
+          "max": 1.77,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "left; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.25,
+          "sd": 0.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.54,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_5",
+      "label": "L4-L5 · Axial rotation · 5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 1.88,
+          "sd": null,
+          "min": 0.72,
+          "max": 2.83,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "left; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.54,
+          "sd": 0.77,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.94,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_ar_10",
+      "label": "L4-L5 · Axial rotation · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 3.45,
+          "sd": null,
+          "min": 1.56,
+          "max": 4.34,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "left; FSU; min-max over specimens"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 0.76,
+          "sd": 0.73,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "left; 100 N axial preload; L1-S1 specimen"
+        },
+        {
+          "study": "panjabi1994",
+          "mean": 1.41,
+          "sd": 1.49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "fe_rom_lumbar_multi.panjabi1994.L1S1_intact_curve",
+          "note": "right; 100 N axial preload; L1-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L1S1_fe_8_6_fl200",
+      "label": "L1-S1 · Flexion+extension · FL 200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "patwardhan2003",
+          "mean": 53.7,
+          "sd": 13.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 21,
+          "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+          "note": "neutral path"
+        }
+      ]
+    },
+    {
+      "id": "L1S1_fe_8_6_fl400",
+      "label": "L1-S1 · Flexion+extension · FL 400 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "patwardhan2003",
+          "mean": 50.3,
+          "sd": 12.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 21,
+          "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+          "note": "neutral path"
+        }
+      ]
+    },
+    {
+      "id": "L1S1_fe_8_6_fl800",
+      "label": "L1-S1 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "patwardhan2003",
+          "mean": 45.0,
+          "sd": 10.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 21,
+          "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+          "note": "neutral path"
+        },
+        {
+          "study": "renner2007",
+          "mean": 38.87,
+          "sd": 7.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "L1S1_fe_8_6_fl1200",
+      "label": "L1-S1 · Flexion+extension · FL 1200 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 1200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "patwardhan2003",
+          "mean": 39.3,
+          "sd": 10.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 21,
+          "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
+          "note": "neutral path"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_fe_8_6",
+      "label": "L1-L2 · Flexion+extension · 8/6 Nm",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 8.85,
+          "sd": 4.38,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "inside L1-S1"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_fe_8_6_fl800",
+      "label": "L1-L2 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 5.43,
+          "sd": 2.81,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": "inside L1-S1; 8/6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_8_6",
+      "label": "L2-L3 · Flexion+extension · 8/6 Nm",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 6.41,
+          "sd": 3.05,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "inside L1-S1"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_8_6_fl800",
+      "label": "L2-L3 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 6.19,
+          "sd": 1.66,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": "inside L1-S1; 8/6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_8_6",
+      "label": "L3-L4 · Flexion+extension · 8/6 Nm",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 9.46,
+          "sd": 2.14,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "inside L1-S1"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_8_6_fl800",
+      "label": "L3-L4 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 7.98,
+          "sd": 2.23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": "inside L1-S1; 8/6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_8_6",
+      "label": "L4-L5 · Flexion+extension · 8/6 Nm",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 12.31,
+          "sd": 4.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "inside L1-S1"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_8_6_fl800",
+      "label": "L4-L5 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 9.77,
+          "sd": 2.87,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": "inside L1-S1; 8/6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_8_6",
+      "label": "L5-S1 · Flexion+extension · 8/6 Nm",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 9.46,
+          "sd": 3.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_intact_rom",
+          "note": "inside L1-S1"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_8_6_fl800",
+      "label": "L5-S1 · Flexion+extension · FL 800 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "renner2007",
+          "mean": 8.62,
+          "sd": 2.74,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
+          "note": "inside L1-S1; 8/6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_8_6_fl450",
+      "label": "L4-L5 · Flexion+extension · FL 450 N",
+      "view": "follower",
+      "inputs": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 450,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "gornet2011",
+          "mean": 8.83,
+          "sd": 2.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "fe_rom_lumbar_multi.gornet2011.L4L5_intact",
+          "note": "inside L1-S1; 8/6 Nm; SD = whisker (type not stated)"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_flex_10p6_ax400",
+      "label": "L1-L5 pool · Flexion · 10.6 Nm",
+      "view": "axial",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10.6,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 5.51,
+          "sd": 1.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_ext_10p6_ax400",
+      "label": "L1-L5 pool · Extension · 10.6 Nm",
+      "view": "axial",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10.6,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 2.99,
+          "sd": 1.02,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_lb_10p6_ax400",
+      "label": "L1-L5 pool · Lateral bending · 10.6 Nm",
+      "view": "axial",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10.6,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 5.64,
+          "sd": 1.22,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "right; n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
+        },
+        {
+          "study": "schultz1979",
+          "mean": 4.9,
+          "sd": 0.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "left; n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_ar_10p6_ax400",
+      "label": "L1-L5 pool · Axial rotation · 10.6 Nm",
+      "view": "axial",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 10.6,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 1.5,
+          "sd": 0.67,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_7p5_nz",
+      "label": "L4-L5 · NZ Flexion+extension",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 2.29,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 216,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_nz",
+          "note": "mono- and polysegmental mixed; MAD 0.93"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 2.36,
+          "sd": 1.31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 130,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg_nz",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 2.76,
+          "sd": 1.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 79,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg_nz",
+          "note": "inside polysegmental specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lbr_7p5_nz",
+      "label": "L4-L5 · NZ Lateral bending L+R",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 1.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 224,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_nz",
+          "note": "mono- and polysegmental mixed; MAD 0.63"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 1.68,
+          "sd": 1.04,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 138,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg_nz",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 2.08,
+          "sd": 1.18,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 74,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg_nz",
+          "note": "inside polysegmental specimens"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_arr_7p5_nz",
+      "label": "L4-L5 · NZ Axial rotation L+R",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2025",
+          "mean": null,
+          "median": 0.61,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 221,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_nz",
+          "note": "mono- and polysegmental mixed; MAD 0.27"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 0.68,
+          "sd": 0.41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 128,
+          "test_id": "fe_rom_lumbar_fsu.wilke2025.L4L5_intact_monoseg_nz",
+          "note": "monosegmental FSUs only"
+        },
+        {
+          "study": "wilke2025",
+          "mean": 0.63,
+          "sd": 0.45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 85,
+          "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg_nz",
+          "note": "inside polysegmental specimens"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_fe_7p5_nz",
+      "label": "L1-L5 pool · NZ Flexion+extension",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 2.1,
+          "sd": 1.41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 96,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0_nz",
+          "note": "degeneration grade 0; levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_lbr_7p5_nz",
+      "label": "L1-L5 pool · NZ Lateral bending L+R",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 2.01,
+          "sd": 1.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 96,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0_nz",
+          "note": "degeneration grade 0; levels pooled"
+        }
+      ]
+    },
+    {
+      "id": "L1L5pooled_arr_7p5_nz",
+      "label": "L1-L5 pool · NZ Axial rotation L+R",
+      "view": "nz",
+      "inputs": {
+        "specimen": "FSU",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "nz",
+      "level": "L1-L2..L4-L5 pooled",
+      "refs": [
+        {
+          "study": "kettler2011",
+          "mean": 0.48,
+          "sd": 0.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 94,
+          "test_id": "fe_rom_lumbar_fsu.kettler2011.L1L5pooled_grade0_nz",
+          "note": "degeneration grade 0; levels pooled"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "One direction (e.g. \"Flexion\") and full range (\"Flexion+extension\", \"L+R\") are separate tasks; never compare across them.",
+    "Segmental tasks pool isolated FSUs and segments inside multi-level specimens (see ref notes); Panjabi 1994 used a 100 N axial preload, kept with the no-preload tasks.",
+    "Many refs are medians (Wilke 2025, Heuer) and are not pooled; Wilke 2025, Kettler 2011 and Heuer share Ulm specimens."
+  ],
+  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, or a 4-segment L1-L5), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "answer_format": {
+    "T12L1_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "T12L1_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_flex_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_ext_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_lb_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_ar_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_fe_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_lbr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_arr_7p5": {
+      "rom_segmental": "deg"
+    },
+    "L1S1_fe_8_6": {
+      "rom_total": "deg"
+    },
+    "L1S1_lbr_6": {
+      "rom_total": "deg"
+    },
+    "L1S1_arr_4": {
+      "rom_total": "deg"
+    },
+    "4seg_flex_3p75": {
+      "rom_total": "deg"
+    },
+    "4seg_ext_3p75": {
+      "rom_total": "deg"
+    },
+    "4seg_lb_3p75": {
+      "rom_total": "deg"
+    },
+    "4seg_ar_3p75": {
+      "rom_total": "deg"
+    },
+    "L4L5_flex_1": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_2p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_4": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_flex_10": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_1": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_2p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_4": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ext_10": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_1": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_2p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_4": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_lb_10": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_1": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_2p5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_5": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_ar_10": {
+      "rom_segmental": "deg"
+    },
+    "L1S1_fe_8_6_fl200": {
+      "rom_total": "deg"
+    },
+    "L1S1_fe_8_6_fl400": {
+      "rom_total": "deg"
+    },
+    "L1S1_fe_8_6_fl800": {
+      "rom_total": "deg"
+    },
+    "L1S1_fe_8_6_fl1200": {
+      "rom_total": "deg"
+    },
+    "L1L2_fe_8_6": {
+      "rom_segmental": "deg"
+    },
+    "L1L2_fe_8_6_fl800": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_fe_8_6": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_fe_8_6_fl800": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_fe_8_6": {
+      "rom_segmental": "deg"
+    },
+    "L3L4_fe_8_6_fl800": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_fe_8_6": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_fe_8_6_fl800": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_fe_8_6": {
+      "rom_segmental": "deg"
+    },
+    "L5S1_fe_8_6_fl800": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_fe_8_6_fl450": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_flex_10p6_ax400": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_ext_10p6_ax400": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_lb_10p6_ax400": {
+      "rom_segmental": "deg"
+    },
+    "L1L5pooled_ar_10p6_ax400": {
+      "rom_segmental": "deg"
+    },
+    "L4L5_fe_7p5_nz": {
+      "nz": "deg"
+    },
+    "L4L5_lbr_7p5_nz": {
+      "nz": "deg"
+    },
+    "L4L5_arr_7p5_nz": {
+      "nz": "deg"
+    },
+    "L1L5pooled_fe_7p5_nz": {
+      "nz": "deg"
+    },
+    "L1L5pooled_lbr_7p5_nz": {
+      "nz": "deg"
+    },
+    "L1L5pooled_arr_7p5_nz": {
+      "nz": "deg"
+    }
+  }
+}

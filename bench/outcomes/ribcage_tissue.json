@@ -1,0 +1,2391 @@
+{
+  "id": "ribcage_tissue",
+  "title": "Rib cage tissue and joints",
+  "domain": "tissue",
+  "region": "thoracic",
+  "levels": [
+    "ribs 1-12",
+    "T1-T12"
+  ],
+  "summary": "Simulate costal cartilage, rib bending and costovertebral joint tests; report moduli, failure loads, joint rotations, moments and deflections.",
+  "simulate": [
+    "Build the specimen: cartilage beam, cylinder or slice; rib segment or whole rib; rib with its two vertebrae; sternum with cartilages.",
+    "Fix as tested: clamped rib end, potted ends (pinned-pinned), simple supports (three-point bending), or fixed vertebrae.",
+    "Apply the stated load: cantilever force, torsion couple, compression, indentation, pure moment (+-0.1 / +-0.6 Nm), rib tension, dead weights.",
+    "Load quasi-statically at the stated rate, to failure where the output is a strength or failure value.",
+    "Report the output as defined: modulus (beam theory/Hertz), failure force, deflection, ROM, moment at angle, or displacement."
+  ],
+  "inputs": [
+    {
+      "key": "structure",
+      "label": "Structure"
+    },
+    {
+      "key": "region",
+      "label": "Region / level"
+    },
+    {
+      "key": "mode",
+      "label": "Test mode"
+    },
+    {
+      "key": "moment_Nm",
+      "label": "Moment limit",
+      "unit": "Nm"
+    },
+    {
+      "key": "angle_deg",
+      "label": "Rotation",
+      "unit": "deg"
+    },
+    {
+      "key": "force_N",
+      "label": "Force",
+      "unit": "N"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "modulus",
+      "label": "Elastic modulus",
+      "unit": "MPa"
+    },
+    {
+      "key": "shear_modulus",
+      "label": "Shear modulus",
+      "unit": "MPa"
+    },
+    {
+      "key": "strength",
+      "label": "Compressive strength",
+      "unit": "MPa"
+    },
+    {
+      "key": "failure_force",
+      "label": "Failure (peak) force",
+      "unit": "N"
+    },
+    {
+      "key": "fracture_force",
+      "label": "Force at fracture",
+      "unit": "N"
+    },
+    {
+      "key": "failure_deflection",
+      "label": "Deflection at failure",
+      "unit": "mm"
+    },
+    {
+      "key": "fracture_displacement_norm",
+      "label": "End displacement at fracture / D0",
+      "unit": "-"
+    },
+    {
+      "key": "stiffness",
+      "label": "Initial stiffness",
+      "unit": "N/mm"
+    },
+    {
+      "key": "failure_stress",
+      "label": "Modulus of rupture",
+      "unit": "MPa"
+    },
+    {
+      "key": "rom",
+      "label": "Range of motion",
+      "unit": "deg"
+    },
+    {
+      "key": "moment",
+      "label": "Moment at given rotation",
+      "unit": "Nm"
+    },
+    {
+      "key": "displacement",
+      "label": "Displacement",
+      "unit": "mm"
+    },
+    {
+      "key": "deflection",
+      "label": "Pin deflection in load direction",
+      "unit": "mm"
+    }
+  ],
+  "studies": [
+    {
+      "key": "gradischar2022",
+      "short": "Gradischar 2022",
+      "year": 2022,
+      "n": 12,
+      "sample": "12 costal cartilages (ribs 2-6) from 2 male cadavers",
+      "doi": "10.1016/j.jbiomech.2022.111242",
+      "secondary": false
+    },
+    {
+      "key": "weber2021",
+      "short": "Weber 2021",
+      "year": 2021,
+      "n": 12,
+      "sample": "costal cartilage (ribs 1-10) from 12 cadavers",
+      "doi": "10.1038/s41598-021-93176-x",
+      "secondary": false
+    },
+    {
+      "key": "forman2011",
+      "short": "Forman 2011",
+      "year": 2011,
+      "n": 5,
+      "sample": "5 fourth-rib costal cartilages from 5 cadavers",
+      "doi": "10.1016/j.jbiomech.2010.11.034",
+      "secondary": false
+    },
+    {
+      "key": "yoganandan1998",
+      "short": "Yoganandan 1998",
+      "year": 1998,
+      "n": 30,
+      "sample": "ribs 7 and 8 segments from 30 autopsy cadavers",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "kindig2011",
+      "short": "Kindig 2011",
+      "year": 2011,
+      "n": 27,
+      "sample": "27 whole ribs (levels 2-10) from 3 PMHS",
+      "doi": "10.1080/15389588.2011.583960",
+      "secondary": false
+    },
+    {
+      "key": "granik1973",
+      "short": "Granik 1973",
+      "year": 1973,
+      "n": 10,
+      "sample": "rib segments, 10 autopsy patients with normal bone",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "duprey2010",
+      "short": "Duprey 2010",
+      "year": 2010,
+      "n": 15,
+      "sample": "15 costovertebral joints (ribs 2-10) from 3 male PMHS",
+      "doi": "10.1016/j.medengphy.2009.12.001",
+      "secondary": false
+    },
+    {
+      "key": "lemosse1998",
+      "short": "Lemosse 1998",
+      "year": 1998,
+      "n": 9,
+      "sample": "costovertebral units at R2, R6, R10 from 9 thoracic cages",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "lebschy2024",
+      "short": "Lebschy 2024",
+      "year": 2024,
+      "n": 7,
+      "sample": "7 costovertebral samples (ribs 2-8) from 2 male cadavers",
+      "doi": "10.1016/j.jbiomech.2023.111923",
+      "secondary": false
+    },
+    {
+      "key": "schultz1974b",
+      "short": "Schultz 1974b",
+      "year": 1974,
+      "n": 1,
+      "sample": "one cadaver tabulated per test (rib heads; sternum)",
+      "doi": null,
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "gradischar2022",
+      "lebschy2024"
+    ]
+  ],
+  "views": [
+    {
+      "id": "cartilage",
+      "title": "Costal cartilage",
+      "x": "task",
+      "task_ids": [
+        "cc_EB_anterior",
+        "cc_EB_superior",
+        "cc_EB_posterior",
+        "cc_EB_inferior",
+        "cc_EZ",
+        "cc_GT1",
+        "cc_GT2",
+        "cc_E_comp",
+        "cc_strength_comp",
+        "cc_Ei_5",
+        "cc_Ei_10",
+        "cc_Ei_max",
+        "cc_E0_indent"
+      ]
+    },
+    {
+      "id": "rib",
+      "title": "Ribs: bending and fracture",
+      "x": "task",
+      "task_ids": [
+        "rib7_3pb_F",
+        "rib7_3pb_d",
+        "rib7_3pb_E",
+        "rib8_3pb_F",
+        "rib8_3pb_d",
+        "rib8_3pb_E",
+        "rib_whole_K",
+        "rib_whole_Fmax",
+        "rib_whole_Ffrac",
+        "rib_whole_Dfrac",
+        "rib_seg_E_granik",
+        "rib_seg_sigma_granik"
+      ]
+    },
+    {
+      "id": "cvj_rom01",
+      "title": "Costovertebral joint ROM at +-0.1 Nm",
+      "x": "task",
+      "task_ids": [
+        "cvj_rom01_torsion",
+        "cvj_rom01_torsion_R2",
+        "cvj_rom01_torsion_R6",
+        "cvj_rom01_torsion_R10",
+        "cvj_rom01_cc_flex",
+        "cvj_rom01_cc_flex_R2",
+        "cvj_rom01_cc_flex_R6",
+        "cvj_rom01_cc_flex_R10",
+        "cvj_rom01_vd_flex",
+        "cvj_rom01_vd_flex_R2",
+        "cvj_rom01_vd_flex_R6",
+        "cvj_rom01_vd_flex_R10",
+        "cvj_rom_EZ_torsion"
+      ]
+    },
+    {
+      "id": "cvj_rom06",
+      "title": "Costovertebral joint ROM at +-0.6 Nm",
+      "x": "task",
+      "task_ids": [
+        "cvj_rom06_torsion_R2",
+        "cvj_rom06_torsion_R6",
+        "cvj_rom06_torsion_R10",
+        "cvj_rom06_cc_flex_R2",
+        "cvj_rom06_cc_flex_R6",
+        "cvj_rom06_cc_flex_R10",
+        "cvj_rom06_vd_flex_R2",
+        "cvj_rom06_vd_flex_R6",
+        "cvj_rom06_vd_flex_R10"
+      ]
+    },
+    {
+      "id": "cvj_curve_X",
+      "title": "Costovertebral moment-angle, torsion (X)",
+      "x": "input:angle_deg",
+      "task_ids": [
+        "cvj_curve_X_p1",
+        "cvj_curve_X_p3",
+        "cvj_curve_X_p5"
+      ]
+    },
+    {
+      "id": "cvj_curve_Y",
+      "title": "Costovertebral moment-angle, cranial-caudal (Y)",
+      "x": "input:angle_deg",
+      "task_ids": [
+        "cvj_curve_Y_m4",
+        "cvj_curve_Y_m2",
+        "cvj_curve_Y_p2",
+        "cvj_curve_Y_p4"
+      ]
+    },
+    {
+      "id": "cvj_curve_Z",
+      "title": "Costovertebral moment-angle, ventral-dorsal (Z)",
+      "x": "input:angle_deg",
+      "task_ids": [
+        "cvj_curve_Z_m2",
+        "cvj_curve_Z_m1",
+        "cvj_curve_Z_p1",
+        "cvj_curve_Z_p2"
+      ]
+    },
+    {
+      "id": "cvj_disp",
+      "title": "Costovertebral joint translation at 28 N",
+      "x": "task",
+      "task_ids": [
+        "cvj_disp_longitudinal",
+        "cvj_disp_sagittal",
+        "cvj_disp_transverse"
+      ]
+    },
+    {
+      "id": "pin_cvj",
+      "title": "Rib-head pin load-deflection (one cadaver)",
+      "x": "task",
+      "task_ids": [
+        "cvj_pin_r6_superior",
+        "cvj_pin_r6_inferior",
+        "cvj_pin_r6_anterior",
+        "cvj_pin_r6_posterior",
+        "cvj_pin_r6_lateral"
+      ]
+    },
+    {
+      "id": "pin_sternum",
+      "title": "Sternum pin load-deflection (one cadaver)",
+      "x": "task",
+      "task_ids": [
+        "csj_pin_I_superior",
+        "csj_pin_I_inferior",
+        "csj_pin_I_anterior",
+        "csj_pin_I_posterior"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "cc_EB_anterior",
+      "label": "Cartilage bending E, load anterior",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward anterior"
+      },
+      "output": "modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_EB1",
+          "note": "elliptical-section beam theory, force <= 4 N",
+          "median": 12.8
+        }
+      ]
+    },
+    {
+      "id": "cc_EB_superior",
+      "label": "Cartilage bending E, load superior",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward superior"
+      },
+      "output": "modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_EB2",
+          "note": "elliptical-section beam theory, force <= 4 N",
+          "median": 22.6
+        }
+      ]
+    },
+    {
+      "id": "cc_EB_posterior",
+      "label": "Cartilage bending E, load posterior",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward posterior"
+      },
+      "output": "modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_EB3",
+          "note": "elliptical-section beam theory, force <= 4 N",
+          "median": 15.5
+        }
+      ]
+    },
+    {
+      "id": "cc_EB_inferior",
+      "label": "Cartilage bending E, load inferior",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward inferior"
+      },
+      "output": "modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_EB4",
+          "note": "elliptical-section beam theory, force <= 4 N",
+          "median": 19.2
+        }
+      ]
+    },
+    {
+      "id": "cc_EZ",
+      "label": "Cartilage tensile secant modulus",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "axial tension, secant 20-40 N, 1.3e-3 /s"
+      },
+      "output": "modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 9,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_EZ",
+          "note": "",
+          "median": 18.6
+        }
+      ]
+    },
+    {
+      "id": "cc_GT1",
+      "label": "Cartilage torsion shear modulus, dir 1",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "torsion by force couple (<= 175 Nmm), direction 1"
+      },
+      "output": "shear_modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_GT1",
+          "note": "",
+          "median": 8.9
+        }
+      ]
+    },
+    {
+      "id": "cc_GT2",
+      "label": "Cartilage torsion shear modulus, dir 2",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "torsion by force couple (<= 175 Nmm), direction 2"
+      },
+      "output": "shear_modulus",
+      "level": "ribs 2-6",
+      "refs": [
+        {
+          "study": "gradischar2022",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 12,
+          "test_id": "passive_tissue.gradischar2022.costal_cartilage_GT2",
+          "note": "",
+          "median": 9.8
+        }
+      ]
+    },
+    {
+      "id": "cc_E_comp",
+      "label": "Cartilage unconfined compression modulus",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10",
+        "mode": "unconfined compression of 6 mm cylinder, 1 mm/s"
+      },
+      "output": "modulus",
+      "level": "ribs 1-10",
+      "refs": [
+        {
+          "study": "weber2021",
+          "mean": 32.9,
+          "sd": 17.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.weber2021.costal_cartilage_E_compression",
+          "note": "linear part of stress-strain; n = cadavers (198 cylinders)"
+        }
+      ]
+    },
+    {
+      "id": "cc_strength_comp",
+      "label": "Cartilage compressive strength",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10",
+        "mode": "unconfined compression of 6 mm cylinder to failure, 1 mm/s"
+      },
+      "output": "strength",
+      "level": "ribs 1-10",
+      "refs": [
+        {
+          "study": "weber2021",
+          "mean": 6.1,
+          "sd": 3.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.weber2021.costal_cartilage_compressive_strength",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cc_Ei_5",
+      "label": "Cartilage indentation modulus, 5%",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10",
+        "mode": "spherical indentation (R 1.5 mm), Hertz fit at 5% indentation"
+      },
+      "output": "modulus",
+      "level": "ribs 1-10",
+      "refs": [
+        {
+          "study": "weber2021",
+          "mean": 11.1,
+          "sd": 5.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.weber2021.costal_cartilage_E_indentation",
+          "note": "dorsoventral and mediolateral pooled"
+        }
+      ]
+    },
+    {
+      "id": "cc_Ei_10",
+      "label": "Cartilage indentation modulus, 10%",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10",
+        "mode": "spherical indentation (R 1.5 mm), Hertz fit at 10% indentation"
+      },
+      "output": "modulus",
+      "level": "ribs 1-10",
+      "refs": [
+        {
+          "study": "weber2021",
+          "mean": 13.3,
+          "sd": 6.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.weber2021.costal_cartilage_E_indentation",
+          "note": "dorsoventral and mediolateral pooled"
+        }
+      ]
+    },
+    {
+      "id": "cc_Ei_max",
+      "label": "Cartilage indentation modulus, max",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10",
+        "mode": "spherical indentation (R 1.5 mm), Hertz fit at max indentation"
+      },
+      "output": "modulus",
+      "level": "ribs 1-10",
+      "refs": [
+        {
+          "study": "weber2021",
+          "mean": 15.6,
+          "sd": 6.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.weber2021.costal_cartilage_E_indentation",
+          "note": "dorsoventral and mediolateral pooled; abstract 14.6, Results 15.6 used"
+        }
+      ]
+    },
+    {
+      "id": "cc_E0_indent",
+      "label": "Cartilage instant. modulus, indentation",
+      "view": "cartilage",
+      "inputs": {
+        "structure": "costal cartilage cross-section slice",
+        "region": "rib 4",
+        "mode": "spherical indentation (2 mm tip, 0.25 mm), viscoelastic fit"
+      },
+      "output": "modulus",
+      "level": "rib 4",
+      "refs": [
+        {
+          "study": "forman2011",
+          "mean": 10.46,
+          "sd": 1.49,
+          "min": 8.7,
+          "max": 12.6,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "passive_tissue.forman2011.costal_cartilage_E0_indentation",
+          "note": "computed from per-specimen table"
+        }
+      ]
+    },
+    {
+      "id": "rib7_3pb_F",
+      "label": "Rib 7 three-point bending failure force",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 7 segment (~150 mm)",
+        "region": "rib 7, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "failure_force",
+      "level": "rib 7",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 153,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_failure_force",
+          "note": "+-9 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib7_3pb_d",
+      "label": "Rib 7 three-point bending failure defl.",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 7 segment (~150 mm)",
+        "region": "rib 7, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "failure_deflection",
+      "level": "rib 7",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 3.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_failure_deflection",
+          "note": "+-0.1 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib7_3pb_E",
+      "label": "Rib 7 bending Young's modulus",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 7 segment (~150 mm)",
+        "region": "rib 7, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "modulus",
+      "level": "rib 7",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 2318,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_youngs_modulus",
+          "note": "beam theory; +-364.6 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib8_3pb_F",
+      "label": "Rib 8 three-point bending failure force",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 8 segment (~150 mm)",
+        "region": "rib 8, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "failure_force",
+      "level": "rib 8",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 137,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_failure_force",
+          "note": "+-9 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib8_3pb_d",
+      "label": "Rib 8 three-point bending failure defl.",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 8 segment (~150 mm)",
+        "region": "rib 8, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "failure_deflection",
+      "level": "rib 8",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 3.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_failure_deflection",
+          "note": "+-0.1 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib8_3pb_E",
+      "label": "Rib 8 bending Young's modulus",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib 8 segment (~150 mm)",
+        "region": "rib 8, left + right",
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "output": "modulus",
+      "level": "rib 8",
+      "refs": [
+        {
+          "study": "yoganandan1998",
+          "mean": 1886,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.yoganandan1998.rib_youngs_modulus",
+          "note": "beam theory; +-287.0 printed, statistic unspecified"
+        }
+      ]
+    },
+    {
+      "id": "rib_whole_K",
+      "label": "Whole rib initial stiffness (A-P)",
+      "view": "rib",
+      "inputs": {
+        "structure": "whole rib, ends potted",
+        "region": "ribs 2-10 pooled",
+        "mode": "pinned-pinned end-to-end compression (A-P), 2 mm/s"
+      },
+      "output": "stiffness",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "kindig2011",
+          "mean": 2.313,
+          "sd": 2.062,
+          "min": 0.81,
+          "max": 11.54,
+          "stat": "mean",
+          "n": 27,
+          "test_id": "passive_tissue.kindig2011.rib_stiffness",
+          "note": "0-5% of D0; computed from per-rib table"
+        }
+      ]
+    },
+    {
+      "id": "rib_whole_Fmax",
+      "label": "Whole rib peak force (A-P)",
+      "view": "rib",
+      "inputs": {
+        "structure": "whole rib, ends potted",
+        "region": "ribs 2-10 pooled",
+        "mode": "pinned-pinned end-to-end compression (A-P), 2 mm/s"
+      },
+      "output": "failure_force",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "kindig2011",
+          "mean": 60.674,
+          "sd": 33.133,
+          "min": 19.5,
+          "max": 177.3,
+          "stat": "mean",
+          "n": 27,
+          "test_id": "passive_tissue.kindig2011.rib_peak_force",
+          "note": "computed from per-rib table"
+        }
+      ]
+    },
+    {
+      "id": "rib_whole_Ffrac",
+      "label": "Whole rib force at fracture (A-P)",
+      "view": "rib",
+      "inputs": {
+        "structure": "whole rib, ends potted",
+        "region": "ribs 2-10 pooled",
+        "mode": "pinned-pinned end-to-end compression (A-P), 2 mm/s"
+      },
+      "output": "fracture_force",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "kindig2011",
+          "mean": 54.9,
+          "sd": 28.416,
+          "min": 18.0,
+          "max": 148.3,
+          "stat": "mean",
+          "n": 26,
+          "test_id": "passive_tissue.kindig2011.rib_fracture_force",
+          "note": "computed from per-rib table"
+        }
+      ]
+    },
+    {
+      "id": "rib_whole_Dfrac",
+      "label": "Whole rib D/D0 at fracture (A-P)",
+      "view": "rib",
+      "inputs": {
+        "structure": "whole rib, ends potted",
+        "region": "ribs 2-10 pooled",
+        "mode": "pinned-pinned end-to-end compression (A-P), 2 mm/s"
+      },
+      "output": "fracture_displacement_norm",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "kindig2011",
+          "mean": 0.33,
+          "sd": 0.102,
+          "min": 0.19,
+          "max": 0.55,
+          "stat": "mean",
+          "n": 26,
+          "test_id": "passive_tissue.kindig2011.rib_fracture_displacement_norm",
+          "note": "computed from per-rib table"
+        }
+      ]
+    },
+    {
+      "id": "rib_seg_E_granik",
+      "label": "Rib segment bending E (normal bone)",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib segment",
+        "region": "level not specified",
+        "mode": "three-point bending, 101.6 mm span"
+      },
+      "output": "modulus",
+      "level": "ribs",
+      "refs": [
+        {
+          "study": "granik1973",
+          "mean": 11514.2,
+          "sd": 2137.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.granik1973.rib_E_normal",
+          "note": "radiologically normal bone"
+        }
+      ]
+    },
+    {
+      "id": "rib_seg_sigma_granik",
+      "label": "Rib segment modulus of rupture (normal)",
+      "view": "rib",
+      "inputs": {
+        "structure": "rib segment",
+        "region": "level not specified",
+        "mode": "three-point bending, 101.6 mm span"
+      },
+      "output": "failure_stress",
+      "level": "ribs",
+      "refs": [
+        {
+          "study": "granik1973",
+          "mean": 106.2,
+          "sd": 31.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "passive_tissue.granik1973.rib_failure_stress_normal",
+          "note": "radiologically normal bone"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_torsion",
+      "label": "CVJ ROM +-0.1 Nm, torsion, pooled",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "ribs 2-10 pooled",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 16.9,
+          "sd": 6.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_rom_0p1Nm",
+          "note": "ribs 2-10 pooled; torsion ROM = 2 x (0 to 0.1 Nm)"
+        },
+        {
+          "study": "lebschy2024",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 7,
+          "test_id": "passive_tissue.lebschy2024.CVJ_rom_NZ",
+          "note": "ribs 2, 4, 6, 8 pooled; median",
+          "median": 13.2
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_torsion_R2",
+      "label": "CVJ ROM +-0.1 Nm, torsion, R2",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 21.1,
+          "sd": 6.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_torsion_R6",
+      "label": "CVJ ROM +-0.1 Nm, torsion, R6",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 8.1,
+          "sd": 2.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_torsion_R10",
+      "label": "CVJ ROM +-0.1 Nm, torsion, R10",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 13.2,
+          "sd": 6.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_torsion_R2",
+      "label": "CVJ ROM +-0.6 Nm, torsion, R2",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 40.6,
+          "sd": 7.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_torsion_R6",
+      "label": "CVJ ROM +-0.6 Nm, torsion, R6",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 21.8,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_torsion_R10",
+      "label": "CVJ ROM +-0.6 Nm, torsion, R10",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 28.4,
+          "sd": 5.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_torsion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_cc_flex",
+      "label": "CVJ ROM +-0.1 Nm, cran.-caud., pooled",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "ribs 2-10 pooled",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 4.5,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_rom_0p1Nm",
+          "note": "ribs 2-10 pooled"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_cc_flex_R2",
+      "label": "CVJ ROM +-0.1 Nm, cran.-caud., R2",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 2.7,
+          "sd": 2.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_cc_flex_R6",
+      "label": "CVJ ROM +-0.1 Nm, cran.-caud., R6",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 2.3,
+          "sd": 0.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_cc_flex_R10",
+      "label": "CVJ ROM +-0.1 Nm, cran.-caud., R10",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 9.3,
+          "sd": 5.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_cc_flex_R2",
+      "label": "CVJ ROM +-0.6 Nm, cran.-caud., R2",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 13.7,
+          "sd": 4.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_cc_flex_R6",
+      "label": "CVJ ROM +-0.6 Nm, cran.-caud., R6",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 9.7,
+          "sd": 2.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_cc_flex_R10",
+      "label": "CVJ ROM +-0.6 Nm, cran.-caud., R10",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 18.1,
+          "sd": 7.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_cranial_caudal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_vd_flex",
+      "label": "CVJ ROM +-0.1 Nm, ventr.-dors., pooled",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "ribs 2-10 pooled",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 2.6,
+          "sd": 2.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_rom_0p1Nm",
+          "note": "ribs 2-10 pooled"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_vd_flex_R2",
+      "label": "CVJ ROM +-0.1 Nm, ventr.-dors., R2",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 1.4,
+          "sd": 1.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_vd_flex_R6",
+      "label": "CVJ ROM +-0.1 Nm, ventr.-dors., R6",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 0.7,
+          "sd": 0.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom01_vd_flex_R10",
+      "label": "CVJ ROM +-0.1 Nm, ventr.-dors., R10",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.1
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 6.2,
+          "sd": 3.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_MLS_intact",
+          "note": "motion in low-stiffness zone (-0.1 to +0.1 Nm)"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_vd_flex_R2",
+      "label": "CVJ ROM +-0.6 Nm, ventr.-dors., R2",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T1-T2-R2",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T1-T2-R2",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 8.6,
+          "sd": 2.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_vd_flex_R6",
+      "label": "CVJ ROM +-0.6 Nm, ventr.-dors., R6",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T5-T6-R6",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T5-T6-R6",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 6.1,
+          "sd": 1.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom06_vd_flex_R10",
+      "label": "CVJ ROM +-0.6 Nm, ventr.-dors., R10",
+      "view": "cvj_rom06",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion",
+        "region": "T9-T10-R10",
+        "moment_Nm": 0.6
+      },
+      "output": "rom",
+      "level": "T9-T10-R10",
+      "refs": [
+        {
+          "study": "lemosse1998",
+          "mean": 16.2,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 13,
+          "test_id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_TRM_intact",
+          "note": "total range -0.6 to +0.6 Nm"
+        }
+      ]
+    },
+    {
+      "id": "cvj_rom_EZ_torsion",
+      "label": "CVJ torsion ROM +-0.002 Nm/kg",
+      "view": "cvj_rom01",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "torsion about rib rotation axis",
+        "region": "ribs 2, 4, 6, 8 pooled"
+      },
+      "output": "rom",
+      "level": "ribs 2-8",
+      "refs": [
+        {
+          "study": "lebschy2024",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 7,
+          "test_id": "passive_tissue.lebschy2024.CVJ_rom_EZ",
+          "note": "moment normalised to body mass; median",
+          "median": 16.8
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_X_p1",
+      "label": "CVJ moment at 1 deg, torsion",
+      "view": "cvj_curve_X",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about X axis, ~3 mm/s",
+        "angle_deg": 1
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.0172,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_X",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_X_p3",
+      "label": "CVJ moment at 3 deg, torsion",
+      "view": "cvj_curve_X",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about X axis, ~3 mm/s",
+        "angle_deg": 3
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.0408,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_X",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_X_p5",
+      "label": "CVJ moment at 5 deg, torsion",
+      "view": "cvj_curve_X",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about X axis, ~3 mm/s",
+        "angle_deg": 5
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.07,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_X",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Y_m4",
+      "label": "CVJ moment at -4 deg, cran.-caud.",
+      "view": "cvj_curve_Y",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Y axis, ~3 mm/s",
+        "angle_deg": -4
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": -0.3179,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Y",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Y_m2",
+      "label": "CVJ moment at -2 deg, cran.-caud.",
+      "view": "cvj_curve_Y",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Y axis, ~3 mm/s",
+        "angle_deg": -2
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": -0.1086,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Y",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Y_p2",
+      "label": "CVJ moment at 2 deg, cran.-caud.",
+      "view": "cvj_curve_Y",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Y axis, ~3 mm/s",
+        "angle_deg": 2
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.1086,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Y",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Y_p4",
+      "label": "CVJ moment at 4 deg, cran.-caud.",
+      "view": "cvj_curve_Y",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Y axis, ~3 mm/s",
+        "angle_deg": 4
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.3181,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Y",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Z_m2",
+      "label": "CVJ moment at -2 deg, ventr.-dors.",
+      "view": "cvj_curve_Z",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Z axis, ~3 mm/s",
+        "angle_deg": -2
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": -0.2708,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Z",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Z_m1",
+      "label": "CVJ moment at -1 deg, ventr.-dors.",
+      "view": "cvj_curve_Z",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Z axis, ~3 mm/s",
+        "angle_deg": -1
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": -0.1256,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Z",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Z_p1",
+      "label": "CVJ moment at 1 deg, ventr.-dors.",
+      "view": "cvj_curve_Z",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Z axis, ~3 mm/s",
+        "angle_deg": 1
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.1228,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Z",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_curve_Z_p2",
+      "label": "CVJ moment at 2 deg, ventr.-dors.",
+      "view": "cvj_curve_Z",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Z axis, ~3 mm/s",
+        "angle_deg": 2
+      },
+      "output": "moment",
+      "level": "ribs 2-10",
+      "refs": [
+        {
+          "study": "duprey2010",
+          "mean": 0.2596,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 15,
+          "test_id": "passive_tissue.duprey2010.CVJ_moment_angle_Z",
+          "note": "derived: published characteristic-average polynomial evaluated"
+        }
+      ]
+    },
+    {
+      "id": "cvj_disp_longitudinal",
+      "label": "CVJ displacement at 28 N, longitudinal",
+      "view": "cvj_disp",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, longitudinal axis",
+        "force_N": 28
+      },
+      "output": "displacement",
+      "level": "ribs 2-8",
+      "refs": [
+        {
+          "study": "lebschy2024",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 7,
+          "test_id": "passive_tissue.lebschy2024.CVJ_disp_long_28N",
+          "note": "median",
+          "median": 1.41
+        }
+      ]
+    },
+    {
+      "id": "cvj_disp_sagittal",
+      "label": "CVJ displacement at 28 N, sagittal",
+      "view": "cvj_disp",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, sagittal axis",
+        "force_N": 28
+      },
+      "output": "displacement",
+      "level": "ribs 2-8",
+      "refs": [
+        {
+          "study": "lebschy2024",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 7,
+          "test_id": "passive_tissue.lebschy2024.CVJ_disp_sag_28N",
+          "note": "median",
+          "median": 1.55
+        }
+      ]
+    },
+    {
+      "id": "cvj_disp_transverse",
+      "label": "CVJ displacement at 28 N, transverse",
+      "view": "cvj_disp",
+      "inputs": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, transverse axis",
+        "force_N": 28
+      },
+      "output": "displacement",
+      "level": "ribs 2-8",
+      "refs": [
+        {
+          "study": "lebschy2024",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 7,
+          "test_id": "passive_tissue.lebschy2024.CVJ_disp_trans_28N",
+          "note": "median",
+          "median": 1.08
+        }
+      ]
+    },
+    {
+      "id": "cvj_pin_r6_superior",
+      "label": "Rib 6 head pin defl., 7.4 N superior",
+      "view": "pin_cvj",
+      "inputs": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, superior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "rib 6",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 11.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CVJ_rib_head_deflection",
+          "note": "one cadaver (1387); deflection in load direction"
+        }
+      ]
+    },
+    {
+      "id": "cvj_pin_r6_inferior",
+      "label": "Rib 6 head pin defl., 7.4 N inferior",
+      "view": "pin_cvj",
+      "inputs": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, inferior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "rib 6",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 9.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CVJ_rib_head_deflection",
+          "note": "one cadaver (1387); deflection in load direction"
+        }
+      ]
+    },
+    {
+      "id": "cvj_pin_r6_anterior",
+      "label": "Rib 6 head pin defl., 7.4 N anterior",
+      "view": "pin_cvj",
+      "inputs": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, anterior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "rib 6",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 4.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CVJ_rib_head_deflection",
+          "note": "one cadaver (1387); deflection in load direction"
+        }
+      ]
+    },
+    {
+      "id": "cvj_pin_r6_posterior",
+      "label": "Rib 6 head pin defl., 7.4 N posterior",
+      "view": "pin_cvj",
+      "inputs": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, posterior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "rib 6",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 5.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CVJ_rib_head_deflection",
+          "note": "one cadaver (1387); deflection in load direction"
+        }
+      ]
+    },
+    {
+      "id": "cvj_pin_r6_lateral",
+      "label": "Rib 6 head pin defl., 7.4 N lateral",
+      "view": "pin_cvj",
+      "inputs": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, lateral",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "rib 6",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 1.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CVJ_rib_head_deflection",
+          "note": "one cadaver (1387); deflection in load direction"
+        }
+      ]
+    },
+    {
+      "id": "csj_pin_I_superior",
+      "label": "Sternum pin deflection, 7.4 N superior",
+      "view": "pin_sternum",
+      "inputs": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, superior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "ribs 1-7",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 15.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CSJ_sternum_pin_deflection",
+          "note": "one cadaver (1101)"
+        }
+      ]
+    },
+    {
+      "id": "csj_pin_I_inferior",
+      "label": "Sternum pin deflection, 7.4 N inferior",
+      "view": "pin_sternum",
+      "inputs": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, inferior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "ribs 1-7",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 18.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CSJ_sternum_pin_deflection",
+          "note": "one cadaver (1101)"
+        }
+      ]
+    },
+    {
+      "id": "csj_pin_I_anterior",
+      "label": "Sternum pin deflection, 7.4 N anterior",
+      "view": "pin_sternum",
+      "inputs": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, anterior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "ribs 1-7",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 16.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CSJ_sternum_pin_deflection",
+          "note": "one cadaver (1101)"
+        }
+      ]
+    },
+    {
+      "id": "csj_pin_I_posterior",
+      "label": "Sternum pin deflection, 7.4 N posterior",
+      "view": "pin_sternum",
+      "inputs": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, posterior",
+        "force_N": 7.35
+      },
+      "output": "deflection",
+      "level": "ribs 1-7",
+      "refs": [
+        {
+          "study": "schultz1974b",
+          "mean": 17.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.schultz1974b.CSJ_sternum_pin_deflection",
+          "note": "one cadaver (1101)"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Gradischar and Lebschy share 2 donors; their values are medians (not pooled). Yoganandan +- statistic is unspecified (sd null); Duprey and Kindig/Forman means are derived or computed (see notes).",
+    "Lemosse low-stiffness-zone motion and Duprey/Lebschy ROM share the +-0.1 Nm definition; Lemosse +-0.6 Nm totals are separate. Duprey X curves are one-sided; Y/Z +-4/+-2 deg ranges assumed.",
+    "Left out: Granik pathological ribs (myeloma, RA, AS; per patient), Weber direction-split indentation (no n), Lemosse ligament-sectioned states and linear-zone flexibilities, Kindig 2013 and Yoganandan geometry, Schultz other ribs/pins and lower loads."
+  ],
+  "agent_prompt": "You are given a model of the human rib cage (costal cartilage, ribs, costovertebral and costotransverse joints, sternum). For every task, build the specimen named in the inputs, fix it as tested (clamped, potted pinned-pinned, simply supported, or vertebrae fixed) and apply the stated load quasi-statically: cantilever bending, torsion, tension, unconfined compression or indentation of cartilage; three-point or end-to-end bending of ribs; pure moments, rib tension or dead weights on the joints. Report the requested output: modulus (beam theory or Hertz fit as stated), failure force or deflection, range of motion between the moment limits, moment at the given rotation, or displacement. Return one JSON object following answer_format (task id -> {output key: value}); use null for tasks you cannot simulate.",
+  "answer_format": {
+    "cc_EB_anterior": {
+      "modulus": "MPa"
+    },
+    "cc_EB_superior": {
+      "modulus": "MPa"
+    },
+    "cc_EB_posterior": {
+      "modulus": "MPa"
+    },
+    "cc_EB_inferior": {
+      "modulus": "MPa"
+    },
+    "cc_EZ": {
+      "modulus": "MPa"
+    },
+    "cc_GT1": {
+      "shear_modulus": "MPa"
+    },
+    "cc_GT2": {
+      "shear_modulus": "MPa"
+    },
+    "cc_E_comp": {
+      "modulus": "MPa"
+    },
+    "cc_strength_comp": {
+      "strength": "MPa"
+    },
+    "cc_Ei_5": {
+      "modulus": "MPa"
+    },
+    "cc_Ei_10": {
+      "modulus": "MPa"
+    },
+    "cc_Ei_max": {
+      "modulus": "MPa"
+    },
+    "cc_E0_indent": {
+      "modulus": "MPa"
+    },
+    "rib7_3pb_F": {
+      "failure_force": "N"
+    },
+    "rib7_3pb_d": {
+      "failure_deflection": "mm"
+    },
+    "rib7_3pb_E": {
+      "modulus": "MPa"
+    },
+    "rib8_3pb_F": {
+      "failure_force": "N"
+    },
+    "rib8_3pb_d": {
+      "failure_deflection": "mm"
+    },
+    "rib8_3pb_E": {
+      "modulus": "MPa"
+    },
+    "rib_whole_K": {
+      "stiffness": "N/mm"
+    },
+    "rib_whole_Fmax": {
+      "failure_force": "N"
+    },
+    "rib_whole_Ffrac": {
+      "fracture_force": "N"
+    },
+    "rib_whole_Dfrac": {
+      "fracture_displacement_norm": "-"
+    },
+    "rib_seg_E_granik": {
+      "modulus": "MPa"
+    },
+    "rib_seg_sigma_granik": {
+      "failure_stress": "MPa"
+    },
+    "cvj_rom01_torsion": {
+      "rom": "deg"
+    },
+    "cvj_rom01_torsion_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom01_torsion_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom01_torsion_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom06_torsion_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom06_torsion_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom06_torsion_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom01_cc_flex": {
+      "rom": "deg"
+    },
+    "cvj_rom01_cc_flex_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom01_cc_flex_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom01_cc_flex_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom06_cc_flex_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom06_cc_flex_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom06_cc_flex_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom01_vd_flex": {
+      "rom": "deg"
+    },
+    "cvj_rom01_vd_flex_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom01_vd_flex_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom01_vd_flex_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom06_vd_flex_R2": {
+      "rom": "deg"
+    },
+    "cvj_rom06_vd_flex_R6": {
+      "rom": "deg"
+    },
+    "cvj_rom06_vd_flex_R10": {
+      "rom": "deg"
+    },
+    "cvj_rom_EZ_torsion": {
+      "rom": "deg"
+    },
+    "cvj_curve_X_p1": {
+      "moment": "Nm"
+    },
+    "cvj_curve_X_p3": {
+      "moment": "Nm"
+    },
+    "cvj_curve_X_p5": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Y_m4": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Y_m2": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Y_p2": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Y_p4": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Z_m2": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Z_m1": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Z_p1": {
+      "moment": "Nm"
+    },
+    "cvj_curve_Z_p2": {
+      "moment": "Nm"
+    },
+    "cvj_disp_longitudinal": {
+      "displacement": "mm"
+    },
+    "cvj_disp_sagittal": {
+      "displacement": "mm"
+    },
+    "cvj_disp_transverse": {
+      "displacement": "mm"
+    },
+    "cvj_pin_r6_superior": {
+      "deflection": "mm"
+    },
+    "cvj_pin_r6_inferior": {
+      "deflection": "mm"
+    },
+    "cvj_pin_r6_anterior": {
+      "deflection": "mm"
+    },
+    "cvj_pin_r6_posterior": {
+      "deflection": "mm"
+    },
+    "cvj_pin_r6_lateral": {
+      "deflection": "mm"
+    },
+    "csj_pin_I_superior": {
+      "deflection": "mm"
+    },
+    "csj_pin_I_inferior": {
+      "deflection": "mm"
+    },
+    "csj_pin_I_anterior": {
+      "deflection": "mm"
+    },
+    "csj_pin_I_posterior": {
+      "deflection": "mm"
+    }
+  }
+}

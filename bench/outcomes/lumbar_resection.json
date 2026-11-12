@@ -1,0 +1,2310 @@
+{
+  "id": "lumbar_resection",
+  "title": "Lumbar stepwise resection",
+  "domain": "fe",
+  "region": "lumbar",
+  "levels": [
+    "L1-L5 ACUs",
+    "L1-L5 FSUs",
+    "L2-L3",
+    "L4-L5"
+  ],
+  "summary": "Remove structures step by step as each study did and report rotation at the stated pure moment after every step.",
+  "simulate": [
+    "Build the specimen of the view: lumbar FSU, disc-only unit, thoracic FSU, or C7-L1 spine with rib cage.",
+    "Fix the caudal vertebra; apply the pure moment (and preload, if stated) to the cranial end.",
+    "Remove structures cumulatively in the listed order; re-run the same load at every step.",
+    "Report rotation at peak moment: one direction, or full range (both directions summed) if stated.",
+    "For % of intact tasks divide by your own intact value and multiply by 100."
+  ],
+  "inputs": [
+    {
+      "key": "specimen",
+      "label": "Specimen"
+    },
+    {
+      "key": "step_no",
+      "label": "Step (0 = intact)"
+    },
+    {
+      "key": "step",
+      "label": "Structures removed (cumulative)"
+    },
+    {
+      "key": "direction",
+      "label": "Direction"
+    },
+    {
+      "key": "moment_nm",
+      "label": "Pure moment",
+      "unit": "Nm"
+    },
+    {
+      "key": "preload_n",
+      "label": "Preload",
+      "unit": "N"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "rom",
+      "label": "ROM, one direction",
+      "unit": "deg"
+    },
+    {
+      "key": "rom_range",
+      "label": "ROM, full range (both directions)",
+      "unit": "deg"
+    },
+    {
+      "key": "rom_pct",
+      "label": "ROM, % of intact",
+      "unit": "%"
+    }
+  ],
+  "studies": [
+    {
+      "key": "heuer2007a",
+      "short": "Heuer 2007a",
+      "year": 2007,
+      "n": 8,
+      "sample": "8 human L4-L5 FSUs, low degeneration",
+      "doi": "10.1016/j.jbiomech.2006.01.007",
+      "secondary": false
+    },
+    {
+      "key": "heuer2008",
+      "short": "Heuer 2008",
+      "year": 2008,
+      "n": 6,
+      "sample": "6 human L2-L3 FSUs, same donors as Heuer 2007a",
+      "doi": "10.1016/j.jbiomech.2008.03.023",
+      "secondary": false
+    },
+    {
+      "key": "schultz1979",
+      "short": "Schultz 1979",
+      "year": 1979,
+      "n": 42,
+      "sample": "42 lumbar FSUs, 23 cadavers; 18 retested without posterior elements",
+      "doi": null,
+      "secondary": false
+    },
+    {
+      "key": "cannella2008",
+      "short": "Cannella 2008",
+      "year": 2008,
+      "n": 6,
+      "sample": "6 lumbar disc-only units (DS2), posterior elements removed",
+      "doi": "10.1016/j.jbiomech.2008.04.037",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "heuer2007a",
+      "heuer2008"
+    ]
+  ],
+  "views": [
+    {
+      "id": "l45_heuer",
+      "title": "Lumbar L4-L5 FSU (Heuer 2007a), 7.5 Nm",
+      "task_ids": [
+        "l45_intact_flex",
+        "l45_ssl_flex",
+        "l45_isl_flex",
+        "l45_lf_flex",
+        "l45_fc_flex",
+        "l45_va_flex",
+        "l45_pll_flex",
+        "l45_all_flex",
+        "l45_nuc_flex",
+        "l45_intact_ext",
+        "l45_ssl_ext",
+        "l45_isl_ext",
+        "l45_lf_ext",
+        "l45_fc_ext",
+        "l45_va_ext",
+        "l45_pll_ext",
+        "l45_all_ext",
+        "l45_nuc_ext",
+        "l45_intact_lb",
+        "l45_ssl_lb",
+        "l45_isl_lb",
+        "l45_lf_lb",
+        "l45_fc_lb",
+        "l45_va_lb",
+        "l45_pll_lb",
+        "l45_all_lb",
+        "l45_nuc_lb",
+        "l45_intact_ar",
+        "l45_ssl_ar",
+        "l45_isl_ar",
+        "l45_lf_ar",
+        "l45_fc_ar",
+        "l45_va_ar",
+        "l45_pll_ar",
+        "l45_all_ar",
+        "l45_nuc_ar"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "l23_heuer",
+      "title": "Lumbar L2-L3 FSU (Heuer 2008), 7.5 Nm",
+      "task_ids": [
+        "l23_intact_flex",
+        "l23_va_flex",
+        "l23_all_flex",
+        "l23_nuc_flex",
+        "l23_intact_ext",
+        "l23_va_ext",
+        "l23_all_ext",
+        "l23_nuc_ext",
+        "l23_intact_lb",
+        "l23_va_lb",
+        "l23_all_lb",
+        "l23_nuc_lb",
+        "l23_intact_ar",
+        "l23_va_ar",
+        "l23_all_ar",
+        "l23_nuc_ar"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "lumbar_pe_schultz",
+      "title": "Lumbar FSU, posterior elements removed (Schultz 1979), 4.7 Nm + 400 N",
+      "task_ids": [
+        "sch_intact_flex",
+        "sch_wope_flex",
+        "sch_intact_ext",
+        "sch_wope_ext",
+        "sch_intact_lb",
+        "sch_wope_lb",
+        "sch_intact_ar",
+        "sch_wope_ar"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "lumbar_denuc_pct",
+      "title": "Lumbar disc-only unit, nucleus removal (% of intact)",
+      "task_ids": [
+        "acu_denuc_flex",
+        "acu_denuc_ext",
+        "acu_denuc_lb",
+        "acu_denuc_ar",
+        "acu_denuc_axial_comp",
+        "acu_denuc_axial_tension"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "l45_intact_flex",
+      "label": "Flex, 0: intact",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.19,
+          "sd": null,
+          "min": 4.15,
+          "max": 8.14,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "median of 8; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "l45_ssl_flex",
+      "label": "Flex, 1: -SSL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 1,
+        "step": "supraspinous lig.",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woSSL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_isl_flex",
+      "label": "Flex, 2: -ISL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 2,
+        "step": "+ interspinous lig.",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.62,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woISL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_lf_flex",
+      "label": "Flex, 3: -LF (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 3,
+        "step": "+ ligamentum flavum",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 7.13,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_fc_flex",
+      "label": "Flex, 4: -FC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 4,
+        "step": "+ facet capsules",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 7.71,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_va_flex",
+      "label": "Flex, 5: -VA (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 5,
+        "step": "+ vertebral arch (facets, bone)",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 9.73,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woVA",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_pll_flex",
+      "label": "Flex, 6: -PLL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 6,
+        "step": "+ posterior longitudinal lig.",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 10.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woPLL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_all_flex",
+      "label": "Flex, 7: -ALL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 7,
+        "step": "+ anterior longitudinal lig.",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 10.11,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woALL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_nuc_flex",
+      "label": "Flex, 8: -NUC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 8,
+        "step": "+ nucleus (nucleotomy)",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 13.04,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woNUC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_intact_ext",
+      "label": "Ext, 0: intact",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.1,
+          "sd": null,
+          "min": 3.22,
+          "max": 4.93,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "median of 8; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "l45_ssl_ext",
+      "label": "Ext, 1: -SSL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 1,
+        "step": "supraspinous lig.",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.45,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woSSL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_isl_ext",
+      "label": "Ext, 2: -ISL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 2,
+        "step": "+ interspinous lig.",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.52,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woISL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_lf_ext",
+      "label": "Ext, 3: -LF (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 3,
+        "step": "+ ligamentum flavum",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.46,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_fc_ext",
+      "label": "Ext, 4: -FC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 4,
+        "step": "+ facet capsules",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 4.29,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_va_ext",
+      "label": "Ext, 5: -VA (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 5,
+        "step": "+ vertebral arch (facets, bone)",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.82,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woVA",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_pll_ext",
+      "label": "Ext, 6: -PLL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 6,
+        "step": "+ posterior longitudinal lig.",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.88,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woPLL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_all_ext",
+      "label": "Ext, 7: -ALL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 7,
+        "step": "+ anterior longitudinal lig.",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 10.28,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woALL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_nuc_ext",
+      "label": "Ext, 8: -NUC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 8,
+        "step": "+ nucleus (nucleotomy)",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 14.11,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woNUC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_intact_lb",
+      "label": "LB, 0: intact",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.15,
+          "sd": null,
+          "min": 3.98,
+          "max": 6.53,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "median of 8; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "l45_ssl_lb",
+      "label": "LB, 1: -SSL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 1,
+        "step": "supraspinous lig.",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.66,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woSSL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_isl_lb",
+      "label": "LB, 2: -ISL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 2,
+        "step": "+ interspinous lig.",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.69,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woISL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_lf_lb",
+      "label": "LB, 3: -LF (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 3,
+        "step": "+ ligamentum flavum",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.64,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_fc_lb",
+      "label": "LB, 4: -FC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 4,
+        "step": "+ facet capsules",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_va_lb",
+      "label": "LB, 5: -VA (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 5,
+        "step": "+ vertebral arch (facets, bone)",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.14,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woVA",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_pll_lb",
+      "label": "LB, 6: -PLL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 6,
+        "step": "+ posterior longitudinal lig.",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.09,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woPLL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_all_lb",
+      "label": "LB, 7: -ALL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 7,
+        "step": "+ anterior longitudinal lig.",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 6.43,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woALL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_nuc_lb",
+      "label": "LB, 8: -NUC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 8,
+        "step": "+ nucleus (nucleotomy)",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 8.38,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woNUC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_intact_ar",
+      "label": "AR, 0: intact",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 2.7,
+          "sd": null,
+          "min": 1.13,
+          "max": 3.67,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
+          "note": "median of 8; min-max over specimens"
+        }
+      ]
+    },
+    {
+      "id": "l45_ssl_ar",
+      "label": "AR, 1: -SSL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 1,
+        "step": "supraspinous lig.",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 2.91,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woSSL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_isl_ar",
+      "label": "AR, 2: -ISL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 2,
+        "step": "+ interspinous lig.",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 2.94,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woISL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_lf_ar",
+      "label": "AR, 3: -LF (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 3,
+        "step": "+ ligamentum flavum",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 3.08,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFL",
+          "note": "median of 8; offset to intact neutral posture"
+        }
+      ]
+    },
+    {
+      "id": "l45_fc_ar",
+      "label": "AR, 4: -FC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 4,
+        "step": "+ facet capsules",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 3.29,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woFC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_va_ar",
+      "label": "AR, 5: -VA (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 5,
+        "step": "+ vertebral arch (facets, bone)",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.35,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woVA",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_pll_ar",
+      "label": "AR, 6: -PLL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 6,
+        "step": "+ posterior longitudinal lig.",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.47,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woPLL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_all_ar",
+      "label": "AR, 7: -ALL (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 7,
+        "step": "+ anterior longitudinal lig.",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 5.73,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woALL",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l45_nuc_ar",
+      "label": "AR, 8: -NUC (cum.)",
+      "view": "l45_heuer",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 8,
+        "step": "+ nucleus (nucleotomy)",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "heuer2007a",
+          "mean": null,
+          "median": 7.92,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 8,
+          "test_id": "fe_resection_lumbar.heuer2007a.L4L5_woNUC",
+          "note": "median of 8; offset to intact neutral posture; n=3 at 10 Nm, 7.5 Nm used"
+        }
+      ]
+    },
+    {
+      "id": "l23_intact_flex",
+      "label": "Flex, 0: intact",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 5.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_va_flex",
+      "label": "Flex, 1: -posterior elements",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 1,
+        "step": "all posterior structures (arch, ligaments)",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 6.31,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woVA",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_all_flex",
+      "label": "Flex, 2: -PLL, ALL (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 2,
+        "step": "+ PLL and ALL",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 6.92,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woALL",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_nuc_flex",
+      "label": "Flex, 3: -nucleus (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 3,
+        "step": "+ nucleus",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 11.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woNUC",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_intact_ext",
+      "label": "Ext, 0: intact",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 3.36,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_va_ext",
+      "label": "Ext, 1: -posterior elements",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 1,
+        "step": "all posterior structures (arch, ligaments)",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 5.88,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woVA",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_all_ext",
+      "label": "Ext, 2: -PLL, ALL (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 2,
+        "step": "+ PLL and ALL",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 8.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woALL",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_nuc_ext",
+      "label": "Ext, 3: -nucleus (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 3,
+        "step": "+ nucleus",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 11.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woNUC",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_intact_lb",
+      "label": "LB, 0: intact",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 5.79,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_va_lb",
+      "label": "LB, 1: -posterior elements",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 1,
+        "step": "all posterior structures (arch, ligaments)",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 6.44,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woVA",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_all_lb",
+      "label": "LB, 2: -PLL, ALL (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 2,
+        "step": "+ PLL and ALL",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 6.64,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woALL",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_nuc_lb",
+      "label": "LB, 3: -nucleus (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 3,
+        "step": "+ nucleus",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 8.34,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woNUC",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_intact_ar",
+      "label": "AR, 0: intact",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 0,
+        "step": "none",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 2.15,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_fsu.heuer2008.L2L3_intact",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_va_ar",
+      "label": "AR, 1: -posterior elements",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 1,
+        "step": "all posterior structures (arch, ligaments)",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 3.93,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woVA",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_all_ar",
+      "label": "AR, 2: -PLL, ALL (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 2,
+        "step": "+ PLL and ALL",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 4.06,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woALL",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "l23_nuc_ar",
+      "label": "AR, 3: -nucleus (cum.)",
+      "view": "l23_heuer",
+      "inputs": {
+        "specimen": "L2-L3 FSU",
+        "step_no": 3,
+        "step": "+ nucleus",
+        "direction": "left axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "heuer2008",
+          "mean": null,
+          "median": 6.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.heuer2008.L2L3_woNUC",
+          "note": "median of 6, no spread reported"
+        }
+      ]
+    },
+    {
+      "id": "sch_intact_flex",
+      "label": "Flex, 0: intact",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 0,
+        "step": "none",
+        "direction": "flexion",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 5.13,
+          "sd": 1.86,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported; 42 segments tested"
+        }
+      ]
+    },
+    {
+      "id": "sch_wope_flex",
+      "label": "Flex, 1: -posterior elements",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 1,
+        "step": "facets, LF, ISL, SSL",
+        "direction": "flexion",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 5.89,
+          "sd": 2.02,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+          "note": "posterior elements removed in 18 of 42 segments"
+        }
+      ]
+    },
+    {
+      "id": "sch_intact_ext",
+      "label": "Ext, 0: intact",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 0,
+        "step": "none",
+        "direction": "extension",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 2.12,
+          "sd": 0.98,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported; 42 segments tested"
+        }
+      ]
+    },
+    {
+      "id": "sch_wope_ext",
+      "label": "Ext, 1: -posterior elements",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 1,
+        "step": "facets, LF, ISL, SSL",
+        "direction": "extension",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 3.64,
+          "sd": 1.02,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+          "note": "posterior elements removed in 18 of 42 segments"
+        }
+      ]
+    },
+    {
+      "id": "sch_intact_lb",
+      "label": "LB, 0: intact",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 0,
+        "step": "none",
+        "direction": "right lateral bending",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 4.47,
+          "sd": 1.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported; 42 segments tested"
+        }
+      ]
+    },
+    {
+      "id": "sch_wope_lb",
+      "label": "LB, 1: -posterior elements",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 1,
+        "step": "facets, LF, ISL, SSL",
+        "direction": "right lateral bending",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 4.39,
+          "sd": 1.37,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+          "note": "posterior elements removed in 18 of 42 segments"
+        }
+      ]
+    },
+    {
+      "id": "sch_intact_ar",
+      "label": "AR, 0: intact",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 0,
+        "step": "none",
+        "direction": "clockwise axial rotation",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 0.69,
+          "sd": 0.33,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
+          "note": "n per cell not reported; 42 segments tested"
+        }
+      ]
+    },
+    {
+      "id": "sch_wope_ar",
+      "label": "AR, 1: -posterior elements",
+      "view": "lumbar_pe_schultz",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 1,
+        "step": "facets, LF, ISL, SSL",
+        "direction": "clockwise axial rotation",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "output": "rom",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "schultz1979",
+          "mean": 1.72,
+          "sd": 0.41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "fe_resection_lumbar.schultz1979.lumbarFSU_woPE_rom",
+          "note": "posterior elements removed in 18 of 42 segments"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_flex",
+      "label": "Flex, 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 139.0,
+          "sd": 29.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2)"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_ext",
+      "label": "Ext, 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 139.0,
+          "sd": 27.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2)"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_lb",
+      "label": "LB, 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "right lateral bending",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 135.0,
+          "sd": 25.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2)"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_ar",
+      "label": "AR, 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "right axial rotation",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 159.0,
+          "sd": 42.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_bending_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2); axial ROM in mm"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_axial_comp",
+      "label": "Axial comp., 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "axial compression to 1000 N"
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 178.0,
+          "sd": 66.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_axial_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2); axial ROM in mm"
+        }
+      ]
+    },
+    {
+      "id": "acu_denuc_axial_tension",
+      "label": "Axial tension, 20-min denucleation",
+      "view": "lumbar_denuc_pct",
+      "inputs": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy",
+        "direction": "axial tension to 150 N"
+      },
+      "output": "rom_pct",
+      "level": "L1-L5 ACUs",
+      "refs": [
+        {
+          "study": "cannella2008",
+          "mean": 305.0,
+          "sd": 162.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_lumbar.cannella2008.ACU_denucleation_axial_rel",
+          "note": "ratio to intact x 100; mean of 6 (DS2); axial ROM in mm"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Heuer and Wilke values are medians at one moment (Heuer 7.5 Nm, Wilke 2.5 Nm). Other moments (1-10 Nm), neutral zones, Wilke T2-T3 and T10-T11, and per-segment rib cage ROM (Liebsch 2017/2020) stay in bench/tests.",
+    "rom = one direction from the neutral posture; rom_range = both directions summed (thoracic spines with rib cage). Do not compare one with the other.",
+    "Left out: Rahm 2019 (T4-L2 screw-rod construct and cyclic loading, i.e. an instrumented specimen); Healy/Lubelski local-region ROM (n 5-7); Liebsch 2017 NZ; Heuer 2008 strain and bulge; Ghezelbash 2020 review load-sharing secondaries (moment shares, not ROM).",
+    "Healy 2014 and Lubelski 2014 come from one lab with similar torsos; listed as shared in case donors overlap (not stated)."
+  ],
+  "agent_prompt": "Use your finite element spine model. For each view build the specimen named in the task inputs (lumbar FSU, lumbar disc-only unit, thoracic FSU without ribs, or C7-L1 spine with rib cage). Fix the caudal end, apply the pure moment (plus preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. Output \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), measured T1 relative to T12 unless the level says otherwise; \"rom_pct\" is your value divided by your intact value times 100. Return JSON with one entry per task id, as in answer_format, values in degrees or percent.",
+  "answer_format": {
+    "l45_intact_flex": {
+      "rom": "deg"
+    },
+    "l45_ssl_flex": {
+      "rom": "deg"
+    },
+    "l45_isl_flex": {
+      "rom": "deg"
+    },
+    "l45_lf_flex": {
+      "rom": "deg"
+    },
+    "l45_fc_flex": {
+      "rom": "deg"
+    },
+    "l45_va_flex": {
+      "rom": "deg"
+    },
+    "l45_pll_flex": {
+      "rom": "deg"
+    },
+    "l45_all_flex": {
+      "rom": "deg"
+    },
+    "l45_nuc_flex": {
+      "rom": "deg"
+    },
+    "l45_intact_ext": {
+      "rom": "deg"
+    },
+    "l45_ssl_ext": {
+      "rom": "deg"
+    },
+    "l45_isl_ext": {
+      "rom": "deg"
+    },
+    "l45_lf_ext": {
+      "rom": "deg"
+    },
+    "l45_fc_ext": {
+      "rom": "deg"
+    },
+    "l45_va_ext": {
+      "rom": "deg"
+    },
+    "l45_pll_ext": {
+      "rom": "deg"
+    },
+    "l45_all_ext": {
+      "rom": "deg"
+    },
+    "l45_nuc_ext": {
+      "rom": "deg"
+    },
+    "l45_intact_lb": {
+      "rom": "deg"
+    },
+    "l45_ssl_lb": {
+      "rom": "deg"
+    },
+    "l45_isl_lb": {
+      "rom": "deg"
+    },
+    "l45_lf_lb": {
+      "rom": "deg"
+    },
+    "l45_fc_lb": {
+      "rom": "deg"
+    },
+    "l45_va_lb": {
+      "rom": "deg"
+    },
+    "l45_pll_lb": {
+      "rom": "deg"
+    },
+    "l45_all_lb": {
+      "rom": "deg"
+    },
+    "l45_nuc_lb": {
+      "rom": "deg"
+    },
+    "l45_intact_ar": {
+      "rom": "deg"
+    },
+    "l45_ssl_ar": {
+      "rom": "deg"
+    },
+    "l45_isl_ar": {
+      "rom": "deg"
+    },
+    "l45_lf_ar": {
+      "rom": "deg"
+    },
+    "l45_fc_ar": {
+      "rom": "deg"
+    },
+    "l45_va_ar": {
+      "rom": "deg"
+    },
+    "l45_pll_ar": {
+      "rom": "deg"
+    },
+    "l45_all_ar": {
+      "rom": "deg"
+    },
+    "l45_nuc_ar": {
+      "rom": "deg"
+    },
+    "l23_intact_flex": {
+      "rom": "deg"
+    },
+    "l23_va_flex": {
+      "rom": "deg"
+    },
+    "l23_all_flex": {
+      "rom": "deg"
+    },
+    "l23_nuc_flex": {
+      "rom": "deg"
+    },
+    "l23_intact_ext": {
+      "rom": "deg"
+    },
+    "l23_va_ext": {
+      "rom": "deg"
+    },
+    "l23_all_ext": {
+      "rom": "deg"
+    },
+    "l23_nuc_ext": {
+      "rom": "deg"
+    },
+    "l23_intact_lb": {
+      "rom": "deg"
+    },
+    "l23_va_lb": {
+      "rom": "deg"
+    },
+    "l23_all_lb": {
+      "rom": "deg"
+    },
+    "l23_nuc_lb": {
+      "rom": "deg"
+    },
+    "l23_intact_ar": {
+      "rom": "deg"
+    },
+    "l23_va_ar": {
+      "rom": "deg"
+    },
+    "l23_all_ar": {
+      "rom": "deg"
+    },
+    "l23_nuc_ar": {
+      "rom": "deg"
+    },
+    "sch_intact_flex": {
+      "rom": "deg"
+    },
+    "sch_wope_flex": {
+      "rom": "deg"
+    },
+    "sch_intact_ext": {
+      "rom": "deg"
+    },
+    "sch_wope_ext": {
+      "rom": "deg"
+    },
+    "sch_intact_lb": {
+      "rom": "deg"
+    },
+    "sch_wope_lb": {
+      "rom": "deg"
+    },
+    "sch_intact_ar": {
+      "rom": "deg"
+    },
+    "sch_wope_ar": {
+      "rom": "deg"
+    },
+    "acu_denuc_flex": {
+      "rom_pct": "%"
+    },
+    "acu_denuc_ext": {
+      "rom_pct": "%"
+    },
+    "acu_denuc_lb": {
+      "rom_pct": "%"
+    },
+    "acu_denuc_ar": {
+      "rom_pct": "%"
+    },
+    "acu_denuc_axial_comp": {
+      "rom_pct": "%"
+    },
+    "acu_denuc_axial_tension": {
+      "rom_pct": "%"
+    }
+  }
+}

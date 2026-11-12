@@ -1,0 +1,2126 @@
+{
+  "id": "emg_load_holding",
+  "title": "Trunk EMG in static load holding",
+  "domain": "msk",
+  "region": "lumbar+thoracic",
+  "levels": [
+    "T10-L5 (electrode sites)"
+  ],
+  "summary": "Simulate each static holding task and report trunk muscle activation (%MVC) under each electrode site.",
+  "simulate": [
+    "Scale the model to the study subject (table below).",
+    "Set the static posture and hand-load position (height, distance, asymmetry) of the task.",
+    "Apply the load: hand mass, or an external pull at the chest (pull direction, moment).",
+    "Solve muscle forces; report activation under each electrode, normalised as the study did.",
+    "Keep sides apart where given (left/right); else average both sides."
+  ],
+  "inputs": [
+    {
+      "key": "posture",
+      "label": "Posture"
+    },
+    {
+      "key": "load",
+      "label": "Load"
+    },
+    {
+      "key": "load_pos",
+      "label": "Load position"
+    },
+    {
+      "key": "asymmetry_deg",
+      "label": "Load asymmetry (to left)",
+      "unit": "deg"
+    },
+    {
+      "key": "pull_dir_deg",
+      "label": "Pull direction (0 fwd, 90 right)",
+      "unit": "deg"
+    },
+    {
+      "key": "muscle",
+      "label": "Electrode site"
+    },
+    {
+      "key": "side",
+      "label": "Side"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "emg",
+      "label": "EMG",
+      "unit": "%MVC"
+    }
+  ],
+  "subjects": {
+    "ghezelbash2020": {
+      "sex": "9 F / 10 M",
+      "age": 27.5,
+      "height_cm": 169.3,
+      "weight_kg": 66.9,
+      "note": "weighted means; F 163.4 cm 61.0 kg, M 174.6 cm 72.2 kg"
+    },
+    "lariviere2019": {
+      "sex": "20 F / 20 M",
+      "age": 23.1,
+      "height_cm": 174,
+      "weight_kg": 66.5,
+      "note": "means of F 167 cm 59.7 kg and M 181 cm 73.2 kg"
+    },
+    "lavender1992": {
+      "sex": "male",
+      "age": "20-36",
+      "height_cm": 177.5,
+      "weight_kg": 77.8
+    },
+    "granata2005": {
+      "sex": "7 M / 7 F",
+      "age": 22.5,
+      "height_cm": 173.3,
+      "weight_kg": 69.6,
+      "note": "means of M 180.3 cm 74.9 kg and F 166.2 cm 64.3 kg"
+    }
+  },
+  "studies": [
+    {
+      "key": "ghezelbash2020",
+      "short": "Ghezelbash 2020",
+      "year": 2020,
+      "n": 19,
+      "sample": "19 healthy adults (9 F, 10 M), 14 kg holds",
+      "doi": "10.1016/j.jbiomech.2019.109550",
+      "secondary": false
+    },
+    {
+      "key": "lariviere2019",
+      "short": "Larivière 2019",
+      "year": 2019,
+      "n": 40,
+      "sample": "40 healthy adults (20 F, 20 M), upright holds",
+      "doi": "10.1016/j.jelekin.2019.03.001",
+      "secondary": false
+    },
+    {
+      "key": "lavender1992",
+      "short": "Lavender 1992",
+      "year": 1992,
+      "n": 10,
+      "sample": "10 healthy males, chest-harness pulls, upright",
+      "doi": "10.1002/jor.1100100511",
+      "secondary": false
+    },
+    {
+      "key": "granata2005",
+      "short": "Granata 2005",
+      "year": 2005,
+      "n": 14,
+      "sample": "14 healthy adults (7 M, 7 F), T10 pulls, upright",
+      "doi": "",
+      "secondary": false
+    }
+  ],
+  "shared": [],
+  "views": [
+    {
+      "id": "height",
+      "title": "Load height",
+      "task_ids": [
+        "g20_lg_t11_umbilicus",
+        "g20_lg_t11_midfemur",
+        "g20_lg_t11_knee",
+        "g20_lg_t11_midtibia",
+        "g20_ic_l3_umbilicus",
+        "g20_ic_l3_midfemur",
+        "g20_ic_l3_knee",
+        "g20_ic_l3_midtibia",
+        "g20_mf_l4_umbilicus",
+        "g20_mf_l4_midfemur",
+        "g20_mf_l4_knee",
+        "g20_mf_l4_midtibia",
+        "lar19_lg_t10_p1",
+        "lar19_lg_t10_p2",
+        "lar19_lg_l1_p1",
+        "lar19_lg_l1_p2",
+        "lar19_mf_l5_p1",
+        "lar19_mf_l5_p2"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "distance",
+      "title": "Load distance",
+      "task_ids": [
+        "lar19_ra_p2",
+        "lar19_ra_p3",
+        "lar19_eo_p2",
+        "lar19_eo_p3",
+        "lar19_io_p2",
+        "lar19_io_p3"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "asymmetry",
+      "title": "Load asymmetry (14 kg, mid-femur)",
+      "task_ids": [
+        "g20_asym_lg_t11_l_0",
+        "g20_asym_lg_t11_l_30",
+        "g20_asym_lg_t11_l_60",
+        "g20_asym_lg_t11_l_90",
+        "g20_asym_lg_t11_r_0",
+        "g20_asym_lg_t11_r_30",
+        "g20_asym_lg_t11_r_60",
+        "g20_asym_lg_t11_r_90",
+        "g20_asym_mf_l4_l_0",
+        "g20_asym_mf_l4_l_30",
+        "g20_asym_mf_l4_l_60",
+        "g20_asym_mf_l4_l_90",
+        "g20_asym_mf_l4_r_0",
+        "g20_asym_mf_l4_r_30",
+        "g20_asym_mf_l4_r_60",
+        "g20_asym_mf_l4_r_90"
+      ],
+      "x": "input:asymmetry_deg"
+    },
+    {
+      "id": "moment_dir",
+      "title": "Moment direction",
+      "task_ids": [
+        "lav_ersl_0",
+        "lav_ersl_30",
+        "lav_ersl_60",
+        "lav_ersl_90",
+        "lav_ersl_120",
+        "lav_ersr_0",
+        "lav_ersr_30",
+        "lav_ersr_60",
+        "lav_exol_30",
+        "lav_exol_60",
+        "lav_exol_90",
+        "lav_exol_120",
+        "lav_exol_150",
+        "lav_exol_180",
+        "gra_ra_0",
+        "gra_ra_180",
+        "gra_io_0",
+        "gra_io_180",
+        "gra_eo_0",
+        "gra_eo_180",
+        "gra_es_0",
+        "gra_es_180"
+      ],
+      "x": "input:pull_dir_deg"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "g20_lg_t11_umbilicus",
+      "label": "LG(T11), 14 kg at umbilicus",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "umbilicus height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 26.95,
+          "sd": 12.65,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_midfemur",
+      "label": "LG(T11), 14 kg at mid-femur",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 29.75,
+          "sd": 10.15,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_knee",
+      "label": "LG(T11), 14 kg at knee",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "knee height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 22.9,
+          "sd": 13.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_midtibia",
+      "label": "LG(T11), 14 kg at mid-tibia",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-tibia height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.0,
+          "sd": 15.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_umbilicus",
+      "label": "IC(L3), 14 kg at umbilicus",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "umbilicus height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 18.35,
+          "sd": 8.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_midfemur",
+      "label": "IC(L3), 14 kg at mid-femur",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 22.8,
+          "sd": 7.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_knee",
+      "label": "IC(L3), 14 kg at knee",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "knee height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.55,
+          "sd": 9.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_midtibia",
+      "label": "IC(L3), 14 kg at mid-tibia",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-tibia height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 11.25,
+          "sd": 8.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_umbilicus",
+      "label": "MF(L4/L5), 14 kg at umbilicus",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "umbilicus height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 28.85,
+          "sd": 13.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_midfemur",
+      "label": "MF(L4/L5), 14 kg at mid-femur",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 39.9,
+          "sd": 13.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_knee",
+      "label": "MF(L4/L5), 14 kg at knee",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "knee height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 28.3,
+          "sd": 16.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_midtibia",
+      "label": "MF(L4/L5), 14 kg at mid-tibia",
+      "view": "height",
+      "inputs": {
+        "posture": "standing, flexed to reach load",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-tibia height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.15,
+          "sd": 14.45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "mean of left and right"
+        }
+      ]
+    },
+    {
+      "id": "lar19_lg_t10_p1",
+      "label": "LG(T10), 10% BW at L5/S1",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "L5/S1 height, close",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T10)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 7.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_LO_T10_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_lg_t10_p2",
+      "label": "LG(T10), 10% BW at shoulder",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T10)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 8.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_LO_T10_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_lg_l1_p1",
+      "label": "LG(L1), 10% BW at L5/S1",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "L5/S1 height, close",
+        "asymmetry_deg": 0,
+        "muscle": "LG(L1)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 7.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_LO_L1_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_lg_l1_p2",
+      "label": "LG(L1), 10% BW at shoulder",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "LG(L1)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 8.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_LO_L1_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_mf_l5_p1",
+      "label": "MF(L5), 10% BW at L5/S1",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "L5/S1 height, close",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 9.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_MU_L5_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_mf_l5_p2",
+      "label": "MF(L5), 10% BW at shoulder",
+      "view": "height",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 9.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_MU_L5_height_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_ra_p2",
+      "label": "RA, 10% BW at shoulder, close",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "RA",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 2.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_RA_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_ra_p3",
+      "label": "RA, 10% BW at shoulder, far",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, arms extended",
+        "asymmetry_deg": 0,
+        "muscle": "RA",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 3.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_RA_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_eo_p2",
+      "label": "EO, 10% BW at shoulder, close",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "EO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 3.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_EO_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_eo_p3",
+      "label": "EO, 10% BW at shoulder, far",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, arms extended",
+        "asymmetry_deg": 0,
+        "muscle": "EO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 6.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_EO_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_io_p2",
+      "label": "IO, 10% BW at shoulder, close",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, close",
+        "asymmetry_deg": 0,
+        "muscle": "IO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 7.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_IO_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "lar19_io_p3",
+      "label": "IO, 10% BW at shoulder, far",
+      "view": "distance",
+      "inputs": {
+        "posture": "upright, knees straight",
+        "load": "10% BW (F 6.0, M 7.2 kg)",
+        "load_pos": "shoulder height, arms extended",
+        "asymmetry_deg": 0,
+        "muscle": "IO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lariviere2019",
+          "mean": 13.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 40,
+          "test_id": "msk_emg_posture.lariviere2019.emg_IO_distance_study",
+          "note": "no SD plotted; F and M pooled"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_l_0",
+      "label": "LG(T11) left (ipsi), 0 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 28.8,
+          "sd": 11.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_l_30",
+      "label": "LG(T11) left (ipsi), 30 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 30,
+        "muscle": "LG(T11)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 27.6,
+          "sd": 11.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_l_60",
+      "label": "LG(T11) left (ipsi), 60 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 60,
+        "muscle": "LG(T11)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 27.0,
+          "sd": 11.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_l_90",
+      "label": "LG(T11) left (ipsi), 90 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 90,
+        "muscle": "LG(T11)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 26.6,
+          "sd": 9.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_r_0",
+      "label": "LG(T11) right (contra), 0 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "LG(T11)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 30.7,
+          "sd": 9.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_r_30",
+      "label": "LG(T11) right (contra), 30 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 30,
+        "muscle": "LG(T11)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 31.1,
+          "sd": 9.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_r_60",
+      "label": "LG(T11) right (contra), 60 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 60,
+        "muscle": "LG(T11)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 33.0,
+          "sd": 11.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_lg_t11_r_90",
+      "label": "LG(T11) right (contra), 90 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 90,
+        "muscle": "LG(T11)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 33.6,
+          "sd": 11.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_l_0",
+      "label": "MF(L4/L5) left (ipsi), 0 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 40.8,
+          "sd": 13.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_l_30",
+      "label": "MF(L4/L5) left (ipsi), 30 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 30,
+        "muscle": "MF(L4/L5)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 39.0,
+          "sd": 12.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_l_60",
+      "label": "MF(L4/L5) left (ipsi), 60 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 60,
+        "muscle": "MF(L4/L5)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 38.8,
+          "sd": 12.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_l_90",
+      "label": "MF(L4/L5) left (ipsi), 90 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 90,
+        "muscle": "MF(L4/L5)",
+        "side": "left (ipsilateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 37.1,
+          "sd": 13.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_r_0",
+      "label": "MF(L4/L5) right (contra), 0 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 0,
+        "muscle": "MF(L4/L5)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 39.0,
+          "sd": 13.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_r_30",
+      "label": "MF(L4/L5) right (contra), 30 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 30,
+        "muscle": "MF(L4/L5)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 43.0,
+          "sd": 14.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_r_60",
+      "label": "MF(L4/L5) right (contra), 60 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 60,
+        "muscle": "MF(L4/L5)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 44.7,
+          "sd": 14.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "g20_asym_mf_l4_r_90",
+      "label": "MF(L4/L5) right (contra), 90 deg",
+      "view": "asymmetry",
+      "inputs": {
+        "posture": "standing, flexed to mid-femur",
+        "load": "14 kg, both hands",
+        "load_pos": "mid-femur height, 0.2xBH ahead",
+        "asymmetry_deg": 90,
+        "muscle": "MF(L4/L5)",
+        "side": "right (contralateral)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 47.9,
+          "sd": 15.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "load rotated to the subject's left"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersl_0",
+      "label": "ES(L3/L4) left, 50 Nm, pull 0 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 0,
+        "muscle": "ES(L3/L4)",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 24.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersl_30",
+      "label": "ES(L3/L4) left, 50 Nm, pull 30 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 30,
+        "muscle": "ES(L3/L4)",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 28.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersl_60",
+      "label": "ES(L3/L4) left, 50 Nm, pull 60 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 60,
+        "muscle": "ES(L3/L4)",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 22.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersl_90",
+      "label": "ES(L3/L4) left, 50 Nm, pull 90 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 90,
+        "muscle": "ES(L3/L4)",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 15.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersl_120",
+      "label": "ES(L3/L4) left, 50 Nm, pull 120 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 120,
+        "muscle": "ES(L3/L4)",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 4.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersr_0",
+      "label": "ES(L3/L4) right, 50 Nm, pull 0 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 0,
+        "muscle": "ES(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 23.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSR_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersr_30",
+      "label": "ES(L3/L4) right, 50 Nm, pull 30 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 30,
+        "muscle": "ES(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 10.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSR_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_ersr_60",
+      "label": "ES(L3/L4) right, 50 Nm, pull 60 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 60,
+        "muscle": "ES(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 2.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_ERSR_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_30",
+      "label": "EO left, 50 Nm, pull 30 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 30,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 1.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_60",
+      "label": "EO left, 50 Nm, pull 60 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 60,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 9.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_90",
+      "label": "EO left, 50 Nm, pull 90 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 90,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 21.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_120",
+      "label": "EO left, 50 Nm, pull 120 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 120,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 26.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_150",
+      "label": "EO left, 50 Nm, pull 150 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 150,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 24.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "lav_exol_180",
+      "label": "EO left, 50 Nm, pull 180 deg",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis strapped",
+        "load": "50 Nm about L3/L4 via chest harness",
+        "pull_dir_deg": 180,
+        "muscle": "EO",
+        "side": "left"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "lavender1992",
+          "mean": 20.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_emg_posture.lavender1992.emg_EXOL_moment_direction_magnitude",
+          "note": "baseline-subtracted NEMG; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_ra_0",
+      "label": "RA, extension effort (pull 0 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 0,
+        "muscle": "RA",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 10.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_ra_180",
+      "label": "RA, flexion effort (pull 180 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 180,
+        "muscle": "RA",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 15.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_io_0",
+      "label": "IO, extension effort (pull 0 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 0,
+        "muscle": "IO",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 7.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_io_180",
+      "label": "IO, flexion effort (pull 180 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 180,
+        "muscle": "IO",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 10.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_eo_0",
+      "label": "EO, extension effort (pull 0 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 0,
+        "muscle": "EO",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 5.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_eo_180",
+      "label": "EO, flexion effort (pull 180 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 180,
+        "muscle": "EO",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 9.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_es_0",
+      "label": "ES(L3), extension effort (pull 0 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 0,
+        "muscle": "ES(L3)",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 15.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    },
+    {
+      "id": "gra_es_180",
+      "label": "ES(L3), flexion effort (pull 180 deg)",
+      "view": "moment_dir",
+      "inputs": {
+        "posture": "upright, pelvis restrained",
+        "load": "100-170 N at T10 (56-82 Nm at L5/S1)",
+        "pull_dir_deg": 180,
+        "muscle": "ES(L3)",
+        "side": "L/R"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "granata2005",
+          "mean": 12.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_emg_posture.granata2005.upright_isometric_flexion_extension_emg",
+          "note": "pooled over 3 load levels; no SD"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "EMG references differ: max over 6 MVEs semi-seated (Ghezelbash), max over 6 standing MVCs (Larivière), baseline-subtracted max of 4 MVCs (Lavender), McGill MVCs (Granata).",
+    "Ghezelbash 2020 loads were always rotated to the subject's left (left = ipsilateral). Lavender pulls step toward the subject's right; 0 deg = anterior pull (extensor demand).",
+    "Not here: dynamic lifts (Koopman 2020a/b peak EMG, van Dieën 2003), unloaded bending (Koopman 2019/2020b: see flexion_relaxation). More muscles, heights, angles and magnitudes in raw tests."
+  ],
+  "agent_prompt": "You are validating a trunk musculoskeletal model against EMG measured during static load holding. For each task, scale the model to the study subject in `subjects`, set the posture and load position (height, horizontal distance, asymmetry angle to the subject's left) or the external chest pull (direction it pulls the trunk: 0 = forward, 90 = to the right, 180 = backward; magnitude), solve for muscle forces, and report the activation (%) of the muscles under the named electrode site and side. Normalise each muscle's activation to its maximal activity over maximal exertions in flexion, extension, lateral bending and axial rotation, as the studies did. Do not tune the model to these data. Return one JSON object following answer_format: task id -> {\"emg\": value}.",
+  "answer_format": {
+    "g20_lg_t11_umbilicus": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_midfemur": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_knee": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_midtibia": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_umbilicus": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_midfemur": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_knee": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_midtibia": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_umbilicus": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_midfemur": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_knee": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_midtibia": {
+      "emg": "%MVC"
+    },
+    "lar19_lg_t10_p1": {
+      "emg": "%MVC"
+    },
+    "lar19_lg_t10_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_lg_l1_p1": {
+      "emg": "%MVC"
+    },
+    "lar19_lg_l1_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_mf_l5_p1": {
+      "emg": "%MVC"
+    },
+    "lar19_mf_l5_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_ra_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_ra_p3": {
+      "emg": "%MVC"
+    },
+    "lar19_eo_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_eo_p3": {
+      "emg": "%MVC"
+    },
+    "lar19_io_p2": {
+      "emg": "%MVC"
+    },
+    "lar19_io_p3": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_l_0": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_l_30": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_l_60": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_l_90": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_r_0": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_r_30": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_r_60": {
+      "emg": "%MVC"
+    },
+    "g20_asym_lg_t11_r_90": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_l_0": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_l_30": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_l_60": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_l_90": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_r_0": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_r_30": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_r_60": {
+      "emg": "%MVC"
+    },
+    "g20_asym_mf_l4_r_90": {
+      "emg": "%MVC"
+    },
+    "lav_ersl_0": {
+      "emg": "%MVC"
+    },
+    "lav_ersl_30": {
+      "emg": "%MVC"
+    },
+    "lav_ersl_60": {
+      "emg": "%MVC"
+    },
+    "lav_ersl_90": {
+      "emg": "%MVC"
+    },
+    "lav_ersl_120": {
+      "emg": "%MVC"
+    },
+    "lav_ersr_0": {
+      "emg": "%MVC"
+    },
+    "lav_ersr_30": {
+      "emg": "%MVC"
+    },
+    "lav_ersr_60": {
+      "emg": "%MVC"
+    },
+    "lav_exol_30": {
+      "emg": "%MVC"
+    },
+    "lav_exol_60": {
+      "emg": "%MVC"
+    },
+    "lav_exol_90": {
+      "emg": "%MVC"
+    },
+    "lav_exol_120": {
+      "emg": "%MVC"
+    },
+    "lav_exol_150": {
+      "emg": "%MVC"
+    },
+    "lav_exol_180": {
+      "emg": "%MVC"
+    },
+    "gra_ra_0": {
+      "emg": "%MVC"
+    },
+    "gra_ra_180": {
+      "emg": "%MVC"
+    },
+    "gra_io_0": {
+      "emg": "%MVC"
+    },
+    "gra_io_180": {
+      "emg": "%MVC"
+    },
+    "gra_eo_0": {
+      "emg": "%MVC"
+    },
+    "gra_eo_180": {
+      "emg": "%MVC"
+    },
+    "gra_es_0": {
+      "emg": "%MVC"
+    },
+    "gra_es_180": {
+      "emg": "%MVC"
+    }
+  }
+}

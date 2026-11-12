@@ -1,0 +1,5466 @@
+{
+  "id": "maximal_exertions",
+  "title": "Maximal trunk exertions",
+  "domain": "msk",
+  "region": "lumbar",
+  "levels": [
+    "L5-S1"
+  ],
+  "summary": "Simulate maximal isometric trunk exertions in six directions; report primary moment, coupled moments and muscle EMG at MVC.",
+  "simulate": [
+    "Scale the model to the study subject (table below; by sex where given).",
+    "Fix pelvis and legs in the task posture (semi-seated, standing, seated or side-lying).",
+    "Maximise the moment in the task direction with all muscles free; record moments about the task's reference.",
+    "Report primary moment magnitude and the two coupled moments (signed, absolute or % as the output says).",
+    "Report each muscle's activation, normalised to its maximum over the six exertions."
+  ],
+  "inputs": [
+    {
+      "key": "direction",
+      "label": "Effort direction"
+    },
+    {
+      "key": "posture",
+      "label": "Posture"
+    },
+    {
+      "key": "sex",
+      "label": "Sex"
+    },
+    {
+      "key": "moment_ref",
+      "label": "Moment reference"
+    },
+    {
+      "key": "axis",
+      "label": "Coupled axis"
+    },
+    {
+      "key": "flexion_deg",
+      "label": "Flexion angle",
+      "unit": "deg"
+    },
+    {
+      "key": "angle_def",
+      "label": "Angle definition"
+    },
+    {
+      "key": "muscle",
+      "label": "Electrode site"
+    },
+    {
+      "key": "side",
+      "label": "Side"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "moment_primary",
+      "label": "Primary moment (magnitude)",
+      "unit": "Nm"
+    },
+    {
+      "key": "moment_coupled_signed",
+      "label": "Coupled moment, signed (+flex, +right)",
+      "unit": "Nm"
+    },
+    {
+      "key": "moment_coupled_abs",
+      "label": "Coupled moment, absolute",
+      "unit": "Nm"
+    },
+    {
+      "key": "moment_coupled_pct",
+      "label": "Coupled moment, % of same-plane MVC (signed)",
+      "unit": "%"
+    },
+    {
+      "key": "emg",
+      "label": "EMG at MVC",
+      "unit": "%MVC"
+    }
+  ],
+  "subjects": {
+    "ghezelbash2018": {
+      "sex": "9 F / 10 M",
+      "age": 27.5,
+      "height_cm": 169.3,
+      "weight_kg": 66.9,
+      "F": {
+        "age": 24.1,
+        "height_cm": 163.4,
+        "weight_kg": 61.0
+      },
+      "M": {
+        "age": 30.6,
+        "height_cm": 174.6,
+        "weight_kg": 72.2
+      }
+    },
+    "elouaaid2013": {
+      "sex": "male",
+      "age": null,
+      "height_cm": 177.7,
+      "weight_kg": 73.0,
+      "note": "age not reported (university students)"
+    },
+    "lariviere2001": {
+      "sex": "male",
+      "age": 33,
+      "height_cm": 177,
+      "weight_kg": 73
+    },
+    "lariviere2009": {
+      "sex": "male",
+      "age": 25,
+      "height_cm": 180,
+      "weight_kg": 75
+    },
+    "ng2001": {
+      "sex": "male",
+      "age": 30.2,
+      "height_cm": 180,
+      "weight_kg": 68.1
+    },
+    "ng2002": {
+      "sex": "male",
+      "age": 30.0,
+      "height_cm": 179,
+      "weight_kg": 73.0
+    },
+    "gravel1997": {
+      "sex": "male",
+      "age": 24,
+      "height_cm": 165.1,
+      "weight_kg": 69.3,
+      "note": "extension group; lateral 174.0 cm 72.3 kg; axial 175.1 cm 74.3 kg"
+    },
+    "mcgill1991": {
+      "sex": "10 M / 5 F",
+      "F": {
+        "age": 24,
+        "height_cm": 159,
+        "weight_kg": 53.3
+      },
+      "M": {
+        "age": 21.2,
+        "height_cm": 173.5,
+        "weight_kg": 71.4
+      }
+    },
+    "kumar2001": {
+      "sex": "27 M / 23 F",
+      "F": {
+        "age": 22.1,
+        "height_cm": 165.4,
+        "weight_kg": 58.5
+      },
+      "M": {
+        "age": 22.1,
+        "height_cm": 176.9,
+        "weight_kg": 72.3
+      }
+    },
+    "daggfeldt2003": {
+      "sex": "male",
+      "age": 27,
+      "height_cm": 190,
+      "weight_kg": 82.5
+    },
+    "thelen1995": {
+      "sex": "male",
+      "age": 24.1,
+      "height_cm": 175.8,
+      "weight_kg": 73.2
+    }
+  },
+  "studies": [
+    {
+      "key": "ghezelbash2018",
+      "short": "Ghezelbash 2018",
+      "year": 2018,
+      "n": 19,
+      "sample": "19 healthy adults (9 F, 10 M), semi-seated dynamometer",
+      "doi": "10.1016/j.jbiomech.2017.11.007",
+      "secondary": false
+    },
+    {
+      "key": "elouaaid2013",
+      "short": "El Ouaaid 2013",
+      "year": 2013,
+      "n": 12,
+      "sample": "12 healthy males, semi-seated dynamometer",
+      "doi": "10.1016/j.jbiomech.2013.06.018",
+      "secondary": false
+    },
+    {
+      "key": "lariviere2001",
+      "short": "Larivière 2001",
+      "year": 2001,
+      "n": 14,
+      "sample": "14 healthy males, standing, extension only",
+      "doi": "10.1016/S0268-0033(00)00068-1",
+      "secondary": false
+    },
+    {
+      "key": "lariviere2009",
+      "short": "Larivière 2009",
+      "year": 2009,
+      "n": 20,
+      "sample": "20 healthy males, standing triaxial dynamometer",
+      "doi": "10.1016/j.jbiomech.2009.03.045",
+      "secondary": false
+    },
+    {
+      "key": "ng2001",
+      "short": "Ng 2001",
+      "year": 2001,
+      "n": 23,
+      "sample": "23 healthy males, standing B200 Isostation",
+      "doi": "10.1016/S0736-0266(00)90027-5",
+      "secondary": false
+    },
+    {
+      "key": "ng2002",
+      "short": "Ng 2002",
+      "year": 2002,
+      "n": 12,
+      "sample": "12 healthy male controls (LBP group excluded)",
+      "doi": "10.1016/S0736-0266(01)00067-5",
+      "secondary": false
+    },
+    {
+      "key": "gravel1997",
+      "short": "Gravel 1997",
+      "year": 1997,
+      "n": 12,
+      "sample": "healthy males, standing; separate groups of 10-12 per direction",
+      "doi": "10.1016/S0268-0033(97)00011-6",
+      "secondary": false
+    },
+    {
+      "key": "mcgill1991",
+      "short": "McGill 1991",
+      "year": 1991,
+      "n": 15,
+      "sample": "15 healthy students (10 M, 5 F), standing twist",
+      "doi": "10.1002/jor.1100090112",
+      "secondary": false
+    },
+    {
+      "key": "kumar2001",
+      "short": "Kumar 2001",
+      "year": 2001,
+      "n": 50,
+      "sample": "50 healthy young adults (27 M, 23 F), seated",
+      "doi": "10.1007/s004210100510",
+      "secondary": false
+    },
+    {
+      "key": "daggfeldt2003",
+      "short": "Daggfeldt 2003",
+      "year": 2003,
+      "n": 4,
+      "sample": "4 healthy tall males, side-lying swivel table",
+      "doi": "10.1016/S0021-9290(03)00015-0",
+      "secondary": false
+    },
+    {
+      "key": "thelen1995",
+      "short": "Thelen 1995",
+      "year": 1995,
+      "n": 9,
+      "sample": "9 healthy young men, standing",
+      "doi": "10.1002/jor.1100130313",
+      "secondary": false
+    }
+  ],
+  "shared": [],
+  "views": [
+    {
+      "id": "primary",
+      "title": "Primary moment",
+      "task_ids": [
+        "ss_flex_f_primary",
+        "ss_flex_m_primary",
+        "ss_ext_f_primary",
+        "ss_ext_m_primary",
+        "ss_latr_f_primary",
+        "ss_latr_m_primary",
+        "ss_latl_f_primary",
+        "ss_latl_m_primary",
+        "ss_axr_f_primary",
+        "ss_axr_m_primary",
+        "ss_axl_f_primary",
+        "ss_axl_m_primary",
+        "st_flex_m_primary",
+        "st_ext_m_primary",
+        "st_latr_m_primary",
+        "st_latl_m_primary",
+        "st_axr_m_primary",
+        "st_axl_m_primary",
+        "st_axr_f_primary_vert",
+        "st_axr_m_primary_vert",
+        "st_axl_f_primary_vert",
+        "st_axl_m_primary_vert",
+        "se_axr_f_primary",
+        "se_axr_m_primary",
+        "se_axl_f_primary",
+        "se_axl_m_primary"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "coupled",
+      "title": "Coupled moments",
+      "task_ids": [
+        "ss_flex_f_coupled_lat",
+        "ss_flex_f_coupled_axial",
+        "ss_flex_m_coupled_lat",
+        "ss_flex_m_coupled_axial",
+        "ss_ext_f_coupled_lat",
+        "ss_ext_f_coupled_axial",
+        "ss_ext_m_coupled_lat",
+        "ss_ext_m_coupled_axial",
+        "ss_latr_f_coupled_sag",
+        "ss_latr_f_coupled_axial",
+        "ss_latr_m_coupled_sag",
+        "ss_latr_m_coupled_axial",
+        "ss_latl_f_coupled_sag",
+        "ss_latl_f_coupled_axial",
+        "ss_latl_m_coupled_sag",
+        "ss_latl_m_coupled_axial",
+        "ss_axr_f_coupled_sag",
+        "ss_axr_f_coupled_lat",
+        "ss_axr_m_coupled_sag",
+        "ss_axr_m_coupled_lat",
+        "ss_axl_f_coupled_sag",
+        "ss_axl_f_coupled_lat",
+        "ss_axl_m_coupled_sag",
+        "ss_axl_m_coupled_lat",
+        "st_flex_m_abscoupled_lat",
+        "st_flex_m_abscoupled_axial",
+        "st_ext_m_abscoupled_lat",
+        "st_ext_m_abscoupled_axial",
+        "st_latr_m_abscoupled_sag",
+        "st_latr_m_abscoupled_axial",
+        "st_latl_m_abscoupled_sag",
+        "st_latl_m_abscoupled_axial",
+        "st_axr_m_abscoupled_sag",
+        "st_axr_m_abscoupled_lat",
+        "st_axl_m_abscoupled_sag",
+        "st_axl_m_abscoupled_lat",
+        "st_axr_m_pctcoupled_sag",
+        "st_axr_m_pctcoupled_lat",
+        "st_axl_m_pctcoupled_sag",
+        "st_axl_m_pctcoupled_lat"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "posture",
+      "title": "Extension MVC vs flexion angle",
+      "task_ids": [
+        "st_ext_m_flexm20",
+        "st_ext_m_flex20",
+        "st_ext_m_flex40",
+        "st_ext_m_flex60",
+        "sl_ext_m_lumb45",
+        "sl_ext_m_lumb30",
+        "sl_ext_m_lumb10",
+        "sl_ext_m_lumbm10",
+        "sl_ext_m_lumbm20",
+        "st_ext_m_primary"
+      ],
+      "x": "input:flexion_deg"
+    },
+    {
+      "id": "emg",
+      "title": "EMG at MVC",
+      "task_ids": [
+        "emg_ss_flex_lg",
+        "emg_ss_flex_ic",
+        "emg_ss_flex_mf",
+        "emg_ss_flex_ra",
+        "emg_ss_flex_eo",
+        "emg_ss_flex_io",
+        "emg_ss_ext_lg",
+        "emg_ss_ext_ic",
+        "emg_ss_ext_mf",
+        "emg_ss_ext_ra",
+        "emg_ss_ext_eo",
+        "emg_ss_ext_io",
+        "emg_ss_latr_lg",
+        "emg_ss_latr_ic",
+        "emg_ss_latr_mf",
+        "emg_ss_latr_ra",
+        "emg_ss_latr_eo",
+        "emg_ss_latr_io",
+        "emg_ss_latl_lg",
+        "emg_ss_latl_ic",
+        "emg_ss_latl_mf",
+        "emg_ss_latl_ra",
+        "emg_ss_latl_eo",
+        "emg_ss_latl_io",
+        "emg_ss_axr_lg",
+        "emg_ss_axr_ic",
+        "emg_ss_axr_mf",
+        "emg_ss_axr_ra",
+        "emg_ss_axr_eo",
+        "emg_ss_axr_io",
+        "emg_ss_axl_lg",
+        "emg_ss_axl_ic",
+        "emg_ss_axl_mf",
+        "emg_ss_axl_ra",
+        "emg_ss_axl_eo",
+        "emg_ss_axl_io",
+        "emg_st_flex_rra",
+        "emg_st_flex_reo",
+        "emg_st_flex_rio",
+        "emg_st_flex_resi",
+        "emg_st_ext_rra",
+        "emg_st_ext_reo",
+        "emg_st_ext_rio",
+        "emg_st_ext_resi",
+        "emg_st_latr_rra",
+        "emg_st_latr_reo",
+        "emg_st_latr_rio",
+        "emg_st_latr_resi",
+        "emg_st_axl_reo",
+        "emg_st_axl_resi",
+        "emg_st_axr_ng_ra",
+        "emg_st_axr_ng_eo",
+        "emg_st_axr_ng_io",
+        "emg_st_axr_ng_ic",
+        "emg_st_axr_ng_mf",
+        "emg_st_axr_ng_ld",
+        "emg_st_axl_ng_ra",
+        "emg_st_axl_ng_eo",
+        "emg_st_axl_ng_io",
+        "emg_st_axl_ng_ic",
+        "emg_st_axl_ng_mf",
+        "emg_st_axl_ng_ld"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ss_flex_f_primary",
+      "label": "Flex, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 124,
+          "sd": 17,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_flex_f_coupled_lat",
+      "label": "Flex, semi-seated, F: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 9,
+          "sd": 11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_female",
+          "note": "7% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_flex_f_coupled_axial",
+      "label": "Flex, semi-seated, F: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -11,
+          "sd": 6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_female",
+          "note": "-9% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_flex_m_primary",
+      "label": "Flex, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 144,
+          "sd": 38,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_male",
+          "note": "magnitude (sign dropped)"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 151.1,
+          "sd": 37.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.mve_moment_flexion",
+          "note": ""
+        }
+      ],
+      "pooled": {
+        "mean": 147.8727,
+        "sd": 36.888,
+        "N": 22,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "ss_flex_m_coupled_lat",
+      "label": "Flex, semi-seated, M: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 8,
+          "sd": 15,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_male",
+          "note": "6% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_flex_m_coupled_axial",
+      "label": "Flex, semi-seated, M: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -5,
+          "sd": 17,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_male",
+          "note": "-3% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_flex_m_primary",
+      "label": "Flex, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 186,
+          "sd": 34,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_flexion",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "ng2002",
+          "mean": 124.7,
+          "sd": 38.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        }
+      ],
+      "pooled": {
+        "mean": 163.0125,
+        "sd": 46.299,
+        "N": 32,
+        "k": 2,
+        "studies": [
+          "lariviere2009",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_flex_m_abscoupled_lat",
+      "label": "Flex, standing, M: |coupled| lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 16,
+          "sd": 11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_flexion",
+          "note": "absolute value; 9% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_flex_m_abscoupled_axial",
+      "label": "Flex, standing, M: |coupled| axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 15,
+          "sd": 12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_flexion",
+          "note": "absolute value; 12% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "ss_ext_f_primary",
+      "label": "Ext, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 190,
+          "sd": 45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_ext_f_coupled_lat",
+      "label": "Ext, semi-seated, F: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 17,
+          "sd": 21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_female",
+          "note": "-9% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_ext_f_coupled_axial",
+      "label": "Ext, semi-seated, F: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -10,
+          "sd": 23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_female",
+          "note": "5% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_ext_m_primary",
+      "label": "Ext, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 236,
+          "sd": 39,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_male",
+          "note": "magnitude (sign dropped)"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 242.4,
+          "sd": 64.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.mve_moment_extension",
+          "note": ""
+        }
+      ],
+      "pooled": {
+        "mean": 239.4909,
+        "sd": 53.1173,
+        "N": 22,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "ss_ext_m_coupled_lat",
+      "label": "Ext, semi-seated, M: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 19,
+          "sd": 26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_male",
+          "note": "-8% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_ext_m_coupled_axial",
+      "label": "Ext, semi-seated, M: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -12,
+          "sd": 19,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_male",
+          "note": "5% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_primary",
+      "label": "Ext, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)",
+        "flexion_deg": 0,
+        "angle_def": "upright"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 270,
+          "sd": 70,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_extension",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "lariviere2001",
+          "mean": 250.7,
+          "sd": 51.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 14,
+          "test_id": "msk_mvc_coupled.lariviere2001.extension_mvc_upright",
+          "note": "L5/S1; sign dropped"
+        },
+        {
+          "study": "ng2002",
+          "mean": 180.4,
+          "sd": 27.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        },
+        {
+          "study": "gravel1997",
+          "mean": 252.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+          "note": "neutral posture; dynamometer axis; no SD"
+        }
+      ],
+      "pooled": {
+        "mean": 243.0793,
+        "sd": 59.1193,
+        "N": 58,
+        "k": 4,
+        "studies": [
+          "lariviere2009",
+          "lariviere2001",
+          "ng2002",
+          "gravel1997"
+        ]
+      }
+    },
+    {
+      "id": "st_ext_m_abscoupled_lat",
+      "label": "Ext, standing, M: |coupled| lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 25,
+          "sd": 16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_extension",
+          "note": "absolute value; 13% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_abscoupled_axial",
+      "label": "Ext, standing, M: |coupled| axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 32,
+          "sd": 21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_extension",
+          "note": "absolute value; 24% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_f_primary",
+      "label": "LatR, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 117,
+          "sd": 31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_f_coupled_sag",
+      "label": "LatR, semi-seated, F: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -25,
+          "sd": 31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_female",
+          "note": "-21% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_f_coupled_axial",
+      "label": "LatR, semi-seated, F: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -23,
+          "sd": 26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_female",
+          "note": "-20% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_m_primary",
+      "label": "LatR, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 151,
+          "sd": 28,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_male",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_m_coupled_sag",
+      "label": "LatR, semi-seated, M: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -53,
+          "sd": 56,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_male",
+          "note": "-35% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latr_m_coupled_axial",
+      "label": "LatR, semi-seated, M: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -18,
+          "sd": 33,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_male",
+          "note": "-12% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_latr_m_primary",
+      "label": "LatR, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 199,
+          "sd": 32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_right",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "ng2002",
+          "mean": 137.6,
+          "sd": 31.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        },
+        {
+          "study": "gravel1997",
+          "mean": 160.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 11,
+          "test_id": "msk_mvc_coupled.gravel1997.right_lateral_flexion_mvc_vs_posture",
+          "note": "neutral posture; dynamometer axis; no SD"
+        }
+      ],
+      "pooled": {
+        "mean": 171.8884,
+        "sd": 37.9193,
+        "N": 43,
+        "k": 3,
+        "studies": [
+          "lariviere2009",
+          "ng2002",
+          "gravel1997"
+        ]
+      }
+    },
+    {
+      "id": "st_latr_m_abscoupled_sag",
+      "label": "LatR, standing, M: |coupled| sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 68,
+          "sd": 27,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_right",
+          "note": "absolute value; 25% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_latr_m_abscoupled_axial",
+      "label": "LatR, standing, M: |coupled| axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 37,
+          "sd": 16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_right",
+          "note": "absolute value; 28% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_f_primary",
+      "label": "LatL, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 103,
+          "sd": 36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_f_coupled_sag",
+      "label": "LatL, semi-seated, F: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -49,
+          "sd": 49,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_female",
+          "note": "48% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_f_coupled_axial",
+      "label": "LatL, semi-seated, F: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 8,
+          "sd": 29,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_female",
+          "note": "-8% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_m_primary",
+      "label": "LatL, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 156,
+          "sd": 26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_male",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_m_coupled_sag",
+      "label": "LatL, semi-seated, M: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -34,
+          "sd": 41,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_male",
+          "note": "22% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_latl_m_coupled_axial",
+      "label": "LatL, semi-seated, M: coupled axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse (+ right axial)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 27,
+          "sd": 36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_male",
+          "note": "-17% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_latl_m_primary",
+      "label": "LatL, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 190,
+          "sd": 40,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_left",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "ng2002",
+          "mean": 147.2,
+          "sd": 28.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        }
+      ],
+      "pooled": {
+        "mean": 173.95,
+        "sd": 41.4753,
+        "N": 32,
+        "k": 2,
+        "studies": [
+          "lariviere2009",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_latl_m_abscoupled_sag",
+      "label": "LatL, standing, M: |coupled| sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 66,
+          "sd": 32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_left",
+          "note": "absolute value; 35% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_latl_m_abscoupled_axial",
+      "label": "LatL, standing, M: |coupled| axial",
+      "view": "coupled",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "transverse"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 35,
+          "sd": 12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_lateral_bend_left",
+          "note": "absolute value; 27% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_f_primary",
+      "label": "AxR, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 64,
+          "sd": 19,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_f_coupled_sag",
+      "label": "AxR, semi-seated, F: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -21,
+          "sd": 69,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_female",
+          "note": "-33% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_f_coupled_lat",
+      "label": "AxR, semi-seated, F: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -21,
+          "sd": 45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_female",
+          "note": "-33% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_m_primary",
+      "label": "AxR, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 97,
+          "sd": 23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_male",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_m_coupled_sag",
+      "label": "AxR, semi-seated, M: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -39,
+          "sd": 96,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_male",
+          "note": "-40% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axr_m_coupled_lat",
+      "label": "AxR, semi-seated, M: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -53,
+          "sd": 30,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_male",
+          "note": "-55% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_axr_f_primary_vert",
+      "label": "AxR, standing, F: primary, vert. axis",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "F",
+        "moment_ref": "vertical Cybex axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "mcgill1991",
+          "mean": 39,
+          "sd": 7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "msk_mvc_coupled.mcgill1991.axial_torque_0deg_cw_female",
+          "note": "cw twist (= right, inferred); SD over subjects x 3 trials"
+        }
+      ]
+    },
+    {
+      "id": "st_axr_m_primary",
+      "label": "AxR, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 132,
+          "sd": 31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_right",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "ng2002",
+          "mean": 84.0,
+          "sd": 21.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        },
+        {
+          "study": "ng2001",
+          "mean": 78.3,
+          "sd": 24.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_mvc_moment",
+          "note": "B200 axes"
+        },
+        {
+          "study": "gravel1997",
+          "mean": 104.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.gravel1997.right_axial_rotation_mvc_vs_posture",
+          "note": "neutral posture; dynamometer axis; no SD"
+        }
+      ],
+      "pooled": {
+        "mean": 99.8446,
+        "sd": 33.421,
+        "N": 65,
+        "k": 4,
+        "studies": [
+          "lariviere2009",
+          "ng2002",
+          "ng2001",
+          "gravel1997"
+        ]
+      }
+    },
+    {
+      "id": "st_axr_m_abscoupled_sag",
+      "label": "AxR, standing, M: |coupled| sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 74,
+          "sd": 32,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_right",
+          "note": "absolute value; 27% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_axr_m_abscoupled_lat",
+      "label": "AxR, standing, M: |coupled| lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 59,
+          "sd": 22,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_right",
+          "note": "absolute value; 30% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_axr_m_pctcoupled_sag",
+      "label": "AxR, standing, M: coupled sag %",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "B200 axes (f/e axis at L5-S1)",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_pct",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 13.9,
+          "sd": 23.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane"
+        },
+        {
+          "study": "ng2002",
+          "mean": 21.6,
+          "sd": 25.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 16.54,
+        "sd": 24.2109,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_axr_m_pctcoupled_lat",
+      "label": "AxR, standing, M: coupled lat %",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "B200 axes (f/e axis at L5-S1)",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_pct",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 15.7,
+          "sd": 21.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane"
+        },
+        {
+          "study": "ng2002",
+          "mean": 23.2,
+          "sd": 21.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 18.2714,
+        "sd": 21.3262,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_axr_m_primary_vert",
+      "label": "AxR, standing, M: primary, vert. axis",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "vertical Cybex axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "mcgill1991",
+          "mean": 87,
+          "sd": 17,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.mcgill1991.axial_torque_0deg_cw_male",
+          "note": "cw twist (= right, inferred); SD over subjects x 3 trials"
+        }
+      ]
+    },
+    {
+      "id": "se_axr_f_primary",
+      "label": "AxR, seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "seated",
+        "sex": "F",
+        "moment_ref": "vertical harness axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "kumar2001",
+          "mean": 64.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.kumar2001.axial_rotation_mvc_torque",
+          "note": "peak of group mean; no SD"
+        }
+      ]
+    },
+    {
+      "id": "se_axr_m_primary",
+      "label": "AxR, seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "seated",
+        "sex": "M",
+        "moment_ref": "vertical harness axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "kumar2001",
+          "mean": 97.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 27,
+          "test_id": "msk_mvc_coupled.kumar2001.axial_rotation_mvc_torque",
+          "note": "peak of group mean; no SD"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_f_primary",
+      "label": "AxL, semi-seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 74,
+          "sd": 20,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_female",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_f_coupled_sag",
+      "label": "AxL, semi-seated, F: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 10,
+          "sd": 47,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_female",
+          "note": "-14% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_f_coupled_lat",
+      "label": "AxL, semi-seated, F: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "F",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 33,
+          "sd": 36,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_female",
+          "note": "-45% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_m_primary",
+      "label": "AxL, semi-seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 102,
+          "sd": 20,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_male",
+          "note": "magnitude (sign dropped)"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_m_coupled_sag",
+      "label": "AxL, semi-seated, M: coupled sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": -23,
+          "sd": 66,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_male",
+          "note": "23% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "ss_axl_m_coupled_lat",
+      "label": "AxL, semi-seated, M: coupled lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_signed",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 48,
+          "sd": 33,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_male",
+          "note": "-47% of primary as printed; sign varies across subjects"
+        }
+      ]
+    },
+    {
+      "id": "st_axl_f_primary_vert",
+      "label": "AxL, standing, F: primary, vert. axis",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "F",
+        "moment_ref": "vertical Cybex axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "mcgill1991",
+          "mean": 41,
+          "sd": 11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "msk_mvc_coupled.mcgill1991.axial_torque_0deg_ccw_female",
+          "note": "ccw twist (= left, inferred); SD over subjects x 3 trials"
+        }
+      ]
+    },
+    {
+      "id": "st_axl_m_primary",
+      "label": "AxL, standing, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1 (or dynamometer axis at L5-S1)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 131,
+          "sd": 31,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_left",
+          "note": "L5/S1, absolute"
+        },
+        {
+          "study": "ng2002",
+          "mean": 84.0,
+          "sd": 11.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.mvc_moments_6dir",
+          "note": "controls; B200 axes, f/e axis at L5-S1"
+        },
+        {
+          "study": "ng2001",
+          "mean": 77.6,
+          "sd": 18.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_mvc_moment",
+          "note": "B200 axes"
+        }
+      ],
+      "pooled": {
+        "mean": 98.4145,
+        "sd": 33.6364,
+        "N": 55,
+        "k": 3,
+        "studies": [
+          "lariviere2009",
+          "ng2002",
+          "ng2001"
+        ]
+      }
+    },
+    {
+      "id": "st_axl_m_abscoupled_sag",
+      "label": "AxL, standing, M: |coupled| sag",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "sagittal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 80,
+          "sd": 51,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_left",
+          "note": "absolute value; 43% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_axl_m_abscoupled_lat",
+      "label": "AxL, standing, M: |coupled| lat",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "L5-S1",
+        "axis": "frontal"
+      },
+      "output": "moment_coupled_abs",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "lariviere2009",
+          "mean": 63,
+          "sd": 23,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_mvc_coupled.lariviere2009.mvc_moments_axial_rotation_left",
+          "note": "absolute value; 33% of same-plane MVC"
+        }
+      ]
+    },
+    {
+      "id": "st_axl_m_pctcoupled_sag",
+      "label": "AxL, standing, M: coupled sag %",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "B200 axes (f/e axis at L5-S1)",
+        "axis": "sagittal (+ flexion)"
+      },
+      "output": "moment_coupled_pct",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 10.1,
+          "sd": 23.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane"
+        },
+        {
+          "study": "ng2002",
+          "mean": 5.3,
+          "sd": 23.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 8.4543,
+        "sd": 23.6265,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_axl_m_pctcoupled_lat",
+      "label": "AxL, standing, M: coupled lat %",
+      "view": "coupled",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "B200 axes (f/e axis at L5-S1)",
+        "axis": "frontal (+ right lateral)"
+      },
+      "output": "moment_coupled_pct",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": -41.0,
+          "sd": 33.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane"
+        },
+        {
+          "study": "ng2002",
+          "mean": -39.0,
+          "sd": 29.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_coupled_moments",
+          "note": "signed, % of subject's max in that plane; controls"
+        }
+      ],
+      "pooled": {
+        "mean": -40.3143,
+        "sd": 31.6762,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "st_axl_m_primary_vert",
+      "label": "AxL, standing, M: primary, vert. axis",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "vertical Cybex axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "mcgill1991",
+          "mean": 95,
+          "sd": 16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_mvc_coupled.mcgill1991.axial_torque_0deg_ccw_male",
+          "note": "ccw twist (= left, inferred); SD over subjects x 3 trials"
+        }
+      ]
+    },
+    {
+      "id": "se_axl_f_primary",
+      "label": "AxL, seated, F: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "seated",
+        "sex": "F",
+        "moment_ref": "vertical harness axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "kumar2001",
+          "mean": 61.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.kumar2001.axial_rotation_mvc_torque",
+          "note": "peak of group mean; no SD"
+        }
+      ]
+    },
+    {
+      "id": "se_axl_m_primary",
+      "label": "AxL, seated, M: primary",
+      "view": "primary",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "seated",
+        "sex": "M",
+        "moment_ref": "vertical harness axis"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "kumar2001",
+          "mean": 101.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 27,
+          "test_id": "msk_mvc_coupled.kumar2001.axial_rotation_mvc_torque",
+          "note": "peak of group mean; no SD"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_flexm20",
+      "label": "Ext, standing, M, trunk -20 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing, trunk pre-flexed",
+        "sex": "M",
+        "moment_ref": "dynamometer axis at L5-S1",
+        "flexion_deg": -20,
+        "angle_def": "trunk flexion (frame)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "gravel1997",
+          "mean": 166.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+          "note": "twist 0; no SD"
+        }
+      ]
+    },
+    {
+      "id": "sl_ext_m_lumbm20",
+      "label": "Ext, side-lying, M, lumbar -20 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "side-lying",
+        "sex": "M",
+        "moment_ref": "L5-S1 (swivel-table axis)",
+        "flexion_deg": -20,
+        "angle_def": "lumbar flexion (= -swivel angle)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "daggfeldt2003",
+          "mean": 109.2,
+          "sd": 17.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+          "note": "swivel table +20 deg"
+        }
+      ]
+    },
+    {
+      "id": "sl_ext_m_lumbm10",
+      "label": "Ext, side-lying, M, lumbar -10 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "side-lying",
+        "sex": "M",
+        "moment_ref": "L5-S1 (swivel-table axis)",
+        "flexion_deg": -10,
+        "angle_def": "lumbar flexion (= -swivel angle)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "daggfeldt2003",
+          "mean": 178.0,
+          "sd": 35.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+          "note": "swivel table +10 deg"
+        }
+      ]
+    },
+    {
+      "id": "sl_ext_m_lumb10",
+      "label": "Ext, side-lying, M, lumbar +10 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "side-lying",
+        "sex": "M",
+        "moment_ref": "L5-S1 (swivel-table axis)",
+        "flexion_deg": 10,
+        "angle_def": "lumbar flexion (= -swivel angle)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "daggfeldt2003",
+          "mean": 239.6,
+          "sd": 24.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+          "note": "swivel table -10 deg"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_flex20",
+      "label": "Ext, standing, M, trunk +20 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing, trunk pre-flexed",
+        "sex": "M",
+        "moment_ref": "dynamometer axis at L5-S1",
+        "flexion_deg": 20,
+        "angle_def": "trunk flexion (frame)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "gravel1997",
+          "mean": 307.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+          "note": "twist 0; no SD"
+        }
+      ]
+    },
+    {
+      "id": "sl_ext_m_lumb30",
+      "label": "Ext, side-lying, M, lumbar +30 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "side-lying",
+        "sex": "M",
+        "moment_ref": "L5-S1 (swivel-table axis)",
+        "flexion_deg": 30,
+        "angle_def": "lumbar flexion (= -swivel angle)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "daggfeldt2003",
+          "mean": 289.6,
+          "sd": 50.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+          "note": "swivel table -30 deg"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_flex40",
+      "label": "Ext, standing, M, trunk +40 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing, trunk pre-flexed",
+        "sex": "M",
+        "moment_ref": "dynamometer axis at L5-S1",
+        "flexion_deg": 40,
+        "angle_def": "trunk flexion (frame)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "gravel1997",
+          "mean": 346.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+          "note": "twist 0; no SD"
+        }
+      ]
+    },
+    {
+      "id": "sl_ext_m_lumb45",
+      "label": "Ext, side-lying, M, lumbar +45 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "side-lying",
+        "sex": "M",
+        "moment_ref": "L5-S1 (swivel-table axis)",
+        "flexion_deg": 45,
+        "angle_def": "lumbar flexion (= -swivel angle)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "daggfeldt2003",
+          "mean": 297.6,
+          "sd": 48.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_mvc_coupled.daggfeldt2003.extension_mvc_vs_lumbar_angle",
+          "note": "swivel table -45 deg"
+        }
+      ]
+    },
+    {
+      "id": "st_ext_m_flex60",
+      "label": "Ext, standing, M, trunk +60 deg",
+      "view": "posture",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing, trunk pre-flexed",
+        "sex": "M",
+        "moment_ref": "dynamometer axis at L5-S1",
+        "flexion_deg": 60,
+        "angle_def": "trunk flexion (frame)"
+      },
+      "output": "moment_primary",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "gravel1997",
+          "mean": 359.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.gravel1997.extension_mvc_vs_posture",
+          "note": "twist 0; no SD"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_flex_lg",
+      "label": "Flex, semi-seated: LG(T11)",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 18.55,
+          "sd": 11.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 13.8,
+          "sd": 9.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean; LG at L1"
+        }
+      ],
+      "pooled": {
+        "mean": 16.7113,
+        "sd": 11.0546,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_flex_ic",
+      "label": "Flex, semi-seated: IC(L3)",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 10.45,
+          "sd": 5.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 17.0,
+          "sd": 8.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 12.9855,
+        "sd": 7.6322,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_flex_mf",
+      "label": "Flex, semi-seated: MF(L4/L5)",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 11.65,
+          "sd": 5.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 11.6,
+          "sd": 4.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 11.6306,
+        "sd": 5.3841,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_flex_ra",
+      "label": "Flex, semi-seated: RA",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 90.25,
+          "sd": 9.75,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 75.1,
+          "sd": 15.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 84.3855,
+        "sd": 14.3529,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_flex_eo",
+      "label": "Flex, semi-seated: EO",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 66.05,
+          "sd": 23.25,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 87.0,
+          "sd": 12.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 74.1597,
+        "sd": 22.2026,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_flex_io",
+      "label": "Flex, semi-seated: IO",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 81.7,
+          "sd": 17.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 73.6,
+          "sd": 16.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_flexion_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 78.5645,
+        "sd": 17.0448,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_flex_rra",
+      "label": "Flex, standing: RA(umb.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "RA(umb.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 100.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_flex_reo",
+      "label": "Flex, standing: EO(umb. lat.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(umb. lat.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 94.8,
+          "sd": 12.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_flex_rio",
+      "label": "Flex, standing: IO(ASIS) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IO(ASIS)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 49.3,
+          "sd": 21.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_flex_resi",
+      "label": "Flex, standing: IC(L3/L4) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "flexion",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 11.9,
+          "sd": 6.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_ext_lg",
+      "label": "Ext, semi-seated: LG(T11)",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 65.5,
+          "sd": 17.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 80.5,
+          "sd": 16.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean; LG at L1"
+        }
+      ],
+      "pooled": {
+        "mean": 71.3065,
+        "sd": 18.1027,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_ext_ic",
+      "label": "Ext, semi-seated: IC(L3)",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 51.4,
+          "sd": 24.25,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 63.5,
+          "sd": 15.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 56.0839,
+        "sd": 21.9415,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_ext_mf",
+      "label": "Ext, semi-seated: MF(L4/L5)",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 71.45,
+          "sd": 20.45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 83.5,
+          "sd": 10.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 76.1145,
+        "sd": 18.0604,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_ext_ra",
+      "label": "Ext, semi-seated: RA",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 17.15,
+          "sd": 15.75,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 8.9,
+          "sd": 7.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 13.9565,
+        "sd": 13.6038,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_ext_eo",
+      "label": "Ext, semi-seated: EO",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 17.85,
+          "sd": 11.85,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 23.9,
+          "sd": 13.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 20.1919,
+        "sd": 12.6121,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_ext_io",
+      "label": "Ext, semi-seated: IO",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "L/R mean"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 26.4,
+          "sd": 19.75,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+          "note": "L/R mean; sexes pooled"
+        },
+        {
+          "study": "elouaaid2013",
+          "mean": 17.8,
+          "sd": 8.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.elouaaid2013.emg_extension_mve",
+          "note": "L/R mean"
+        }
+      ],
+      "pooled": {
+        "mean": 23.071,
+        "sd": 16.7694,
+        "N": 31,
+        "k": 2,
+        "studies": [
+          "ghezelbash2018",
+          "elouaaid2013"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_ext_rra",
+      "label": "Ext, standing: RA(umb.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "RA(umb.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 12.3,
+          "sd": 11.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_ext_reo",
+      "label": "Ext, standing: EO(umb. lat.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(umb. lat.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 19.8,
+          "sd": 10.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_ext_rio",
+      "label": "Ext, standing: IO(ASIS) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IO(ASIS)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 25.0,
+          "sd": 17.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_ext_resi",
+      "label": "Ext, standing: IC(L3/L4) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "extension",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 100.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_lg",
+      "label": "LatR, semi-seated: LG(T11) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 79.0,
+          "sd": 21.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_ic",
+      "label": "LatR, semi-seated: IC(L3) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 54.8,
+          "sd": 23.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_mf",
+      "label": "LatR, semi-seated: MF(L4/L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 51.4,
+          "sd": 24.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_ra",
+      "label": "LatR, semi-seated: RA right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 35.2,
+          "sd": 17.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_eo",
+      "label": "LatR, semi-seated: EO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 75.7,
+          "sd": 26.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latr_io",
+      "label": "LatR, semi-seated: IO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 42.9,
+          "sd": 26.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_latr_rra",
+      "label": "LatR, standing: RA(umb.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "RA(umb.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 27.4,
+          "sd": 12.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_latr_reo",
+      "label": "LatR, standing: EO(umb. lat.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(umb. lat.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 57.0,
+          "sd": 25.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_latr_rio",
+      "label": "LatR, standing: IO(ASIS) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IO(ASIS)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 58.5,
+          "sd": 20.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_latr_resi",
+      "label": "LatR, standing: IC(L3/L4) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 65.2,
+          "sd": 27.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_lg",
+      "label": "LatL, semi-seated: LG(T11) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 20.2,
+          "sd": 15.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_ic",
+      "label": "LatL, semi-seated: IC(L3) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 22.1,
+          "sd": 20.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_mf",
+      "label": "LatL, semi-seated: MF(L4/L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 22.6,
+          "sd": 12.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_ra",
+      "label": "LatL, semi-seated: RA right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 20.7,
+          "sd": 17.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_eo",
+      "label": "LatL, semi-seated: EO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 24.9,
+          "sd": 17.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_latl_io",
+      "label": "LatL, semi-seated: IO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "lateral bend left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 24.9,
+          "sd": 17.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_lg",
+      "label": "AxR, semi-seated: LG(T11) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 25.4,
+          "sd": 14.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_ic",
+      "label": "AxR, semi-seated: IC(L3) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 11.6,
+          "sd": 8.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_mf",
+      "label": "AxR, semi-seated: MF(L4/L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 15.9,
+          "sd": 8.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_ra",
+      "label": "AxR, semi-seated: RA right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 30.6,
+          "sd": 16.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_eo",
+      "label": "AxR, semi-seated: EO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 70.5,
+          "sd": 22.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axr_io",
+      "label": "AxR, semi-seated: IO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 32.1,
+          "sd": 21.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_axr_ng_ra",
+      "label": "AxR, standing: RA(umb.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "RA(umb.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 39.5,
+          "sd": 24.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 48.7,
+          "sd": 27.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 42.6543,
+        "sd": 25.7692,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axr_ng_eo",
+      "label": "AxR, standing: EO(rib) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(rib)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 34.3,
+          "sd": 19.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 38.1,
+          "sd": 18.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 35.6029,
+        "sd": 18.9769,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axr_ng_io",
+      "label": "AxR, standing: IO(ASIS) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IO(ASIS)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 94.0,
+          "sd": 11.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 90.9,
+          "sd": 11.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 92.9371,
+        "sd": 11.0696,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axr_ng_ic",
+      "label": "AxR, standing: IC(L2) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L2)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 50.8,
+          "sd": 24.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 48.9,
+          "sd": 25.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 50.1486,
+        "sd": 24.7466,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axr_ng_mf",
+      "label": "AxR, standing: MF(L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "MF(L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 18.4,
+          "sd": 15.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 21.3,
+          "sd": 18.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 19.3943,
+        "sd": 16.3748,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axr_ng_ld",
+      "label": "AxR, standing: LD(T12) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation right",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "LD(T12)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 85.2,
+          "sd": 15.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 85.7,
+          "sd": 18.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 85.3714,
+        "sd": 16.2596,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_ss_axl_lg",
+      "label": "AxL, semi-seated: LG(T11) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "LG(T11)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 53.3,
+          "sd": 22.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axl_ic",
+      "label": "AxL, semi-seated: IC(L3) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IC(L3)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 83.1,
+          "sd": 19.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axl_mf",
+      "label": "AxL, semi-seated: MF(L4/L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "MF(L4/L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 71.7,
+          "sd": 26.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axl_ra",
+      "label": "AxL, semi-seated: RA right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "RA",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 32.0,
+          "sd": 20.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axl_eo",
+      "label": "AxL, semi-seated: EO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "EO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 30.0,
+          "sd": 12.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_ss_axl_io",
+      "label": "AxL, semi-seated: IO right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "semi-seated",
+        "sex": "pooled",
+        "moment_ref": "",
+        "muscle": "IO",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2018",
+          "mean": 31.0,
+          "sd": 24.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+          "note": "right side; sexes pooled"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_axl_reo",
+      "label": "AxL, standing: EO(umb. lat.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(umb. lat.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 78.0,
+          "sd": 23.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "ccw twist assumed = left; max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_axl_resi",
+      "label": "AxL, standing: IC(L3/L4) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L3/L4)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "thelen1995",
+          "mean": 19.0,
+          "sd": 19.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "ccw twist assumed = left; max over 6 MVCs"
+        }
+      ]
+    },
+    {
+      "id": "emg_st_axl_ng_ra",
+      "label": "AxL, standing: RA(umb.) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "RA(umb.)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 27.7,
+          "sd": 26.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 20.6,
+          "sd": 11.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        },
+        {
+          "study": "thelen1995",
+          "mean": 27.2,
+          "sd": 21.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "ccw twist assumed = left; similar site"
+        }
+      ],
+      "pooled": {
+        "mean": 25.6614,
+        "sd": 22.1925,
+        "N": 44,
+        "k": 3,
+        "studies": [
+          "ng2001",
+          "ng2002",
+          "thelen1995"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axl_ng_eo",
+      "label": "AxL, standing: EO(rib) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "EO(rib)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 47.5,
+          "sd": 18.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 52.7,
+          "sd": 21.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 49.2829,
+        "sd": 19.6713,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axl_ng_io",
+      "label": "AxL, standing: IO(ASIS) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IO(ASIS)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 23.9,
+          "sd": 20.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 26.7,
+          "sd": 15.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        },
+        {
+          "study": "thelen1995",
+          "mean": 25.0,
+          "sd": 12.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 9,
+          "test_id": "msk_mvc_coupled.thelen1995.emg_at_mvc_4dir",
+          "note": "ccw twist assumed = left; similar site"
+        }
+      ],
+      "pooled": {
+        "mean": 24.8886,
+        "sd": 17.6227,
+        "N": 44,
+        "k": 3,
+        "studies": [
+          "ng2001",
+          "ng2002",
+          "thelen1995"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axl_ng_ic",
+      "label": "AxL, standing: IC(L2) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "IC(L2)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 4.9,
+          "sd": 5.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 7.2,
+          "sd": 5.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 5.6886,
+        "sd": 5.3395,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axl_ng_mf",
+      "label": "AxL, standing: MF(L5) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "MF(L5)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 18.4,
+          "sd": 15.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 25.6,
+          "sd": 18.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 20.8686,
+        "sd": 16.8001,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    },
+    {
+      "id": "emg_st_axl_ng_ld",
+      "label": "AxL, standing: LD(T12) right",
+      "view": "emg",
+      "inputs": {
+        "direction": "axial rotation left",
+        "posture": "standing",
+        "sex": "M",
+        "moment_ref": "",
+        "muscle": "LD(T12)",
+        "side": "right"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ng2001",
+          "mean": 8.0,
+          "sd": 11.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 23,
+          "test_id": "msk_mvc_coupled.ng2001.axial_rotation_emg",
+          "note": "baseline-subtracted"
+        },
+        {
+          "study": "ng2002",
+          "mean": 11.0,
+          "sd": 15.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 12,
+          "test_id": "msk_mvc_coupled.ng2002.axial_rotation_emg",
+          "note": "baseline-subtracted; controls"
+        }
+      ],
+      "pooled": {
+        "mean": 9.0286,
+        "sd": 12.5913,
+        "N": 35,
+        "k": 2,
+        "studies": [
+          "ng2001",
+          "ng2002"
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "Coupled moments use three conventions (signed Nm, absolute Nm, signed % of same-plane MVC): separate outputs, never pooled. Signs: + flexion, + right lateral, + right axial.",
+    "Moment reference: L5-S1 (Ghezelbash, El Ouaaid, Larivière, Daggfeldt; Ng and Gravel dynamometer axes at L5-S1) vs vertical axis (McGill, Kumar). EMG references: max over the 6 MVCs; Ng baseline-subtracted.",
+    "Excluded: Burkhart 2018 (force at pad), Ng 2002 LBP group, Larivière 2014 (= 2009 sample), submaximal EMG/coupling (Larivière 2001/2009), Kumar EMG and McGill EMG (other references). More postures and sides in raw tests."
+  ],
+  "agent_prompt": "You are validating a trunk musculoskeletal model in maximal isometric exertions. For each task, scale the model to the study subject (`subjects`, by sex where given), fix pelvis and legs in the task posture, and maximise the trunk moment in the task direction (flexion, extension, lateral bend or axial rotation, right/left) with all muscles free. Report moments about the task's moment_ref: the primary moment as a magnitude, and coupled moments about the other two axes as the output requires (signed: + flexion, + right lateral, + right axial; absolute; or signed % of the subject's maximal moment in that plane). For EMG tasks report activation (%) of the muscles under the named electrode, normalised to that muscle's maximum over the six exertions. Do not tune the model to these data. Return one JSON object following answer_format: task id -> {output key: value}.",
+  "answer_format": {
+    "ss_flex_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_flex_f_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_flex_f_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_flex_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_flex_m_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_flex_m_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_flex_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_flex_m_abscoupled_lat": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_flex_m_abscoupled_axial": {
+      "moment_coupled_abs": "Nm"
+    },
+    "ss_ext_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_ext_f_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_ext_f_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_ext_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_ext_m_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_ext_m_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_ext_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_ext_m_abscoupled_lat": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_ext_m_abscoupled_axial": {
+      "moment_coupled_abs": "Nm"
+    },
+    "ss_latr_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_latr_f_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latr_f_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latr_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_latr_m_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latr_m_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_latr_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_latr_m_abscoupled_sag": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_latr_m_abscoupled_axial": {
+      "moment_coupled_abs": "Nm"
+    },
+    "ss_latl_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_latl_f_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latl_f_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latl_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_latl_m_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_latl_m_coupled_axial": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_latl_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_latl_m_abscoupled_sag": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_latl_m_abscoupled_axial": {
+      "moment_coupled_abs": "Nm"
+    },
+    "ss_axr_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_axr_f_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axr_f_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axr_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_axr_m_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axr_m_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_axr_f_primary_vert": {
+      "moment_primary": "Nm"
+    },
+    "st_axr_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_axr_m_abscoupled_sag": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_axr_m_abscoupled_lat": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_axr_m_pctcoupled_sag": {
+      "moment_coupled_pct": "%"
+    },
+    "st_axr_m_pctcoupled_lat": {
+      "moment_coupled_pct": "%"
+    },
+    "st_axr_m_primary_vert": {
+      "moment_primary": "Nm"
+    },
+    "se_axr_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "se_axr_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_axl_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_axl_f_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axl_f_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axl_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "ss_axl_m_coupled_sag": {
+      "moment_coupled_signed": "Nm"
+    },
+    "ss_axl_m_coupled_lat": {
+      "moment_coupled_signed": "Nm"
+    },
+    "st_axl_f_primary_vert": {
+      "moment_primary": "Nm"
+    },
+    "st_axl_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_axl_m_abscoupled_sag": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_axl_m_abscoupled_lat": {
+      "moment_coupled_abs": "Nm"
+    },
+    "st_axl_m_pctcoupled_sag": {
+      "moment_coupled_pct": "%"
+    },
+    "st_axl_m_pctcoupled_lat": {
+      "moment_coupled_pct": "%"
+    },
+    "st_axl_m_primary_vert": {
+      "moment_primary": "Nm"
+    },
+    "se_axl_f_primary": {
+      "moment_primary": "Nm"
+    },
+    "se_axl_m_primary": {
+      "moment_primary": "Nm"
+    },
+    "st_ext_m_flexm20": {
+      "moment_primary": "Nm"
+    },
+    "sl_ext_m_lumbm20": {
+      "moment_primary": "Nm"
+    },
+    "sl_ext_m_lumbm10": {
+      "moment_primary": "Nm"
+    },
+    "sl_ext_m_lumb10": {
+      "moment_primary": "Nm"
+    },
+    "st_ext_m_flex20": {
+      "moment_primary": "Nm"
+    },
+    "sl_ext_m_lumb30": {
+      "moment_primary": "Nm"
+    },
+    "st_ext_m_flex40": {
+      "moment_primary": "Nm"
+    },
+    "sl_ext_m_lumb45": {
+      "moment_primary": "Nm"
+    },
+    "st_ext_m_flex60": {
+      "moment_primary": "Nm"
+    },
+    "emg_ss_flex_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_flex_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_flex_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_flex_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_flex_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_flex_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_flex_rra": {
+      "emg": "%MVC"
+    },
+    "emg_st_flex_reo": {
+      "emg": "%MVC"
+    },
+    "emg_st_flex_rio": {
+      "emg": "%MVC"
+    },
+    "emg_st_flex_resi": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_ext_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_ext_rra": {
+      "emg": "%MVC"
+    },
+    "emg_st_ext_reo": {
+      "emg": "%MVC"
+    },
+    "emg_st_ext_rio": {
+      "emg": "%MVC"
+    },
+    "emg_st_ext_resi": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latr_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_latr_rra": {
+      "emg": "%MVC"
+    },
+    "emg_st_latr_reo": {
+      "emg": "%MVC"
+    },
+    "emg_st_latr_rio": {
+      "emg": "%MVC"
+    },
+    "emg_st_latr_resi": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_latl_io": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axr_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_ra": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_eo": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_ic": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_mf": {
+      "emg": "%MVC"
+    },
+    "emg_st_axr_ng_ld": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_lg": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_ic": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_mf": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_ra": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_eo": {
+      "emg": "%MVC"
+    },
+    "emg_ss_axl_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_reo": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_resi": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_ra": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_eo": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_io": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_ic": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_mf": {
+      "emg": "%MVC"
+    },
+    "emg_st_axl_ng_ld": {
+      "emg": "%MVC"
+    }
+  }
+}

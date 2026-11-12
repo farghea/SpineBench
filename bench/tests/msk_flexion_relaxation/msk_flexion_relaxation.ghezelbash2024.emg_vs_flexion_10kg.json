@@ -1,0 +1,343 @@
+{
+ "id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+ "title": "Ghezelbash 2024: trunk EMG (%MVC) vs forward flexion holding 10 kg at four load heights (19 subjects)",
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "subcategory": "EMG vs trunk angle (static)",
+ "region": "lumbar+thoracic",
+ "levels": [
+  "T11 (electrode level)"
+ ],
+ "condition": "static forward flexion with 10 kg hand load at upright, mid-femur, knee and mid-tibia heights",
+ "quantity": {
+  "name": "normalised EMG",
+  "definition": "surface EMG normalised to the maximum over six MVE directions in the semi-seated triaxial dynamometer (Ghezelbash 2018); left and right averaged; mean +/- SD of 19 subjects",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Ghezelbash 2024",
+  "authors": "Ghezelbash F, Eskandari AH, Shirazi-Adl A, Lariviere C",
+  "year": 2024,
+  "journal": "bioRxiv 2024.01.06.574467 (published 2025, Biomech Model Mechanobiol, doi 10.1007/s10237-025-01983-2)",
+  "doi": "10.1101/2024.01.06.574467",
+  "n": 19,
+  "sample": "19 healthy adults (9 F, 10 M), same cohort as Ghezelbash 2020",
+  "age": "F 24.1, M 30.6 y",
+  "sex": "9F/10M",
+  "height_cm": 169.3,
+  "weight_kg": 66.9
+ },
+ "protocol": {
+  "summary": "Standing, knees straight; 10 kg held in both hands with arms hanging at four heights (upright, mid-femur, knee, mid-tibia); trunk flexion 18.3/50.5/68.1/92.1 deg (Fig 3c x-axis).",
+  "how_to_simulate": [
+   "Scale to the mean subject (169.3 cm, 66.9 kg) or each sex",
+   "Static trunk flexion at data[].flexion_deg, knees straight",
+   "10 kg in both hands, arms hanging",
+   "Output: activation under each electrode, normalised to the model's maximal activity over six maximal exertions"
+  ],
+  "subject_model": {
+   "sex": "9 F / 10 M (mean subject)",
+   "age": 27.5,
+   "height_cm": 169.3,
+   "weight_kg": 66.9,
+   "by_sex": {
+    "F": {
+     "n": 9,
+     "age": 24.1,
+     "height_cm": 163.4,
+     "weight_kg": 61.0
+    },
+    "M": {
+     "n": 10,
+     "age": 30.6,
+     "height_cm": 174.6,
+     "weight_kg": 72.2
+    }
+   },
+   "source": "Ghezelbash 2020 J Biomech 102:109550 Methods (same 19 subjects); weighted means of the two sexes"
+  },
+  "notes": "Fig 3 caption says 10 kg; Methods text says 6 kg (unresolved in the preprint; 10 kg used). Electrodes per Ghezelbash 2018/2020 (LG and IC at T11). Model curves in Fig 3 are NOT data. Same subjects as Ghezelbash 2020 (14 kg holds)."
+ },
+ "data": [
+  {
+   "x": "LG_T11, load height upright, flexion 18.3 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "longissimus thoracis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "LG_T11",
+   "flexion_deg": 18.3,
+   "mean": 22.2,
+   "sd": 9.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "LG_T11, load height mid-femur, flexion 50.5 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "longissimus thoracis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "LG_T11",
+   "flexion_deg": 50.5,
+   "mean": 27.2,
+   "sd": 9.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "LG_T11, load height knee, flexion 68.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "longissimus thoracis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "LG_T11",
+   "flexion_deg": 68.1,
+   "mean": 19.6,
+   "sd": 10.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "LG_T11, load height mid-tibia, flexion 92.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "longissimus thoracis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "LG_T11",
+   "flexion_deg": 92.1,
+   "mean": 16.2,
+   "sd": 10.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IC_T11, load height upright, flexion 18.3 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "iliocostalis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "IC_T11",
+   "flexion_deg": 18.3,
+   "mean": 7.0,
+   "sd": 3.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IC_T11, load height mid-femur, flexion 50.5 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "iliocostalis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "IC_T11",
+   "flexion_deg": 50.5,
+   "mean": 10.0,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IC_T11, load height knee, flexion 68.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "iliocostalis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "IC_T11",
+   "flexion_deg": 68.1,
+   "mean": 7.4,
+   "sd": 4.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IC_T11, load height mid-tibia, flexion 92.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "iliocostalis pars thoracis, T11 level (bilateral mean)",
+   "muscle": "IC_T11",
+   "flexion_deg": 92.1,
+   "mean": 7.3,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "RA, load height upright, flexion 18.3 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "rectus abdominis (bilateral mean)",
+   "muscle": "RA",
+   "flexion_deg": 18.3,
+   "mean": 4.3,
+   "sd": 2.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "RA, load height mid-femur, flexion 50.5 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "rectus abdominis (bilateral mean)",
+   "muscle": "RA",
+   "flexion_deg": 50.5,
+   "mean": 4.3,
+   "sd": 2.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "RA, load height knee, flexion 68.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "rectus abdominis (bilateral mean)",
+   "muscle": "RA",
+   "flexion_deg": 68.1,
+   "mean": 4.3,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "RA, load height mid-tibia, flexion 92.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "rectus abdominis (bilateral mean)",
+   "muscle": "RA",
+   "flexion_deg": 92.1,
+   "mean": 4.5,
+   "sd": 2.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "EO, load height upright, flexion 18.3 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "external oblique (bilateral mean)",
+   "muscle": "EO",
+   "flexion_deg": 18.3,
+   "mean": 4.8,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "EO, load height mid-femur, flexion 50.5 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "external oblique (bilateral mean)",
+   "muscle": "EO",
+   "flexion_deg": 50.5,
+   "mean": 4.8,
+   "sd": 2.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "EO, load height knee, flexion 68.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "external oblique (bilateral mean)",
+   "muscle": "EO",
+   "flexion_deg": 68.1,
+   "mean": 4.6,
+   "sd": 2.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "EO, load height mid-tibia, flexion 92.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "external oblique (bilateral mean)",
+   "muscle": "EO",
+   "flexion_deg": 92.1,
+   "mean": 5.0,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IO, load height upright, flexion 18.3 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "internal oblique (bilateral mean)",
+   "muscle": "IO",
+   "flexion_deg": 18.3,
+   "mean": 9.3,
+   "sd": 5.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IO, load height mid-femur, flexion 50.5 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "internal oblique (bilateral mean)",
+   "muscle": "IO",
+   "flexion_deg": 50.5,
+   "mean": 6.1,
+   "sd": 5.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IO, load height knee, flexion 68.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "internal oblique (bilateral mean)",
+   "muscle": "IO",
+   "flexion_deg": 68.1,
+   "mean": 3.5,
+   "sd": 2.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "IO, load height mid-tibia, flexion 92.1 deg",
+   "load": "10 kg in both hands, arms hanging",
+   "site": "internal oblique (bilateral mean)",
+   "muscle": "IO",
+   "flexion_deg": 92.1,
+   "mean": 3.4,
+   "sd": 1.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  }
+ ],
+ "extraction": {
+  "from": "Ghezelbash lab validation targets, digitised from Ghezelbash 2024 bioRxiv Fig 3c-d",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.3 %MVC (400 dpi); RA SD +/-0.5 %MVC (error bars overlap EO/IO)",
+  "checked": true,
+  "check_notes": "Caption checked against the preprint PDF (19 subjects, mean +/- SD, 10 kg, four load heights)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD"
+ },
+ "combine_group": "msk_flexion_relaxation__emg_pct_mvc__irsst_sites__static_flexion__10kg",
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG %MVC",
+  "static",
+  "healthy",
+  "user's own work"
+ ]
+}

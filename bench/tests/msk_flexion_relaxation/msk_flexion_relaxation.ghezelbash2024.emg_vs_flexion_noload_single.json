@@ -1,0 +1,145 @@
+{
+ "id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+ "title": "Ghezelbash 2024: thoracic erector EMG (%MVC) vs forward flexion, no load, single subject",
+ "layer": "outcome",
+ "category": "msk_flexion_relaxation",
+ "subcategory": "EMG vs trunk angle (single subject)",
+ "region": "thoracic",
+ "levels": [
+  "T11 (electrode level)"
+ ],
+ "condition": "forward flexion without hand load, single subject",
+ "quantity": {
+  "name": "normalised EMG",
+  "definition": "surface EMG normalised to MVC, left and right curves averaged; single subject (no SD)",
+  "unit": "%MVC"
+ },
+ "source": {
+  "short": "Ghezelbash 2024",
+  "authors": "Ghezelbash F, Eskandari AH, Shirazi-Adl A, Lariviere C",
+  "year": 2024,
+  "journal": "bioRxiv 2024.01.06.574467 (published 2025, Biomech Model Mechanobiol, doi 10.1007/s10237-025-01983-2)",
+  "doi": "10.1101/2024.01.06.574467",
+  "n": 1,
+  "sample": "1 healthy subject (169 cm, 67 kg, 27 y); originally Ghezelbash 2016",
+  "age": "27",
+  "sex": "not stated",
+  "height_cm": 169,
+  "weight_kg": 67
+ },
+ "protocol": {
+  "summary": "Forward flexion from upright to full flexion, no hand load; EMG read at 25, 50 and 95 deg.",
+  "how_to_simulate": [
+   "Scale to 169 cm, 67 kg, 27 y",
+   "Trunk flexion at data[].flexion_deg, no hand load",
+   "Output: LG(T11) and IC(T11) activation; expect near-silence at 95 deg (flexion-relaxation)"
+  ],
+  "subject_model": {
+   "sex": "not stated",
+   "age": 27,
+   "height_cm": 169,
+   "weight_kg": 67,
+   "source": "Ghezelbash 2024 Fig 3 caption"
+  },
+  "notes": "Fig 3b cites Ghezelbash 2016 (BMMB) for this subject. Informative only (n = 1, no SD)."
+ },
+ "data": [
+  {
+   "x": "LG_T11, flexion 25 deg",
+   "load": "none",
+   "site": "longissimus thoracis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "LG_T11",
+   "flexion_deg": 25,
+   "mean": 11.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LG_T11, flexion 50 deg",
+   "load": "none",
+   "site": "longissimus thoracis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "LG_T11",
+   "flexion_deg": 50,
+   "mean": 14.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LG_T11, flexion 95 deg",
+   "load": "none",
+   "site": "longissimus thoracis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "LG_T11",
+   "flexion_deg": 95,
+   "mean": 1.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "IC_T11, flexion 25 deg",
+   "load": "none",
+   "site": "iliocostalis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "IC_T11",
+   "flexion_deg": 25,
+   "mean": 4.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "IC_T11, flexion 50 deg",
+   "load": "none",
+   "site": "iliocostalis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "IC_T11",
+   "flexion_deg": 50,
+   "mean": 7.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "IC_T11, flexion 95 deg",
+   "load": "none",
+   "site": "iliocostalis pars thoracis, T11 level (left/right averaged)",
+   "muscle": "IC_T11",
+   "flexion_deg": 95,
+   "mean": 1.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Ghezelbash lab validation targets, digitised from Ghezelbash 2024 bioRxiv Fig 3b",
+  "method": "digitised_figure",
+  "uncertainty": "+/-1 %MVC (400 dpi; left and right curves averaged)",
+  "checked": true,
+  "check_notes": "Caption checked against the preprint PDF (single subject, no load, 169 cm, 67 kg, 27 y)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model activity at 95 deg <= 50% of its activity at 50 deg"
+ },
+ "combine_group": "msk_flexion_relaxation__emg_pct_mvc__thoracic_es_t11__flexion__none__single",
+ "tags": [
+  "in vivo",
+  "flexion-relaxation",
+  "EMG %MVC",
+  "single subject",
+  "user's own work"
+ ]
+}
