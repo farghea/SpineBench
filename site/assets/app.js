@@ -1068,7 +1068,7 @@
     ['No commercial use', 'Commercial use is not allowed. This includes using the data in, or to build, train, validate or market, any product, software, service or model that is sold or used commercially, and selling or licensing the data.'],
     ['Cite', 'Cite SpineBench (Ghezelbash F., SpineBench) and the original studies behind the values you use.'],
     ['Sharing', 'You may share the data with others only for non-commercial research or education, with these terms attached and with attribution.'],
-    ['No warranty', 'Values were extracted from published studies and may contain errors. They are provided as is, without any warranty. Check them against the original papers. Not for clinical decisions.'],
+    ['No warranty', 'Values were extracted from published studies and may contain errors. They are provided as is, without any warranty. Check them against the original papers.'],
     ['Other uses', 'For any other use, contact the author.']
   ];
   function termsAccepted() { try { return localStorage.getItem('sb-terms') === TERMS_VERSION; } catch (e) { return !!S.termsOk; } }
