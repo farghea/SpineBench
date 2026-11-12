@@ -608,7 +608,7 @@
     setTitle('');
     var html = '<section class="hero"><div class="hero-main"><h1>Put your spine model on the bench.</h1>' +
       '<p class="lede">Experimental outcomes every spine model should reproduce, from ' + esc(c.studies) + ' studies, each value traced to its table or figure.</p>' +
-      heroStats(c) + '</div>' +
+      heroStats(c) + '<p class="byline">By <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a> · for research use only</p></div>' +
       '<ol class="how"><li><b>Pick a benchmark</b><span>one outcome, e.g. lumbar disc pressure</span></li>' +
       '<li><b>Simulate its tasks</b><span>subject, loads and boundary conditions are given</span></li>' +
       '<li><b>Compare</b><span>with every study (n, year) and the pooled mean, or <a href="#agents">give the tasks to an agent</a></span></li></ol></section>';
@@ -1037,8 +1037,9 @@
       '<li>Values come from tables and text, or were digitised from figures with the digitising uncertainty recorded. Each keeps a <code>test_id</code> that traces it to its table or figure.</li>' +
       '<li>An independent second pass re-checked values against the papers (<code>bench/VERIFICATION.md</code> in the repository).</li>' +
       '<li>Pooled value: n-weighted mean of studies that report a mean; SD combines within- and between-study spread; overlapping samples count once; medians are not pooled; at least two studies.</li>' +
-      '<li>How to cite: <span class="muted">citation to be added.</span></li>' +
-      '<li>Licence: <span class="muted">to be decided.</span></li></ul>' +
+      '<li>Created and maintained by <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</li>' +
+      '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. https://sites.google.com/view/farshidghezelbash/home. Please also cite the original studies behind the values you use.</li>' +
+      '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed</b> without written permission from Farshid Ghezelbash.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
   }
   function notFound(msg) {

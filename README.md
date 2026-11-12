@@ -8,4 +8,6 @@ Validation benchmark and data portal for spine musculoskeletal (MSK) and finite-
 
 Source PDFs are not included. Values are extracted from the published papers; cite the original studies.
 
-Status: private, in preparation. Licence and citation to be added before release.
+Created by Farshid Ghezelbash (https://sites.google.com/view/farshidghezelbash/home).
+
+Licence: research and education use only (CC BY-NC 4.0, see LICENSE). Commercial use requires written permission from Farshid Ghezelbash.
