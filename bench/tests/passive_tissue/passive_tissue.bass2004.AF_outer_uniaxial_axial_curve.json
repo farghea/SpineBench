@@ -1,0 +1,213 @@
+{
+ "id": "passive_tissue.bass2004.AF_outer_uniaxial_axial_curve",
+ "title": "Bass 2004 outer AF uniaxial axial tension, typical specimen",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "stress-strain curve",
+  "definition": "axial Lagrangian stress S11 vs axial strain E11 (and lateral circumferential strain E22, negative) in unconstrained axial tension; typical specimen",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Bass 2004",
+  "authors": "Bass EC, Ashford FA, Segal MR, Lotz JC",
+  "year": 2004,
+  "journal": "Ann Biomed Eng 32(9):1231-1242",
+  "doi": "",
+  "n": 5,
+  "sample": "5 outer anterior AF cruciform (bone-AF-bone with circumferential AF 'wings') specimens from 5 lumbar motion segments (3 L3-L4, 2 L4-L5) of 5 autopsy spines, Thompson grade I-II",
+  "age": "28-50 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Outer anterior AF slice with vertebral bone at top/bottom (bone ~10 mm wide) and circumferential AF wings gripped by hooks; thickness 1.57+-0.14 mm; physiologic saline bath; 3 biaxial preconditioning cycles (axial strain with E22 held 0, to 1.0 MPa axial or 1.2 MPa circumferential), 15 min re-equilibration; 0.5 N axial preload; axial deformation at <0.0001 /s with circumferential Lagrangian strain E22 held at 0, +-0.0125, +-0.025, +0.0375 (biaxial) or free (uniaxial); strain from optical grid (~3.3 x 3.0 mm) in the centre; stress = force / undeformed area.",
+  "how_to_simulate": [
+   "Model the cruciform bone-AF-bone specimen (AF thickness ~1.6 mm, bone 10 mm wide; Ghezelbash 2021 used w=20, ww=10, h=12, hw=9 mm) with outer anterior fibre architecture",
+   "Uniaxial: pull circumferential wings (or axial bones) with the other direction free; biaxial: pull axially at <0.0001 /s while holding central E22 constant",
+   "Report stress vs central Lagrangian strain from a 3x3 mm marker grid"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.068,
+   "load": "",
+   "mean": 0.013,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.106,
+   "load": "",
+   "mean": 0.022,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.153,
+   "load": "",
+   "mean": 0.036,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.2,
+   "load": "",
+   "mean": 0.055,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.241,
+   "load": "",
+   "mean": 0.082,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.27,
+   "load": "",
+   "mean": 0.112,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E11 (loading direction)",
+   "x_value": 0.285,
+   "load": "",
+   "mean": 0.141,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.038,
+   "load": "",
+   "mean": 0.016,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.07,
+   "load": "",
+   "mean": 0.029,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.106,
+   "load": "",
+   "mean": 0.049,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.141,
+   "load": "",
+   "mean": 0.082,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.171,
+   "load": "",
+   "mean": 0.118,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "S11 vs E22 (transverse)",
+   "x_value": -0.195,
+   "load": "",
+   "mean": 0.147,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3c",
+  "method": "digitised_figure",
+  "uncertainty": "strain +/-0.005, stress +/-0.01 MPa",
+  "checked": true,
+  "check_notes": "Digitised visually from 200-dpi crop of Fig 3 with axis calibration (x: -0.2..0.3, y: -0.1..0.7 MPa); measured symbols (not fit lines). Re-check: circ curve point at 0.6 MPa lies at E22~0.081 (read 0.079 at 0.557 and 0.082 at 0.643) - consistent. Axial uniaxial point at E11=0.068 reads 0.013 MPa vs text 'E11=0.07 at only 0.02 MPa' - within stated uncertainty. ONE typical specimen (n=1)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__stress_strain_curve__af_outer__human_nondegen__uniaxial_axial_bone_af_bone",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "curve",
+  "digitised",
+  "representative"
+ ],
+ "curve": {
+  "x_name": "Lagrangian strain",
+  "x_unit": "-",
+  "y_name": "stress",
+  "y_unit": "MPa"
+ }
+}

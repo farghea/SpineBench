@@ -1,0 +1,73 @@
+{
+ "id": "passive_tissue.wagnerlotz2004.AF_compressive_modulus",
+ "title": "Wagner & Lotz 2004 anterior AF circumferential compressive modulus",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "circumferential compressive modulus",
+  "definition": "slope of straight-line fit to circumferential compression to -0.04 MPa (y-intercept -0.00349+-0.00533 MPa)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Wagner 2004",
+  "authors": "Wagner DR, Lotz JC",
+  "year": 2004,
+  "journal": "J Orthop Res 22:901-909",
+  "doi": "10.1016/j.orthres.2003.12.012",
+  "n": 11,
+  "sample": "11 circumferential anterior AF strips (5 mm wide, 7 mm high, ~30 mm long) from L2-L3 to L4-L5 grade I-II discs of 6 autopsy spines",
+  "age": "16-38 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Rectangular anterior AF specimens 5 x 7 x ~30 mm loaded circumferentially; soaked overnight in 0.15 M saline + protease inhibitors and tested submerged; nine-pin optical strain grid; preconditioning 10 cycles tension/compression (0.05 to -0.01 MPa) at ~0.002 /s; reference = zero-force state (no tare load); tension to 0.4 MPa at 0.0001 /s; re-preconditioned (5 cycles), then compression to -0.04 MPa at 0.0001 /s. Tension fitted per side with sigma = (A/B)(exp(B e) - 1) (A = slope at origin); compression fitted with a straight line.",
+  "how_to_simulate": [
+   "Model a 5 x 7 x 30 mm anterior AF strip with circumferential loading, no tare load (reference = zero force)",
+   "Apply circumferential tension to 0.4 MPa and compression to -0.04 MPa at 0.0001 /s (quasi-static)",
+   "Report stress vs central optical strain; compute tangent modulus at 0.4 MPa and compressive slope"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "anterior AF, circumferential compression",
+   "load": "",
+   "mean": 0.235,
+   "sd": 0.127,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Values from Results text (OCR dropped +- signs; checked: tangent at 0.4 MPa = A + B*0.4 = 0.447 + 12.76 = 13.2 MPa consistent with the fit form sigma=(A/B)(exp(Be)-1))."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_compression__af_anterior_outer__human_nondegen__uniaxial_circ_compression",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "non-degenerate"
+ ]
+}

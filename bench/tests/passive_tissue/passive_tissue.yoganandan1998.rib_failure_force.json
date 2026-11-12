@@ -1,0 +1,133 @@
+{
+ "id": "passive_tissue.yoganandan1998.rib_failure_force",
+ "title": "Yoganandan 1998 ribs 7-8 failure force (three-point bending)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "rib",
+ "region": "ribcage",
+ "levels": [
+  "rib 7",
+  "rib 8"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "failure force",
+  "definition": "failure force (failure in three-point bending, 100 mm span, 2.5 mm/min)",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Yoganandan 1998",
+  "authors": "Yoganandan N, Pintar FA",
+  "year": 1998,
+  "journal": "J Biomech Eng 120:100-104",
+  "doi": "",
+  "n": 30,
+  "sample": "ribs 7 and 8, left and right (~150 mm segments, posterior axillary line to midclavicular region; up to 4 per subject) from 30 autopsy cadavers (19 M, 11 F)",
+  "age": "63.6+-10.5 y (29-81)",
+  "sex": "19 M, 11 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Rib segments simply supported over a 100 mm clear span, three-point bending with midspan load at 2.5 mm/min to failure, no rotational constraints; cross-sectional geometry measured after test; E from beam theory.",
+  "how_to_simulate": [
+   "Model a ~150 mm rib 7 or 8 segment simply supported on a 100 mm span",
+   "Load at midspan quasi-statically to failure",
+   "Report failure force, midspan deflection and back-calculated E"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "rib 7 right",
+   "load": "",
+   "mean": 144,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 14,
+   "orig": "144 +- 14"
+  },
+  {
+   "x": "rib 7 left",
+   "load": "",
+   "mean": 162,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 13,
+   "orig": "162 +- 13"
+  },
+  {
+   "x": "rib 8 right",
+   "load": "",
+   "mean": 137,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 12,
+   "orig": "137 +- 12"
+  },
+  {
+   "x": "rib 8 left",
+   "load": "",
+   "mean": 137,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 13,
+   "orig": "137 +- 13"
+  },
+  {
+   "x": "rib 7 combined",
+   "load": "",
+   "mean": 153,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 9,
+   "orig": "153 +- 9"
+  },
+  {
+   "x": "rib 8 combined",
+   "load": "",
+   "mean": 137,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "pm": 9,
+   "orig": "137 +- 9"
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer; '+-' dispersion type not stated in table (magnitudes suggest standard error) - stored in 'pm', sd left null. Units converted: cm -> mm (x10), cm2 -> mm2 (x100), cm4 -> mm4 (x1e4); original in 'orig'. n per column not stated (30 subjects, up to 4 ribs each). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_force__rib_ribs7_8__human__bending_3pt_100mm",
+ "tags": [
+  "human",
+  "in vitro",
+  "rib",
+  "ribcage"
+ ]
+}

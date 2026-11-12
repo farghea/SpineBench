@@ -1,0 +1,79 @@
+{
+ "id": "passive_tissue.green1993.AF_inner_anterior_axial_ult_strain",
+ "title": "Green 1993 inner anterior annulus vertical tensile strain at failure",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "cadaveric (grade not stated)",
+ "quantity": {
+  "name": "strain at failure",
+  "definition": "failure displacement / unloaded height",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Green 1993",
+  "authors": "Green TP, Adams MA, Dolan P",
+  "year": 1993,
+  "journal": "Eur Spine J 2:209-214",
+  "doi": "",
+  "n": 22,
+  "sample": "22 vertical bone-AF-bone slices (5 mm thick, ~15 mm wide pairs) from 7 cadaveric lumbar spines: 9 outer anterior, 10 outer posterior, 3 inner anterior; fatigue on matched halves",
+  "age": "19-71 y (Table 1)",
+  "sex": "mostly male (Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Vertical slices of annulus with bone ends (5 mm thick, 15 mm wide matched pairs), bony ends potted in dental stone; hydration precautions per Part I (Adams & Green 1993); 6 preconditioning cycles (2 s ramp) to ~50% estimated UTS; one specimen of each pair stretched vertically (axial) to failure at 4 mm/s; YM from stiffness at failure point; matched specimen cyclically loaded at a % of its estimated UTS until failure or 10000 cycles. In situ values estimated by correcting for fibres cut in slices (specimens retain ~44%).",
+  "how_to_simulate": [
+   "Model a 5 mm thick, 15 mm wide vertical slice of outer AF with vertebral bone ends (~10 mm AF height) potted rigidly",
+   "Apply vertical (axial) tension at 4 mm/s to failure after 6 preconditioning cycles",
+   "Report failure stress (force / unloaded CSA), failure strain (displacement / height) and modulus at failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Inner anterior annulus",
+   "load": "4 mm/s",
+   "mean": 33,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 3
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer, checked visually aligned (mean +- SD). doi not printed. Inner anterior slices failed at mid-disc height; CSA not given."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__ult_strain__af_inner_anterior__human__uniaxial_axial_bone_af_bone",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.adamsgreen1993.AF_hydration",
+  "passive_tissue.adamsgreen1993.AF_lateral_max_force",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_intact",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width"
+ ]
+}

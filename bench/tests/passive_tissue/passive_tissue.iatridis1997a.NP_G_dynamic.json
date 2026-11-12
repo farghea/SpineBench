@@ -1,0 +1,94 @@
+{
+ "id": "passive_tissue.iatridis1997a.NP_G_dynamic",
+ "title": "Iatridis 1997a non-degenerate NP dynamic shear modulus |G*| vs frequency",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "nucleus",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "non-degenerate (grade I)",
+ "quantity": {
+  "name": "|G*| dynamic shear modulus",
+  "definition": "magnitude of complex shear modulus, torsional shear, 0.01 rad amplitude, 10% compressive offset",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Iatridis 1997a",
+  "authors": "Iatridis JC, Setton LA, Weidenbaum M, Mow VC",
+  "year": 1997,
+  "journal": "J Biomech 30(10):1005-1013",
+  "doi": "",
+  "n": 13,
+  "sample": "13 cylindrical NP samples (8 mm diameter, 1.44+-0.39 mm thick) from 8 spines, grade I discs (L2-L3 n=1, L3-L4 n=6, L4-L5 n=1 as printed)",
+  "age": "16-68 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Frozen NP cylinders (8 mm trephine, sledge microtome), tested in a humidity chamber in torsional shear (Rheometrics RMS-800, parallel plates) at 10% compressive offset strain; dynamic frequency sweep at shear strain amplitude 0.01 rad, 1-100 rad/s; then fast-ramp (0.025 s) stress relaxation at 0.05, 0.10, 0.15 rad; shear stress/strain at sample periphery.",
+  "how_to_simulate": [
+   "Model an 8 mm diameter, ~1.4 mm thick NP disc between impermeable platens with 10% axial compression",
+   "Apply sinusoidal torsion (0.01 rad) at 1, 10, 100 rad/s",
+   "Report |G*| and phase angle delta"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "1 rad/s",
+   "load": "0.01 rad",
+   "mean": 7.4,
+   "sd": 11.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13
+  },
+  {
+   "x": "10 rad/s",
+   "load": "0.01 rad",
+   "mean": 11.3,
+   "sd": 17.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13
+  },
+  {
+   "x": "100 rad/s",
+   "load": "0.01 rad",
+   "mean": 19.8,
+   "sd": 31.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer (mean +- SD, n=13). Table 1 viscoelastic spectrum parameters are model fits - not extracted. Same laboratory as Iatridis 1997b (J Orthop Res); sample overlap not stated. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__g_dyn__np__human_nondegen__torsional_shear",
+ "tags": [
+  "human",
+  "in vitro",
+  "nucleus",
+  "lumbar",
+  "shear",
+  "viscoelastic"
+ ]
+}

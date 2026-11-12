@@ -1,0 +1,331 @@
+{
+ "id": "passive_tissue.duprey2010.CVJ_moment_angle_Y",
+ "title": "Duprey 2010 costovertebral joint moment-angle, cranial-caudal flexion (Y axis)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costovertebral_joint",
+ "region": "thoracic",
+ "levels": [
+  "ribs 2-10"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "moment-angle curve",
+  "definition": "moment (Nm) vs rotation angle (deg); points EVALUATED by the extractor from the published third-order polynomials of the characteristic average and corridor bounds (Table 2), within the approximate tested angle range read from Fig 6",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "Duprey 2010",
+  "authors": "Duprey S, Subit D, Guillemot H, Kent RW",
+  "year": 2010,
+  "journal": "Med Eng Phys 32:222-227",
+  "doi": "10.1016/j.medengphy.2009.12.001",
+  "n": 15,
+  "sample": "15 costovertebral joint samples (ribs 2-10) from 3 male PMHS",
+  "age": "59, 79, 74 y",
+  "sex": "3 male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Costovertebral joint (costocentral + costotransverse) with vertebra potted; rod along the rib cervical axis; forces applied on the rod to create rotation about X (rib neck axis, torsion via rack and pinion), Y (normal to transverse-process facet; cranial-caudal flexion) and Z (ventral-dorsal flexion); quasi-static ~3 mm/s; moment = force x lever arm; characteristic average and corridors by Lessley et al. method; ROM = angle change between -0.1 and +0.1 Nm (torsion: 2 x 0-0.1 Nm).",
+  "how_to_simulate": [
+   "Fix the vertebra; apply moments to the rib about the rib-neck axis (X), Y and Z axes as defined (origin at costocentral joint centre)",
+   "Load quasi-statically to ~0.1-0.6 Nm",
+   "Compare moment-angle response with the characteristic average and corridor polynomials; report ROM between -0.1 and +0.1 Nm"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "characteristic average",
+   "x_value": -4,
+   "load": "",
+   "mean": -0.3179,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": -3,
+   "load": "",
+   "mean": -0.1943,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": -2,
+   "load": "",
+   "mean": -0.1086,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": -1,
+   "load": "",
+   "mean": -0.048,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": 1,
+   "load": "",
+   "mean": 0.048,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": 2,
+   "load": "",
+   "mean": 0.1086,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": 3,
+   "load": "",
+   "mean": 0.1945,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "characteristic average",
+   "x_value": 4,
+   "load": "",
+   "mean": 0.3181,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": -4,
+   "load": "",
+   "mean": -0.1608,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": -3,
+   "load": "",
+   "mean": -0.1176,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": -2,
+   "load": "",
+   "mean": -0.0836,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": -1,
+   "load": "",
+   "mean": -0.048,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": 1,
+   "load": "",
+   "mean": 0.0712,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": 2,
+   "load": "",
+   "mean": 0.1764,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": 3,
+   "load": "",
+   "mean": 0.3264,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 1",
+   "x_value": 4,
+   "load": "",
+   "mean": 0.532,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": -4,
+   "load": "",
+   "mean": -0.4708,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": -3,
+   "load": "",
+   "mean": -0.2682,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": -2,
+   "load": "",
+   "mean": -0.1318,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": -1,
+   "load": "",
+   "mean": -0.0472,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": 1,
+   "load": "",
+   "mean": 0.0242,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": 2,
+   "load": "",
+   "mean": 0.0398,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": 3,
+   "load": "",
+   "mean": 0.0612,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  },
+  {
+   "x": "corridor bound 2",
+   "x_value": 4,
+   "load": "",
+   "mean": 0.1028,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15
+  }
+ ],
+ "extraction": {
+  "from": "Table 2 (polynomials) + Fig 6 (range)",
+  "method": "table",
+  "uncertainty": "polynomial evaluation exact; range of validity approx. (X 0-5.5 deg, Y +-4 deg from Fig 6; Z range assumed +-2 deg)",
+  "checked": true,
+  "check_notes": "Coefficients: [(0.0021, 7e-06, 0.0459), (0.0018, 0.0116, 0.0578), (0.0024, -0.0115, 0.0333)] (average; corridor1; corridor2), as printed in Table 2 (text layer). Units assumed Nm and deg (axes of Fig 6). Torsion tested in one direction only."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__moment_angle_curve__cvj_thoracic__human__moment_cranial_caudal_flexion",
+ "tags": [
+  "human",
+  "in vitro",
+  "costovertebral joint",
+  "thoracic",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "rotation angle",
+  "x_unit": "deg",
+  "y_name": "moment",
+  "y_unit": "Nm"
+ }
+}

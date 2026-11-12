@@ -11,3 +11,6 @@ Your group's papers: catalog entries whose category is in your list (usable yes/
 7. Keep near-identical quantities apart (moment arm vs centroid distance; anatomical CSA vs PCSA vs fibre-angle-corrected CSA; ROM vs neutral zone; absolute vs relative IDP; in vivo vs in vitro; human vs animal → animal tagged "animal", never pooled with human).
 8. DOUBLE-CHECK: after writing each test, re-open the source table/figure and compare every number; set extraction.checked=true and note any correction in check_notes. Digitised values: re-digitise 2 points independently; if they differ by > the stated uncertainty, widen it.
 9. Write REPORT_<group>.md: tests written, data points, figure-digitised share, papers skipped (why), uncertainties, open questions.
+
+## EMG rule (user, 2026-11-11)
+Only normalised EMG is kept (%MVC, or normalised to a stated reference contraction). Raw amplitudes (mV, uV, integrated EMG, a.u.) are NOT extracted. Dropped so far: Granata 2001 (2 tests), Lariviere 2024 raw EO/IC/RA (3 tests) — moved to `_dropped/raw_emg/` (local only).

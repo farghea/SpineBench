@@ -1,0 +1,70 @@
+{
+ "id": "passive_tissue.weber2021.costal_cartilage_E_compression",
+ "title": "Weber 2021 costal cartilage unconfined compression modulus",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costal_cartilage",
+ "region": "ribcage",
+ "levels": [
+  "ribs 1-10"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "Young's modulus in unconfined compression",
+  "definition": "slope of the linear part of the stress-strain curve, 1 mm/s",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Weber 2021",
+  "authors": "Weber M, Rothschild MA, Niehoff A",
+  "year": 2021,
+  "journal": "Sci Rep 11:13618",
+  "doi": "10.1038/s41598-021-93176-x",
+  "n": 12,
+  "sample": "costal cartilage midsubstance (no perichondrium) from ribs 1-10 of 12 cadavers (forensic + body donor); unconfined compression 198 cylinders from 10 cadavers; indentation on 12",
+  "age": "63+-24.8 y",
+  "sex": "male and female",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Unconfined compression: cylinders 6 mm diameter, L=5.9+-0.7 mm, cut dorsoventral or mediolateral, stored -20 C in 0.9% NaCl gauze and immersed in saline before testing; preload 0.1 N at 0.05 mm/s; compression at 1.0 mm/s to failure; E_C = slope of linear part.",
+  "how_to_simulate": [
+   "Model a 6 mm diameter, 5.9 mm long cartilage cylinder between frictionless/rigid platens",
+   "Compress at 1 mm/s; report slope of linear region (E_C) and peak stress"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "all samples (dorsoventral + mediolateral; no direction effect, P=0.508)",
+   "load": "",
+   "mean": 32.9,
+   "sd": 17.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "note": "N = 10 cadavers"
+  }
+ ],
+ "extraction": {
+  "from": "Results text / abstract",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Results text, mean +- SD (data not normally distributed; per-body median/IQR in Table 2 not extracted). doi printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_compression__costal_cartilage__human__unconfined_compression",
+ "tags": [
+  "human",
+  "in vitro",
+  "costal cartilage",
+  "ribcage"
+ ]
+}

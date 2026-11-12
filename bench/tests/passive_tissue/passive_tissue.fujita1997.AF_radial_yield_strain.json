@@ -1,0 +1,143 @@
+{
+ "id": "passive_tissue.fujita1997.AF_radial_yield_strain",
+ "title": "Fujita 1997 AF radial tensile yield strain by region and grade",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "grade I-II",
+ "quantity": {
+  "name": "yield strain",
+  "definition": "5% offset yield strain (x100 from mm/mm)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Fujita 1997",
+  "authors": "Fujita Y, Duncan NA, Lotz JC",
+  "year": 1997,
+  "journal": "J Orthop Res 15:814-819",
+  "doi": "",
+  "n": 183,
+  "sample": "183 analysed radial AF strips (196 tested) from 15 lumbar discs (L1-L2 to L4-L5) of 8 cadaveric spines; 8 grade I and 7 grade II discs",
+  "age": "not extracted",
+  "sex": "2 M, 6 F (catalog)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Radial AF strips (1.0 x 3.2 mm nominal cross-section, ~10 mm long, gauge length 3.3+-1.1 mm) cut with vibratome/razor die from mid-transverse plane of anterior and posterolateral quadrants, inner/middle/outer regions; sandpaper/frame grips; physiologic saline; distracted to failure at 1 mm/min (~0.5 %/s; rate 0.005-50 %/s had no significant effect). Nominal stress = load / as-cut area; strain = grip displacement / gauge length. Tangent modulus = best-r2 moving linear regression; yield by 5% offset; ultimate = max load; toe fit sigma = A(exp(B e) - 1) to 70% yield strain (AB = initial modulus).",
+  "how_to_simulate": [
+   "Model a radial AF strip 1.0 x 3.2 mm cross-section, ~3.3 mm gauge, loaded radially (perpendicular to lamellae)",
+   "Pull to failure at ~0.5 %/s",
+   "Report nominal stress-strain: tangent modulus (linear region), yield (5% offset) and ultimate stress/strain"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "overall (grades I+II)",
+   "load": "",
+   "mean": 80.0,
+   "sd": 40.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 183
+  },
+  {
+   "x": "inner (grades I+II)",
+   "load": "",
+   "mean": 89.0,
+   "sd": 38.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 59
+  },
+  {
+   "x": "middle (grades I+II)",
+   "load": "",
+   "mean": 74.0,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 60
+  },
+  {
+   "x": "outer (grades I+II)",
+   "load": "",
+   "mean": 77.0,
+   "sd": 41.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 67
+  },
+  {
+   "x": "anterior (grades I+II)",
+   "load": "",
+   "mean": 79.0,
+   "sd": 38.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 89
+  },
+  {
+   "x": "posterolateral (grades I+II)",
+   "load": "",
+   "mean": 81.0,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 97
+  },
+  {
+   "x": "grade I (overall)",
+   "load": "",
+   "mean": 89.0,
+   "sd": 39.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 94
+  },
+  {
+   "x": "grade II (overall)",
+   "load": "",
+   "mean": 71.0,
+   "sd": 38.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 89
+  }
+ ],
+ "extraction": {
+  "from": "Tables 1 and 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Tables 1-2 read from 200-dpi render. Grade II = moderately degenerated in this paper (Thompson); rows pooled over grades I+II except the grade rows. Strains converted to % (x100). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__yield_strain__af__human_nondegen__uniaxial_radial",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar"
+ ]
+}

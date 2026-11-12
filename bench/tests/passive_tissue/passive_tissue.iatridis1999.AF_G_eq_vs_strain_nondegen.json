@@ -1,0 +1,124 @@
+{
+ "id": "passive_tissue.iatridis1999.AF_G_eq_vs_strain_nondegen",
+ "title": "Iatridis 1999 nondegenerated AF equilibrium shear modulus vs shear strain (35 kPa)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "nondegenerated",
+ "quantity": {
+  "name": "equilibrium shear modulus G_eq",
+  "definition": "tau_eq / gamma after 900 s relaxation at each shear strain, 35 kPa axial compression",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Iatridis 1999",
+  "authors": "Iatridis JC, Kumar S, Foster RJ, Weidenbaum M, Mow VC",
+  "year": 1999,
+  "journal": "J Orthop Res 17:732-737",
+  "doi": "",
+  "n": 13,
+  "sample": "13 axially oriented AF cylinders from 13 L3-L4 discs: 7 nondegenerated, 6 degenerated",
+  "age": "not extracted",
+  "sex": "not extracted",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Axially oriented AF cylinders tested in torsional shear (parallel plates) under axial compressive stress 17.5, 25 and 35 kPa; frequency sweeps 0.1-100 rad/s at 0.05 rad; strain sweeps 0.005-0.15 rad at 5 rad/s (35 kPa); static stress relaxation at 0.02-0.15 rad (900 s per step, 35 kPa) giving equilibrium shear stress tau_eq and G_eq = tau_eq / gamma.",
+  "how_to_simulate": [
+   "Model an axial AF cylinder between platens under the stated axial compressive stress",
+   "Apply torsion (dynamic: sinusoidal; static: step and hold 900 s)",
+   "Report |G*| (dynamic) or G_eq = tau_eq/gamma at the sample periphery"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "nondegenerated",
+   "x_value": 0.02,
+   "load": "",
+   "mean": 106,
+   "sd": 44,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "nondegenerated",
+   "x_value": 0.05,
+   "load": "",
+   "mean": 78,
+   "sd": 24,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "nondegenerated",
+   "x_value": 0.07,
+   "load": "",
+   "mean": 67,
+   "sd": 22,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "nondegenerated",
+   "x_value": 0.1,
+   "load": "",
+   "mean": 46,
+   "sd": 11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "nondegenerated",
+   "x_value": 0.15,
+   "load": "",
+   "mean": 27,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Fig 4a",
+  "method": "digitised_figure",
+  "uncertainty": "+/-3 kPa (mean), +/-5 kPa (SD)",
+  "checked": true,
+  "check_notes": "Digitised from 200-dpi render with marker detection / visual reading against axis ticks; paper reports these only in figures (OCR text garbled). Consistent with text: G_eq range 20-150 kPa. Calibration 2.48 px/kPa on 200-dpi crop (x2 zoom)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__g_eq_vs_strain__af__human_nondegen__torsional_shear_35kpa",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "shear",
+  "digitised",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "shear strain",
+  "x_unit": "rad",
+  "y_name": "G_eq",
+  "y_unit": "kPa"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "id": "passive_tissue.green1993.AF_outer_posterior_axial_insitu_estimates",
+ "title": "Green 1993 outer posterior annulus estimated in situ vertical strength",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "estimated in situ failure stress",
+  "definition": "failure stress corrected for fibres cut during slice preparation (specimens retain ~44% of in situ strength); YM corrected likewise in extra key",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Green 1993",
+  "authors": "Green TP, Adams MA, Dolan P",
+  "year": 1993,
+  "journal": "Eur Spine J 2:209-214",
+  "doi": "",
+  "n": 22,
+  "sample": "22 vertical bone-AF-bone slices (5 mm thick, ~15 mm wide pairs) from 7 cadaveric lumbar spines: 9 outer anterior, 10 outer posterior, 3 inner anterior; fatigue on matched halves",
+  "age": "19-71 y (Table 1)",
+  "sex": "mostly male (Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Vertical slices of annulus with bone ends (5 mm thick, 15 mm wide matched pairs), bony ends potted in dental stone; hydration precautions per Part I (Adams & Green 1993); 6 preconditioning cycles (2 s ramp) to ~50% estimated UTS; one specimen of each pair stretched vertically (axial) to failure at 4 mm/s; YM from stiffness at failure point; matched specimen cyclically loaded at a % of its estimated UTS until failure or 10000 cycles. In situ values estimated by correcting for fibres cut in slices (specimens retain ~44%).",
+  "how_to_simulate": [
+   "Model a 5 mm thick, 15 mm wide vertical slice of outer AF with vertebral bone ends (~10 mm AF height) potted rigidly",
+   "Apply vertical (axial) tension at 4 mm/s to failure after 6 preconditioning cycles",
+   "Report failure stress (force / unloaded CSA), failure strain (displacement / height) and modulus at failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Outer posterior annulus",
+   "load": "",
+   "mean": 8.6,
+   "sd": 4.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "E_insitu_MPa": 61.8,
+   "E_insitu_sd": 23.2
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed (author estimate, not a measurement)",
+  "checked": true,
+  "check_notes": "Table 2 from text layer, checked visually aligned (mean +- SD). doi not printed. Estimated by authors, not directly measured."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__ult_stress_insitu_estimate__af_outer_posterior__human__uniaxial_axial",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "estimate"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.adamsgreen1993.AF_hydration",
+  "passive_tissue.adamsgreen1993.AF_lateral_max_force",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_intact",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width"
+ ]
+}

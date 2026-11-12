@@ -1,0 +1,69 @@
+{
+ "id": "passive_tissue.holzapfel2005.AF_lamella_crossfibre_Elow",
+ "title": "Holzapfel 2005 single-lamella AF modulus transverse to fibres (Elow)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "Elow transverse to fibres",
+  "definition": "low-stress modulus (0-100 kPa) of cross-fibre specimens; 2 of 7 failed below 100 kPa and were excluded; failure 20-150 kPa at stretch 1.25-1.70",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Holzapfel 2005",
+  "authors": "Holzapfel GA, Schulze-Bauer CAJ, Feigl G, Regitnig P",
+  "year": 2005,
+  "journal": "Biomech Model Mechanobiol 3:125-140",
+  "doi": "10.1007/s10237-004-0053-8",
+  "n": 11,
+  "sample": "11 lumbar body-disc-body units from 11 cadavers (6 grade I, 5 grade II); single-lamella specimens VLe n=11, VLi n=9, De n=11, Di n=8, cross-fibre n=7; fibre angles from the second hemidisc",
+  "age": "57.9+-15.4 y",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Single lamellar AF specimens cut along the fibre direction with bone segments at both ends (bone clamped; cross-fibre specimens clamped with emery paper), load-free configuration set in bath; 0.15 mol/l NaCl at 37 C, tested within 24 h of autopsy; 30 min equilibration; cyclic uniaxial extension at crosshead 1 mm/min then 10 and 0.1 mm/min; 5 preconditioning cycles (1 and 10 mm/min); stretch from videoextensometer gauge markers; engineering stress = force / undeformed area. Moduli = dT/dlambda on loading curve within stress bands 0-100 kPa (Elow), 100-500 kPa (Emedium), 500 kPa-1 MPa (Ehigh).",
+  "how_to_simulate": [
+   "Model a single lamella strip (e.g. VLe 18.4 x 5.5 x 0.69 mm) loaded along its fibre direction, bone ends clamped",
+   "Precondition (5 cycles) and stretch at 1 mm/min in saline at 37 C",
+   "Compute engineering stress vs stretch from central gauge markers; report slope in the 0-0.1, 0.1-0.5 and 0.5-1 MPa bands"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "cross-fibre lamella",
+   "load": "",
+   "mean": 0.22,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "From Results text (mean+-SD, n=5)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_low__af_lamella__human_nondegen__uniaxial_crossfibre",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "single lamella"
+ ]
+}

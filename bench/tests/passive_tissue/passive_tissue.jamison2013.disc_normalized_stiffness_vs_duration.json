@@ -1,0 +1,283 @@
+{
+ "id": "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration",
+ "title": "Jamison 2013 lumbar disc normalised axial stiffness vs impact duration",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "disc_whole",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "healthy (fluoroscopy)",
+ "quantity": {
+  "name": "normalised axial stiffness",
+  "definition": "k at impact duration / k at 1000 ms (same disc and displacement); error = standard error",
+  "unit": "-"
+ },
+ "source": {
+  "short": "Jamison 2013",
+  "authors": "Jamison D, Cannella M, Pierce EC, Marcolongo MS",
+  "year": 2013,
+  "journal": "J Biomech Eng 135:091009",
+  "doi": "",
+  "n": 5,
+  "sample": "5 lumbar anterior column units (disc + adjacent vertebrae, posterior elements removed), NDRI donors",
+  "age": "64.6+-11.4 y (59-85)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Anterior column units potted, preloaded/preconditioned (Instron, see paper), then displacement-controlled triangular axial compression impacts of 0.2, 0.5, 0.8 mm with durations 80, 160, 320, 400, 600, 800 and 1000 ms (baseline), randomised, 3 s between events; k = tangent stiffness at maximum load; dissipated energy from hysteresis; normalised to the 1000 ms baseline of the same disc and displacement.",
+  "how_to_simulate": [
+   "Model a disc with adjacent vertebral bodies (posterior elements removed) under axial displacement control",
+   "Apply triangular compression to 0.2, 0.5 or 0.8 mm with total duration 80-1000 ms",
+   "Report tangent stiffness at peak load relative to the 1000 ms case; baseline ~500 N/mm (0.2 mm) to ~850 N/mm (0.8 mm)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 80,
+   "load": "",
+   "mean": 1.21,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.09
+  },
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 160,
+   "load": "",
+   "mean": 1.05,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.09
+  },
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 320,
+   "load": "",
+   "mean": 1.03,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.12
+  },
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 400,
+   "load": "",
+   "mean": 0.96,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.08
+  },
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 600,
+   "load": "",
+   "mean": 0.91,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.12
+  },
+  {
+   "x": "displacement 0.2 mm",
+   "x_value": 800,
+   "load": "",
+   "mean": 0.85,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.17
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 80,
+   "load": "",
+   "mean": 1.249,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.026
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 160,
+   "load": "",
+   "mean": 1.195,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.05
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 320,
+   "load": "",
+   "mean": 1.059,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.036
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 400,
+   "load": "",
+   "mean": 1.122,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.038
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 600,
+   "load": "",
+   "mean": 1.053,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.04
+  },
+  {
+   "x": "displacement 0.5 mm",
+   "x_value": 800,
+   "load": "",
+   "mean": 1.044,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": null
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 80,
+   "load": "",
+   "mean": 1.18,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.05
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 160,
+   "load": "",
+   "mean": 1.13,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.04
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 320,
+   "load": "",
+   "mean": 1.05,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.05
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 400,
+   "load": "",
+   "mean": 0.97,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.04
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 600,
+   "load": "",
+   "mean": 1.02,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.08
+  },
+  {
+   "x": "displacement 0.8 mm",
+   "x_value": 800,
+   "load": "",
+   "mean": 0.95,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "se": 0.04
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2 (middle row)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 (0.5 mm panel zoom-digitised), +/-0.03 (0.2 and 0.8 mm panels, visual)",
+  "checked": true,
+  "check_notes": "0.5 mm panel digitised at 2x zoom with axis calibration (590 px/unit); 0.2 and 0.8 mm panels read visually at 100 dpi - re-check of 0.5 mm values against visual estimates agreed within 0.02. Error bars are SE (stored as 'se')."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__axial_stiffness_rate_ratio__disc_lumbar__human__axial_compression_impact",
+ "tags": [
+  "human",
+  "in vitro",
+  "disc",
+  "lumbar",
+  "rate",
+  "digitised",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "impact duration",
+  "x_unit": "ms",
+  "y_name": "k/k(1000 ms)",
+  "y_unit": "-"
+ }
+}

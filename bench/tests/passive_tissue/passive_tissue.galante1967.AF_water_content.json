@@ -1,0 +1,78 @@
+{
+ "id": "passive_tissue.galante1967.AF_water_content",
+ "title": "Galante 1967 AF water content (fresh and 48 h post mortem)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "autopsy",
+ "quantity": {
+  "name": "water content",
+  "definition": "(wet - dry weight) / wet weight",
+  "unit": "-"
+ },
+ "source": {
+  "short": "Galante 1967",
+  "authors": "Galante JO",
+  "year": 1967,
+  "journal": "Acta Orthop Scand 38(Suppl 100):1-91",
+  "doi": "10.3109/ort.1967.38.suppl-100.01",
+  "n": 20,
+  "sample": "AF samples, n=10 per group (fresh, 48 h) (study total: 592 samples from 68 autopsy lumbar spines)",
+  "age": "see Table I",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Wet and dry weighing of AF samples",
+  "how_to_simulate": [
+   "Compare model AF water fraction (water / wet weight)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "fresh",
+   "load": "",
+   "mean": 0.736,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "se": 0.003
+  },
+  {
+   "x": "48 h post mortem",
+   "load": "",
+   "mean": 0.737,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "se": 0.011
+  }
+ ],
+ "extraction": {
+  "from": "Table III",
+  "method": "table",
+  "uncertainty": "as printed (SE)",
+  "checked": true,
+  "check_notes": "Table III text layer; n for 48 h group not legible in text layer. Values mean +- SE."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__water_content__af__human__fresh",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "hydration"
+ ]
+}

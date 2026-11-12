@@ -1,0 +1,119 @@
+{
+ "id": "passive_tissue.galante1967.AF_swelling_solutions",
+ "title": "Galante 1967 AF equilibrium free swelling in different solutions",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "autopsy",
+ "quantity": {
+  "name": "swelling ratio (swollen / original weight)",
+  "definition": "equilibrium (fully swollen, up to 32 h) wet weight / fresh weight of 20 x 5 x 1 mm anterior AF samples immersed at room temperature; distilled water equilibrates in 2 h, others in 5 h",
+  "unit": "-"
+ },
+ "source": {
+  "short": "Galante 1967",
+  "authors": "Galante JO",
+  "year": 1967,
+  "journal": "Acta Orthop Scand 38(Suppl 100):1-91",
+  "doi": "10.3109/ort.1967.38.suppl-100.01",
+  "n": 40,
+  "sample": "40 anterior AF samples (20 x 5 x 1 mm) from 4 lumbar spines, 10 per solution (study total: 592 samples from 68 autopsy lumbar spines)",
+  "age": "see Table I",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Free swelling: samples weighed fresh, immersed in solution at room temperature, re-weighed (blotted 5 s) at 5 min to 32 h",
+  "how_to_simulate": [
+   "Simulate free swelling of a thin AF slab in solutions of different osmolarity (water vs 0.15 M NaCl vs colloid)",
+   "Report equilibrium mass ratio"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "distilled water",
+   "load": "",
+   "mean": 2.393,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "original_weight_g": 0.1066,
+   "original_se": 0.0054,
+   "swollen_weight_g": 0.2551,
+   "swollen_se": 0.018,
+   "note": "ratio of mean weights computed by extractor"
+  },
+  {
+   "x": "0.9% NaCl",
+   "load": "",
+   "mean": 1.794,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "original_weight_g": 0.1017,
+   "original_se": 0.002,
+   "swollen_weight_g": 0.1824,
+   "swollen_se": 0.003,
+   "note": "ratio of mean weights computed by extractor"
+  },
+  {
+   "x": "human plasma",
+   "load": "",
+   "mean": 1.758,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "original_weight_g": 0.0968,
+   "original_se": 0.0061,
+   "swollen_weight_g": 0.1702,
+   "swollen_se": 0.009,
+   "note": "ratio of mean weights computed by extractor"
+  },
+  {
+   "x": "Rheomacrodex (10% dextran)",
+   "load": "",
+   "mean": 2.095,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "original_weight_g": 0.092,
+   "original_se": 0.002,
+   "swollen_weight_g": 0.1927,
+   "swollen_se": 0.0066,
+   "note": "ratio of mean weights computed by extractor"
+  }
+ ],
+ "extraction": {
+  "from": "Table IV",
+  "method": "table",
+  "uncertainty": "ratio derived from printed means",
+  "checked": true,
+  "check_notes": "Table IV read from 150-dpi render (OCR corrected: distilled water original SE 0.0054; NaCl swollen weight 0.1824). Values mean +- SE (n=10 each). Ratio = mean swollen / mean original computed by extractor."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__swelling_ratio__af_anterior__human__free_swelling_solutions",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "swelling",
+  "osmotic"
+ ]
+}

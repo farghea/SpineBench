@@ -1,0 +1,257 @@
+{
+ "id": "passive_tissue.elliottsetton2001.AF_outer_stress_strain_representative",
+ "title": "Elliott & Setton 2001 equilibrium stress-strain, representative AF sample (circumferential, axial)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3"
+ ],
+ "condition": "non-degenerate (grade 1-2)",
+ "quantity": {
+  "name": "stress-strain curve",
+  "definition": "equilibrium nominal stress vs optical strain of ONE representative AF (same disc) in circumferential and axial orientations",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Elliott 2001",
+  "authors": "Elliott DM, Setton LA",
+  "year": 2001,
+  "journal": "J Biomech Eng 123:256-263",
+  "doi": "",
+  "n": 60,
+  "sample": "60 planar AF samples from 10 fresh-frozen non-degenerate lumbar discs (L1-L2, L2-L3) of 7 donors; outer and inner anterior AF",
+  "age": "53 y mean (27-72)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Planar AF strips (thickness 1.37+-0.30, width 2.86+-0.35, length 7.73+-1.23 mm; n=60) microtomed from anterior outer/inner AF blocks, orientations circumferential (groups 1-2, 1-3), axial (2-1, 2-3), radial (3-1); equilibrated 30 min in 0.15 M PBS (free swelling), tested in 0.15 M PBS bath; sandpaper grips; tare 0.008 MPa for 10 min; preconditioning 10 cycles 0-2% strain at 0.002 /s; incremental stress-relaxation: circumferential 1% (or 2%) grip-strain steps at 0.0001 /s to 20%, axial/radial 4% steps at 0.0002 /s to 40%, 15 min relaxation each; equilibrium stress = force / initial area vs optical (marker-triad) Lagrangian/infinitesimal strain; bilinear fit gives E0 (toe) and E (linear), transition e*.",
+  "how_to_simulate": [
+   "Build a strip model 7.73 x 2.86 x 1.37 mm with fibre architecture of the anterior outer (or inner) AF oriented as tested; grip both ends",
+   "Apply stepwise grip strain and evaluate equilibrium (fully relaxed) response; free-swollen state in 0.15 M PBS",
+   "Compute nominal stress (force / initial area) vs local surface strain in the central region; fit bilinear model for E0 and E"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "group 1-2 circumferential (representative sample)",
+   "x_value": 0,
+   "load": "",
+   "mean": 0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-2 circumferential (representative sample)",
+   "x_value": 0.024,
+   "load": "",
+   "mean": 0.045,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-2 circumferential (representative sample)",
+   "x_value": 0.047,
+   "load": "",
+   "mean": 0.149,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-2 circumferential (representative sample)",
+   "x_value": 0.067,
+   "load": "",
+   "mean": 0.348,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-2 circumferential (representative sample)",
+   "x_value": 0.083,
+   "load": "",
+   "mean": 0.615,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-3 circumferential (representative sample)",
+   "x_value": 0,
+   "load": "",
+   "mean": 0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-3 circumferential (representative sample)",
+   "x_value": 0.012,
+   "load": "",
+   "mean": 0.025,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-3 circumferential (representative sample)",
+   "x_value": 0.024,
+   "load": "",
+   "mean": 0.09,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 1-3 circumferential (representative sample)",
+   "x_value": 0.035,
+   "load": "",
+   "mean": 0.219,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.058,
+   "load": "",
+   "mean": 0.011,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.111,
+   "load": "",
+   "mean": 0.014,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.169,
+   "load": "",
+   "mean": 0.02,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.229,
+   "load": "",
+   "mean": 0.037,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.282,
+   "load": "",
+   "mean": 0.045,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.359,
+   "load": "",
+   "mean": 0.062,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.416,
+   "load": "",
+   "mean": 0.081,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "group 2-1 axial (representative sample)",
+   "x_value": 0.474,
+   "load": "",
+   "mean": 0.101,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5",
+  "method": "digitised_figure",
+  "uncertainty": "strain +/-0.005, stress +/-0.015 MPa",
+  "checked": true,
+  "check_notes": "Markers digitised visually from 200-dpi crop with axis calibration (x: 0-0.5, y: 0-1.0 MPa). Re-check: diamond at 0.083 lies at the 0.6 tick level (0.601 vs 0.615 read) - within uncertainty. Site of the representative sample not stated (assumed outer). Strain unit is fraction."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__stress_strain_curve__af_outer__human_nondegen__uniaxial_circ_axial_equilibrium",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "curve",
+  "digitised",
+  "representative"
+ ],
+ "curve": {
+  "x_name": "strain",
+  "x_unit": "-",
+  "y_name": "stress",
+  "y_unit": "MPa"
+ }
+}

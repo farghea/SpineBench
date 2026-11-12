@@ -1,0 +1,126 @@
+{
+ "id": "passive_tissue.holzapfel2005.AF_lamella_dimensions",
+ "title": "Holzapfel 2005 single-lamella specimen dimensions (lamella thickness)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "lamella thickness",
+  "definition": "specimen thickness (videoextensometer); length and width (gauge) in extra keys",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Holzapfel 2005",
+  "authors": "Holzapfel GA, Schulze-Bauer CAJ, Feigl G, Regitnig P",
+  "year": 2005,
+  "journal": "Biomech Model Mechanobiol 3:125-140",
+  "doi": "10.1007/s10237-004-0053-8",
+  "n": 11,
+  "sample": "11 lumbar body-disc-body units from 11 cadavers (6 grade I, 5 grade II); single-lamella specimens VLe n=11, VLi n=9, De n=11, Di n=8, cross-fibre n=7; fibre angles from the second hemidisc",
+  "age": "57.9+-15.4 y",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Single lamellar AF specimens cut along the fibre direction with bone segments at both ends (bone clamped; cross-fibre specimens clamped with emery paper), load-free configuration set in bath; 0.15 mol/l NaCl at 37 C, tested within 24 h of autopsy; 30 min equilibration; cyclic uniaxial extension at crosshead 1 mm/min then 10 and 0.1 mm/min; 5 preconditioning cycles (1 and 10 mm/min); stretch from videoextensometer gauge markers; engineering stress = force / undeformed area. Moduli = dT/dlambda on loading curve within stress bands 0-100 kPa (Elow), 100-500 kPa (Emedium), 500 kPa-1 MPa (Ehigh).",
+  "how_to_simulate": [
+   "Use as specimen geometry for the fibre-direction tests; compare model lamella thickness"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "VLe thickness",
+   "load": "",
+   "mean": 0.69,
+   "sd": 0.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "length_mm": 18.4,
+   "length_sd": 4.3,
+   "width_mm": 5.5,
+   "width_sd": 1.5
+  },
+  {
+   "x": "VLi thickness",
+   "load": "",
+   "mean": 0.76,
+   "sd": 0.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "length_mm": 12.1,
+   "length_sd": 2.2,
+   "width_mm": 3.7,
+   "width_sd": 1.1
+  },
+  {
+   "x": "De thickness",
+   "load": "",
+   "mean": 0.38,
+   "sd": 0.04,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11,
+   "length_mm": 11.2,
+   "length_sd": 3.9,
+   "width_mm": 3.4,
+   "width_sd": 0.8
+  },
+  {
+   "x": "Di thickness",
+   "load": "",
+   "mean": 0.4,
+   "sd": 0.06,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8,
+   "length_mm": 10.0,
+   "length_sd": 2.3,
+   "width_mm": 3.0,
+   "width_sd": 1.5
+  },
+  {
+   "x": "cross-fibre thickness",
+   "load": "",
+   "mean": 0.6,
+   "sd": 0.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "length_mm": 6.9,
+   "length_sd": 2.3,
+   "width_mm": 5.9,
+   "width_sd": 1.6
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 from text layer."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__lamella_thickness__af_lamella__human_nondegen__geometry",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "geometry"
+ ]
+}

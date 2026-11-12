@@ -1,0 +1,131 @@
+{
+ "id": "passive_tissue.skrzypiec2013.MS_posterior_shear_stiffness",
+ "title": "Skrzypiec 2013 lumbar motion segment (with facets) posterior shear stiffness under 500 N compression",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "disc_whole",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "grade II-III, 500 N preload",
+ "quantity": {
+  "name": "posterior shear stiffness",
+  "definition": "posterior shear stiffness; linear fit 0-150 N of 2nd cycle (strength = peak anterior load in overload)",
+  "unit": "N/mm"
+ },
+ "source": {
+  "short": "Skrzypiec 2013",
+  "authors": "Skrzypiec DM, Bishop NE, Klein A, Puschel K, Morlock MM, Huber G",
+  "year": 2013,
+  "journal": "J Biomech 46:651-657",
+  "doi": "",
+  "n": 12,
+  "sample": "12 cadaveric lumbar segments from 11 male spines: 6 motion segments (MS, L2-L3) and 6 disc segments with articular joints removed/damaged (DS, mostly L4-L5); disc grade II-III",
+  "age": "21-42 y",
+  "sex": "male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Segments potted (up to 2/3 of vertebral body), Ringer solution at 37 C, 30 min; 500 N axial compression via dead weights for 15 min (preconditioning) and maintained; X-Y table decouples axial/shear; 2 shear cycles at 50 N/s 0 -> +200 N anterior -> -200 N posterior -> 0; then anterior shear overload at 0.5 mm/s to 15 mm. Stiffness = linear regression of 2nd cycle, 0-150 N (anterior) and 0 to -150 N (posterior). Peak load = shear strength.",
+  "how_to_simulate": [
+   "Fix the lower vertebra; apply 500 N axial compression (follower-free dead weight) and let creep 15 min",
+   "Apply anterior/posterior shear force of the upper vertebra to +-200 N at 50 N/s; then anterior displacement 0.5 mm/s to failure",
+   "Report shear stiffness (0-150 N slope) and peak shear load"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "LUM-07 L2-L3 (21 y, grade II)",
+   "load": "",
+   "mean": 429,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LUM-08 L2-L3 (26 y, grade II)",
+   "load": "",
+   "mean": 337,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LUM-09 L2-L3 (31 y, grade II)",
+   "load": "",
+   "mean": 293,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LUM-06 L2-L3 (42 y, grade III)",
+   "load": "",
+   "mean": 257,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LUM-10 L2-L3 (36 y, grade III)",
+   "load": "",
+   "mean": 371,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "LUM-11 L2-L3 (39 y, grade III)",
+   "load": "",
+   "mean": 423,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "median (reported)",
+   "load": "",
+   "mean": null,
+   "sd": null,
+   "min": 257,
+   "max": 429,
+   "median": 354,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 from text layer (digital PDF). Median row as printed. Note LUM-06 contributed both an MS (L2-L3) and a DS (L4-L5). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__shear_stiffness_posterior__motion_segment_lumbar__human__shear_ap_500n_preload",
+ "tags": [
+  "human",
+  "in vitro",
+  "lumbar",
+  "shear",
+  "motion segment"
+ ]
+}

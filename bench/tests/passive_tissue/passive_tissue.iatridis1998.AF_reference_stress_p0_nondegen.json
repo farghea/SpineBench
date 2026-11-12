@@ -1,0 +1,72 @@
+{
+ "id": "passive_tissue.iatridis1998.AF_reference_stress_p0_nondegen",
+ "title": "Iatridis 1998 anterior outer AF confined compression reference (swelling) stress offset p0 (normal (grades I-II))",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3"
+ ],
+ "condition": "normal (grades I-II)",
+ "quantity": {
+  "name": "reference (swelling) stress offset p0",
+  "definition": "equilibrium axial stress after free swelling in 0.15 M NaCl in confined geometry (osmotic swelling pressure)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Iatridis 1998",
+  "authors": "Iatridis JC, Setton LA, Foster RJ, Rawlins BA, Weidenbaum M, Mow VC",
+  "year": 1998,
+  "journal": "J Biomech 31:535-544",
+  "doi": "",
+  "n": 44,
+  "sample": "44 AF cylinders (22 axial, 22 radial; 5 mm diameter, 1.6+-0.3 mm thick) from the anterior outer AF of 22 L2-L3 discs; normal (grades I-II) n=28, degenerate (grades III-V) n=16",
+  "age": "12-83 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Confined compression of 5 mm AF cylinders (axial or radial orientation) between porous sintered-steel platens in a confining chamber; platen set at thickness minus 1 SD; 0.15 M NaCl added and free-swelling reference stress offset p0 measured at equilibrium (~4000 s); successive stress-relaxation steps: ramp at stretch rate 0.0001 /s to -10% then -5% increments, 2500 s holds, until -0.45 MPa; finite-deformation biphasic model (exponential strain-dependent permeability k = k0 exp(M(...)) and nonlinear elasticity with H_A0, beta) fitted per specimen. Values pooled over axial and radial orientation (no orientation effect).",
+  "how_to_simulate": [
+   "Model a 5 mm diameter, 1.6 mm thick AF cylinder in confined compression (biphasic, porous platen), equilibrate in 0.15 M NaCl and report swelling stress",
+   "Apply ramp-hold steps (0.0001 /s, -10% then -5% increments, 2500 s holds)",
+   "Fit or compare equilibrium stress-stretch and relaxation response; report H_A0, beta, k0, M and p0"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "anterior outer AF, axial+radial pooled",
+   "load": "",
+   "mean": 0.126,
+   "sd": 0.056,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 28
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 / Results text",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 columns 1-2 (this study, pooled for orientation; text layer); Results text gives p0 0.126+-0.056 / 0.050+-0.046 MPa (Table 1 rounds to 0.13 / 0.05). Columns 3-5 of Table 1 are literature - not extracted. Biphasic parameters are per-specimen fits to measured relaxation. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__swelling_pressure__af_outer__human_nondegen__confined_compression",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "biphasic",
+  "swelling"
+ ]
+}

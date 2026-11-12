@@ -1,0 +1,123 @@
+{
+ "id": "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width",
+ "title": "Adams & Green 1993 reduction of AF slice stiffness with reduced specimen width (size effect)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "reduction in stiffness",
+  "definition": "% reduction of vertical stiffness vs intact 30 mm slice after vertical cuts that shorten embedded fibre length (fibre-matrix interaction / size effect)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Adams & Green 1993",
+  "authors": "Adams MA, Green TP",
+  "year": 1993,
+  "journal": "Eur Spine J 2:203-208",
+  "doi": "",
+  "n": 11,
+  "sample": "11 vertical lateral-annulus slices (5 mm thick, ~30 mm wide, bone-AF-bone) from 6 cadaveric lumbar spines",
+  "age": "46 y mean (19-71)",
+  "sex": "5 M, 1 F donors",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Vertical slices of outer lateral annulus with bone ends potted in dental stone (outer surface not trimmed, lamellae continuous bone to bone); slicing under PEG/0.15 M NaCl spray (no swelling), surfaces covered in Clingfilm; vertical tension to ~70% of estimated UTS with 2.0 s linear ramp load/unload cycles; stiffness = gradient of linear region at 70% EUTS (also 35% EUTS); then sequential vertical cuts (1, 3, 7) reducing effective width 30 -> 15 -> 7.5 -> 3.75 mm.",
+  "how_to_simulate": [
+   "Model the slice with 30, 15, 7.5, 3.75 mm effective widths (cut fibres)",
+   "Report % stiffness reduction relative to the 30 mm slice"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "1 cut (15 mm effective width, mean fibre length 9.3 mm), at 70% EUTS",
+   "load": "",
+   "mean": 33,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "3 cuts (7.5 mm, 6.0 mm)",
+   "load": "",
+   "mean": 59,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "7 cuts (3.75 mm, 3.6 mm)",
+   "load": "",
+   "mean": 73,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "1 cut, at 35% EUTS",
+   "load": "",
+   "mean": 36,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "3 cuts, at 35% EUTS",
+   "load": "",
+   "mean": 63,
+   "sd": 9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "7 cuts, at 35% EUTS",
+   "load": "",
+   "mean": 76,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer (checked; '25l' read as 251). Mean/SD rows computed by extractor. Donors (M-19, M-40, F-45, M-48, M-51, M-71) also appear in Green 1993 (Part II) - same spines, different (lateral) slices. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__stiffness_reduction_size_effect__af_outer_lateral__human__uniaxial_axial",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "size effect"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.green1993.AF_outer_anterior_axial_ult_stress",
+  "passive_tissue.green1993.AF_outer_posterior_axial_ult_stress",
+  "passive_tissue.green1993.AF_outer_axial_fatigue"
+ ]
+}

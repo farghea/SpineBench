@@ -1,0 +1,89 @@
+{
+ "id": "passive_tissue.fujita2000.AF_cube_G23",
+ "title": "Fujita 2000 AF cube equilibrium shear modulus G23",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "equilibrium shear modulus G23",
+  "definition": "shear modulus perpendicular to lamella, vertical plane; equilibrium after 20 min relaxation",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Fujita 2000",
+  "authors": "Fujita Y, Wagner DR, Biviji AA, Duncan NA, Lotz JC",
+  "year": 2000,
+  "journal": "Med Eng Phys 22:349-357",
+  "doi": "",
+  "n": 86,
+  "sample": "30 AF cube specimens (3.2 mm) + 56/58 lamellar sheet specimens from non-degenerate (grade I-II) lumbar discs of 6 + 6 spines",
+  "age": "cubes: 35, 67, 71 y + 3 unknown; sheets: 36, 71, 82 y + 3 unknown",
+  "sex": "not extracted",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "3.2+-0.15 mm AF cubes (anterior and posterolateral) cut in chilled physiologic saline; simple shear in three planes (G12: perpendicular to lamella, parallel to horizontal plane; G23: perpendicular to lamella, parallel to spinal axis; G31: in the lamellar plane); preconditioning 5 cycles at 0.4 Hz to +-3% shear strain; stepwise shear strain 2.5, 5, 7.5, 10% each held 20 min; equilibrium (relaxed) shear stress vs strain, slope = time-independent shear modulus; both directions.",
+  "how_to_simulate": [
+   "Model a 3.2 mm AF cube with local fibre architecture",
+   "Apply simple shear in the stated plane in 2.5% steps to 10%, relax to equilibrium",
+   "Report equilibrium shear stress / shear strain slope"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "overall",
+   "load": "",
+   "mean": 32.12,
+   "sd": 18.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 30
+  },
+  {
+   "x": "anterior",
+   "load": "",
+   "mean": 40.16,
+   "sd": 8.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "posterolateral",
+   "load": "",
+   "mean": 25.1,
+   "sd": 8.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table values from text layer (digital publisher PDF), mean +- SD. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__g_eq_g23__af__human_nondegen__shear_cube",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "shear"
+ ]
+}

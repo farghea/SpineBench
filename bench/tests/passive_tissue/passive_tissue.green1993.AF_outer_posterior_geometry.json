@@ -1,0 +1,74 @@
+{
+ "id": "passive_tissue.green1993.AF_outer_posterior_geometry",
+ "title": "Green 1993 outer posterior annulus slice geometry",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "unloaded cross-sectional area",
+  "definition": "CSA of slice (intended 5 x 15 = 75 mm2); height in extra key",
+  "unit": "mm2"
+ },
+ "source": {
+  "short": "Green 1993",
+  "authors": "Green TP, Adams MA, Dolan P",
+  "year": 1993,
+  "journal": "Eur Spine J 2:209-214",
+  "doi": "",
+  "n": 22,
+  "sample": "22 vertical bone-AF-bone slices (5 mm thick, ~15 mm wide pairs) from 7 cadaveric lumbar spines: 9 outer anterior, 10 outer posterior, 3 inner anterior; fatigue on matched halves",
+  "age": "19-71 y (Table 1)",
+  "sex": "mostly male (Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Vertical slices of annulus with bone ends (5 mm thick, 15 mm wide matched pairs), bony ends potted in dental stone; hydration precautions per Part I (Adams & Green 1993); 6 preconditioning cycles (2 s ramp) to ~50% estimated UTS; one specimen of each pair stretched vertically (axial) to failure at 4 mm/s; YM from stiffness at failure point; matched specimen cyclically loaded at a % of its estimated UTS until failure or 10000 cycles. In situ values estimated by correcting for fibres cut in slices (specimens retain ~44%).",
+  "how_to_simulate": [
+   "Use as specimen geometry"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Outer posterior annulus",
+   "load": "",
+   "mean": 63,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "height_mm": 8.2,
+   "height_sd": 0.9
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer, checked visually aligned (mean +- SD). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__csa__af_outer_posterior__human__geometry_slice",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "geometry"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.adamsgreen1993.AF_hydration",
+  "passive_tissue.adamsgreen1993.AF_lateral_max_force",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_intact",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width"
+ ]
+}

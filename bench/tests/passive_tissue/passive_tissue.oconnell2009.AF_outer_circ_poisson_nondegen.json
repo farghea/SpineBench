@@ -1,0 +1,72 @@
+{
+ "id": "passive_tissue.oconnell2009.AF_outer_circ_poisson_nondegen",
+ "title": "O'Connell 2009 outer AF circumferential Poisson's ratio (nondegenerate)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "non-degenerate",
+ "quantity": {
+  "name": "Poisson's ratio",
+  "definition": "in-plane Poisson ratio from optical strains (lateral strain in the imaged plane)",
+  "unit": "-"
+ },
+ "source": {
+  "short": "O'Connell 2009",
+  "authors": "O'Connell GD, Guerin HL, Elliott DM",
+  "year": 2009,
+  "journal": "J Biomech Eng 131(11):111007",
+  "doi": "10.1115/1.3212104",
+  "n": 13,
+  "sample": "outer anterior AF samples from L3-L4 and L4-L5 discs of 7 cadaveric lumbar spines; 7 nondegenerate (36-53 y, grade 2.2+-0.3) and 6 degenerate (53-80 y, grade 3.9+-0.7) samples per direction",
+  "age": "36-80 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Outer anterior AF strips: circumferential 15.8x2.8x1.9 mm, axial 11.1x2.3x1.5 mm, radial 14.2x2.5x1.8 mm (length x width x thickness); preload 10 min at 0.1 N (circ, axial) or 0.05 N (radial); 20 preconditioning cycles 0-2% strain; uniaxial quasi-static ramp to failure region (rate per earlier protocol, not restated); 2D Lagrangian strain by digital image correlation (Vic2D); Lagrangian (1st Piola) stress = force / undeformed CSA; toe and linear moduli and transition strain from bilinear analysis; axial analysed below 20% strain (linear). Nondegenerate data re-analysed from the authors' earlier study.",
+  "how_to_simulate": [
+   "Build a strip of outer anterior AF with the stated dimensions and fibre orientation, gripped at both ends",
+   "Apply small preload, then quasi-static uniaxial extension",
+   "Compute Lagrangian stress (force/undeformed area) vs optical Lagrangian strain at the centre; fit toe/linear moduli and transition strain"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "outer anterior AF, circumferential",
+   "load": "",
+   "mean": 2.27,
+   "sd": 0.87,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 (text layer of PMC author manuscript, column alignment checked). Tables 2-3 are model fits - not extracted."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__poisson__af_outer__human_nondegen__uniaxial_circ",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "non-degenerate"
+ ]
+}

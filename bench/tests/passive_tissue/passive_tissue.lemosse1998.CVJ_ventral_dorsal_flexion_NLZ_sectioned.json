@@ -1,0 +1,152 @@
+{
+ "id": "passive_tissue.lemosse1998.CVJ_ventral_dorsal_flexion_NLZ_sectioned",
+ "title": "Lemosse 1998 costovertebral joint ventral dorsal flexion flexibility negative linear zone (sectioned)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costovertebral_joint",
+ "region": "thoracic",
+ "levels": [
+  "T1-T2",
+  "T5-T6",
+  "T9-T10"
+ ],
+ "condition": "costotransverse ligaments sectioned",
+ "quantity": {
+  "name": "flexibility negative linear zone",
+  "definition": "slope of rotation vs moment between -0.2 and -0.6 Nm",
+  "unit": "deg/Nm"
+ },
+ "source": {
+  "short": "Lemosse 1998",
+  "authors": "Lemosse D, Le Rue O, Diop A, Skalli W, Marec P, Lavaste F",
+  "year": 1998,
+  "journal": "Eur Spine J 7:16-23",
+  "doi": "",
+  "n": 9,
+  "sample": "costovertebral functional units (2 vertebrae + rib, first 12 cm of rib) at T1-T2-R2, T5-T6-R6, T9-T10-R10 from 9 fresh cadaveric thoracic cages (bilateral; n per cell 3-14)",
+  "age": "61 y mean (39-71)",
+  "sex": "10 M, 1 F (as printed for donor table)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Units sterilised (2.5 Mrad beta) and frozen -30 C; vertebrae fixed; light loading disc (109 g) on the rib; mass-pulley moments from +0.6 to -0.6 Nm and back in 0.1 Nm steps about the rib neck axis (torsion), cranial/caudal flexion (Z) and ventral/dorsal flexion (Y); 3-D motion by optoelectronics (Vicon). TRM = range between -0.6 and +0.6 Nm; MLS = motion between -0.1 and +0.1 Nm (low-stiffness zone); PLZ/NLZ = flexibility (deg/Nm) of quasi-linear zones 0.2-0.6 Nm and -0.2 to -0.6 Nm. Lesions: 0 intact, 1 superior costotransverse ligament cut, 2 + lateral, 3 + interosseous.",
+  "how_to_simulate": [
+   "Fix both vertebrae of the costovertebral unit; keep 12 cm of rib",
+   "Apply pure moments up to +-0.6 Nm about the rib neck axis (torsion), cranial-caudal and ventral-dorsal axes in 0.1 Nm steps",
+   "Report rib rotation range (TRM, MLS) and flexibility in the 0.2-0.6 Nm zones"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "T1-T2 superior CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 6.7,
+   "sd": 1.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "T1-T2 + lateral CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 7.0,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  },
+  {
+   "x": "T1-T2 + interosseous CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 7.6,
+   "sd": 1.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4
+  },
+  {
+   "x": "T5-T6 superior CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 5.9,
+   "sd": 2.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 13
+  },
+  {
+   "x": "T5-T6 + lateral CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 6.1,
+   "sd": 2.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "T5-T6 + interosseous CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 6.6,
+   "sd": 4.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "T9-T10 superior CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 7.8,
+   "sd": 3.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "T9-T10 + lateral CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 7.9,
+   "sd": 3.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "T9-T10 + interosseous CTL cut",
+   "load": "+-0.6 Nm; +=ventral flexion, -=dorsal flexion",
+   "mean": 9.9,
+   "sd": 6.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Table 4",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Tables 2-4 from text layer, columns aligned (Average, SD per parameter, n). doi not printed. Lesion rows: costotransverse ligaments sectioned successively."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__flexibility_negative__cvj_thoracic__human_sectioned__moment_ventral_dorsal_flexion",
+ "tags": [
+  "human",
+  "in vitro",
+  "costovertebral joint",
+  "thoracic"
+ ]
+}

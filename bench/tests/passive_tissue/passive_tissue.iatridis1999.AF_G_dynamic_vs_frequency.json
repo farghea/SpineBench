@@ -1,0 +1,201 @@
+{
+ "id": "passive_tissue.iatridis1999.AF_G_dynamic_vs_frequency",
+ "title": "Iatridis 1999 nondegenerated AF |G*| vs frequency at three axial compressive stresses",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "non-degenerate",
+ "quantity": {
+  "name": "|G*| dynamic shear modulus",
+  "definition": "magnitude of complex shear modulus at shear strain amplitude 0.05 rad",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Iatridis 1999",
+  "authors": "Iatridis JC, Kumar S, Foster RJ, Weidenbaum M, Mow VC",
+  "year": 1999,
+  "journal": "J Orthop Res 17:732-737",
+  "doi": "",
+  "n": 13,
+  "sample": "13 axially oriented AF cylinders from 13 L3-L4 discs: 7 nondegenerated, 6 degenerated",
+  "age": "not extracted",
+  "sex": "not extracted",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Axially oriented AF cylinders tested in torsional shear (parallel plates) under axial compressive stress 17.5, 25 and 35 kPa; frequency sweeps 0.1-100 rad/s at 0.05 rad; strain sweeps 0.005-0.15 rad at 5 rad/s (35 kPa); static stress relaxation at 0.02-0.15 rad (900 s per step, 35 kPa) giving equilibrium shear stress tau_eq and G_eq = tau_eq / gamma.",
+  "how_to_simulate": [
+   "Model an axial AF cylinder between platens under the stated axial compressive stress",
+   "Apply torsion (dynamic: sinusoidal; static: step and hold 900 s)",
+   "Report |G*| (dynamic) or G_eq = tau_eq/gamma at the sample periphery"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "17.5 kPa compression",
+   "x_value": 0.1,
+   "load": "",
+   "mean": 95,
+   "sd": 26,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "17.5 kPa compression",
+   "x_value": 1,
+   "load": "",
+   "mean": 107.6,
+   "sd": 28,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "17.5 kPa compression",
+   "x_value": 10,
+   "load": "",
+   "mean": 127.5,
+   "sd": 36,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "17.5 kPa compression",
+   "x_value": 100,
+   "load": "",
+   "mean": 151.5,
+   "sd": 42,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "25 kPa compression",
+   "x_value": 0.1,
+   "load": "",
+   "mean": 110.9,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "25 kPa compression",
+   "x_value": 1,
+   "load": "",
+   "mean": 127.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "25 kPa compression",
+   "x_value": 10,
+   "load": "",
+   "mean": 149.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "25 kPa compression",
+   "x_value": 100,
+   "load": "",
+   "mean": 178.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "35 kPa compression",
+   "x_value": 0.1,
+   "load": "",
+   "mean": 133,
+   "sd": 40,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "35 kPa compression",
+   "x_value": 1,
+   "load": "",
+   "mean": 154.5,
+   "sd": 45,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "35 kPa compression",
+   "x_value": 10,
+   "load": "",
+   "mean": 179,
+   "sd": 52,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "35 kPa compression",
+   "x_value": 100,
+   "load": "",
+   "mean": 211,
+   "sd": 61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2a",
+  "method": "digitised_figure",
+  "uncertainty": "+/-5 kPa (mean), +/-8 kPa (SD); SD bars shown only for 17.5 (down) and 35 kPa (up)",
+  "checked": true,
+  "check_notes": "Digitised from 200-dpi render with marker detection / visual reading against axis ticks; paper reports these only in figures (OCR text garbled). Re-check at 100 rad/s visually: 212/178/152 kPa vs detected 211/178.5/151.5."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__g_dyn_vs_frequency__af__human_nondegen__torsional_shear_compressed",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "shear",
+  "digitised",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "angular frequency",
+  "x_unit": "rad/s",
+  "y_name": "|G*|",
+  "y_unit": "kPa"
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "id": "passive_tissue.fujita2000.AF_inner_sheet_axial_shear",
+ "title": "Fujita 2000 inner AF sheet axial shear modulus vs tensile prestrain",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "equilibrium shear modulus",
+  "definition": "in-plane equilibrium shear modulus of a lamellar sheet, shear along the axial direction, with tensile prestrain 0/5/10%",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Fujita 2000",
+  "authors": "Fujita Y, Wagner DR, Biviji AA, Duncan NA, Lotz JC",
+  "year": 2000,
+  "journal": "Med Eng Phys 22:349-357",
+  "doi": "",
+  "n": 86,
+  "sample": "30 AF cube specimens (3.2 mm) + 56/58 lamellar sheet specimens from non-degenerate (grade I-II) lumbar discs of 6 + 6 spines",
+  "age": "cubes: 35, 67, 71 y + 3 unknown; sheets: 36, 71, 82 y + 3 unknown",
+  "sex": "not extracted",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Lamellar sheet specimens (3.2 mm wide) from inner, middle, outer AF glued to sandpaper frames; tensile prestrain 0, 5, 10% (axial direction for circumferential shear, circumferential direction for axial shear); preconditioning +-3% shear, then 2.5-10% shear strain steps each held 20 min; equilibrium shear modulus in axial (G31-type, shear along spinal axis in lamellar plane) or circumferential direction.",
+  "how_to_simulate": [
+   "Model a thin AF sheet with in-plane prestrain 0/5/10%",
+   "Apply in-plane shear (axial or circumferential direction) stepwise to 10%, relaxed",
+   "Report equilibrium shear modulus"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "prestrain 0%",
+   "load": "tensile prestrain 0%",
+   "mean": 73.4,
+   "sd": 32,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18
+  },
+  {
+   "x": "prestrain 5%",
+   "load": "tensile prestrain 5%",
+   "mean": 88.2,
+   "sd": 48,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18
+  },
+  {
+   "x": "prestrain 10%",
+   "load": "tensile prestrain 10%",
+   "mean": 97.2,
+   "sd": 60,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 18
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table values from text layer (digital publisher PDF), mean +- SD. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__g_eq__af_inner__human_nondegen__shear_sheet_axial_prestrain",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "shear",
+  "prestrain"
+ ]
+}

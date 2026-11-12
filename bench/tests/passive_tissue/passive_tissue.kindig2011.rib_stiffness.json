@@ -1,0 +1,367 @@
+{
+ "id": "passive_tissue.kindig2011.rib_stiffness",
+ "title": "Kindig 2011 whole-rib initial stiffness K under quasistatic anterior-posterior end loading",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "rib",
+ "region": "ribcage",
+ "levels": [
+  "ribs 2-10"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "initial stiffness K",
+  "definition": "slope of force vs end displacement over 0-5% of D0",
+  "unit": "N/mm"
+ },
+ "source": {
+  "short": "Kindig 2011",
+  "authors": "Kindig M, Lau AG, Kent RW",
+  "year": 2011,
+  "journal": "Traffic Inj Prev 12(4):377-387",
+  "doi": "10.1080/15389588.2011.583960",
+  "n": 27,
+  "sample": "27 isolated whole ribs (levels 2-10) from 3 PMHS (44M, 61F, 63F)",
+  "age": "44, 61, 63 y",
+  "sex": "1 M, 2 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Isolated whole ribs, extremities potted in 30 mm cups at the anterior and posterior ends; pinned-pinned (rotation about axis normal to loading plane), anterior cup translated toward posterior cup along the line joining the ends (X) at 2 mm/s (quasi-static, simulating anterior-posterior chest loading) until fracture; D0 = initial end-to-end distance; K = slope of F vs D for 0 <= D <= 0.05 D0; fracture from strain-gauge discontinuity.",
+  "how_to_simulate": [
+   "Model an isolated rib with its anterior and posterior ends pinned (rotation free in the rib plane), end-to-end distance D0",
+   "Translate the anterior end toward the posterior end at 2 mm/s",
+   "Report initial stiffness (0-5% D0), peak force and normalised displacement at fracture"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "44M rib 2R (D0 114 mm)",
+   "load": "",
+   "mean": 11.54,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 3L (D0 144 mm)",
+   "load": "",
+   "mean": 3.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 4L (D0 157 mm)",
+   "load": "",
+   "mean": 2.67,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 5R (D0 185 mm)",
+   "load": "",
+   "mean": 2.73,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 6L (D0 198 mm)",
+   "load": "",
+   "mean": 2.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 7R (D0 199 mm)",
+   "load": "",
+   "mean": 3.81,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 8L (D0 221 mm)",
+   "load": "",
+   "mean": 2.47,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 9R (D0 211 mm)",
+   "load": "",
+   "mean": 1.93,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "44M rib 10R (D0 184 mm)",
+   "load": "",
+   "mean": 1.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 2R (D0 104 mm)",
+   "load": "",
+   "mean": 3.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 3L (D0 138 mm)",
+   "load": "",
+   "mean": 0.81,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 4L (D0 180 mm)",
+   "load": "",
+   "mean": 0.82,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 5R (D0 195 mm)",
+   "load": "",
+   "mean": 1.31,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 6R (D0 208 mm)",
+   "load": "",
+   "mean": 2.13,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 7R (D0 238 mm)",
+   "load": "",
+   "mean": 1.57,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 8L (D0 216 mm)",
+   "load": "",
+   "mean": 0.85,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 9L (D0 195 mm)",
+   "load": "",
+   "mean": 0.86,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "61F rib 10L (D0 180 mm)",
+   "load": "",
+   "mean": 1.17,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 2L (D0 102 mm)",
+   "load": "",
+   "mean": 3.82,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 3R (D0 115 mm)",
+   "load": "",
+   "mean": 1.19,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": "did not fracture"
+  },
+  {
+   "x": "63F rib 4R (D0 136 mm)",
+   "load": "",
+   "mean": 1.47,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 5L (D0 166 mm)",
+   "load": "",
+   "mean": 1.33,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 6L (D0 181 mm)",
+   "load": "",
+   "mean": 1.58,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 7L (D0 194 mm)",
+   "load": "",
+   "mean": 1.29,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 8R (D0 191 mm)",
+   "load": "",
+   "mean": 1.62,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 9R (D0 186 mm)",
+   "load": "",
+   "mean": 1.75,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "63F rib 10R (D0 170 mm)",
+   "load": "",
+   "mean": 2.52,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": ""
+  },
+  {
+   "x": "mean of ribs (computed by extractor)",
+   "load": "",
+   "mean": 2.313,
+   "sd": 2.062,
+   "min": 0.81,
+   "max": 11.54,
+   "median": null,
+   "n": 27
+  }
+ ],
+ "extraction": {
+  "from": "Table III",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table III from text layer (digital PDF; columns checked). 63F 3R did not fracture (omitted by authors from analysis; kept with note for stiffness/Fmax). Mean/SD computed by extractor over all ribs."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__stiffness__rib_ribs2_10__human__ap_loading_pinned_ends",
+ "tags": [
+  "human",
+  "in vitro",
+  "rib",
+  "ribcage"
+ ]
+}

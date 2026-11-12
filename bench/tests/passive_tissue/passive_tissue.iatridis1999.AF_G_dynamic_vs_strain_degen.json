@@ -1,0 +1,157 @@
+{
+ "id": "passive_tissue.iatridis1999.AF_G_dynamic_vs_strain_degen",
+ "title": "Iatridis 1999 degenerated AF |G*| vs shear strain amplitude (5 rad/s, 35 kPa)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "degenerated",
+ "quantity": {
+  "name": "|G*| dynamic shear modulus",
+  "definition": "magnitude of complex shear modulus at 5 rad/s and 35 kPa axial compression vs strain amplitude",
+  "unit": "kPa"
+ },
+ "source": {
+  "short": "Iatridis 1999",
+  "authors": "Iatridis JC, Kumar S, Foster RJ, Weidenbaum M, Mow VC",
+  "year": 1999,
+  "journal": "J Orthop Res 17:732-737",
+  "doi": "",
+  "n": 13,
+  "sample": "13 axially oriented AF cylinders from 13 L3-L4 discs: 7 nondegenerated, 6 degenerated",
+  "age": "not extracted",
+  "sex": "not extracted",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Axially oriented AF cylinders tested in torsional shear (parallel plates) under axial compressive stress 17.5, 25 and 35 kPa; frequency sweeps 0.1-100 rad/s at 0.05 rad; strain sweeps 0.005-0.15 rad at 5 rad/s (35 kPa); static stress relaxation at 0.02-0.15 rad (900 s per step, 35 kPa) giving equilibrium shear stress tau_eq and G_eq = tau_eq / gamma.",
+  "how_to_simulate": [
+   "Model an axial AF cylinder between platens under the stated axial compressive stress",
+   "Apply torsion (dynamic: sinusoidal; static: step and hold 900 s)",
+   "Report |G*| (dynamic) or G_eq = tau_eq/gamma at the sample periphery"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "degenerated",
+   "x_value": 0.005,
+   "load": "",
+   "mean": 375,
+   "sd": 195,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.0079,
+   "load": "",
+   "mean": 352,
+   "sd": 178,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.0126,
+   "load": "",
+   "mean": 326,
+   "sd": 159,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.02,
+   "load": "",
+   "mean": 292,
+   "sd": 136,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.0316,
+   "load": "",
+   "mean": 250,
+   "sd": 108,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.05,
+   "load": "",
+   "mean": 205,
+   "sd": 80,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.0794,
+   "load": "",
+   "mean": 158,
+   "sd": 55,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "degenerated",
+   "x_value": 0.126,
+   "load": "",
+   "mean": 115,
+   "sd": 35,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Fig 3a",
+  "method": "digitised_figure",
+  "uncertainty": "+/-10 kPa (mean), +/-15 kPa (SD); strain amplitudes taken as the nominal log-spaced sweep values",
+  "checked": true,
+  "check_notes": "Digitised from 200-dpi render with marker detection / visual reading against axis ticks; paper reports these only in figures (OCR text garbled). Nondegenerated means checked by automatic blob detection (261, 238, 215, 189, 156, 125, 95 kPa); degenerated read visually."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the measured corridor (mean +/- 1 SD or min-max) over the tested range"
+ },
+ "combine_group": "passive_tissue__g_dyn_vs_strain__af__human_degen__torsional_shear_35kpa",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "shear",
+  "digitised",
+  "curve"
+ ],
+ "curve": {
+  "x_name": "shear strain amplitude",
+  "x_unit": "rad",
+  "y_name": "|G*|",
+  "y_unit": "kPa"
+ }
+}

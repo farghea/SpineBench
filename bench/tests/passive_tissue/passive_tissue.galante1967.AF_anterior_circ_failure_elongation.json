@@ -1,0 +1,70 @@
+{
+ "id": "passive_tissue.galante1967.AF_anterior_circ_failure_elongation",
+ "title": "Galante 1967 anterior AF strip elongation to failure, horizontal (circumferential)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "non-degenerate/mixed autopsy",
+ "quantity": {
+  "name": "elongation to failure",
+  "definition": "elongation to failure of 10 mm central section (clamp-to-clamp)",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Galante 1967",
+  "authors": "Galante JO",
+  "year": 1967,
+  "journal": "Acta Orthop Scand 38(Suppl 100):1-91",
+  "doi": "10.3109/ort.1967.38.suppl-100.01",
+  "n": 38,
+  "sample": "38 anterior AF strips from 6 lumbar spines (33 analysed) (study total: 592 samples from 68 autopsy lumbar spines)",
+  "age": "see Table I",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Die-cut anterior AF samples with reduced central section 10 x 2 x 1 mm (ends 7.5 x 3 x 1 mm), cut along one fibre direction or along the horizontal (circumferential) axis; tested in air at 90% RH and 21 C; tension to failure at 0.5 cm/min (5 mm/min); ultimate strength in kp/mm2 and elongation to failure (mm). Values are mean +- standard ERROR (Statistical methods).",
+  "how_to_simulate": [
+   "Model a 10 x 2 x 1 mm AF strip (central section) loaded along the fibre direction or horizontally (circumferential)",
+   "Pull at 5 mm/min to failure (clamped strip, no bone)",
+   "Report ultimate stress (force / initial CSA) and elongation at failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "horizontal (circumferential) axis",
+   "load": "",
+   "mean": 2.51,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 15,
+   "se": 0.17,
+   "orig": "2.51 +- 0.17 mm (SE)"
+  }
+ ],
+ "extraction": {
+  "from": "Results text pp.66-67",
+  "method": "text",
+  "uncertainty": "as printed (SE only)",
+  "checked": true,
+  "check_notes": "Results text p.66-67; values mean +- SE (converted: 1 kp/mm2 = 9.80665 MPa; SE converted likewise and stored in 'se', SD not given)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_elong__af_anterior__human__uniaxial_circ_strip_air90rh",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar"
+ ]
+}

@@ -1,0 +1,93 @@
+{
+ "id": "passive_tissue.iatridis1997b.NP_water_content",
+ "title": "Iatridis 1997b NP water content vs degeneration",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "nucleus",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "normal / mild / severe degeneration",
+ "quantity": {
+  "name": "water content",
+  "definition": "water / wet weight after testing (lyophilised 48 h)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Iatridis 1997b",
+  "authors": "Iatridis JC, Setton LA, Weidenbaum M, Mow VC",
+  "year": 1997,
+  "journal": "J Orthop Res 15:318-322",
+  "doi": "",
+  "n": 19,
+  "sample": "19 NP cylinders (8 mm diameter, 1.78+-0.35 mm thick), one per disc from 19 spines (L2-L3 n=1, L3-L4 n=16, L4-L5 n=2); normal (grade I) n=7, mild (II-III) n=5, severe (IV-V) n=7",
+  "age": "16-88 y (57+-21.5)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Frozen NP cylinders (8 mm, one per disc) (8 mm trephine, sledge microtome), tested in a humidity chamber in torsional shear (Rheometrics RMS-800, parallel plates) at 10% compressive offset strain; dynamic frequency sweep at shear strain amplitude 0.01 rad, 1-100 rad/s; then fast-ramp (0.025 s) stress relaxation at 0.05, 0.10, 0.15 rad; shear stress/strain at sample periphery. Linear viscoelastic law with variable-amplitude relaxation spectrum fitted to relaxation at 0.10 rad: mu = instantaneous shear modulus, mu(inf) = mu*G(inf) equilibrium modulus. Water content by lyophilisation.",
+  "how_to_simulate": [
+   "Model an 8 mm NP disc (~1.8 mm thick) in torsion with 10% compressive offset",
+   "Apply a fast ramp (0.025 s) to 0.10 rad shear strain and hold 600 s",
+   "Report instantaneous (peak/strain) and equilibrium shear moduli"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "normal (grade I)",
+   "load": "",
+   "mean": 84.5,
+   "sd": 5.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "mild (grades II-III)",
+   "load": "",
+   "mean": 78.1,
+   "sd": 3.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "severe (grades IV-V)",
+   "load": "",
+   "mean": 76.7,
+   "sd": 1.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 read from 200-dpi render (mean +- SD). mu and mu(inf) are parameters of the authors' viscoelastic law fitted per specimen to measured relaxation (not raw measurements). |G*| vs grade only in Fig 1 (not digitised). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__water_content__np__human_allgrades__torsional_shear_specimens",
+ "tags": [
+  "human",
+  "in vitro",
+  "nucleus",
+  "lumbar",
+  "degeneration"
+ ]
+}

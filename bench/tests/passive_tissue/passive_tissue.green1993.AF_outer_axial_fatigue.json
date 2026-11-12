@@ -1,0 +1,297 @@
+{
+ "id": "passive_tissue.green1993.AF_outer_axial_fatigue",
+ "title": "Green 1993 outer AF vertical tensile fatigue life",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "cycles to failure",
+  "definition": "number of load cycles (vertical tension, 2 s ramp cycles) to failure at a peak stress given as % of estimated UTS of the slice",
+  "unit": "cycles"
+ },
+ "source": {
+  "short": "Green 1993",
+  "authors": "Green TP, Adams MA, Dolan P",
+  "year": 1993,
+  "journal": "Eur Spine J 2:209-214",
+  "doi": "",
+  "n": 22,
+  "sample": "22 vertical bone-AF-bone slices (5 mm thick, ~15 mm wide pairs) from 7 cadaveric lumbar spines: 9 outer anterior, 10 outer posterior, 3 inner anterior; fatigue on matched halves",
+  "age": "19-71 y (Table 1)",
+  "sex": "mostly male (Table 1)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Vertical slices of annulus with bone ends (5 mm thick, 15 mm wide matched pairs), bony ends potted in dental stone; hydration precautions per Part I (Adams & Green 1993); 6 preconditioning cycles (2 s ramp) to ~50% estimated UTS; one specimen of each pair stretched vertically (axial) to failure at 4 mm/s; YM from stiffness at failure point; matched specimen cyclically loaded at a % of its estimated UTS until failure or 10000 cycles. In situ values estimated by correcting for fibres cut in slices (specimens retain ~44%).",
+  "how_to_simulate": [
+   "Apply cyclic vertical tension to the stated % of the specimen UTS",
+   "Report cycles to failure (runout 10000)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "M-19 L2-3 anterior",
+   "load": "59% of estimated UTS",
+   "mean": 4245,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 59,
+   "note": ""
+  },
+  {
+   "x": "M-19 L2-3 posterior",
+   "load": "91% of estimated UTS",
+   "mean": 5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 91,
+   "note": ""
+  },
+  {
+   "x": "M-19 L1-2 anterior",
+   "load": "59% of estimated UTS",
+   "mean": 371,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 59,
+   "note": ""
+  },
+  {
+   "x": "M-19 L1-2 posterior",
+   "load": "61% of estimated UTS",
+   "mean": 5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 61,
+   "note": "; failure in bone"
+  },
+  {
+   "x": "M-40 L2-3 anterior",
+   "load": "63% of estimated UTS",
+   "mean": 960,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 63,
+   "note": ""
+  },
+  {
+   "x": "M-40 L2-3 posterior",
+   "load": "56% of estimated UTS",
+   "mean": 1860,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 56,
+   "note": ""
+  },
+  {
+   "x": "F-45 L1-2 posterior",
+   "load": "47% of estimated UTS",
+   "mean": 1835,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 47,
+   "note": ""
+  },
+  {
+   "x": "F-45 L2-3 posterior",
+   "load": "49% of estimated UTS",
+   "mean": 10000,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 49,
+   "note": "runout: not failed at 10000 cycles"
+  },
+  {
+   "x": "M-48 L2-3 anterior",
+   "load": "71% of estimated UTS",
+   "mean": 195,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 71,
+   "note": ""
+  },
+  {
+   "x": "M-48 L2-3 posterior",
+   "load": "55% of estimated UTS",
+   "mean": 14,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 55,
+   "note": ""
+  },
+  {
+   "x": "M-48 L1-2 anterior",
+   "load": "64% of estimated UTS",
+   "mean": 2720,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 64,
+   "note": ""
+  },
+  {
+   "x": "M-48 L1-2 posterior",
+   "load": "63% of estimated UTS",
+   "mean": 15,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 63,
+   "note": ""
+  },
+  {
+   "x": "M-48 L3-4 anterior",
+   "load": "54% of estimated UTS",
+   "mean": 10000,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 54,
+   "note": "runout: not failed at 10000 cycles"
+  },
+  {
+   "x": "M-48 L3-4 posterior",
+   "load": "46% of estimated UTS",
+   "mean": 10000,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 46,
+   "note": "runout: not failed at 10000 cycles"
+  },
+  {
+   "x": "M-51 L4-5 anterior",
+   "load": "41% of estimated UTS",
+   "mean": 10000,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 41,
+   "note": "runout: not failed at 10000 cycles"
+  },
+  {
+   "x": "M-51 L4-5 posterior",
+   "load": "65% of estimated UTS",
+   "mean": 27,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 65,
+   "note": ""
+  },
+  {
+   "x": "M-52 L4-5 anterior",
+   "load": "54% of estimated UTS",
+   "mean": 10000,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 54,
+   "note": "runout: not failed at 10000 cycles"
+  },
+  {
+   "x": "M-71 L1-2 posterior",
+   "load": "68% of estimated UTS",
+   "mean": 700,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 68,
+   "note": ""
+  },
+  {
+   "x": "M-71 L1-2 anterior",
+   "load": "64% of estimated UTS",
+   "mean": 215,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "load_pct_UTS": 64,
+   "note": ""
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 from text layer; M-19 L1-2 P marked 'failure in bone' (superscript a). Cycle shape 2.0 s ramp per Methods. log-linear S-N relation R=0.63 (Fig 4). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__fatigue__af_outer__human__cyclic_axial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "fatigue"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.adamsgreen1993.AF_hydration",
+  "passive_tissue.adamsgreen1993.AF_lateral_max_force",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_intact",
+  "passive_tissue.adamsgreen1993.AF_lateral_stiffness_reduction_width"
+ ]
+}

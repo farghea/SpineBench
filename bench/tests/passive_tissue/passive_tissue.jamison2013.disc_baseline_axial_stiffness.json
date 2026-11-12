@@ -1,0 +1,80 @@
+{
+ "id": "passive_tissue.jamison2013.disc_baseline_axial_stiffness",
+ "title": "Jamison 2013 lumbar disc axial compressive stiffness at baseline (1000 ms) impacts",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "disc_whole",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "healthy (fluoroscopy)",
+ "quantity": {
+  "name": "axial compressive stiffness",
+  "definition": "tangent stiffness at maximum load, 1000 ms triangular displacement impact; text gives approximate range only",
+  "unit": "N/mm"
+ },
+ "source": {
+  "short": "Jamison 2013",
+  "authors": "Jamison D, Cannella M, Pierce EC, Marcolongo MS",
+  "year": 2013,
+  "journal": "J Biomech Eng 135:091009",
+  "doi": "",
+  "n": 5,
+  "sample": "5 lumbar anterior column units (disc + adjacent vertebrae, posterior elements removed), NDRI donors",
+  "age": "64.6+-11.4 y (59-85)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Anterior column units potted, preloaded/preconditioned (Instron, see paper), then displacement-controlled triangular axial compression impacts of 0.2, 0.5, 0.8 mm with durations 80, 160, 320, 400, 600, 800 and 1000 ms (baseline), randomised, 3 s between events; k = tangent stiffness at maximum load; dissipated energy from hysteresis; normalised to the 1000 ms baseline of the same disc and displacement.",
+  "how_to_simulate": [
+   "Model a disc with adjacent vertebral bodies (posterior elements removed) under axial displacement control",
+   "Apply triangular compression to 0.2, 0.5 or 0.8 mm with total duration 80-1000 ms",
+   "Report tangent stiffness at peak load relative to the 1000 ms case; baseline ~500 N/mm (0.2 mm) to ~850 N/mm (0.8 mm)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "0.2 mm displacement (peak load ~150 N)",
+   "load": "",
+   "mean": 500,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "\"nearly 500 N/mm\""
+  },
+  {
+   "x": "0.8 mm displacement (peak load ~700 N)",
+   "load": "",
+   "mean": 850,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "approximate values as written",
+  "checked": true,
+  "check_notes": "Values quoted approximately in Results ('ranged from nearly 500 N/mm (0.2 mm) to 850 N/mm (0.8 mm)'). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__axial_stiffness__disc_lumbar__human__axial_compression_dynamic_1s",
+ "tags": [
+  "human",
+  "in vitro",
+  "disc",
+  "lumbar",
+  "compression"
+ ]
+}

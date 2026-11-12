@@ -1,0 +1,177 @@
+{
+ "id": "passive_tissue.costi2007.disc_physiological_max_shear_strain",
+ "title": "Costi 2007 physiological maximum shear strain at maximum reported ROM",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "disc_whole",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "grade 1-3, 100 N preload",
+ "quantity": {
+  "name": "physiological maximum shear strain",
+  "definition": "largest regional MSS per unit input x maximum reported lumbar segmental ROM (extrapolated)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Costi 2007",
+  "authors": "Costi JJ, Stokes IA, Gardner-Morse M, Laible JP, Scoffone HM, Iatridis JC",
+  "year": 2007,
+  "journal": "J Biomech 40(11):2457-2466",
+  "doi": "",
+  "n": 9,
+  "sample": "9 lumbar disc (vertebra-disc-vertebra hemi-body) specimens (T12-L1 to L4-L5) from 3 male spines; 7 grade 1, 2 grade 2-3",
+  "age": "29, 32, 54 y",
+  "sex": "3 male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Discs tagged with radiographic markers (endplates, periphery band, mid-transverse grid of 0.25 mm tantalum wires at +-45 deg); hemi-vertebrae potted; 0.15 M PBS at 4 C; 100 N compressive preload 3 h; 10-min ramp displacements/rotations (mean compression 1.1 mm, lateral shear +-0.7 mm, AP shear +-0.9 mm, flexion/extension +-5.3 deg, axial rotation +-2.5 deg, lateral bending +-4.8 deg), stereo-radiography; 3-D maximum shear strain (MSS) from marker triads/tetrahedra, normalised per mm or per degree; largest regional MSS reported; physiological MSS = largest regional MSS x maximum reported ROM.",
+  "how_to_simulate": [
+   "Apply 100 N preload, then each pure displacement or rotation of the upper vertebra (magnitudes as in protocol)",
+   "Compute 3-D maximum shear strain in the disc mid-transverse plane by region",
+   "Normalise by input displacement (mm) or rotation (deg); report the largest regional value"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "max ROM 1.4 mm",
+   "mean": 12.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    11.9,
+    13.3
+   ]
+  },
+  {
+   "x": "anterior shear",
+   "load": "max ROM 1.4 mm",
+   "mean": 11.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    10.6,
+    12.5
+   ]
+  },
+  {
+   "x": "posterior shear",
+   "load": "max ROM 1.5 mm",
+   "mean": 11.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    11.3,
+    11.9
+   ]
+  },
+  {
+   "x": "lateral shear",
+   "load": "max ROM 1.5 mm",
+   "mean": 14.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    13.4,
+    15.5
+   ]
+  },
+  {
+   "x": "flexion",
+   "load": "max ROM 13 deg",
+   "mean": 38.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    35.1,
+    41.6
+   ]
+  },
+  {
+   "x": "extension",
+   "load": "max ROM 5 deg",
+   "mean": 13.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    12.5,
+    14.5
+   ]
+  },
+  {
+   "x": "axial rotation",
+   "load": "max ROM 3 deg",
+   "mean": 9.4,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    8.1,
+    10.5
+   ]
+  },
+  {
+   "x": "lateral bending",
+   "load": "max ROM 10 deg",
+   "mean": 57.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9,
+   "ci95": [
+    42.0,
+    74.0
+   ]
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (extrapolated by authors)",
+  "checked": true,
+  "check_notes": "Table 1 of PMC author manuscript (text layer; wide table columns re-assembled). 95% CI stored in 'ci95'. doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__max_shear_strain_physiological__disc_lumbar__human_nondegen__6dof_max_rom",
+ "tags": [
+  "human",
+  "in vitro",
+  "disc",
+  "lumbar",
+  "internal strain",
+  "extrapolated"
+ ]
+}

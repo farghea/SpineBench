@@ -1,0 +1,151 @@
+{
+ "id": "passive_tissue.weber2021.costal_cartilage_E_indentation",
+ "title": "Weber 2021 costal cartilage indentation modulus (overall and by direction)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costal_cartilage",
+ "region": "ribcage",
+ "levels": [
+  "ribs 1-10"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "indentation modulus",
+  "definition": "Hertzian Young's modulus from spherical indentation (R 1.5 mm) at 5%, 10% and maximum strain",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Weber 2021",
+  "authors": "Weber M, Rothschild MA, Niehoff A",
+  "year": 2021,
+  "journal": "Sci Rep 11:13618",
+  "doi": "10.1038/s41598-021-93176-x",
+  "n": 12,
+  "sample": "costal cartilage midsubstance (no perichondrium) from ribs 1-10 of 12 cadavers (forensic + body donor); unconfined compression 198 cylinders from 10 cadavers; indentation on 12",
+  "age": "63+-24.8 y",
+  "sex": "male and female",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Indentation: cartilage slices on rigid plate, rigid spherical steel indenter R=1.5 mm, preload 0.1 N at 0.05 mm/s, then 0.5 mm/s to 0.9 mm depth; Hertzian E (incompressible, nu=0.5) at 5%, 10% and maximum strain.",
+  "how_to_simulate": [
+   "Model a cartilage slice indented by a 1.5 mm radius rigid sphere to 0.9 mm at 0.5 mm/s",
+   "Back-calculate Hertzian modulus at the stated strains"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "Ei5% all",
+   "load": "",
+   "mean": 11.1,
+   "sd": 5.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "Ei10% all",
+   "load": "",
+   "mean": 13.3,
+   "sd": 6.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "Eimax all",
+   "load": "",
+   "mean": 15.6,
+   "sd": 6.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "note": "abstract states 14.6+-6.6; Results text 15.6 used"
+  },
+  {
+   "x": "Ei5% dorsoventral",
+   "load": "",
+   "mean": 8.8,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "Ei5% mediolateral",
+   "load": "",
+   "mean": 12.3,
+   "sd": 4.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "Ei10% dorsoventral",
+   "load": "",
+   "mean": 10.0,
+   "sd": 3.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "Ei10% mediolateral",
+   "load": "",
+   "mean": 15.1,
+   "sd": 4.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "Eimax dorsoventral",
+   "load": "",
+   "mean": 11.1,
+   "sd": 3.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "Eimax mediolateral",
+   "load": "",
+   "mean": 16.2,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Results text / abstract",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Results text, mean +- SD (data not normally distributed; per-body median/IQR in Table 2 not extracted). doi printed. Discrepancy: Eimax 14.6 (abstract) vs 15.6 (Results). Directional rows: n per direction not stated in text."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_indentation__costal_cartilage__human__indentation_sphere",
+ "tags": [
+  "human",
+  "in vitro",
+  "costal cartilage",
+  "ribcage",
+  "anisotropy"
+ ]
+}

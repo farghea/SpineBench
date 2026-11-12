@@ -1,0 +1,74 @@
+{
+ "id": "passive_tissue.cortes2014.CEP_E_biphasic",
+ "title": "Cortes 2014 CEP Young modulus E (biphasic, no swelling)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "endplate",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4"
+ ],
+ "condition": "MRI grade <= 3",
+ "quantity": {
+  "name": "Young modulus E (biphasic, no swelling)",
+  "definition": "Young modulus E (biphasic, no swelling) (Table 3)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Cortes 2014",
+  "authors": "Cortes DH, Jacobs NT, DeLucca JF, Elliott DM",
+  "year": 2014,
+  "journal": "J Biomech 47(9):2088-2094",
+  "doi": "10.1016/j.jbiomech.2013.12.021",
+  "n": 42,
+  "sample": "4 mm plugs from 14 lumbar spines: AF from L3-L4 (posterior n=6, outer-anterior n=7, inner-anterior n=5; radial axis), NP and CEP from L1-L2 (5), L2-L3 (6), L3-L4 (1); MRI grade <=3",
+  "age": "43-93 y",
+  "sex": "11 M, 3 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Confined compression of 4 mm diameter plugs (AF and NP 1.5 mm thick, CEP 0.8 mm) in PBS. AF: free swelling 3 h outside chamber, thickness at 1 kPa preload, 5 ramps of 10% over 2000 s (0.005 %/s), relaxation 2-6 h. NP and CEP: isometric swelling in the confined chamber (osmotic pressurisation), 3 ramps of 5% over 300 s (0.016 %/s), relaxation 4000/6000/8000 s (NP) or 3000/3000/4000 s (CEP). Biphasic-swelling model (Holmes-Mow solid with beta, exponential permeability k0, M; Donnan osmotic pressure from FCD computed from GAG and water) fitted per sample; Table 3 = same data fitted with a biphasic model without swelling.",
+  "how_to_simulate": [
+   "Model a 4 mm plug in confined compression with porous platen, including Donnan osmotic swelling (FCD per Table 2) in PBS",
+   "Reproduce the swelling step then the ramp-hold sequence (strain rate and holds as stated)",
+   "Report equilibrium stress-strain and relaxation; compare fitted E, Ha, k0 (or predicted reaction forces)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "cartilaginous endplate",
+   "load": "",
+   "mean": 0.5218,
+   "sd": 0.345,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12,
+   "orig": "521.8 +- 345 kPa"
+  }
+ ],
+ "extraction": {
+  "from": "Table 3",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "PMC author manuscript Table 3, text layer (mean +- SD). Parameters are per-sample fits of the stated model to measured confined-compression data. Unit conversion: kPa -> MPa (x0.001); k0 1e-4 mm4/(N s) = 1e-16 m4/(N s) -> reported in 1e-15 m4/(N s) (x0.1); original in 'orig'. NP beta and M given without SD (fixed/pooled). n per tissue: AF 18 (PAF 6, OAF 7, IAF 5); NP and CEP 12 each as read from Methods level counts."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_matrix_biphasic__cep__human_allgrades__confined_compression",
+ "tags": [
+  "human",
+  "in vitro",
+  "endplate",
+  "lumbar",
+  "biphasic"
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "id": "passive_tissue.weber2021.costal_cartilage_compressive_strength",
+ "title": "Weber 2021 costal cartilage compressive strength",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costal_cartilage",
+ "region": "ribcage",
+ "levels": [
+  "ribs 1-10"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "compressive strength",
+  "definition": "peak stress in unconfined compression at 1 mm/s",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Weber 2021",
+  "authors": "Weber M, Rothschild MA, Niehoff A",
+  "year": 2021,
+  "journal": "Sci Rep 11:13618",
+  "doi": "10.1038/s41598-021-93176-x",
+  "n": 12,
+  "sample": "costal cartilage midsubstance (no perichondrium) from ribs 1-10 of 12 cadavers (forensic + body donor); unconfined compression 198 cylinders from 10 cadavers; indentation on 12",
+  "age": "63+-24.8 y",
+  "sex": "male and female",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Unconfined compression: cylinders 6 mm diameter, L=5.9+-0.7 mm, cut dorsoventral or mediolateral, stored -20 C in 0.9% NaCl gauze and immersed in saline before testing; preload 0.1 N at 0.05 mm/s; compression at 1.0 mm/s to failure; E_C = slope of linear part.",
+  "how_to_simulate": [
+   "Model a 6 mm diameter, 5.9 mm long cartilage cylinder between frictionless/rigid platens",
+   "Compress at 1 mm/s; report slope of linear region (E_C) and peak stress"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "all samples",
+   "load": "",
+   "mean": 6.1,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10
+  }
+ ],
+ "extraction": {
+  "from": "Results text",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Results text, mean +- SD (data not normally distributed; per-body median/IQR in Table 2 not extracted). doi printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_stress__costal_cartilage__human__unconfined_compression",
+ "tags": [
+  "human",
+  "in vitro",
+  "costal cartilage",
+  "ribcage"
+ ]
+}

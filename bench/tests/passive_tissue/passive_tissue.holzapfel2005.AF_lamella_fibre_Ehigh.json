@@ -1,0 +1,101 @@
+{
+ "id": "passive_tissue.holzapfel2005.AF_lamella_fibre_Ehigh",
+ "title": "Holzapfel 2005 single-lamella AF tensile modulus along fibres, Ehigh (500 kPa-1 MPa)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (levels not specified per specimen)"
+ ],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "Ehigh along fibre direction",
+  "definition": "engineering stress / stretch slope on the loading curve in the 500 kPa-1 MPa stress band, 1 mm/min, preconditioned",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Holzapfel 2005",
+  "authors": "Holzapfel GA, Schulze-Bauer CAJ, Feigl G, Regitnig P",
+  "year": 2005,
+  "journal": "Biomech Model Mechanobiol 3:125-140",
+  "doi": "10.1007/s10237-004-0053-8",
+  "n": 11,
+  "sample": "11 lumbar body-disc-body units from 11 cadavers (6 grade I, 5 grade II); single-lamella specimens VLe n=11, VLi n=9, De n=11, Di n=8, cross-fibre n=7; fibre angles from the second hemidisc",
+  "age": "57.9+-15.4 y",
+  "sex": "not reported in extracted text",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Single lamellar AF specimens cut along the fibre direction with bone segments at both ends (bone clamped; cross-fibre specimens clamped with emery paper), load-free configuration set in bath; 0.15 mol/l NaCl at 37 C, tested within 24 h of autopsy; 30 min equilibration; cyclic uniaxial extension at crosshead 1 mm/min then 10 and 0.1 mm/min; 5 preconditioning cycles (1 and 10 mm/min); stretch from videoextensometer gauge markers; engineering stress = force / undeformed area. Moduli = dT/dlambda on loading curve within stress bands 0-100 kPa (Elow), 100-500 kPa (Emedium), 500 kPa-1 MPa (Ehigh).",
+  "how_to_simulate": [
+   "Model a single lamella strip (e.g. VLe 18.4 x 5.5 x 0.69 mm) loaded along its fibre direction, bone ends clamped",
+   "Precondition (5 cycles) and stretch at 1 mm/min in saline at 37 C",
+   "Compute engineering stress vs stretch from central gauge markers; report slope in the 0-0.1, 0.1-0.5 and 0.5-1 MPa bands"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "VLe ventro-lateral external",
+   "load": "1 mm/min",
+   "mean": 77.6,
+   "sd": 20.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "VLi ventro-lateral internal",
+   "load": "1 mm/min",
+   "mean": 27.5,
+   "sd": 12.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 9
+  },
+  {
+   "x": "De dorsal external",
+   "load": "1 mm/min",
+   "mean": 64.8,
+   "sd": 48.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 11
+  },
+  {
+   "x": "Di dorsal internal",
+   "load": "1 mm/min",
+   "mean": 31.2,
+   "sd": 19.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  }
+ ],
+ "extraction": {
+  "from": "Table 2",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 2 from text layer (digital PDF); rows checked against column headers."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_fibre_high__af_lamella__human_nondegen__uniaxial_fibre",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "single lamella"
+ ]
+}
