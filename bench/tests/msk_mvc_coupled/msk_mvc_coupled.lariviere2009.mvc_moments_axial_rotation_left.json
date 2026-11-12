@@ -20,8 +20,8 @@
   "year": 2009,
   "journal": "J Biomech 42(10):1498-1505",
   "doi": "10.1016/j.jbiomech.2009.03.045",
-  "n": "20 right-handed healthy males",
-  "sample": "healthy right-handed men, BMI<28, no back pain in previous year, in vivo",
+  "n": 20,
+  "sample": "20 right-handed healthy males; healthy right-handed men, BMI<28, no back pain in previous year, in vivo",
   "age": "25±3 y",
   "sex": "M",
   "height_cm": "180±8",
@@ -96,8 +96,10 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD for primary; coupled within 1 SD"
  },
- "combine_group": "msk_mvc_coupled__primary_moment__L5-S1__upright_standing__axial_rotation_left_male",
- "shared_sample_with": [],
+ "combine_group": "msk_mvc_coupled__mvc_moment__l5s1__upright_standing_dynamometer_male__axial_rotation_left",
+ "shared_sample_with": [
+  "msk_mvc_coupled.lariviere2014.primary_mvc_3days"
+ ],
  "tags": [
   "in vivo",
   "MVC",

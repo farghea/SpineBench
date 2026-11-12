@@ -1,0 +1,70 @@
+{
+ "id": "passive_tissue.granik1973.rib_E_normal",
+ "title": "Granik 1973 rib modulus of elasticity, radiologically normal",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "rib",
+ "region": "ribcage",
+ "levels": [
+  "rib (level not specified)"
+ ],
+ "condition": "normal bone",
+ "quantity": {
+  "name": "modulus of elasticity",
+  "definition": "bending modulus from three-point bending (beam theory)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Granik 1973",
+  "authors": "Granik G, Stein I",
+  "year": 1973,
+  "journal": "J Biomech 6:237-240",
+  "doi": "",
+  "n": 15,
+  "sample": "rib segments from 15 autopsy patients: 10 with radiologically normal bone, 5 with diffuse demineralisation (3 multiple myeloma, 1 rheumatoid arthritis, 1 ankylosing spondylitis)",
+  "age": "mature (not detailed)",
+  "sex": "male",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Autopsy rib segments tested as simply supported, centrally loaded beams over a 4 in (101.6 mm) span (rubber-sheathed maple wedge plunger), quasi-static to failure; E from linear load-deflection and moment of inertia (plaster/plastic replica checks); sigma = modulus of rupture.",
+  "how_to_simulate": [
+   "Model a rib segment as a simply supported beam (101.6 mm span) loaded at midspan",
+   "Report E (beam theory from load-deflection slope) and modulus of rupture at failure"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "normals (bone normal by X-ray)",
+   "load": "",
+   "mean": 11514.2,
+   "sd": 2137.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 10,
+   "orig": "[1670000.0 +- 310000.0] psi"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 read from 200-dpi render. psi -> MPa (x0.00689476); original in 'orig'. Only normals have mean +- SD; abnormal cases listed individually (E only approximate for abnormal bones per authors). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_bending__rib__human__bending_3pt_101mm",
+ "tags": [
+  "human",
+  "in vitro",
+  "rib",
+  "ribcage"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "id": "passive_tissue__e_linear__af_outer__human_nondegen__uniaxial_circ",
+ "title": "e linear - af outer, human nondegen, uniaxial circ",
+ "quantity": "linear-region modulus E",
+ "unit": "MPa",
+ "condition": "human_nondegen",
+ "tests": [
+  "passive_tissue.elliottsetton2001.AF_outer_circ_E_linear",
+  "passive_tissue.oconnell2009.AF_outer_circ_E_linear_nondegen"
+ ],
+ "notes": "Papers: Elliott 2001, O'Connell 2009. Check each test's quantity.definition and protocol before pooling (specimen preparation, rate and stress/strain definitions differ between studies)."
+}

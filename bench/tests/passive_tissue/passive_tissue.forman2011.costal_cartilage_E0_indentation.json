@@ -1,0 +1,119 @@
+{
+ "id": "passive_tissue.forman2011.costal_cartilage_E0_indentation",
+ "title": "Forman & Kent 2011 costal cartilage instantaneous modulus from spherical indentation (rib 4)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "costal_cartilage",
+ "region": "ribcage",
+ "levels": [
+  "rib 4"
+ ],
+ "condition": "cadaveric",
+ "quantity": {
+  "name": "instantaneous elastic modulus E0",
+  "definition": "characteristic average instantaneous elastic modulus from linear viscoelastic fits of spherical indentation (2 mm sphere, 0.25 mm depth)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Forman 2011",
+  "authors": "Forman JL, Kent RW",
+  "year": 2011,
+  "journal": "J Biomech 44:910-916",
+  "doi": "10.1016/j.jbiomech.2010.11.034",
+  "n": 5,
+  "sample": "5 fourth-rib costal cartilage specimens (with sternal portion and ~3 cm rib, perichondrium removed) from 5 cadavers; 3-4 cross-sectional slices each, 14-20 indentation tests per specimen",
+  "age": "47-57 y",
+  "sex": "4 M, 1 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Cross-sectional slices (~6 mm thick) potted, soaked 30 min in physiologic saline at body temperature; spherical indentation (2 mm diameter tip) at ~0.5 mm/s to ~0.25 mm depth (~4% of thickness); linear viscoelastic (instantaneous modulus + relaxation function) fitted; characteristic average instantaneous modulus E0 per specimen.",
+  "how_to_simulate": [
+   "Indent a costal cartilage cross-section with a 2 mm diameter rigid sphere at 0.5 mm/s to 0.25 mm",
+   "Fit or compare the instantaneous elastic modulus E0 (half-space Hertz with linear viscoelasticity)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "specimen 403 rib 4L (47 y M; 4 slices, 20 tests)",
+   "load": "",
+   "mean": 11.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 20
+  },
+  {
+   "x": "specimen 322 rib 4L (49 y M; 4 slices, 19 tests)",
+   "load": "",
+   "mean": 10.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 19
+  },
+  {
+   "x": "specimen 400 rib 4L (53 y M; 3 slices, 14 tests)",
+   "load": "",
+   "mean": 12.6,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "specimen 187 rib 4R (54 y M; 4 slices, 16 tests)",
+   "load": "",
+   "mean": 9.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16
+  },
+  {
+   "x": "specimen 197 rib 4R (57 y F; 3 slices, 14 tests)",
+   "load": "",
+   "mean": 8.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 14
+  },
+  {
+   "x": "mean of 5 specimens (computed by extractor)",
+   "load": "",
+   "mean": 10.46,
+   "sd": 1.49,
+   "min": 8.7,
+   "max": 12.6,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1 text layer. Mean/SD computed by extractor. Structural force-displacement curves (Figs 7-8) not digitised (compared with FE models)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__e_indentation_instantaneous__costal_cartilage__human__indentation_sphere_2mm",
+ "tags": [
+  "human",
+  "in vitro",
+  "costal cartilage",
+  "ribcage"
+ ]
+}

@@ -20,8 +20,8 @@
   "year": 2018,
   "journal": "J Biomech 70:124-133",
   "doi": "10.1016/j.jbiomech.2017.11.007",
-  "n": "19 subjects (9F, 10M)",
-  "sample": "healthy young right-handed adults, in vivo",
+  "n": 19,
+  "sample": "19 subjects (9F, 10M); healthy young right-handed adults, in vivo",
   "age": "F 24.1±4.3 y; M 30.6±6.5 y",
   "sex": "9F, 10M",
   "height_cm": "F 163.4±3.7; M 174.6±4.2",
@@ -225,8 +225,16 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD per site; pattern: agonists highest"
  },
- "combine_group": "msk_mvc_coupled__emg_at_mvc__LGPT-L1_ICPT-L3_MF-L5_abdominals__semi_seated_right_lateral",
- "shared_sample_with": [],
+ "combine_group": "msk_mvc_coupled__emg_at_mvc_pct_max_all_mvc__irsst_trunk_sites__semi_seated_dynamometer__lateral_bend_right",
+ "shared_sample_with": [
+  "msk_emg_posture.ghezelbash2020.emg_external_oblique_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_internal_oblique_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+  "msk_emg_posture.ghezelbash2020.emg_rectus_abdominis_14kg_static_lift"
+ ],
  "tags": [
   "in vivo",
   "EMG",

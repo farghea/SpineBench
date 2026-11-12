@@ -20,8 +20,8 @@
   "year": 2020,
   "journal": "J Biomech 102:109550",
   "doi": "10.1016/j.jbiomech.2019.109550",
-  "n": "19 subjects (9F, 10M)",
-  "sample": "healthy asymptomatic young adults, in vivo (same cohort as Ghezelbash 2018 MVE study); file in donwload/ is misnamed 'Mitutoyo Digital Caliper - Certificate of Calibration Control # DDE14R52L.PDF' (IRSST accepted manuscript)",
+  "n": 19,
+  "sample": "19 subjects (9F, 10M); healthy asymptomatic young adults, in vivo (same cohort as Ghezelbash 2018 MVE study); file in donwload/ is misnamed 'Mitutoyo Digital Caliper - Certificate of Calibration Control # DDE14R52L.PDF' (IRSST accepted manuscript)",
   "age": "F 24.1±4.3 y; M 30.6±6.5 y",
   "sex": "9F, 10M",
   "height_cm": "F 163.4±3.7; M 174.6±4.2",
@@ -442,7 +442,7 @@
   "template": true,
   "rule": "|model-mean| <= 1 SD per side and task; also check trend across height and asymmetry"
  },
- "combine_group": "msk_emg_posture__emg__longissimus_T11__static_hold_14kg_4heights_asym0-90deg_left",
+ "combine_group": "msk_emg_posture__emg_pct_mvc__longissimus_t11__static_hold_4_heights_asym_0_90deg_left__14kg",
  "tags": [
   "in vivo",
   "EMG",
@@ -453,6 +453,23 @@
   "IRSST cohort"
  ],
  "shared_sample_with": [
-  "msk_mvc_coupled.ghezelbash2018 (all tests; same 19 subjects, MVEs used for normalisation)"
+  "msk_mvc_coupled.ghezelbash2018.emg_extension_mve",
+  "msk_mvc_coupled.ghezelbash2018.emg_flexion_mve",
+  "msk_mvc_coupled.ghezelbash2018.emg_left_axial_mve",
+  "msk_mvc_coupled.ghezelbash2018.emg_left_lateral_mve",
+  "msk_mvc_coupled.ghezelbash2018.emg_right_axial_mve",
+  "msk_mvc_coupled.ghezelbash2018.emg_right_lateral_mve",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_extension_male",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_flexion_male",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_left_axial_male",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_left_lateral_male",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_right_axial_male",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_female",
+  "msk_mvc_coupled.ghezelbash2018.mve_moments_right_lateral_male"
  ]
 }
