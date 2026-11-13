@@ -238,6 +238,16 @@
       "doi": "10.1097/00007632-200112150-00014",
       "secondary": true,
       "loading": "Pure moments to 7.5 N·m in each plane, no preload (the follower-load runs are not used here); L1-L5 specimens, sacrum fixed (via Dreischarf 2014)"
+    },
+    {
+      "key": "yamamoto1989",
+      "short": "Yamamoto 1989",
+      "year": 1989,
+      "n": 10,
+      "sample": "10 L1-sacrum spines, no preload, to 10 Nm",
+      "doi": "10.1097/00007632-198911000-00020",
+      "secondary": false,
+      "loading": "Load control, pure moments in 2.5 N·m steps to 10 N·m (FE, LB, AR); no preload; 3 cycles, 30 s creep per step, 3rd cycle; L1-S1 spines, iliolumbar ligaments cut"
     }
   ],
   "shared": [
@@ -331,7 +341,11 @@
         "rohl_flexion_5",
         "rohl_flexion_6",
         "rohl_flexion_7",
-        "rohl_flexion_7p5"
+        "rohl_flexion_7p5",
+        "L1L2_flex_10",
+        "L2L3_flex_10",
+        "L3L4_flex_10",
+        "L5S1_flex_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -409,7 +423,11 @@
         "rohl_extension_5",
         "rohl_extension_6",
         "rohl_extension_7",
-        "rohl_extension_7p5"
+        "rohl_extension_7p5",
+        "L1L2_ext_10",
+        "L2L3_ext_10",
+        "L3L4_ext_10",
+        "L5S1_ext_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -488,7 +506,11 @@
         "rohl_lateral_bending_5",
         "rohl_lateral_bending_6",
         "rohl_lateral_bending_7",
-        "rohl_lateral_bending_7p5"
+        "rohl_lateral_bending_7p5",
+        "L1L2_lb_10",
+        "L2L3_lb_10",
+        "L3L4_lb_10",
+        "L5S1_lb_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -557,7 +579,11 @@
         "rohl_axial_rotation_5",
         "rohl_axial_rotation_6",
         "rohl_axial_rotation_7",
-        "rohl_axial_rotation_7p5"
+        "rohl_axial_rotation_7p5",
+        "L1L2_ar_10",
+        "L2L3_ar_10",
+        "L3L4_ar_10",
+        "L5S1_ar_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -595,7 +621,22 @@
         "L5S1_fe_7p5",
         "L1L5pooled_fe_7p5",
         "L2L3_fe_4",
-        "rohl_flexion_extension_total_7p5"
+        "rohl_flexion_extension_total_7p5",
+        "L1L2_fe_2p5",
+        "L1L2_fe_5",
+        "L1L2_fe_10",
+        "L2L3_fe_2p5",
+        "L2L3_fe_5",
+        "L2L3_fe_10",
+        "L3L4_fe_2p5",
+        "L3L4_fe_5",
+        "L3L4_fe_10",
+        "L4L5_fe_2p5",
+        "L4L5_fe_5",
+        "L4L5_fe_10",
+        "L5S1_fe_2p5",
+        "L5S1_fe_5",
+        "L5S1_fe_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -623,7 +664,22 @@
         "L1L5pooled_lbr_7p5",
         "L1S1_lbr_6",
         "L2L3_lbr_4",
-        "rohl_lateral_bending_total_7p5"
+        "rohl_lateral_bending_total_7p5",
+        "L1L2_lbr_2p5",
+        "L1L2_lbr_5",
+        "L1L2_lbr_10",
+        "L2L3_lbr_2p5",
+        "L2L3_lbr_5",
+        "L2L3_lbr_10",
+        "L3L4_lbr_2p5",
+        "L3L4_lbr_5",
+        "L3L4_lbr_10",
+        "L4L5_lbr_2p5",
+        "L4L5_lbr_5",
+        "L4L5_lbr_10",
+        "L5S1_lbr_2p5",
+        "L5S1_lbr_5",
+        "L5S1_lbr_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -651,7 +707,22 @@
         "L1L5pooled_arr_7p5",
         "L1S1_arr_4",
         "L2L3_arr_4",
-        "rohl_axial_rotation_total_7p5"
+        "rohl_axial_rotation_total_7p5",
+        "L1L2_arr_2p5",
+        "L1L2_arr_5",
+        "L1L2_arr_10",
+        "L2L3_arr_2p5",
+        "L2L3_arr_5",
+        "L2L3_arr_10",
+        "L3L4_arr_2p5",
+        "L3L4_arr_5",
+        "L3L4_arr_10",
+        "L4L5_arr_2p5",
+        "L4L5_arr_5",
+        "L4L5_arr_10",
+        "L5S1_arr_2p5",
+        "L5S1_arr_5",
+        "L5S1_arr_10"
       ],
       "legend_inputs": [
         "axial_n"
@@ -1024,16 +1095,28 @@
           "n": 38,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
           "note": "mono- and polysegmental mixed; MAD 1.37"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 8.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
       ],
       "pooled": {
-        "mean": 7.3225,
-        "sd": 1.981,
-        "N": 48,
-        "k": 2,
+        "mean": 7.5428,
+        "sd": 1.8635,
+        "N": 58,
+        "k": 3,
         "studies": [
           "sawa2008",
-          "cook2015"
+          "cook2015",
+          "yamamoto1989"
         ]
       }
     },
@@ -1085,8 +1168,29 @@
           "n": 39,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
           "note": "mono- and polysegmental mixed; MAD 1.62"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 8.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 7.6056,
+        "sd": 1.894,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L1L2_arr_7p5",
@@ -1136,8 +1240,29 @@
           "n": 37,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L1L2_intact",
           "note": "mono- and polysegmental mixed; MAD 0.85"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 4.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 2.9177,
+        "sd": 1.3104,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L2L3_flex_7p5",
@@ -1303,8 +1428,29 @@
           "n": 165,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
           "note": "mono- and polysegmental mixed; MAD 1.59"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 10.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 8.5665,
+        "sd": 2.036,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L2L3_lbr_7p5",
@@ -1354,8 +1500,29 @@
           "n": 166,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
           "note": "mono- and polysegmental mixed; MAD 1.81"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 13.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 10.16,
+        "sd": 2.5201,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L2L3_arr_7p5",
@@ -1405,8 +1572,29 @@
           "n": 165,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L2L3_intact",
           "note": "mono- and polysegmental mixed; MAD 1.23"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 4.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 4.0579,
+        "sd": 2.1573,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L3L4_fe_7p5",
@@ -1456,8 +1644,29 @@
           "n": 93,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
           "note": "mono- and polysegmental mixed; MAD 1.34"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 10.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 9.1883,
+        "sd": 2.2505,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L3L4_lbr_7p5",
@@ -1507,8 +1716,29 @@
           "n": 92,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
           "note": "mono- and polysegmental mixed; MAD 1.69"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 10.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 10.1881,
+        "sd": 2.3624,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L3L4_arr_7p5",
@@ -1558,8 +1788,29 @@
           "n": 94,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L3L4_intact",
           "note": "mono- and polysegmental mixed; MAD 1.28"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 4.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 4.9302,
+        "sd": 2.2399,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L4L5_flex_7p5",
@@ -1747,16 +1998,28 @@
           "n": 84,
           "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
           "note": "inside polysegmental specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 14.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
       ],
       "pooled": {
-        "mean": 10.3857,
-        "sd": 2.6663,
-        "N": 174,
-        "k": 2,
+        "mean": 10.593,
+        "sd": 2.7336,
+        "N": 184,
+        "k": 3,
         "studies": [
           "cook2015",
-          "wilke2025"
+          "wilke2025",
+          "yamamoto1989"
         ]
       }
     },
@@ -1830,16 +2093,28 @@
           "n": 84,
           "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
           "note": "inside polysegmental specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 10.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
       ],
       "pooled": {
-        "mean": 9.2419,
-        "sd": 2.5498,
-        "N": 182,
-        "k": 2,
+        "mean": 9.2918,
+        "sd": 2.4913,
+        "N": 192,
+        "k": 3,
         "studies": [
           "cook2015",
-          "wilke2025"
+          "wilke2025",
+          "yamamoto1989"
         ]
       }
     },
@@ -1913,16 +2188,28 @@
           "n": 90,
           "test_id": "fe_rom_lumbar_multi.wilke2025.L4L5_intact_polyseg",
           "note": "inside polysegmental specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 4.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
       ],
       "pooled": {
-        "mean": 4.5761,
-        "sd": 1.8653,
-        "N": 173,
-        "k": 2,
+        "mean": 4.5446,
+        "sd": 1.8181,
+        "N": 183,
+        "k": 3,
         "studies": [
           "cook2015",
-          "wilke2025"
+          "wilke2025",
+          "yamamoto1989"
         ]
       }
     },
@@ -1974,8 +2261,29 @@
           "n": 65,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
           "note": "mono- and polysegmental mixed; MAD 3.2"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 16.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 13.1844,
+        "sd": 3.888,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L5S1_lbr_7p5",
@@ -2025,8 +2333,29 @@
           "n": 61,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
           "note": "mono- and polysegmental mixed; MAD 2.14"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 10.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 8.2021,
+        "sd": 2.2589,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L5S1_arr_7p5",
@@ -2076,8 +2405,29 @@
           "n": 61,
           "test_id": "fe_rom_lumbar_fsu.wilke2025.L5S1_intact",
           "note": "mono- and polysegmental mixed; MAD 1.26"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 2.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 3.6621,
+        "sd": 2.0842,
+        "N": 52,
+        "k": 2,
+        "studies": [
+          "cook2015",
+          "yamamoto1989"
+        ]
+      }
     },
     {
       "id": "L1L5pooled_fe_7p5",
@@ -2554,6 +2904,17 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 8.9,
+          "sd": 2.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
         }
       ]
     },
@@ -2720,6 +3081,17 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "FSU; min-max over specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 5.8,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
         }
       ]
     },
@@ -2919,6 +3291,28 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "right; FSU; min-max over specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 5.9,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 5.5,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
         }
       ]
     },
@@ -3035,6 +3429,28 @@
           "n": 8,
           "test_id": "fe_rom_lumbar_fsu.heuer2007a.L4L5_intact",
           "note": "left; FSU; min-max over specimens"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 1.7,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 2.7,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
         }
       ]
     },
@@ -8785,6 +9201,1802 @@
           "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
         }
       ]
+    },
+    {
+      "id": "L1L2_flex_10",
+      "label": "L1-L2 · Flexion · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.8,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_flex_10",
+      "label": "L2-L3 · Flexion · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 6.5,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_flex_10",
+      "label": "L3-L4 · Flexion · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.5,
+          "sd": 2.53,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_flex_10",
+      "label": "L5-S1 · Flexion · 10 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 10.0,
+          "sd": 3.16,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_ext_10",
+      "label": "L1-L2 · Extension · 10 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.3,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ext_10",
+      "label": "L2-L3 · Extension · 10 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.3,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ext_10",
+      "label": "L3-L4 · Extension · 10 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 3.7,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ext_10",
+      "label": "L5-S1 · Extension · 10 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.8,
+          "sd": 2.21,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lb_10",
+      "label": "L1-L2 · Lateral bending · 10 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.2,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 4.7,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lb_10",
+      "label": "L2-L3 · Lateral bending · 10 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.0,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 7.0,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lb_10",
+      "label": "L3-L4 · Lateral bending · 10 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.8,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 5.7,
+          "sd": 0.95,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lb_10",
+      "label": "L5-S1 · Lateral bending · 10 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.7,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 5.3,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_ar_10",
+      "label": "L1-L2 · Axial rotation · 10 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.6,
+          "sd": 1.58,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 2.0,
+          "sd": 1.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_ar_10",
+      "label": "L2-L3 · Axial rotation · 10 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.2,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 3.0,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_ar_10",
+      "label": "L3-L4 · Axial rotation · 10 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.7,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 2.5,
+          "sd": 1.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_ar_10",
+      "label": "L5-S1 · Axial rotation · 10 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 1.5,
+          "sd": 0.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "left; inside L1-S1; Table 1, SD from SEM"
+        },
+        {
+          "study": "yamamoto1989",
+          "mean": 1.3,
+          "sd": 0.63,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_rom10Nm",
+          "note": "right; inside L1-S1; Table 1, SD from SEM"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_fe_2p5",
+      "label": "L1-L2 · Flexion+extension · 2.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 6.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_fe_5",
+      "label": "L1-L2 · Flexion+extension · 5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 8.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_fe_10",
+      "label": "L1-L2 · Flexion+extension · 10 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 10.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Table 2 ('present study' flexion-extension); no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_2p5",
+      "label": "L2-L3 · Flexion+extension · 2.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_5",
+      "label": "L2-L3 · Flexion+extension · 5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 9.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_10",
+      "label": "L2-L3 · Flexion+extension · 10 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 10.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Table 2 ('present study' flexion-extension); no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_2p5",
+      "label": "L3-L4 · Flexion+extension · 2.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_5",
+      "label": "L3-L4 · Flexion+extension · 5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 8.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_fe_10",
+      "label": "L3-L4 · Flexion+extension · 10 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 11.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Table 2 ('present study' flexion-extension); no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_2p5",
+      "label": "L4-L5 · Flexion+extension · 2.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 11.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_5",
+      "label": "L4-L5 · Flexion+extension · 5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 13.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_fe_10",
+      "label": "L4-L5 · Flexion+extension · 10 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 14.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Table 2 ('present study' flexion-extension); no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_2p5",
+      "label": "L5-S1 · Flexion+extension · 2.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 13.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_5",
+      "label": "L5-S1 · Flexion+extension · 5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 15.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_fe_10",
+      "label": "L5-S1 · Flexion+extension · 10 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 17.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Table 2 ('present study' flexion-extension); no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lbr_2p5",
+      "label": "L1-L2 · Lateral bending L+R · 2.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 6.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lbr_5",
+      "label": "L1-L2 · Lateral bending L+R · 5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_lbr_10",
+      "label": "L1-L2 · Lateral bending L+R · 10 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 9.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 right and left means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lbr_2p5",
+      "label": "L2-L3 · Lateral bending L+R · 2.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 10.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lbr_5",
+      "label": "L2-L3 · Lateral bending L+R · 5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 12.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lbr_10",
+      "label": "L2-L3 · Lateral bending L+R · 10 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 14.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 right and left means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lbr_2p5",
+      "label": "L3-L4 · Lateral bending L+R · 2.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lbr_5",
+      "label": "L3-L4 · Lateral bending L+R · 5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 9.65,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_lbr_10",
+      "label": "L3-L4 · Lateral bending L+R · 10 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 11.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 right and left means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lbr_2p5",
+      "label": "L4-L5 · Lateral bending L+R · 2.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lbr_5",
+      "label": "L4-L5 · Lateral bending L+R · 5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 9.45,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_lbr_10",
+      "label": "L4-L5 · Lateral bending L+R · 10 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 11.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 right and left means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lbr_2p5",
+      "label": "L5-S1 · Lateral bending L+R · 2.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 7.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lbr_5",
+      "label": "L5-S1 · Lateral bending L+R · 5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 9.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_lbr_10",
+      "label": "L5-S1 · Lateral bending L+R · 10 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 11.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 right and left means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_arr_2p5",
+      "label": "L1-L2 · Axial rotation L+R · 2.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 3.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_arr_5",
+      "label": "L1-L2 · Axial rotation L+R · 5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L1L2_arr_10",
+      "label": "L1-L2 · Axial rotation L+R · 10 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L1-L2",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L1-L2",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 left and right means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_arr_2p5",
+      "label": "L2-L3 · Axial rotation L+R · 2.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 3.65,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_arr_5",
+      "label": "L2-L3 · Axial rotation L+R · 5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_arr_10",
+      "label": "L2-L3 · Axial rotation L+R · 10 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 left and right means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_arr_2p5",
+      "label": "L3-L4 · Axial rotation L+R · 2.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 3.55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_arr_5",
+      "label": "L3-L4 · Axial rotation L+R · 5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L3L4_arr_10",
+      "label": "L3-L4 · Axial rotation L+R · 10 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L3-L4",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 5.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 left and right means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_arr_2p5",
+      "label": "L4-L5 · Axial rotation L+R · 2.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_arr_5",
+      "label": "L4-L5 · Axial rotation L+R · 5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 3.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L4L5_arr_10",
+      "label": "L4-L5 · Axial rotation L+R · 10 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L4-L5",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 4.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 left and right means; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_arr_2p5",
+      "label": "L5-S1 · Axial rotation L+R · 2.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 2.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_arr_5",
+      "label": "L5-S1 · Axial rotation L+R · 5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 5.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; Fig 4, digitised; no SD"
+        }
+      ]
+    },
+    {
+      "id": "L5S1_arr_10",
+      "label": "L5-S1 · Axial rotation L+R · 10 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L5-S1",
+        "specimen": "FSU",
+        "moment_nm": 10.0,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L5-S1",
+      "refs": [
+        {
+          "study": "yamamoto1989",
+          "mean": 2.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.yamamoto1989.L1S1_intact_curve",
+          "note": "inside L1-S1; sum of Table 1 left and right means; no SD"
+        }
+      ]
     }
   ],
   "notes": [
@@ -8800,7 +11012,8 @@
         "L2-L3": "[[Nm, deg], ...]",
         "L4-L5": "[[Nm, deg], ...]",
         "L3-L4": "[[Nm, deg], ...]",
-        "L5-S1": "[[Nm, deg], ...]"
+        "L5-S1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]"
       },
       "rom_total": {
         "L1-L5 / T12-L4": "[[Nm, deg], ...]"
@@ -8812,7 +11025,8 @@
         "L2-L3": "[[Nm, deg], ...]",
         "L4-L5": "[[Nm, deg], ...]",
         "L3-L4": "[[Nm, deg], ...]",
-        "L5-S1": "[[Nm, deg], ...]"
+        "L5-S1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]"
       },
       "rom_total": {
         "L1-L5 / T12-L4": "[[Nm, deg], ...]"
@@ -8836,7 +11050,9 @@
         "T12-L1": "[[Nm, deg], ...]",
         "L1-L2": "[[Nm, deg], ...]",
         "L2-L3": "[[Nm, deg], ...]",
-        "L4-L5": "[[Nm, deg], ...]"
+        "L4-L5": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
       },
       "rom_total": {
         "L1-L5 / T12-L4": "[[Nm, deg], ...]"
@@ -8855,6 +11071,9 @@
       "nz": {
         "L4-L5": "[[Nm, deg], ...]",
         "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
       }
     },
     "lbr_none": {
@@ -8868,7 +11087,8 @@
         "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
       },
       "rom_total": {
-        "L1-S1": "[[Nm, deg], ...]"
+        "L1-S1": "[[Nm, deg], ...]",
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
       },
       "nz": {
         "L4-L5": "[[Nm, deg], ...]",
@@ -8886,7 +11106,8 @@
         "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
       },
       "rom_total": {
-        "L1-S1": "[[Nm, deg], ...]"
+        "L1-S1": "[[Nm, deg], ...]",
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
       },
       "nz": {
         "L4-L5": "[[Nm, deg], ...]",
@@ -8997,6 +11218,10 @@
         {
           "key": "rom_segmental",
           "level": "L5-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
         }
       ],
       "task_ids": [
@@ -9027,7 +11252,11 @@
         "rohl_flexion_5",
         "rohl_flexion_6",
         "rohl_flexion_7",
-        "rohl_flexion_7p5"
+        "rohl_flexion_7p5",
+        "L1L2_flex_10",
+        "L2L3_flex_10",
+        "L3L4_flex_10",
+        "L5S1_flex_10"
       ]
     },
     {
@@ -9064,6 +11293,10 @@
         {
           "key": "rom_segmental",
           "level": "L5-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
         }
       ],
       "task_ids": [
@@ -9094,7 +11327,11 @@
         "rohl_extension_5",
         "rohl_extension_6",
         "rohl_extension_7",
-        "rohl_extension_7p5"
+        "rohl_extension_7p5",
+        "L1L2_ext_10",
+        "L2L3_ext_10",
+        "L3L4_ext_10",
+        "L5S1_ext_10"
       ]
     },
     {
@@ -9166,7 +11403,11 @@
         "rohl_lateral_bending_5",
         "rohl_lateral_bending_6",
         "rohl_lateral_bending_7",
-        "rohl_lateral_bending_7p5"
+        "rohl_lateral_bending_7p5",
+        "L1L2_lb_10",
+        "L2L3_lb_10",
+        "L3L4_lb_10",
+        "L5S1_lb_10"
       ]
     },
     {
@@ -9199,6 +11440,14 @@
         {
           "key": "rom_total",
           "level": "L1-L5 / T12-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
         }
       ],
       "task_ids": [
@@ -9220,7 +11469,11 @@
         "rohl_axial_rotation_5",
         "rohl_axial_rotation_6",
         "rohl_axial_rotation_7",
-        "rohl_axial_rotation_7p5"
+        "rohl_axial_rotation_7p5",
+        "L1L2_ar_10",
+        "L2L3_ar_10",
+        "L3L4_ar_10",
+        "L5S1_ar_10"
       ]
     },
     {
@@ -9286,7 +11539,22 @@
         "L4L5_fe_7p5_nz",
         "L1L5pooled_fe_7p5_nz",
         "L2L3_fe_4",
-        "rohl_flexion_extension_total_7p5"
+        "rohl_flexion_extension_total_7p5",
+        "L1L2_fe_2p5",
+        "L1L2_fe_5",
+        "L1L2_fe_10",
+        "L2L3_fe_2p5",
+        "L2L3_fe_5",
+        "L2L3_fe_10",
+        "L3L4_fe_2p5",
+        "L3L4_fe_5",
+        "L3L4_fe_10",
+        "L4L5_fe_2p5",
+        "L4L5_fe_5",
+        "L4L5_fe_10",
+        "L5S1_fe_2p5",
+        "L5S1_fe_5",
+        "L5S1_fe_10"
       ]
     },
     {
@@ -9357,7 +11625,22 @@
         "L4L5_lbr_7p5_nz",
         "L1L5pooled_lbr_7p5_nz",
         "L2L3_lbr_4",
-        "rohl_lateral_bending_total_7p5"
+        "rohl_lateral_bending_total_7p5",
+        "L1L2_lbr_2p5",
+        "L1L2_lbr_5",
+        "L1L2_lbr_10",
+        "L2L3_lbr_2p5",
+        "L2L3_lbr_5",
+        "L2L3_lbr_10",
+        "L3L4_lbr_2p5",
+        "L3L4_lbr_5",
+        "L3L4_lbr_10",
+        "L4L5_lbr_2p5",
+        "L4L5_lbr_5",
+        "L4L5_lbr_10",
+        "L5S1_lbr_2p5",
+        "L5S1_lbr_5",
+        "L5S1_lbr_10"
       ]
     },
     {
@@ -9428,7 +11711,22 @@
         "L4L5_arr_7p5_nz",
         "L1L5pooled_arr_7p5_nz",
         "L2L3_arr_4",
-        "rohl_axial_rotation_total_7p5"
+        "rohl_axial_rotation_total_7p5",
+        "L1L2_arr_2p5",
+        "L1L2_arr_5",
+        "L1L2_arr_10",
+        "L2L3_arr_2p5",
+        "L2L3_arr_5",
+        "L2L3_arr_10",
+        "L3L4_arr_2p5",
+        "L3L4_arr_5",
+        "L3L4_arr_10",
+        "L4L5_arr_2p5",
+        "L4L5_arr_5",
+        "L4L5_arr_10",
+        "L5S1_arr_2p5",
+        "L5S1_arr_5",
+        "L5S1_arr_10"
       ]
     },
     {

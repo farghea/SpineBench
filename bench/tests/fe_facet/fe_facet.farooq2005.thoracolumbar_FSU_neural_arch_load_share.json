@@ -1,0 +1,95 @@
+{
+ "id": "fe_facet.farooq2005.thoracolumbar_FSU_neural_arch_load_share",
+ "title": "Neural-arch share of 1.5 kN compression before fracture, erect (2 deg extension) and flexed (2-8 deg)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet load share",
+ "region": "thoracolumbar",
+ "levels": [
+  "T9-T10",
+  "T10-T11",
+  "T11-T12",
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L5-S1"
+ ],
+ "condition": "intact (pre-fracture) elderly FSUs with moderately/severely degenerated discs, after 1 h creep at 1.5 kN",
+ "quantity": {
+  "name": "neural-arch load share",
+  "definition": "1500 N minus disc force (integrated vertical stress profile), as % of 1500 N; mean and SEM (Fig. 5); SD derived = SEM x sqrt(16)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Farooq 2005",
+  "authors": "Farooq N, Park JC, Pollintine P, Annesley-Williams DJ, Dolan P",
+  "year": 2005,
+  "journal": "Spine 30(15):1723-1730",
+  "doi": "10.1097/01.brs.0000171906.01906.07",
+  "n": 16,
+  "sample": "19 thoracolumbar FSUs (T9-T10 to L5-S1; 8 lumbar) from 12 cadavers; neural-arch analysis n=16 (one outlier >3 SD excluded; final-stage data missing in 2); Adams disc grade 3 (13) or 4 (6)",
+  "age": "64-90 (mean 77, SD 9)",
+  "sex": "11 M, 8 F (19 FSUs)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "FSUs in dental-plaster cups on a hydraulic machine with adjustable rollers. 1 h creep at 1500 N in neutral; then 1500 N static compression for 20 s while a needle pressure transducer is pulled along the mid-sagittal diameter, in 2 deg extension (erect standing) and 2-8 deg flexion (moderate forward bending). Neural-arch force = 1500 N - integrated disc force. Then fracture, vertebroplasty and creep (not extracted).",
+  "how_to_simulate": [
+   "Model an elderly thoracolumbar/lumbar FSU with a degenerated (grade 3-4) disc; fix the caudal vertebra",
+   "Erect: rotate to 2 deg extension, then apply 1500 N compression normal to the disc midplane",
+   "Flexed: rotate to 2-8 deg flexion, then apply 1500 N",
+   "Report neural-arch (facet + posterior element) force as % of 1500 N"
+  ],
+  "subject_model": null,
+  "notes": "Pre-fracture values only; post-fracture, post-vertebroplasty and post-creep stages are outside the card scope. Text gives the pre-fracture means (53% extension, 12% flexion); SEMs digitised from Fig. 5. n for Fig. 5 not stated in the caption; ANOVA n = 16 used to convert SEM to SD."
+ },
+ "data": [
+  {
+   "x": "erect (2 deg extension)",
+   "load": "1500 N compression",
+   "mean": 53,
+   "sd": 33.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "sem": 8.3,
+   "note": "mean from text (Fig. 5 digitised 52.9); SEM digitised 8.3 (+-0.5); SD = SEM x 4"
+  },
+  {
+   "x": "flexed (2-8 deg)",
+   "load": "1500 N compression",
+   "mean": 12,
+   "sd": 19.6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 16,
+   "sem": 4.9,
+   "note": "mean from text (Fig. 5 digitised 12.7); SEM digitised 4.9 (+-0.5); SD = SEM x 4"
+  }
+ ],
+ "extraction": {
+  "from": "Results text p1726 (means) and Fig. 5 (SEM, digitised at 200 dpi against 0-100% ticks)",
+  "method": "digitised_figure",
+  "uncertainty": "means exact (text); SEM +-0.5%",
+  "checked": true,
+  "check_notes": "Review 52.9 +/- 8.0 = Fig. 5 pre-fracture erect bar; its 8.0 is the SEM, not an SD (SD ~33 with n=16). Review condition 'neutral' is wrong: profiles were taken at 2 deg extension (erect) and 2-8 deg flexion. Specimens are elderly thoracolumbar FSUs, not lumbar only. Re-digitised: bar top 52.9, SEM cap 61.2 (pixel scan)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_load_share__thoracolumbar_fsu__degenerated__1500n_posture",
+ "supersedes": "fe_facet.ghezelbash2020b.lumbar_farooq2005_facet_load_share_secondary",
+ "tags": [
+  "thoracolumbar",
+  "in vitro",
+  "neural arch",
+  "stress profilometry",
+  "human",
+  "elderly"
+ ]
+}

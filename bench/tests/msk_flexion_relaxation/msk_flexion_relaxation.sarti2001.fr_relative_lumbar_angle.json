@@ -1,0 +1,274 @@
+{
+  "id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+  "title": "Sarti 2001: lumbar flexion at ES silence onset/cessation as % of maximum lumbar flexion (slow/fast, 0/10 kg)",
+  "layer": "outcome",
+  "category": "msk_flexion_relaxation",
+  "subcategory": "FR onset/cessation angle (relative)",
+  "region": "lumbar",
+  "levels": [
+    "T12-S1"
+  ],
+  "condition": "in vivo healthy, standing trunk flexion-extension, knees straight",
+  "quantity": {
+    "name": "relative lumbar flexion at FR events",
+    "definition": "lumbar flexion (lumbar motion monitor, T12 relative to S1/pelvis) at the instant of each EMG event of the right erector spinae at L3 (3 cm lateral), as % of the maximum lumbar flexion of that movement; 2nd and 3rd of 4 repetitions; both sexes pooled",
+    "unit": "%"
+  },
+  "source": {
+    "short": "Sarti 2001",
+    "authors": "Sarti MA, Lison JF, Monfort M, Fuster MA",
+    "year": 2001,
+    "journal": "Spine 26(18):E421-E426",
+    "doi": "10.1097/00007632-200109150-00019",
+    "n": 22,
+    "sample": "22 pain-free physically fit university students (10F, 12M), 17-28 y",
+    "age": "F 21.5±3.1, M 21.4±2.0 y",
+    "sex": "10F/12M",
+    "height_cm": "F 162.0±3.1, M 173.3±4.9",
+    "weight_kg": "F 56.9±6.2, M 70.0±9.2",
+    "citation_note": "DOI not printed in the PDF; not filled"
+  },
+  "protocol": {
+    "summary": "Standing barefoot, knees straight, chin to chest then bend forward sliding hands down the legs to the floor, hold 1 s, return; metronome-paced 8 s (slow) or 3 s (fast) per phase; series repeated lifting a 10-kg barbell (hand position standardised). iEMG (0.1 s) of right ES at L3; Chattanooga lumbar motion monitor (T12 to S1).",
+    "how_to_simulate": [
+      "Scale to the cohort (10 F / 12 M, 21 y, ~168 cm, ~64 kg)",
+      "Sweep trunk flexion quasi-statically from upright to full flexion with knees straight (slow series), no load or 10 kg in both hands with arms hanging",
+      "Record lumbar (T12-S1) flexion when the erector spinae under the L3 electrode falls silent (onset) and, extending, when it returns (cessation)",
+      "Report each as % of the model's maximum lumbar flexion (Sarti: 55.7±8.0 deg no load, 56.8±6.7 deg with 10 kg, slow)"
+    ],
+    "subject_model": {
+      "sex": "10 F / 12 M",
+      "age": 21.45,
+      "height_cm": 168.2,
+      "weight_kg": 64.1,
+      "disc_area_mm2": null,
+      "source": "Sarti 2001 Table 1 (n-weighted means of F and M)"
+    },
+    "notes": "Values as printed in Table 2 ('% ± SD'); some SDs are implausibly small (e.g. CP ±1) but are copied unchanged. Speed significantly delayed MS (F vs S, P<0.01); load had no significant effect. Relative lumbar motion time (Table 4) and raw iEMG (uV) not extracted."
+  },
+  "data": [
+    {
+      "x": "S CP",
+      "series": "S",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "none",
+      "event": "critical point (abrupt decrease of ES activity starts, flexing)",
+      "mean": 69,
+      "sd": 2,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 55.73,
+        "sd": 8.0
+      }
+    },
+    {
+      "x": "S MS",
+      "series": "S",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "none",
+      "event": "myoelectric silence (onset of FR, flexing)",
+      "mean": 84,
+      "sd": 7.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 55.73,
+        "sd": 8.0
+      }
+    },
+    {
+      "x": "S MR",
+      "series": "S",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "none",
+      "event": "myoelectric resumption (cessation of FR, extending)",
+      "mean": 90,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 55.73,
+        "sd": 8.0
+      }
+    },
+    {
+      "x": "Sw CP",
+      "series": "Sw",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "critical point (abrupt decrease of ES activity starts, flexing)",
+      "mean": 70,
+      "sd": 1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 56.8,
+        "sd": 6.7
+      }
+    },
+    {
+      "x": "Sw MS",
+      "series": "Sw",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "myoelectric silence (onset of FR, flexing)",
+      "mean": 86,
+      "sd": 6.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 56.8,
+        "sd": 6.7
+      }
+    },
+    {
+      "x": "Sw MR",
+      "series": "Sw",
+      "speed": "slow (8 s down, 8 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "myoelectric resumption (cessation of FR, extending)",
+      "mean": 94,
+      "sd": 1.5,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 56.8,
+        "sd": 6.7
+      }
+    },
+    {
+      "x": "F CP",
+      "series": "F",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "none",
+      "event": "critical point (abrupt decrease of ES activity starts, flexing)",
+      "mean": 76,
+      "sd": 1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 57.19,
+        "sd": 6.8
+      }
+    },
+    {
+      "x": "F MS",
+      "series": "F",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "none",
+      "event": "myoelectric silence (onset of FR, flexing)",
+      "mean": 91,
+      "sd": 7.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 57.19,
+        "sd": 6.8
+      }
+    },
+    {
+      "x": "F MR",
+      "series": "F",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "none",
+      "event": "myoelectric resumption (cessation of FR, extending)",
+      "mean": 92,
+      "sd": 6.4,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 57.19,
+        "sd": 6.8
+      }
+    },
+    {
+      "x": "Fw CP",
+      "series": "Fw",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "critical point (abrupt decrease of ES activity starts, flexing)",
+      "mean": 79,
+      "sd": 1,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 58.55,
+        "sd": 6.7
+      }
+    },
+    {
+      "x": "Fw MS",
+      "series": "Fw",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "myoelectric silence (onset of FR, flexing)",
+      "mean": 90,
+      "sd": 4.8,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 58.55,
+        "sd": 6.7
+      }
+    },
+    {
+      "x": "Fw MR",
+      "series": "Fw",
+      "speed": "fast (3 s down, 3 s up)",
+      "load": "10 kg barbell, both hands",
+      "event": "myoelectric resumption (cessation of FR, extending)",
+      "mean": 89,
+      "sd": 1.6,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 22,
+      "max_lumbar_flexion_deg": {
+        "mean": 58.55,
+        "sd": 6.7
+      }
+    }
+  ],
+  "extraction": {
+    "from": "Table 2 (p.E423); Table 1",
+    "method": "table",
+    "uncertainty": "values as printed",
+    "checked": true,
+    "check_notes": "Re-read from pdftotext of Table 2: F (57.19±6.8) 76±1/91±7.8/92±6.4; Fw (58.55±6.7) 79±1/90±4.8/89±1.6; S (55.73±8) 69±2/84±7.5/90±1.3; Sw (56.8±6.7) 70±1/86±6.4/94±1.5."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD"
+  },
+  "combine_group": "msk_flexion_relaxation__fr_angle_rel__es_l3__standing_flexion__slow_fast_0_10kg",
+  "tags": [
+    "lumbar",
+    "in vivo",
+    "flexion-relaxation",
+    "EMG timing",
+    "dynamic"
+  ]
+}

@@ -12,7 +12,7 @@
     "Scale the model to the study subject (subjects table).",
     "Set the posture: trunk flexion = trunk inclination from upright; sitting, lying, bending and twisting as described.",
     "Add the hand load at the stated position (both hands unless stated).",
-    "Output L4-L5 compression F and L4-L5 flexion θ relative to upright standing (+ flexion; L3-L4 for standing_l3l4). Sato tasks: θ = 15° - stated L4-L5 angle.",
+    "Output L4-L5 compression F and L4-L5 flexion θ relative to upright standing (+ flexion; L3-L4 for tasks at L3-L4). Sato tasks: θ = 15° - stated L4-L5 angle.",
     "IDP = Ghezelbash 2016 Eq. 6: -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ² (P = F/A, MPa); or IDP = F/(0.66A)."
   ],
   "inputs": [
@@ -109,6 +109,14 @@
       "weight_kg": 72,
       "disc_area_mm2": 1800,
       "note": "same volunteer as Wilke 2001"
+    },
+    "andersson1976": {
+      "sex": "1M/3F",
+      "age": 29,
+      "height_cm": 173,
+      "weight_kg": 60.5,
+      "disc_area_mm2": null,
+      "note": "ranges 169-177 cm, 52-69 kg (means not reported; midpoints given); disc area not reported"
     }
   },
   "studies": [
@@ -177,6 +185,16 @@
       "doi": "10.2106/00004623-198264050-00008",
       "secondary": true,
       "pool": false
+    },
+    {
+      "key": "andersson1976",
+      "short": "Andersson 1976",
+      "year": 1976,
+      "n": 4,
+      "sample": "4 healthy volunteers (3F/1M), L3-L4, needle transducer of Nachemson & Elfstrom 1970",
+      "doi": "10.1097/00007632-197609000-00009",
+      "secondary": false,
+      "pool": false
     }
   ],
   "shared": [
@@ -192,6 +210,8 @@
       "task_ids": [
         "standing",
         "standing_l3l4",
+        "stand_10kg_l3l4",
+        "flex45_10kg_l3l4",
         "stand_10kg",
         "flex10",
         "flex10_10kg",
@@ -510,6 +530,69 @@
           "n": 1,
           "test_id": "msk_idp_lumbar.nachemson.L3L4_standing_v05",
           "note": "N&E 1970 No. 9: F, 24 y, 58 kg, 165 cm, L3-L4 1500 mm2; corrected (orig. 0.75)"
+        },
+        {
+          "study": "andersson1976",
+          "mean": 0.33,
+          "sd": 0.06,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_idp_lumbar.andersson1976.L3L4_standing",
+          "note": "Table 1 footnote; SD = 2 x printed SEM 0.03 (n = 4)"
+        }
+      ]
+    },
+    {
+      "id": "stand_10kg_l3l4",
+      "label": "Standing, 10.2 kg in hands (L3-L4)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "upright standing, arms hanging",
+        "trunk_flexion_deg": 0,
+        "hand_load_kg": 10.2,
+        "load_position": "100 N in both hands, arms hanging (arm posture not stated)"
+      },
+      "output": "idp",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "andersson1976",
+          "mean": 0.72,
+          "sd": 0.18,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_idp_lumbar.andersson1976.L3L4_flex45_100N",
+          "note": "Table 2 'before flexion' (load held, see test notes); SD = 2 x SEM 0.09"
+        }
+      ]
+    },
+    {
+      "id": "flex45_10kg_l3l4",
+      "label": "Trunk flexion 45°, 10.2 kg (L3-L4, peak)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, slow forward bending",
+        "trunk_flexion_deg": 45,
+        "hand_load_kg": 10.2,
+        "load_position": "100 N in both hands, arms hanging (arm posture not stated)"
+      },
+      "output": "idp",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "andersson1976",
+          "mean": 1.68,
+          "sd": 0.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 4,
+          "test_id": "msk_idp_lumbar.andersson1976.L3L4_flex45_100N",
+          "note": "Table 2 peak during slow flexion to 45° (hydrogoniometer at T10); SD = 2 x SEM 0.25"
         }
       ]
     },
@@ -1387,16 +1470,22 @@
     }
   ],
   "notes": [
-    "Nachemson 1964/1970 and Schultz 1982 are early-transducer values from the Dreischarf 2016 review (Nachemson corrected by -0.25 MPa): shown, not pooled.",
+    "Nachemson 1964/1970 and Schultz 1982 are early-transducer values from the Dreischarf 2016 review (Nachemson corrected by -0.25 MPa); Andersson 1976 (L3-L4, same transducer type) is shown uncorrected: all shown, not pooled.",
     "Wilke 2001 is one 72 kg male; his lifts are dynamic peaks, his flexion angles reconstructed from the lumbar record.",
     "Lying IDP is mostly disc swelling pressure, which compression-driven models underpredict."
   ],
-  "agent_prompt": "Use your spine musculoskeletal model. For each task simulate the posture, trunk angle and hand load in its inputs for the subject of every study in the task's `studies` (`subjects`: sex, age, height, body mass, L4-L5 disc area; for Nachemson the cohort-mean subject is enough). trunk_flexion_deg is trunk inclination from upright; tasks without an angle describe the posture in words. hand_load_kg is the total mass held, at load_position. Output L4-L5 compression F (N) and L4-L5 intersegmental flexion θ relative to upright standing (deg, + flexion); use L3-L4 for standing_l3l4. Convert to IDP (MPa) with Ghezelbash 2016 Eq. 6: IDP = -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ², P = F/A (MPa, A = the study's disc area in mm²), or with IDP = F/(0.66 A); say which in a note outside the JSON. Sato 1999 tasks state the radiographic L4-L5 angle (upright standing = 15°): θ = 15° minus that angle (standing flexed 5°, sitting upright 6°, sitting flexed 8°, sitting extended 2°, standing extended -3°). Wilke lifts (lift_stoop, lift_squat) were dynamic; simulate the static posture given. When a task lists several studies you may answer {\"idp\": {study key: MPa}} (one value per subject). Do not tune the model to the reference values. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there (each task also states its `unit`); use null for tasks you cannot simulate.",
+  "agent_prompt": "Use your spine musculoskeletal model. For each task simulate the posture, trunk angle and hand load in its inputs for the subject of every study in the task's `studies` (`subjects`: sex, age, height, body mass, L4-L5 disc area; for Nachemson the cohort-mean subject is enough). trunk_flexion_deg is trunk inclination from upright; tasks without an angle describe the posture in words. hand_load_kg is the total mass held, at load_position. Output L4-L5 compression F (N) and L4-L5 intersegmental flexion θ relative to upright standing (deg, + flexion); use L3-L4 for the tasks whose level is L3-L4 (standing_l3l4, stand_10kg_l3l4, flex45_10kg_l3l4). Convert to IDP (MPa) with Ghezelbash 2016 Eq. 6: IDP = -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ², P = F/A (MPa, A = the study's disc area in mm²), or with IDP = F/(0.66 A); say which in a note outside the JSON. Sato 1999 tasks state the radiographic L4-L5 angle (upright standing = 15°): θ = 15° minus that angle (standing flexed 5°, sitting upright 6°, sitting flexed 8°, sitting extended 2°, standing extended -3°). Wilke lifts (lift_stoop, lift_squat) were dynamic; simulate the static posture given. When a task lists several studies you may answer {\"idp\": {study key: MPa}} (one value per subject). Do not tune the model to the reference values. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there (each task also states its `unit`); use null for tasks you cannot simulate.",
   "answer_format": {
     "standing": {
       "idp": "MPa"
     },
     "standing_l3l4": {
+      "idp": "MPa"
+    },
+    "stand_10kg_l3l4": {
+      "idp": "MPa"
+    },
+    "flex45_10kg_l3l4": {
       "idp": "MPa"
     },
     "stand_10kg": {

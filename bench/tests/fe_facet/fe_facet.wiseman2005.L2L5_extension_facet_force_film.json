@@ -1,0 +1,97 @@
+{
+ "id": "fe_facet.wiseman2005.L2L5_extension_facet_force_film",
+ "title": "L2-L3, L3-L4, L4-L5 facet force at 15 Nm extension + 700 N (pressure film, intact)",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet contact force",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact (facet capsules removed for film)",
+ "quantity": {
+  "name": "facet force",
+  "definition": "facet force = contact area x mean pressure from multi-grade PressureX film (per facet); mean +- SD of 7 specimens",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Wiseman 2005",
+  "authors": "Wiseman CM, Lindsey DP, Fredrick AD, Yerby SA",
+  "year": 2005,
+  "journal": "Spine 30(8):903-907",
+  "doi": "10.1097/01.brs.0000158876.51771.f8",
+  "n": 7,
+  "sample": "7 human cadaveric L2-L5 spines; muscle removed, ligaments intact, left and right L2-L3, L3-L4, L4-L5 facet capsules removed",
+  "age": "not reported",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L2 and L5 potted in PMMA in an MTS multi-channel spine fixture. Preload 700 N until axial displacement stabilised (15-60 min). Test: 700 N axial compression at 25 N/s (linear actuator at cranial end), then 15 Nm extension at 0.25 Nm/s via rotational actuators at cranial and caudal ends; peak held 60 s. Film (ultra-low to medium grades) in left and right facets at each level; test repeated with higher-grade film if saturated. Then X STOP at L3-L4 (not extracted).",
+  "how_to_simulate": [
+   "Model L2-L5 with ligaments, facet capsules removed; fix L5",
+   "Apply 700 N axial compression (follower or vertical at L2) then a 15 Nm pure extension moment",
+   "Report facet contact force per facet at L2-L3, L3-L4 and L4-L5 (N)"
+  ],
+  "subject_model": null,
+  "notes": "Film error ~+-15% in pressure. Implanted (X STOP) values outside card scope."
+ },
+ "data": [
+  {
+   "x": "extension",
+   "load": "15 Nm extension + 700 N",
+   "mean": 76.7,
+   "sd": 49.5,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L2-L3"
+  },
+  {
+   "x": "extension",
+   "load": "15 Nm extension + 700 N",
+   "mean": 83.2,
+   "sd": 80.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L3-L4"
+  },
+  {
+   "x": "extension",
+   "load": "15 Nm extension + 700 N",
+   "mean": 72.5,
+   "sd": 70.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1, p905",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Review values (76.7+/-49.5, 83.2+/-80.2, 72.5+/-70.7) confirmed as intact mean +/- SD; n = 7; capsules removed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_force__l2_l5__intact_capsules_removed__15nm_ext_700n",
+ "supersedes": "fe_facet.ghezelbash2020b.L2L3_L3L4_L4L5_wiseman2005_facet_force_secondary",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "pressure film",
+  "human"
+ ]
+}

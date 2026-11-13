@@ -60,6 +60,16 @@
       "loading": "Displacement control, tension along fibres at 1 mm/min to >1 MPa (to ~20% strain); load-free start; 5 preconditioning cycles; 37 °C; single AF lamellae"
     },
     {
+      "key": "skaggs1994",
+      "short": "Skaggs 1994",
+      "year": 1994,
+      "n": 59,
+      "sample": "59 single-lamella dumbbells, 13 L2-L3 discs, grade I-II (AO, AI, PO, PI); curve = cubic fit of one typical specimen",
+      "doi": "10.1097/00007632-199406000-00002",
+      "secondary": false,
+      "loading": "Uniaxial tension along fibres at 0.00009/s to failure (~5.6%); 0.1 N tare 15 min; 10 precond. cycles to 0.05 N; 0.15 M NaCl, room temp; single lamellae"
+    },
+    {
       "key": "wagnerlotz2004",
       "short": "Wagner & Lotz 2004",
       "year": 2004,
@@ -111,13 +121,13 @@
     },
     {
       "key": "oconnell2012",
-      "short": "O'Connell 2012 (via Ghezelbash 2021)",
+      "short": "O'Connell 2012",
       "year": 2012,
       "n": 16,
-      "sample": "16 anterior AF square samples, 13 spines; circ-fixed biaxial curve digitised from Ghezelbash 2021 Fig 7a",
+      "sample": "16 anterior AF circ-axial squares (7.1x7.0x2.1 mm), L3-L5, 13 spines 25-80 y, T1rho 46-146 ms; curve = Fig 3b circ-fixed run",
       "doi": "10.1007/s10237-011-0328-9",
-      "secondary": true,
-      "loading": "Biaxial, axial stretch at 0.01%/s to ~8.5% with circ. held fixed; 0.5 N preload 10 min; 10 precond. cycles to 2%; anterior AF squares (per review)"
+      "secondary": false,
+      "loading": "Biaxial, axial stretch at 0.01%/s with circ. strain held at 0, to E~0.09 (cap 1.5 MPa); 0.5 N preload 10 min; 10 precond. cycles 0-2% at 1%/s; PBS, room temp; anterior AF squares"
     },
     {
       "key": "ebara1996",
@@ -205,6 +215,13 @@
         "lam_Di_11",
         "lam_Di_12",
         "lam_Di_13",
+        "lam_sk_00",
+        "lam_sk_01",
+        "lam_sk_02",
+        "lam_sk_03",
+        "lam_sk_04",
+        "lam_sk_05",
+        "lam_sk_06",
         "circ_wl_00",
         "circ_wl_01",
         "circ_wl_02",
@@ -364,7 +381,11 @@
         "bx_oc12_10",
         "bx_oc12_11",
         "bx_oc12_12",
-        "bx_oc12_13"
+        "bx_oc12_13",
+        "bx_oc12_14",
+        "bx_oc12_15",
+        "bx_oc12_16",
+        "bx_oc12_17"
       ],
       "share_y": false,
       "share_x": false,
@@ -1895,6 +1916,188 @@
           "n": 1,
           "test_id": "passive_tissue.holzapfel2005.AF_lamella_fibre_stress_strain_representative",
           "note": "Fig 5, one specimen per site, 1 mm/min, loading branch; strain = stretch - 1"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_00",
+      "label": "Skaggs typical, 0%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_01",
+      "label": "Skaggs typical, 1%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 1.0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 0.064,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_02",
+      "label": "Skaggs typical, 2%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 2.0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 0.166,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_03",
+      "label": "Skaggs typical, 3%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 3.0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 0.347,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_04",
+      "label": "Skaggs typical, 4%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 4.0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 0.646,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_05",
+      "label": "Skaggs typical, 5%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 5.0
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 1.102,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "lam_sk_06",
+      "label": "Skaggs typical, 5.6%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "single lamella, tension along fibres",
+        "region": "single lamella, region not stated",
+        "curve": "Skaggs typical",
+        "strain": 5.6
+      },
+      "output": "stress",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "skaggs1994",
+          "mean": 1.466,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+          "note": "Fig 6 typical specimen, best-fit cubic sigma=5.7e+6532e^3 (caption) evaluated to failure strain 0.056; 0.00009/s in 0.15 M NaCl; engineering stress vs gauge strain (no conversion)"
         }
       ]
     },
@@ -5696,266 +5899,344 @@
     },
     {
       "id": "bx_oc12_00",
-      "label": "Circ-fixed, axial, 0.1%",
+      "label": "Circ-fixed, axial, 0%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 0.1
+        "strain": 0.0
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.008,
+          "mean": 0,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_01",
-      "label": "Circ-fixed, axial, 0.92%",
+      "label": "Circ-fixed, axial, 0.84%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 0.92
+        "strain": 0.84
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.053,
+          "mean": 0.05,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_02",
-      "label": "Circ-fixed, axial, 1.28%",
+      "label": "Circ-fixed, axial, 1.27%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 1.28
+        "strain": 1.27
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.08,
+          "mean": 0.076,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_03",
-      "label": "Circ-fixed, axial, 2.25%",
+      "label": "Circ-fixed, axial, 1.83%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 2.25
+        "strain": 1.83
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.136,
+          "mean": 0.108,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_04",
-      "label": "Circ-fixed, axial, 2.63%",
+      "label": "Circ-fixed, axial, 2.28%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 2.63
+        "strain": 2.28
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.169,
+          "mean": 0.143,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_05",
-      "label": "Circ-fixed, axial, 3.83%",
+      "label": "Circ-fixed, axial, 2.68%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 3.83
+        "strain": 2.68
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.298,
+          "mean": 0.177,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_06",
-      "label": "Circ-fixed, axial, 4.49%",
+      "label": "Circ-fixed, axial, 3.19%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 4.49
+        "strain": 3.19
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.381,
+          "mean": 0.221,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_07",
-      "label": "Circ-fixed, axial, 5.09%",
+      "label": "Circ-fixed, axial, 3.74%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 5.09
+        "strain": 3.74
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.451,
+          "mean": 0.289,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_08",
-      "label": "Circ-fixed, axial, 5.88%",
+      "label": "Circ-fixed, axial, 4.25%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 5.88
+        "strain": 4.25
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.543,
+          "mean": 0.346,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_09",
-      "label": "Circ-fixed, axial, 6.61%",
+      "label": "Circ-fixed, axial, 4.88%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 6.61
+        "strain": 4.88
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.684,
+          "mean": 0.421,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
       "id": "bx_oc12_10",
+      "label": "Circ-fixed, axial, 5.49%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "biaxial: axial stretch, circ. direction held (square)",
+        "region": "anterior AF",
+        "curve": "circ-fixed protocol",
+        "strain": 5.49
+      },
+      "output": "stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "oconnell2012",
+          "mean": 0.484,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
+        }
+      ]
+    },
+    {
+      "id": "bx_oc12_11",
+      "label": "Circ-fixed, axial, 5.92%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "biaxial: axial stretch, circ. direction held (square)",
+        "region": "anterior AF",
+        "curve": "circ-fixed protocol",
+        "strain": 5.92
+      },
+      "output": "stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "oconnell2012",
+          "mean": 0.542,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
+        }
+      ]
+    },
+    {
+      "id": "bx_oc12_12",
+      "label": "Circ-fixed, axial, 6.45%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "biaxial: axial stretch, circ. direction held (square)",
+        "region": "anterior AF",
+        "curve": "circ-fixed protocol",
+        "strain": 6.45
+      },
+      "output": "stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "oconnell2012",
+          "mean": 0.647,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
+        }
+      ]
+    },
+    {
+      "id": "bx_oc12_13",
       "label": "Circ-fixed, axial, 7.08%",
       "view": "fig_af",
       "inputs": {
@@ -5969,92 +6250,118 @@
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.742,
+          "mean": 0.724,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
-      "id": "bx_oc12_11",
-      "label": "Circ-fixed, axial, 7.78%",
+      "id": "bx_oc12_14",
+      "label": "Circ-fixed, axial, 7.47%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 7.78
+        "strain": 7.47
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.831,
+          "mean": 0.79,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
-      "id": "bx_oc12_12",
-      "label": "Circ-fixed, axial, 8.06%",
+      "id": "bx_oc12_15",
+      "label": "Circ-fixed, axial, 8.04%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 8.06
+        "strain": 8.04
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.885,
+          "mean": 0.873,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     },
     {
-      "id": "bx_oc12_13",
-      "label": "Circ-fixed, axial, 8.49%",
+      "id": "bx_oc12_16",
+      "label": "Circ-fixed, axial, 8.36%",
       "view": "fig_af",
       "inputs": {
         "mode": "biaxial: axial stretch, circ. direction held (square)",
         "region": "anterior AF",
         "curve": "circ-fixed protocol",
-        "strain": 8.49
+        "strain": 8.36
       },
       "output": "stress",
       "level": "lumbar",
       "refs": [
         {
           "study": "oconnell2012",
-          "mean": 0.98,
+          "mean": 0.948,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "value",
-          "n": 16,
-          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
-          "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
+        }
+      ]
+    },
+    {
+      "id": "bx_oc12_17",
+      "label": "Circ-fixed, axial, 8.54%",
+      "view": "fig_af",
+      "inputs": {
+        "mode": "biaxial: axial stretch, circ. direction held (square)",
+        "region": "anterior AF",
+        "curve": "circ-fixed protocol",
+        "strain": 8.54
+      },
+      "output": "stress",
+      "level": "lumbar",
+      "refs": [
+        {
+          "study": "oconnell2012",
+          "mean": 0.986,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve",
+          "note": "Fig 3b circ-fixed (0:1) series, digitised; 0.01 %/s, PBS room temp; stress = force/reference area (1st PK); strain = sqrt(1+2E)-1 from plotted Lagrangian E; one run (sample count of plotted run not stated)"
         }
       ]
     }
@@ -6152,7 +6459,14 @@
         "lam_Di_10",
         "lam_Di_11",
         "lam_Di_12",
-        "lam_Di_13"
+        "lam_Di_13",
+        "lam_sk_00",
+        "lam_sk_01",
+        "lam_sk_02",
+        "lam_sk_03",
+        "lam_sk_04",
+        "lam_sk_05",
+        "lam_sk_06"
       ]
     },
     {
@@ -6357,7 +6671,11 @@
         "bx_oc12_10",
         "bx_oc12_11",
         "bx_oc12_12",
-        "bx_oc12_13"
+        "bx_oc12_13",
+        "bx_oc12_14",
+        "bx_oc12_15",
+        "bx_oc12_16",
+        "bx_oc12_17"
       ]
     }
   ]

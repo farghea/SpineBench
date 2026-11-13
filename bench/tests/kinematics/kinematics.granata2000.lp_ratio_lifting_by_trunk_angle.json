@@ -1,0 +1,196 @@
+{
+  "id": "kinematics.granata2000.lp_ratio_lifting_by_trunk_angle",
+  "title": "Lumbopelvic ratio L/P during straight-leg lifting (trunk extension from 90 deg), by trunk-angle range, load and velocity",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "lumbopelvic rhythm",
+  "region": "lumbar",
+  "levels": [
+    "T10-S1",
+    "pelvis"
+  ],
+  "condition": "healthy, standing, straight-leg lift from 90 deg trunk flexion to upright, 0.1 or 10 kg in front of the body, 15/30/60 deg/s",
+  "quantity": {
+    "name": "lumbopelvic ratio L/P",
+    "definition": "Pelvis P = S1 skin sensor sagittal angle; total trunk T = T10 skin sensor angle, both from relaxed upright (zero); lumbar L = T - P (T10-S1). L/P = mean ratio of lumbar to pelvic angle within each trunk-angle range (mean of ratios over subjects/trials; large SD because P is small near upright).",
+    "unit": "ratio"
+  },
+  "source": {
+    "short": "Granata 2000",
+    "authors": "Granata KP, Sanford AH",
+    "year": 2000,
+    "journal": "Spine 25(11):1413-1418",
+    "doi": "10.1097/00007632-200006010-00014",
+    "n": 18,
+    "sample": "18 healthy adults (13M, 5F), no history of LBP, trunk flexion > 90 deg",
+    "age": "23.8 (SD 3.1) y",
+    "sex": "13M/5F",
+    "height_cm": "170.6 (SD 3.9)",
+    "weight_kg": "76.8 (SD 13.6)",
+    "citation_note": "DOI not printed in the PDF; not filled"
+  },
+  "protocol": {
+    "summary": "Isokinetic trunk extension (straight legs) from a static 90 deg flexed posture to upright with the load at waist level, tracking a moving target at 15, 30 or 60 deg/s, lifting 0.1 or 10 kg in front of the body; electromagnetic sensors (Ascension) over S1 and T10 at 44 Hz.",
+    "how_to_use": [
+      "Pick the trunk-angle range (T10 inclination from upright) of the posture to model.",
+      "Split trunk flexion as pelvis = T/(1+L/P), lumbar (T10-S1) = T - pelvis.",
+      "These are lifting (extension) ratios; for unloaded forward flexion use the flexion-phase tests (Tafazzol 2014, Ghasemi 2021).",
+      "Load raised L/P (2.13 -> 2.45, P<0.05); the range values pool both loads and all velocities.",
+      "SDs are very large (mean of ratios); use for robustness runs, not as a tight target."
+    ],
+    "measurement": {
+      "method": "electromagnetic skin sensors",
+      "device": "Ascension Technology sensors taped over S1 and T10 spinous processes, 44 Hz",
+      "posture": "standing, straight-leg lifting",
+      "task": "trunk extension from 90 deg to upright at 15/30/60 deg/s with 0.1 or 10 kg in front"
+    },
+    "equations": [
+      "L = T - P",
+      "L/P = lumbar angle / pelvic angle"
+    ],
+    "subject_model": null,
+    "notes": "Lumbar angle spans T10-S1 (includes T10-T12). Fig 2 (L/P by weight x velocity) and Figs 3-4 (eigenvector-model L vs P curves, model fits) not extracted. Table 1 range labels are 5-30/30-60/60-90 deg (text says 0-30)."
+  },
+  "data": [
+    {
+      "x": "trunk 5-30 deg",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.37,
+      "sd": 2.66,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P within trunk-angle range, pooled over weight and velocity",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "trunk 30-60 deg",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.35,
+      "sd": 1.79,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P within trunk-angle range, pooled over weight and velocity",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "trunk 60-90 deg",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 1.84,
+      "sd": 1.04,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P within trunk-angle range, pooled over weight and velocity",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "load 0.1 kg",
+      "load": "0.1 kg",
+      "mean": 2.13,
+      "sd": 1.74,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P over 5-90 deg, pooled over velocity",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "load 10 kg",
+      "load": "10 kg",
+      "mean": 2.45,
+      "sd": 2.39,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P over 5-90 deg, pooled over velocity (P<0.05 vs 0.1 kg)",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "velocity 15 deg/s",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.31,
+      "sd": 1.97,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P, pooled over weight",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "velocity 30 deg/s",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.22,
+      "sd": 2.06,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P, pooled over weight",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "velocity 60 deg/s",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.06,
+      "sd": 1.3,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "mean L/P, pooled over weight",
+      "source_where": "Table 1"
+    },
+    {
+      "x": "all conditions",
+      "load": "0.1 and 10 kg pooled",
+      "mean": 2.38,
+      "sd": 2.68,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 18,
+      "phase": "extension (lifting)",
+      "basis": "grand mean L/P",
+      "source_where": "Results text p.1415"
+    }
+  ],
+  "extraction": {
+    "from": "Table 1 (p.1415); Results text",
+    "method": "table",
+    "uncertainty": "values as printed",
+    "checked": true,
+    "check_notes": "Re-read Table 1 L/P row on a 200 dpi render: 2.13±1.74, 2.45±2.39*, 2.31±1.97, 2.22±2.06, 2.06±1.30, 2.37±2.66, 2.35±1.79, 1.84±1.04*; grand mean 2.38±2.68 from Results text."
+  },
+  "pass_rule": {
+    "template": false,
+    "rule": "input data – not graded; use for robustness checks"
+  },
+  "combine_group": "kinematics__lp_ratio__lumbar_pelvis__healthy_lifting__extension_by_trunk_angle",
+  "tags": [
+    "in vivo",
+    "electromagnetic sensors",
+    "standing",
+    "healthy",
+    "lifting",
+    "young adults",
+    "sagittal",
+    "loaded"
+  ],
+  "shared_sample_with": []
+}

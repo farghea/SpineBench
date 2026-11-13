@@ -20,7 +20,9 @@ Status: **covered** = all data of the comparison are booked as tasks; **partly**
 | Lariviere2024 | 2024 | J Biomech 162:111867 (co-author) | donwload/U08_Lariviere2023.pdf |
 | Ghezelbash2024 | 2024 | bioRxiv 2024.01.06.574467; published Biomech Model Mechanobiol 24(5):1591-1603 (2025) | donwload/U11_Ghezelbash2025_bioRxiv.pdf (identical text: plan_agent/validation papers/2024.01.06.574467.full.pdf) |
 
-Not found locally (would need downloading): Ghezelbash, Arjmand, Shirazi-Adl 2015, Comput Methods Biomech Biomed Engin 18:1760 (intervertebral translational flexibilities); Ghezelbash et al. 2016a, J Biomech 49:3492 (sex/age/BH/BW sensitivity); Ghezelbash et al. 2017, Ann Biomed Eng 45:2373 (obesity and obesity shape); Ghezelbash et al. 2018b, J Biomech 70:149 (motion-segment simulation and joint positioning); Ghezelbash, Shahvarpour, Lariviere, Shirazi-Adl 2022a, Comput Methods Biomech Biomed Engin 25:1156 (stability in static tasks; in vivo-computational); Ghezelbash et al. 2024, J Biomech 166:111967 (machine learning in spine biomechanics, review).
+Not found locally: Ghezelbash et al. 2018b, J Biomech 70:149 (only the cover page was downloaded); Ghezelbash, Shahvarpour, Lariviere, Shirazi-Adl 2022a, CMBBE 25:1156; Ghezelbash et al. 2024, J Biomech 166:111967 (review).
+
+Read 2026-11-13, nothing to add: Ghezelbash, Arjmand, Shirazi-Adl 2015 (model-vs-model; buckling vs Crisco 1992 is covered; in vivo translations only qualitative); Ghezelbash 2016a (segment weights/COM vs Pearsall 1994, covered); Ghezelbash 2017 (no new comparison with experiment).
 
 Excluded: Bidhendi, Braun, Bouchard-Roy, Ghezelbash: Evaluating mechanical comfort of ear tips (donwload/1082-2132-1-SP (1).pdf) - not spine. Fasser 2021 (donwload/Fasser2021.pdf) - Ghezelbash is not an author. Arjmand 2009 Clin Biomech, El Ouaaid 2013 - Ghezelbash is not an author (used as data sources).
 

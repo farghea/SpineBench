@@ -1,7 +1,7 @@
 # Task inputs audit
 
 Question: for every task, does the card give what a modeller needs to set up the simulation, and where must the modeller still assume something?
-Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-side tests available in bench/tests: kinematics 111, anthropometry 31, muscle_geometry 1087, trunk_passive_invivo 24.
+Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-side tests available in bench/tests: kinematics 112, anthropometry 31, muscle_geometry 1087, trunk_passive_invivo 24.
 ## Key findings (2026-11-12)
 
 **Overall.** Every task names its specimen or subject, level, loading direction and load or posture. Pass/fail is not the issue. The gaps are the inputs a modeller still has to assume, listed below in order of impact.
@@ -38,16 +38,16 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 
 | Card | Domain | Tasks | Tasks flagged | Posture |
 |---|---|---|---|---|
-| annulus_tissue | tissue | 218 | 0 | - |
-| emg_load_holding | msk | 62 | 36 | 28 posture described only, 34 neutral posture |
-| facet_forces | fe | 64 | 38 | - |
-| flexion_relaxation | msk | 84 | 14 | 70 posture quantified, 14 posture described only |
+| annulus_tissue | tissue | 229 | 0 | - |
+| emg_load_holding | msk | 112 | 36 | 28 posture described only, 84 neutral posture |
+| facet_forces | fe | 65 | 6 | - |
+| flexion_relaxation | msk | 88 | 18 | 70 posture quantified, 18 posture described only |
 | idp_invitro | fe | 99 | 0 | - |
 | implant_loads_invivo | msk | 30 | 17 | 8 neutral posture, 17 posture described only, 5 posture quantified |
 | ligament_tissue | tissue | 227 | 0 | - |
-| lumbar_idp_invivo | msk | 34 | 11 | 18 posture quantified, 10 posture described only, 6 neutral posture |
+| lumbar_idp_invivo | msk | 36 | 11 | 20 posture quantified, 10 posture described only, 6 neutral posture |
 | lumbar_resection | fe | 66 | 2 | - |
-| lumbar_rom | fe | 240 | 0 | - |
+| lumbar_rom | fe | 301 | 0 | - |
 | maximal_exertions | msk | 137 | 0 | 127 neutral posture, 10 posture quantified |
 | ribcage_tissue | tissue | 84 | 0 | - |
 | segment_stiffness | fe | 203 | 57 | - |
@@ -56,31 +56,30 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 | thoracic_rom | fe | 146 | 0 | - |
 
 
-## annulus_tissue (tissue, 218 tasks)
+## annulus_tissue (tissue, 229 tasks)
 
 - Still to assume: stress/strain definitions and rate are stated once at card level (simulate/notes); specimen dimensions come from the test JSON (protocol), not the task
 - No gaps found.
 
-## emg_load_holding (msk, 62 tasks)
+## emg_load_holding (msk, 112 tasks)
 
-- Posture: 28 posture described only (no numeric angle); 34 neutral posture (no angle needed)
+- Posture: 28 posture described only (no numeric angle); 84 neutral posture (no angle needed)
 - Still to assume: segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
 - posture described only (28): g20_asym_lg_t11_l_0, g20_asym_lg_t11_l_30, g20_asym_lg_t11_l_60, g20_asym_lg_t11_l_90, g20_asym_lg_t11_r_0, g20_asym_lg_t11_r_30, g20_asym_lg_t11_r_60, g20_asym_lg_t11_r_90, g20_asym_mf_l4_l_0, g20_asym_mf_l4_l_30, g20_asym_mf_l4_l_60, g20_asym_mf_l4_l_90, g20_asym_mf_l4_r_0, g20_asym_mf_l4_r_30 ...
 - hand load without position (8): gra_eo_0, gra_eo_180, gra_es_0, gra_es_180, gra_io_0, gra_io_180, gra_ra_0, gra_ra_180
 
-## facet_forces (fe, 64 tasks)
+## facet_forces (fe, 65 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
-- ref without n (32): bot_l2l3_axial_rotation, bot_l2l3_extension, bot_l2l3_flexion, bot_l2l3_lateral_bending, bot_l3l4_axial_rotation, bot_l3l4_extension, bot_l3l4_flexion, bot_l3l4_lateral_bending, far_comp, jar_l4l5_ar, jar_l4l5_ext, jar_l4l5_lb, jar_l5s1_ar, jar_l5s1_ext ...
-- preload not stated (14): bot_l2l3_axial_rotation, bot_l2l3_extension, bot_l2l3_flexion, bot_l2l3_lateral_bending, bot_l3l4_axial_rotation, bot_l3l4_extension, bot_l3l4_flexion, bot_l3l4_lateral_bending, sch_peak_flexion, sch_slope_axial_rotation, sch_slope_extension, sch_slope_flexion, sch_slope_lateral_bending_left, sch_slope_lateral_bending_right
+- preload not stated (6): sch_peak_flexion, sch_slope_axial_rotation, sch_slope_extension, sch_slope_flexion, sch_slope_lateral_bending_left, sch_slope_lateral_bending_right
 - no load/moment magnitude (5): sch_slope_axial_rotation, sch_slope_extension, sch_slope_flexion, sch_slope_lateral_bending_left, sch_slope_lateral_bending_right
 - study sample without donor age in the card (see test) (14): botolin2011, farooq2005, ivicsics2014, jaramillo2016, lorenz1983, pollintine2004, popovich2013, rousseau2006, sawa2008, schendel1993, wiseman2005, yangking1984, zhu2008_eas, zhu2008_tekscan
 
-## flexion_relaxation (msk, 84 tasks)
+## flexion_relaxation (msk, 88 tasks)
 
-- Posture: 70 posture quantified (numeric angle); 14 posture described only (no numeric angle)
-- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
-- posture described only (14): desc_cessation_l2_0, desc_cessation_l2_12, desc_cessation_l5_0, desc_cessation_l5_12, desc_onset_l2_0, desc_onset_l2_12, desc_onset_l5_0, desc_onset_l5_12, gupta_cessation_trunk, gupta_cessation_vertebral, gupta_onset_trunk, gupta_onset_vertebral, zwam_onset_incl, zwam_onset_lumbar
+- Posture: 70 posture quantified (numeric angle); 18 posture described only (no numeric angle)
+- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 112 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
+- posture described only (18): desc_cessation_l2_0, desc_cessation_l2_12, desc_cessation_l5_0, desc_cessation_l5_12, desc_onset_l2_0, desc_onset_l2_12, desc_onset_l5_0, desc_onset_l5_12, gupta_cessation_trunk, gupta_cessation_vertebral, gupta_onset_trunk, gupta_onset_vertebral, sarti_cessation_0, sarti_cessation_10 ...
 
 ## idp_invitro (fe, 99 tasks)
 
@@ -100,11 +99,11 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - Still to assume: stress/strain definitions and rate are stated once at card level (simulate/notes); specimen dimensions come from the test JSON (protocol), not the task
 - No gaps found.
 
-## lumbar_idp_invivo (msk, 34 tasks)
+## lumbar_idp_invivo (msk, 36 tasks)
 
-- Posture: 18 posture quantified (numeric angle); 10 posture described only (no numeric angle); 6 neutral posture (no angle needed)
-- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); IDP from compression (P = F/A or Ghezelbash 2016 Eq. 6) and the disc area - given per subject; segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
-- subject entry incomplete (1): schultz1982 (disc_area_mm2)
+- Posture: 20 posture quantified (numeric angle); 10 posture described only (no numeric angle); 6 neutral posture (no angle needed)
+- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 112 kinematics tests (50 lumbopelvic rhythm); IDP from compression (P = F/A or Ghezelbash 2016 Eq. 6) and the disc area - given per subject; segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
+- subject entry incomplete (2): andersson1976 (disc_area_mm2), schultz1982 (disc_area_mm2)
 - posture described only (10): extension, lift_squat, sit_backrest, sit_elbows_thighs, sit_erect, sit_extended_sato, sit_flex_max, sit_flexed_sato, sit_relaxed, sit_slouched
 - dynamic / peak value (static model = approximation) (2): lift_squat, lift_stoop
 
@@ -115,15 +114,15 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - preload not stated (2): acu_denuc_axial_comp, acu_denuc_axial_tension
 - study sample without donor age in the card (see test) (4): cannella2008, heuer2007a, heuer2008, schultz1979
 
-## lumbar_rom (fe, 240 tasks)
+## lumbar_rom (fe, 301 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
-- study sample without donor age in the card (see test) (17): busscher2009, cook2015, gornet2011, guan2007, heuer2007a, heuer2008, kettler2011, oxland1992, panjabi1994, patwardhan2003, renner2007, rohlmann2001a, rohlmann2001s, sawa2008 ...
+- study sample without donor age in the card (see test) (18): busscher2009, cook2015, gornet2011, guan2007, heuer2007a, heuer2008, kettler2011, oxland1992, panjabi1994, patwardhan2003, renner2007, rohlmann2001a, rohlmann2001s, sawa2008 ...
 
 ## maximal_exertions (msk, 137 tasks)
 
 - Posture: 127 neutral posture (no angle needed); 10 posture quantified (numeric angle)
-- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
+- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 112 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
 - subject entry incomplete (3): elouaaid2013 (age), kumar2001 (age, height_cm, weight_kg), mcgill1991 (age, height_cm, weight_kg)
 
 ## ribcage_tissue (tissue, 84 tasks)
@@ -144,7 +143,7 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 ## thoracic_idp_invivo (msk, 32 tasks)
 
 - Posture: 12 neutral posture (no angle needed); 14 posture quantified (numeric angle); 6 posture described only (no numeric angle)
-- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); IDP from compression (P = F/A or Ghezelbash 2016 Eq. 6) and the disc area - given per subject; segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
+- Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 112 kinematics tests (50 lumbopelvic rhythm); IDP from compression (P = F/A or Ghezelbash 2016 Eq. 6) and the disc area - given per subject; segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
 - posture described only (6): elbows90_10kg_lower, elbows90_10kg_mid, latbend20_lower, latbend20_mid, latbend_left_lower, latbend_left_mid
 
 ## thoracic_resection (fe, 161 tasks)

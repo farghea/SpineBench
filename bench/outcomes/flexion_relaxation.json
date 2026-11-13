@@ -53,6 +53,12 @@
    "label": "Flexion-relaxation angle",
    "unit": "deg",
    "definition": "Flexion angle at which back-muscle EMG falls silent (onset, flexing) or returns (cessation, extending)"
+  },
+  {
+   "key": "fr_angle_rel",
+   "label": "FR angle, % of max lumbar flexion",
+   "unit": "%",
+   "definition": "Lumbar (T12-S1) flexion at which back-muscle EMG falls silent (onset) or returns (cessation), as % of maximum lumbar flexion"
   }
  ],
  "subjects": {
@@ -112,6 +118,13 @@
    "age": 25,
    "height_cm": 181,
    "weight_kg": 82
+  },
+  "sarti2001": {
+   "sex": "10 F / 12 M",
+   "age": 21.45,
+   "height_cm": 168.2,
+   "weight_kg": 64.1,
+   "note": "weighted means; F 162.0 cm 56.9 kg, M 173.3 cm 70.0 kg"
   }
  },
  "studies": [
@@ -194,6 +207,15 @@
    "n": 10,
    "sample": "10 healthy males",
    "doi": "10.1016/j.jelekin.2016.05.008",
+   "secondary": false
+  },
+  {
+   "key": "sarti2001",
+   "short": "Sarti 2001",
+   "year": 2001,
+   "n": 22,
+   "sample": "22 fit young adults (10 F, 12 M), paced flexion-extension",
+   "doi": "10.1097/00007632-200109150-00019",
    "secondary": false
   }
  ],
@@ -336,6 +358,17 @@
     "desc_cessation_l5_12",
     "zwam_onset_lumbar",
     "zwam_onset_incl"
+   ],
+   "x": "task"
+  },
+  {
+   "id": "fr_angle_rel",
+   "title": "Silence onset and cessation, % of maximum lumbar flexion",
+   "task_ids": [
+    "sarti_onset_0",
+    "sarti_cessation_0",
+    "sarti_onset_10",
+    "sarti_cessation_10"
    ],
    "x": "task"
   }
@@ -796,7 +829,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -823,7 +856,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -850,7 +883,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -877,7 +910,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -904,7 +937,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -931,7 +964,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -958,7 +991,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -985,7 +1018,7 @@
      "stat": "mean",
      "n": 19,
      "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "caption 10 kg, Methods 6 kg"
+     "note": "10 kg (figure caption, confirmed by the author)"
     }
    ]
   },
@@ -2610,6 +2643,110 @@
      "note": "bilateral mean; caption 10 kg, Methods 6 kg"
     }
    ]
+  },
+  {
+   "id": "sarti_onset_0",
+   "label": "Onset, ES(L3), no load, % max lumbar",
+   "view": "fr_angle_rel",
+   "inputs": {
+    "event": "onset",
+    "angle_def": "lumbar flexion T12-S1, % of maximum",
+    "load": "none",
+    "muscle": "ES(L3)"
+   },
+   "output": "fr_angle_rel",
+   "level": "",
+   "refs": [
+    {
+     "study": "sarti2001",
+     "mean": 84,
+     "sd": 7.5,
+     "min": null,
+     "max": null,
+     "stat": "mean",
+     "n": 22,
+     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+     "note": "Table 2 slow series S (MS); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
+    }
+   ]
+  },
+  {
+   "id": "sarti_cessation_0",
+   "label": "Cessation, ES(L3), no load, % max lumbar",
+   "view": "fr_angle_rel",
+   "inputs": {
+    "event": "cessation",
+    "angle_def": "lumbar flexion T12-S1, % of maximum",
+    "load": "none",
+    "muscle": "ES(L3)"
+   },
+   "output": "fr_angle_rel",
+   "level": "",
+   "refs": [
+    {
+     "study": "sarti2001",
+     "mean": 90,
+     "sd": 1.3,
+     "min": null,
+     "max": null,
+     "stat": "mean",
+     "n": 22,
+     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+     "note": "Table 2 slow series S (MR); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
+    }
+   ]
+  },
+  {
+   "id": "sarti_onset_10",
+   "label": "Onset, ES(L3), 10 kg, % max lumbar",
+   "view": "fr_angle_rel",
+   "inputs": {
+    "event": "onset",
+    "angle_def": "lumbar flexion T12-S1, % of maximum",
+    "load": "10 kg barbell, arms hanging",
+    "muscle": "ES(L3)"
+   },
+   "output": "fr_angle_rel",
+   "level": "",
+   "refs": [
+    {
+     "study": "sarti2001",
+     "mean": 86,
+     "sd": 6.4,
+     "min": null,
+     "max": null,
+     "stat": "mean",
+     "n": 22,
+     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+     "note": "Table 2 slow series Sw (MS); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
+    }
+   ]
+  },
+  {
+   "id": "sarti_cessation_10",
+   "label": "Cessation, ES(L3), 10 kg, % max lumbar",
+   "view": "fr_angle_rel",
+   "inputs": {
+    "event": "cessation",
+    "angle_def": "lumbar flexion T12-S1, % of maximum",
+    "load": "10 kg barbell, arms hanging",
+    "muscle": "ES(L3)"
+   },
+   "output": "fr_angle_rel",
+   "level": "",
+   "refs": [
+    {
+     "study": "sarti2001",
+     "mean": 94,
+     "sd": 1.5,
+     "min": null,
+     "max": null,
+     "stat": "mean",
+     "n": 22,
+     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+     "note": "Table 2 slow series Sw (MR); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
+    }
+   ]
   }
  ],
  "notes": [
@@ -2617,7 +2754,7 @@
   "EMG references differ: max over 6 maximal exertions (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise the model the same way.",
   "Left out: passive moments, FR ratios, EMG timing and full-flexion EMG without an angle."
  ],
- "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task scale the model to the subject of the study in its `studies` (see `subjects`), impose the static posture with flexion_deg measured as angle_def (trunk flexion / inclination = trunk from upright; lumbar flexion = T12-S1 angle change from upright; the two Gupta angles as named), knees straight, and solve for muscle activation. Report activation (%) of the fascicles under the named electrode (LG longissimus, IC iliocostalis, MF multifidus, ES / LES (lumbar) erector spinae, LL longissimus lumborum; level in brackets), left and right averaged. Loads: Ghezelbash 2020 (g20_*): 14 kg in both hands held 0.2 x body height in front of the feet; the angle stands for the load height (18.3° umbilicus, 50.5° mid-femur, 68.1° knee, 92.1° mid-tibia). Ghezelbash 2024 (g24_*): 10 kg in both hands, arms hanging (the paper's Methods say 6 kg). Koopman 2019 (koo19_*): trunk inclination 0/66/93/113/126° with hip flexion -3/25/42/61/70° and lumbar flexion ~0/50/61/66/69°, arms hanging; Koopman 2020b (koo20b_*): lumbar flexion as given, output = mean of iliocostalis and longissimus lumborum. Descarreaux 2008: 12 kg barbell held with elbows at 90°, upper arms along the trunk. Zwambag 2016: no hand load; zwam_onset_incl is the mean over upward cable forces of 0, 22.2, 44.5 and 66.7 N at ~T5. Normalise like the study (emg_ref): Ghezelbash = maximum over six maximal exertions (semi-seated triaxial dynamometer); Shin = maximal extension effort in the same posture (angle-specific MVC); Koopman = supine MVC (McGill 1991). FR angle tasks (fr_angle): sweep flexion quasi-statically in 1° steps from upright to full flexion and back, and report the angle (as angle_def) where the named back muscle's activation first falls to ~0 (< 1 %, onset, flexing) or rises above it again (cessation, extending). Do not tune the model to these data. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there; use null for tasks you cannot simulate.",
+ "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task scale the model to the subject of the study in its `studies` (see `subjects`), impose the static posture with flexion_deg measured as angle_def (trunk flexion / inclination = trunk from upright; lumbar flexion = T12-S1 angle change from upright; the two Gupta angles as named), knees straight, and solve for muscle activation. Report activation (%) of the fascicles under the named electrode (LG longissimus, IC iliocostalis, MF multifidus, ES / LES (lumbar) erector spinae, LL longissimus lumborum; level in brackets), left and right averaged. Loads: Ghezelbash 2020 (g20_*): 14 kg in both hands held 0.2 x body height in front of the feet; the angle stands for the load height (18.3° umbilicus, 50.5° mid-femur, 68.1° knee, 92.1° mid-tibia). Ghezelbash 2024 (g24_*): 10 kg in both hands, arms hanging. Koopman 2019 (koo19_*): trunk inclination 0/66/93/113/126° with hip flexion -3/25/42/61/70° and lumbar flexion ~0/50/61/66/69°, arms hanging; Koopman 2020b (koo20b_*): lumbar flexion as given, output = mean of iliocostalis and longissimus lumborum. Descarreaux 2008: 12 kg barbell held with elbows at 90°, upper arms along the trunk. Zwambag 2016: no hand load; zwam_onset_incl is the mean over upward cable forces of 0, 22.2, 44.5 and 66.7 N at ~T5. Normalise like the study (emg_ref): Ghezelbash = maximum over six maximal exertions (semi-seated triaxial dynamometer); Shin = maximal extension effort in the same posture (angle-specific MVC); Koopman = supine MVC (McGill 1991). FR angle tasks (fr_angle): sweep flexion quasi-statically in 1° steps from upright to full flexion and back, and report the angle (as angle_def) where the named back muscle's activation first falls to ~0 (< 1 %, onset, flexing) or rises above it again (cessation, extending). Sarti 2001 (sarti_*, output fr_angle_rel): same sweep with no load or 10 kg in both hands (arms hanging); report the lumbar (T12-S1) flexion at onset/cessation of the erector spinae under the L3 electrode as % of the model's maximum lumbar flexion. Do not tune the model to these data. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there; use null for tasks you cannot simulate.",
  "answer_format": {
   "g20_lg_t11_18": {
    "emg": "%MVC"
@@ -2870,6 +3007,18 @@
   },
   "g24_io_92": {
    "emg": "%MVC"
+  },
+  "sarti_onset_0": {
+   "fr_angle_rel": "%"
+  },
+  "sarti_cessation_0": {
+   "fr_angle_rel": "%"
+  },
+  "sarti_onset_10": {
+   "fr_angle_rel": "%"
+  },
+  "sarti_cessation_10": {
+   "fr_angle_rel": "%"
   }
  }
 }

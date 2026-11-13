@@ -1,0 +1,155 @@
+{
+ "id": "fe_facet.pollintine2004.lumbar_FSU_neural_arch_load_share",
+ "title": "Neural-arch share of 2 kN compression by disc degeneration grade, erect (2 deg extension) and flexed",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet load share",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact FSUs after 2 h creep at 2 kN, grouped by disc degeneration grade (1 = non-degenerated)",
+ "quantity": {
+  "name": "neural-arch load share",
+  "definition": "compressive force on the neural arch = 2 kN - force on the disc (integrated, calibrated stress profile), as % of 2 kN; mean +- SD per degeneration grade",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Pollintine 2004",
+  "authors": "Pollintine P, Dolan P, Tobias JH, Adams MA",
+  "year": 2004,
+  "journal": "Spine 29(7):774-782",
+  "doi": "10.1097/01.brs.0000119401.23006.d2",
+  "n": 23,
+  "sample": "23 lumbar FSUs with pre- and post-creep profiles (of 33 tested from 25 cadaveric spines: 3 L1-L2, 12 L2-L3, 2 L3-L4, 15 L4-L5, 1 L5-S1); grade 1 n=6, grade 2 n=7, grade 3 n=4, grade 4 n=6",
+  "age": "whole sample 19-82 (mean 50, SD 19); not given per grade",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "FSUs in dental-stone cups on a hydraulic testing machine (rollers; no imposed axis; small horizontal settling allowed); disc midplane horizontal. 2-h creep at 2 kN, then 2 kN static compression for 20 s while a pressure transducer is pulled through the disc (stress profilometry), in 2 deg extension (erect standing) and 6-12 deg flexion (forward bending, depending on specimen mobility). Disc force from integrated vertical stress, calibrated per disc against the pre-creep neutral profile.",
+  "how_to_simulate": [
+   "Model a lumbar FSU (L2-L3 or L4-L5) with a non-degenerated disc; reduce disc height/water as after 2 h of 2 kN creep if the model allows",
+   "Erect: rotate to 2 deg extension, then apply 2 kN compression normal to the disc midplane",
+   "Flexed: rotate to 6-12 deg flexion (end of compliant range), then apply 2 kN",
+   "Report force on the neural arch (2 kN - disc force) as % of 2 kN"
+  ],
+  "subject_model": null,
+  "notes": "Card uses grade 1 (non-degenerated, n=6), as in the Ghezelbash 2020 review. Anterior/posterior vertebral-body shares (Table 1) and age trends (Figs 3-4) not extracted."
+ },
+ "data": [
+  {
+   "x": "erect (2 deg extension)",
+   "load": "2 kN compression",
+   "mean": 8,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "grade": 1
+  },
+  {
+   "x": "erect (2 deg extension)",
+   "load": "2 kN compression",
+   "mean": 9,
+   "sd": 8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "grade": 2
+  },
+  {
+   "x": "erect (2 deg extension)",
+   "load": "2 kN compression",
+   "mean": 15,
+   "sd": 10,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "grade": 3
+  },
+  {
+   "x": "erect (2 deg extension)",
+   "load": "2 kN compression",
+   "mean": 40,
+   "sd": 16,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "grade": 4
+  },
+  {
+   "x": "flexed (6-12 deg)",
+   "load": "2 kN compression",
+   "mean": 2,
+   "sd": 3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "grade": 1
+  },
+  {
+   "x": "flexed (6-12 deg)",
+   "load": "2 kN compression",
+   "mean": 3,
+   "sd": 2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "grade": 2
+  },
+  {
+   "x": "flexed (6-12 deg)",
+   "load": "2 kN compression",
+   "mean": 1,
+   "sd": 2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 4,
+   "grade": 3
+  },
+  {
+   "x": "flexed (6-12 deg)",
+   "load": "2 kN compression",
+   "mean": 3,
+   "sd": 6,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6,
+   "grade": 4
+  }
+ ],
+ "extraction": {
+  "from": "Table 1, p778",
+  "method": "table",
+  "uncertainty": "exact (table, integer %)",
+  "checked": true,
+  "check_notes": "Review values 8+/-6 (extension) and 2+/-3 (flexion) = grade 1 discs (n=6), after creep; confirmed. Review did not state the grade or n."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD (grade matching the model's disc)"
+ },
+ "combine_group": "fe_facet__facet_load_share__lumbar_fsu__intact__2kn_posture",
+ "supersedes": "fe_facet.ghezelbash2020b.lumbar_pollintine2004_facet_load_share_secondary",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "neural arch",
+  "stress profilometry",
+  "human"
+ ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "passive_tissue.skaggs1994.AF_lamella_fibre_stress_strain_typical_fit",
+  "title": "Skaggs 1994 single-lamella AF, tension along the fibres: typical stress-strain curve (best-fit cubic, Fig 6)",
+  "layer": "property",
+  "category": "passive_tissue",
+  "subcategory": "annulus",
+  "region": "lumbar",
+  "levels": [
+    "L2-L3"
+  ],
+  "condition": "non-degenerate (Thompson grade I-II)",
+  "quantity": {
+    "name": "stress-strain curve",
+    "definition": "engineering stress (force / undeformed gauge cross-section after equilibration in 0.15 M NaCl) vs gauge-mark engineering strain, single lamella loaded along its fibres; EVALUATED by extractor from the best-fit cubic of the typical specimen given in the Fig 6 caption, sigma = 5.7 e + 6532 e^3 (MPa), from 0 to the failure strain e_f = 0.056 (sigma_f = 1.5 MPa)",
+    "unit": "MPa"
+  },
+  "source": {
+    "short": "Skaggs 1994",
+    "authors": "Skaggs DL, Weidenbaum M, Iatridis JC, Ratcliffe A, Mow VC",
+    "year": 1994,
+    "journal": "Spine 19(12):1310-1319",
+    "doi": "10.1097/00007632-199406000-00002",
+    "n": 59,
+    "sample": "59 dumbbell single-lamella specimens (gauge 2.90 x 1.51 x 0.63 mm) from 13 L2-L3 discs, grade I-II, autopsy within 24 h (AO, AI, PO, PI); curve = one typical specimen (region not stated)",
+    "age": "not reported",
+    "sex": "not reported",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "Single lamellae dissected microsurgically (verified by polarised light), dumbbell die aligned with the fibres (30 or 150 deg to the transverse plane); ends on polishing paper in spring-loaded jaws; 0.15 M NaCl bath, room temperature (hydration ~83%); preconditioning 10 cycles to 0.05 N at 0.4 Hz; tare ~0.1 N with 15 min relaxation; stretched to failure at 0.00009 /s (~20 min); strain from gauge marks by video dimension analyser (Methods, p.1312-1313).",
+    "how_to_simulate": [
+      "Model a single AF lamella strip (gauge ~2.9 x 1.5 x 0.63 mm) with the fibres along the load axis",
+      "Start from the tare-load state (~0.1 N) and stretch quasi-statically (0.00009 /s) along the fibres",
+      "Report nominal stress (force / undeformed cross-section) vs gauge strain from 0 to 5.6%"
+    ],
+    "subject_model": null,
+    "notes": "Regional tangent moduli at 0.75 e_f (Fig 7: AO 136+-50, PO 82+-43, AI 76+-50, PI 59+-41 MPa, n=36 specimens from 9 spines) and failure stress/strain by region (Table 1) are reported but not extracted here: the annulus card holds stress-strain curves only. Fit check: tangent at 0.75 e_f = 5.7 + 3*6532*0.042^2 = 40.3 MPa, matching E = 40 MPa in Fig 6; fit at e_f = 1.47 MPa vs sigma_f = 1.5 MPa."
+  },
+  "data": [
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0,
+      "load": "",
+      "mean": 0.0,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.01,
+      "load": "",
+      "mean": 0.064,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.02,
+      "load": "",
+      "mean": 0.166,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.03,
+      "load": "",
+      "mean": 0.347,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.04,
+      "load": "",
+      "mean": 0.646,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.05,
+      "load": "",
+      "mean": 1.102,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    },
+    {
+      "x": "best-fit cubic of typical specimen",
+      "x_value": 0.056,
+      "load": "",
+      "mean": 1.466,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 1
+    }
+  ],
+  "extraction": {
+    "from": "Fig 6 caption (cubic coefficients), PDF p.5 (journal p.1313)",
+    "method": "text",
+    "uncertainty": "fit curve, exact from coefficients; fit deviates from the plotted experimental points by up to ~0.1 MPa (visual)",
+    "checked": true,
+    "check_notes": "Coefficients re-read from the 200 dpi page image (sigma = 5.7e + 6532e^3); evaluated curve compared against the Fig 6 triangles (e.g. ~0.65 MPa at e=0.04, ~1.5 MPa at e=0.056)."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "model curve within the band of single-lamella curves over the tested range"
+  },
+  "combine_group": "passive_tissue__stress_strain_curve__af_lamella__human_nondegen__uniaxial_fibre",
+  "tags": [
+    "human",
+    "in vitro",
+    "annulus",
+    "lumbar",
+    "curve",
+    "derived",
+    "quasi-static",
+    "single lamella"
+  ],
+  "curve": {
+    "x_name": "engineering strain",
+    "x_unit": "-",
+    "y_name": "engineering stress",
+    "y_unit": "MPa"
+  }
+}

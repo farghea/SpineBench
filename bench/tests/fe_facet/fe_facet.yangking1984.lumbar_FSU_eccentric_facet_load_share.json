@@ -1,0 +1,119 @@
+{
+ "id": "fe_facet.yangking1984.lumbar_FSU_eccentric_facet_load_share",
+ "title": "Facet load share (% of applied compression) in lumbar FSUs, 1112 N centric and 10 mm eccentric",
+ "layer": "outcome",
+ "category": "fe_facet",
+ "subcategory": "facet load share",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "intact posterior elements; intervertebral load cell (IVLC) in a slot cut in the vertebral body, anterior longitudinal ligament cut",
+ "quantity": {
+  "name": "facet load share",
+  "definition": "facet load = applied axial load - IVLC (disc) load, as % of applied load, at 1112 N peak; includes any posterior-ligament contribution; mean, SD, min/max over specimens (Table 3, two-vertebrae segments)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Yang & King 1984",
+  "authors": "Yang KH, King AI",
+  "year": 1984,
+  "journal": "Spine 9(6):557-565",
+  "doi": "10.1097/00007632-198409000-00005",
+  "n": 6,
+  "sample": "6 two-vertebrae lumbar segments (L1-L2 x2, L3-L4 x1, L4-L5 x3) from 4 cadavers (specimens 3, 6, 7, 8 of Table 1); Galante disc grade 2-3 where reported",
+  "age": "46, 47, 60, 65 (donors of Table 3)",
+  "sex": "3 M, 1 F (donors of Table 3)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Segments potted in Ostalloy (end surfaces parallel) and loaded in an Instron through a 750-mm plate with a semicircular loading head, symmetric about the mid-sagittal plane; lower support on an adjustable table to set eccentricity (measured from the centre of the vertebral body; 10 mm anterior to 12.5 mm posterior). Ramp compression 93 N/s to 1112 N, unloading 93 N/s, 5 min rest between cycles. Test repeated after inserting a 12-mm, 38-mm-diameter IVLC into a slot in the lower vertebral body (ALL cut); facet load = applied - IVLC load.",
+  "how_to_simulate": [
+   "Model a two-vertebrae lumbar FSU (L1-L2, L3-L4 or L4-L5); fix the caudal vertebra, leave the cranial end free to settle",
+   "Apply 1112 N vertical compression through the vertebral-body centre, or 10 mm anterior / 10 mm posterior to it",
+   "Report total facet (posterior-element) force normal to the disc as % of the applied load"
+  ],
+  "subject_model": null,
+  "notes": "Two-vertebrae data only (Table 3). Three-vertebrae segment data (Table 4, 2.5-mm eccentricity steps, two degenerated L3-L5 specimens) and isolated-facet stiffness are outside the card scope. Specimen 3 is marked 'facet joint test only' in Table 1 but appears in Table 3 (as printed)."
+ },
+ "data": [
+  {
+   "x": "anterior 10 mm",
+   "load": "1112 N compression, 10 mm anterior",
+   "mean": 22.27,
+   "sd": 2.42,
+   "min": 19.91,
+   "max": 24.95,
+   "median": null,
+   "n": 5,
+   "per_specimen": [
+    19.91,
+    null,
+    20.14,
+    24.95,
+    21.67,
+    24.67
+   ],
+   "note": "specimen 6 L1-L2 not available (instrumentation)"
+  },
+  {
+   "x": "centre",
+   "load": "1112 N compression, vertebral-body centre",
+   "mean": 25.13,
+   "sd": 5.05,
+   "min": 16.08,
+   "max": 29.67,
+   "median": null,
+   "n": 6,
+   "per_specimen": [
+    16.08,
+    26.98,
+    23.38,
+    29.67,
+    29.45,
+    25.19
+   ]
+  },
+  {
+   "x": "posterior 10 mm",
+   "load": "1112 N compression, 10 mm posterior",
+   "mean": 30.4,
+   "sd": 7.11,
+   "min": 21.24,
+   "max": 40.47,
+   "median": null,
+   "n": 6,
+   "per_specimen": [
+    23.75,
+    21.24,
+    32.37,
+    34.73,
+    40.47,
+    29.84
+   ]
+  }
+ ],
+ "extraction": {
+  "from": "Table 3, p562 (also Table 1 for donors)",
+  "method": "table",
+  "uncertainty": "exact (table)",
+  "checked": true,
+  "check_notes": "Scanned PDF read at 250 dpi. Review values 25.1+/-5.0, 22.3+/-2.4 confirmed; review posterior SD 7.0 -> 7.11 (Table 3). Review load '1.1 kN' = 1112 N. per_specimen order: 3 L3-L4, 6 L1-L2, 6 L4-L5, 7 L1-L2, 7 L4-L5, 8 L4-L5."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_facet__facet_load_share__lumbar_fsu__intact__1112n_eccentric",
+ "supersedes": "fe_facet.ghezelbash2020b.lumbar_yangking1984_facet_load_share_secondary",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "facet",
+  "load cell",
+  "human"
+ ]
+}
