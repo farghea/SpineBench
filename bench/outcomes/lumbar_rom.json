@@ -13,11 +13,11 @@
   ],
   "summary": "Apply pure moments, with a preload where listed, to intact lumbar specimens and report the rotation of each segment or the whole specimen.",
   "simulate": [
-    "Build the intact ligamentous specimen named in the task (FSU, or multi-level L1-S1 / L1-L5 / L1-L4); fix the caudal vertebra (sacrum).",
-    "Apply a pure moment to the cranial vertebra in the task direction; leave the other 5 DOF free.",
+    "Build the intact ligamentous specimen of the simulation (FSU at each listed level, or the multi-level L1-S1 / L1-L5 / L1-L4 specimen); fix the caudal vertebra (sacrum).",
+    "Apply a pure moment to the cranial vertebra in the simulation's direction and sweep it over the listed moments (or sweep the follower load at 8/6 Nm); other 5 DOF free.",
     "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force. Panjabi 1994 tasks: 100 N compression kept along the specimen axis during bending (model it as a follower load or an axial load that rotates with the top vertebra).",
-    "Report rotation of each upper vertebra relative to the one below (segmental) and of the cranial end relative to the caudal end (total), at peak moment, loading branch.",
-    "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
+    "One-direction simulations: neutral to peak. \"L+R\" and \"Flexion+extension\": sum of both directions (full range) at each moment.",
+    "Report every listed output (segmental ROM per level, total ROM, neutral zone) as one curve over the sweep, loading branch."
   ],
   "inputs": [
     {
@@ -76,7 +76,8 @@
       "n": 9,
       "sample": "9 L1-S1/L2-S1 spines, 100 N axial preload",
       "doi": "10.2106/00004623-199403000-00012",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments in 4 steps to 10 N·m (FE, LB, AR); 100 N axial preload; 3 cycles, 30 s creep per step; L1-S1/L2-S1 spines"
     },
     {
       "key": "guan2007",
@@ -85,7 +86,8 @@
       "n": 10,
       "sample": "10 T12-S1 ligamentous columns, to 4 Nm",
       "doi": "10.1016/j.jbiomech.2006.09.027",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, quasi-static pure moments to 4 N·m (flexion, extension, LB; no AR); no preload; 30 s relaxation per step; T12-S1 columns"
     },
     {
       "key": "cook2015",
@@ -94,7 +96,8 @@
       "n": 42,
       "sample": "42 L1-S1 spines, 204 FSUs, split by sex",
       "doi": "10.14444/2005",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, sinusoidal pure moments ±7.5 N·m at 0.005 Hz (FE, LB, AR); no preload; 3 cycles, 3rd analysed; L1-S1 spines"
     },
     {
       "key": "renner2007",
@@ -103,7 +106,8 @@
       "n": 10,
       "sample": "10 L1-S1 spines, 0 and 800 N follower",
       "doi": "10.1016/j.jbiomech.2006.05.019",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, moments 8 N·m flex / 6 N·m ext (0 or 800 N follower), ±6 N·m LB and ±4 N·m AR (no preload); L1-S1 spines"
     },
     {
       "key": "patwardhan2003",
@@ -112,7 +116,8 @@
       "n": 21,
       "sample": "21 L1-S1 spines, follower 0-1200 N",
       "doi": "10.1016/S0736-0266(02)00202-4",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, continuous FE cycling 8 N·m flexion / 6 N·m extension (~2-3 N·m/min); follower preload 0-1200 N; L1-S1 spines"
     },
     {
       "key": "wilke2025",
@@ -121,7 +126,8 @@
       "n": 596,
       "sample": "Ulm database, 596 intact lumbar FSUs (T12-S1)",
       "doi": "10.1002/jsp2.70052",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±7.5 N·m (FE, LB, AR) at 0.5-1°/s; no preload; 3.5 cycles, 3rd evaluated; lumbar FSUs T12-S1"
     },
     {
       "key": "heuer2007a",
@@ -130,7 +136,8 @@
       "n": 8,
       "sample": "8 L4-L5 FSUs, low degeneration",
       "doi": "10.1016/j.jbiomech.2006.01.007",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments 1-10 N·m (FE, LB, AR) at 1°/s; no preload (500 N for 15 min beforehand); 2.5 cycles, last evaluated; L4-L5 FSUs"
     },
     {
       "key": "heuer2008",
@@ -139,7 +146,8 @@
       "n": 6,
       "sample": "6 L2-L3 FSUs, same donors as Heuer 2007a",
       "doi": "10.1016/j.jbiomech.2008.03.023",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments to 7.5 N·m (FE, LB, AR); no preload (500 N for 15 min beforehand); 2nd cycle evaluated; L2-L3 FSUs"
     },
     {
       "key": "sawa2008",
@@ -148,7 +156,8 @@
       "n": 6,
       "sample": "6 T12-L2 specimens, L1-L2 rotation",
       "doi": "10.1016/j.jbiomech.2008.06.010",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments in 1.5 N·m steps to 7.5 N·m (FE, LB, AR), 45 s hold per step; no preload; 3 preconditioning cycles; T12-L2"
     },
     {
       "key": "schultz1979",
@@ -157,7 +166,8 @@
       "n": 42,
       "sample": "42 lumbar FSUs (L1-L5 pooled), 400 N axial",
       "doi": "10.1115/1.3426223",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, static moments 10.6 N·m by weights (FE, LB, AR), read 15 s after each step; 400 N axial preload; lumbar FSUs"
     },
     {
       "key": "kettler2011",
@@ -166,7 +176,8 @@
       "n": 96,
       "sample": "96 grade-0 segments (of 203), L1-L5 pooled",
       "doi": "10.1007/s00586-010-1635-z",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±7.5 N·m (FE, LB, AR); no preload; 3rd cycle evaluated; lumbar FSUs L1-L5 (pooled)"
     },
     {
       "key": "oxland1992",
@@ -175,7 +186,8 @@
       "n": 11,
       "sample": "11 T11-L1 specimens, T12-L1 level",
       "doi": "10.1002/jor.1100100412",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments in 4 steps to 7.5 N·m (FE, LB, AR); no preload; 3 cycles, 30 s creep per step; T11-L1 specimens"
     },
     {
       "key": "rohlmann2001a",
@@ -184,7 +196,8 @@
       "n": 7,
       "sample": "7 four-segment spines (L1-L5 or T12-L4)",
       "doi": "10.1007/s005860100295",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±3.75 N·m (FE, LB, AR) at 1.7°/s; no preload; 3 cycles, 3rd evaluated; 4-segment L1-L5 / T12-L4 spines"
     },
     {
       "key": "gornet2011",
@@ -193,7 +206,8 @@
       "n": 5,
       "sample": "5 L1-S1 spines, L4-L5, 450 N follower",
       "doi": "10.1115/1.4004862",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, FE moments 8 N·m flexion / 6 N·m extension with 450 N follower preload, continuous cycling; L1-S1 spines (L4-L5)"
     },
     {
       "key": "busscher2009",
@@ -202,7 +216,8 @@
       "n": 6,
       "sample": "6 male L1-L4 segments, middle level L2-L3, 4 Nm",
       "doi": "10.1097/BRS.0b013e3181b4c75d",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control at 0.5°/s, reversed at ±4 N·m (FE, LB, AR); no preload (250 N for 1 h beforehand); 3rd of 3 cycles; L1-L4"
     },
     {
       "key": "stanley2004",
@@ -211,7 +226,18 @@
       "n": 7,
       "sample": "7 T2-sacrum spines, L1-S1 region, 0-800 N follower",
       "doi": "10.1097/01.brs.0000145417.94357.39",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, FE moments 8 N·m flexion / 6 N·m extension, continuous cycling; follower preload 0-800 N; T2-sacrum spines (L1-S1)"
+    },
+    {
+      "key": "rohlmann2001s",
+      "short": "Rohlmann 2001 (Spine)",
+      "year": 2001,
+      "n": 10,
+      "sample": "10 L1-L5 specimens; median and range, via Dreischarf 2014 Fig 2",
+      "doi": "10.1097/00007632-200112150-00014",
+      "secondary": true,
+      "loading": "Pure moments to 7.5 N·m in each plane, no preload (the follower-load runs are not used here); L1-L5 specimens, sacrum fixed (via Dreischarf 2014)"
     }
   ],
   "shared": [
@@ -295,7 +321,17 @@
         "L3L4_flex_4",
         "L5S1_flex_1",
         "L5S1_flex_2p5",
-        "L5S1_flex_4"
+        "L5S1_flex_4",
+        "rohl_flexion_1",
+        "rohl_flexion_1p5",
+        "rohl_flexion_2",
+        "rohl_flexion_2p5",
+        "rohl_flexion_3",
+        "rohl_flexion_4",
+        "rohl_flexion_5",
+        "rohl_flexion_6",
+        "rohl_flexion_7",
+        "rohl_flexion_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -304,7 +340,18 @@
         "L1-L5 / T12-L4": "L1–L5 whole (or T12–L4)",
         "L1-L2..L4-L5 pooled": "L1–L5, levels pooled",
         "L1-S1": "L1–S1 whole"
-      }
+      },
+      "models": [
+        {
+          "test_id": "fe_model_comparison.dreischarf2014.L1L5_rom_vs_moment_models",
+          "x": "moment_Nm",
+          "where": {
+            "x": "flexion"
+          },
+          "panel": "L1-L5 / T12-L4",
+          "label": "Published FE models (Dreischarf 2014, 8 models)"
+        }
+      ]
     },
     {
       "id": "fig_ext",
@@ -352,7 +399,17 @@
         "L3L4_ext_4",
         "L5S1_ext_1",
         "L5S1_ext_2p5",
-        "L5S1_ext_4"
+        "L5S1_ext_4",
+        "rohl_extension_1",
+        "rohl_extension_1p5",
+        "rohl_extension_2",
+        "rohl_extension_2p5",
+        "rohl_extension_3",
+        "rohl_extension_4",
+        "rohl_extension_5",
+        "rohl_extension_6",
+        "rohl_extension_7",
+        "rohl_extension_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -361,7 +418,18 @@
         "L1-L5 / T12-L4": "L1–L5 whole (or T12–L4)",
         "L1-L2..L4-L5 pooled": "L1–L5, levels pooled",
         "L1-S1": "L1–S1 whole"
-      }
+      },
+      "models": [
+        {
+          "test_id": "fe_model_comparison.dreischarf2014.L1L5_rom_vs_moment_models",
+          "x": "moment_Nm",
+          "where": {
+            "x": "extension"
+          },
+          "panel": "L1-L5 / T12-L4",
+          "label": "Published FE models (Dreischarf 2014, 8 models)"
+        }
+      ]
     },
     {
       "id": "rom_moment_lb_ar",
@@ -410,7 +478,17 @@
         "L3L4_lb_4",
         "L5S1_lb_1",
         "L5S1_lb_2p5",
-        "L5S1_lb_4"
+        "L5S1_lb_4",
+        "rohl_lateral_bending_1",
+        "rohl_lateral_bending_1p5",
+        "rohl_lateral_bending_2",
+        "rohl_lateral_bending_2p5",
+        "rohl_lateral_bending_3",
+        "rohl_lateral_bending_4",
+        "rohl_lateral_bending_5",
+        "rohl_lateral_bending_6",
+        "rohl_lateral_bending_7",
+        "rohl_lateral_bending_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -419,7 +497,18 @@
         "L1-L5 / T12-L4": "L1–L5 whole (or T12–L4)",
         "L1-L2..L4-L5 pooled": "L1–L5, levels pooled",
         "L1-S1": "L1–S1 whole"
-      }
+      },
+      "models": [
+        {
+          "test_id": "fe_model_comparison.dreischarf2014.L1L5_rom_vs_moment_models",
+          "x": "moment_Nm",
+          "where": {
+            "x": "lateral_bending"
+          },
+          "panel": "L1-L5 / T12-L4",
+          "label": "Published FE models (Dreischarf 2014, 8 models)"
+        }
+      ]
     },
     {
       "id": "fig_ar",
@@ -458,7 +547,17 @@
         "L3L4_ar_10_ax100",
         "L5S1_ar_2p5_ax100",
         "L5S1_ar_5_ax100",
-        "L5S1_ar_10_ax100"
+        "L5S1_ar_10_ax100",
+        "rohl_axial_rotation_1",
+        "rohl_axial_rotation_1p5",
+        "rohl_axial_rotation_2",
+        "rohl_axial_rotation_2p5",
+        "rohl_axial_rotation_3",
+        "rohl_axial_rotation_4",
+        "rohl_axial_rotation_5",
+        "rohl_axial_rotation_6",
+        "rohl_axial_rotation_7",
+        "rohl_axial_rotation_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -467,7 +566,18 @@
         "L1-L5 / T12-L4": "L1–L5 whole (or T12–L4)",
         "L1-L2..L4-L5 pooled": "L1–L5, levels pooled",
         "L1-S1": "L1–S1 whole"
-      }
+      },
+      "models": [
+        {
+          "test_id": "fe_model_comparison.dreischarf2014.L1L5_rom_vs_moment_models",
+          "x": "moment_Nm",
+          "where": {
+            "x": "axial_rotation"
+          },
+          "panel": "L1-L5 / T12-L4",
+          "label": "Published FE models (Dreischarf 2014, 8 models)"
+        }
+      ]
     },
     {
       "id": "fig_fe_full",
@@ -484,7 +594,8 @@
         "L4L5_fe_7p5",
         "L5S1_fe_7p5",
         "L1L5pooled_fe_7p5",
-        "L2L3_fe_4"
+        "L2L3_fe_4",
+        "rohl_flexion_extension_total_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -511,7 +622,8 @@
         "L5S1_lbr_7p5",
         "L1L5pooled_lbr_7p5",
         "L1S1_lbr_6",
-        "L2L3_lbr_4"
+        "L2L3_lbr_4",
+        "rohl_lateral_bending_total_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -538,7 +650,8 @@
         "L5S1_arr_7p5",
         "L1L5pooled_arr_7p5",
         "L1S1_arr_4",
-        "L2L3_arr_4"
+        "L2L3_arr_4",
+        "rohl_axial_rotation_total_7p5"
       ],
       "legend_inputs": [
         "axial_n"
@@ -582,134 +695,25 @@
       }
     },
     {
-      "id": "seg_7p5",
-      "title": "One direction, per level",
-      "task_ids": [
-        "T12L1_flex_7p5",
-        "T12L1_ext_7p5",
-        "T12L1_lb_7p5",
-        "T12L1_ar_7p5",
-        "L1L2_lb_7p5",
-        "L1L2_ar_7p5",
-        "L2L3_flex_7p5",
-        "L2L3_ext_7p5",
-        "L2L3_lb_7p5",
-        "L2L3_ar_7p5",
-        "L4L5_flex_7p5",
-        "L4L5_ext_7p5",
-        "L4L5_lb_7p5",
-        "L4L5_ar_7p5",
-        "L1L5pooled_flex_10p6_ax400",
-        "L1L5pooled_ext_10p6_ax400",
-        "L1L5pooled_lb_10p6_ax400",
-        "L1L5pooled_ar_10p6_ax400"
-      ],
+      "id": "nz",
+      "group": "Neutral zone",
+      "title": "Neutral zone (7.5 Nm, full range)",
       "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "seg_full",
-      "title": "Both directions (7.5 Nm)",
       "task_ids": [
-        "T12L1_fe_7p5",
-        "T12L1_lbr_7p5",
-        "T12L1_arr_7p5",
-        "L1L2_fe_7p5",
-        "L1L2_lbr_7p5",
-        "L1L2_arr_7p5",
-        "L2L3_fe_7p5",
-        "L2L3_lbr_7p5",
-        "L2L3_arr_7p5",
-        "L3L4_fe_7p5",
-        "L3L4_lbr_7p5",
-        "L3L4_arr_7p5",
-        "L4L5_fe_7p5",
-        "L4L5_lbr_7p5",
-        "L4L5_arr_7p5",
-        "L5S1_fe_7p5",
-        "L5S1_lbr_7p5",
-        "L5S1_arr_7p5",
-        "L1L5pooled_fe_7p5",
-        "L1L5pooled_lbr_7p5",
-        "L1L5pooled_arr_7p5",
         "L4L5_fe_7p5_nz",
         "L4L5_lbr_7p5_nz",
         "L4L5_arr_7p5_nz",
         "L1L5pooled_fe_7p5_nz",
         "L1L5pooled_lbr_7p5_nz",
         "L1L5pooled_arr_7p5_nz"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "ax100_seg",
-      "title": "One direction, 100 N preload",
-      "task_ids": [
-        "L1L2_flex_7p5_ax100",
-        "L1L2_ext_7p5_ax100",
-        "L1L2_lb_7p5_ax100",
-        "L1L2_ar_7p5_ax100",
-        "L2L3_flex_7p5_ax100",
-        "L2L3_ext_7p5_ax100",
-        "L2L3_lb_7p5_ax100",
-        "L2L3_ar_7p5_ax100",
-        "L3L4_flex_7p5_ax100",
-        "L3L4_ext_7p5_ax100",
-        "L3L4_lb_7p5_ax100",
-        "L3L4_ar_7p5_ax100",
-        "L4L5_flex_7p5_ax100",
-        "L4L5_ext_7p5_ax100",
-        "L4L5_lb_7p5_ax100",
-        "L4L5_ar_7p5_ax100",
-        "L5S1_flex_7p5_ax100",
-        "L5S1_ext_7p5_ax100",
-        "L5S1_lb_7p5_ax100",
-        "L5S1_ar_7p5_ax100"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "seg_4nm",
-      "title": "Both directions (4 Nm)",
-      "task_ids": [
-        "L2L3_fe_4",
-        "L2L3_lbr_4",
-        "L2L3_arr_4"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "total",
-      "title": "Whole specimen, both directions",
-      "task_ids": [
-        "L1S1_fe_8_6",
-        "L1S1_lbr_6",
-        "L1S1_arr_4"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "total_one",
-      "title": "Whole specimen, one direction",
-      "task_ids": [
-        "4seg_flex_3p75",
-        "4seg_ext_3p75",
-        "4seg_lb_3p75",
-        "4seg_ar_3p75"
-      ],
-      "x": "task",
-      "group": "At one moment"
+      ]
     }
   ],
   "tasks": [
     {
       "id": "T12L1_flex_7p5",
       "label": "T12-L1 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -737,7 +741,7 @@
     {
       "id": "T12L1_ext_7p5",
       "label": "T12-L1 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ext",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -765,7 +769,7 @@
     {
       "id": "T12L1_lb_7p5",
       "label": "T12-L1 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -793,7 +797,7 @@
     {
       "id": "T12L1_ar_7p5",
       "label": "T12-L1 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ar",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -821,7 +825,7 @@
     {
       "id": "T12L1_fe_7p5",
       "label": "T12-L1 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -850,7 +854,7 @@
     {
       "id": "T12L1_lbr_7p5",
       "label": "T12-L1 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -879,7 +883,7 @@
     {
       "id": "T12L1_arr_7p5",
       "label": "T12-L1 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "T12-L1",
         "specimen": "FSU",
@@ -908,7 +912,7 @@
     {
       "id": "L1L2_lb_7p5",
       "label": "L1-L2 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L1-L2",
         "specimen": "FSU",
@@ -936,7 +940,7 @@
     {
       "id": "L1L2_ar_7p5",
       "label": "L1-L2 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ar",
       "inputs": {
         "level": "L1-L2",
         "specimen": "FSU",
@@ -964,7 +968,7 @@
     {
       "id": "L1L2_fe_7p5",
       "label": "L1-L2 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L1-L2",
         "specimen": "FSU",
@@ -1036,7 +1040,7 @@
     {
       "id": "L1L2_lbr_7p5",
       "label": "L1-L2 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L1-L2",
         "specimen": "FSU",
@@ -1087,7 +1091,7 @@
     {
       "id": "L1L2_arr_7p5",
       "label": "L1-L2 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L1-L2",
         "specimen": "FSU",
@@ -1138,7 +1142,7 @@
     {
       "id": "L2L3_flex_7p5",
       "label": "L2-L3 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1167,7 +1171,7 @@
     {
       "id": "L2L3_ext_7p5",
       "label": "L2-L3 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ext",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1196,7 +1200,7 @@
     {
       "id": "L2L3_lb_7p5",
       "label": "L2-L3 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1225,7 +1229,7 @@
     {
       "id": "L2L3_ar_7p5",
       "label": "L2-L3 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ar",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1254,7 +1258,7 @@
     {
       "id": "L2L3_fe_7p5",
       "label": "L2-L3 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1305,7 +1309,7 @@
     {
       "id": "L2L3_lbr_7p5",
       "label": "L2-L3 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1356,7 +1360,7 @@
     {
       "id": "L2L3_arr_7p5",
       "label": "L2-L3 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "FSU",
@@ -1407,7 +1411,7 @@
     {
       "id": "L3L4_fe_7p5",
       "label": "L3-L4 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L3-L4",
         "specimen": "FSU",
@@ -1458,7 +1462,7 @@
     {
       "id": "L3L4_lbr_7p5",
       "label": "L3-L4 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L3-L4",
         "specimen": "FSU",
@@ -1509,7 +1513,7 @@
     {
       "id": "L3L4_arr_7p5",
       "label": "L3-L4 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L3-L4",
         "specimen": "FSU",
@@ -1560,7 +1564,7 @@
     {
       "id": "L4L5_flex_7p5",
       "label": "L4-L5 · Flexion · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1589,7 +1593,7 @@
     {
       "id": "L4L5_ext_7p5",
       "label": "L4-L5 · Extension · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ext",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1618,7 +1622,7 @@
     {
       "id": "L4L5_lb_7p5",
       "label": "L4-L5 · Lateral bending · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1647,7 +1651,7 @@
     {
       "id": "L4L5_ar_7p5",
       "label": "L4-L5 · Axial rotation · 7.5 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ar",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1676,7 +1680,7 @@
     {
       "id": "L4L5_fe_7p5",
       "label": "L4-L5 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1759,7 +1763,7 @@
     {
       "id": "L4L5_lbr_7p5",
       "label": "L4-L5 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1842,7 +1846,7 @@
     {
       "id": "L4L5_arr_7p5",
       "label": "L4-L5 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -1925,7 +1929,7 @@
     {
       "id": "L5S1_fe_7p5",
       "label": "L5-S1 · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L5-S1",
         "specimen": "FSU",
@@ -1976,7 +1980,7 @@
     {
       "id": "L5S1_lbr_7p5",
       "label": "L5-S1 · Lateral bending L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L5-S1",
         "specimen": "FSU",
@@ -2027,7 +2031,7 @@
     {
       "id": "L5S1_arr_7p5",
       "label": "L5-S1 · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L5-S1",
         "specimen": "FSU",
@@ -2078,7 +2082,7 @@
     {
       "id": "L1L5pooled_fe_7p5",
       "label": "L1-L5 mean · Flexion+extension · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -2106,7 +2110,7 @@
     {
       "id": "L1L5pooled_lbr_7p5",
       "label": "L1-L5 mean · Lateral bend L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -2134,7 +2138,7 @@
     {
       "id": "L1L5pooled_arr_7p5",
       "label": "L1-L5 mean · Axial rotation L+R · 7.5 Nm",
-      "view": "seg_full",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -2222,7 +2226,7 @@
     {
       "id": "L1S1_lbr_6",
       "label": "L1-S1 · Lateral bending L+R · 6 Nm",
-      "view": "total",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L1-S1",
         "specimen": "L1-S1",
@@ -2250,7 +2254,7 @@
     {
       "id": "L1S1_arr_4",
       "label": "L1-S1 · Axial rotation L+R · 4 Nm",
-      "view": "total",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L1-S1",
         "specimen": "L1-S1",
@@ -2278,7 +2282,7 @@
     {
       "id": "4seg_flex_3p75",
       "label": "4-segment · Flexion · 3.75 Nm",
-      "view": "total",
+      "view": "rom_moment",
       "inputs": {
         "level": "L1-L5 / T12-L4",
         "specimen": "L1-L5 or T12-L4 (4 segments)",
@@ -2306,7 +2310,7 @@
     {
       "id": "4seg_ext_3p75",
       "label": "4-segment · Extension · 3.75 Nm",
-      "view": "total",
+      "view": "fig_ext",
       "inputs": {
         "level": "L1-L5 / T12-L4",
         "specimen": "L1-L5 or T12-L4 (4 segments)",
@@ -2334,7 +2338,7 @@
     {
       "id": "4seg_lb_3p75",
       "label": "4-segment · Lateral bending · 3.75 Nm",
-      "view": "total",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L1-L5 / T12-L4",
         "specimen": "L1-L5 or T12-L4 (4 segments)",
@@ -2362,7 +2366,7 @@
     {
       "id": "4seg_ar_3p75",
       "label": "4-segment · Axial rotation · 3.75 Nm",
-      "view": "total",
+      "view": "fig_ar",
       "inputs": {
         "level": "L1-L5 / T12-L4",
         "specimen": "L1-L5 or T12-L4 (4 segments)",
@@ -3531,7 +3535,7 @@
     {
       "id": "L1L5pooled_flex_10p6_ax400",
       "label": "L1-L5 mean · Flexion · 10.6 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3559,7 +3563,7 @@
     {
       "id": "L1L5pooled_ext_10p6_ax400",
       "label": "L1-L5 mean · Extension · 10.6 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ext",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3587,7 +3591,7 @@
     {
       "id": "L1L5pooled_lb_10p6_ax400",
       "label": "L1-L5 mean · Lateral bending · 10.6 Nm",
-      "view": "seg_7p5",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3626,7 +3630,7 @@
     {
       "id": "L1L5pooled_ar_10p6_ax400",
       "label": "L1-L5 mean · Axial rotation · 10.6 Nm",
-      "view": "seg_7p5",
+      "view": "fig_ar",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3654,7 +3658,7 @@
     {
       "id": "L4L5_fe_7p5_nz",
       "label": "L4-L5 · Flexion+extension",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -3705,7 +3709,7 @@
     {
       "id": "L4L5_lbr_7p5_nz",
       "label": "L4-L5 · Lateral bending L+R",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -3756,7 +3760,7 @@
     {
       "id": "L4L5_arr_7p5_nz",
       "label": "L4-L5 · Axial rotation L+R",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L4-L5",
         "specimen": "FSU",
@@ -3807,7 +3811,7 @@
     {
       "id": "L1L5pooled_fe_7p5_nz",
       "label": "L1-L5 mean · Flexion+extension",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3835,7 +3839,7 @@
     {
       "id": "L1L5pooled_lbr_7p5_nz",
       "label": "L1-L5 mean · Lateral bending L+R",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3863,7 +3867,7 @@
     {
       "id": "L1L5pooled_arr_7p5_nz",
       "label": "L1-L5 mean · Axial rotation L+R",
-      "view": "seg_full",
+      "view": "nz",
       "inputs": {
         "level": "L1-L2..L4-L5 pooled",
         "specimen": "FSU",
@@ -3891,7 +3895,7 @@
     {
       "id": "L1L2_flex_7p5_ax100",
       "label": "L1-L2 · Flexion · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment",
       "inputs": {
         "level": "L1-L2",
         "specimen": "segment in L1-S1 specimen",
@@ -3919,7 +3923,7 @@
     {
       "id": "L1L2_ext_7p5_ax100",
       "label": "L1-L2 · Extension · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ext",
       "inputs": {
         "level": "L1-L2",
         "specimen": "segment in L1-S1 specimen",
@@ -3947,7 +3951,7 @@
     {
       "id": "L1L2_lb_7p5_ax100",
       "label": "L1-L2 · Lateral bending · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L1-L2",
         "specimen": "segment in L1-S1 specimen",
@@ -3986,7 +3990,7 @@
     {
       "id": "L1L2_ar_7p5_ax100",
       "label": "L1-L2 · Axial rotation · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ar",
       "inputs": {
         "level": "L1-L2",
         "specimen": "segment in L1-S1 specimen",
@@ -4025,7 +4029,7 @@
     {
       "id": "L2L3_flex_7p5_ax100",
       "label": "L2-L3 · Flexion · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment",
       "inputs": {
         "level": "L2-L3",
         "specimen": "segment in L1-S1 specimen",
@@ -4053,7 +4057,7 @@
     {
       "id": "L2L3_ext_7p5_ax100",
       "label": "L2-L3 · Extension · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ext",
       "inputs": {
         "level": "L2-L3",
         "specimen": "segment in L1-S1 specimen",
@@ -4081,7 +4085,7 @@
     {
       "id": "L2L3_lb_7p5_ax100",
       "label": "L2-L3 · Lateral bending · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L2-L3",
         "specimen": "segment in L1-S1 specimen",
@@ -4120,7 +4124,7 @@
     {
       "id": "L2L3_ar_7p5_ax100",
       "label": "L2-L3 · Axial rotation · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ar",
       "inputs": {
         "level": "L2-L3",
         "specimen": "segment in L1-S1 specimen",
@@ -4159,7 +4163,7 @@
     {
       "id": "L3L4_flex_7p5_ax100",
       "label": "L3-L4 · Flexion · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment",
       "inputs": {
         "level": "L3-L4",
         "specimen": "segment in L1-S1 specimen",
@@ -4187,7 +4191,7 @@
     {
       "id": "L3L4_ext_7p5_ax100",
       "label": "L3-L4 · Extension · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ext",
       "inputs": {
         "level": "L3-L4",
         "specimen": "segment in L1-S1 specimen",
@@ -4215,7 +4219,7 @@
     {
       "id": "L3L4_lb_7p5_ax100",
       "label": "L3-L4 · Lateral bending · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L3-L4",
         "specimen": "segment in L1-S1 specimen",
@@ -4254,7 +4258,7 @@
     {
       "id": "L3L4_ar_7p5_ax100",
       "label": "L3-L4 · Axial rotation · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ar",
       "inputs": {
         "level": "L3-L4",
         "specimen": "segment in L1-S1 specimen",
@@ -4293,7 +4297,7 @@
     {
       "id": "L4L5_flex_7p5_ax100",
       "label": "L4-L5 · Flexion · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment",
       "inputs": {
         "level": "L4-L5",
         "specimen": "segment in L1-S1 specimen",
@@ -4321,7 +4325,7 @@
     {
       "id": "L4L5_ext_7p5_ax100",
       "label": "L4-L5 · Extension · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ext",
       "inputs": {
         "level": "L4-L5",
         "specimen": "segment in L1-S1 specimen",
@@ -4349,7 +4353,7 @@
     {
       "id": "L4L5_lb_7p5_ax100",
       "label": "L4-L5 · Lateral bending · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L4-L5",
         "specimen": "segment in L1-S1 specimen",
@@ -4388,7 +4392,7 @@
     {
       "id": "L4L5_ar_7p5_ax100",
       "label": "L4-L5 · Axial rotation · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ar",
       "inputs": {
         "level": "L4-L5",
         "specimen": "segment in L1-S1 specimen",
@@ -4427,7 +4431,7 @@
     {
       "id": "L5S1_flex_7p5_ax100",
       "label": "L5-S1 · Flexion · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment",
       "inputs": {
         "level": "L5-S1",
         "specimen": "segment in L1-S1 specimen",
@@ -4455,7 +4459,7 @@
     {
       "id": "L5S1_ext_7p5_ax100",
       "label": "L5-S1 · Extension · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ext",
       "inputs": {
         "level": "L5-S1",
         "specimen": "segment in L1-S1 specimen",
@@ -4483,7 +4487,7 @@
     {
       "id": "L5S1_lb_7p5_ax100",
       "label": "L5-S1 · Lateral bending · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "rom_moment_lb_ar",
       "inputs": {
         "level": "L5-S1",
         "specimen": "segment in L1-S1 specimen",
@@ -4522,7 +4526,7 @@
     {
       "id": "L5S1_ar_7p5_ax100",
       "label": "L5-S1 · Axial rotation · 7.5 Nm · 100 N",
-      "view": "ax100_seg",
+      "view": "fig_ar",
       "inputs": {
         "level": "L5-S1",
         "specimen": "segment in L1-S1 specimen",
@@ -4991,7 +4995,7 @@
     {
       "id": "L2L3_fe_4",
       "label": "L2-L3 · Flexion+extension · 4 Nm",
-      "view": "seg_4nm",
+      "view": "fig_fe_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "L1-L4 (4 vertebrae)",
@@ -5019,7 +5023,7 @@
     {
       "id": "L2L3_lbr_4",
       "label": "L2-L3 · Lateral bending L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "fig_lb_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "L1-L4 (4 vertebrae)",
@@ -5047,7 +5051,7 @@
     {
       "id": "L2L3_arr_4",
       "label": "L2-L3 · Axial rotation L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "fig_ar_full",
       "inputs": {
         "level": "L2-L3",
         "specimen": "L1-L4 (4 vertebrae)",
@@ -7534,6 +7538,1253 @@
           "note": "left; inside T12-S1; SD from whiskers"
         }
       ]
+    },
+    {
+      "id": "rohl_flexion_1",
+      "label": "L1-L5 · Flexion · 1 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 10.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_1p5",
+      "label": "L1-L5 · Flexion · 1.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 13.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_2",
+      "label": "L1-L5 · Flexion · 2 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 15.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_2p5",
+      "label": "L1-L5 · Flexion · 2.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 16.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_3",
+      "label": "L1-L5 · Flexion · 3 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 3.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 17.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_4",
+      "label": "L1-L5 · Flexion · 4 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 4.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 19.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_5",
+      "label": "L1-L5 · Flexion · 5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 5.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 20.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_6",
+      "label": "L1-L5 · Flexion · 6 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 6.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 20.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_7",
+      "label": "L1-L5 · Flexion · 7 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.0,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 21.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_7p5",
+      "label": "L1-L5 · Flexion · 7.5 Nm",
+      "view": "rom_moment",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 21.1,
+          "sd": null,
+          "min": 17.8,
+          "max": 24.4,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_1",
+      "label": "L1-L5 · Extension · 1 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 4.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_1p5",
+      "label": "L1-L5 · Extension · 1.5 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 5.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_2",
+      "label": "L1-L5 · Extension · 2 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 6.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_2p5",
+      "label": "L1-L5 · Extension · 2.5 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 6.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_3",
+      "label": "L1-L5 · Extension · 3 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 3.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 7.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_4",
+      "label": "L1-L5 · Extension · 4 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 4.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 7.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_5",
+      "label": "L1-L5 · Extension · 5 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 5.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 8.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_6",
+      "label": "L1-L5 · Extension · 6 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 6.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 8.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_7",
+      "label": "L1-L5 · Extension · 7 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.0,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 9.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_extension_7p5",
+      "label": "L1-L5 · Extension · 7.5 Nm",
+      "view": "fig_ext",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 9.3,
+          "sd": null,
+          "min": 6.0,
+          "max": 12.4,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_1",
+      "label": "L1-L5 · Lat. bending · 1 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 8.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_1p5",
+      "label": "L1-L5 · Lat. bending · 1.5 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 10.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_2",
+      "label": "L1-L5 · Lat. bending · 2 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 12.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_2p5",
+      "label": "L1-L5 · Lat. bending · 2.5 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 13.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_3",
+      "label": "L1-L5 · Lat. bending · 3 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 3.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 13.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_4",
+      "label": "L1-L5 · Lat. bending · 4 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 4.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 14.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_5",
+      "label": "L1-L5 · Lat. bending · 5 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 5.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 15.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_6",
+      "label": "L1-L5 · Lat. bending · 6 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 6.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 16.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_7",
+      "label": "L1-L5 · Lat. bending · 7 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.0,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 17.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_7p5",
+      "label": "L1-L5 · Lat. bending · 7.5 Nm",
+      "view": "rom_moment_lb_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 17.1,
+          "sd": null,
+          "min": 12.0,
+          "max": 22.4,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_1",
+      "label": "L1-L5 · Axial rotation · 1 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 1.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_1p5",
+      "label": "L1-L5 · Axial rotation · 1.5 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 1.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 2.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_2",
+      "label": "L1-L5 · Axial rotation · 2 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 2.6,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_2p5",
+      "label": "L1-L5 · Axial rotation · 2.5 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 2.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 3.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_3",
+      "label": "L1-L5 · Axial rotation · 3 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 3.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 3.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_4",
+      "label": "L1-L5 · Axial rotation · 4 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 4.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 4.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_5",
+      "label": "L1-L5 · Axial rotation · 5 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 5.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 5.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_6",
+      "label": "L1-L5 · Axial rotation · 6 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 6.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 5.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_7",
+      "label": "L1-L5 · Axial rotation · 7 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.0,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 6.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_7p5",
+      "label": "L1-L5 · Axial rotation · 7.5 Nm",
+      "view": "fig_ar",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 6.4,
+          "sd": null,
+          "min": 4.9,
+          "max": 9.3,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_flexion_extension_total_7p5",
+      "label": "L1-L5 · Flex+ext · 7.5 Nm",
+      "view": "fig_fe_full",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 31.2,
+          "sd": null,
+          "min": 23.9,
+          "max": 37.3,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_lateral_bending_total_7p5",
+      "label": "L1-L5 · LB L+R · 7.5 Nm",
+      "view": "fig_lb_full",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 34.1,
+          "sd": null,
+          "min": 23.1,
+          "max": 44.2,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
+    },
+    {
+      "id": "rohl_axial_rotation_total_7p5",
+      "label": "L1-L5 · AR L+R · 7.5 Nm",
+      "view": "fig_ar_full",
+      "inputs": {
+        "level": "L1-L5 / T12-L4",
+        "specimen": "L1-L5 (4 segments)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-L5 / T12-L4",
+      "refs": [
+        {
+          "study": "rohlmann2001s",
+          "mean": null,
+          "median": 11.5,
+          "sd": null,
+          "min": 10.1,
+          "max": 19.0,
+          "stat": "median",
+          "n": 10,
+          "test_id": "fe_rom_lumbar_multi.rohlmann2001b.L1L5_intact_rom_curve_secondary",
+          "note": "median of 10 L1-L5 specimens; min-max over specimens (via Dreischarf 2014 Fig 2)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -7541,598 +8792,1005 @@
     "Segmental tasks mix isolated FSUs and segments inside multi-level specimens (see ref notes).",
     "Many refs are medians (Wilke 2025, Heuer), not pooled; Wilke 2025, Kettler 2011 and Heuer share Ulm specimens."
   ],
-  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, a 4-segment L1-L5, or L1-L4 for the 4 Nm L2-L3 tasks), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. nz needs loading and unloading branches (a model with hysteresis); return null for nz if your model is elastic. Each task lists `studies` (whose specimens it uses) and `unit`. Do not tune the model to the reference values. Return only JSON following answer_format, one number per task; null for tasks you cannot simulate.",
+  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). Run the 16 simulations in `simulations`. Each gives the direction and preload (`fixed`; follower or axial, 0 = none), the specimens the studies used (`variants`: FSU, segment inside a multi-level specimen, L1-S1, L1-L5 or L1-L4) and the swept input: the pure moment (Nm), or the follower load (N) for the L1-S1 test at 8 Nm flexion / 6 Nm extension. Fix the caudal vertebra and load the cranial one. Report in degrees: rom_segmental = upper vs lower vertebra at each listed level, rom_total = cranial end vs caudal end, nz = neutral zone (rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed; null if your model is elastic). One-direction simulations: neutral to peak; full-range ones (flexion+extension, L+R): sum of both directions at each moment. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "T12L1_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_ext_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_ar_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "T12L1_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ar_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ar_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_fe_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_lbr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_arr_7p5": {
-      "rom_segmental": "deg"
-    },
-    "L1S1_fe_8_6": {
-      "rom_total": "deg"
-    },
-    "L1S1_lbr_6": {
-      "rom_total": "deg"
-    },
-    "L1S1_arr_4": {
-      "rom_total": "deg"
-    },
-    "4seg_flex_3p75": {
-      "rom_total": "deg"
-    },
-    "4seg_ext_3p75": {
-      "rom_total": "deg"
-    },
-    "4seg_lb_3p75": {
-      "rom_total": "deg"
-    },
-    "4seg_ar_3p75": {
-      "rom_total": "deg"
-    },
-    "L4L5_flex_1": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_4": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_10": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_1": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_4": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_10": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_1": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_4": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_10": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_1": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_5": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_10": {
-      "rom_segmental": "deg"
-    },
-    "L1S1_fe_8_6_fl200": {
-      "rom_total": "deg"
-    },
-    "L1S1_fe_8_6_fl400": {
-      "rom_total": "deg"
-    },
-    "L1S1_fe_8_6_fl800": {
-      "rom_total": "deg"
-    },
-    "L1S1_fe_8_6_fl1200": {
-      "rom_total": "deg"
-    },
-    "L1L2_fe_8_6": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_fe_8_6_fl800": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_fe_8_6": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_fe_8_6_fl800": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_fe_8_6": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_fe_8_6_fl800": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_fe_8_6": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_fe_8_6_fl800": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_fe_8_6": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_fe_8_6_fl800": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_fe_8_6_fl450": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_flex_10p6_ax400": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_ext_10p6_ax400": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_lb_10p6_ax400": {
-      "rom_segmental": "deg"
-    },
-    "L1L5pooled_ar_10p6_ax400": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_fe_7p5_nz": {
-      "nz": "deg"
-    },
-    "L4L5_lbr_7p5_nz": {
-      "nz": "deg"
-    },
-    "L4L5_arr_7p5_nz": {
-      "nz": "deg"
-    },
-    "L1L5pooled_fe_7p5_nz": {
-      "nz": "deg"
-    },
-    "L1L5pooled_lbr_7p5_nz": {
-      "nz": "deg"
-    },
-    "L1L5pooled_arr_7p5_nz": {
-      "nz": "deg"
-    },
-    "L1L2_flex_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ext_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lb_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ar_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ar_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ar_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ar_7p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_flex_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ext_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_lb_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L4L5_ar_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1S1_fe_8_6_fl600": {
-      "rom_total": "deg"
-    },
-    "L2L3_fe_4": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lbr_4": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_arr_4": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_flex_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_flex_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_flex_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ext_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ext_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ext_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lb_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lb_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_lb_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ar_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ar_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L1L2_ar_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ar_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ar_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ar_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ar_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ar_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ar_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ar_2p5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ar_5_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ar_10_ax100": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_1": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_flex_4": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_1": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_ext_4": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_1": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L2L3_lb_4": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_1": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_flex_4": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_1": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_ext_4": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_1": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L3L4_lb_4": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_1": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_flex_4": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_1": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_ext_4": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_1": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_2p5": {
-      "rom_segmental": "deg"
-    },
-    "L5S1_lb_4": {
-      "rom_segmental": "deg"
+    "flex_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-L5 / T12-L4": "[[Nm, deg], ...]"
+      }
+    },
+    "fe_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "L4-L5": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "lbr_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-S1": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "L4-L5": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "arr_none": {
+      "rom_segmental": {
+        "T12-L1": "[[Nm, deg], ...]",
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      },
+      "rom_total": {
+        "L1-S1": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "L4-L5": "[[Nm, deg], ...]",
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "fe_8_6_follower": {
+      "rom_total": {
+        "L1-S1": "[[N, deg], ...]"
+      },
+      "rom_segmental": {
+        "L1-L2": "[[N, deg], ...]",
+        "L2-L3": "[[N, deg], ...]",
+        "L3-L4": "[[N, deg], ...]",
+        "L4-L5": "[[N, deg], ...]",
+        "L5-S1": "[[N, deg], ...]"
+      }
+    },
+    "flex_ax400": {
+      "rom_segmental": {
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_ax400": {
+      "rom_segmental": {
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_ax400": {
+      "rom_segmental": {
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_ax400": {
+      "rom_segmental": {
+        "L1-L2..L4-L5 pooled": "[[Nm, deg], ...]"
+      }
+    },
+    "flex_ax100": {
+      "rom_segmental": {
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_ax100": {
+      "rom_segmental": {
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_ax100": {
+      "rom_segmental": {
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_ax100": {
+      "rom_segmental": {
+        "L1-L2": "[[Nm, deg], ...]",
+        "L2-L3": "[[Nm, deg], ...]",
+        "L3-L4": "[[Nm, deg], ...]",
+        "L4-L5": "[[Nm, deg], ...]",
+        "L5-S1": "[[Nm, deg], ...]"
+      }
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "flex_none",
+      "title": "Flexion, no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "T12L1_flex_7p5",
+        "L2L3_flex_7p5",
+        "L4L5_flex_7p5",
+        "4seg_flex_3p75",
+        "L4L5_flex_1",
+        "L4L5_flex_2p5",
+        "L4L5_flex_4",
+        "L4L5_flex_5",
+        "L4L5_flex_10",
+        "L2L3_flex_1",
+        "L2L3_flex_2p5",
+        "L2L3_flex_4",
+        "L3L4_flex_1",
+        "L3L4_flex_2p5",
+        "L3L4_flex_4",
+        "L5S1_flex_1",
+        "L5S1_flex_2p5",
+        "L5S1_flex_4",
+        "rohl_flexion_1",
+        "rohl_flexion_1p5",
+        "rohl_flexion_2",
+        "rohl_flexion_2p5",
+        "rohl_flexion_3",
+        "rohl_flexion_4",
+        "rohl_flexion_5",
+        "rohl_flexion_6",
+        "rohl_flexion_7",
+        "rohl_flexion_7p5"
+      ]
+    },
+    {
+      "id": "ext_none",
+      "title": "Extension, no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "T12L1_ext_7p5",
+        "L2L3_ext_7p5",
+        "L4L5_ext_7p5",
+        "4seg_ext_3p75",
+        "L4L5_ext_1",
+        "L4L5_ext_2p5",
+        "L4L5_ext_4",
+        "L4L5_ext_5",
+        "L4L5_ext_10",
+        "L2L3_ext_1",
+        "L2L3_ext_2p5",
+        "L2L3_ext_4",
+        "L3L4_ext_1",
+        "L3L4_ext_2p5",
+        "L3L4_ext_4",
+        "L5S1_ext_1",
+        "L5S1_ext_2p5",
+        "L5S1_ext_4",
+        "rohl_extension_1",
+        "rohl_extension_1p5",
+        "rohl_extension_2",
+        "rohl_extension_2p5",
+        "rohl_extension_3",
+        "rohl_extension_4",
+        "rohl_extension_5",
+        "rohl_extension_6",
+        "rohl_extension_7",
+        "rohl_extension_7p5"
+      ]
+    },
+    {
+      "id": "lb_none",
+      "title": "Lateral bending, one side, no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "T12L1_lb_7p5",
+        "L1L2_lb_7p5",
+        "L2L3_lb_7p5",
+        "L4L5_lb_7p5",
+        "4seg_lb_3p75",
+        "L4L5_lb_1",
+        "L4L5_lb_2p5",
+        "L4L5_lb_4",
+        "L4L5_lb_5",
+        "L4L5_lb_10",
+        "L2L3_lb_1",
+        "L2L3_lb_2p5",
+        "L2L3_lb_4",
+        "L3L4_lb_1",
+        "L3L4_lb_2p5",
+        "L3L4_lb_4",
+        "L5S1_lb_1",
+        "L5S1_lb_2p5",
+        "L5S1_lb_4",
+        "rohl_lateral_bending_1",
+        "rohl_lateral_bending_1p5",
+        "rohl_lateral_bending_2",
+        "rohl_lateral_bending_2p5",
+        "rohl_lateral_bending_3",
+        "rohl_lateral_bending_4",
+        "rohl_lateral_bending_5",
+        "rohl_lateral_bending_6",
+        "rohl_lateral_bending_7",
+        "rohl_lateral_bending_7p5"
+      ]
+    },
+    {
+      "id": "ar_none",
+      "title": "Axial rotation, one side, no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        }
+      ],
+      "task_ids": [
+        "T12L1_ar_7p5",
+        "L1L2_ar_7p5",
+        "L2L3_ar_7p5",
+        "L4L5_ar_7p5",
+        "4seg_ar_3p75",
+        "L4L5_ar_1",
+        "L4L5_ar_2p5",
+        "L4L5_ar_5",
+        "L4L5_ar_10",
+        "rohl_axial_rotation_1",
+        "rohl_axial_rotation_1p5",
+        "rohl_axial_rotation_2",
+        "rohl_axial_rotation_2p5",
+        "rohl_axial_rotation_3",
+        "rohl_axial_rotation_4",
+        "rohl_axial_rotation_5",
+        "rohl_axial_rotation_6",
+        "rohl_axial_rotation_7",
+        "rohl_axial_rotation_7p5"
+      ]
+    },
+    {
+      "id": "fe_none",
+      "title": "Flexion + extension (full range), no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "nz",
+          "level": "L4-L5"
+        },
+        {
+          "key": "nz",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        }
+      ],
+      "task_ids": [
+        "T12L1_fe_7p5",
+        "L1L2_fe_7p5",
+        "L2L3_fe_7p5",
+        "L3L4_fe_7p5",
+        "L4L5_fe_7p5",
+        "L5S1_fe_7p5",
+        "L1L5pooled_fe_7p5",
+        "L4L5_fe_7p5_nz",
+        "L1L5pooled_fe_7p5_nz",
+        "L2L3_fe_4",
+        "rohl_flexion_extension_total_7p5"
+      ]
+    },
+    {
+      "id": "lbr_none",
+      "title": "Lateral bending L + R (full range), no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-S1"
+        },
+        {
+          "key": "nz",
+          "level": "L4-L5"
+        },
+        {
+          "key": "nz",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        }
+      ],
+      "task_ids": [
+        "T12L1_lbr_7p5",
+        "L1L2_lbr_7p5",
+        "L2L3_lbr_7p5",
+        "L3L4_lbr_7p5",
+        "L4L5_lbr_7p5",
+        "L5S1_lbr_7p5",
+        "L1L5pooled_lbr_7p5",
+        "L1S1_lbr_6",
+        "L4L5_lbr_7p5_nz",
+        "L1L5pooled_lbr_7p5_nz",
+        "L2L3_lbr_4",
+        "rohl_lateral_bending_total_7p5"
+      ]
+    },
+    {
+      "id": "arr_none",
+      "title": "Axial rotation L + R (full range), no preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T12-L1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-S1"
+        },
+        {
+          "key": "nz",
+          "level": "L4-L5"
+        },
+        {
+          "key": "nz",
+          "level": "L1-L2..L4-L5 pooled"
+        },
+        {
+          "key": "rom_total",
+          "level": "L1-L5 / T12-L4"
+        }
+      ],
+      "task_ids": [
+        "T12L1_arr_7p5",
+        "L1L2_arr_7p5",
+        "L2L3_arr_7p5",
+        "L3L4_arr_7p5",
+        "L4L5_arr_7p5",
+        "L5S1_arr_7p5",
+        "L1L5pooled_arr_7p5",
+        "L1S1_arr_4",
+        "L4L5_arr_7p5_nz",
+        "L1L5pooled_arr_7p5_nz",
+        "L2L3_arr_4",
+        "rohl_axial_rotation_total_7p5"
+      ]
+    },
+    {
+      "id": "fe_8_6_follower",
+      "title": "L1-S1, flexion 8 Nm + extension 6 Nm: ROM vs follower load",
+      "note": "Moment fixed (8 Nm flexion, 6 Nm extension); the follower load is swept from 0 N.",
+      "sweep": "follower_n",
+      "fixed": {
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "L1-S1"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "L1S1_fe_8_6",
+        "L1S1_fe_8_6_fl200",
+        "L1S1_fe_8_6_fl400",
+        "L1S1_fe_8_6_fl800",
+        "L1S1_fe_8_6_fl1200",
+        "L1L2_fe_8_6",
+        "L1L2_fe_8_6_fl800",
+        "L2L3_fe_8_6",
+        "L2L3_fe_8_6_fl800",
+        "L3L4_fe_8_6",
+        "L3L4_fe_8_6_fl800",
+        "L4L5_fe_8_6",
+        "L4L5_fe_8_6_fl800",
+        "L5S1_fe_8_6",
+        "L5S1_fe_8_6_fl800",
+        "L4L5_fe_8_6_fl450",
+        "L1S1_fe_8_6_fl600"
+      ]
+    },
+    {
+      "id": "flex_ax400",
+      "title": "Flexion, 400 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        }
+      ],
+      "task_ids": [
+        "L1L5pooled_flex_10p6_ax400"
+      ]
+    },
+    {
+      "id": "ext_ax400",
+      "title": "Extension, 400 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        }
+      ],
+      "task_ids": [
+        "L1L5pooled_ext_10p6_ax400"
+      ]
+    },
+    {
+      "id": "lb_ax400",
+      "title": "Lateral bending, one side, 400 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        }
+      ],
+      "task_ids": [
+        "L1L5pooled_lb_10p6_ax400"
+      ]
+    },
+    {
+      "id": "ar_ax400",
+      "title": "Axial rotation, one side, 400 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2..L4-L5 pooled"
+        }
+      ],
+      "task_ids": [
+        "L1L5pooled_ar_10p6_ax400"
+      ]
+    },
+    {
+      "id": "flex_ax100",
+      "title": "Flexion, 100 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "L1L2_flex_7p5_ax100",
+        "L2L3_flex_7p5_ax100",
+        "L3L4_flex_7p5_ax100",
+        "L4L5_flex_7p5_ax100",
+        "L5S1_flex_7p5_ax100",
+        "L4L5_flex_2p5_ax100",
+        "L4L5_flex_5_ax100",
+        "L4L5_flex_10_ax100",
+        "L1L2_flex_2p5_ax100",
+        "L1L2_flex_5_ax100",
+        "L1L2_flex_10_ax100",
+        "L2L3_flex_2p5_ax100",
+        "L2L3_flex_5_ax100",
+        "L2L3_flex_10_ax100",
+        "L3L4_flex_2p5_ax100",
+        "L3L4_flex_5_ax100",
+        "L3L4_flex_10_ax100",
+        "L5S1_flex_2p5_ax100",
+        "L5S1_flex_5_ax100",
+        "L5S1_flex_10_ax100"
+      ]
+    },
+    {
+      "id": "ext_ax100",
+      "title": "Extension, 100 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "L1L2_ext_7p5_ax100",
+        "L2L3_ext_7p5_ax100",
+        "L3L4_ext_7p5_ax100",
+        "L4L5_ext_7p5_ax100",
+        "L5S1_ext_7p5_ax100",
+        "L4L5_ext_2p5_ax100",
+        "L4L5_ext_5_ax100",
+        "L4L5_ext_10_ax100",
+        "L1L2_ext_2p5_ax100",
+        "L1L2_ext_5_ax100",
+        "L1L2_ext_10_ax100",
+        "L2L3_ext_2p5_ax100",
+        "L2L3_ext_5_ax100",
+        "L2L3_ext_10_ax100",
+        "L3L4_ext_2p5_ax100",
+        "L3L4_ext_5_ax100",
+        "L3L4_ext_10_ax100",
+        "L5S1_ext_2p5_ax100",
+        "L5S1_ext_5_ax100",
+        "L5S1_ext_10_ax100"
+      ]
+    },
+    {
+      "id": "lb_ax100",
+      "title": "Lateral bending, one side, 100 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "L1L2_lb_7p5_ax100",
+        "L2L3_lb_7p5_ax100",
+        "L3L4_lb_7p5_ax100",
+        "L4L5_lb_7p5_ax100",
+        "L5S1_lb_7p5_ax100",
+        "L4L5_lb_2p5_ax100",
+        "L4L5_lb_5_ax100",
+        "L4L5_lb_10_ax100",
+        "L1L2_lb_2p5_ax100",
+        "L1L2_lb_5_ax100",
+        "L1L2_lb_10_ax100",
+        "L2L3_lb_2p5_ax100",
+        "L2L3_lb_5_ax100",
+        "L2L3_lb_10_ax100",
+        "L3L4_lb_2p5_ax100",
+        "L3L4_lb_5_ax100",
+        "L3L4_lb_10_ax100",
+        "L5S1_lb_2p5_ax100",
+        "L5S1_lb_5_ax100",
+        "L5S1_lb_10_ax100"
+      ]
+    },
+    {
+      "id": "ar_ax100",
+      "title": "Axial rotation, one side, 100 N axial preload: ROM vs moment",
+      "note": "FSUs and segments inside multi-level specimens give the same segmental ROM; one curve per level.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 100
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "L1-L2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L2-L3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L3-L4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L4-L5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "L1L2_ar_7p5_ax100",
+        "L2L3_ar_7p5_ax100",
+        "L3L4_ar_7p5_ax100",
+        "L4L5_ar_7p5_ax100",
+        "L5S1_ar_7p5_ax100",
+        "L4L5_ar_2p5_ax100",
+        "L4L5_ar_5_ax100",
+        "L4L5_ar_10_ax100",
+        "L1L2_ar_2p5_ax100",
+        "L1L2_ar_5_ax100",
+        "L1L2_ar_10_ax100",
+        "L2L3_ar_2p5_ax100",
+        "L2L3_ar_5_ax100",
+        "L2L3_ar_10_ax100",
+        "L3L4_ar_2p5_ax100",
+        "L3L4_ar_5_ax100",
+        "L3L4_ar_10_ax100",
+        "L5S1_ar_2p5_ax100",
+        "L5S1_ar_5_ax100",
+        "L5S1_ar_10_ax100"
+      ]
+    }
+  ]
 }

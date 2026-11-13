@@ -193,7 +193,9 @@ ol.steps li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 .series-key { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.82rem; color: var(--ink-2); margin-top: 6px; }
 .series-key:empty { display: none; }
 .series-key span { display: inline-flex; align-items: center; gap: 6px; }
-.series-key svg { width: 28px; height: 8px; overflow: visible; }
+.series-key svg { width: 28px; height: 8px; overflow: visible; flex: none; }
+.series-key .sk-row { flex-wrap: wrap; gap: 2px 12px; max-width: 100%; } /* a study with many curves wraps instead of squeezing */
+.series-key .sk-row > b { flex: none; }
 .steps-key { flex-basis: 100%; display: block !important; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
 .steps-key b { color: var(--ink-2); font-weight: 600; }
 .chart-cap { margin-top: 10px; font-size: 0.8rem; color: var(--muted); max-width: 95ch; }
@@ -415,6 +417,15 @@ a.tile:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,.0
 .enc span { display: inline-flex; align-items: center; gap: 6px; }
 .enc b { font-weight: 600; color: var(--ink-2); }
 .fig-wrap .series-key { margin-top: 8px; }
+/* what load each study applied (study "loading"), one line per study under the figure */
+.loadlist { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+.loadlist .ll-h { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+.loadlist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.loadlist li { max-width: 110ch; }
+.loadlist li .sw { width: 8px; height: 8px; margin-right: 5px; vertical-align: 0; }
+.loadlist li b { font-weight: 600; color: var(--ink-2); margin-right: 2px; }
+.loadlist li.off { opacity: 0.5; }
+td.loading-td { font-size: 0.82rem; color: var(--ink-2); min-width: 18ch; }
 .fig-side { margin-top: 14px; max-width: 560px; }
 .fig-side .schem > summary { display: flex; list-style: none; align-items: center; gap: 8px; }
 .tabs-grouped { flex-direction: column; flex-wrap: nowrap; gap: 6px; }

@@ -11,11 +11,11 @@
   ],
   "summary": "Remove spinal structures step by step as each study did and report lumbar segment rotation at the stated pure moment after every step.",
   "simulate": [
-    "Build the specimen of the view: lumbar FSU, or disc-only unit (posterior elements removed).",
+    "Build the specimen of the simulation: lumbar FSU at the listed levels, or disc-only unit (posterior elements removed).",
     "Fix the caudal vertebra; apply the pure moment (and preload, if stated) to the cranial vertebra.",
-    "Remove structures cumulatively in the listed order (step 0 = intact); re-run the same load at every step.",
+    "One simulation per state: remove structures cumulatively in the listed order (intact first); re-run the same loads in every state.",
     "Report rotation at peak moment, one direction from neutral.",
-    "For % of intact tasks divide by your own intact value and multiply by 100."
+    "Report one number per listed level and direction; % of intact = your value / your intact value x 100."
   ],
   "inputs": [
     {
@@ -67,7 +67,8 @@
       "n": 8,
       "sample": "8 human L4-L5 FSUs, low degeneration",
       "doi": "10.1016/j.jbiomech.2006.01.007",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments to 7.5 N·m (FE, LB, AR) at 1°/s; no preload (500 N for 15 min beforehand); 2.5 cycles, last evaluated; L4-L5 FSUs"
     },
     {
       "key": "heuer2008",
@@ -76,7 +77,8 @@
       "n": 6,
       "sample": "6 human L2-L3 FSUs, same donors as Heuer 2007a",
       "doi": "10.1016/j.jbiomech.2008.03.023",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments to 7.5 N·m (FE, LB, AR); no preload (500 N for 15 min beforehand); 2nd cycle evaluated; L2-L3 FSUs"
     },
     {
       "key": "schultz1979",
@@ -85,7 +87,8 @@
       "n": 42,
       "sample": "42 lumbar FSUs, 23 cadavers; 18 retested without posterior elements",
       "doi": "10.1115/1.3426223",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, static moments 4.7 N·m by weights (FE, LB, AR), read 15 s after each step; 400 N axial preload; lumbar FSUs"
     },
     {
       "key": "cannella2008",
@@ -94,7 +97,8 @@
       "n": 6,
       "sample": "6 lumbar disc-only units (DS2), posterior elements removed",
       "doi": "10.1016/j.jbiomech.2008.04.037",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, 5 cycles at 0.1 Hz of ±7.5 N·m (FE, LB, AR) or 150 N tension to 1000 N compression; no preload; lumbar discs, posterior elements removed"
     }
   ],
   "shared": [
@@ -2136,205 +2140,715 @@
     "Heuer values are medians (not pooled); Heuer 2007a and 2008 share donors.",
     "Cannella 2008 nucleus removal: 20-min nucleotomy of disc-only units, 0.1 Hz cycles (5th cycle)."
   ],
-  "agent_prompt": "Use your finite element lumbar spine model. For each task build the specimen in its inputs (lumbar FSU at the stated level, or a disc-only unit with posterior elements removed). Fix the caudal vertebra, apply the pure moment (plus preload if given) to the cranial vertebra, and record the rotation at peak moment in one direction from neutral. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in degrees; \"rom_pct\" is your value after the step divided by your intact value times 100 (axial displacement for the axial tasks). Do not tune the model to the reference values. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
+  "agent_prompt": "Use your finite element lumbar spine model. Run the 12 simulations in `simulations`: one per resection state (intact, then each cumulative removal step). Build the specimen (FSU at the listed levels, or a disc-only unit with posterior elements removed), fix the caudal vertebra, apply the pure moment (plus preload if given) in every listed direction and record the rotation at peak moment, one direction from neutral. Remove the structures in the order of the steps, keeping earlier removals. rom is in degrees; rom_pct = your value in this state / your intact value x 100 (axial displacement for the axial load cases). Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "l45_intact_flex": {
-      "rom": "deg"
-    },
-    "l45_ssl_flex": {
-      "rom": "deg"
-    },
-    "l45_isl_flex": {
-      "rom": "deg"
-    },
-    "l45_lf_flex": {
-      "rom": "deg"
-    },
-    "l45_fc_flex": {
-      "rom": "deg"
-    },
-    "l45_va_flex": {
-      "rom": "deg"
-    },
-    "l45_pll_flex": {
-      "rom": "deg"
-    },
-    "l45_all_flex": {
-      "rom": "deg"
-    },
-    "l45_nuc_flex": {
-      "rom": "deg"
-    },
-    "l45_intact_ext": {
-      "rom": "deg"
-    },
-    "l45_ssl_ext": {
-      "rom": "deg"
-    },
-    "l45_isl_ext": {
-      "rom": "deg"
-    },
-    "l45_lf_ext": {
-      "rom": "deg"
-    },
-    "l45_fc_ext": {
-      "rom": "deg"
-    },
-    "l45_va_ext": {
-      "rom": "deg"
-    },
-    "l45_pll_ext": {
-      "rom": "deg"
-    },
-    "l45_all_ext": {
-      "rom": "deg"
-    },
-    "l45_nuc_ext": {
-      "rom": "deg"
-    },
-    "l45_intact_lb": {
-      "rom": "deg"
-    },
-    "l45_ssl_lb": {
-      "rom": "deg"
-    },
-    "l45_isl_lb": {
-      "rom": "deg"
-    },
-    "l45_lf_lb": {
-      "rom": "deg"
-    },
-    "l45_fc_lb": {
-      "rom": "deg"
-    },
-    "l45_va_lb": {
-      "rom": "deg"
-    },
-    "l45_pll_lb": {
-      "rom": "deg"
-    },
-    "l45_all_lb": {
-      "rom": "deg"
-    },
-    "l45_nuc_lb": {
-      "rom": "deg"
-    },
-    "l45_intact_ar": {
-      "rom": "deg"
-    },
-    "l45_ssl_ar": {
-      "rom": "deg"
-    },
-    "l45_isl_ar": {
-      "rom": "deg"
-    },
-    "l45_lf_ar": {
-      "rom": "deg"
-    },
-    "l45_fc_ar": {
-      "rom": "deg"
-    },
-    "l45_va_ar": {
-      "rom": "deg"
-    },
-    "l45_pll_ar": {
-      "rom": "deg"
-    },
-    "l45_all_ar": {
-      "rom": "deg"
-    },
-    "l45_nuc_ar": {
-      "rom": "deg"
-    },
-    "l23_intact_flex": {
-      "rom": "deg"
-    },
-    "l23_va_flex": {
-      "rom": "deg"
-    },
-    "l23_all_flex": {
-      "rom": "deg"
-    },
-    "l23_nuc_flex": {
-      "rom": "deg"
-    },
-    "l23_intact_ext": {
-      "rom": "deg"
-    },
-    "l23_va_ext": {
-      "rom": "deg"
-    },
-    "l23_all_ext": {
-      "rom": "deg"
-    },
-    "l23_nuc_ext": {
-      "rom": "deg"
-    },
-    "l23_intact_lb": {
-      "rom": "deg"
-    },
-    "l23_va_lb": {
-      "rom": "deg"
-    },
-    "l23_all_lb": {
-      "rom": "deg"
-    },
-    "l23_nuc_lb": {
-      "rom": "deg"
-    },
-    "l23_intact_ar": {
-      "rom": "deg"
-    },
-    "l23_va_ar": {
-      "rom": "deg"
-    },
-    "l23_all_ar": {
-      "rom": "deg"
-    },
-    "l23_nuc_ar": {
-      "rom": "deg"
-    },
-    "sch_intact_flex": {
-      "rom": "deg"
-    },
-    "sch_wope_flex": {
-      "rom": "deg"
-    },
-    "sch_intact_ext": {
-      "rom": "deg"
-    },
-    "sch_wope_ext": {
-      "rom": "deg"
-    },
-    "sch_intact_lb": {
-      "rom": "deg"
-    },
-    "sch_wope_lb": {
-      "rom": "deg"
-    },
-    "sch_intact_ar": {
-      "rom": "deg"
-    },
-    "sch_wope_ar": {
-      "rom": "deg"
-    },
-    "acu_denuc_flex": {
-      "rom_pct": "%"
-    },
-    "acu_denuc_ext": {
-      "rom_pct": "%"
-    },
-    "acu_denuc_lb": {
-      "rom_pct": "%"
-    },
-    "acu_denuc_ar": {
-      "rom_pct": "%"
-    },
-    "acu_denuc_axial_comp": {
-      "rom_pct": "%"
-    },
-    "acu_denuc_axial_tension": {
-      "rom_pct": "%"
+    "fsu_intact": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        },
+        "L2-L3": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_ssl": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_isl": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_lf": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_fc": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_post": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        },
+        "L2-L3": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_pll": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_all": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        },
+        "L2-L3": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu_nuc": {
+      "rom": {
+        "L4-L5": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        },
+        "L2-L3": {
+          "flexion": "deg",
+          "extension": "deg",
+          "right lateral bending": "deg",
+          "left axial rotation": "deg"
+        }
+      }
+    },
+    "fsu400_intact": {
+      "rom": {
+        "flexion": "deg",
+        "extension": "deg",
+        "right lateral bending": "deg",
+        "clockwise axial rotation": "deg"
+      }
+    },
+    "fsu400_post": {
+      "rom": {
+        "flexion": "deg",
+        "extension": "deg",
+        "right lateral bending": "deg",
+        "clockwise axial rotation": "deg"
+      }
+    },
+    "acu_nucleotomy": {
+      "rom_pct": {
+        "flexion": "%",
+        "extension": "%",
+        "right lateral bending": "%",
+        "right axial rotation": "%",
+        "axial compression to 1000 N": "%",
+        "axial tension to 150 N": "%"
+      }
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "fsu_intact",
+      "title": "Intact FSU (L4-L5 and L2-L3), 7.5 Nm, 4 directions",
+      "note": "Same cumulative state at both levels (Heuer 2007a L4-L5, Heuer 2008 L2-L3) where the sequences meet.",
+      "sweep": null,
+      "fixed": {
+        "step_no": 0,
+        "step": "none",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_intact_flex",
+        "l45_intact_ext",
+        "l45_intact_lb",
+        "l45_intact_ar",
+        "l23_intact_flex",
+        "l23_intact_ext",
+        "l23_intact_lb",
+        "l23_intact_ar"
+      ]
+    },
+    {
+      "id": "fsu_ssl",
+      "title": "Step: supraspinous ligament removed (L4-L5), 7.5 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 1,
+        "step": "supraspinous lig.",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_ssl_flex",
+        "l45_ssl_ext",
+        "l45_ssl_lb",
+        "l45_ssl_ar"
+      ]
+    },
+    {
+      "id": "fsu_isl",
+      "title": "Step: + interspinous ligament (L4-L5), 7.5 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 2,
+        "step": "+ interspinous lig.",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_isl_flex",
+        "l45_isl_ext",
+        "l45_isl_lb",
+        "l45_isl_ar"
+      ]
+    },
+    {
+      "id": "fsu_lf",
+      "title": "Step: + ligamentum flavum (L4-L5), 7.5 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 3,
+        "step": "+ ligamentum flavum",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_lf_flex",
+        "l45_lf_ext",
+        "l45_lf_lb",
+        "l45_lf_ar"
+      ]
+    },
+    {
+      "id": "fsu_fc",
+      "title": "Step: + facet capsules (L4-L5), 7.5 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 4,
+        "step": "+ facet capsules",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_fc_flex",
+        "l45_fc_ext",
+        "l45_fc_lb",
+        "l45_fc_ar"
+      ]
+    },
+    {
+      "id": "fsu_post",
+      "title": "Step: all posterior structures removed (L4-L5 and L2-L3), 7.5 Nm, 4 directions",
+      "note": "Same cumulative state at both levels (Heuer 2007a L4-L5, Heuer 2008 L2-L3) where the sequences meet.",
+      "sweep": null,
+      "fixed": {
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_va_flex",
+        "l45_va_ext",
+        "l45_va_lb",
+        "l45_va_ar",
+        "l23_va_flex",
+        "l23_va_ext",
+        "l23_va_lb",
+        "l23_va_ar"
+      ]
+    },
+    {
+      "id": "fsu_pll",
+      "title": "Step: + posterior longitudinal ligament (L4-L5), 7.5 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "step_no": 6,
+        "step": "+ posterior longitudinal lig.",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_pll_flex",
+        "l45_pll_ext",
+        "l45_pll_lb",
+        "l45_pll_ar"
+      ]
+    },
+    {
+      "id": "fsu_all",
+      "title": "Step: + PLL and ALL removed (L4-L5 and L2-L3), 7.5 Nm, 4 directions",
+      "note": "Same cumulative state at both levels (Heuer 2007a L4-L5, Heuer 2008 L2-L3) where the sequences meet.",
+      "sweep": null,
+      "fixed": {
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_all_flex",
+        "l45_all_ext",
+        "l45_all_lb",
+        "l45_all_ar",
+        "l23_all_flex",
+        "l23_all_ext",
+        "l23_all_lb",
+        "l23_all_ar"
+      ]
+    },
+    {
+      "id": "fsu_nuc",
+      "title": "Step: + nucleus removed (L4-L5 and L2-L3), 7.5 Nm, 4 directions",
+      "note": "Same cumulative state at both levels (Heuer 2007a L4-L5, Heuer 2008 L2-L3) where the sequences meet.",
+      "sweep": null,
+      "fixed": {
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L4-L5",
+          "direction": "left axial rotation"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "level": "L2-L3",
+          "direction": "left axial rotation"
+        }
+      ],
+      "task_ids": [
+        "l45_nuc_flex",
+        "l45_nuc_ext",
+        "l45_nuc_lb",
+        "l45_nuc_ar",
+        "l23_nuc_flex",
+        "l23_nuc_ext",
+        "l23_nuc_lb",
+        "l23_nuc_ar"
+      ]
+    },
+    {
+      "id": "fsu400_intact",
+      "title": "Intact FSU, 400 N preload, 4.7 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 0,
+        "step": "none",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "direction": "clockwise axial rotation"
+        }
+      ],
+      "task_ids": [
+        "sch_intact_flex",
+        "sch_intact_ext",
+        "sch_intact_lb",
+        "sch_intact_ar"
+      ]
+    },
+    {
+      "id": "fsu400_post",
+      "title": "Step: posterior elements removed, 400 N preload, 4.7 Nm, 4 directions",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "step_no": 1,
+        "step": "facets, LF, ISL, SSL",
+        "moment_nm": 4.7,
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "rom",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom",
+          "direction": "extension"
+        },
+        {
+          "key": "rom",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom",
+          "direction": "clockwise axial rotation"
+        }
+      ],
+      "task_ids": [
+        "sch_wope_flex",
+        "sch_wope_ext",
+        "sch_wope_lb",
+        "sch_wope_ar"
+      ]
+    },
+    {
+      "id": "acu_nucleotomy",
+      "title": "Disc unit after 20 min nucleotomy, % of intact, 6 load cases",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "step_no": 1,
+        "step": "nucleus, 20 min nucleotomy"
+      },
+      "outputs": [
+        {
+          "key": "rom_pct",
+          "direction": "flexion"
+        },
+        {
+          "key": "rom_pct",
+          "direction": "extension"
+        },
+        {
+          "key": "rom_pct",
+          "direction": "right lateral bending"
+        },
+        {
+          "key": "rom_pct",
+          "direction": "right axial rotation"
+        },
+        {
+          "key": "rom_pct",
+          "direction": "axial compression to 1000 N"
+        },
+        {
+          "key": "rom_pct",
+          "direction": "axial tension to 150 N"
+        }
+      ],
+      "task_ids": [
+        "acu_denuc_flex",
+        "acu_denuc_ext",
+        "acu_denuc_lb",
+        "acu_denuc_ar",
+        "acu_denuc_axial_comp",
+        "acu_denuc_axial_tension"
+      ]
+    }
+  ]
 }

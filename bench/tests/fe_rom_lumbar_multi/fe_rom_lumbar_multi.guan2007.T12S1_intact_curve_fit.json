@@ -2129,11 +2129,11 @@
   "method": "fit_evaluated",
   "uncertainty": "coefficients printed to 2 decimals: B rounding (e.g. 0.02, 0.05) gives up to ~±0.1-0.2 deg error at 4 Nm for L3-L4/L4-L5 extension",
   "checked": true,
-  "check_notes": "All 40 coefficients re-read from Table 1. Fit at 4 Nm matches Fig 2 endpoints (L2-L3..L5-S1) within 0.05 deg; L1-L2 fit differs from the (erroneous) L1-L2 panel but agrees with text L1-L2 flexion 2.42 (fit 2.49). | verified 2026-11-12 sign check: OK (Fig 2 p3 / Table 1 p4 images: extension and left-LB values stored as magnitudes with direction in x, consistent with negative plotted values; Table 1 negative A,B for extension/left LB reproduce all 160 fit values)"
+  "check_notes": "All 40 coefficients re-read from Table 1. Fit at 4 Nm matches Fig 2 endpoints (L2-L3..L5-S1) within 0.05 deg; L1-L2 fit differs from the (erroneous) L1-L2 panel but agrees with text L1-L2 flexion 2.42 (fit 2.49). | verified 2026-11-12 sign check: OK (Fig 2 p3 / Table 1 p4 images: extension and left-LB values stored as magnitudes with direction in x, consistent with negative plotted values; Table 1 negative A,B for extension/left LB reproduce all 160 fit values) | 2026-11-13: Fig 2 whiskers are SD (caption p. 1977 'Error bars indicated standard deviations.'). The plotted L1-L2 means are a copy of L2-L3 (vector-path check), so this fit is the only L1-L2 mean; the L1-L2 SD (Fig 2 L1-L2 whiskers, e.g. flexion 4 Nm 0.80, right LB 0.84) is in the curve test, flagged rows."
  },
  "pass_rule": {
   "template": true,
-  "rule": "NRMSE <= 0.20 vs fitted mean curve (no SD available; use SD from curve test where present)"
+  "rule": "NRMSE <= 0.20 vs fitted mean curve (no SD in Table 1; take SD from the curve test, incl. the flagged L1-L2 rows whose whiskers are L1-L2-specific)"
  },
  "combine_group": "fe_rom_lumbar_multi__curve_moment_rotation__l1_s1_segmental__intact__4nm",
  "shared_sample_with": [

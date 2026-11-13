@@ -169,6 +169,10 @@
     return name + (withN && s.n != null ? ' (n=' + s.n + ')' : '');
   }
   function noPool(card, key) { var s = card._study[key]; return !!(s && s.pool === false); }
+  // secondary source (value read from a review): same figure, hollow markers / dashed line, "(secondary)" in the legend
+  function isSec(card, key) { var s = card._study[key]; return !!(s && s.secondary); }
+  function legendName(card, key) { return studyLabel(card, key, false) + (isSec(card, key) ? ' (secondary)' : ''); }
+  function openMark(card, key) { return noPool(card, key) || isSec(card, key); }
   function swatch(card, key) { return 'var(--s' + (card._color[key] || 1) + ')'; }
   function colorOf(card, key) { return cssVar('--s' + (card._color[key] || 1)); }
   function unitTxt(u) { return !u || /^[-–(]?\s*[-–]?\s*\)?$/.test(u) ? '' : u === 'deg' ? '°' : u; }
@@ -336,7 +340,16 @@
         ctx.setLineDash([]);
         meta.data.forEach(function (el, j) {
           var v = ds._vals[j];
-          if (!v || v.lo == null || v.hi == null || el.skip) return;
+          if (!v || el.skip) return;
+          if (v.xlo != null && v.xhi != null) { // transposed point (view "transpose"): the SD of the measured x is a horizontal bar
+            var xa = chart.scales.x.getPixelForValue(v.xlo), xb = chart.scales.x.getPixelForValue(v.xhi), xc = ds._cap || STY.cap;
+            ctx.beginPath();
+            ctx.moveTo(xa, el.y); ctx.lineTo(xb, el.y);
+            ctx.moveTo(xa, el.y - xc); ctx.lineTo(xa, el.y + xc);
+            ctx.moveTo(xb, el.y - xc); ctx.lineTo(xb, el.y + xc);
+            ctx.stroke();
+          }
+          if (v.lo == null || v.hi == null) return;
           var a = vs.getPixelForValue(v.lo), b = vs.getPixelForValue(v.hi);
           var size = horiz ? el.height : el.width;
           var cap = ds._cap || (size ? Math.max(2.5, Math.min(STY.cap + 1, size / 4)) : STY.cap);
@@ -412,7 +425,7 @@
   function studySets(card, tasks) {
     var studies = viewStudies(card, tasks).filter(function (k) { return !S.off[k]; });
     var sets = studies.map(function (k) {
-      return { label: studyLabel(card, k, false) + (noPool(card, k) ? ' (not pooled)' : ''), key: k, color: colorOf(card, k), hollow: noPool(card, k),
+      return { label: legendName(card, k) + (noPool(card, k) ? ' (not pooled)' : ''), key: k, color: colorOf(card, k), hollow: openMark(card, k),
         vals: tasks.map(function (t) { return firstRef(card, t, k); }) };
     });
     var pooledVals = tasks.map(function (t) { return pooledValue(pooledFor(card, t)); });
@@ -531,7 +544,7 @@
   }
   function shortVal(s) { var c = String(s).split(/,|\s\(/)[0].trim(); return c || String(s); }
   function seriesNamer(card, tasks, skeys) {
-    var vt = function (t, k) { return valueText(card, k, sv(t, k)); };
+    var vt = function (t, k) { var x = sv(t, k); return isNum(x) ? phrase(card, k, x) : valueText(card, k, x); }; // numbers keep their name ("axial preload 400 N")
     var full = function (t) { return skeys.map(function (k) { return vt(t, k); }).join(' · '); };
     // drop keys whose short value is the same in every series (e.g. "uniaxial tension" twice)
     var kk = skeys.filter(function (k) { return uniq(tasks.map(function (t) { return shortVal(vt(t, k)); })).length > 1; });
@@ -587,14 +600,15 @@
       series.forEach(function (s, si) {
         var pts = lineOf(function (t) { return firstRef(card, t, k); }, s);
         if (!pts.length) return;
-        lines.push({ label: studyLabel(card, k, false) + (series.length > 1 ? ' · ' + s : ''), key: k, pts: pts, hollow: noPool(card, k), si: si,
-          color: byStudyColor ? colorOf(card, k) : cssVar('--s' + (si % 12 + 1)), dash: byStudyColor ? DASHES[si % DASHES.length] : [] });
+        var dash = byStudyColor ? DASHES[si % DASHES.length] : [];
+        lines.push({ label: legendName(card, k) + (series.length > 1 ? ' · ' + s : ''), key: k, pts: pts, hollow: openMark(card, k), si: si,
+          color: byStudyColor ? colorOf(card, k) : cssVar('--s' + (si % 12 + 1)), dash: isSec(card, k) && !dash.length ? [5, 3] : dash });
       });
     });
     if (base.length && series.length > 1) studies.forEach(function (k) { // a study with only the unloaded point
       if (lines.some(function (l) { return l.key === k; })) return;
       var pts = base.map(function (t) { var v = firstRef(card, t, k); if (!v) return null; v.x = xOf(t); v.task = t; return v; }).filter(Boolean);
-      if (pts.length) lines.push({ label: studyLabel(card, k, false) + ' · unloaded', key: k, pts: pts, hollow: noPool(card, k), si: 0, color: colorOf(card, k), dash: [] });
+      if (pts.length) lines.push({ label: legendName(card, k) + ' · unloaded', key: k, pts: pts, hollow: openMark(card, k), si: 0, color: colorOf(card, k), dash: [] });
     });
     if (!S.hidePooled) series.forEach(function (s, si) {
       var pts = lineOf(function (t) { return pooledValue(pooledFor(card, t)); }, s);
@@ -761,6 +775,7 @@
   // left/right etc.: several refs of one study in one task, told apart by the first word(s) of their notes
   function refTag(r) { var s = String(r.note || '').split(/[;,(]/)[0].trim(); return s.length && s.length <= 24 ? s : ''; }
   function encOf(pts) {
+    if (pts.some(function (p) { return p.tr; })) return pts.some(function (p) { return p.err; }) ? 'sd' : 'point'; // transposed: horizontal bars, never a corridor
     if (pts.some(function (p) { return p.err === 'sd'; })) return 'sd';
     if (pts.every(function (p) { return p.kind === 'median'; })) return 'median';
     if (pts.length > 1 && pts.every(function (p) { return p.err === 'range' && !p.multi; })) return 'band';
@@ -778,9 +793,14 @@
     if (rs.some(function (p) { return p.err === 'range'; })) return rs.length > 1 ? 'band' : 'range';
     return 'point';
   }
-  function encGlyph(enc, col, w) {
+  function encGlyph(enc, col, w, open) { // open: hollow marker and dashed line (secondary or not-pooled study)
     w = w || 22;
     var m = w / 2, s = 'stroke="' + col + '"';
+    if (open && (enc === 'sd' || enc === 'range' || enc === 'point')) {
+      return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M1 8 L' + (w - 1) + ' 4" ' + s + ' stroke-width="1.4" stroke-dasharray="3 2"/>' +
+        (enc === 'point' ? '' : '<path d="M' + m + ' 1 V11 M' + (m - 3) + ' 1 H' + (m + 3) + ' M' + (m - 3) + ' 11 H' + (m + 3) + '" ' + s + ' stroke-width="1.2"/>') +
+        '<circle cx="' + m + '" cy="6" r="3" fill="var(--surface)" ' + s + ' stroke-width="1.5"/></svg>';
+    }
     switch (enc) {
       case 'band': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M1 9 L' + (w - 1) + ' 2 L' + (w - 1) + ' 7 L1 11 Z" fill="' + col + '" fill-opacity="0.28" ' + s + ' stroke-opacity="0.6" stroke-width="0.8"/><path d="M1 10 L' + (w - 1) + ' 4.5" ' + s + ' stroke-width="1.3" stroke-dasharray="2.5 2"/></svg>';
       case 'median': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M' + m + ' 1 V11 M' + (m - 3) + ' 1 H' + (m + 3) + ' M' + (m - 3) + ' 11 H' + (m + 3) + '" ' + s + ' stroke-width="1.2"/><rect x="' + (m - 3) + '" y="3" width="6" height="6" fill="var(--surface)" ' + s + ' stroke-width="1.5"/></svg>';
@@ -817,23 +837,58 @@
       var vals = uniq(mine.map(function (t) { return JSON.stringify(sv(t, x) == null ? null : sv(t, x)); }));
       var val = mine.length ? sv(mine[0], x) : null;
       return vals.length === 1 && val != null && val !== '' && val !== 0 ? phrase(card, x, val) : '';
-    }).filter(Boolean).join(', ');
+    }).filter(Boolean).concat(v.legend_notes && v.legend_notes[k] ? [v.legend_notes[k]] : []).join(', ');
+  }
+  // view "transpose" (same keys as agent_sims): {"output": "disp", "as": "force", "y_input": "compression_n" or ["compression_n", "load"],
+  // "y_values": {"<task id>": 500}}. Tasks of that output were run force-controlled (a displacement measured at a set force): they are
+  // drawn at x = measured value (SD as a horizontal bar), y = applied load (first numeric y_input, or y_values), on the same axes as the
+  // displacement-controlled tasks (x = displacement input, y = the "as" output). "input" / "y_output" are accepted as aliases.
+  function transposeOf(card, v, tasks) {
+    var t = v.transpose;
+    if (!t || !t.output) return null;
+    var ins = [].concat(t.y_input || t.input || []);
+    var other = uniq(tasks.filter(function (x) { return x.output !== t.output; }).map(function (x) { return x.output || ''; }));
+    return { output: t.output, inputs: ins, vals: t.y_values || {}, y: t.as || t.y_output || other[0] || (ins.length ? 'in:' + ins[0] : t.output) };
+  }
+  function trY(tr, t) {
+    if (tr.vals[t.id] != null) return toNum(tr.vals[t.id]);
+    for (var i = 0; i < tr.inputs.length; i++) { var y = xNum(t.inputs[tr.inputs[i]]); if (y != null) return y; }
+    return null;
   }
   function drawPanels(fig, card, v, tasks, xKey, models) {
     if (typeof Chart === 'undefined') { chartMsg(fig, 'The chart library did not load. The table below has every value.'); return null; }
-    var pk = v.panel_by || 'level', pmap = v.panel_map || {};
+    var pk = v.panel_by || (v.layout === 'panels' ? 'level' : ''), pmap = v.panel_map || {};
     var xOf = function (t) { return xNum(t.inputs[xKey]); };
-    var pvOf = function (t) { var x = sv(t, pk); x = x == null ? '' : String(x); return pmap[x] != null ? String(pmap[x]) : x; };
-    var all = tasks.filter(function (t) { return xOf(t) != null; });
-    // unloaded points (e.g. direction "none" at 0 Nm) start the curve in every panel instead of forming a panel
-    var isBase = function (t) { return xOf(t) === 0 && BASELINE.test(pvOf(t).trim()); };
+    var pvOf = function (t) { if (!pk) return ''; var x = sv(t, pk); x = x == null ? '' : String(x); return pmap[x] != null ? String(pmap[x]) : x; };
+    var tr = transposeOf(card, v, tasks), isTr = function (t) { return !!tr && t.output === tr.output; };
+    var posOf = function (t) { return isTr(t) ? trY(tr, t) : xOf(t); }; // the controlled value: x input, or the transposed input
+    var yOutOf = function (t) { return isTr(t) ? tr.y : t.output || ''; };
+    var yLab = function (o) { return /^in:/.test(o) ? inputLabel(card, o.slice(3)) : outLabel(card, o); };
+    var yAx = function (o) { return /^in:/.test(o) ? xAxisTitle(card, o.slice(3)) : axisTitle(card, o); };
+    var yUn = function (o) { return /^in:/.test(o) ? unitTxt((card._input[o.slice(3)] || {}).unit) : unitOf(card, o); };
+    var ptOf = function (val, t) { // a plotted point; transposed tasks swap axes and keep the original value for the tooltip
+      var p = {}; Object.keys(val).forEach(function (q) { p[q] = val[q]; });
+      p.task = t;
+      if (isTr(t)) { p.orig = val; p.x = val.y; p.xlo = val.lo; p.xhi = val.hi; p.y = trY(tr, t); p.lo = null; p.hi = null; p.tr = true; }
+      else p.x = xOf(t);
+      return p;
+    };
+    var sortPts = function (pts) { var byY = pts.length && pts.every(function (q) { return q.tr; }); return pts.sort(function (a, b) { return byY ? a.y - b.y : a.x - b.x; }); };
+    var all = tasks.filter(function (t) { return posOf(t) != null; });
+    // unloaded points start the curves instead of forming a panel or a series of their own:
+    // panel value "none"/"neutral" at 0 joins every panel; series values all "unloaded" at 0 join the curves of their own panel
+    var sk0 = (v.series || []).filter(function (k) { return k !== pk && k !== xKey; });
+    var panelBase = function (t) { return !!pk && BASELINE.test(pvOf(t).trim()); };
+    var isBase = function (t) {
+      return posOf(t) === 0 && (panelBase(t) || (sk0.length > 0 && sk0.every(function (k) { var s = sv(t, k); return /^unloaded$/i.test(String(s == null ? '' : s).trim()); })));
+    };
     var base = all.filter(isBase), rest = all.filter(function (t) { return !isBase(t); });
     if (!rest.length) { rest = all; base = []; }
     var pvals = panelValues(v, rest, pvOf);
     var varies = function (k) { return uniq(rest.map(function (t) { return JSON.stringify(sv(t, k) == null ? null : sv(t, k)); })).length > 1; };
     var skeys = (v.series || []).filter(function (k) { return k !== pk && k !== xKey && varies(k); });
     var sName0 = skeys.length ? seriesNamer(card, rest, skeys) : function () { return ''; };
-    var multiOut = uniq(all.map(function (t) { return t.output || ''; })).length > 1;
+    var multiOut = uniq(all.map(yOutOf)).length > 1;
     var sName = function (t) { return isBase(t) ? '' : sName0(t); };
     var studies = viewStudies(card, all).filter(function (k) { return !S.off[k]; });
     // line styles (dash + marker) are numbered per study: the k-th curve of a study looks the same in every panel
@@ -845,9 +900,10 @@
     var steps = stepNames(all, xKey);
     var panels = pvals.map(function (pv) {
       var own = rest.filter(function (t) { return pvOf(t) === pv; });
-      var ts = own.concat(base);
-      var pOuts = uniq(own.map(function (t) { return t.output || ''; }));
-      var oName = function (t) { return multiOut && pOuts.length > 1 ? outLabel(card, t.output) : ''; };
+      var pbase = base.filter(function (t) { return panelBase(t) || pvOf(t) === pv; });
+      var ts = own.concat(pbase);
+      var pOuts = uniq(own.map(yOutOf));
+      var oName = function (t) { return multiOut && pOuts.length > 1 ? yLab(yOutOf(t)) : ''; };
       var lines = [];
       studies.forEach(function (k) {
         var groups = {}, order = [], baseOnly = [];
@@ -861,31 +917,49 @@
             if (!it.v) return;
             var name = [oName(t), sName(t), it.tag].filter(Boolean).join(' · ');
             if (!groups[name]) { groups[name] = []; order.push(name); }
-            var p = {}; Object.keys(it.v).forEach(function (q) { p[q] = it.v[q]; });
-            p.x = xOf(t); p.task = t; groups[name].push(p);
+            groups[name].push(ptOf(it.v, t));
           });
         });
-        base.forEach(function (t) { // the shared unloaded point joins every curve of the study (or stands alone)
-          var bv = firstRef(card, t, k); if (!bv) return;
-          bv.x = xOf(t); bv.task = t; bv.base = true;
-          if (order.length) order.forEach(function (name) { if (!groups[name].some(function (q) { return q.x === bv.x; })) groups[name].push(bv); });
+        pbase.forEach(function (t) { // the shared unloaded point joins every curve of the study (or stands alone)
+          var bv0 = firstRef(card, t, k); if (!bv0) return;
+          var bv = ptOf(bv0, t); bv.base = true;
+          var same = function (q) { return q.tr || bv.tr ? q.x === bv.x && q.y === bv.y : q.x === bv.x; };
+          if (order.length) order.forEach(function (name) { if (!groups[name].some(same)) groups[name].push(bv); });
           else baseOnly.push(bv);
         });
         if (baseOnly.length) { groups[''] = baseOnly; order.push(''); baseOnly.only = true; }
         order.forEach(function (name) {
-          var pts = groups[name].sort(function (a, b) { return a.x - b.x; });
-          lines.push({ key: k, name: name, pts: pts, si: styleOf(k, name), color: colorOf(card, k), hollow: noPool(card, k), enc: encOf(pts),
-            label: studyLabel(card, k, false) + (name ? ' · ' + name : groups[name] === baseOnly ? ' · unloaded' : '') });
+          var pts = sortPts(groups[name]);
+          lines.push({ key: k, name: name, pts: pts, si: styleOf(k, name), color: colorOf(card, k), hollow: openMark(card, k), sec: isSec(card, k), np: noPool(card, k),
+            tr: pts.some(function (q) { return q.tr; }), enc: encOf(pts),
+            label: legendName(card, k) + (name ? ' · ' + name : groups[name] === baseOnly ? ' · unloaded' : '') });
         });
       });
       if (!S.hidePooled) uniq(own.map(function (t) { return [oName(t), sName(t)].filter(Boolean).join(' · '); })).forEach(function (s) {
-        var pts = own.filter(function (t) { return [oName(t), sName(t)].filter(Boolean).join(' · ') === s; }).map(function (t) {
-          var q = pooledValue(pooledFor(card, t)); if (q) { q.x = xOf(t); q.task = t; } return q;
-        }).filter(Boolean).sort(function (a, b) { return a.x - b.x; });
-        if (pts.length) lines.push({ key: '_pooled', pooled: true, name: s, pts: pts, si: styleOf('_pooled', s), color: cssVar('--pooled'), enc: 'pooled', label: 'Pooled' + (s ? ' · ' + s : '') });
+        var pts = sortPts(own.filter(function (t) { return [oName(t), sName(t)].filter(Boolean).join(' · ') === s; }).map(function (t) {
+          var q = pooledValue(pooledFor(card, t)); return q ? ptOf(q, t) : null;
+        }).filter(Boolean));
+        if (pts.length) lines.push({ key: '_pooled', pooled: true, name: s, pts: pts, si: styleOf('_pooled', s), color: cssVar('--pooled'), enc: 'pooled',
+          tr: pts.some(function (q) { return q.tr; }), label: 'Pooled' + (s ? ' · ' + s : '') });
       });
       var mods = S.hideModels ? [] : models.filter(function (m) { return m.panel == null || m.panel === pv; });
-      return { value: pv, label: panelLabel(card, v, pk, pv), tasks: ts, lines: lines, models: mods, outs: pOuts.length ? pOuts : uniq(ts.map(function (t) { return t.output || ''; })) };
+      return { value: pv, label: panelLabel(card, v, pk, pv), tasks: ts, lines: lines, models: mods, outs: pOuts.length ? pOuts : uniq(ts.map(yOutOf)) };
+    });
+    // curve names: parts shared by every curve of one study are dropped ("Disc unit No.1 · posterior elements removed" -> "Disc unit No.1")
+    Object.keys(styles).forEach(function (k) {
+      if (k === '_pooled') return;
+      var names = styles[k].filter(Boolean);
+      if (names.length < 2) return;
+      var parts = names.map(function (n) { return n.split(' · '); });
+      var common = parts[0].filter(function (x) { return parts.every(function (q) { return q.indexOf(x) >= 0; }); });
+      if (!common.length) return;
+      var map = {}, ok = true;
+      styles[k].forEach(function (n) { var m = n ? n.split(' · ').filter(function (x) { return common.indexOf(x) < 0; }).join(' · ') : n; if (n && !m) ok = false; map[n] = m; });
+      if (!ok) return;
+      styles[k] = styles[k].map(function (n) { return map[n]; });
+      panels.forEach(function (p) {
+        p.lines.forEach(function (l) { if (l.key === k && map[l.name] != null) { l.name = map[l.name]; l.label = legendName(card, k) + (l.name ? ' · ' + l.name : ''); } });
+      });
     });
     // panel titles: drop a lead-in every title shares ("Dead-weight load on rib-head pin, anterior" -> "Anterior")
     if (panels.length > 1) {
@@ -895,19 +969,21 @@
     }
     // axes: x shared by all panels; y shared by panels of the same output unless "share_y": false
     var xsOf = function (p) { var xs = []; p.lines.forEach(function (l) { l.pts.forEach(function (q) { xs.push(q.x); }); }); p.models.forEach(function (m) { m.pts.forEach(function (q) { xs.push(q.x); }); }); return xs; };
-    var xrange = function (xs) {
+    var xwOf = function (p) { var xs = []; p.lines.forEach(function (l) { l.pts.forEach(function (q) { if (q.xlo != null) xs.push(q.xlo); if (q.xhi != null) xs.push(q.xhi); }); }); return xs; };
+    var xrange = function (xs, xw) { // xw: ends of horizontal SD bars (they widen the axis, but do not pull it below 0)
       var xlo = Math.min.apply(null, xs), xhi = Math.max.apply(null, xs);
+      if (xw && xw.length) { var wlo = Math.min.apply(null, xw); xhi = Math.max(xhi, Math.max.apply(null, xw)); xlo = xlo >= 0 ? Math.max(0, Math.min(xlo, wlo)) : Math.min(xlo, wlo); }
       var r = steps ? [xlo - 0.4, xhi + 0.4] : niceExtent(Math.min(0, xlo), xhi, 6, true);
       if (!steps && xlo > 0 && xlo > (xhi - xlo)) { var st = niceExtent(0, xhi - xlo, 5, true).step; r = [Math.floor(xlo / st) * st, Math.ceil(xhi / st) * st]; r.step = st; } // data far from 0
       if (isNum(v.x_min)) r[0] = v.x_min;
       if (isNum(v.x_max)) r[1] = v.x_max;
       return r;
     };
-    var xsAll = [];
-    panels.forEach(function (p) { p.xs = xsOf(p); xsAll = xsAll.concat(p.xs); });
+    var xsAll = [], xwAll = [];
+    panels.forEach(function (p) { p.xs = xsOf(p); p.xw = xwOf(p); xsAll = xsAll.concat(p.xs); xwAll = xwAll.concat(p.xw); });
     if (!xsAll.length) { chartMsg(fig, studies.length ? 'No plottable values. See the table.' : 'Nothing to show. Switch a study on above.'); return null; }
-    var xrAll = xrange(xsAll);
-    panels.forEach(function (p) { p.xr = v.share_x === false && p.xs.length ? xrange(p.xs) : xrAll; });
+    var xrAll = xrange(xsAll, xwAll);
+    panels.forEach(function (p) { p.xr = v.share_x === false && p.xs.length ? xrange(p.xs, p.xw) : xrAll; });
     var yr = {}, yc = {};
     panels.forEach(function (p) {
       var g = v.share_y === false ? 'p' + p.value : p.outs.join('|');
@@ -926,11 +1002,15 @@
     var w = fig.clientWidth || 600, n = panels.length, cols = panelCols(n, w, v);
     S.panelCols = cols;
     var cellW = (w - (cols - 1) * PANEL_GAP) / cols;
-    var h = Math.round(Math.max(150, Math.min(250, cellW * (cols === 1 ? 0.62 : 0.74))));
+    // one panel = one plain figure: taller, and no panel title (the figure title says it) unless panel_labels names it
+    var h = n === 1 ? Math.round(Math.max(260, Math.min(420, cellW * 0.5))) : Math.round(Math.max(150, Math.min(250, cellW * (cols === 1 ? 0.62 : 0.74))));
+    var showPT = n > 1 || !!(v.panel_labels && v.panel_labels[panels[0].value]);
     fig.innerHTML = '<div class="pgrid" style="--cols:' + cols + '">' + panels.map(function (p, i) {
-      return '<div class="pcell"><div class="ptitle">' + esc(p.label) + '</div><div class="pbox" id="pbox-' + i + '" style="height:' + h + 'px"></div></div>';
+      return '<div class="pcell">' + (showPT ? '<div class="ptitle">' + esc(p.label) + '</div>' : '') + '<div class="pbox" id="pbox-' + i + '" style="height:' + h + 'px"></div></div>';
     }).join('') + '</div>';
-    var xTitle = steps ? 'Resection step' : xAxisTitle(card, xKey, v.x_title);
+    var allTr = !!tr && all.every(isTr);
+    var xTitle = steps ? 'Resection step' : xAxisTitle(card, xKey, v.x_title || (allTr ? axisTitle(card, tr.output) : null));
+    var trXU = tr ? unitOf(card, tr.output) : '', trYU = tr ? yUn(tr.y) : '', trYL = tr ? yLab(tr.y) : '';
     var grid = cssVar('--grid'), ink2 = cssVar('--ink-2'), muted = cssVar('--muted'), surface = cssVar('--surface'), axisLine = cssVar('--line-2'), modelInk = cssVar('--muted');
     var small = cellW < 230, tickFont = { size: small ? 9.5 : 10.5 }, titleFont = { size: small ? 10.5 : 11.5, weight: '500' };
     var mainY = v.y_title || null;
@@ -938,14 +1018,14 @@
     panels.forEach(function (p, i) {
       var box = $('#pbox-' + i, fig), col = i % cols, row = Math.floor(i / cols);
       var lastInCol = i + cols >= n; // nothing below this panel
-      var unit = p.outs.length === 1 ? unitOf(card, p.outs[0]) : '';
-      var yTitle = mainY || (p.outs.length === 1 ? axisTitle(card, p.outs[0]) : outLabel(card, p.outs[0]));
+      var unit = p.outs.length === 1 ? yUn(p.outs[0]) : '';
+      var yTitle = mainY || (p.outs.length === 1 ? yAx(p.outs[0]) : yLab(p.outs[0]));
       var firstY = col === 0 ? null : panels[row * cols].ygroup;
       var showYTitle = col === 0 || firstY !== p.ygroup;
       if (!p.lines.length && !p.models.length) { box.innerHTML = '<div class="chart-msg">No values</div>'; return; }
       // dodge: lines whose whiskers share an x value move a few pixels apart
       var xr = p.xr, plotW = Math.max(80, cellW - (showYTitle ? 58 : 40)), perPx = (xr[1] - xr[0]) / plotW;
-      var slotLines = p.lines.filter(function (l) { return l.enc !== 'band'; });
+      var slotLines = p.lines.filter(function (l) { return l.enc !== 'band' && !l.tr; }); // transposed lines keep their true x
       var at = {};
       slotLines.forEach(function (l, j) { l.pts.forEach(function (q) { (at[q.x] = at[q.x] || {})[j] = 1; }); });
       var crowd = Object.keys(at).some(function (k) { return Object.keys(at[k]).length > 1; });
@@ -972,6 +1052,7 @@
         encs[l.enc] = 1;
         if (l.enc === 'median' && l.pts.some(function (q) { return q.lo != null; })) encs.medR = 1;
         var mark = l.pooled ? 'rectRot' : MARKS[l.si % MARKS.length], dash = l.pooled ? [] : DASHES[l.si % DASHES.length];
+        if (l.sec && !dash.length) dash = [5, 3];
         var open = l.hollow || l.pooled || l.enc === 'median';
         if (l.enc === 'band') band(l.pts, l.color, 0.2, 0.55, l.label, 20, l.key);
         ds.push({ label: l.label, _key: l.key, _pooled: !!l.pooled, _color: l.pooled ? null : l.color, _vals: l.pts, _noWhisk: l.enc === 'band', _cap: 3,
@@ -1003,18 +1084,22 @@
         title: function (items) {
           if (!items.length) return '';
           var q = items[0].dataset._vals[items[0].dataIndex];
-          return p.label + ' · ' + (steps ? 'step ' + fmt(q.x) + (steps[q.x] ? ': ' + steps[q.x] : '') : xTitle.replace(/\s*\(([^)]*)\)$/, '') + ' ' + withUnit(fmt(q.x), (/\(([^)]*)\)$/.exec(xTitle) || [])[1]));
+          var head = showPT ? p.label + ' · ' : '';
+          if (q.tr) return head + trYL + ' ' + withUnit(fmt(q.y), trYU) + ' (applied)';
+          return head + (steps ? 'step ' + fmt(q.x) + (steps[q.x] ? ': ' + steps[q.x] : '') : xTitle.replace(/\s*\(([^)]*)\)$/, '') + ' ' + withUnit(fmt(q.x), (/\(([^)]*)\)$/.exec(xTitle) || [])[1]));
         },
         label: function (c) {
           var q = c.dataset._vals[c.dataIndex];
           if (q.model) return ' ' + c.dataset.label + ': ' + fmt(q.lo) + '–' + fmt(q.hi) + (unit ? ' ' + unit : '') + ' (range of models)';
+          if (q.tr) return tipLabel(c, q.orig, trXU) + ' (measured)';
           return tipLabel(c, q, unit);
         }
       };
       var chart = new Chart(canvasIn(box, p.label + ': ' + yTitle + ' versus ' + xTitle), { type: 'line', data: { datasets: ds }, options: o, plugins: [whiskers] });
       S.charts.push(chart);
     });
-    return { kind: 'panels', sets: allLines, styles: styles, encs: encs, steps: steps };
+    return { kind: 'panels', sets: allLines, styles: styles, encs: encs, steps: steps,
+      tr: tr && allLines.some(function (l) { return l.tr; }) ? { x: lowerFirst(outLabel(card, tr.output)), y: lowerFirst(trYL) } : null };
   }
   // line styles under a panel figure: one row of names when every study uses the same ones, else per study
   function panelKeyHtml(info, card) {
@@ -1044,6 +1129,8 @@
     if (e.point) bits.push(encGlyph('point', ink) + 'single value, no spread reported');
     if (e.pooled) bits.push(encGlyph('pooled', cssVar('--pooled')) + 'pooled mean ± SD (n-weighted)');
     if (e.models) bits.push(encGlyph('models', cssVar('--muted')) + 'published models: range across models (not data; never pooled or scored)');
+    if (info.sets.some(function (l) { return l.sec; })) bits.push(encGlyph('sd', ink, null, true) + 'secondary source (values read from a review)');
+    if (info.tr) bits.push('<b>↔</b>' + esc('force-controlled tests: ' + info.tr.x + ' measured at a set ' + info.tr.y + ', drawn transposed (SD as horizontal bar)'));
     return bits.map(function (b) { return '<span>' + b + '</span>'; }).join('');
   }
 
@@ -1243,13 +1330,15 @@
   }
   function studiesTable(card) {
     var rows = card.studies.slice().sort(function (a, b) { return (a.year || 0) - (b.year || 0) || String(a.short).localeCompare(String(b.short)); });
-    return '<div class="table-wrap"><table class="compact"><thead><tr><th>Study</th><th class="r">Year</th><th class="r">n</th><th>Sample</th><th>DOI</th></tr></thead><tbody>' +
+    var anyLoad = rows.some(function (s) { return s.loading; });
+    return '<div class="table-wrap"><table class="compact"><thead><tr><th>Study</th><th class="r">Year</th><th class="r">n</th><th>Sample</th>' + (anyLoad ? '<th>Loading</th>' : '') + '<th>DOI</th></tr></thead><tbody>' +
       rows.map(function (s) {
         return '<tr><td class="study"><span class="sw" style="background:' + swatch(card, s.key) + '"></span><b class="nowrap">' + esc(s.short || s.key) + '</b>' +
           (s.secondary ? ' <span class="tag" title="Value compiled in a review; the primary study is not in this benchmark">secondary</span>' : '') +
           (s.pool === false ? ' <span class="tag" title="Shown, but not part of the pooled value">not pooled</span>' : '') + '</td>' +
           '<td class="r num">' + esc(s.year || '') + '</td><td class="r num">' + esc(s.n == null ? '–' : s.n) + '</td>' +
-          '<td class="wide">' + esc(s.sample || '') + '</td><td class="doi">' + doiLink(s.doi, card.example) + '</td></tr>';
+          '<td class="wide">' + esc(s.sample || '') + '</td>' + (anyLoad ? '<td class="wide loading-td">' + esc(s.loading || '') + '</td>' : '') +
+          '<td class="doi">' + doiLink(s.doi, card.example) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
 
@@ -1274,22 +1363,32 @@
   function chipsHtml(card, studies, anyPooled, opts) {
     opts = opts || {};
     return '<div class="chips' + (opts.enc ? ' chips-fig' : '') + '" role="group" aria-label="Show or hide studies">' + studies.map(function (k) {
-      var np = noPool(card, k), s = card._study[k] || {};
-      var sw = opts.enc ? encGlyph(opts.enc(k), swatch(card, k)) :
-        '<span class="sw' + (np ? ' hollow' : '') + '" style="--c:' + swatch(card, k) + ';background:' + swatch(card, k) + '"></span>';
+      var np = noPool(card, k), s = card._study[k] || {}, op = openMark(card, k);
+      var sw = opts.enc ? encGlyph(opts.enc(k), swatch(card, k), null, op) :
+        '<span class="sw' + (op ? ' hollow' : '') + '" style="--c:' + swatch(card, k) + ';background:' + swatch(card, k) + '"></span>';
       var extra = opts.suffix ? opts.suffix(k) : '';
-      return '<button type="button" class="chip" data-study="' + esc(k) + '" aria-pressed="' + !S.off[k] + '" title="' + esc((s.sample || '') + (np ? ' · not pooled' : '')) + '">' +
-        sw + esc(studyLabel(card, k, false)) + (extra ? '<span class="cx">' + esc(extra) + '</span>' : '') +
+      var tip = [s.loading ? 'Loading: ' + s.loading : '', s.sample || '', s.secondary ? 'secondary source (via a review)' : '', np ? 'not pooled' : ''].filter(Boolean).join('\n');
+      return '<button type="button" class="chip" data-study="' + esc(k) + '" aria-pressed="' + !S.off[k] + '" title="' + esc(tip) + '">' +
+        sw + esc(legendName(card, k)) + (extra ? '<span class="cx">' + esc(extra) + '</span>' : '') +
         (s.n != null ? '<span class="cn">n=' + esc(s.n) + '</span>' : '') + '</button>';
     }).join('') + (anyPooled ? '<button type="button" class="chip chip-pooled" data-study="_pooled" aria-pressed="' + !S.hidePooled + '">' +
       (opts.enc ? encGlyph('pooled', 'var(--pooled)') : '<span class="sw sw-pooled"></span>') + 'Pooled</button>' : '') +
       (opts.models ? '<button type="button" class="chip chip-models" data-study="_models" aria-pressed="' + !S.hideModels + '" title="Range across published models. Not experimental data; never pooled or scored.">' +
         encGlyph('models', 'var(--muted)') + esc(opts.models) + '</button>' : '') + '</div>';
   }
+  // under each figure: what load each study applied (study "loading"); studies without it are left out
+  function loadingHtml(card, studies) {
+    var ks = studies.filter(function (k) { return card._study[k] && card._study[k].loading; });
+    if (!ks.length) return '';
+    return '<div class="loadlist"><span class="ll-h">Loading</span><ul>' + ks.map(function (k) {
+      return '<li' + (S.off[k] ? ' class="off"' : '') + '><span class="sw' + (openMark(card, k) ? ' hollow' : '') + '" style="--c:' + swatch(card, k) + ';background:' + swatch(card, k) + '"></span>' +
+        '<b>' + esc(studyLabel(card, k, false)) + '</b> ' + esc(card._study[k].loading) + '</li>';
+    }).join('') + '</ul></div>';
+  }
   function schemBlock(card, v) {
     var sc = schematicFor(card.id, v.id === '_activity' ? null : v.id);
     if (!sc) return '';
-    var open = isWide();
+    var open = true; // the set-up schematic is always shown (owner request); it can still be folded by hand
     return '<details class="schem" data-schem-box' + (open ? ' open' : '') + '><summary>Schematic</summary>' +
       '<figure><img data-schem src="' + esc(sc.src) + '"' + (sc.fallback ? ' data-fallback="' + esc(sc.fallback) + '"' : '') + ' alt="Schematic of the test set-up' + (sc.cap ? ': ' + esc(sc.cap) : '') + '">' +
       (sc.cap ? '<figcaption>' + esc(sc.cap) + '</figcaption>' : '') + '</figure></details>';
@@ -1306,8 +1405,8 @@
     var anyPooled = tasks.some(function (t) { return t.pooled; });
     var outs = uniq(tasks.map(function (t) { return t.output || ''; }));
     var xKey = v.x && String(v.x).indexOf('input:') === 0 ? String(v.x).slice(6) : null;
-    if (xKey && !tasks.some(function (t) { return xNum(t.inputs[xKey]) != null; })) xKey = null;
-    var panelMode = v.layout === 'panels' && !!xKey && !v.overview;
+    if (xKey && !v.transpose && !tasks.some(function (t) { return xNum(t.inputs[xKey]) != null; })) xKey = null;
+    var panelMode = (v.layout === 'panels' || !!v.transpose) && !!xKey && !v.overview; // a transposed view is drawn as a (one-panel) figure
     var bwAble = !v.overview && !panelMode && outs.some(function (o) { return canBW(card, o); });
     var side = schemBlock(card, v) + patientTable(card, tasks);
     var main1;
@@ -1324,7 +1423,7 @@
         '<div class="chart-box' + (outs.length > 1 ? ' short' : '') + '" id="chart-' + i + '"></div><div class="series-key" id="skey-' + i + '"></div></div>';
     }).join('');
     body.innerHTML = chipsHtml(card, studies, anyPooled) +
-      '<div class="viz-grid' + (side ? ' has-side' : '') + '"><div class="viz-main">' + main1 + '<p class="chart-cap" id="chart-cap"></p></div>' +
+      '<div class="viz-grid' + (side ? ' has-side' : '') + '"><div class="viz-main">' + main1 + '<p class="chart-cap" id="chart-cap"></p>' + (v.overview ? '' : loadingHtml(card, studies)) + '</div>' +
       (side ? '<aside class="viz-side">' + side + '</aside>' : '') + '</div>' +
       (v.overview ? '' : whatLine(card, tasks, outs, xKey, v.x_title)) + '<div id="task-table"></div>';
     wireSchemImgs(body);
@@ -1343,7 +1442,8 @@
         flags.kinds[info.kind] = 1;
         if (info.kind === 'curves') { if (info.colorBySeries && info.series.length > 1) flags.seriesColor = true; if (info.series.length > 1) flags.multiSeries = true; }
         info.sets.forEach(function (d) {
-          if (d.hollow) flags.hollow = true;
+          if (d.hollow && noPool(card, d.key)) flags.hollow = true;
+          if (d.key && isSec(card, d.key)) flags.sec = true;
           (d.vals || d.pts || []).forEach(function (x) { if (x) { if (x.kind === 'median') flags.median = true; if (x.err === 'range') flags.range = true; } });
         });
       }
@@ -1366,9 +1466,10 @@
     body.innerHTML = '<div class="fig-wrap"><div class="chart-head"><h2 class="chart-title fig-title">' + esc(v.title || v.id) + '</h2></div>' +
       (note ? '<p class="def">' + esc(note) + '</p>' : '') +
       chipsHtml(card, studies, anyPooled, { enc: function (k) { return encMap[k]; }, models: mods, suffix: function (k) { return studySuffix(card, v, tasks, k); } }) +
-      '<div class="fig" id="fig"><p class="loading">Drawing</p></div><div class="series-key" id="skey-p"></div><p class="enc" id="enc"></p><p class="chart-cap" id="chart-cap"></p></div>' +
-      (side ? '<div class="fig-side">' + side.replace(' open>', '>') + '</div>' : '') +
-      whatLine(card, tasks, outs, xKey, v.x_title) + '<div id="task-table"></div>';
+      '<div class="fig" id="fig"><p class="loading">Drawing</p></div><div class="series-key" id="skey-p"></div><p class="enc" id="enc"></p><p class="chart-cap" id="chart-cap"></p>' +
+      loadingHtml(card, studies) + '</div>' +
+      (side ? '<div class="fig-side">' + side + '</div>' : '') +
+      whatLine(card, tasks, outs, xKey, v.x_title, v) + '<div id="task-table"></div>';
     wireSchemImgs(body);
     var tok = S.drawTok = (S.drawTok || 0) + 1;
     var draw = function (models) {
@@ -1382,10 +1483,10 @@
         info.sets.forEach(function (l) { if (!l.pooled && (!best[l.key] || rank[l.enc] > rank[best[l.key]])) best[l.key] = l.enc; });
         Object.keys(best).forEach(function (k) {
           var chip = $('.chip[data-study="' + k.replace(/"/g, '') + '"]', body), g = chip && $('.eg', chip);
-          if (g && best[k] !== encMap[k]) g.outerHTML = encGlyph(best[k], swatch(card, k));
+          if (g && best[k] !== encMap[k]) g.outerHTML = encGlyph(best[k], swatch(card, k), null, openMark(card, k));
         });
         var bits = [];
-        if (info.sets.some(function (l) { return l.hollow; })) bits.push('Open markers of a study marked “not pooled”: shown, not pooled.');
+        if (info.sets.some(function (l) { return l.np; })) bits.push('Open markers of a study marked “not pooled”: shown, not pooled.');
         if (anyOn(S.off) || anyOn(S.offP)) bits.push('<b>Pooled recomputed for your selection.</b>');
         $('#chart-cap', body).innerHTML = bits.join(' ');
       }
@@ -1429,22 +1530,30 @@
     else bits.push('Each dot = one study’s mean (± SD). ◇ = pooled mean of all studies (weighted by n).');
     if (f.median || f.range) bits.push('[min–max] for medians and individual subjects; medians are not pooled.');
     if (f.hollow) bits.push('Hollow = shown, not pooled.');
+    if (f.sec) bits.push('Hollow / dashed = secondary source (values read from a review).');
     if (f.derived) bits.push('% body weight is derived: force ÷ (weight × 9.81), using each patient’s or cohort’s weight.');
     if (anyOn(S.off) || anyOn(S.offP)) bits.push('<b>Pooled recomputed for your selection.</b>');
     return bits.join(' ');
   }
   // one line: what is fixed, what changes, what to report
-  function whatLine(card, tasks, outs, xKey, xTitle) {
+  function whatLine(card, tasks, outs, xKey, xTitle, v) {
     var split = splitInputs(card, tasks, xKey ? [xKey] : []);
     var same = split.same.map(function (k) { return phrase(card, k, tasks[0].inputs[k]); }).filter(Boolean);
     var vary = split.vary.map(function (k) { return lowerFirst(inputLabel(card, k)); });
     var parts = [];
     if (same.length) parts.push('<span><b>Same for all:</b> ' + esc(same.join(', ')) + '</span>');
+    var tr = v ? transposeOf(card, v, tasks) : null;
+    var rangeTxt = function (lab, vals, u) { return lowerFirst(lab) + ' ' + withUnit(fmt(Math.min.apply(null, vals)), u) + ' to ' + withUnit(fmt(Math.max.apply(null, vals)), u); };
     if (xKey) {
-      var xs = tasks.map(function (t) { return xNum(t.inputs[xKey]); }).filter(isNum);
+      var xs = tasks.filter(function (t) { return !(tr && t.output === tr.output); }).map(function (t) { return xNum(t.inputs[xKey]); }).filter(isNum);
       var xd = card._input[xKey] || {};
       var xu = xTitle ? (/\(([^)]+)\)\s*$/.exec(xTitle) || [])[1] : xd.unit, xl = xTitle ? xTitle.replace(/\s*\([^)]*\)\s*$/, '') : inputLabel(card, xKey);
-      parts.push('<span><b>Sweep:</b> ' + esc(lowerFirst(xl) + ' ' + withUnit(fmt(Math.min.apply(null, xs)), xu) + ' to ' + withUnit(fmt(Math.max.apply(null, xs)), xu)) + '</span>');
+      if (xs.length) parts.push('<span><b>Sweep:</b> ' + esc(rangeTxt(xl, xs, xu)) + '</span>');
+    }
+    if (tr) { // force-controlled tasks: the applied load is the sweep
+      var ys = tasks.filter(function (t) { return t.output === tr.output; }).map(function (t) { return trY(tr, t); }).filter(isNum);
+      var yt = v.y_title || (/^in:/.test(tr.y) ? xAxisTitle(card, tr.y.slice(3)) : axisTitle(card, tr.y));
+      if (ys.length) parts.push('<span><b>Set load:</b> ' + esc(rangeTxt(yt.replace(/\s*\([^)]*\)\s*$/, ''), ys, (/\(([^)]+)\)\s*$/.exec(yt) || [])[1])) + ' (report ' + esc(lowerFirst(outLabel(card, tr.output))) + ')</span>');
     }
     if (vary.length) parts.push('<span><b>Changes per task:</b> ' + esc(vary.join(', ')) + '</span>');
     parts.push('<span><b>Report:</b> ' + esc(outs.map(function (o) { return lowerFirst(axisTitle(card, o)); }).join(', ')) + '</span>');
@@ -1551,25 +1660,36 @@
 
   function viewAgents() {
     setTitle('For agents');
+    var cut = function (x, n) { x = String(x || ''); return x.length > n ? x.slice(0, n) + '…' : x; };
+    var shortJson = function (o) { return JSON.stringify(o, function (k, v) { return typeof v === 'string' && k !== 'agent_prompt' ? cut(v, 60) : v; }, 1); };
     var ex = S.index.agent_example, exText = '{"id": "...", "agent_prompt": "...", "tasks": [{"id": "...", "inputs": {}}]}';
     if (ex) {
-      var cut = function (x, n) { x = String(x || ''); return x.length > n ? x.slice(0, n) + '…' : x; };
-      exText = JSON.stringify({ id: ex.id, title: ex.title, agent_prompt: cut(ex.agent_prompt, 150), answer_format: ex.answer_format,
-        subjects: ex.subjects, tasks: ex.tasks, more: 'simulate, inputs, outputs, studies' }, function (k, v) {
-        return typeof v === 'string' && k !== 'agent_prompt' ? cut(v, 60) : v;
-      }, 1);
+      exText = shortJson({ id: ex.id, title: ex.title, agent_prompt: cut(ex.agent_prompt, 150), answer_format: ex.answer_format,
+        subjects: ex.subjects, tasks: ex.tasks, more: 'simulate, inputs, outputs, studies' });
     }
+    var exs = S.index.agent_example_sim, exSimText = '';
+    if (exs && exs.simulations && exs.simulations.length) {
+      var sim = exs.simulations[0];
+      exSimText = shortJson({ id: exs.id, title: exs.title, agent_prompt: cut(exs.agent_prompt, 150),
+        simulations: [{ id: sim.id, title: sim.title, fixed: sim.fixed, sweep: sim.sweep, outputs: (sim.outputs || []).slice(0, 2),
+          studies: sim.studies, answer: sim.answer }], more: 'simulate, inputs, outputs, studies, the other simulations' });
+    }
+    var c = S.index.counts || {}, nSim = c.simulations || 0, nTask = c.task_units || 0;
+    var simCards = (S.index.benchmarks || []).filter(function (b) { return b.simulations; }).length;
     main.innerHTML = '<div class="stack prose"><div><h1>For agents</h1>' +
-      '<p class="lede">Give an agent the tasks, keep the answers, then score its reply.</p></div>' +
+      '<p class="lede">Give an agent the simulations and tasks, keep the answers, then score its reply.</p></div>' +
       '<ul class="lines">' +
-      '<li><b>agent_tasks.jsonl</b>: one line per benchmark with the prompt, subjects, task inputs and answer format. No reference values.</li>' +
-      '<li><b>answers.json</b>: the hidden answers, <code>{benchmark id: {task id: {refs, pooled}}}</code>. Keep it away from the agent.</li>' +
+      '<li><b>Simulations</b> (' + esc(simCards) + ' finite element and tissue benchmarks): one simulation is one test a modeller runs once, e.g. a moment sweep of one specimen in one direction, or one stress-strain test of a tissue. All studies of that test are combined: ' +
+        esc(c.simulation_tasks || 0) + ' measured values form ' + esc(nSim) + ' simulations. The agent returns one curve per output, <code>[[x, y], …]</code> over the sweep (one number where there is no sweep).</li>' +
+      '<li><b>Tasks</b> (musculoskeletal benchmarks): ' + esc(nTask) + ' independent conditions (posture, load, subject), one number each, <code>{task id: {output: value}}</code>.</li>' +
+      '<li><b>agent_tasks.jsonl</b>: one line per benchmark with the prompt, subjects, simulations or tasks, and the answer format. No reference values.</li>' +
+      '<li><b>answers.json</b>: the hidden answers, <code>{"answers": {benchmark: {task: {refs, pooled}}}, "simulations": {benchmark: {simulation: {band, studies}}}}</code>. Keep it away from the agent.</li>' +
       '<li><b>benchmark.json</b>: every card in one file, tasks and answers together, for analysis.</li>' +
-      '<li>The agent replies <code>{task id: {output: value}}</code> as in <code>answer_format</code>, in the units given there.</li>' +
-      '<li>Score each task against the pooled value (± SD) or each study; every value keeps its <code>test_id</code>.</li>' +
+      '<li>A simulation passes when its curves lie inside the range spanned by the studies (lowest mean − SD to highest mean + SD at each x, with small floors) at ≥ 80 % of the points. A task passes inside the pooled value ± SD, or inside the range of at least half of its studies. Score = passed units / ' + esc(c.units || (nSim + nTask)) + ' units; every value keeps its <code>test_id</code>.</li>' +
       '</ul>' +
       '<div class="btns">' + dlBtn('data/agent_tasks.jsonl', 'agent_tasks.jsonl', true) + dlBtn('data/answers.json', 'answers.json') + dlBtn('data/benchmark.json', 'benchmark.json') + '</div>' +
-      '<div><h2>One line of agent_tasks.jsonl (shortened)</h2><pre class="code">' + esc(exText) + '</pre></div></div>';
+      (exSimText ? '<div><h2>One simulation in agent_tasks.jsonl (shortened)</h2><pre class="code">' + esc(exSimText) + '</pre></div>' : '') +
+      '<div><h2>One task line of agent_tasks.jsonl (shortened)</h2><pre class="code">' + esc(exText) + '</pre></div></div>';
   }
   function viewAbout() {
     setTitle('About');

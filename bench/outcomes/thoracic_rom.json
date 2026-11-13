@@ -19,11 +19,11 @@
   ],
   "summary": "Apply pure moments to thoracic spines with intact rib cage, or to single segments, and report total, regional and segmental rotation.",
   "simulate": [
-    "Build the specimen in the task: T1-T12 with intact rib cage (ribs, costal cartilage, sternum); a single FSU or 4-vertebra segment with rib heads/stumps but no rib cage; or a T2-sacrum spine without ribs.",
+    "Build the specimen of the simulation: T1-T12 with intact rib cage; FSUs or 4-vertebra segments with rib heads/stumps but no rib cage; or a T2-sacrum spine without ribs.",
     "Fix the caudal vertebra (T12, the lowest vertebra, or the sacrum); apply a pure moment to the cranial vertebra; leave the other 5 DOF free.",
     "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force.",
-    "Report rotation of each upper vertebra relative to the one below (segmental), of the region end vertebrae (regional), and of T1 relative to T12 (total), at peak moment.",
-    "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
+    "One-direction simulations: neutral to peak. \"L+R\" and \"Flexion+extension\": sum of both directions (full range).",
+    "Report every listed output (total, regional, segmental ROM, neutral zone) as one curve over the sweep."
   ],
   "inputs": [
     {
@@ -86,7 +86,8 @@
       "n": 7,
       "sample": "7 T1-T12 spines with true ribs and sternum",
       "doi": "10.1016/j.jbiomech.2015.03.021",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR; ±2 N·m read on same cycles) at 1°/s; no preload; 5 cycles, 3rd analysed; T1-T12 with ribs and sternum"
     },
     {
       "key": "healy2014",
@@ -95,7 +96,8 @@
       "n": 9,
       "sample": "9 C7-L1 torsos, intact rib cage",
       "doi": "10.1016/j.spinee.2013.11.035",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control (robot), pure moments ±5 N·m (FE, LB, AR), off-axis loads minimised; no preload; 3 preconditioning cycles; C7-L1 with rib cage"
     },
     {
       "key": "lubelski2014",
@@ -104,7 +106,8 @@
       "n": 10,
       "sample": "10 C7-L1 torsos, intact rib cage",
       "doi": "10.1016/j.spinee.2014.03.026",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control (robot), pure moments ±5 N·m (FE, LB, AR), off-axis loads minimised; no preload; preconditioned; C7-L1 with rib cage"
     },
     {
       "key": "liebsch2017",
@@ -113,7 +116,8 @@
       "n": 6,
       "sample": "6 C7-L1 spines with entire rib cage, 2 Nm",
       "doi": "10.1371/journal.pone.0178733",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±2 N·m (FE, LB, AR) at 1°/s (AR 0.5°/s); no preload; 3.5 cycles, last evaluated; C7-L1 with rib cage"
     },
     {
       "key": "liebsch2018",
@@ -122,7 +126,8 @@
       "n": 8,
       "sample": "8 C7-L1 spines with rib cage, 0/400 N follower",
       "doi": "10.1016/j.jbiomech.2018.06.025",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR) at 1°/s; 0 or 400 N follower preload; 3.5 cycles, 3rd evaluated; C7-L1 with rib cage"
     },
     {
       "key": "liebsch2020",
@@ -131,7 +136,8 @@
       "n": 8,
       "sample": "8 C7-L1 rib cage specimens, then monosegments",
       "doi": "10.3389/fbioe.2020.00046",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR) at 1°/s; no preload; 3.5 cycles, 3rd evaluated; C7-L1 with rib cage, then FSUs with/without ribs"
     },
     {
       "key": "liebsch2020fb",
@@ -140,7 +146,8 @@
       "n": 6,
       "sample": "6 C7-L1 spines with intact rib cage",
       "doi": "10.3389/fbioe.2020.00572",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR) at 1°/s; no preload; 3.5 cycles, 3rd evaluated; C7-L1 with intact rib cage"
     },
     {
       "key": "sis2016",
@@ -149,7 +156,8 @@
       "n": 8,
       "sample": "8 T1-T12 spines with rib cage, 0/200/400 N follower",
       "doi": "10.1016/j.jbiomech.2016.08.003",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR) at 1°/s; follower preload 0, 200 or 400 N; 5 cycles, 3rd analysed; T1-T12 with rib cage"
     },
     {
       "key": "rahm2019",
@@ -158,7 +166,8 @@
       "n": 5,
       "sample": "5 C7-L2 spines with intact rib cage",
       "doi": "10.1016/j.clinbiomech.2019.10.008",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, quasi-static pure moments ±5 N·m (FE, LB, AR) at 1.5°/s; no preload; 3 cycles, 3rd analysed; C7-L2 with intact rib cage"
     },
     {
       "key": "orbach2023",
@@ -167,7 +176,8 @@
       "n": 7,
       "sample": "7 T1-L5 spines with rib cage (T1-T12: n=5)",
       "doi": "10.1002/jsp2.1257",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±8 N·m (FE, LB, AR) at 1°/s; no preload; 3 cycles, 3rd analysed; T1-L5 spines with rib cage"
     },
     {
       "key": "watkins2005",
@@ -176,7 +186,8 @@
       "n": 10,
       "sample": "10 C7-L1 spines with rib cage and sternum, T1 vs T12",
       "doi": "10.1097/01.brs.0000164257.69354.bb",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments 2 N·m FE and LB (no preload), 5 N·m AR with 50 N axial preload; 5 cycles of 10 s ramp, 5th analysed; C7-L1 with rib cage"
     },
     {
       "key": "wilke2025",
@@ -185,7 +196,8 @@
       "n": 26,
       "sample": "Ulm pool: 23-26 rib cage specimens, 6-16 FSUs/level",
       "doi": "10.1002/jsp2.70052",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±5 N·m (FE, LB, AR) at 1°/s; no preload; 3.5 cycles, 3rd evaluated; C7-L1 rib cage specimens and FSUs with rib heads"
     },
     {
       "key": "wilke2017",
@@ -194,7 +206,8 @@
       "n": 68,
       "sample": "68 FSUs with costovertebral joints, 6-7 per level",
       "doi": "10.1371/journal.pone.0177823",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±7.5 N·m (FE, LB, AR) at 1°/s (AR 0.5°/s); no preload; 3.5 cycles, 3rd evaluated; thoracic FSUs with rib stumps"
     },
     {
       "key": "liebsch2022",
@@ -203,7 +216,8 @@
       "n": 22,
       "sample": "22 grade-0 FSUs (of 95), levels pooled",
       "doi": "10.1016/j.spinee.2022.06.010",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments to 7.5 or 5 N·m (FE, LB, AR) at 1°/s, ROM read at 5 N·m; no preload; 3rd of 3.5 cycles; thoracic FSUs with rib heads"
     },
     {
       "key": "oxland1992",
@@ -212,7 +226,8 @@
       "n": 11,
       "sample": "11 T11-L1 specimens, no ribs, T11-T12 level",
       "doi": "10.1002/jor.1100100412",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments in 4 steps to 7.5 N·m (FE, LB, AR); no preload; 3 cycles, 30 s creep per step; T11-L1 specimens without ribs"
     },
     {
       "key": "busscher2009",
@@ -221,7 +236,8 @@
       "n": 6,
       "sample": "6 male spines cut into 4-vertebra segments, 3 cm rib stumps",
       "doi": "10.1097/BRS.0b013e3181b4c75d",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control at 0.5°/s, reversed at ±4 N·m (FE, LB, AR); no preload (250 N for 1 h beforehand); 3rd of 3 cycles; 4-vertebra thoracic segments"
     },
     {
       "key": "stanley2004",
@@ -230,7 +246,8 @@
       "n": 7,
       "sample": "7 T2-sacrum spines, no rib cage, 0-800 N follower",
       "doi": "10.1097/01.brs.0000145417.94357.39",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, FE moments 8 N·m flexion / 6 N·m extension, continuous cycling; follower preload 0-800 N; T2-sacrum spines, no rib cage"
     }
   ],
   "shared": [
@@ -421,40 +438,6 @@
       "panel_by": "level"
     },
     {
-      "id": "total",
-      "title": "Whole T1-T12, both directions",
-      "task_ids": [
-        "T1T12_fe_5",
-        "T1T12_lbr_5",
-        "T1T12_arr_5",
-        "T1T12_arr_5_ax50",
-        "T1T12_fe_2",
-        "T1T12_lbr_2",
-        "T1T12_arr_2",
-        "T1T12_fe_5_nz",
-        "T1T12_lbr_5_nz",
-        "T1T12_arr_5_nz"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "total_one",
-      "title": "Whole T1-T12, one direction",
-      "task_ids": [
-        "T1T12_flex_5",
-        "T1T12_ext_5",
-        "T1T12_lb_5",
-        "T1T12_ar_5",
-        "T1T12_flex_8",
-        "T1T12_ext_8",
-        "T1T12_lb_8",
-        "T1T12_ar_8"
-      ],
-      "x": "task",
-      "group": "At one moment"
-    },
-    {
       "id": "seg_ribcage",
       "title": "Segments inside the rib cage (5 Nm)",
       "task_ids": [
@@ -487,49 +470,46 @@
         "T11T12_arr_5_rc"
       ],
       "x": "task",
-      "group": "At one moment"
+      "group": "Segmental ROM at one moment"
     },
     {
       "id": "seg_fsu",
-      "title": "Single segments, both directions (5 Nm)",
+      "title": "Segments without rib cage, full range (4–5 Nm)",
       "task_ids": [
         "T1T2_fe_5_fsu",
         "T1T2_lbr_5_fsu",
         "T1T2_arr_5_fsu",
+        "T2T3_fe_4_ms",
+        "T2T3_lbr_4_ms",
+        "T2T3_arr_4_ms",
         "T3T4_fe_5_fsu",
         "T3T4_lbr_5_fsu",
         "T3T4_arr_5_fsu",
         "T5T6_fe_5_fsu",
         "T5T6_lbr_5_fsu",
         "T5T6_arr_5_fsu",
+        "T6T7_fe_4_ms",
+        "T6T7_lbr_4_ms",
+        "T6T7_arr_4_ms",
         "T7T8_fe_5_fsu",
         "T7T8_lbr_5_fsu",
         "T7T8_arr_5_fsu",
         "T9T10_fe_5_fsu",
         "T9T10_lbr_5_fsu",
         "T9T10_arr_5_fsu",
+        "T10T11_fe_4_ms",
+        "T10T11_lbr_4_ms",
+        "T10T11_arr_4_ms",
         "T11T12_fe_5_fsu",
         "T11T12_lbr_5_fsu",
         "T11T12_arr_5_fsu"
       ],
       "x": "task",
-      "group": "At one moment"
-    },
-    {
-      "id": "seg_fsu_one",
-      "title": "Mean single segment, one direction (5 Nm)",
-      "task_ids": [
-        "pooled_flex_5_fsu",
-        "pooled_ext_5_fsu",
-        "pooled_lb_5_fsu",
-        "pooled_ar_5_fsu"
-      ],
-      "x": "task",
-      "group": "At one moment"
+      "group": "Segmental ROM at one moment"
     },
     {
       "id": "fsu_7p5",
-      "title": "Single segments, no rib cage (7.5 Nm)",
+      "title": "Segments without rib cage, one direction (5–7.5 Nm)",
       "task_ids": [
         "T1T2_flex_7p5_fsu",
         "T1T2_ext_7p5_fsu",
@@ -554,34 +534,32 @@
         "T11T12_flex_7p5_fsu",
         "T11T12_ext_7p5_fsu",
         "T11T12_lb_7p5_fsu",
-        "T11T12_ar_7p5_fsu"
+        "T11T12_ar_7p5_fsu",
+        "pooled_flex_5_fsu",
+        "pooled_ext_5_fsu",
+        "pooled_lb_5_fsu",
+        "pooled_ar_5_fsu"
       ],
       "x": "task",
-      "group": "At one moment"
+      "group": "Segmental ROM at one moment"
     },
     {
-      "id": "seg_4nm",
-      "title": "Mid-segment of 4-vertebra specimens (4 Nm)",
-      "task_ids": [
-        "T2T3_fe_4_ms",
-        "T2T3_lbr_4_ms",
-        "T2T3_arr_4_ms",
-        "T6T7_fe_4_ms",
-        "T6T7_lbr_4_ms",
-        "T6T7_arr_4_ms",
-        "T10T11_fe_4_ms",
-        "T10T11_lbr_4_ms",
-        "T10T11_arr_4_ms"
-      ],
+      "id": "nz",
+      "group": "Neutral zone",
+      "title": "T1–T12 neutral zone (full range)",
       "x": "task",
-      "group": "At one moment"
+      "task_ids": [
+        "T1T12_fe_5_nz",
+        "T1T12_lbr_5_nz",
+        "T1T12_arr_5_nz"
+      ]
     }
   ],
   "tasks": [
     {
       "id": "T1T12_fe_5",
       "label": "T1-T12 · Flexion+extension · 5 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -667,7 +645,7 @@
     {
       "id": "T1T12_lbr_5",
       "label": "T1-T12 · Lateral bending L+R · 5 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -753,7 +731,7 @@
     {
       "id": "T1T12_arr_5",
       "label": "T1-T12 · Axial rotation L+R · 5 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -839,7 +817,7 @@
     {
       "id": "T1T12_flex_5",
       "label": "T1-T12 · Flexion · 5 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -880,7 +858,7 @@
     {
       "id": "T1T12_ext_5",
       "label": "T1-T12 · Extension · 5 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -921,7 +899,7 @@
     {
       "id": "T1T12_lb_5",
       "label": "T1-T12 · Lateral bending · 5 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -963,7 +941,7 @@
     {
       "id": "T1T12_ar_5",
       "label": "T1-T12 · Axial rotation · 5 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -1005,7 +983,7 @@
     {
       "id": "T1T12_arr_5_ax50",
       "label": "T1-T12 · Axial rot. L+R · 5 Nm · 50 N",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -1034,7 +1012,7 @@
     {
       "id": "T1T12_fe_2",
       "label": "T1-T12 · Flexion+extension · 2 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -1096,7 +1074,7 @@
     {
       "id": "T1T12_lbr_2",
       "label": "T1-T12 · Lateral bending L+R · 2 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -1158,7 +1136,7 @@
     {
       "id": "T1T12_arr_2",
       "label": "T1-T12 · Axial rotation L+R · 2 Nm",
-      "view": "total",
+      "view": "fig_total_full",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -1187,7 +1165,7 @@
     {
       "id": "T1T12_flex_8",
       "label": "T1-T12 · Flexion · 8 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12 (within T1-L5)",
@@ -1217,7 +1195,7 @@
     {
       "id": "T1T12_ext_8",
       "label": "T1-T12 · Extension · 8 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12 (within T1-L5)",
@@ -1247,7 +1225,7 @@
     {
       "id": "T1T12_lb_8",
       "label": "T1-T12 · Lateral bending · 8 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12 (within T1-L5)",
@@ -1289,7 +1267,7 @@
     {
       "id": "T1T12_ar_8",
       "label": "T1-T12 · Axial rotation · 8 Nm",
-      "view": "total",
+      "view": "fig_total_one",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12 (within T1-L5)",
@@ -5390,7 +5368,7 @@
     {
       "id": "T1T12_fe_5_nz",
       "label": "T1-T12 · Flexion+extension · 5 Nm",
-      "view": "total",
+      "view": "nz",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -5443,7 +5421,7 @@
     {
       "id": "T1T12_lbr_5_nz",
       "label": "T1-T12 · Lateral bending L+R · 5 Nm",
-      "view": "total",
+      "view": "nz",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -5496,7 +5474,7 @@
     {
       "id": "T1T12_arr_5_nz",
       "label": "T1-T12 · Axial rotation L+R · 5 Nm",
-      "view": "total",
+      "view": "nz",
       "inputs": {
         "level": "T1-T12",
         "specimen": "T1-T12",
@@ -5549,7 +5527,7 @@
     {
       "id": "T2T3_fe_4_ms",
       "label": "T2-T3 · Flexion+extension · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T2-T3",
         "specimen": "T1-T4 (4 vertebrae)",
@@ -5578,7 +5556,7 @@
     {
       "id": "T2T3_lbr_4_ms",
       "label": "T2-T3 · Lateral bending L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T2-T3",
         "specimen": "T1-T4 (4 vertebrae)",
@@ -5607,7 +5585,7 @@
     {
       "id": "T2T3_arr_4_ms",
       "label": "T2-T3 · Axial rotation L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T2-T3",
         "specimen": "T1-T4 (4 vertebrae)",
@@ -5636,7 +5614,7 @@
     {
       "id": "T6T7_fe_4_ms",
       "label": "T6-T7 · Flexion+extension · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T6-T7",
         "specimen": "T5-T8 (4 vertebrae)",
@@ -5665,7 +5643,7 @@
     {
       "id": "T6T7_lbr_4_ms",
       "label": "T6-T7 · Lateral bending L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T6-T7",
         "specimen": "T5-T8 (4 vertebrae)",
@@ -5694,7 +5672,7 @@
     {
       "id": "T6T7_arr_4_ms",
       "label": "T6-T7 · Axial rotation L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T6-T7",
         "specimen": "T5-T8 (4 vertebrae)",
@@ -5723,7 +5701,7 @@
     {
       "id": "T10T11_fe_4_ms",
       "label": "T10-T11 · Flexion+extension · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T10-T11",
         "specimen": "T9-T12 (4 vertebrae)",
@@ -5752,7 +5730,7 @@
     {
       "id": "T10T11_lbr_4_ms",
       "label": "T10-T11 · Lateral bending L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T10-T11",
         "specimen": "T9-T12 (4 vertebrae)",
@@ -5781,7 +5759,7 @@
     {
       "id": "T10T11_arr_4_ms",
       "label": "T10-T11 · Axial rotation L+R · 4 Nm",
-      "view": "seg_4nm",
+      "view": "seg_fsu",
       "inputs": {
         "level": "T10-T11",
         "specimen": "T9-T12 (4 vertebrae)",
@@ -6248,445 +6226,1182 @@
     "The rib cage roughly halves segmental ROM: compare rib-cage tasks with rib-cage models and single-segment tasks with FSU models.",
     "Most Ulm values (Wilke 2025, Liebsch) are medians on overlapping donors; Busscher 2009 mid-segments keep 3 cm rib stumps."
   ],
-  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", a single FSU at the task level with rib heads but no rib cage, a 4-vertebra segment (e.g. T1-T4) with 3 cm rib stumps when inputs.rib_cage says so (report its middle segment), or a T2-sacrum spine without ribs. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction (\"8 flex / 6 ext\" = 8 Nm flexion and 6 Nm extension), with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. nz needs loading and unloading branches (a model with hysteresis); return null for nz if your model is elastic. Each task lists `studies` (whose specimens it uses) and `unit`. Do not tune the model to the reference values. Return only JSON following answer_format, one number per task; null for tasks you cannot simulate.",
+  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). Run the 23 simulations in `simulations`. 'with rib cage' = T1-T12 with ribs, costal cartilage, sternum and costovertebral joints; 'without rib cage' = FSUs with rib heads or 4-vertebra segments with 3 cm rib stumps (report the middle segment); the 8/6 Nm test uses a T2-sacrum spine without ribs. Fix the caudal vertebra, apply the pure moment to the cranial one in the simulation's direction with the listed preload (0 = none), and sweep the moment (or the follower load where the moment is fixed). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at each level, nz = neutral zone (both directions; null if your model is elastic). One-direction: neutral to peak; full range (flexion+extension, L+R): both directions summed. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "T1T12_fe_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_lbr_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_arr_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_flex_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_ext_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_lb_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_ar_5": {
-      "rom_total": "deg"
-    },
-    "T1T12_arr_5_ax50": {
-      "rom_total": "deg"
-    },
-    "T1T12_fe_2": {
-      "rom_total": "deg"
-    },
-    "T1T12_lbr_2": {
-      "rom_total": "deg"
-    },
-    "T1T12_arr_2": {
-      "rom_total": "deg"
-    },
-    "T1T12_flex_8": {
-      "rom_total": "deg"
-    },
-    "T1T12_ext_8": {
-      "rom_total": "deg"
-    },
-    "T1T12_lb_8": {
-      "rom_total": "deg"
-    },
-    "T1T12_ar_8": {
-      "rom_total": "deg"
-    },
-    "T1T4_fe_5": {
-      "rom_total": "deg"
-    },
-    "T1T4_fe_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T1T4_fe_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T4_lbr_5": {
-      "rom_total": "deg"
-    },
-    "T1T4_lbr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T1T4_lbr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T4_arr_5": {
-      "rom_total": "deg"
-    },
-    "T1T4_arr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T1T4_arr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T4T8_fe_5": {
-      "rom_total": "deg"
-    },
-    "T4T8_fe_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T4T8_fe_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T4T8_lbr_5": {
-      "rom_total": "deg"
-    },
-    "T4T8_lbr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T4T8_lbr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T4T8_arr_5": {
-      "rom_total": "deg"
-    },
-    "T4T8_arr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T4T8_arr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T8T12_fe_5": {
-      "rom_total": "deg"
-    },
-    "T8T12_fe_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T8T12_fe_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T8T12_lbr_5": {
-      "rom_total": "deg"
-    },
-    "T8T12_lbr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T8T12_lbr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T8T12_arr_5": {
-      "rom_total": "deg"
-    },
-    "T8T12_arr_5_fl200": {
-      "rom_total": "deg"
-    },
-    "T8T12_arr_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T12_flex_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T12_ext_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T12_lb_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T12_ar_5_fl400": {
-      "rom_total": "deg"
-    },
-    "T1T2_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T2T3_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T2T3_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T2T3_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T4T5_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T4T5_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T4T5_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T8T9_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T8T9_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T8T9_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_fe_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_lbr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_arr_5_rc": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_fe_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_lbr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_arr_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "pooled_flex_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "pooled_ext_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "pooled_lb_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "pooled_ar_5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T2_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T3T4_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T5T6_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T7T8_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T9T10_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_flex_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_ext_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_lb_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T11T12_ar_7p5_fsu": {
-      "rom_segmental": "deg"
-    },
-    "T1T12_fe_5_nz": {
-      "nz": "deg"
-    },
-    "T1T12_lbr_5_nz": {
-      "nz": "deg"
-    },
-    "T1T12_arr_5_nz": {
-      "nz": "deg"
-    },
-    "T2T3_fe_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T2T3_lbr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T2T3_arr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T6T7_fe_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T6T7_lbr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T6T7_arr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T10T11_fe_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T10T11_lbr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T10T11_arr_4_ms": {
-      "rom_segmental": "deg"
-    },
-    "T2S1_fe_8_6": {
-      "rom_total": "deg"
-    },
-    "T2S1_fe_8_6_fl200": {
-      "rom_total": "deg"
-    },
-    "T2S1_fe_8_6_fl400": {
-      "rom_total": "deg"
-    },
-    "T2S1_fe_8_6_fl600": {
-      "rom_total": "deg"
-    },
-    "T2S1_fe_8_6_fl800": {
-      "rom_total": "deg"
-    },
-    "T2T11_fe_8_6": {
-      "rom_total": "deg"
-    },
-    "T2T11_fe_8_6_fl200": {
-      "rom_total": "deg"
-    },
-    "T2T11_fe_8_6_fl400": {
-      "rom_total": "deg"
-    },
-    "T2T11_fe_8_6_fl600": {
-      "rom_total": "deg"
-    },
-    "T2T11_fe_8_6_fl800": {
-      "rom_total": "deg"
-    },
-    "T11L1_fe_8_6": {
-      "rom_total": "deg"
-    },
-    "T11L1_fe_8_6_fl200": {
-      "rom_total": "deg"
-    },
-    "T11L1_fe_8_6_fl400": {
-      "rom_total": "deg"
-    },
-    "T11L1_fe_8_6_fl600": {
-      "rom_total": "deg"
-    },
-    "T11L1_fe_8_6_fl800": {
-      "rom_total": "deg"
+    "fe_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      },
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T4-T5": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T8-T9": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "lbr_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      },
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T4-T5": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T8-T9": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "arr_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      },
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T4-T5": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T8-T9": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      },
+      "nz": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "flex_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_rc_none": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "arr_rc_ax50": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "fe_rc_follower": {
+      "rom_total": {
+        "T1-T4": "[[N, deg], ...]",
+        "T4-T8": "[[N, deg], ...]",
+        "T8-T12": "[[N, deg], ...]"
+      }
+    },
+    "lbr_rc_follower": {
+      "rom_total": {
+        "T1-T4": "[[N, deg], ...]",
+        "T4-T8": "[[N, deg], ...]",
+        "T8-T12": "[[N, deg], ...]"
+      }
+    },
+    "arr_rc_follower": {
+      "rom_total": {
+        "T1-T4": "[[N, deg], ...]",
+        "T4-T8": "[[N, deg], ...]",
+        "T8-T12": "[[N, deg], ...]"
+      }
+    },
+    "flex_rc_fl400": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_rc_fl400": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_rc_fl400": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_rc_fl400": {
+      "rom_total": {
+        "T1-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "fe_norc_none": {
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T6-T7": "[[Nm, deg], ...]",
+        "T10-T11": "[[Nm, deg], ...]"
+      }
+    },
+    "lbr_norc_none": {
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T6-T7": "[[Nm, deg], ...]",
+        "T10-T11": "[[Nm, deg], ...]"
+      }
+    },
+    "arr_norc_none": {
+      "rom_segmental": {
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]",
+        "T2-T3": "[[Nm, deg], ...]",
+        "T6-T7": "[[Nm, deg], ...]",
+        "T10-T11": "[[Nm, deg], ...]"
+      }
+    },
+    "flex_norc_none": {
+      "rom_segmental": {
+        "T1-T2..T11-T12 pooled": "[[Nm, deg], ...]",
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ext_norc_none": {
+      "rom_segmental": {
+        "T1-T2..T11-T12 pooled": "[[Nm, deg], ...]",
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "lb_norc_none": {
+      "rom_segmental": {
+        "T1-T2..T11-T12 pooled": "[[Nm, deg], ...]",
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "ar_norc_none": {
+      "rom_segmental": {
+        "T1-T2..T11-T12 pooled": "[[Nm, deg], ...]",
+        "T1-T2": "[[Nm, deg], ...]",
+        "T3-T4": "[[Nm, deg], ...]",
+        "T5-T6": "[[Nm, deg], ...]",
+        "T7-T8": "[[Nm, deg], ...]",
+        "T9-T10": "[[Nm, deg], ...]",
+        "T11-T12": "[[Nm, deg], ...]"
+      }
+    },
+    "fe_8_6_follower": {
+      "rom_total": {
+        "T2-S1": "[[N, deg], ...]",
+        "T2-T11": "[[N, deg], ...]",
+        "T11-L1": "[[N, deg], ...]"
+      }
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "fe_rc_none",
+      "title": "Flexion + extension (full range), with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T4-T5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T8-T9"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "nz",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_fe_5",
+        "T1T12_fe_2",
+        "T1T2_fe_5_rc",
+        "T2T3_fe_5_rc",
+        "T3T4_fe_5_rc",
+        "T4T5_fe_5_rc",
+        "T5T6_fe_5_rc",
+        "T7T8_fe_5_rc",
+        "T8T9_fe_5_rc",
+        "T9T10_fe_5_rc",
+        "T11T12_fe_5_rc",
+        "T1T12_fe_5_nz"
+      ]
+    },
+    {
+      "id": "lbr_rc_none",
+      "title": "Lateral bending L + R (full range), with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T4-T5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T8-T9"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "nz",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_lbr_5",
+        "T1T12_lbr_2",
+        "T1T2_lbr_5_rc",
+        "T2T3_lbr_5_rc",
+        "T3T4_lbr_5_rc",
+        "T4T5_lbr_5_rc",
+        "T5T6_lbr_5_rc",
+        "T7T8_lbr_5_rc",
+        "T8T9_lbr_5_rc",
+        "T9T10_lbr_5_rc",
+        "T11T12_lbr_5_rc",
+        "T1T12_lbr_5_nz"
+      ]
+    },
+    {
+      "id": "arr_rc_none",
+      "title": "Axial rotation L + R (full range), with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T4-T5"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T8-T9"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "nz",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_arr_5",
+        "T1T12_arr_2",
+        "T1T2_arr_5_rc",
+        "T2T3_arr_5_rc",
+        "T3T4_arr_5_rc",
+        "T4T5_arr_5_rc",
+        "T5T6_arr_5_rc",
+        "T7T8_arr_5_rc",
+        "T8T9_arr_5_rc",
+        "T9T10_arr_5_rc",
+        "T11T12_arr_5_rc",
+        "T1T12_arr_5_nz"
+      ]
+    },
+    {
+      "id": "flex_rc_none",
+      "title": "Flexion, with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_flex_5",
+        "T1T12_flex_8"
+      ]
+    },
+    {
+      "id": "ext_rc_none",
+      "title": "Extension, with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_ext_5",
+        "T1T12_ext_8"
+      ]
+    },
+    {
+      "id": "lb_rc_none",
+      "title": "Lateral bending, one side, with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_lb_5",
+        "T1T12_lb_8"
+      ]
+    },
+    {
+      "id": "ar_rc_none",
+      "title": "Axial rotation, one side, with rib cage, no preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "rib_cage": "intact",
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_ar_5",
+        "T1T12_ar_8"
+      ]
+    },
+    {
+      "id": "arr_rc_ax50",
+      "title": "Axial rotation L + R (full range), with rib cage, 50 N axial preload: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 50
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_arr_5_ax50"
+      ]
+    },
+    {
+      "id": "fe_rc_follower",
+      "title": "Flexion + extension (full range), with rib cage, 5 Nm: ROM vs follower load",
+      "note": "Moment fixed at 5 Nm; the follower load is swept from 0 N (regional ROM T1-T4, T4-T8, T8-T12).",
+      "sweep": "follower_n",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "flexion+extension (full range)",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T4"
+        },
+        {
+          "key": "rom_total",
+          "level": "T4-T8"
+        },
+        {
+          "key": "rom_total",
+          "level": "T8-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T4_fe_5",
+        "T1T4_fe_5_fl200",
+        "T1T4_fe_5_fl400",
+        "T4T8_fe_5",
+        "T4T8_fe_5_fl200",
+        "T4T8_fe_5_fl400",
+        "T8T12_fe_5",
+        "T8T12_fe_5_fl200",
+        "T8T12_fe_5_fl400"
+      ]
+    },
+    {
+      "id": "lbr_rc_follower",
+      "title": "Lateral bending L + R (full range), with rib cage, 5 Nm: ROM vs follower load",
+      "note": "Moment fixed at 5 Nm; the follower load is swept from 0 N (regional ROM T1-T4, T4-T8, T8-T12).",
+      "sweep": "follower_n",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "lateral bending left+right (full range)",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T4"
+        },
+        {
+          "key": "rom_total",
+          "level": "T4-T8"
+        },
+        {
+          "key": "rom_total",
+          "level": "T8-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T4_lbr_5",
+        "T1T4_lbr_5_fl200",
+        "T1T4_lbr_5_fl400",
+        "T4T8_lbr_5",
+        "T4T8_lbr_5_fl200",
+        "T4T8_lbr_5_fl400",
+        "T8T12_lbr_5",
+        "T8T12_lbr_5_fl200",
+        "T8T12_lbr_5_fl400"
+      ]
+    },
+    {
+      "id": "arr_rc_follower",
+      "title": "Axial rotation L + R (full range), with rib cage, 5 Nm: ROM vs follower load",
+      "note": "Moment fixed at 5 Nm; the follower load is swept from 0 N (regional ROM T1-T4, T4-T8, T8-T12).",
+      "sweep": "follower_n",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "moment_nm": 5,
+        "direction": "axial rotation left+right (full range)",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T4"
+        },
+        {
+          "key": "rom_total",
+          "level": "T4-T8"
+        },
+        {
+          "key": "rom_total",
+          "level": "T8-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T4_arr_5",
+        "T1T4_arr_5_fl200",
+        "T1T4_arr_5_fl400",
+        "T4T8_arr_5",
+        "T4T8_arr_5_fl200",
+        "T4T8_arr_5_fl400",
+        "T8T12_arr_5",
+        "T8T12_arr_5_fl200",
+        "T8T12_arr_5_fl400"
+      ]
+    },
+    {
+      "id": "flex_rc_fl400",
+      "title": "Flexion, with rib cage, 400 N follower: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "direction": "flexion (one direction)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_flex_5_fl400"
+      ]
+    },
+    {
+      "id": "ext_rc_fl400",
+      "title": "Extension, with rib cage, 400 N follower: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "direction": "extension (one direction)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_ext_5_fl400"
+      ]
+    },
+    {
+      "id": "lb_rc_fl400",
+      "title": "Lateral bending, one side, with rib cage, 400 N follower: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "direction": "lateral bending (one side)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_lb_5_fl400"
+      ]
+    },
+    {
+      "id": "ar_rc_fl400",
+      "title": "Axial rotation, one side, with rib cage, 400 N follower: ROM vs moment",
+      "note": "Whole thoracic spine with rib cage; regional, total and segmental outputs of one run.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "T1-T12",
+        "rib_cage": "intact",
+        "direction": "axial rotation (one side)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T1-T12"
+        }
+      ],
+      "task_ids": [
+        "T1T12_ar_5_fl400"
+      ]
+    },
+    {
+      "id": "fe_norc_none",
+      "title": "Flexion + extension (full range), without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T6-T7"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T10-T11"
+        }
+      ],
+      "task_ids": [
+        "T1T2_fe_5_fsu",
+        "T3T4_fe_5_fsu",
+        "T5T6_fe_5_fsu",
+        "T7T8_fe_5_fsu",
+        "T9T10_fe_5_fsu",
+        "T11T12_fe_5_fsu",
+        "T2T3_fe_4_ms",
+        "T6T7_fe_4_ms",
+        "T10T11_fe_4_ms"
+      ]
+    },
+    {
+      "id": "lbr_norc_none",
+      "title": "Lateral bending L + R (full range), without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T6-T7"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T10-T11"
+        }
+      ],
+      "task_ids": [
+        "T1T2_lbr_5_fsu",
+        "T3T4_lbr_5_fsu",
+        "T5T6_lbr_5_fsu",
+        "T7T8_lbr_5_fsu",
+        "T9T10_lbr_5_fsu",
+        "T11T12_lbr_5_fsu",
+        "T2T3_lbr_4_ms",
+        "T6T7_lbr_4_ms",
+        "T10T11_lbr_4_ms"
+      ]
+    },
+    {
+      "id": "arr_norc_none",
+      "title": "Axial rotation L + R (full range), without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T2-T3"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T6-T7"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T10-T11"
+        }
+      ],
+      "task_ids": [
+        "T1T2_arr_5_fsu",
+        "T3T4_arr_5_fsu",
+        "T5T6_arr_5_fsu",
+        "T7T8_arr_5_fsu",
+        "T9T10_arr_5_fsu",
+        "T11T12_arr_5_fsu",
+        "T2T3_arr_4_ms",
+        "T6T7_arr_4_ms",
+        "T10T11_arr_4_ms"
+      ]
+    },
+    {
+      "id": "flex_norc_none",
+      "title": "Flexion, without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2..T11-T12 pooled"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        }
+      ],
+      "task_ids": [
+        "pooled_flex_5_fsu",
+        "T1T2_flex_7p5_fsu",
+        "T3T4_flex_7p5_fsu",
+        "T5T6_flex_7p5_fsu",
+        "T7T8_flex_7p5_fsu",
+        "T9T10_flex_7p5_fsu",
+        "T11T12_flex_7p5_fsu"
+      ]
+    },
+    {
+      "id": "ext_norc_none",
+      "title": "Extension, without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2..T11-T12 pooled"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        }
+      ],
+      "task_ids": [
+        "pooled_ext_5_fsu",
+        "T1T2_ext_7p5_fsu",
+        "T3T4_ext_7p5_fsu",
+        "T5T6_ext_7p5_fsu",
+        "T7T8_ext_7p5_fsu",
+        "T9T10_ext_7p5_fsu",
+        "T11T12_ext_7p5_fsu"
+      ]
+    },
+    {
+      "id": "lb_norc_none",
+      "title": "Lateral bending, one side, without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2..T11-T12 pooled"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        }
+      ],
+      "task_ids": [
+        "pooled_lb_5_fsu",
+        "T1T2_lb_7p5_fsu",
+        "T3T4_lb_7p5_fsu",
+        "T5T6_lb_7p5_fsu",
+        "T7T8_lb_7p5_fsu",
+        "T9T10_lb_7p5_fsu",
+        "T11T12_lb_7p5_fsu"
+      ]
+    },
+    {
+      "id": "ar_norc_none",
+      "title": "Axial rotation, one side, without rib cage, no preload: ROM vs moment",
+      "note": "Segments without rib cage: FSUs with rib heads and 4-vertebra segments with 3 cm rib stumps combined.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU with rib heads)",
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2..T11-T12 pooled"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T1-T2"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T3-T4"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T5-T6"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T7-T8"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T9-T10"
+        },
+        {
+          "key": "rom_segmental",
+          "level": "T11-T12"
+        }
+      ],
+      "task_ids": [
+        "pooled_ar_5_fsu",
+        "T1T2_ar_7p5_fsu",
+        "T3T4_ar_7p5_fsu",
+        "T5T6_ar_7p5_fsu",
+        "T7T8_ar_7p5_fsu",
+        "T9T10_ar_7p5_fsu",
+        "T11T12_ar_7p5_fsu"
+      ]
+    },
+    {
+      "id": "fe_8_6_follower",
+      "title": "T2-S1 without ribs, flexion 8 Nm + extension 6 Nm: ROM vs follower load",
+      "note": "Moment fixed (8 Nm flexion, 6 Nm extension); the follower load is swept from 0 N.",
+      "sweep": "follower_n",
+      "fixed": {
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_total",
+          "level": "T2-S1"
+        },
+        {
+          "key": "rom_total",
+          "level": "T2-T11"
+        },
+        {
+          "key": "rom_total",
+          "level": "T11-L1"
+        }
+      ],
+      "task_ids": [
+        "T2S1_fe_8_6",
+        "T2S1_fe_8_6_fl200",
+        "T2S1_fe_8_6_fl400",
+        "T2S1_fe_8_6_fl600",
+        "T2S1_fe_8_6_fl800",
+        "T2T11_fe_8_6",
+        "T2T11_fe_8_6_fl200",
+        "T2T11_fe_8_6_fl400",
+        "T2T11_fe_8_6_fl600",
+        "T2T11_fe_8_6_fl800",
+        "T11L1_fe_8_6",
+        "T11L1_fe_8_6_fl200",
+        "T11L1_fe_8_6_fl400",
+        "T11L1_fe_8_6_fl600",
+        "T11L1_fe_8_6_fl800"
+      ]
+    }
+  ]
 }

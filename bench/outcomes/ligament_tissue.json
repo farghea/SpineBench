@@ -17,8 +17,8 @@
     "Isolate the ligament with its two bony attachments (bone-ligament-bone); remove all other structures.",
     "Define L0 = attachment-to-attachment length at zero force (slack removed, <= 5 N preload) and A0 = undeformed cross-section.",
     "Fix one bone; move the other along the ligament fibre direction at a quasi-static rate (no viscous or rate effects).",
-    "Report force (N) at each listed elongation dL = L - L0 (mm), up to failure.",
-    "Report nominal stress F/A0 (MPa) at each listed nominal strain dL/L0 (%)."
+    "Report nominal stress F/A0 (MPa) against nominal strain dL/L0 (%) as one curve per ligament and region, up to failure.",
+    "Lumbar capsule equilibrium simulation: hold each strain 300 s and report the relaxed stress."
   ],
   "inputs": [
     {
@@ -54,7 +54,8 @@
       "n": 132,
       "sample": "132 lumbar ligaments (T12-S1), 38 cadavers; mean curves per level group (Fig 1)",
       "doi": "10.1016/0021-9290(92)90290-h",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, in situ tension to failure at 10 mm/s (Myklebust 1988 protocol); no preload stated; lumbar T12-S1 ALL, PLL, LF, ISL, SSL, capsule"
     },
     {
       "key": "chazal1985",
@@ -63,7 +64,8 @@
       "n": 43,
       "sample": "43 whole ligaments, 18 spines (34 cadaveric, 9 surgical ISL+SSL); 1 mm/min",
       "doi": "10.1016/0021-9290(85)90202-7",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, tension at 1 mm/min to rupture (with load-unload cycles); no preload stated; whole ligaments with bony ends, T1-S1 (ALL, PLL, LF, ISL+SSL)"
     },
     {
       "key": "nachemsonevans1968",
@@ -72,7 +74,8 @@
       "n": 10,
       "sample": "10 L3-L4 ligamenta flava, autopsy; ~0.33 %/min",
       "doi": "10.1016/0021-9290(68)90006-7",
-      "secondary": false
+      "secondary": false,
+      "loading": "Tension at strain rate ~0.33/min: 5 cycles to 1 kg then 2 kg (~10/20 N), relaxation tests, then to rupture; 37 °C Ringer; L3-L4 ligamenta flava"
     },
     {
       "key": "littlekhalsa2005",
@@ -81,7 +84,8 @@
       "n": 25,
       "sample": "25 lumbar facet capsules (L1-S1) tested parallel to fibres, 8 spines; equilibrium (300 s) stress",
       "doi": "10.1115/1.1835348",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, ramp-hold to 10-50% grip strain at 15%/s, 300 s hold (equilibrium); 0.1 N preload; 6 preconditioning cycles to 50%; lumbar facet capsules"
     },
     {
       "key": "wiczenbach2025",
@@ -90,14 +94,14 @@
       "n": 100,
       "sample": "same 100 thoracic samples as Wolny 2024; nominal stress F/A0 vs stretch",
       "doi": "10.1038/s41598-025-23016-9",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, tension at 0.5/s to rupture; 5 N preload; 60 precond. cycles at 10% strain, 1 Hz; 36.6 °C; thoracic bone-ligament-bone, T1-T12"
     }
   ],
   "shared": [],
   "views": [
     {
       "id": "fig_lum_ss",
-      "group": "Stress–strain",
       "title": "Lumbar ligaments: stress–strain, per ligament",
       "layout": "panels",
       "panel_by": "ligament",
@@ -256,7 +260,6 @@
     },
     {
       "id": "fig_th_ss",
-      "group": "Stress–strain",
       "title": "Thoracic ligaments: stress–strain, per ligament",
       "layout": "panels",
       "panel_by": "ligament",
@@ -375,360 +378,13 @@
         "th_CL_ss_wicz_pts_01",
         "th_CL_ss_wicz_pts_02"
       ]
-    },
-    {
-      "id": "lum_ALL_ss",
-      "title": "Lumbar ALL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "lum_ALL_ss_chazal_00",
-        "lum_ALL_ss_chazal_01",
-        "lum_ALL_ss_chazal_02",
-        "lum_ALL_ss_chazal_03",
-        "lum_ALL_ss_pintar_ALL_T12L2_00",
-        "lum_ALL_ss_pintar_ALL_T12L2_01",
-        "lum_ALL_ss_pintar_ALL_T12L2_02",
-        "lum_ALL_ss_pintar_ALL_T12L2_03",
-        "lum_ALL_ss_pintar_ALL_T12L2_04",
-        "lum_ALL_ss_pintar_ALL_T12L2_05",
-        "lum_ALL_ss_pintar_ALL_L2L4_00",
-        "lum_ALL_ss_pintar_ALL_L2L4_01",
-        "lum_ALL_ss_pintar_ALL_L2L4_02",
-        "lum_ALL_ss_pintar_ALL_L2L4_03",
-        "lum_ALL_ss_pintar_ALL_L2L4_04",
-        "lum_ALL_ss_pintar_ALL_L2L4_05",
-        "lum_ALL_ss_pintar_ALL_L4S1_00",
-        "lum_ALL_ss_pintar_ALL_L4S1_01",
-        "lum_ALL_ss_pintar_ALL_L4S1_02",
-        "lum_ALL_ss_pintar_ALL_L4S1_03",
-        "lum_ALL_ss_pintar_ALL_L4S1_04",
-        "lum_ALL_ss_pintar_ALL_L4S1_05"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "th_ALL_ss",
-      "title": "Thoracic ALL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "th_ALL_ss_wicz_avg_00",
-        "th_ALL_ss_wicz_avg_01",
-        "th_ALL_ss_wicz_avg_02",
-        "th_ALL_ss_wicz_avg_03",
-        "th_ALL_ss_wicz_avg_04",
-        "th_ALL_ss_wicz_avg_05",
-        "th_ALL_ss_wicz_avg_06",
-        "th_ALL_ss_wicz_avg_07",
-        "th_ALL_ss_wicz_avg_08",
-        "th_ALL_ss_wicz_avg_09",
-        "th_ALL_ss_wicz_avg_10",
-        "th_ALL_ss_wicz_avg_11",
-        "th_ALL_ss_wicz_avg_12",
-        "th_ALL_ss_wicz_avg_13",
-        "th_ALL_ss_wicz_pts_00",
-        "th_ALL_ss_wicz_pts_01",
-        "th_ALL_ss_wicz_pts_02",
-        "th_ALL_ss_chazal_00",
-        "th_ALL_ss_chazal_01",
-        "th_ALL_ss_chazal_02",
-        "th_ALL_ss_chazal_03"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "lum_PLL_ss",
-      "title": "Lumbar PLL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "lum_PLL_ss_chazal_00",
-        "lum_PLL_ss_chazal_01",
-        "lum_PLL_ss_chazal_02",
-        "lum_PLL_ss_chazal_03",
-        "lum_PLL_ss_pintar_PLL_T12L2_00",
-        "lum_PLL_ss_pintar_PLL_T12L2_01",
-        "lum_PLL_ss_pintar_PLL_T12L2_02",
-        "lum_PLL_ss_pintar_PLL_T12L2_03",
-        "lum_PLL_ss_pintar_PLL_T12L2_04",
-        "lum_PLL_ss_pintar_PLL_T12L2_05",
-        "lum_PLL_ss_pintar_PLL_L2L4_00",
-        "lum_PLL_ss_pintar_PLL_L2L4_01",
-        "lum_PLL_ss_pintar_PLL_L2L4_02",
-        "lum_PLL_ss_pintar_PLL_L2L4_03",
-        "lum_PLL_ss_pintar_PLL_L2L4_04",
-        "lum_PLL_ss_pintar_PLL_L2L4_05",
-        "lum_PLL_ss_pintar_PLL_L4S1_00",
-        "lum_PLL_ss_pintar_PLL_L4S1_01",
-        "lum_PLL_ss_pintar_PLL_L4S1_02",
-        "lum_PLL_ss_pintar_PLL_L4S1_03",
-        "lum_PLL_ss_pintar_PLL_L4S1_04",
-        "lum_PLL_ss_pintar_PLL_L4S1_05"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "th_PLL_ss",
-      "title": "Thoracic PLL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "th_PLL_ss_wicz_avg_00",
-        "th_PLL_ss_wicz_avg_01",
-        "th_PLL_ss_wicz_avg_02",
-        "th_PLL_ss_wicz_avg_03",
-        "th_PLL_ss_wicz_avg_04",
-        "th_PLL_ss_wicz_avg_05",
-        "th_PLL_ss_wicz_avg_06",
-        "th_PLL_ss_wicz_avg_07",
-        "th_PLL_ss_wicz_avg_08",
-        "th_PLL_ss_wicz_avg_09",
-        "th_PLL_ss_wicz_avg_10",
-        "th_PLL_ss_wicz_avg_11",
-        "th_PLL_ss_wicz_avg_12",
-        "th_PLL_ss_wicz_avg_13",
-        "th_PLL_ss_wicz_pts_00",
-        "th_PLL_ss_wicz_pts_01",
-        "th_PLL_ss_wicz_pts_02",
-        "th_PLL_ss_chazal_00",
-        "th_PLL_ss_chazal_01",
-        "th_PLL_ss_chazal_02",
-        "th_PLL_ss_chazal_03"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "lum_LF_ss",
-      "title": "Lumbar LF: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "lum_LF_ss_chazal_00",
-        "lum_LF_ss_chazal_01",
-        "lum_LF_ss_chazal_02",
-        "lum_LF_ss_chazal_03",
-        "lum_LF_ss_nachemson_00",
-        "lum_LF_ss_pintar_LF_T12L2_00",
-        "lum_LF_ss_pintar_LF_T12L2_01",
-        "lum_LF_ss_pintar_LF_T12L2_02",
-        "lum_LF_ss_pintar_LF_T12L2_03",
-        "lum_LF_ss_pintar_LF_T12L2_04",
-        "lum_LF_ss_pintar_LF_T12L2_05",
-        "lum_LF_ss_pintar_LF_L2L4_00",
-        "lum_LF_ss_pintar_LF_L2L4_01",
-        "lum_LF_ss_pintar_LF_L2L4_02",
-        "lum_LF_ss_pintar_LF_L2L4_03",
-        "lum_LF_ss_pintar_LF_L2L4_04",
-        "lum_LF_ss_pintar_LF_L2L4_05",
-        "lum_LF_ss_pintar_LF_L4S1_00",
-        "lum_LF_ss_pintar_LF_L4S1_01",
-        "lum_LF_ss_pintar_LF_L4S1_02",
-        "lum_LF_ss_pintar_LF_L4S1_03",
-        "lum_LF_ss_pintar_LF_L4S1_04",
-        "lum_LF_ss_pintar_LF_L4S1_05"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "th_LF_ss",
-      "title": "Thoracic LF: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "th_LF_ss_wicz_avg_00",
-        "th_LF_ss_wicz_avg_01",
-        "th_LF_ss_wicz_avg_02",
-        "th_LF_ss_wicz_avg_03",
-        "th_LF_ss_wicz_avg_04",
-        "th_LF_ss_wicz_avg_05",
-        "th_LF_ss_wicz_avg_06",
-        "th_LF_ss_wicz_avg_07",
-        "th_LF_ss_wicz_avg_08",
-        "th_LF_ss_wicz_avg_09",
-        "th_LF_ss_wicz_avg_10",
-        "th_LF_ss_wicz_avg_11",
-        "th_LF_ss_wicz_avg_12",
-        "th_LF_ss_wicz_pts_00",
-        "th_LF_ss_wicz_pts_01",
-        "th_LF_ss_wicz_pts_02",
-        "th_LF_ss_chazal_00",
-        "th_LF_ss_chazal_01",
-        "th_LF_ss_chazal_02",
-        "th_LF_ss_chazal_03"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "lum_ISL_SSL_ss",
-      "title": "Lumbar ISL+SSL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "lum_ISL_SSL_ss_chazal_00",
-        "lum_ISL_SSL_ss_chazal_01",
-        "lum_ISL_SSL_ss_chazal_02",
-        "lum_ISL_SSL_ss_chazal_03",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_00",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_01",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_02",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_03",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_04",
-        "lum_ISL_SSL_ss_pintar_ISL_T12L2_05",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_00",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_01",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_02",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_03",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_04",
-        "lum_ISL_SSL_ss_pintar_ISL_L2L4_05",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_00",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_01",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_02",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_03",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_04",
-        "lum_ISL_SSL_ss_pintar_ISL_L4S1_05",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_00",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_01",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_02",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_03",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_04",
-        "lum_ISL_SSL_ss_pintar_SSL_T12L2_05",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_00",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_01",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_02",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_03",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_04",
-        "lum_ISL_SSL_ss_pintar_SSL_L2L4_05",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_00",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_01",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_02",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_03",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_04",
-        "lum_ISL_SSL_ss_pintar_SSL_L4S1_05"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "th_ISL_SSL_ss",
-      "title": "Thoracic ISL+SSL: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "th_ISL_SSL_ss_wicz_avg_00",
-        "th_ISL_SSL_ss_wicz_avg_01",
-        "th_ISL_SSL_ss_wicz_avg_02",
-        "th_ISL_SSL_ss_wicz_avg_03",
-        "th_ISL_SSL_ss_wicz_avg_04",
-        "th_ISL_SSL_ss_wicz_avg_05",
-        "th_ISL_SSL_ss_wicz_avg_06",
-        "th_ISL_SSL_ss_wicz_avg_07",
-        "th_ISL_SSL_ss_wicz_avg_08",
-        "th_ISL_SSL_ss_wicz_avg_09",
-        "th_ISL_SSL_ss_wicz_avg_10",
-        "th_ISL_SSL_ss_wicz_pts_00",
-        "th_ISL_SSL_ss_wicz_pts_01",
-        "th_ISL_SSL_ss_wicz_pts_02",
-        "th_ISL_SSL_ss_chazal_00",
-        "th_ISL_SSL_ss_chazal_01",
-        "th_ISL_SSL_ss_chazal_02",
-        "th_ISL_SSL_ss_chazal_03"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "lum_CL_ss",
-      "title": "Lumbar capsule: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "lum_CL_ss_little_00",
-        "lum_CL_ss_little_01",
-        "lum_CL_ss_little_02",
-        "lum_CL_ss_little_03",
-        "lum_CL_ss_little_04",
-        "lum_CL_ss_little_05",
-        "lum_CL_ss_pintar_JC_T12L2_00",
-        "lum_CL_ss_pintar_JC_T12L2_01",
-        "lum_CL_ss_pintar_JC_T12L2_02",
-        "lum_CL_ss_pintar_JC_T12L2_03",
-        "lum_CL_ss_pintar_JC_T12L2_04",
-        "lum_CL_ss_pintar_JC_T12L2_05",
-        "lum_CL_ss_pintar_JC_L2L4_00",
-        "lum_CL_ss_pintar_JC_L2L4_01",
-        "lum_CL_ss_pintar_JC_L2L4_02",
-        "lum_CL_ss_pintar_JC_L2L4_03",
-        "lum_CL_ss_pintar_JC_L2L4_04",
-        "lum_CL_ss_pintar_JC_L2L4_05",
-        "lum_CL_ss_pintar_JC_L4S1_00",
-        "lum_CL_ss_pintar_JC_L4S1_01",
-        "lum_CL_ss_pintar_JC_L4S1_02",
-        "lum_CL_ss_pintar_JC_L4S1_03",
-        "lum_CL_ss_pintar_JC_L4S1_04",
-        "lum_CL_ss_pintar_JC_L4S1_05"
-      ],
-      "group": "One ligament"
-    },
-    {
-      "id": "th_CL_ss",
-      "title": "Thoracic capsule: stress vs strain",
-      "x": "input:strain",
-      "series": [
-        "level",
-        "curve"
-      ],
-      "task_ids": [
-        "th_CL_ss_wicz_avg_00",
-        "th_CL_ss_wicz_avg_01",
-        "th_CL_ss_wicz_avg_02",
-        "th_CL_ss_wicz_avg_03",
-        "th_CL_ss_wicz_avg_04",
-        "th_CL_ss_wicz_avg_05",
-        "th_CL_ss_wicz_avg_06",
-        "th_CL_ss_wicz_avg_07",
-        "th_CL_ss_wicz_avg_08",
-        "th_CL_ss_wicz_avg_09",
-        "th_CL_ss_wicz_avg_10",
-        "th_CL_ss_wicz_avg_11",
-        "th_CL_ss_wicz_avg_12",
-        "th_CL_ss_wicz_pts_00",
-        "th_CL_ss_wicz_pts_01",
-        "th_CL_ss_wicz_pts_02"
-      ],
-      "group": "One ligament"
     }
   ],
   "tasks": [
     {
       "id": "lum_ALL_ss_chazal_00",
       "label": "ALL L1-L5, 0 %",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L1-L5",
@@ -754,7 +410,7 @@
     {
       "id": "lum_ALL_ss_chazal_01",
       "label": "ALL L1-L5, 10.8 %",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L1-L5",
@@ -780,7 +436,7 @@
     {
       "id": "lum_ALL_ss_chazal_02",
       "label": "ALL L1-L5, 40.6 %",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L1-L5",
@@ -806,7 +462,7 @@
     {
       "id": "lum_ALL_ss_chazal_03",
       "label": "ALL L1-L5, 51 %",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L1-L5",
@@ -832,7 +488,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_00",
       "label": "ALL Th1-Th12, 0 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -858,7 +514,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_01",
       "label": "ALL Th1-Th12, 5 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -884,7 +540,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_02",
       "label": "ALL Th1-Th12, 10 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -910,7 +566,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_03",
       "label": "ALL Th1-Th12, 15 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -936,7 +592,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_04",
       "label": "ALL Th1-Th12, 20 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -962,7 +618,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_05",
       "label": "ALL Th1-Th12, 25 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -988,7 +644,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_06",
       "label": "ALL Th1-Th12, 30 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1014,7 +670,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_07",
       "label": "ALL Th1-Th12, 35 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1040,7 +696,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_08",
       "label": "ALL Th1-Th12, 40 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1066,7 +722,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_09",
       "label": "ALL Th1-Th12, 45 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1092,7 +748,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_10",
       "label": "ALL Th1-Th12, 50 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1118,7 +774,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_11",
       "label": "ALL Th1-Th12, 55 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1144,7 +800,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_12",
       "label": "ALL Th1-Th12, 60 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1170,7 +826,7 @@
     {
       "id": "th_ALL_ss_wicz_avg_13",
       "label": "ALL Th1-Th12, 61.8 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1196,7 +852,7 @@
     {
       "id": "th_ALL_ss_wicz_pts_00",
       "label": "ALL Th1-Th12, 16 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1222,7 +878,7 @@
     {
       "id": "th_ALL_ss_wicz_pts_01",
       "label": "ALL Th1-Th12, 35 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1248,7 +904,7 @@
     {
       "id": "th_ALL_ss_wicz_pts_02",
       "label": "ALL Th1-Th12, 62 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "Th1-Th12",
@@ -1274,7 +930,7 @@
     {
       "id": "th_ALL_ss_chazal_00",
       "label": "ALL T4-T11, 0 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T4-T11",
@@ -1300,7 +956,7 @@
     {
       "id": "th_ALL_ss_chazal_01",
       "label": "ALL T4-T11, 13.67 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T4-T11",
@@ -1326,7 +982,7 @@
     {
       "id": "th_ALL_ss_chazal_02",
       "label": "ALL T4-T11, 54 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T4-T11",
@@ -1352,7 +1008,7 @@
     {
       "id": "th_ALL_ss_chazal_03",
       "label": "ALL T4-T11, 74.33 %",
-      "view": "th_ALL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T4-T11",
@@ -1378,7 +1034,7 @@
     {
       "id": "lum_PLL_ss_chazal_00",
       "label": "PLL T12-L4, 0 %",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L4",
@@ -1404,7 +1060,7 @@
     {
       "id": "lum_PLL_ss_chazal_01",
       "label": "PLL T12-L4, 10.43 %",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L4",
@@ -1430,7 +1086,7 @@
     {
       "id": "lum_PLL_ss_chazal_02",
       "label": "PLL T12-L4, 29.14 %",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L4",
@@ -1456,7 +1112,7 @@
     {
       "id": "lum_PLL_ss_chazal_03",
       "label": "PLL T12-L4, 38.29 %",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L4",
@@ -1482,7 +1138,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_00",
       "label": "PLL Th1-Th12, 0 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1508,7 +1164,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_01",
       "label": "PLL Th1-Th12, 2.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1534,7 +1190,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_02",
       "label": "PLL Th1-Th12, 5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1560,7 +1216,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_03",
       "label": "PLL Th1-Th12, 7.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1586,7 +1242,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_04",
       "label": "PLL Th1-Th12, 10 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1612,7 +1268,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_05",
       "label": "PLL Th1-Th12, 12.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1638,7 +1294,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_06",
       "label": "PLL Th1-Th12, 15 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1664,7 +1320,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_07",
       "label": "PLL Th1-Th12, 17.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1690,7 +1346,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_08",
       "label": "PLL Th1-Th12, 20 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1716,7 +1372,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_09",
       "label": "PLL Th1-Th12, 22.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1742,7 +1398,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_10",
       "label": "PLL Th1-Th12, 25 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1768,7 +1424,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_11",
       "label": "PLL Th1-Th12, 27.5 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1794,7 +1450,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_12",
       "label": "PLL Th1-Th12, 30 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1820,7 +1476,7 @@
     {
       "id": "th_PLL_ss_wicz_avg_13",
       "label": "PLL Th1-Th12, 34.1 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1846,7 +1502,7 @@
     {
       "id": "th_PLL_ss_wicz_pts_00",
       "label": "PLL Th1-Th12, 8 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1872,7 +1528,7 @@
     {
       "id": "th_PLL_ss_wicz_pts_01",
       "label": "PLL Th1-Th12, 17 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1898,7 +1554,7 @@
     {
       "id": "th_PLL_ss_wicz_pts_02",
       "label": "PLL Th1-Th12, 34 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "Th1-Th12",
@@ -1924,7 +1580,7 @@
     {
       "id": "th_PLL_ss_chazal_00",
       "label": "PLL T4-T5, 0 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T4-T5",
@@ -1950,7 +1606,7 @@
     {
       "id": "th_PLL_ss_chazal_01",
       "label": "PLL T4-T5, 11 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T4-T5",
@@ -1976,7 +1632,7 @@
     {
       "id": "th_PLL_ss_chazal_02",
       "label": "PLL T4-T5, 47 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T4-T5",
@@ -2002,7 +1658,7 @@
     {
       "id": "th_PLL_ss_chazal_03",
       "label": "PLL T4-T5, 72 %",
-      "view": "th_PLL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T4-T5",
@@ -2028,7 +1684,7 @@
     {
       "id": "lum_LF_ss_chazal_00",
       "label": "LF L3-L4, 0 %",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
@@ -2054,7 +1710,7 @@
     {
       "id": "lum_LF_ss_chazal_01",
       "label": "LF L3-L4, 8 %",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
@@ -2080,7 +1736,7 @@
     {
       "id": "lum_LF_ss_chazal_02",
       "label": "LF L3-L4, 20 %",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
@@ -2106,7 +1762,7 @@
     {
       "id": "lum_LF_ss_chazal_03",
       "label": "LF L3-L4, 25 %",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
@@ -2132,7 +1788,7 @@
     {
       "id": "lum_LF_ss_nachemson_00",
       "label": "LF L3-L4, rupture, 46.8 %",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
@@ -2158,7 +1814,7 @@
     {
       "id": "th_LF_ss_wicz_avg_00",
       "label": "LF Th1-Th12, 0 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2184,7 +1840,7 @@
     {
       "id": "th_LF_ss_wicz_avg_01",
       "label": "LF Th1-Th12, 2.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2210,7 +1866,7 @@
     {
       "id": "th_LF_ss_wicz_avg_02",
       "label": "LF Th1-Th12, 5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2236,7 +1892,7 @@
     {
       "id": "th_LF_ss_wicz_avg_03",
       "label": "LF Th1-Th12, 7.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2262,7 +1918,7 @@
     {
       "id": "th_LF_ss_wicz_avg_04",
       "label": "LF Th1-Th12, 10 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2288,7 +1944,7 @@
     {
       "id": "th_LF_ss_wicz_avg_05",
       "label": "LF Th1-Th12, 12.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2314,7 +1970,7 @@
     {
       "id": "th_LF_ss_wicz_avg_06",
       "label": "LF Th1-Th12, 15 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2340,7 +1996,7 @@
     {
       "id": "th_LF_ss_wicz_avg_07",
       "label": "LF Th1-Th12, 17.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2366,7 +2022,7 @@
     {
       "id": "th_LF_ss_wicz_avg_08",
       "label": "LF Th1-Th12, 20 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2392,7 +2048,7 @@
     {
       "id": "th_LF_ss_wicz_avg_09",
       "label": "LF Th1-Th12, 22.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2418,7 +2074,7 @@
     {
       "id": "th_LF_ss_wicz_avg_10",
       "label": "LF Th1-Th12, 25 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2444,7 +2100,7 @@
     {
       "id": "th_LF_ss_wicz_avg_11",
       "label": "LF Th1-Th12, 27.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2470,7 +2126,7 @@
     {
       "id": "th_LF_ss_wicz_avg_12",
       "label": "LF Th1-Th12, 29.9 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2496,7 +2152,7 @@
     {
       "id": "th_LF_ss_wicz_pts_00",
       "label": "LF Th1-Th12, 19 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2522,7 +2178,7 @@
     {
       "id": "th_LF_ss_wicz_pts_01",
       "label": "LF Th1-Th12, 25 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2548,7 +2204,7 @@
     {
       "id": "th_LF_ss_wicz_pts_02",
       "label": "LF Th1-Th12, 30 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "Th1-Th12",
@@ -2574,7 +2230,7 @@
     {
       "id": "th_LF_ss_chazal_00",
       "label": "LF T4-T11, 0 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T4-T11",
@@ -2600,7 +2256,7 @@
     {
       "id": "th_LF_ss_chazal_01",
       "label": "LF T4-T11, 6 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T4-T11",
@@ -2626,7 +2282,7 @@
     {
       "id": "th_LF_ss_chazal_02",
       "label": "LF T4-T11, 15.33 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T4-T11",
@@ -2652,7 +2308,7 @@
     {
       "id": "th_LF_ss_chazal_03",
       "label": "LF T4-T11, 20.5 %",
-      "view": "th_LF_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T4-T11",
@@ -2678,7 +2334,7 @@
     {
       "id": "lum_ISL_SSL_ss_chazal_00",
       "label": "ISL+SSL L3-S1, 0 %",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "L3-S1",
@@ -2704,7 +2360,7 @@
     {
       "id": "lum_ISL_SSL_ss_chazal_01",
       "label": "ISL+SSL L3-S1, 14 %",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "L3-S1",
@@ -2730,7 +2386,7 @@
     {
       "id": "lum_ISL_SSL_ss_chazal_02",
       "label": "ISL+SSL L3-S1, 33.75 %",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "L3-S1",
@@ -2756,7 +2412,7 @@
     {
       "id": "lum_ISL_SSL_ss_chazal_03",
       "label": "ISL+SSL L3-S1, 45.33 %",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "L3-S1",
@@ -2782,7 +2438,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_00",
       "label": "ISL+SSL Th1-Th12, 0 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2808,7 +2464,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_01",
       "label": "ISL+SSL Th1-Th12, 5 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2834,7 +2490,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_02",
       "label": "ISL+SSL Th1-Th12, 10 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2860,7 +2516,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_03",
       "label": "ISL+SSL Th1-Th12, 15 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2886,7 +2542,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_04",
       "label": "ISL+SSL Th1-Th12, 20 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2912,7 +2568,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_05",
       "label": "ISL+SSL Th1-Th12, 25 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2938,7 +2594,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_06",
       "label": "ISL+SSL Th1-Th12, 30 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2964,7 +2620,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_07",
       "label": "ISL+SSL Th1-Th12, 35 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -2990,7 +2646,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_08",
       "label": "ISL+SSL Th1-Th12, 40 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3016,7 +2672,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_09",
       "label": "ISL+SSL Th1-Th12, 45 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3042,7 +2698,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_avg_10",
       "label": "ISL+SSL Th1-Th12, 49.2 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3068,7 +2724,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_pts_00",
       "label": "ISL+SSL Th1-Th12, 25 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3094,7 +2750,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_pts_01",
       "label": "ISL+SSL Th1-Th12, 32 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3120,7 +2776,7 @@
     {
       "id": "th_ISL_SSL_ss_wicz_pts_02",
       "label": "ISL+SSL Th1-Th12, 49 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "Th1-Th12",
@@ -3146,7 +2802,7 @@
     {
       "id": "th_ISL_SSL_ss_chazal_00",
       "label": "ISL+SSL T1-T9, 0 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "T1-T9",
@@ -3172,7 +2828,7 @@
     {
       "id": "th_ISL_SSL_ss_chazal_01",
       "label": "ISL+SSL T1-T9, 9.25 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "T1-T9",
@@ -3198,7 +2854,7 @@
     {
       "id": "th_ISL_SSL_ss_chazal_02",
       "label": "ISL+SSL T1-T9, 21 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "T1-T9",
@@ -3224,7 +2880,7 @@
     {
       "id": "th_ISL_SSL_ss_chazal_03",
       "label": "ISL+SSL T1-T9, 25.8 %",
-      "view": "th_ISL_SSL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "ISL+SSL",
         "level": "T1-T9",
@@ -3250,7 +2906,7 @@
     {
       "id": "lum_CL_ss_little_00",
       "label": "capsule L1-S1, 0 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3276,7 +2932,7 @@
     {
       "id": "lum_CL_ss_little_01",
       "label": "capsule L1-S1, 10 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3302,7 +2958,7 @@
     {
       "id": "lum_CL_ss_little_02",
       "label": "capsule L1-S1, 20 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3328,7 +2984,7 @@
     {
       "id": "lum_CL_ss_little_03",
       "label": "capsule L1-S1, 30 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3354,7 +3010,7 @@
     {
       "id": "lum_CL_ss_little_04",
       "label": "capsule L1-S1, 40 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3380,7 +3036,7 @@
     {
       "id": "lum_CL_ss_little_05",
       "label": "capsule L1-S1, 50 %",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L1-S1",
@@ -3406,7 +3062,7 @@
     {
       "id": "th_CL_ss_wicz_avg_00",
       "label": "capsule Th1-Th12, 0 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3432,7 +3088,7 @@
     {
       "id": "th_CL_ss_wicz_avg_01",
       "label": "capsule Th1-Th12, 2.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3458,7 +3114,7 @@
     {
       "id": "th_CL_ss_wicz_avg_02",
       "label": "capsule Th1-Th12, 5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3484,7 +3140,7 @@
     {
       "id": "th_CL_ss_wicz_avg_03",
       "label": "capsule Th1-Th12, 7.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3510,7 +3166,7 @@
     {
       "id": "th_CL_ss_wicz_avg_04",
       "label": "capsule Th1-Th12, 10 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3536,7 +3192,7 @@
     {
       "id": "th_CL_ss_wicz_avg_05",
       "label": "capsule Th1-Th12, 12.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3562,7 +3218,7 @@
     {
       "id": "th_CL_ss_wicz_avg_06",
       "label": "capsule Th1-Th12, 15 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3588,7 +3244,7 @@
     {
       "id": "th_CL_ss_wicz_avg_07",
       "label": "capsule Th1-Th12, 17.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3614,7 +3270,7 @@
     {
       "id": "th_CL_ss_wicz_avg_08",
       "label": "capsule Th1-Th12, 20 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3640,7 +3296,7 @@
     {
       "id": "th_CL_ss_wicz_avg_09",
       "label": "capsule Th1-Th12, 22.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3666,7 +3322,7 @@
     {
       "id": "th_CL_ss_wicz_avg_10",
       "label": "capsule Th1-Th12, 25 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3692,7 +3348,7 @@
     {
       "id": "th_CL_ss_wicz_avg_11",
       "label": "capsule Th1-Th12, 27.5 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3718,7 +3374,7 @@
     {
       "id": "th_CL_ss_wicz_avg_12",
       "label": "capsule Th1-Th12, 29.8 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3744,7 +3400,7 @@
     {
       "id": "th_CL_ss_wicz_pts_00",
       "label": "capsule Th1-Th12, 11 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3770,7 +3426,7 @@
     {
       "id": "th_CL_ss_wicz_pts_01",
       "label": "capsule Th1-Th12, 19 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3796,7 +3452,7 @@
     {
       "id": "th_CL_ss_wicz_pts_02",
       "label": "capsule Th1-Th12, 29 %",
-      "view": "th_CL_ss",
+      "view": "fig_th_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "Th1-Th12",
@@ -3822,7 +3478,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_00",
       "label": "ALL T12-L2, 0%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3848,7 +3504,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_01",
       "label": "ALL T12-L2, 7.09%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3874,7 +3530,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_02",
       "label": "ALL T12-L2, 14.5%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3900,7 +3556,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_03",
       "label": "ALL T12-L2, 22.02%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3926,7 +3582,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_04",
       "label": "ALL T12-L2, 29.27%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3952,7 +3608,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_T12L2_05",
       "label": "ALL T12-L2, 36.6%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "T12-L2",
@@ -3978,7 +3634,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_00",
       "label": "ALL L2-L4, 0%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4004,7 +3660,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_01",
       "label": "ALL L2-L4, 7.57%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4030,7 +3686,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_02",
       "label": "ALL L2-L4, 15.18%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4056,7 +3712,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_03",
       "label": "ALL L2-L4, 22.75%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4082,7 +3738,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_04",
       "label": "ALL L2-L4, 30.51%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4108,7 +3764,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L2L4_05",
       "label": "ALL L2-L4, 38.11%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L2-L4",
@@ -4134,7 +3790,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_00",
       "label": "ALL L4-S1, 0%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4160,7 +3816,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_01",
       "label": "ALL L4-S1, 7.68%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4186,7 +3842,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_02",
       "label": "ALL L4-S1, 15.26%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4212,7 +3868,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_03",
       "label": "ALL L4-S1, 22.86%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4238,7 +3894,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_04",
       "label": "ALL L4-S1, 30.51%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4264,7 +3920,7 @@
     {
       "id": "lum_ALL_ss_pintar_ALL_L4S1_05",
       "label": "ALL L4-S1, 38.19%",
-      "view": "lum_ALL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ALL",
         "level": "L4-S1",
@@ -4290,7 +3946,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_00",
       "label": "PLL T12-L2, 0%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4316,7 +3972,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_01",
       "label": "PLL T12-L2, 2.97%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4342,7 +3998,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_02",
       "label": "PLL T12-L2, 5.98%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4368,7 +4024,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_03",
       "label": "PLL T12-L2, 9.1%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4394,7 +4050,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_04",
       "label": "PLL T12-L2, 12.13%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4420,7 +4076,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_T12L2_05",
       "label": "PLL T12-L2, 14.8%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "T12-L2",
@@ -4446,7 +4102,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_00",
       "label": "PLL L2-L4, 0%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4472,7 +4128,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_01",
       "label": "PLL L2-L4, 2.85%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4498,7 +4154,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_02",
       "label": "PLL L2-L4, 5.68%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4524,7 +4180,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_03",
       "label": "PLL L2-L4, 8.53%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4550,7 +4206,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_04",
       "label": "PLL L2-L4, 11.44%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4576,7 +4232,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L2L4_05",
       "label": "PLL L2-L4, 14.23%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L2-L4",
@@ -4602,7 +4258,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_00",
       "label": "PLL L4-S1, 0%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4628,7 +4284,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_01",
       "label": "PLL L4-S1, 2.7%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4654,7 +4310,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_02",
       "label": "PLL L4-S1, 5.38%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4680,7 +4336,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_03",
       "label": "PLL L4-S1, 8.08%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4706,7 +4362,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_04",
       "label": "PLL L4-S1, 10.78%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4732,7 +4388,7 @@
     {
       "id": "lum_PLL_ss_pintar_PLL_L4S1_05",
       "label": "PLL L4-S1, 13.51%",
-      "view": "lum_PLL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "PLL",
         "level": "L4-S1",
@@ -4758,7 +4414,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_00",
       "label": "LF T12-L2, 0%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4784,7 +4440,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_01",
       "label": "LF T12-L2, 14.08%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4810,7 +4466,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_02",
       "label": "LF T12-L2, 28.03%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4836,7 +4492,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_03",
       "label": "LF T12-L2, 41.97%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4862,7 +4518,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_04",
       "label": "LF T12-L2, 55.79%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4888,7 +4544,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_T12L2_05",
       "label": "LF T12-L2, 69.74%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "T12-L2",
@@ -4914,7 +4570,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_00",
       "label": "LF L2-L4, 0%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -4940,7 +4596,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_01",
       "label": "LF L2-L4, 10.26%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -4966,7 +4622,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_02",
       "label": "LF L2-L4, 20.59%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -4992,7 +4648,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_03",
       "label": "LF L2-L4, 30.92%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -5018,7 +4674,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_04",
       "label": "LF L2-L4, 41.18%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -5044,7 +4700,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L2L4_05",
       "label": "LF L2-L4, 51.51%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L2-L4",
@@ -5070,7 +4726,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_00",
       "label": "LF L4-S1, 0%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5096,7 +4752,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_01",
       "label": "LF L4-S1, 17.37%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5122,7 +4778,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_02",
       "label": "LF L4-S1, 34.61%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5148,7 +4804,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_03",
       "label": "LF L4-S1, 52.04%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5174,7 +4830,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_04",
       "label": "LF L4-S1, 69.28%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5200,7 +4856,7 @@
     {
       "id": "lum_LF_ss_pintar_LF_L4S1_05",
       "label": "LF L4-S1, 86.91%",
-      "view": "lum_LF_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "LF",
         "level": "L4-S1",
@@ -5226,7 +4882,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_00",
       "label": "ISL T12-L2, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5252,7 +4908,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_01",
       "label": "ISL T12-L2, 16.56%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5278,7 +4934,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_02",
       "label": "ISL T12-L2, 33%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5304,7 +4960,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_03",
       "label": "ISL T12-L2, 49.62%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5330,7 +4986,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_04",
       "label": "ISL T12-L2, 66.06%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5356,7 +5012,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_T12L2_05",
       "label": "ISL T12-L2, 82.5%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "T12-L2",
@@ -5382,7 +5038,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_00",
       "label": "ISL L2-L4, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5408,7 +5064,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_01",
       "label": "ISL L2-L4, 13.5%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5434,7 +5090,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_02",
       "label": "ISL L2-L4, 27%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5460,7 +5116,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_03",
       "label": "ISL L2-L4, 40.81%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5486,7 +5142,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_04",
       "label": "ISL L2-L4, 54.12%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5512,7 +5168,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L2L4_05",
       "label": "ISL L2-L4, 67.62%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L2-L4",
@@ -5538,7 +5194,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_00",
       "label": "ISL L4-S1, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5564,7 +5220,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_01",
       "label": "ISL L4-S1, 14.75%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5590,7 +5246,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_02",
       "label": "ISL L4-S1, 29.88%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5616,7 +5272,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_03",
       "label": "ISL L4-S1, 44.94%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5642,7 +5298,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_04",
       "label": "ISL L4-S1, 59.75%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5668,7 +5324,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_ISL_L4S1_05",
       "label": "ISL L4-S1, 73.88%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "ISL",
         "level": "L4-S1",
@@ -5694,7 +5350,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_00",
       "label": "SSL T12-L2, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5720,7 +5376,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_01",
       "label": "SSL T12-L2, 21.63%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5746,7 +5402,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_02",
       "label": "SSL T12-L2, 44.33%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5772,7 +5428,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_03",
       "label": "SSL T12-L2, 66.47%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5798,7 +5454,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_04",
       "label": "SSL T12-L2, 88.1%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5824,7 +5480,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_T12L2_05",
       "label": "SSL T12-L2, 109.76%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "T12-L2",
@@ -5850,7 +5506,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_00",
       "label": "SSL L2-L4, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -5876,7 +5532,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_01",
       "label": "SSL L2-L4, 15.63%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -5902,7 +5558,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_02",
       "label": "SSL L2-L4, 31.31%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -5928,7 +5584,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_03",
       "label": "SSL L2-L4, 46.79%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -5954,7 +5610,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_04",
       "label": "SSL L2-L4, 62.42%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -5980,7 +5636,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L2L4_05",
       "label": "SSL L2-L4, 77.74%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L2-L4",
@@ -6006,7 +5662,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_00",
       "label": "SSL L4-S1, 0%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6032,7 +5688,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_01",
       "label": "SSL L4-S1, 16.83%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6058,7 +5714,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_02",
       "label": "SSL L4-S1, 33.65%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6084,7 +5740,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_03",
       "label": "SSL L4-S1, 50.67%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6110,7 +5766,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_04",
       "label": "SSL L4-S1, 67.5%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6136,7 +5792,7 @@
     {
       "id": "lum_ISL_SSL_ss_pintar_SSL_L4S1_05",
       "label": "SSL L4-S1, 83.89%",
-      "view": "lum_ISL_SSL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "SSL",
         "level": "L4-S1",
@@ -6162,7 +5818,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_00",
       "label": "capsule T12-L2, 0%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6188,7 +5844,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_01",
       "label": "capsule T12-L2, 14.15%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6214,7 +5870,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_02",
       "label": "capsule T12-L2, 28.48%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6240,7 +5896,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_03",
       "label": "capsule T12-L2, 42.44%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6266,7 +5922,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_04",
       "label": "capsule T12-L2, 56.59%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6292,7 +5948,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_T12L2_05",
       "label": "capsule T12-L2, 70.12%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "T12-L2",
@@ -6318,7 +5974,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_00",
       "label": "capsule L2-L4, 0%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6344,7 +6000,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_01",
       "label": "capsule L2-L4, 12.87%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6370,7 +6026,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_02",
       "label": "capsule L2-L4, 26.04%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6396,7 +6052,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_03",
       "label": "capsule L2-L4, 38.96%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6422,7 +6078,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_04",
       "label": "capsule L2-L4, 52.13%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6448,7 +6104,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L2L4_05",
       "label": "capsule L2-L4, 65.18%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L2-L4",
@@ -6474,7 +6130,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_00",
       "label": "capsule L4-S1, 0%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6500,7 +6156,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_01",
       "label": "capsule L4-S1, 12.38%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6526,7 +6182,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_02",
       "label": "capsule L4-S1, 24.63%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6552,7 +6208,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_03",
       "label": "capsule L4-S1, 37.2%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6578,7 +6234,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_04",
       "label": "capsule L4-S1, 49.63%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6604,7 +6260,7 @@
     {
       "id": "lum_CL_ss_pintar_JC_L4S1_05",
       "label": "capsule L4-S1, 61.52%",
-      "view": "lum_CL_ss",
+      "view": "fig_lum_ss",
       "inputs": {
         "ligament": "capsule",
         "level": "L4-S1",
@@ -6633,688 +6289,491 @@
     "Quasi-static only. Rates: Chazal 1 mm/min; Nachemson ~0.33 %/min; Neumann 2.5 mm/s (~1 %/s); Wolny/Wiczenbach 0.5 /s (called quasi-static by the authors); Pintar rate not stated; its mechanics data are Myklebust 1988's, pulled at 1 cm/s (Myklebust 1988 p. 526), i.e. not quasi-static; Little equilibrium stress after 300 s hold. Dropped: Little peak (viscous) curve and dynamic moduli; Hindle 1990 (force vs flexion angle, incl. 12.5 deg/s); Tkaczuk 1968 and Iida 2002 (no elongation or strain); Myklebust 1988 (failure force/deflection only, 1 cm/s); all single-value stiffness/modulus rows.",
     "Stress-strain only (nominal stress = F/A0, nominal strain = dL/L0). Pintar 1992 force-deformation curves are converted with Pintar's own mean CSA and length; force-elongation data of Chazal 1985, Wolny 2024 and Neumann 1992 stay in bench/tests."
   ],
-  "agent_prompt": "You are given a model of the human lumbar and thoracic spinal ligaments (ALL, PLL, ligamentum flavum, interspinous, supraspinous, ISL+SSL complex, capsular ligament). For every task, isolate the named ligament at the stated level as a bone-ligament-bone unit, set L0 at zero force and A0 = undeformed cross-section, and pull along the fibres quasi-statically to failure. Report force (N) at the given elongation (mm), or nominal stress F/A0 (MPa) at the given nominal strain (L - L0)/L0 (%). Use one parameter set per ligament and region. Return one JSON object following answer_format (task id -> {output key: value}); use null beyond failure or when a task cannot be simulated. Force-elongation tasks depend on the ligament's length and cross-section: use your model's anatomy at the stated level and say so. Tasks with the same `curve` id are points of one measured curve (see `curves`): you may answer a whole curve as {curve id: [[x, y], ...]} with x in the curve's x unit; it is read at each point by linear interpolation.",
+  "agent_prompt": "You are given a model of the human lumbar and thoracic spinal ligaments. Run the 13 simulations in `simulations`, one per ligament and region (lumbar or thoracic): isolate the ligament as a bone-ligament-bone unit, set L0 at zero force and A0 = undeformed cross-section, pull along the fibres quasi-statically to failure and report nominal stress F/A0 (MPa) against nominal strain (L - L0)/L0 (%). The lumbar capsule equilibrium simulation reports the relaxed stress after 300 s holds at each strain. Use one parameter set per ligament and region; end your curve at failure. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "lum_ALL_ss_chazal_00": {
-      "stress": "MPa"
+    "all_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "lum_ALL_ss_chazal_01": {
-      "stress": "MPa"
+    "all_thoracic": {
+      "stress": "[[%, MPa], ...]"
     },
-    "lum_ALL_ss_chazal_02": {
-      "stress": "MPa"
+    "pll_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "lum_ALL_ss_chazal_03": {
-      "stress": "MPa"
+    "pll_thoracic": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_00": {
-      "stress": "MPa"
+    "lf_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_01": {
-      "stress": "MPa"
+    "lf_thoracic": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_02": {
-      "stress": "MPa"
+    "isl_ssl_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_03": {
-      "stress": "MPa"
+    "isl_ssl_thoracic": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_04": {
-      "stress": "MPa"
+    "capsule_lumbar_equilibrium": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_05": {
-      "stress": "MPa"
+    "capsule_thoracic": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_06": {
-      "stress": "MPa"
+    "isl_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_07": {
-      "stress": "MPa"
+    "ssl_lumbar": {
+      "stress": "[[%, MPa], ...]"
     },
-    "th_ALL_ss_wicz_avg_08": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_avg_09": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_avg_10": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_avg_11": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_avg_12": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_avg_13": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_pts_00": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_pts_01": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_wicz_pts_02": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "th_ALL_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_00": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_01": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_02": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_03": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_04": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_05": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_06": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_07": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_08": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_09": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_10": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_11": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_12": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_avg_13": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_pts_00": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_pts_01": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_wicz_pts_02": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "th_PLL_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_nachemson_00": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_00": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_01": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_02": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_03": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_04": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_05": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_06": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_07": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_08": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_09": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_10": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_11": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_avg_12": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_pts_00": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_pts_01": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_wicz_pts_02": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "th_LF_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_00": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_01": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_02": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_03": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_04": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_05": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_06": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_07": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_08": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_09": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_avg_10": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_pts_00": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_pts_01": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_wicz_pts_02": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_chazal_00": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_chazal_01": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_chazal_02": {
-      "stress": "MPa"
-    },
-    "th_ISL_SSL_ss_chazal_03": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_00": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_01": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_02": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_03": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_04": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_little_05": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_00": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_01": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_02": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_03": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_04": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_05": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_06": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_07": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_08": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_09": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_10": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_11": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_avg_12": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_pts_00": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_pts_01": {
-      "stress": "MPa"
-    },
-    "th_CL_ss_wicz_pts_02": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_ALL_ss_pintar_ALL_L4S1_05": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_PLL_ss_pintar_PLL_L4S1_05": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_LF_ss_pintar_LF_L4S1_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_ISL_L4S1_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_ISL_SSL_ss_pintar_SSL_L4S1_05": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_00": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_01": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_02": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_03": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_04": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_T12L2_05": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_00": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_01": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_02": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_03": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_04": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L2L4_05": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_00": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_01": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_02": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_03": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_04": {
-      "stress": "MPa"
-    },
-    "lum_CL_ss_pintar_JC_L4S1_05": {
-      "stress": "MPa"
+    "capsule_lumbar": {
+      "stress": "[[%, MPa], ...]"
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "all_lumbar",
+      "title": "Anterior longitudinal ligament, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "ALL"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_ALL_ss_chazal_00",
+        "lum_ALL_ss_chazal_01",
+        "lum_ALL_ss_chazal_02",
+        "lum_ALL_ss_chazal_03",
+        "lum_ALL_ss_pintar_ALL_T12L2_00",
+        "lum_ALL_ss_pintar_ALL_T12L2_01",
+        "lum_ALL_ss_pintar_ALL_T12L2_02",
+        "lum_ALL_ss_pintar_ALL_T12L2_03",
+        "lum_ALL_ss_pintar_ALL_T12L2_04",
+        "lum_ALL_ss_pintar_ALL_T12L2_05",
+        "lum_ALL_ss_pintar_ALL_L2L4_00",
+        "lum_ALL_ss_pintar_ALL_L2L4_01",
+        "lum_ALL_ss_pintar_ALL_L2L4_02",
+        "lum_ALL_ss_pintar_ALL_L2L4_03",
+        "lum_ALL_ss_pintar_ALL_L2L4_04",
+        "lum_ALL_ss_pintar_ALL_L2L4_05",
+        "lum_ALL_ss_pintar_ALL_L4S1_00",
+        "lum_ALL_ss_pintar_ALL_L4S1_01",
+        "lum_ALL_ss_pintar_ALL_L4S1_02",
+        "lum_ALL_ss_pintar_ALL_L4S1_03",
+        "lum_ALL_ss_pintar_ALL_L4S1_04",
+        "lum_ALL_ss_pintar_ALL_L4S1_05"
+      ]
+    },
+    {
+      "id": "all_thoracic",
+      "title": "Anterior longitudinal ligament, thoracic: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "ALL"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "th_ALL_ss_wicz_avg_00",
+        "th_ALL_ss_wicz_avg_01",
+        "th_ALL_ss_wicz_avg_02",
+        "th_ALL_ss_wicz_avg_03",
+        "th_ALL_ss_wicz_avg_04",
+        "th_ALL_ss_wicz_avg_05",
+        "th_ALL_ss_wicz_avg_06",
+        "th_ALL_ss_wicz_avg_07",
+        "th_ALL_ss_wicz_avg_08",
+        "th_ALL_ss_wicz_avg_09",
+        "th_ALL_ss_wicz_avg_10",
+        "th_ALL_ss_wicz_avg_11",
+        "th_ALL_ss_wicz_avg_12",
+        "th_ALL_ss_wicz_avg_13",
+        "th_ALL_ss_wicz_pts_00",
+        "th_ALL_ss_wicz_pts_01",
+        "th_ALL_ss_wicz_pts_02",
+        "th_ALL_ss_chazal_00",
+        "th_ALL_ss_chazal_01",
+        "th_ALL_ss_chazal_02",
+        "th_ALL_ss_chazal_03"
+      ]
+    },
+    {
+      "id": "pll_lumbar",
+      "title": "Posterior longitudinal ligament, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "PLL"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_PLL_ss_chazal_00",
+        "lum_PLL_ss_chazal_01",
+        "lum_PLL_ss_chazal_02",
+        "lum_PLL_ss_chazal_03",
+        "lum_PLL_ss_pintar_PLL_T12L2_00",
+        "lum_PLL_ss_pintar_PLL_T12L2_01",
+        "lum_PLL_ss_pintar_PLL_T12L2_02",
+        "lum_PLL_ss_pintar_PLL_T12L2_03",
+        "lum_PLL_ss_pintar_PLL_T12L2_04",
+        "lum_PLL_ss_pintar_PLL_T12L2_05",
+        "lum_PLL_ss_pintar_PLL_L2L4_00",
+        "lum_PLL_ss_pintar_PLL_L2L4_01",
+        "lum_PLL_ss_pintar_PLL_L2L4_02",
+        "lum_PLL_ss_pintar_PLL_L2L4_03",
+        "lum_PLL_ss_pintar_PLL_L2L4_04",
+        "lum_PLL_ss_pintar_PLL_L2L4_05",
+        "lum_PLL_ss_pintar_PLL_L4S1_00",
+        "lum_PLL_ss_pintar_PLL_L4S1_01",
+        "lum_PLL_ss_pintar_PLL_L4S1_02",
+        "lum_PLL_ss_pintar_PLL_L4S1_03",
+        "lum_PLL_ss_pintar_PLL_L4S1_04",
+        "lum_PLL_ss_pintar_PLL_L4S1_05"
+      ]
+    },
+    {
+      "id": "pll_thoracic",
+      "title": "Posterior longitudinal ligament, thoracic: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "PLL"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "th_PLL_ss_wicz_avg_00",
+        "th_PLL_ss_wicz_avg_01",
+        "th_PLL_ss_wicz_avg_02",
+        "th_PLL_ss_wicz_avg_03",
+        "th_PLL_ss_wicz_avg_04",
+        "th_PLL_ss_wicz_avg_05",
+        "th_PLL_ss_wicz_avg_06",
+        "th_PLL_ss_wicz_avg_07",
+        "th_PLL_ss_wicz_avg_08",
+        "th_PLL_ss_wicz_avg_09",
+        "th_PLL_ss_wicz_avg_10",
+        "th_PLL_ss_wicz_avg_11",
+        "th_PLL_ss_wicz_avg_12",
+        "th_PLL_ss_wicz_avg_13",
+        "th_PLL_ss_wicz_pts_00",
+        "th_PLL_ss_wicz_pts_01",
+        "th_PLL_ss_wicz_pts_02",
+        "th_PLL_ss_chazal_00",
+        "th_PLL_ss_chazal_01",
+        "th_PLL_ss_chazal_02",
+        "th_PLL_ss_chazal_03"
+      ]
+    },
+    {
+      "id": "lf_lumbar",
+      "title": "Ligamentum flavum, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "LF"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_LF_ss_chazal_00",
+        "lum_LF_ss_chazal_01",
+        "lum_LF_ss_chazal_02",
+        "lum_LF_ss_chazal_03",
+        "lum_LF_ss_nachemson_00",
+        "lum_LF_ss_pintar_LF_T12L2_00",
+        "lum_LF_ss_pintar_LF_T12L2_01",
+        "lum_LF_ss_pintar_LF_T12L2_02",
+        "lum_LF_ss_pintar_LF_T12L2_03",
+        "lum_LF_ss_pintar_LF_T12L2_04",
+        "lum_LF_ss_pintar_LF_T12L2_05",
+        "lum_LF_ss_pintar_LF_L2L4_00",
+        "lum_LF_ss_pintar_LF_L2L4_01",
+        "lum_LF_ss_pintar_LF_L2L4_02",
+        "lum_LF_ss_pintar_LF_L2L4_03",
+        "lum_LF_ss_pintar_LF_L2L4_04",
+        "lum_LF_ss_pintar_LF_L2L4_05",
+        "lum_LF_ss_pintar_LF_L4S1_00",
+        "lum_LF_ss_pintar_LF_L4S1_01",
+        "lum_LF_ss_pintar_LF_L4S1_02",
+        "lum_LF_ss_pintar_LF_L4S1_03",
+        "lum_LF_ss_pintar_LF_L4S1_04",
+        "lum_LF_ss_pintar_LF_L4S1_05"
+      ]
+    },
+    {
+      "id": "lf_thoracic",
+      "title": "Ligamentum flavum, thoracic: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "LF"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "th_LF_ss_wicz_avg_00",
+        "th_LF_ss_wicz_avg_01",
+        "th_LF_ss_wicz_avg_02",
+        "th_LF_ss_wicz_avg_03",
+        "th_LF_ss_wicz_avg_04",
+        "th_LF_ss_wicz_avg_05",
+        "th_LF_ss_wicz_avg_06",
+        "th_LF_ss_wicz_avg_07",
+        "th_LF_ss_wicz_avg_08",
+        "th_LF_ss_wicz_avg_09",
+        "th_LF_ss_wicz_avg_10",
+        "th_LF_ss_wicz_avg_11",
+        "th_LF_ss_wicz_avg_12",
+        "th_LF_ss_wicz_pts_00",
+        "th_LF_ss_wicz_pts_01",
+        "th_LF_ss_wicz_pts_02",
+        "th_LF_ss_chazal_00",
+        "th_LF_ss_chazal_01",
+        "th_LF_ss_chazal_02",
+        "th_LF_ss_chazal_03"
+      ]
+    },
+    {
+      "id": "isl_ssl_lumbar",
+      "title": "Interspinous + supraspinous complex, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "ISL+SSL",
+        "level": "L3-S1",
+        "curve": "mean points A, B, C"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_ISL_SSL_ss_chazal_00",
+        "lum_ISL_SSL_ss_chazal_01",
+        "lum_ISL_SSL_ss_chazal_02",
+        "lum_ISL_SSL_ss_chazal_03"
+      ]
+    },
+    {
+      "id": "isl_ssl_thoracic",
+      "title": "Interspinous + supraspinous complex, thoracic: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "ISL+SSL"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "th_ISL_SSL_ss_wicz_avg_00",
+        "th_ISL_SSL_ss_wicz_avg_01",
+        "th_ISL_SSL_ss_wicz_avg_02",
+        "th_ISL_SSL_ss_wicz_avg_03",
+        "th_ISL_SSL_ss_wicz_avg_04",
+        "th_ISL_SSL_ss_wicz_avg_05",
+        "th_ISL_SSL_ss_wicz_avg_06",
+        "th_ISL_SSL_ss_wicz_avg_07",
+        "th_ISL_SSL_ss_wicz_avg_08",
+        "th_ISL_SSL_ss_wicz_avg_09",
+        "th_ISL_SSL_ss_wicz_avg_10",
+        "th_ISL_SSL_ss_wicz_pts_00",
+        "th_ISL_SSL_ss_wicz_pts_01",
+        "th_ISL_SSL_ss_wicz_pts_02",
+        "th_ISL_SSL_ss_chazal_00",
+        "th_ISL_SSL_ss_chazal_01",
+        "th_ISL_SSL_ss_chazal_02",
+        "th_ISL_SSL_ss_chazal_03"
+      ]
+    },
+    {
+      "id": "capsule_lumbar_equilibrium",
+      "title": "Facet capsule, lumbar, equilibrium (relaxed) stress vs strain",
+      "note": "Equilibrium stress after 300 s holds: a different output than the loading curve.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "capsule",
+        "level": "L1-S1",
+        "curve": "equilibrium curve (300 s)"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_CL_ss_little_00",
+        "lum_CL_ss_little_01",
+        "lum_CL_ss_little_02",
+        "lum_CL_ss_little_03",
+        "lum_CL_ss_little_04",
+        "lum_CL_ss_little_05"
+      ]
+    },
+    {
+      "id": "capsule_thoracic",
+      "title": "Facet capsule, thoracic: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "capsule",
+        "level": "Th1-Th12"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "th_CL_ss_wicz_avg_00",
+        "th_CL_ss_wicz_avg_01",
+        "th_CL_ss_wicz_avg_02",
+        "th_CL_ss_wicz_avg_03",
+        "th_CL_ss_wicz_avg_04",
+        "th_CL_ss_wicz_avg_05",
+        "th_CL_ss_wicz_avg_06",
+        "th_CL_ss_wicz_avg_07",
+        "th_CL_ss_wicz_avg_08",
+        "th_CL_ss_wicz_avg_09",
+        "th_CL_ss_wicz_avg_10",
+        "th_CL_ss_wicz_avg_11",
+        "th_CL_ss_wicz_avg_12",
+        "th_CL_ss_wicz_pts_00",
+        "th_CL_ss_wicz_pts_01",
+        "th_CL_ss_wicz_pts_02"
+      ]
+    },
+    {
+      "id": "isl_lumbar",
+      "title": "Interspinous ligament, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "ISL",
+        "curve": "Pintar mean curve"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_00",
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_01",
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_02",
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_03",
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_04",
+        "lum_ISL_SSL_ss_pintar_ISL_T12L2_05",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_00",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_01",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_02",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_03",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_04",
+        "lum_ISL_SSL_ss_pintar_ISL_L2L4_05",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_00",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_01",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_02",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_03",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_04",
+        "lum_ISL_SSL_ss_pintar_ISL_L4S1_05"
+      ]
+    },
+    {
+      "id": "ssl_lumbar",
+      "title": "Supraspinous ligament, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "SSL",
+        "curve": "Pintar mean curve"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_00",
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_01",
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_02",
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_03",
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_04",
+        "lum_ISL_SSL_ss_pintar_SSL_T12L2_05",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_00",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_01",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_02",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_03",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_04",
+        "lum_ISL_SSL_ss_pintar_SSL_L2L4_05",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_00",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_01",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_02",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_03",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_04",
+        "lum_ISL_SSL_ss_pintar_SSL_L4S1_05"
+      ]
+    },
+    {
+      "id": "capsule_lumbar",
+      "title": "Facet capsule, lumbar: stress vs strain to failure",
+      "note": "Levels and studies of this ligament combined into one band.",
+      "sweep": "strain",
+      "fixed": {
+        "ligament": "capsule",
+        "curve": "Pintar mean curve"
+      },
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "lum_CL_ss_pintar_JC_T12L2_00",
+        "lum_CL_ss_pintar_JC_T12L2_01",
+        "lum_CL_ss_pintar_JC_T12L2_02",
+        "lum_CL_ss_pintar_JC_T12L2_03",
+        "lum_CL_ss_pintar_JC_T12L2_04",
+        "lum_CL_ss_pintar_JC_T12L2_05",
+        "lum_CL_ss_pintar_JC_L2L4_00",
+        "lum_CL_ss_pintar_JC_L2L4_01",
+        "lum_CL_ss_pintar_JC_L2L4_02",
+        "lum_CL_ss_pintar_JC_L2L4_03",
+        "lum_CL_ss_pintar_JC_L2L4_04",
+        "lum_CL_ss_pintar_JC_L2L4_05",
+        "lum_CL_ss_pintar_JC_L4S1_00",
+        "lum_CL_ss_pintar_JC_L4S1_01",
+        "lum_CL_ss_pintar_JC_L4S1_02",
+        "lum_CL_ss_pintar_JC_L4S1_03",
+        "lum_CL_ss_pintar_JC_L4S1_04",
+        "lum_CL_ss_pintar_JC_L4S1_05"
+      ]
+    }
+  ]
 }

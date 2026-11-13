@@ -17,11 +17,11 @@
   ],
   "summary": "Load motion segments and whole discs slowly as stated; report compression force-displacement curves, shear and other stiffness, translation or rotation.",
   "simulate": [
-    "Build the specimen of the task (motion segment intact or without posterior elements, disc with its vertebral bodies, or L1-S1); fix the lower vertebra.",
+    "Build the specimen of the simulation (motion segment intact or without posterior elements, disc with its vertebral bodies, or L1-S1); fix the lower vertebra.",
     "Apply the preload first, then the single test load or displacement of the task; other DOF free unless stated.",
     "Measure at the reference point stated (upper vertebral body centre or disc centre).",
-    "Compression curves: impose axial displacement (report force) or apply axial force (report displacement) at the stated rate; stiffness = slope over the stated range.",
-    "Matrix terms: impose one DOF at a time with the others held, read the reaction on that DOF (diagonal only)."
+    "Compression: one force-displacement curve (impose displacement, report force) covering the listed displacements and loads; preload simulations: repeat at each listed preload.",
+    "Matrix terms: impose one DOF at a time with the others held (diagonal only). Report one curve per output over the sweep, one number where there is no sweep."
   ],
   "inputs": [
     {
@@ -135,7 +135,8 @@
       "n": 8,
       "sample": "8 lumbar FSUs (4 L2-L3, 4 L4-L5), 4 female spines",
       "doi": "10.1016/j.jbiomech.2003.10.003",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, one DOF at a time: ±0.35 mm axial, ±0.5 mm shear, ±1-1.5° rotation, 4 sawtooth cycles of 87 s; axial preload 0, 250 or 500 N; L2-L3/L4-L5"
     },
     {
       "key": "panjabi1976",
@@ -144,7 +145,8 @@
       "n": 11,
       "sample": "11 thoracic FSUs, one per level T1-T2 to T11-T12",
       "doi": "10.1016/0021-9290(76)90003-8",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, one load at a time: forces to ~157 N (16 kp), moments to ~6 N·m; no preload; read after 4 min creep; values at 100 N / 5 N·m; T1-T12 FSUs"
     },
     {
       "key": "amin2016a",
@@ -153,7 +155,8 @@
       "n": 14,
       "sample": "14 lumbar FSUs, Thompson grade 3-5, then isolated discs",
       "doi": "10.1016/j.jbiomech.2016.09.009",
-      "secondary": false
+      "secondary": false,
+      "loading": "Hybrid control, axial compression, 8 haversine cycles at 0.1 Hz to 1.1 MPa-equivalent; 0.5 MPa-eq. follower preload; 37 °C; lumbar FSUs, then isolated discs"
     },
     {
       "key": "amin2016b",
@@ -162,7 +165,8 @@
       "n": 14,
       "sample": "same 14 lumbar FSUs, split by degeneration grade",
       "doi": "10.1002/jor.23334",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, haversine 0.6 mm shear, 5° flex, 2° ext, 3° LB, 2° AR (or 1.1 MPa-eq. compression), 0.1 Hz; 0.5 MPa-eq. follower preload; lumbar FSUs"
     },
     {
       "key": "costi2008",
@@ -171,7 +175,8 @@
       "n": 9,
       "sample": "9 lumbar disc units (L1-L2 to L3-L4), posterior elements removed",
       "doi": "10.1097/BRS.0b013e31817bb116",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, 0.001 Hz sinusoids: ±0.25 mm axial, ±0.6 mm shear, ±2° FE, ±3° LB, ±2° AR; 0.4 MPa axial preload; 37 °C; lumbar discs, no posterior arch"
     },
     {
       "key": "yamamoto2022",
@@ -180,7 +185,8 @@
       "n": 7,
       "sample": "7 T1-T2 FSUs with rib heads",
       "doi": "10.1002/jor.25196",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, pure AP shear to ~200 N at 1-100 mm/s; 5 N shear preload; no axial preload; T1-T2 with rib heads"
     },
     {
       "key": "berkson1979",
@@ -189,7 +195,8 @@
       "n": 42,
       "sample": "42 lumbar FSUs; 18 retested without posterior elements",
       "doi": "10.1115/1.3426225",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, static dead weights: compression to 400 N, or shear to 205 N in 3+ steps on a 400 N axial preload; read after 15 s creep; lumbar FSUs"
     },
     {
       "key": "frei2002",
@@ -198,7 +205,8 @@
       "n": 12,
       "sample": "12 thoracolumbar FSUs (11 T12-L1, 1 L1-L2)",
       "doi": "10.1016/S0736-0266(02)00058-X",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, 500 N at 50 N/s with 10 s hold: axial compression or shear through mid-disc (AP, lateral); no preload; T12-L1 FSUs"
     },
     {
       "key": "janevic1991",
@@ -207,7 +215,8 @@
       "n": 11,
       "sample": "11 lumbar FSUs, grade III discs, preload 0-4400 N",
       "doi": "10.1002/jor.1100090211",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, 4 steps of 40 N / 4 N·m (60 s hold each), read at 80 N shear or 8 N·m; axial preload 0 or 2200 N (0-4400 N tested); lumbar FSUs L1-L5"
     },
     {
       "key": "cannella2008",
@@ -216,7 +225,8 @@
       "n": 6,
       "sample": "6 lumbar disc-only units (DS1), posterior elements removed",
       "doi": "10.1016/j.jbiomech.2008.04.037",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, axial 150 N tension to 1500 N compression, 5 cycles at 0.1 Hz (5th analysed); no preload; lumbar discs, posterior elements removed"
     },
     {
       "key": "renner2007",
@@ -225,7 +235,8 @@
       "n": 10,
       "sample": "10 L1-S1 spines, 1200 N follower load",
       "doi": "10.1016/j.jbiomech.2006.05.019",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, follower compressive load 0-1200 N in neutral posture, no moment; disc height loss on radiographs; L1-S1 spines"
     },
     {
       "key": "patwardhan2003",
@@ -234,7 +245,8 @@
       "n": 21,
       "sample": "21 L1-S1 spines, 1200 N follower load paths",
       "doi": "10.1016/S0736-0266(02)00202-4",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, follower compressive load 0-1200 N (neutral or flexed-posture path) applied in a fixed posture, no moment; L1-S1 spines"
     },
     {
       "key": "tencer1982",
@@ -243,7 +255,8 @@
       "n": 14,
       "sample": "14 L2-L3 and L4-L5 joints, 8 cadavers, grade 1-2",
       "doi": "10.1115/1.3138348",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, 3 equal static steps to 90 N shear, 823 N compression or 11.2-14.7 N·m, read after 1-2 min creep; no preload (nucleus at 626 kPa); L2-L3/L4-L5"
     },
     {
       "key": "edwards1987",
@@ -252,7 +265,8 @@
       "n": 12,
       "sample": "12 FSUs (6 L1-L2, 6 L3-L4); 4-6 per load mode",
       "doi": "10.1115/1.3138639",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, dead-weight compression 0 or 308-400 N combined with 0 or 234-320 N AP force (flexion/extension), 4 min hold per state; L1-L2/L3-L4 FSUs"
     },
     {
       "key": "adamsdolan1991",
@@ -261,7 +275,8 @@
       "n": 10,
       "sample": "10 L4-L5 segments (42 lumbar segments in study)",
       "doi": "10.1016/0021-9290(91)90356-r",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, flexion in 1° steps to the elastic limit (~10.5°), 2 s per cycle, with combined compression rising to ~925 N; L4-L5 FSUs"
     },
     {
       "key": "marini2016",
@@ -270,7 +285,8 @@
       "n": 6,
       "sample": "6 lumbar disc-vertebra units (2 L2-L3, 4 L4-L5), 34-47 y, posterior elements removed",
       "doi": "10.1007/s10237-015-0709-6",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control at 5 mm/min between 200 N tension and 1000 N compression, 5 cycles, last reported; no preload; lumbar discs (posterior elements removed)"
     },
     {
       "key": "jamison2013",
@@ -279,7 +295,8 @@
       "n": 5,
       "sample": "5 lumbar anterior column units (disc + vertebral bodies), 59-85 y",
       "doi": "10.1115/1.4024828",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, triangular axial impacts to 0.8 mm in 80-1000 ms (1000 ms ~1.6 mm/s); 50 N preload; 50 precond. cycles; lumbar discs, no posterior arch"
     },
     {
       "key": "brown1957",
@@ -288,7 +305,8 @@
       "n": null,
       "sample": "lumbar disc specimens in compression; min/max curves via Ghezelbash 2020a Fig 4a",
       "doi": "10.2106/00004623-195739050-00014",
-      "secondary": true
+      "secondary": true,
+      "loading": "Axial compression of lumbar/lumbosacral disc units to ~2 mm; rate and preload not given in the secondary source (per review)"
     },
     {
       "key": "markolfmorris1974",
@@ -297,7 +315,8 @@
       "n": null,
       "sample": "lumbar discs with vertebral bodies; min/average/max curves via Ghezelbash 2020a Fig 4a",
       "doi": "10.2106/00004623-197456040-00003",
-      "secondary": true
+      "secondary": true,
+      "loading": "Axial compression of lumbar disc-body units to ~1.8 mm; rate and preload not given in the secondary source (per review)"
     },
     {
       "key": "asano1992",
@@ -306,7 +325,8 @@
       "n": null,
       "sample": "intact L4-L5 FSUs (cyclic loading); points via Ghezelbash 2020a Fig 4a",
       "doi": "10.1097/00007632-199211000-00014",
-      "secondary": true
+      "secondary": true,
+      "loading": "Cyclic axial compression-tension of intact L4-L5 FSUs, curve to ~1.5 mm; rate and preload not given in the secondary source (per review)"
     },
     {
       "key": "skrzypiec2013",
@@ -315,7 +335,8 @@
       "n": 6,
       "sample": "6 lumbar disc segments with facets removed, grade II-III",
       "doi": "10.1016/j.jbiomech.2012.11.050",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, AP shear cycles ±200 N at 50 N/s (stiffness 0-150 N), then 0.5 mm/s anterior shear to failure; 500 N axial dead weight; lumbar discs, no facets"
     }
   ],
   "shared": [
@@ -330,178 +351,31 @@
   ],
   "views": [
     {
-      "id": "gms_diag",
-      "title": "Lumbar stiffness vs axial preload",
-      "task_ids": [
-        "gms_k11_0",
-        "gms_k11_250",
-        "gms_k11_500",
-        "gms_k22_0",
-        "gms_k22_250",
-        "gms_k22_500",
-        "gms_k33_0",
-        "gms_k33_250",
-        "gms_k33_500",
-        "gms_k44_0",
-        "gms_k44_250",
-        "gms_k44_500",
-        "gms_k55_0",
-        "gms_k55_250",
-        "gms_k55_500",
-        "gms_k66_0",
-        "gms_k66_250",
-        "gms_k66_500"
-      ],
-      "x": "input:preload_n",
-      "series": [
-        "dof"
-      ]
-    },
-    {
-      "id": "hexapod",
-      "title": "Lumbar stiffness in each direction",
-      "task_ids": [
-        "amin_axial_compression",
-        "amin_anterior_shear",
-        "amin_posterior_shear",
-        "amin_lateral_shear",
-        "amin_flexion",
-        "amin_extension",
-        "amin_lateral_bending",
-        "amin_axial_rotation",
-        "amin_disc_compression",
-        "costi_axial_compression",
-        "costi_anterior_shear",
-        "costi_posterior_shear",
-        "costi_lateral_shear",
-        "costi_flexion",
-        "costi_extension",
-        "costi_lateral_bending",
-        "costi_axial_rotation",
-        "edw_fle_kyy",
-        "edw_fle_kzz",
-        "edw_fle_ktt",
-        "edw_ext_kyy",
-        "edw_ext_kzz",
-        "edw_ext_ktt"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "panjabi_diag",
-      "title": "Thoracic segment stiffness",
-      "task_ids": [
-        "pj_k11_p",
-        "pj_k11_m",
-        "pj_k22_p",
-        "pj_k22_m",
-        "pj_k33_p",
-        "pj_k33_m",
-        "pj_k44_p",
-        "pj_k44_m",
-        "pj_k55_p",
-        "pj_k55_m",
-        "pj_k66_p",
-        "pj_k66_m",
-        "yam_ant_low",
-        "yam_ant_high",
-        "yam_post_low",
-        "yam_post_high"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "shear_fd",
-      "title": "Translation vs shear force",
-      "task_ids": [
-        "berk_intact_anterior_86",
-        "berk_intact_anterior_145",
-        "berk_intact_posterior_86",
-        "berk_intact_posterior_145",
-        "berk_intact_right_86",
-        "berk_intact_right_145"
-      ],
-      "x": "input:load",
-      "series": [
-        "dof"
-      ],
-      "x_title": "Shear force (N)"
-    },
-    {
-      "id": "translation",
-      "title": "Translation under single loads",
-      "task_ids": [
-        "berk_pe_anterior_145",
-        "berk_pe_posterior_145",
-        "berk_pe_right_145",
-        "frei_compression",
-        "frei_anterior_shear",
-        "frei_posterior_shear",
-        "frei_lateral_shear",
-        "cann_acu_compression",
-        "cann_acu_tension",
-        "ren_l1l2",
-        "ren_l2l3",
-        "ren_l3l4",
-        "ren_l4l5",
-        "ren_l5s1"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "preload_effect",
-      "title": "Effect of a 2200 N preload",
-      "task_ids": [
-        "jan_anterior_0",
-        "jan_anterior_2200",
-        "jan_posterior_0",
-        "jan_posterior_2200",
-        "jan_axial_0",
-        "jan_axial_2200",
-        "jan_extension_0",
-        "jan_extension_2200",
-        "jan_flexion_0",
-        "jan_flexion_2200",
-        "jan_right_0",
-        "jan_right_2200"
-      ],
-      "x": "input:preload_n",
-      "series": [
-        "dof"
-      ]
-    },
-    {
-      "id": "rotation",
-      "title": "Rotation and flexibility under single loads",
-      "task_ids": [
-        "pat_neutral",
-        "pat_flexed",
-        "ten_lateral_shear",
-        "ten_anterior_shear",
-        "ten_posterior_shear",
-        "ten_axial_compression",
-        "ten_flexion",
-        "ten_extension",
-        "ten_lateral_bending",
-        "ten_axial_rotation"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "adams",
-      "title": "L4-L5 bending moment vs flexion",
-      "task_ids": [
-        "ad_l45_10",
-        "ad_l45_30",
-        "ad_l45_50",
-        "ad_l45_70",
-        "ad_l45_90"
-      ],
-      "x": "input:flexion_pct"
-    },
-    {
       "id": "comp_fd",
-      "title": "Compression: force vs displacement",
+      "title": "Axial compression: force vs displacement",
+      "layout": "panels",
+      "panel_by": "dof",
+      "panel_map": {
+        "compression": "axial compression"
+      },
+      "x": "input:displacement_mm",
+      "x_title": "Axial displacement (mm)",
+      "series": [
+        "specimen",
+        "condition"
+      ],
+      "transpose": {
+        "output": "disp",
+        "as": "force",
+        "y_input": [
+          "compression_n",
+          "load"
+        ]
+      },
+      "legend_notes": {
+        "jamison2013": "fast: 1.6 mm/s ramp and 80–1000 ms impacts"
+      },
+      "note": "Lumbar motion segments and disc units, all studies. Displacement-controlled tests give the force at a set displacement; force-controlled tests give the displacement at a set force and are drawn transposed.",
       "task_ids": [
         "mar_comp_000",
         "mar1_comp_010",
@@ -543,18 +417,7 @@
         "jam_rep_060",
         "jam_rep_078",
         "jam_peak_020",
-        "jam_peak_080"
-      ],
-      "x": "input:displacement_mm",
-      "series": [
-        "specimen"
-      ],
-      "x_title": "Axial displacement (mm)"
-    },
-    {
-      "id": "comp_fd_sec",
-      "title": "Compression: force vs displacement, older studies",
-      "task_ids": [
+        "jam_peak_080",
         "asn_comp_000",
         "mkm_comp_000",
         "brn_comp_000",
@@ -595,18 +458,7 @@
         "mkm_min_180",
         "asn_050",
         "asn_100",
-        "asn_150"
-      ],
-      "x": "input:displacement_mm",
-      "series": [
-        "specimen"
-      ],
-      "x_title": "Axial displacement (mm)"
-    },
-    {
-      "id": "comp_df",
-      "title": "Compression: displacement vs force",
-      "task_ids": [
+        "asn_150",
         "berk_compression_000",
         "ten_comp_000",
         "berk_intact_compression_400",
@@ -620,14 +472,181 @@
         "berk_intact_compression_86",
         "berk_intact_compression_145",
         "berk_pe_compression_86",
-        "berk_pe_compression_145"
+        "berk_pe_compression_145",
+        "frei_compression",
+        "cann_acu_compression"
+      ]
+    },
+    {
+      "id": "shear_fd",
+      "title": "Shear: force vs translation",
+      "layout": "panels",
+      "panel_by": "dof",
+      "panel_map": {
+        "right lateral shear": "lateral shear"
+      },
+      "panels": [
+        "anterior shear",
+        "posterior shear",
+        "lateral shear"
       ],
-      "x": "input:compression_n",
+      "x": "input:displacement_mm",
+      "x_title": "Translation (mm)",
+      "y_title": "Shear force (N)",
       "series": [
-        "specimen",
-        "condition"
+        "condition",
+        "preload_n"
       ],
-      "x_title": "Axial compressive force (N)"
+      "transpose": {
+        "output": "disp",
+        "y_input": "load"
+      },
+      "note": "Translation of the upper vertebra under one shear force (force-controlled, drawn transposed); axial preload per curve.",
+      "task_ids": [
+        "berk_intact_anterior_86",
+        "berk_intact_anterior_145",
+        "berk_intact_posterior_86",
+        "berk_intact_posterior_145",
+        "berk_intact_right_86",
+        "berk_intact_right_145",
+        "berk_pe_anterior_145",
+        "berk_pe_posterior_145",
+        "berk_pe_right_145",
+        "frei_anterior_shear",
+        "frei_posterior_shear",
+        "frei_lateral_shear",
+        "jan_anterior_0",
+        "jan_anterior_2200",
+        "jan_posterior_0",
+        "jan_posterior_2200"
+      ],
+      "legend_inputs": [
+        "preload_n"
+      ]
+    },
+    {
+      "id": "gms_diag",
+      "title": "Lumbar stiffness vs axial preload",
+      "task_ids": [
+        "gms_k11_0",
+        "gms_k11_250",
+        "gms_k11_500",
+        "gms_k22_0",
+        "gms_k22_250",
+        "gms_k22_500",
+        "gms_k33_0",
+        "gms_k33_250",
+        "gms_k33_500",
+        "gms_k44_0",
+        "gms_k44_250",
+        "gms_k44_500",
+        "gms_k55_0",
+        "gms_k55_250",
+        "gms_k55_500",
+        "gms_k66_0",
+        "gms_k66_250",
+        "gms_k66_500"
+      ],
+      "x": "input:preload_n",
+      "series": [
+        "dof"
+      ]
+    },
+    {
+      "id": "hexapod",
+      "title": "Lumbar stiffness per direction",
+      "task_ids": [
+        "amin_axial_compression",
+        "amin_anterior_shear",
+        "amin_posterior_shear",
+        "amin_lateral_shear",
+        "amin_flexion",
+        "amin_extension",
+        "amin_lateral_bending",
+        "amin_axial_rotation",
+        "amin_disc_compression",
+        "costi_axial_compression",
+        "costi_anterior_shear",
+        "costi_posterior_shear",
+        "costi_lateral_shear",
+        "costi_flexion",
+        "costi_extension",
+        "costi_lateral_bending",
+        "costi_axial_rotation",
+        "edw_fle_kyy",
+        "edw_fle_kzz",
+        "edw_fle_ktt",
+        "edw_ext_kyy",
+        "edw_ext_kzz",
+        "edw_ext_ktt"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "panjabi_diag",
+      "title": "Thoracic stiffness per direction",
+      "task_ids": [
+        "pj_k11_p",
+        "pj_k11_m",
+        "pj_k22_p",
+        "pj_k22_m",
+        "pj_k33_p",
+        "pj_k33_m",
+        "pj_k44_p",
+        "pj_k44_m",
+        "pj_k55_p",
+        "pj_k55_m",
+        "pj_k66_p",
+        "pj_k66_m",
+        "yam_ant_low",
+        "yam_ant_high",
+        "yam_post_low",
+        "yam_post_high"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "adams",
+      "title": "L4-L5 flexion: moment vs angle",
+      "task_ids": [
+        "ad_l45_10",
+        "ad_l45_30",
+        "ad_l45_50",
+        "ad_l45_70",
+        "ad_l45_90"
+      ],
+      "x": "input:flexion_pct"
+    },
+    {
+      "id": "single_loads",
+      "title": "Other single-load tests",
+      "x": "task",
+      "task_ids": [
+        "jan_axial_0",
+        "jan_axial_2200",
+        "jan_extension_0",
+        "jan_extension_2200",
+        "jan_flexion_0",
+        "jan_flexion_2200",
+        "jan_right_0",
+        "jan_right_2200",
+        "pat_neutral",
+        "pat_flexed",
+        "ten_lateral_shear",
+        "ten_anterior_shear",
+        "ten_posterior_shear",
+        "ten_axial_compression",
+        "ten_flexion",
+        "ten_extension",
+        "ten_lateral_bending",
+        "ten_axial_rotation",
+        "cann_acu_tension",
+        "ren_l1l2",
+        "ren_l2l3",
+        "ren_l3l4",
+        "ren_l4l5",
+        "ren_l5s1"
+      ]
     },
     {
       "id": "disc_shear",
@@ -2296,7 +2315,7 @@
     {
       "id": "berk_intact_compression_400",
       "label": "FSU intact, compression 400 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2324,7 +2343,7 @@
     {
       "id": "berk_intact_anterior_86",
       "label": "FSU intact, ant. shear 86 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2351,7 +2370,7 @@
     {
       "id": "berk_intact_anterior_145",
       "label": "FSU intact, ant. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2378,7 +2397,7 @@
     {
       "id": "berk_intact_posterior_86",
       "label": "FSU intact, post. shear 86 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2405,7 +2424,7 @@
     {
       "id": "berk_intact_posterior_145",
       "label": "FSU intact, post. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2432,7 +2451,7 @@
     {
       "id": "berk_intact_right_86",
       "label": "FSU intact, lat. shear 86 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2459,7 +2478,7 @@
     {
       "id": "berk_intact_right_145",
       "label": "FSU intact, lat. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -2486,7 +2505,7 @@
     {
       "id": "berk_pe_compression_400",
       "label": "FSU no post. elem., compression 400 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -2514,7 +2533,7 @@
     {
       "id": "berk_pe_anterior_145",
       "label": "FSU no post. elem., ant. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -2541,7 +2560,7 @@
     {
       "id": "berk_pe_posterior_145",
       "label": "FSU no post. elem., post. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -2568,7 +2587,7 @@
     {
       "id": "berk_pe_right_145",
       "label": "FSU no post. elem., lat. shear 145 N",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -2595,7 +2614,7 @@
     {
       "id": "frei_compression",
       "label": "T12-L1 FSU, 500 N compression",
-      "view": "translation",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
@@ -2622,7 +2641,7 @@
     {
       "id": "frei_anterior_shear",
       "label": "T12-L1 FSU, 500 N anterior shear",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
@@ -2649,7 +2668,7 @@
     {
       "id": "frei_posterior_shear",
       "label": "T12-L1 FSU, 500 N posterior shear",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
@@ -2676,7 +2695,7 @@
     {
       "id": "frei_lateral_shear",
       "label": "T12-L1 FSU, 500 N lateral shear",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
@@ -2690,7 +2709,7 @@
         {
           "study": "frei2002",
           "mean": 1.6,
-          "sd": null,
+          "sd": 1.2,
           "min": null,
           "max": null,
           "stat": "mean",
@@ -2703,7 +2722,7 @@
     {
       "id": "jan_anterior_0",
       "label": "FSU, 80 N ant. shear, 0 N preload",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -2730,7 +2749,7 @@
     {
       "id": "jan_anterior_2200",
       "label": "FSU, 80 N ant. shear, 2200 N preload",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -2757,7 +2776,7 @@
     {
       "id": "jan_posterior_0",
       "label": "FSU, 80 N post. shear, 0 N preload",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -2784,7 +2803,7 @@
     {
       "id": "jan_posterior_2200",
       "label": "FSU, 80 N post. shear, 2200 N preload",
-      "view": "translation",
+      "view": "shear_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -2811,7 +2830,7 @@
     {
       "id": "cann_acu_compression",
       "label": "Disc-only unit, axial compression 1500 N",
-      "view": "translation",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "intact disc",
@@ -2838,7 +2857,7 @@
     {
       "id": "cann_acu_tension",
       "label": "Disc-only unit, axial tension 150 N",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar ACU (posterior elements removed)",
         "condition": "intact disc",
@@ -2865,7 +2884,7 @@
     {
       "id": "ren_l1l2",
       "label": "L1-L2 disc height loss, 1200 N follower",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -2892,7 +2911,7 @@
     {
       "id": "ren_l2l3",
       "label": "L2-L3 disc height loss, 1200 N follower",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -2919,7 +2938,7 @@
     {
       "id": "ren_l3l4",
       "label": "L3-L4 disc height loss, 1200 N follower",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -2946,7 +2965,7 @@
     {
       "id": "ren_l4l5",
       "label": "L4-L5 disc height loss, 1200 N follower",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -2973,7 +2992,7 @@
     {
       "id": "ren_l5s1",
       "label": "L5-S1 disc height loss, 1200 N follower",
-      "view": "translation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -3000,7 +3019,7 @@
     {
       "id": "jan_flexion_0",
       "label": "FSU, 8 Nm flexion, 0 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3027,7 +3046,7 @@
     {
       "id": "jan_flexion_2200",
       "label": "FSU, 8 Nm flexion, 2200 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3054,7 +3073,7 @@
     {
       "id": "jan_extension_0",
       "label": "FSU, 8 Nm extension, 0 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3081,7 +3100,7 @@
     {
       "id": "jan_extension_2200",
       "label": "FSU, 8 Nm extension, 2200 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3108,7 +3127,7 @@
     {
       "id": "jan_right_0",
       "label": "FSU, 8 Nm right bend, 0 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3135,7 +3154,7 @@
     {
       "id": "jan_right_2200",
       "label": "FSU, 8 Nm right bend, 2200 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3162,7 +3181,7 @@
     {
       "id": "jan_axial_0",
       "label": "FSU, 8 Nm torsion, 0 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3189,7 +3208,7 @@
     {
       "id": "jan_axial_2200",
       "label": "FSU, 8 Nm torsion, 2200 N preload",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "lumbar FSU (L1-L5)",
         "condition": "intact",
@@ -3216,7 +3235,7 @@
     {
       "id": "pat_neutral",
       "label": "L1-S1, 1200 N follower, neutral path",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -3243,7 +3262,7 @@
     {
       "id": "pat_flexed",
       "label": "L1-S1, 1200 N follower, flexed path",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L1-S1 spine",
         "condition": "intact, neutral posture",
@@ -3270,7 +3289,7 @@
     {
       "id": "ten_lateral_shear",
       "label": "L2-L3/L4-L5, lateral shear",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3297,7 +3316,7 @@
     {
       "id": "ten_anterior_shear",
       "label": "L2-L3/L4-L5, anterior shear",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3324,7 +3343,7 @@
     {
       "id": "ten_posterior_shear",
       "label": "L2-L3/L4-L5, posterior shear",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3351,7 +3370,7 @@
     {
       "id": "ten_axial_compression",
       "label": "L2-L3/L4-L5, compression",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3378,7 +3397,7 @@
     {
       "id": "ten_flexion",
       "label": "L2-L3/L4-L5, flexion",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3405,7 +3424,7 @@
     {
       "id": "ten_extension",
       "label": "L2-L3/L4-L5, extension",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3432,7 +3451,7 @@
     {
       "id": "ten_lateral_bending",
       "label": "L2-L3/L4-L5, lateral bending",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -3459,7 +3478,7 @@
     {
       "id": "ten_axial_rotation",
       "label": "L2-L3/L4-L5, axial torque",
-      "view": "rotation",
+      "view": "single_loads",
       "inputs": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
@@ -4908,7 +4927,7 @@
     {
       "id": "brn_max_020",
       "label": "Disc unit, stiffest, 0.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -4936,7 +4955,7 @@
     {
       "id": "brn_max_040",
       "label": "Disc unit, stiffest, 0.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -4964,7 +4983,7 @@
     {
       "id": "brn_max_060",
       "label": "Disc unit, stiffest, 0.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -4992,7 +5011,7 @@
     {
       "id": "brn_max_080",
       "label": "Disc unit, stiffest, 0.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5020,7 +5039,7 @@
     {
       "id": "brn_max_100",
       "label": "Disc unit, stiffest, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5048,7 +5067,7 @@
     {
       "id": "brn_max_110",
       "label": "Disc unit, stiffest, 1.1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5076,7 +5095,7 @@
     {
       "id": "brn_min_020",
       "label": "Disc unit, softest, 0.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5104,7 +5123,7 @@
     {
       "id": "brn_min_040",
       "label": "Disc unit, softest, 0.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5132,7 +5151,7 @@
     {
       "id": "brn_min_060",
       "label": "Disc unit, softest, 0.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5160,7 +5179,7 @@
     {
       "id": "brn_min_080",
       "label": "Disc unit, softest, 0.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5188,7 +5207,7 @@
     {
       "id": "brn_min_100",
       "label": "Disc unit, softest, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5216,7 +5235,7 @@
     {
       "id": "brn_min_120",
       "label": "Disc unit, softest, 1.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5244,7 +5263,7 @@
     {
       "id": "brn_min_140",
       "label": "Disc unit, softest, 1.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5272,7 +5291,7 @@
     {
       "id": "brn_min_160",
       "label": "Disc unit, softest, 1.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5300,7 +5319,7 @@
     {
       "id": "brn_min_180",
       "label": "Disc unit, softest, 1.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5328,7 +5347,7 @@
     {
       "id": "brn_min_195",
       "label": "Disc unit, softest, 1.95 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5356,7 +5375,7 @@
     {
       "id": "mkm_max_040",
       "label": "Disc unit, stiffest, 0.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5384,7 +5403,7 @@
     {
       "id": "mkm_max_060",
       "label": "Disc unit, stiffest, 0.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5412,7 +5431,7 @@
     {
       "id": "mkm_max_080",
       "label": "Disc unit, stiffest, 0.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5440,7 +5459,7 @@
     {
       "id": "mkm_max_100",
       "label": "Disc unit, stiffest, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5468,7 +5487,7 @@
     {
       "id": "mkm_max_120",
       "label": "Disc unit, stiffest, 1.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, stiffest (MAX)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5496,7 +5515,7 @@
     {
       "id": "mkm_ave_040",
       "label": "Disc unit, average, 0.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5524,7 +5543,7 @@
     {
       "id": "mkm_ave_060",
       "label": "Disc unit, average, 0.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5552,7 +5571,7 @@
     {
       "id": "mkm_ave_080",
       "label": "Disc unit, average, 0.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5580,7 +5599,7 @@
     {
       "id": "mkm_ave_100",
       "label": "Disc unit, average, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5608,7 +5627,7 @@
     {
       "id": "mkm_ave_120",
       "label": "Disc unit, average, 1.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5636,7 +5655,7 @@
     {
       "id": "mkm_ave_140",
       "label": "Disc unit, average, 1.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, average",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5664,7 +5683,7 @@
     {
       "id": "mkm_min_040",
       "label": "Disc unit, softest, 0.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5692,7 +5711,7 @@
     {
       "id": "mkm_min_060",
       "label": "Disc unit, softest, 0.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5720,7 +5739,7 @@
     {
       "id": "mkm_min_080",
       "label": "Disc unit, softest, 0.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5748,7 +5767,7 @@
     {
       "id": "mkm_min_100",
       "label": "Disc unit, softest, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5776,7 +5795,7 @@
     {
       "id": "mkm_min_120",
       "label": "Disc unit, softest, 1.2 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5804,7 +5823,7 @@
     {
       "id": "mkm_min_140",
       "label": "Disc unit, softest, 1.4 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5832,7 +5851,7 @@
     {
       "id": "mkm_min_160",
       "label": "Disc unit, softest, 1.6 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5860,7 +5879,7 @@
     {
       "id": "mkm_min_180",
       "label": "Disc unit, softest, 1.8 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "Disc unit, softest (MIN)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5888,7 +5907,7 @@
     {
       "id": "asn_050",
       "label": "L4-L5 FSU, intact, 0.5 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "L4-L5 FSU, intact (mean)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5916,7 +5935,7 @@
     {
       "id": "asn_100",
       "label": "L4-L5 FSU, intact, 1 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "L4-L5 FSU, intact (mean)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5944,7 +5963,7 @@
     {
       "id": "asn_150",
       "label": "L4-L5 FSU, intact, 1.5 mm",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "L4-L5 FSU, intact (mean)",
         "condition": "as in primary (via Ghezelbash 2020a)",
@@ -5972,7 +5991,7 @@
     {
       "id": "ten_comp_a_275",
       "label": "FSU group A, compression 275 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6000,7 +6019,7 @@
     {
       "id": "ten_comp_a_530",
       "label": "FSU group A, compression 530 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6028,7 +6047,7 @@
     {
       "id": "ten_comp_a_825",
       "label": "FSU group A, compression 825 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6056,7 +6075,7 @@
     {
       "id": "ten_comp_b_275",
       "label": "FSU group B, compression 275 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6084,7 +6103,7 @@
     {
       "id": "ten_comp_b_540",
       "label": "FSU group B, compression 540 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6112,7 +6131,7 @@
     {
       "id": "ten_comp_b_825",
       "label": "FSU group B, compression 825 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
         "condition": "intact",
@@ -6140,7 +6159,7 @@
     {
       "id": "berk_intact_compression_86",
       "label": "FSU intact, compression 86 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -6168,7 +6187,7 @@
     {
       "id": "berk_intact_compression_145",
       "label": "FSU intact, compression 145 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
@@ -6196,7 +6215,7 @@
     {
       "id": "berk_pe_compression_86",
       "label": "FSU no post. elem., compression 86 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -6224,7 +6243,7 @@
     {
       "id": "berk_pe_compression_145",
       "label": "FSU no post. elem., compression 145 N",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
@@ -6352,7 +6371,7 @@
     {
       "id": "brn_comp_000",
       "label": "Disc units, unloaded (0 mm)",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "unloaded",
         "condition": "unloaded",
@@ -6380,7 +6399,7 @@
     {
       "id": "mkm_comp_000",
       "label": "Disc units, unloaded (0 mm)",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "unloaded",
         "condition": "unloaded",
@@ -6408,7 +6427,7 @@
     {
       "id": "asn_comp_000",
       "label": "L4-L5 FSU, unloaded (0 mm)",
-      "view": "comp_fd_sec",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "unloaded",
         "condition": "unloaded",
@@ -6436,7 +6455,7 @@
     {
       "id": "ten_comp_000",
       "label": "FSU, unloaded (0 N)",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "unloaded",
         "condition": "unloaded",
@@ -6464,7 +6483,7 @@
     {
       "id": "berk_compression_000",
       "label": "FSU, unloaded (0 N)",
-      "view": "comp_df",
+      "view": "comp_fd",
       "inputs": {
         "specimen": "unloaded",
         "condition": "unloaded",
@@ -6495,99 +6514,101 @@
     "Only diagonal (direct) terms and principal motions; coupling terms stay in bench/tests.",
     "Amin 2016b refs are degeneration grades of the same 14 FSUs as Amin 2016a; Patwardhan 2003 and Renner 2007 share a lab. Brown 1957, Markolf & Morris 1974 and Asano 1992 compression curves are secondary (digitised from Ghezelbash 2020a Fig 4a)."
   ],
-  "agent_prompt": "Use your finite element spine model. For each task build the specimen in its inputs (motion segment intact or without posterior elements, disc with its two vertebral bodies, or L1-S1 for follower-load tasks), fix the lower vertebra and apply the preload first. Axial compression curves: for tasks with displacement_mm, impose that axial compressive displacement of the upper vertebra (from the zero-load or preloaded position) at the stated rate and report the axial force (N); for tasks with compression_n, apply that axial compressive force and report the axial displacement (mm). Other tasks: apply the single test load or imposed displacement given in \"load\" with the other degrees of freedom free (for 6x6 diagonal terms, hold them fixed). Report stiffness (k_lin N/mm, k_rot Nm/deg) as the slope over the stated range, flexibility (mm/N, deg/Nm), the translation (mm) or rotation (deg) at the stated load, whole-disc shear stiffness (N/mm) or shear strength (kN). For moment_pct, report the flexion moment at the given % of 10.5 deg as % of the moment at 10.5 deg. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
+  "agent_prompt": "Use your finite element spine model. Run the 54 simulations in `simulations`. Build the specimen (motion segment intact or without posterior elements, disc with its two vertebral bodies, or L1-S1 for follower tests), fix the lower vertebra, apply the preload first, then the test load. The compression simulation is one test for all studies: impose axial compressive displacement (mm) and report the axial force (N) as one curve up to the largest listed displacement and the listed loads; force-controlled studies are scored at their measured displacement. Preload simulations: repeat the test at each listed preload. Other simulations: apply the single test load or displacement in `fixed`/`at` with the other DOF free (held fixed for 6x6 diagonal terms) and report stiffness (k_lin N/mm, k_rot Nm/deg) over the stated range, flexibility (mm/N, deg/Nm), translation (mm) or rotation (deg) at the stated load, shear stiffness (N/mm) or strength (kN); moment_pct = flexion moment at the given % of 10.5 deg as % of the moment at 10.5 deg. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "gms_k11_0": {
-      "k_lin": "N/mm"
+    "axial_vs_preload": {
+      "k_lin": {
+        "axial compression": "[[N, N/mm], ...]"
+      }
     },
-    "gms_k11_250": {
-      "k_lin": "N/mm"
+    "ap_shear_vs_preload": {
+      "k_lin": {
+        "A-P shear": "[[N, N/mm], ...]"
+      },
+      "disp": {
+        "anterior shear": "[[N, mm], ...]",
+        "posterior shear": "[[N, mm], ...]"
+      }
     },
-    "gms_k11_500": {
-      "k_lin": "N/mm"
+    "lateral_shear_vs_preload": {
+      "k_lin": {
+        "lateral shear": "[[N, N/mm], ...]"
+      }
     },
-    "gms_k22_0": {
-      "k_lin": "N/mm"
+    "axial_rotation_vs_preload": {
+      "k_rot": {
+        "axial rotation": "[[N, Nm/deg], ...]"
+      },
+      "rot": {
+        "axial rotation": "[[N, deg], ...]"
+      }
     },
-    "gms_k22_250": {
-      "k_lin": "N/mm"
+    "lateral_bending_vs_preload": {
+      "k_rot": {
+        "lateral bending": "[[N, Nm/deg], ...]"
+      },
+      "rot": {
+        "right lateral bending": "[[N, deg], ...]"
+      }
     },
-    "gms_k22_500": {
-      "k_lin": "N/mm"
+    "flexion_extension_vs_preload": {
+      "k_rot": {
+        "flexion-extension": "[[N, Nm/deg], ...]"
+      },
+      "rot": {
+        "flexion": "[[N, deg], ...]",
+        "extension": "[[N, deg], ...]"
+      }
     },
-    "gms_k33_0": {
-      "k_lin": "N/mm"
+    "pj_lateral_shear": {
+      "k_lin": {
+        "lateral shear, positive direction": "N/mm",
+        "lateral shear, negative direction": "N/mm"
+      }
     },
-    "gms_k33_250": {
-      "k_lin": "N/mm"
+    "pj_axial": {
+      "k_lin": {
+        "axial (+ tension, - compression), positive direction": "N/mm",
+        "axial (+ tension, - compression), negative direction": "N/mm"
+      }
     },
-    "gms_k33_500": {
-      "k_lin": "N/mm"
+    "thor_ap_shear": {
+      "k_lin": {
+        "A-P shear, positive direction": {
+          "100 N or 5 Nm": "N/mm"
+        },
+        "A-P shear, negative direction": {
+          "100 N or 5 Nm": "N/mm"
+        },
+        "anterior shear": {
+          "pure shear through disc centre to ~200 N; tangent at the midpoint of 0-50% of max displacement (quadratic fit)": "N/mm",
+          "pure shear through disc centre to ~200 N; tangent at the midpoint of 50-100% of max displacement (quadratic fit)": "N/mm"
+        },
+        "posterior shear": {
+          "pure shear through disc centre to ~200 N; tangent at the midpoint of 0-50% of max displacement (quadratic fit)": "N/mm",
+          "pure shear through disc centre to ~200 N; tangent at the midpoint of 50-100% of max displacement (quadratic fit)": "N/mm"
+        }
+      }
     },
-    "gms_k44_0": {
-      "k_rot": "Nm/deg"
+    "pj_flexion_extension": {
+      "k_rot": {
+        "flexion-extension, positive direction": "Nm/deg",
+        "flexion-extension, negative direction": "Nm/deg"
+      }
     },
-    "gms_k44_250": {
-      "k_rot": "Nm/deg"
+    "pj_axial_rotation": {
+      "k_rot": {
+        "axial rotation, positive direction": "Nm/deg",
+        "axial rotation, negative direction": "Nm/deg"
+      }
     },
-    "gms_k44_500": {
-      "k_rot": "Nm/deg"
+    "pj_lateral_bending": {
+      "k_rot": {
+        "lateral bending, positive direction": "Nm/deg",
+        "lateral bending, negative direction": "Nm/deg"
+      }
     },
-    "gms_k55_0": {
-      "k_rot": "Nm/deg"
-    },
-    "gms_k55_250": {
-      "k_rot": "Nm/deg"
-    },
-    "gms_k55_500": {
-      "k_rot": "Nm/deg"
-    },
-    "gms_k66_0": {
-      "k_rot": "Nm/deg"
-    },
-    "gms_k66_250": {
-      "k_rot": "Nm/deg"
-    },
-    "gms_k66_500": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k11_p": {
-      "k_lin": "N/mm"
-    },
-    "pj_k11_m": {
-      "k_lin": "N/mm"
-    },
-    "pj_k22_p": {
-      "k_lin": "N/mm"
-    },
-    "pj_k22_m": {
-      "k_lin": "N/mm"
-    },
-    "pj_k33_p": {
-      "k_lin": "N/mm"
-    },
-    "pj_k33_m": {
-      "k_lin": "N/mm"
-    },
-    "pj_k44_p": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k44_m": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k55_p": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k55_m": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k66_p": {
-      "k_rot": "Nm/deg"
-    },
-    "pj_k66_m": {
-      "k_rot": "Nm/deg"
-    },
-    "amin_axial_compression": {
+    "axial_stiffness_preloaded": {
       "k_lin": "N/mm"
     },
     "amin_anterior_shear": {
@@ -6611,12 +6632,6 @@
     "amin_axial_rotation": {
       "k_rot": "Nm/deg"
     },
-    "amin_disc_compression": {
-      "k_lin": "N/mm"
-    },
-    "costi_axial_compression": {
-      "k_lin": "N/mm"
-    },
     "costi_anterior_shear": {
       "k_lin": "N/mm"
     },
@@ -6638,53 +6653,41 @@
     "costi_axial_rotation": {
       "k_rot": "Nm/deg"
     },
-    "yam_ant_low": {
-      "k_lin": "N/mm"
+    "compression": {
+      "force": "[[mm, N], ...]"
     },
-    "yam_ant_high": {
-      "k_lin": "N/mm"
+    "berk_intact_anterior": {
+      "disp": {
+        "86 N at upper body centre (3.4 cm above disc)": "mm",
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
-    "yam_post_low": {
-      "k_lin": "N/mm"
+    "berk_intact_posterior": {
+      "disp": {
+        "86 N at upper body centre (3.4 cm above disc)": "mm",
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
-    "yam_post_high": {
-      "k_lin": "N/mm"
+    "berk_intact_right": {
+      "disp": {
+        "86 N at upper body centre (3.4 cm above disc)": "mm",
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
-    "berk_intact_compression_400": {
-      "disp": "mm"
+    "berk_pe_anterior": {
+      "disp": {
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
-    "berk_intact_anterior_86": {
-      "disp": "mm"
+    "berk_pe_posterior": {
+      "disp": {
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
-    "berk_intact_anterior_145": {
-      "disp": "mm"
-    },
-    "berk_intact_posterior_86": {
-      "disp": "mm"
-    },
-    "berk_intact_posterior_145": {
-      "disp": "mm"
-    },
-    "berk_intact_right_86": {
-      "disp": "mm"
-    },
-    "berk_intact_right_145": {
-      "disp": "mm"
-    },
-    "berk_pe_compression_400": {
-      "disp": "mm"
-    },
-    "berk_pe_anterior_145": {
-      "disp": "mm"
-    },
-    "berk_pe_posterior_145": {
-      "disp": "mm"
-    },
-    "berk_pe_right_145": {
-      "disp": "mm"
-    },
-    "frei_compression": {
-      "disp": "mm"
+    "berk_pe_right": {
+      "disp": {
+        "145 N at upper body centre (3.4 cm above disc)": "mm"
+      }
     },
     "frei_anterior_shear": {
       "disp": "mm"
@@ -6695,416 +6698,1408 @@
     "frei_lateral_shear": {
       "disp": "mm"
     },
-    "jan_anterior_0": {
+    "acu_cyclic_tension": {
       "disp": "mm"
     },
-    "jan_anterior_2200": {
-      "disp": "mm"
+    "l1s1_follower": {
+      "disp": {
+        "L1-L2": "mm",
+        "L2-L3": "mm",
+        "L3-L4": "mm",
+        "L4-L5": "mm",
+        "L5-S1": "mm"
+      },
+      "rot": {
+        "L1-S1": "deg"
+      }
     },
-    "jan_posterior_0": {
-      "disp": "mm"
+    "l1s1_follower_flexed": {
+      "rot": {
+        "L1-S1": "deg"
+      }
     },
-    "jan_posterior_2200": {
-      "disp": "mm"
-    },
-    "cann_acu_compression": {
-      "disp": "mm"
-    },
-    "cann_acu_tension": {
-      "disp": "mm"
-    },
-    "ren_l1l2": {
-      "disp": "mm"
-    },
-    "ren_l2l3": {
-      "disp": "mm"
-    },
-    "ren_l3l4": {
-      "disp": "mm"
-    },
-    "ren_l4l5": {
-      "disp": "mm"
-    },
-    "ren_l5s1": {
-      "disp": "mm"
-    },
-    "jan_flexion_0": {
-      "rot": "deg"
-    },
-    "jan_flexion_2200": {
-      "rot": "deg"
-    },
-    "jan_extension_0": {
-      "rot": "deg"
-    },
-    "jan_extension_2200": {
-      "rot": "deg"
-    },
-    "jan_right_0": {
-      "rot": "deg"
-    },
-    "jan_right_2200": {
-      "rot": "deg"
-    },
-    "jan_axial_0": {
-      "rot": "deg"
-    },
-    "jan_axial_2200": {
-      "rot": "deg"
-    },
-    "pat_neutral": {
-      "rot": "deg"
-    },
-    "pat_flexed": {
-      "rot": "deg"
-    },
-    "ten_lateral_shear": {
+    "tencer_lateral_shear": {
       "flex_lin": "mm/N"
     },
-    "ten_anterior_shear": {
+    "tencer_anterior_shear": {
       "flex_lin": "mm/N"
     },
-    "ten_posterior_shear": {
+    "tencer_posterior_shear": {
       "flex_lin": "mm/N"
     },
-    "ten_axial_compression": {
+    "tencer_axial_compression": {
       "flex_lin": "mm/N"
     },
-    "ten_flexion": {
+    "tencer_flexion": {
       "flex_rot": "deg/Nm"
     },
-    "ten_extension": {
+    "tencer_extension": {
       "flex_rot": "deg/Nm"
     },
-    "ten_lateral_bending": {
+    "tencer_lateral_bending": {
       "flex_rot": "deg/Nm"
     },
-    "ten_axial_rotation": {
+    "tencer_axial_rotation": {
       "flex_rot": "deg/Nm"
     },
-    "edw_fle_kyy": {
-      "k_lin": "N/mm"
-    },
-    "edw_fle_kzz": {
-      "k_lin": "N/mm"
-    },
-    "edw_fle_ktt": {
-      "k_rot": "Nm/deg"
-    },
-    "edw_ext_kyy": {
-      "k_lin": "N/mm"
-    },
-    "edw_ext_kzz": {
-      "k_lin": "N/mm"
-    },
-    "edw_ext_ktt": {
-      "k_rot": "Nm/deg"
-    },
-    "ad_l45_10": {
-      "moment_pct": "%"
-    },
-    "ad_l45_30": {
-      "moment_pct": "%"
-    },
-    "ad_l45_50": {
-      "moment_pct": "%"
-    },
-    "ad_l45_70": {
-      "moment_pct": "%"
-    },
-    "ad_l45_90": {
-      "moment_pct": "%"
-    },
-    "mar1_comp_010": {
-      "force": "N"
-    },
-    "mar1_comp_020": {
-      "force": "N"
-    },
-    "mar1_comp_030": {
-      "force": "N"
-    },
-    "mar1_comp_040": {
-      "force": "N"
-    },
-    "mar1_comp_051": {
-      "force": "N"
-    },
-    "mar2_comp_020": {
-      "force": "N"
-    },
-    "mar2_comp_040": {
-      "force": "N"
-    },
-    "mar2_comp_060": {
-      "force": "N"
-    },
-    "mar2_comp_077": {
-      "force": "N"
-    },
-    "mar3_comp_010": {
-      "force": "N"
-    },
-    "mar3_comp_020": {
-      "force": "N"
-    },
-    "mar3_comp_030": {
-      "force": "N"
-    },
-    "mar3_comp_040": {
-      "force": "N"
-    },
-    "mar3_comp_050": {
-      "force": "N"
-    },
-    "mar3_comp_060": {
-      "force": "N"
-    },
-    "mar3_comp_070": {
-      "force": "N"
-    },
-    "mar4_comp_020": {
-      "force": "N"
-    },
-    "mar4_comp_040": {
-      "force": "N"
-    },
-    "mar4_comp_060": {
-      "force": "N"
-    },
-    "mar4_comp_080": {
-      "force": "N"
-    },
-    "mar4_comp_084": {
-      "force": "N"
-    },
-    "mar5_comp_020": {
-      "force": "N"
-    },
-    "mar5_comp_040": {
-      "force": "N"
-    },
-    "mar5_comp_060": {
-      "force": "N"
-    },
-    "mar5_comp_080": {
-      "force": "N"
-    },
-    "mar5_comp_100": {
-      "force": "N"
-    },
-    "mar5_comp_116": {
-      "force": "N"
-    },
-    "mar6_comp_020": {
-      "force": "N"
-    },
-    "mar6_comp_040": {
-      "force": "N"
-    },
-    "mar6_comp_060": {
-      "force": "N"
-    },
-    "mar6_comp_080": {
-      "force": "N"
-    },
-    "mar6_comp_100": {
-      "force": "N"
-    },
-    "mar6_comp_110": {
-      "force": "N"
-    },
-    "jam_rep_010": {
-      "force": "N"
-    },
-    "jam_rep_020": {
-      "force": "N"
-    },
-    "jam_rep_040": {
-      "force": "N"
-    },
-    "jam_rep_060": {
-      "force": "N"
-    },
-    "jam_rep_078": {
-      "force": "N"
-    },
-    "jam_peak_020": {
-      "force": "N"
-    },
-    "jam_peak_080": {
-      "force": "N"
-    },
-    "brn_max_020": {
-      "force": "N"
-    },
-    "brn_max_040": {
-      "force": "N"
-    },
-    "brn_max_060": {
-      "force": "N"
-    },
-    "brn_max_080": {
-      "force": "N"
-    },
-    "brn_max_100": {
-      "force": "N"
-    },
-    "brn_max_110": {
-      "force": "N"
-    },
-    "brn_min_020": {
-      "force": "N"
-    },
-    "brn_min_040": {
-      "force": "N"
-    },
-    "brn_min_060": {
-      "force": "N"
-    },
-    "brn_min_080": {
-      "force": "N"
-    },
-    "brn_min_100": {
-      "force": "N"
-    },
-    "brn_min_120": {
-      "force": "N"
-    },
-    "brn_min_140": {
-      "force": "N"
-    },
-    "brn_min_160": {
-      "force": "N"
-    },
-    "brn_min_180": {
-      "force": "N"
-    },
-    "brn_min_195": {
-      "force": "N"
-    },
-    "mkm_max_040": {
-      "force": "N"
-    },
-    "mkm_max_060": {
-      "force": "N"
-    },
-    "mkm_max_080": {
-      "force": "N"
-    },
-    "mkm_max_100": {
-      "force": "N"
-    },
-    "mkm_max_120": {
-      "force": "N"
-    },
-    "mkm_ave_040": {
-      "force": "N"
-    },
-    "mkm_ave_060": {
-      "force": "N"
-    },
-    "mkm_ave_080": {
-      "force": "N"
-    },
-    "mkm_ave_100": {
-      "force": "N"
-    },
-    "mkm_ave_120": {
-      "force": "N"
-    },
-    "mkm_ave_140": {
-      "force": "N"
-    },
-    "mkm_min_040": {
-      "force": "N"
-    },
-    "mkm_min_060": {
-      "force": "N"
-    },
-    "mkm_min_080": {
-      "force": "N"
-    },
-    "mkm_min_100": {
-      "force": "N"
-    },
-    "mkm_min_120": {
-      "force": "N"
-    },
-    "mkm_min_140": {
-      "force": "N"
-    },
-    "mkm_min_160": {
-      "force": "N"
-    },
-    "mkm_min_180": {
-      "force": "N"
-    },
-    "asn_050": {
-      "force": "N"
-    },
-    "asn_100": {
-      "force": "N"
-    },
-    "asn_150": {
-      "force": "N"
-    },
-    "ten_comp_a_275": {
-      "disp": "mm"
-    },
-    "ten_comp_a_530": {
-      "disp": "mm"
-    },
-    "ten_comp_a_825": {
-      "disp": "mm"
-    },
-    "ten_comp_b_275": {
-      "disp": "mm"
-    },
-    "ten_comp_b_540": {
-      "disp": "mm"
-    },
-    "ten_comp_b_825": {
-      "disp": "mm"
-    },
-    "berk_intact_compression_86": {
-      "disp": "mm"
-    },
-    "berk_intact_compression_145": {
-      "disp": "mm"
-    },
-    "berk_pe_compression_86": {
-      "disp": "mm"
-    },
-    "berk_pe_compression_145": {
-      "disp": "mm"
-    },
-    "disc_shear_k_ant": {
+    "edw_flex": {
+      "k_lin": {
+        "axial": "N/mm",
+        "A-P shear": "N/mm"
+      },
+      "k_rot": {
+        "flexion-extension": "Nm/deg"
+      }
+    },
+    "edw_exte": {
+      "k_lin": {
+        "axial": "N/mm",
+        "A-P shear": "N/mm"
+      },
+      "k_rot": {
+        "flexion-extension": "Nm/deg"
+      }
+    },
+    "flexion_moment": {
+      "moment_pct": "[[%, %], ...]"
+    },
+    "disc_shear_anterior": {
       "shear_stiffness": "N/mm"
     },
-    "disc_shear_k_post": {
+    "disc_shear_posterior": {
       "shear_stiffness": "N/mm"
     },
-    "disc_shear_strength": {
+    "disc_shear_failure": {
       "shear_strength": "kN"
-    },
-    "mar_comp_000": {
-      "force": "N"
-    },
-    "brn_comp_000": {
-      "force": "N"
-    },
-    "mkm_comp_000": {
-      "force": "N"
-    },
-    "asn_comp_000": {
-      "force": "N"
-    },
-    "ten_comp_000": {
-      "disp": "mm"
-    },
-    "berk_compression_000": {
-      "disp": "mm"
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "axial_vs_preload",
+      "title": "Lumbar FSU, axial: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "specimen": "L2-L3 / L4-L5 FSU",
+        "condition": "intact",
+        "load": "imposed +-0.35 mm, other DOF held"
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "axial compression"
+        }
+      ],
+      "task_ids": [
+        "gms_k11_0",
+        "gms_k11_250",
+        "gms_k11_500"
+      ]
+    },
+    {
+      "id": "ap_shear_vs_preload",
+      "title": "Lumbar FSU, A-P shear: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "condition": "intact"
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "A-P shear"
+        },
+        {
+          "key": "disp",
+          "dof": "anterior shear"
+        },
+        {
+          "key": "disp",
+          "dof": "posterior shear"
+        }
+      ],
+      "task_ids": [
+        "gms_k22_0",
+        "gms_k22_250",
+        "gms_k22_500",
+        "jan_anterior_0",
+        "jan_anterior_2200",
+        "jan_posterior_0",
+        "jan_posterior_2200"
+      ]
+    },
+    {
+      "id": "lateral_shear_vs_preload",
+      "title": "Lumbar FSU, lateral shear: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "specimen": "L2-L3 / L4-L5 FSU",
+        "condition": "intact",
+        "load": "imposed +-0.5 mm, other DOF held"
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "lateral shear"
+        }
+      ],
+      "task_ids": [
+        "gms_k33_0",
+        "gms_k33_250",
+        "gms_k33_500"
+      ]
+    },
+    {
+      "id": "axial_rotation_vs_preload",
+      "title": "Lumbar FSU, axial rotation: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "condition": "intact"
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "axial rotation"
+        },
+        {
+          "key": "rot",
+          "dof": "axial rotation"
+        }
+      ],
+      "task_ids": [
+        "gms_k44_0",
+        "gms_k44_250",
+        "gms_k44_500",
+        "jan_axial_0",
+        "jan_axial_2200"
+      ]
+    },
+    {
+      "id": "lateral_bending_vs_preload",
+      "title": "Lumbar FSU, lateral bending: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "condition": "intact"
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "lateral bending"
+        },
+        {
+          "key": "rot",
+          "dof": "right lateral bending"
+        }
+      ],
+      "task_ids": [
+        "gms_k55_0",
+        "gms_k55_250",
+        "gms_k55_500",
+        "jan_right_0",
+        "jan_right_2200"
+      ]
+    },
+    {
+      "id": "flexion_extension_vs_preload",
+      "title": "Lumbar FSU, flexion extension: stiffness and motion vs axial preload",
+      "note": "Imposed-displacement stiffness (Gardner-Morse) and motion under a fixed load (Janevic) are outputs of the same preload sweep.",
+      "sweep": "preload_n",
+      "fixed": {
+        "condition": "intact"
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension"
+        },
+        {
+          "key": "rot",
+          "dof": "flexion"
+        },
+        {
+          "key": "rot",
+          "dof": "extension"
+        }
+      ],
+      "task_ids": [
+        "gms_k66_0",
+        "gms_k66_250",
+        "gms_k66_500",
+        "jan_flexion_0",
+        "jan_flexion_2200",
+        "jan_extension_0",
+        "jan_extension_2200"
+      ]
+    },
+    {
+      "id": "pj_lateral_shear",
+      "title": "Thoracic FSU, lateral shear stiffness (both directions)",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU with rib heads",
+        "condition": "intact, no preload",
+        "load": "100 N or 5 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "lateral shear, positive direction"
+        },
+        {
+          "key": "k_lin",
+          "dof": "lateral shear, negative direction"
+        }
+      ],
+      "task_ids": [
+        "pj_k11_p",
+        "pj_k11_m"
+      ]
+    },
+    {
+      "id": "pj_axial",
+      "title": "Thoracic FSU, axial (+ tension, - compression) stiffness (both directions)",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU with rib heads",
+        "condition": "intact, no preload",
+        "load": "100 N or 5 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "axial (+ tension, - compression), positive direction"
+        },
+        {
+          "key": "k_lin",
+          "dof": "axial (+ tension, - compression), negative direction"
+        }
+      ],
+      "task_ids": [
+        "pj_k22_p",
+        "pj_k22_m"
+      ]
+    },
+    {
+      "id": "thor_ap_shear",
+      "title": "Thoracic FSU with rib heads, A-P shear, no preload: stiffness",
+      "sweep": null,
+      "fixed": {
+        "condition": "intact, no preload",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "A-P shear, positive direction",
+          "load": "100 N or 5 Nm"
+        },
+        {
+          "key": "k_lin",
+          "dof": "A-P shear, negative direction",
+          "load": "100 N or 5 Nm"
+        },
+        {
+          "key": "k_lin",
+          "dof": "anterior shear",
+          "load": "pure shear through disc centre to ~200 N; tangent at the midpoint of 0-50% of max displacement (quadratic fit)"
+        },
+        {
+          "key": "k_lin",
+          "dof": "anterior shear",
+          "load": "pure shear through disc centre to ~200 N; tangent at the midpoint of 50-100% of max displacement (quadratic fit)"
+        },
+        {
+          "key": "k_lin",
+          "dof": "posterior shear",
+          "load": "pure shear through disc centre to ~200 N; tangent at the midpoint of 0-50% of max displacement (quadratic fit)"
+        },
+        {
+          "key": "k_lin",
+          "dof": "posterior shear",
+          "load": "pure shear through disc centre to ~200 N; tangent at the midpoint of 50-100% of max displacement (quadratic fit)"
+        }
+      ],
+      "task_ids": [
+        "pj_k33_p",
+        "pj_k33_m",
+        "yam_ant_low",
+        "yam_ant_high",
+        "yam_post_low",
+        "yam_post_high"
+      ]
+    },
+    {
+      "id": "pj_flexion_extension",
+      "title": "Thoracic FSU, flexion-extension stiffness (both directions)",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU with rib heads",
+        "condition": "intact, no preload",
+        "load": "100 N or 5 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension, negative direction"
+        }
+      ],
+      "task_ids": [
+        "pj_k44_p",
+        "pj_k44_m"
+      ]
+    },
+    {
+      "id": "pj_axial_rotation",
+      "title": "Thoracic FSU, axial rotation stiffness (both directions)",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU with rib heads",
+        "condition": "intact, no preload",
+        "load": "100 N or 5 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "axial rotation, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "axial rotation, negative direction"
+        }
+      ],
+      "task_ids": [
+        "pj_k55_p",
+        "pj_k55_m"
+      ]
+    },
+    {
+      "id": "pj_lateral_bending",
+      "title": "Thoracic FSU, lateral bending stiffness (both directions)",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU with rib heads",
+        "condition": "intact, no preload",
+        "load": "100 N or 5 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_rot",
+          "dof": "lateral bending, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "lateral bending, negative direction"
+        }
+      ],
+      "task_ids": [
+        "pj_k66_p",
+        "pj_k66_m"
+      ]
+    },
+    {
+      "id": "axial_stiffness_preloaded",
+      "title": "Lumbar FSU or disc unit, ~0.4-0.5 MPa preload, 37 C: axial compression stiffness",
+      "note": "Motion segments, isolated discs and disc units combined (as for the compression curve).",
+      "sweep": null,
+      "fixed": {
+        "dof": "axial compression"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "amin_axial_compression",
+        "amin_disc_compression",
+        "costi_axial_compression"
+      ]
+    },
+    {
+      "id": "amin_anterior_shear",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., anterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "anterior shear",
+        "load": "0.6 mm, slope 0.4-0.58 mm"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "amin_anterior_shear"
+      ]
+    },
+    {
+      "id": "amin_posterior_shear",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., posterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "posterior shear",
+        "load": "0.6 mm, slope 0.4-0.58 mm"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "amin_posterior_shear"
+      ]
+    },
+    {
+      "id": "amin_lateral_shear",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., lateral shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "lateral shear",
+        "load": "0.6 mm, slope 0.4-0.58 mm"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "amin_lateral_shear"
+      ]
+    },
+    {
+      "id": "amin_flexion",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., flexion stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "flexion",
+        "load": "5 deg, slope 2-2.8 deg"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "amin_flexion"
+      ]
+    },
+    {
+      "id": "amin_extension",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., extension stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "extension",
+        "load": "2 deg, slope 0.85-1.25 deg"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "amin_extension"
+      ]
+    },
+    {
+      "id": "amin_lateral_bending",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., lateral bending stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "lateral bending",
+        "load": "3 deg, slope 2-2.8 deg"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "amin_lateral_bending"
+      ]
+    },
+    {
+      "id": "amin_axial_rotation",
+      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., axial rotation stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5)",
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
+        "dof": "axial rotation",
+        "load": "2 deg, slope 1.5-1.8 deg"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "amin_axial_rotation"
+      ]
+    },
+    {
+      "id": "costi_anterior_shear",
+      "title": "Disc unit, 0.4 MPa axial preload, anterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "anterior shear",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "costi_anterior_shear"
+      ]
+    },
+    {
+      "id": "costi_posterior_shear",
+      "title": "Disc unit, 0.4 MPa axial preload, posterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "posterior shear",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "costi_posterior_shear"
+      ]
+    },
+    {
+      "id": "costi_lateral_shear",
+      "title": "Disc unit, 0.4 MPa axial preload, lateral shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "lateral shear",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
+        "costi_lateral_shear"
+      ]
+    },
+    {
+      "id": "costi_flexion",
+      "title": "Disc unit, 0.4 MPa axial preload, flexion stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "flexion",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "costi_flexion"
+      ]
+    },
+    {
+      "id": "costi_extension",
+      "title": "Disc unit, 0.4 MPa axial preload, extension stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "extension",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "costi_extension"
+      ]
+    },
+    {
+      "id": "costi_lateral_bending",
+      "title": "Disc unit, 0.4 MPa axial preload, lateral bending stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "lateral bending",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "costi_lateral_bending"
+      ]
+    },
+    {
+      "id": "costi_axial_rotation",
+      "title": "Disc unit, 0.4 MPa axial preload, axial rotation stiffness",
+      "sweep": null,
+      "fixed": {
+        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
+        "condition": "37 C saline, 0.4 MPa axial preload",
+        "dof": "axial rotation",
+        "load": "0.001 Hz sinusoid"
+      },
+      "outputs": [
+        {
+          "key": "k_rot"
+        }
+      ],
+      "task_ids": [
+        "costi_axial_rotation"
+      ]
+    },
+    {
+      "id": "compression",
+      "title": "Lumbar disc unit or motion segment, axial compression: force vs displacement",
+      "note": "One test for all studies: disc units and motion segments, any lumbar level, displacement- or force-controlled (force-controlled points are read at their measured displacement).",
+      "sweep": "displacement_mm",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "force"
+        }
+      ],
+      "task_ids": [
+        "berk_intact_compression_400",
+        "berk_pe_compression_400",
+        "frei_compression",
+        "cann_acu_compression",
+        "mar1_comp_010",
+        "mar1_comp_020",
+        "mar1_comp_030",
+        "mar1_comp_040",
+        "mar1_comp_051",
+        "mar2_comp_020",
+        "mar2_comp_040",
+        "mar2_comp_060",
+        "mar2_comp_077",
+        "mar3_comp_010",
+        "mar3_comp_020",
+        "mar3_comp_030",
+        "mar3_comp_040",
+        "mar3_comp_050",
+        "mar3_comp_060",
+        "mar3_comp_070",
+        "mar4_comp_020",
+        "mar4_comp_040",
+        "mar4_comp_060",
+        "mar4_comp_080",
+        "mar4_comp_084",
+        "mar5_comp_020",
+        "mar5_comp_040",
+        "mar5_comp_060",
+        "mar5_comp_080",
+        "mar5_comp_100",
+        "mar5_comp_116",
+        "mar6_comp_020",
+        "mar6_comp_040",
+        "mar6_comp_060",
+        "mar6_comp_080",
+        "mar6_comp_100",
+        "mar6_comp_110",
+        "jam_rep_010",
+        "jam_rep_020",
+        "jam_rep_040",
+        "jam_rep_060",
+        "jam_rep_078",
+        "jam_peak_020",
+        "jam_peak_080",
+        "brn_max_020",
+        "brn_max_040",
+        "brn_max_060",
+        "brn_max_080",
+        "brn_max_100",
+        "brn_max_110",
+        "brn_min_020",
+        "brn_min_040",
+        "brn_min_060",
+        "brn_min_080",
+        "brn_min_100",
+        "brn_min_120",
+        "brn_min_140",
+        "brn_min_160",
+        "brn_min_180",
+        "brn_min_195",
+        "mkm_max_040",
+        "mkm_max_060",
+        "mkm_max_080",
+        "mkm_max_100",
+        "mkm_max_120",
+        "mkm_ave_040",
+        "mkm_ave_060",
+        "mkm_ave_080",
+        "mkm_ave_100",
+        "mkm_ave_120",
+        "mkm_ave_140",
+        "mkm_min_040",
+        "mkm_min_060",
+        "mkm_min_080",
+        "mkm_min_100",
+        "mkm_min_120",
+        "mkm_min_140",
+        "mkm_min_160",
+        "mkm_min_180",
+        "asn_050",
+        "asn_100",
+        "asn_150",
+        "ten_comp_a_275",
+        "ten_comp_a_530",
+        "ten_comp_a_825",
+        "ten_comp_b_275",
+        "ten_comp_b_540",
+        "ten_comp_b_825",
+        "berk_intact_compression_86",
+        "berk_intact_compression_145",
+        "berk_pe_compression_86",
+        "berk_pe_compression_145",
+        "mar_comp_000",
+        "brn_comp_000",
+        "mkm_comp_000",
+        "asn_comp_000",
+        "ten_comp_000",
+        "berk_compression_000"
+      ],
+      "transpose": {
+        "output": "disp",
+        "as": "force",
+        "y_input": "compression_n",
+        "y_values": {
+          "frei_compression": 500,
+          "cann_acu_compression": 1500
+        }
+      },
+      "curve_by": [
+        "specimen",
+        "condition"
+      ],
+      "study_notes": {
+        "marini2016": "six individual disc units, 5 mm/min",
+        "jamison2013": "fast loading: triangular impacts of 80-1000 ms (about 1.6 mm/s), 50 N preload",
+        "tencer1982": "force-controlled: displacement read 1-2 min after each load",
+        "berkson1979": "force-controlled: intact and with posterior elements cut",
+        "frei2002": "force-controlled: 500 N through the balance point, T12-L1",
+        "cannella2008": "force-controlled cyclic test: 1500 N, 5th cycle at 0.1 Hz, disc unit",
+        "brown1957": "secondary source (Ghezelbash 2020a): stiffest and softest disc",
+        "markolfmorris1974": "secondary source: stiffest, average and softest disc",
+        "asano1992": "secondary source: intact L4-L5 motion segment"
+      }
+    },
+    {
+      "id": "berk_intact_anterior",
+      "title": "Lumbar FSU (intact), 400 N preload, anterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "intact",
+        "dof": "anterior shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "86 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_intact_anterior_86",
+        "berk_intact_anterior_145"
+      ]
+    },
+    {
+      "id": "berk_intact_posterior",
+      "title": "Lumbar FSU (intact), 400 N preload, posterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "intact",
+        "dof": "posterior shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "86 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_intact_posterior_86",
+        "berk_intact_posterior_145"
+      ]
+    },
+    {
+      "id": "berk_intact_right",
+      "title": "Lumbar FSU (intact), 400 N preload, right shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "intact",
+        "dof": "right lateral shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "86 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_intact_right_86",
+        "berk_intact_right_145"
+      ]
+    },
+    {
+      "id": "berk_pe_anterior",
+      "title": "Lumbar FSU (posterior elements cut), 400 N preload, anterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "posterior elements cut",
+        "dof": "anterior shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_pe_anterior_145"
+      ]
+    },
+    {
+      "id": "berk_pe_posterior",
+      "title": "Lumbar FSU (posterior elements cut), 400 N preload, posterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "posterior elements cut",
+        "dof": "posterior shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_pe_posterior_145"
+      ]
+    },
+    {
+      "id": "berk_pe_right",
+      "title": "Lumbar FSU (posterior elements cut), 400 N preload, right shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "posterior elements cut",
+        "dof": "right lateral shear",
+        "preload_n": 400
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        }
+      ],
+      "task_ids": [
+        "berk_pe_right_145"
+      ]
+    },
+    {
+      "id": "frei_anterior_shear",
+      "title": "T12-L1 FSU, 500 N anterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "dof": "anterior shear",
+        "load": "500 N through mid-disc",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "disp"
+        }
+      ],
+      "task_ids": [
+        "frei_anterior_shear"
+      ]
+    },
+    {
+      "id": "frei_posterior_shear",
+      "title": "T12-L1 FSU, 500 N posterior shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "dof": "posterior shear",
+        "load": "500 N through mid-disc",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "disp"
+        }
+      ],
+      "task_ids": [
+        "frei_posterior_shear"
+      ]
+    },
+    {
+      "id": "frei_lateral_shear",
+      "title": "T12-L1 FSU, 500 N lateral shear: displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "dof": "lateral shear",
+        "load": "500 N through mid-disc",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "disp"
+        }
+      ],
+      "task_ids": [
+        "frei_lateral_shear"
+      ]
+    },
+    {
+      "id": "acu_cyclic_tension",
+      "title": "Disc unit, cyclic axial tension to 150 N (5th cycle): displacement",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "condition": "intact disc",
+        "dof": "axial tension",
+        "load": "150 N, 5th cycle, 0.1 Hz",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "disp"
+        }
+      ],
+      "task_ids": [
+        "cann_acu_tension"
+      ]
+    },
+    {
+      "id": "l1s1_follower",
+      "title": "L1-S1, 1200 N follower (neutral path): disc height loss and L1-S1 angle",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine",
+        "condition": "intact, neutral posture",
+        "preload_n": 1200
+      },
+      "outputs": [
+        {
+          "key": "disp",
+          "level": "L1-L2"
+        },
+        {
+          "key": "disp",
+          "level": "L2-L3"
+        },
+        {
+          "key": "disp",
+          "level": "L3-L4"
+        },
+        {
+          "key": "disp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "disp",
+          "level": "L5-S1"
+        },
+        {
+          "key": "rot",
+          "level": "L1-S1"
+        }
+      ],
+      "task_ids": [
+        "ren_l1l2",
+        "ren_l2l3",
+        "ren_l3l4",
+        "ren_l4l5",
+        "ren_l5s1",
+        "pat_neutral"
+      ]
+    },
+    {
+      "id": "l1s1_follower_flexed",
+      "title": "L1-S1, 1200 N follower (flexed-posture path): L1-S1 angle",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine",
+        "condition": "intact, neutral posture",
+        "dof": "L1-S1 sagittal angle change, flexion positive",
+        "load": "0 to 1200 N follower, follower path for flexed posture",
+        "preload_n": 1200
+      },
+      "outputs": [
+        {
+          "key": "rot",
+          "level": "L1-S1"
+        }
+      ],
+      "task_ids": [
+        "pat_flexed"
+      ]
+    },
+    {
+      "id": "tencer_lateral_shear",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, lateral shear flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "lateral shear",
+        "load": "3 equal steps to 90 N",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_lin"
+        }
+      ],
+      "task_ids": [
+        "ten_lateral_shear"
+      ]
+    },
+    {
+      "id": "tencer_anterior_shear",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, anterior shear flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "anterior shear",
+        "load": "3 equal steps to 90 N",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_lin"
+        }
+      ],
+      "task_ids": [
+        "ten_anterior_shear"
+      ]
+    },
+    {
+      "id": "tencer_posterior_shear",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, posterior shear flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "posterior shear",
+        "load": "3 equal steps to 90 N",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_lin"
+        }
+      ],
+      "task_ids": [
+        "ten_posterior_shear"
+      ]
+    },
+    {
+      "id": "tencer_axial_compression",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, axial compression flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "axial compression",
+        "load": "3 equal steps to 823 N",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_lin"
+        }
+      ],
+      "task_ids": [
+        "ten_axial_compression"
+      ]
+    },
+    {
+      "id": "tencer_flexion",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, flexion flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "flexion",
+        "load": "3 equal steps to 11.2 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_rot"
+        }
+      ],
+      "task_ids": [
+        "ten_flexion"
+      ]
+    },
+    {
+      "id": "tencer_extension",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, extension flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "extension",
+        "load": "3 equal steps to 11.2 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_rot"
+        }
+      ],
+      "task_ids": [
+        "ten_extension"
+      ]
+    },
+    {
+      "id": "tencer_lateral_bending",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, lateral bending flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "lateral bending",
+        "load": "3 equal steps to 14.7 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_rot"
+        }
+      ],
+      "task_ids": [
+        "ten_lateral_bending"
+      ]
+    },
+    {
+      "id": "tencer_axial_rotation",
+      "title": "L2-L3/L4-L5 joint, pressurised nucleus, axial rotation flexibility",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L2-L3 or L4-L5 joint",
+        "condition": "intact, nucleus pressurised 0.63 MPa",
+        "dof": "axial rotation",
+        "load": "3 equal steps to 12.9 Nm",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "flex_rot"
+        }
+      ],
+      "task_ids": [
+        "ten_axial_rotation"
+      ]
+    },
+    {
+      "id": "edw_flex",
+      "title": "L1-L2/L3-L4 FSU, compression + A-P force (flexion sense): stiffness terms",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 / L3-L4 FSU",
+        "condition": "intact",
+        "load": "0 or 308-400 N compression with 0 or 234-320 N A-P force (flexion sense), 4 min holds",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "axial"
+        },
+        {
+          "key": "k_lin",
+          "dof": "A-P shear"
+        },
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension"
+        }
+      ],
+      "task_ids": [
+        "edw_fle_kyy",
+        "edw_fle_kzz",
+        "edw_fle_ktt"
+      ]
+    },
+    {
+      "id": "edw_exte",
+      "title": "L1-L2/L3-L4 FSU, compression + A-P force (extension sense): stiffness terms",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 / L3-L4 FSU",
+        "condition": "intact",
+        "load": "0 or 308-400 N compression with 0 or 234-320 N A-P force (extension sense), 4 min holds",
+        "preload_n": 0
+      },
+      "outputs": [
+        {
+          "key": "k_lin",
+          "dof": "axial"
+        },
+        {
+          "key": "k_lin",
+          "dof": "A-P shear"
+        },
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension"
+        }
+      ],
+      "task_ids": [
+        "edw_ext_kyy",
+        "edw_ext_kzz",
+        "edw_ext_ktt"
+      ]
+    },
+    {
+      "id": "flexion_moment",
+      "title": "L4-L5 FSU, flexion + compression: moment vs % of elastic-limit angle",
+      "sweep": "flexion_pct",
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "intact, combined flexion + compression",
+        "dof": "flexion",
+        "load": "100% = 10.5 deg (mean elastic-limit angle)",
+        "preload_n": "compression rises with flexion: vertical force ~30 mm anterior, ~925 N (476-1795) at the elastic limit"
+      },
+      "outputs": [
+        {
+          "key": "moment_pct"
+        }
+      ],
+      "task_ids": [
+        "ad_l45_10",
+        "ad_l45_30",
+        "ad_l45_50",
+        "ad_l45_70",
+        "ad_l45_90"
+      ]
+    },
+    {
+      "id": "disc_shear_anterior",
+      "title": "L4-L5 disc segment (facets removed), 500 N, anterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior shear 0-150 N"
+      },
+      "outputs": [
+        {
+          "key": "shear_stiffness"
+        }
+      ],
+      "task_ids": [
+        "disc_shear_k_ant"
+      ]
+    },
+    {
+      "id": "disc_shear_posterior",
+      "title": "L4-L5 disc segment (facets removed), 500 N, posterior shear stiffness",
+      "sweep": null,
+      "fixed": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, posterior shear 0-150 N"
+      },
+      "outputs": [
+        {
+          "key": "shear_stiffness"
+        }
+      ],
+      "task_ids": [
+        "disc_shear_k_post"
+      ]
+    },
+    {
+      "id": "disc_shear_failure",
+      "title": "L4-L5 disc segment (facets removed), 500 N, anterior shear to failure",
+      "sweep": null,
+      "fixed": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure"
+      },
+      "outputs": [
+        {
+          "key": "shear_strength"
+        }
+      ],
+      "task_ids": [
+        "disc_shear_strength"
+      ]
+    }
+  ]
 }

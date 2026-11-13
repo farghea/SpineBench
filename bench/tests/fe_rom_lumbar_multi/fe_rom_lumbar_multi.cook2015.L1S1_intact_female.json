@@ -229,13 +229,16 @@
   "method": "digitised_figure",
   "uncertainty": "±0.2 deg (mean and SD; pixel scale 21-39 px/deg)",
   "checked": true,
-  "check_notes": "Bar tops and SD whisker caps located by pixel scan against tick-label centres; 6 points re-digitised with different column offsets: identical. LB F/M ratios match text (L3-4 +20%, L4-5 +53%). FE and AT ratios do NOT match text percentages (text FE 23-34%, AT 41-96%; digitised FE 29-41%, AT 20-67%); text likely uses adjusted means or is inconsistent - figure values kept."
+  "check_notes": "Bar tops and SD whisker caps located by pixel scan against tick-label centres; 6 points re-digitised with different column offsets: identical. LB F/M ratios match text (L3-4 +20%, L4-5 +53%). FE and AT ratios do NOT match text percentages (text FE 23-34%, AT 41-96%; digitised FE 29-41%, AT 20-67%); text likely uses adjusted means or is inconsistent - figure values kept. | 2026-11-13 audit vs owner targets: AT (Fig 5) bars re-read visually on the embedded image (±0.1 deg) - values here confirmed (e.g. F L1-2 3.0 / cap 4.37, M L4-5 3.5 / cap 5.16). The paper reports no pooled AT; pooled FE/LB (Figs 6-7) are in cook2015.L1S1_intact_pooled."
  },
  "pass_rule": {
   "template": true,
   "rule": "|model-mean| <= 1 SD"
  },
  "combine_group": "fe_rom_lumbar_multi__rom__l1_s1_segmental__intact__7_5nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.cook2015.L1S1_intact_pooled: same specimens (authors' female+male pooled FE/LB values, Figs 6-7); do not pool together"
+ ],
  "tags": [
   "lumbar",
   "in vitro",

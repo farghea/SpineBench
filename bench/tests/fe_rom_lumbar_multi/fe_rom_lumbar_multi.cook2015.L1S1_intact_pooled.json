@@ -1,0 +1,191 @@
+{
+ "id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_pooled",
+ "title": "Segmental ROM (peak-to-peak) of intact L1-S1 spines at ±7.5 Nm, all specimens (FE, LB)",
+ "layer": "outcome",
+ "category": "fe_rom_lumbar_multi",
+ "subcategory": "intact segmental ROM",
+ "region": "lumbar",
+ "levels": [
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "ROM",
+  "definition": "segmental range of motion, peak-to-peak (flexion+extension, left+right lateral bending) over the 3rd cycle at ±7.5 Nm; mean ± SD of all FSUs (female and male pooled by the authors); axial rotation NOT reported pooled",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Cook 2015",
+  "authors": "Cook DJ, Yeager MS, Cheng BC",
+  "year": 2015,
+  "journal": "Int J Spine Surg 9:5",
+  "doi": "10.14444/2005",
+  "n": 42,
+  "sample": "42 cadaveric L1-S1 spines; 204 FSUs (91 female, 113 male); L5-S1 tracked in 36 spines; human cadaveric lumbar spines L1-S1 (T12 and sacrum potted), intact condition pooled from 6 studies of one lab",
+  "age": "donor age mean 57.52 ± 9.29 (range 24-74) y",
+  "sex": "both sexes pooled (91 F / 113 M FSUs overall)",
+  "height_cm": 169.5,
+  "weight_kg": 97.7
+ },
+ "protocol": {
+  "summary": "Pure moments ±7.5 Nm, sinusoidal, 0.005 Hz, 3 cycles per mode; 3rd cycle analysed; no preload reported; 6-DOF spine tester (Bose) with FE and LB gimbals; Optotrak LEDs on each vertebral body.",
+  "how_to_simulate": [
+   "Model L1-S1 (T12 and sacrum potted); fix the sacrum, apply pure moment to the cranial end, no preload",
+   "Apply ±7.5 Nm in flexion-extension, lateral bending and axial rotation (3 cycles; use the 3rd)",
+   "Per level, report the full range (peak-to-peak) of the Euler angle of the upper vertebra relative to the lower one (sequence X y' z'): FE = alpha, LB = beta, AT = gamma",
+   "Compare with the pooled mean ± SD (FE and LB only; for axial rotation use the sex-specific tests, Fig 5)"
+  ],
+  "notes": "ROM = range (peak-to-peak) over the 3rd cycle, i.e. flexion+extension, left+right LB, left+right AT. NZ not reported. Height/weight in source: mean 66.75 in (=169.5 cm) and 215.32 lb (=97.7 kg), converted here. Per-level, per-sex n not reported (all levels: 42 spines, L5-S1 36). Per-level n = number of spines (42 for L1-L2..L4-L5, 36 for L5-S1; 4 x 42 + 36 = 204 FSUs as stated). Axial rotation: the paper gives AT ROM only by sex (Fig 5, in tests cook2015.L1S1_intact_female/male); no pooled AT value is reported. Derived for information only (NOT data, not from the paper): pooling the Fig 5 sex bars with weights 91/113 gives AT 2.62±1.38, 3.84±2.45, 4.91±2.59, 4.59±2.63, 3.88±2.33 deg (L1-L2..L5-S1); equal weights give 2.66±1.39, 3.90±2.47, 4.98±2.64, 4.72±2.69, 3.92±2.30 - the owner's AR targets (2.6±1.4, 3.9±2.4, 5.0±2.7, 4.7±2.7, 3.9±2.3) were obtained this way (FE_VALIDATION.md: \"pools the female/male bars assuming equal group sizes\").",
+  "subject_model": null
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 7.12,
+   "sd": 2.48,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L1-L2",
+   "note": "Fig 6 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 7.91,
+   "sd": 2.37,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L2-L3",
+   "note": "Fig 6 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 8.79,
+   "sd": 2.69,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L3-L4",
+   "note": "Fig 6 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 10.73,
+   "sd": 3.47,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L4-L5",
+   "note": "Fig 6 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "±7.5 Nm",
+   "mean": 11.98,
+   "sd": 4.31,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 36,
+   "level": "L5-S1",
+   "note": "Fig 6 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 6.81,
+   "sd": 2.13,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L1-L2",
+   "note": "Fig 7 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 8.95,
+   "sd": 2.34,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L2-L3",
+   "note": "Fig 7 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 9.46,
+   "sd": 2.61,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L3-L4",
+   "note": "Fig 7 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 8.5,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 42,
+   "level": "L4-L5",
+   "note": "Fig 7 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  },
+  {
+   "x": "lateral_bending_total",
+   "load": "±7.5 Nm",
+   "mean": 7.14,
+   "sd": 2.58,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 36,
+   "level": "L5-S1",
+   "note": "Fig 7 \"Current Study\" bar (all specimens, both sexes); n = spines (42 x 4 levels + 36 L5-S1 = 204 FSUs, as stated)"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 (FE) and Fig 7 (LB): \"Current Study\" bars, mean with +1 SD error bar (captions: \"Error bars represent standard deviation\")",
+  "method": "digitised_figure",
+  "uncertainty": "±0.1 deg mean and SD (embedded 301-ppi bitmaps; Fig 6 19.16 px/deg, Fig 7 33.1 px/deg; 1-px whisker caps)",
+  "checked": true,
+  "check_notes": "Digitised 2026-11-13 by pixel scan of the embedded images: y axis calibrated on gridlines (Fig 6 rows 24..503 = 25..0 deg; Fig 7 rows 24..554 = 16..0 deg); mean = top of the hatched \"Current Study\" bar (= lower end of the black error-bar line, checked against the hatch top in 20 neighbouring columns, +/-1 px); SD = 1-px cap row minus bar top. Cross-check with the owner's targets (fe.json lumbar.*.{FE,LB}.7p5.cook2015, \"Cook 2015 Figs 5-7\"): FE 7.0±2.6, 7.9±2.3, 8.8±2.6, 10.7±3.5, 12.0±4.3; LB 6.8±2.1, 9.0±2.3, 9.5±2.6, 8.5±3.0, 7.2±2.5 - all within 0.1 deg except L1-L2 FE SD (2.48 here vs 2.6) - same source. Note: n-weighted pooling of the sex-specific Fig 3/4 bars (tests cook2015.L1S1_intact_female/male) gives values ~0.1-0.5 deg higher than these bars (e.g. LB L1-L2 7.24 vs 6.81), so per-level female/male counts differ from the overall 91/113 FSU ratio or the figures use different subsets; the plotted pooled values are kept as published."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_lumbar_multi__rom__l1_s1_segmental__intact__7_5nm",
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.cook2015.L1S1_intact_female: same specimens (this test = female + male pooled by the authors); do not pool together",
+  "fe_rom_lumbar_multi.cook2015.L1S1_intact_male: same specimens (this test = female + male pooled by the authors); do not pool together"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "multi-segment",
+  "per-level",
+  "both sexes",
+  "digitised"
+ ]
+}

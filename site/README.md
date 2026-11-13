@@ -30,8 +30,8 @@ Old explorer links (`#test/...`, `#group/...`) show a "moved" page; the per-test
 | `outcomes/<id>.json` | one card with `pooled` per task (computed by running `tools/pool_outcomes.py` on temp copies) |
 | `outcomes/<id>.csv` | tasks x refs, one row per reference value, with the pooled value |
 | `benchmark.json` | every card in one file |
-| `agent_tasks.jsonl` | one line per card: prompt, answer format, subjects, studies, tasks with inputs, **no reference values** |
-| `answers.json` | `{card id: {task id: {output, unit, refs, pooled}}}` |
+| `agent_tasks.jsonl` | one line per card: prompt, answer format, subjects, studies, and simulations (FE/tissue) or tasks (MSK), **no reference values**; the same line per card in `agent/<id>.json` |
+| `answers.json` | `{"answers": {card id: {task id: {output, unit, refs, pooled}}}, "simulations": {card id: {sim id: {outputs: [{path, band, studies}]}}}}` |
 | `all.json`, `all.csv`, `tests/`, `groups/`, `categories/` | raw per-test data (footer "Raw data" link) |
 
 ## Files

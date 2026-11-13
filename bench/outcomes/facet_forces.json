@@ -13,10 +13,10 @@
   "summary": "Apply each pure moment, compression or combined load and report the facet contact force, or the share of axial load carried by the facets.",
   "simulate": [
     "Build the specimen named in the task (FSU or multi-level lumbar spine); keep facet capsules unless stated.",
-    "Fix the caudal end; apply the pure moment, axial load or imposed rotation of the task.",
+    "Fix the caudal end; apply the pure moment (swept over the listed moments), axial load or imposed rotation of the simulation.",
     "Facet force = compressive contact force (N, positive) on the facet named in the task: right, loaded or mean of both.",
     "Loaded facet: the compressed one (ipsilateral in lateral bending, contralateral in axial rotation, both in extension).",
-    "Facet share = total facet force normal to the disc plane / applied axial force x 100."
+    "Report every output as one curve over the sweep, or one number where there is no sweep. Facet share = total facet force normal to the disc plane / axial force x 100."
   ],
   "inputs": [
     {
@@ -79,7 +79,8 @@
       "n": 10,
       "sample": "10 L2-L5 spines, L3-L4 facets, Tekscan film",
       "doi": "10.1243/09544119JEIM290",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±7.5 N·m (FE, LB, AR) at ~2°/s, 3 cycles; no preload; L2-L5 spines (L3-L4 facets, posterior capsules cut for film)"
     },
     {
       "key": "zhu2008_eas",
@@ -88,7 +89,8 @@
       "n": 10,
       "sample": "same 10 specimens, extra-articular strain gauges",
       "doi": "10.1243/09544119JEIM290",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±7.5 N·m (FE, LB, AR) at ~2°/s, 3 cycles; no preload; L2-L5 spines (L3-L4 facets, strain gauges)"
     },
     {
       "key": "sawa2008",
@@ -97,7 +99,8 @@
       "n": 6,
       "sample": "6 T12-L2 segments, L1-L2 facets, strain gauges",
       "doi": "10.1016/j.jbiomech.2008.06.010",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments in 1.5 N·m steps to 7.5 N·m (FE, LB, AR), 45 s holds, no preload; also 400 N follower with FE angle imposed; T12-L2"
     },
     {
       "key": "popovich2013",
@@ -106,7 +109,8 @@
       "n": 8,
       "sample": "8 lumbosacral spines, right L4-L5 facet sensor",
       "doi": "10.1016/j.spinee.2013.04.011",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±10 N·m (FE, LB, AR; AR also after 5°/10° sacral tilt) at 1°/s; no preload; 2nd recorded cycle; L1-sacrum spines (L4-L5)"
     },
     {
       "key": "schendel1993",
@@ -115,7 +119,8 @@
       "n": 4,
       "sample": "5 L1-L2 FSUs, facet data from 4",
       "doi": "10.1016/0021-9290(93)90006-z",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, offset cable loads 75-300 N (FE to ~12 N·m, LB to ~3 N·m), AR to 10 N·m with 150 N axial; 300 N creep beforehand; L1-L2 FSUs"
     },
     {
       "key": "ivicsics2014",
@@ -124,7 +129,8 @@
       "n": 8,
       "sample": "8 male lumbar FSUs (L3-L4, L4-L5), nucleotomy group",
       "doi": "10.1016/j.jbiomech.2014.02.021",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, sinusoidal ±5° FE at 0.2 Hz under constant 700 N axial compression, zero AP shear; 2100 preconditioning cycles; L3-L4/L4-L5 FSUs"
     },
     {
       "key": "jaramillo2016",
@@ -133,7 +139,8 @@
       "n": null,
       "sample": "lumbar spines, film; via Ghezelbash 2020 review",
       "doi": "10.1016/j.jbiomech.2016.02.050",
-      "secondary": true
+      "secondary": true,
+      "loading": "Pure moments 8 N·m in extension, lateral bending and axial rotation; preload not stated; lumbar spines, L4-L5 and L5-S1 facets (per review)"
     },
     {
       "key": "wiseman2005",
@@ -142,7 +149,8 @@
       "n": null,
       "sample": "lumbar spines, pressure sensor; via Ghezelbash 2020 review",
       "doi": "10.1097/01.brs.0000158876.51771.f8",
-      "secondary": true
+      "secondary": true,
+      "loading": "15 N·m extension moment combined with 700 N compression; lumbar spines, L2-L3 to L4-L5 facets (per review)"
     },
     {
       "key": "lorenz1983",
@@ -151,7 +159,8 @@
       "n": null,
       "sample": "lumbar FSUs, pressure film; via Ghezelbash 2020 review",
       "doi": "10.1097/00007632-198303000-00002",
-      "secondary": true
+      "secondary": true,
+      "loading": "Axial compression 1373 N (140 kg), alone or with 6-8° extension imposed; lumbar FSUs L2-L3 and L4-L5 (per review)"
     },
     {
       "key": "rousseau2006",
@@ -160,7 +169,8 @@
       "n": null,
       "sample": "L5-S1 segments, film; via Ghezelbash 2020 review",
       "doi": "10.1016/j.spinee.2005.07.004",
-      "secondary": true
+      "secondary": true,
+      "loading": "Imposed posture (0°, ±6° flexion/extension or lateral bending) under 650 N compression plus 550 N anterior shear; L5-S1 segments (per review)"
     },
     {
       "key": "botolin2011",
@@ -169,7 +179,8 @@
       "n": null,
       "sample": "T12-L5 spines, film; via Ghezelbash 2020 review",
       "doi": "10.1097/brs.0b013e3181d2d071",
-      "secondary": true
+      "secondary": true,
+      "loading": "Rotation control: 15° flexion/extension, 10° lateral bending or axial rotation applied across T12-L5; preload not stated; T12-L5 spines (per review)"
     },
     {
       "key": "yangking1984",
@@ -178,7 +189,8 @@
       "n": null,
       "sample": "lumbar FSUs, load cell; via Ghezelbash 2020 review",
       "doi": "10.1097/00007632-198409000-00005",
-      "secondary": true
+      "secondary": true,
+      "loading": "Axial compression 1.1 kN, centric or 10 mm anterior/posterior eccentricity; lumbar FSUs (per review)"
     },
     {
       "key": "pollintine2004",
@@ -187,7 +199,8 @@
       "n": null,
       "sample": "lumbar FSUs, stress profilometry; via Ghezelbash 2020 review",
       "doi": "10.1097/01.brs.0000119401.23006.d2",
-      "secondary": true
+      "secondary": true,
+      "loading": "2 kN compression with 2° extension or 6-12° flexion imposed; lumbar FSUs; neural-arch load share by stress profilometry (per review)"
     },
     {
       "key": "farooq2005",
@@ -196,7 +209,8 @@
       "n": null,
       "sample": "lumbar FSUs, stress profilometry; via Ghezelbash 2020 review",
       "doi": "10.1097/01.brs.0000171906.01906.07",
-      "secondary": true
+      "secondary": true,
+      "loading": "1.5 kN compression (neutral or 2-8° flexion); lumbar FSUs; neural-arch load share by stress profilometry (per review)"
     }
   ],
   "shared": [
@@ -208,76 +222,71 @@
   "views": [
     {
       "id": "pure_7p5",
-      "title": "Pure moments (7.5-15 Nm)",
+      "title": "Bending, no compressive preload",
+      "x": "task",
       "task_ids": [
         "zhu_l34_flex",
-        "zhu_l34_ext",
-        "zhu_l34_lb",
-        "zhu_l34_ar",
         "sawa_l12_flex",
-        "sawa_l12_ext",
-        "sawa_l12_lb",
-        "sawa_l12_ar",
         "pop_l45_flex",
+        "bot_l2l3_flexion",
+        "bot_l3l4_flexion",
+        "zhu_l34_ext",
+        "sawa_l12_ext",
         "pop_l45_ext",
+        "jar_l4l5_ext",
+        "jar_l5s1_ext",
+        "bot_l2l3_extension",
+        "bot_l3l4_extension",
+        "zhu_l34_lb",
+        "sawa_l12_lb",
         "pop_l45_lb",
+        "jar_l4l5_lb",
+        "jar_l5s1_lb",
+        "bot_l2l3_lateral_bending",
+        "bot_l3l4_lateral_bending",
+        "zhu_l34_ar",
+        "sawa_l12_ar",
         "pop_l45_ar",
         "pop_l45_po5",
         "pop_l45_po10",
-        "jar_l4l5_ext",
-        "jar_l4l5_lb",
         "jar_l4l5_ar",
-        "jar_l5s1_ext",
-        "jar_l5s1_lb",
         "jar_l5s1_ar",
-        "wis_l2l3",
-        "wis_l3l4",
-        "wis_l4l5"
+        "bot_l2l3_axial_rotation",
+        "bot_l3l4_axial_rotation"
       ],
-      "x": "task"
+      "note": "Pure moment (7.5–10 Nm) or imposed rotation, no axial load; facet named in each task."
     },
     {
       "id": "follower",
-      "title": "Moment plus compression",
+      "title": "Compression, alone or with bending",
+      "x": "task",
       "task_ids": [
         "sawa_fl_neutral",
-        "sawa_fl_flexion",
-        "sawa_fl_extension",
-        "sch_peak_extension",
-        "sch_peak_axial_rotation",
-        "sch_peak_lateral_bending",
-        "sch_peak_flexion",
-        "sch_slope_extension",
-        "sch_slope_flexion",
-        "sch_slope_lateral_bending_right",
-        "sch_slope_lateral_bending_left",
-        "sch_slope_axial_rotation"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "posture_secondary",
-      "title": "Compression and imposed rotations",
-      "task_ids": [
         "lor_l2l3_compression",
         "lor_l2l3_extension",
         "lor_l4l5_compression",
         "lor_l4l5_extension",
         "rou_l5s1_neutral",
+        "sawa_fl_flexion",
+        "sch_peak_flexion",
+        "sch_slope_flexion",
         "rou_l5s1_flexion",
+        "sawa_fl_extension",
+        "sch_peak_extension",
+        "sch_slope_extension",
+        "wis_l2l3",
+        "wis_l3l4",
+        "wis_l4l5",
         "rou_l5s1_extension",
+        "sch_peak_lateral_bending",
+        "sch_slope_lateral_bending_right",
+        "sch_slope_lateral_bending_left",
         "rou_l5s1_lateral_bending",
         "rou_l5s1_lateral_bending_neg",
-        "bot_l2l3_flexion",
-        "bot_l2l3_extension",
-        "bot_l2l3_lateral_bending",
-        "bot_l2l3_axial_rotation",
-        "bot_l3l4_flexion",
-        "bot_l3l4_extension",
-        "bot_l3l4_lateral_bending",
-        "bot_l3l4_axial_rotation"
+        "sch_peak_axial_rotation",
+        "sch_slope_axial_rotation"
       ],
-      "x": "task"
+      "note": "Axial, follower or eccentric compression (150–1373 N), with or without a moment or imposed rotation."
     },
     {
       "id": "share",
@@ -1311,7 +1320,7 @@
     {
       "id": "lor_l2l3_compression",
       "label": "L2-L3, 1373 N compression",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
         "condition": "intact",
@@ -1350,7 +1359,7 @@
     {
       "id": "lor_l2l3_extension",
       "label": "L2-L3, 1373 N + 6-8° ext",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
         "condition": "intact",
@@ -1389,7 +1398,7 @@
     {
       "id": "lor_l4l5_compression",
       "label": "L4-L5, 1373 N compression",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
         "condition": "intact",
@@ -1428,7 +1437,7 @@
     {
       "id": "lor_l4l5_extension",
       "label": "L4-L5, 1373 N + 6-8° ext",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "lumbar FSU (Lorenz 1983)",
         "condition": "intact",
@@ -1467,7 +1476,7 @@
     {
       "id": "rou_l5s1_neutral",
       "label": "L5-S1, comp.+shear, neutral",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
@@ -1495,7 +1504,7 @@
     {
       "id": "rou_l5s1_flexion",
       "label": "L5-S1, comp.+shear, 6° flexion",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
@@ -1523,7 +1532,7 @@
     {
       "id": "rou_l5s1_extension",
       "label": "L5-S1, comp.+shear, 6° extension",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
@@ -1551,7 +1560,7 @@
     {
       "id": "rou_l5s1_lateral_bending",
       "label": "L5-S1, comp.+shear, 6° lat. bend (+)",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
@@ -1579,7 +1588,7 @@
     {
       "id": "rou_l5s1_lateral_bending_neg",
       "label": "L5-S1, comp.+shear, 6° lat. bend (-)",
-      "view": "posture_secondary",
+      "view": "follower",
       "inputs": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
@@ -1607,7 +1616,7 @@
     {
       "id": "bot_l2l3_flexion",
       "label": "L2-L3, T12-L5 flexion 15°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1634,7 +1643,7 @@
     {
       "id": "bot_l2l3_extension",
       "label": "L2-L3, T12-L5 extension 15°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1661,7 +1670,7 @@
     {
       "id": "bot_l2l3_lateral_bending",
       "label": "L2-L3, T12-L5 lat. bend 10°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1688,7 +1697,7 @@
     {
       "id": "bot_l2l3_axial_rotation",
       "label": "L2-L3, T12-L5 axial rot. 10°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1715,7 +1724,7 @@
     {
       "id": "bot_l3l4_flexion",
       "label": "L3-L4, T12-L5 flexion 15°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1742,7 +1751,7 @@
     {
       "id": "bot_l3l4_extension",
       "label": "L3-L4, T12-L5 extension 15°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1769,7 +1778,7 @@
     {
       "id": "bot_l3l4_lateral_bending",
       "label": "L3-L4, T12-L5 lat. bend 10°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -1796,7 +1805,7 @@
     {
       "id": "bot_l3l4_axial_rotation",
       "label": "L3-L4, T12-L5 axial rot. 10°",
-      "view": "posture_secondary",
+      "view": "pure_7p5",
       "inputs": {
         "specimen": "T12-L5 spine, rotation-controlled",
         "condition": "intact",
@@ -2164,199 +2173,1019 @@
     "Review-compiled values (Ghezelbash 2020, n not given) appear only where the primary study is not in the benchmark.",
     "Schendel peaks are the largest single values printed, not means. Excluded: sensor-calibration and capsule-strain studies."
   ],
-  "agent_prompt": "Use your finite element lumbar spine model. For each task build the specimen in its inputs, fix the caudal end and apply the load: pure moment, axial or follower compression, eccentric compression, or an imposed rotation. Report the facet contact force in newtons, compressive positive, for the facet named in \"facet\" (right, mean of both, or the loaded one: ipsilateral in lateral bending, contralateral in axial rotation). For \"facet_share\" report total facet force as % of the applied axial force; for \"facet_slope\" report the slope of facet force versus applied moment (N/Nm). Slope tasks (Schendel 1993, L1-L2 FSU, capsules intact, 300 N creep preload): flexion/extension = compressive force F of 75, 150 and 300 N normal to the mid-disc plane at a lever arm of 1-4 cm from an origin 1 cm anterior to the posterior vertebral-body rim (moment = F x lever arm, up to ~12 Nm); lateral bending = 50-200 N cable loads (up to ~3 Nm); axial rotation = torque through a 5.5 cm lever with 150 N axial load; report the slope of right-facet force against the applied moment. Tasks whose specimen is named by a review-compiled study (Jaramillo, Wiseman, Lorenz, Yang & King, Pollintine, Farooq) give no specimen length: use a multi-level lumbar model (or an FSU for \"lumbar FSU\") and report the stated level. Each task lists `studies` (whose specimens it uses) and `unit`. Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
+  "agent_prompt": "Use your finite element lumbar spine model. Run the 33 simulations in `simulations`. Fix the caudal end and apply the load of each simulation: pure moment (swept where a sweep is given), axial or follower compression, eccentric compression, or an imposed rotation. Report facet contact force in N, compressive positive: right or mean of both facets in flexion-extension, the loaded facet in lateral bending (ipsilateral) and axial rotation (contralateral). facet_share = total facet (or neural-arch) force as % of the applied axial force; facet_slope = slope of right-facet force vs applied moment (N/Nm). Schendel 1993 slope simulations (L1-L2 FSU, 300 N creep preload): flexion/extension by 75-300 N compression at 1-4 cm lever arms (up to ~12 Nm), lateral bending by 50-200 N cable loads (up to ~3 Nm), axial rotation through a 5.5 cm lever with 150 N axial load. Review-compiled specimens (Jaramillo, Wiseman, Lorenz, Yang & King, Pollintine, Farooq) give no length: use a multi-level lumbar model (an FSU for 'lumbar FSU'). Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "zhu_l34_flex": {
-      "facet_force": "N"
+    "pm_flex": {
+      "facet_force": {
+        "L3-L4": "[[Nm, N], ...]",
+        "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]"
+      }
     },
-    "zhu_l34_ext": {
-      "facet_force": "N"
+    "pm_ext": {
+      "facet_force": {
+        "L3-L4": "[[Nm, N], ...]",
+        "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]",
+        "L5-S1": "[[Nm, N], ...]"
+      }
     },
-    "zhu_l34_lb": {
-      "facet_force": "N"
+    "pm_lb": {
+      "facet_force": {
+        "L3-L4": "[[Nm, N], ...]",
+        "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]",
+        "L5-S1": "[[Nm, N], ...]"
+      }
     },
-    "zhu_l34_ar": {
-      "facet_force": "N"
+    "pm_ar": {
+      "facet_force": {
+        "L3-L4": "[[Nm, N], ...]",
+        "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]",
+        "L5-S1": "[[Nm, N], ...]"
+      }
     },
-    "sawa_l12_flex": {
-      "facet_force": "N"
+    "pelvic_tilt": {
+      "facet_force": {
+        "sacrum tilted 5 deg left (pelvic obliquity)": "N",
+        "sacrum tilted 10 deg left (pelvic obliquity)": "N"
+      }
     },
-    "sawa_l12_ext": {
-      "facet_force": "N"
+    "ext15_ax700": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L3-L4": "N",
+        "L4-L5": "N"
+      }
     },
-    "sawa_l12_lb": {
-      "facet_force": "N"
+    "fl400_neutral": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "sawa_l12_ar": {
-      "facet_force": "N"
+    "fl400_flexion": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "pop_l45_flex": {
-      "facet_force": "N"
+    "fl400_extension": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "pop_l45_ext": {
-      "facet_force": "N"
+    "peak_extension": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "pop_l45_lb": {
-      "facet_force": "N"
+    "peak_axial_rotation": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "pop_l45_ar": {
-      "facet_force": "N"
+    "peak_lateral_bending": {
+      "facet_force": {
+        "L1-L2": "N"
+      }
     },
-    "pop_l45_po5": {
-      "facet_force": "N"
+    "slope_extension": {
+      "facet_slope": {
+        "L1-L2": "N/Nm"
+      }
     },
-    "pop_l45_po10": {
-      "facet_force": "N"
+    "slope_flexion": {
+      "facet_slope": {
+        "L1-L2": "N/Nm"
+      }
     },
-    "jar_l4l5_ext": {
-      "facet_force": "N"
+    "slope_lateral_bending_right": {
+      "facet_slope": {
+        "L1-L2": "N/Nm"
+      }
     },
-    "jar_l4l5_lb": {
-      "facet_force": "N"
+    "slope_lateral_bending_left": {
+      "facet_slope": {
+        "L1-L2": "N/Nm"
+      }
     },
-    "jar_l4l5_ar": {
-      "facet_force": "N"
+    "slope_axial_rotation": {
+      "facet_slope": {
+        "L1-L2": "N/Nm"
+      }
     },
-    "jar_l5s1_ext": {
-      "facet_force": "N"
+    "compression": {
+      "facet_force": {
+        "left and right": "[[N, N], ...]"
+      },
+      "facet_share": {
+        "both facets": "[[N, %], ...]",
+        "neural arch": "[[N, %], ...]"
+      }
     },
-    "jar_l5s1_lb": {
-      "facet_force": "N"
+    "ext_compression": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L4-L5": "N"
+      }
     },
-    "jar_l5s1_ar": {
-      "facet_force": "N"
+    "shear_neutral": {
+      "facet_force": {
+        "L5-S1": "N"
+      }
     },
-    "wis_l2l3": {
-      "facet_force": "N"
+    "shear_flexion": {
+      "facet_force": {
+        "L5-S1": "N"
+      }
     },
-    "wis_l3l4": {
-      "facet_force": "N"
+    "shear_extension": {
+      "facet_force": {
+        "L5-S1": "N"
+      }
     },
-    "wis_l4l5": {
-      "facet_force": "N"
+    "shear_lb": {
+      "facet_force": {
+        "L5-S1": "[[deg, N], ...]"
+      }
     },
-    "sawa_fl_neutral": {
-      "facet_force": "N"
+    "rot_flex": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L3-L4": "N"
+      }
     },
-    "sawa_fl_flexion": {
-      "facet_force": "N"
+    "rot_ext": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L3-L4": "N"
+      }
     },
-    "sawa_fl_extension": {
-      "facet_force": "N"
+    "rot_lb": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L3-L4": "N"
+      }
     },
-    "sch_peak_extension": {
-      "facet_force": "N"
+    "rot_ar": {
+      "facet_force": {
+        "L2-L3": "N",
+        "L3-L4": "N"
+      }
     },
-    "sch_peak_axial_rotation": {
-      "facet_force": "N"
+    "cycle_intact": {
+      "facet_share": {
+        "extension 5 deg": "%",
+        "flexion 5 deg": "%",
+        "+-5 deg cycle mean": "%"
+      }
     },
-    "sch_peak_lateral_bending": {
-      "facet_force": "N"
+    "cycle_nucleotomy": {
+      "facet_share": {
+        "extension 5 deg": "%",
+        "flexion 5 deg": "%",
+        "+-5 deg cycle mean": "%"
+      }
     },
-    "sch_peak_flexion": {
-      "facet_force": "N"
+    "ecc_ant": {
+      "facet_share": {
+        "lumbar": "%"
+      }
     },
-    "sch_slope_extension": {
-      "facet_slope": "N/Nm"
+    "ecc_post": {
+      "facet_share": {
+        "lumbar": "%"
+      }
     },
-    "sch_slope_flexion": {
-      "facet_slope": "N/Nm"
+    "arch_extension": {
+      "facet_share": {
+        "lumbar": "%"
+      }
     },
-    "sch_slope_lateral_bending_right": {
-      "facet_slope": "N/Nm"
-    },
-    "sch_slope_lateral_bending_left": {
-      "facet_slope": "N/Nm"
-    },
-    "sch_slope_axial_rotation": {
-      "facet_slope": "N/Nm"
-    },
-    "lor_l2l3_compression": {
-      "facet_force": "N"
-    },
-    "lor_l2l3_extension": {
-      "facet_force": "N"
-    },
-    "lor_l4l5_compression": {
-      "facet_force": "N"
-    },
-    "lor_l4l5_extension": {
-      "facet_force": "N"
-    },
-    "rou_l5s1_neutral": {
-      "facet_force": "N"
-    },
-    "rou_l5s1_flexion": {
-      "facet_force": "N"
-    },
-    "rou_l5s1_extension": {
-      "facet_force": "N"
-    },
-    "rou_l5s1_lateral_bending": {
-      "facet_force": "N"
-    },
-    "rou_l5s1_lateral_bending_neg": {
-      "facet_force": "N"
-    },
-    "bot_l2l3_flexion": {
-      "facet_force": "N"
-    },
-    "bot_l2l3_extension": {
-      "facet_force": "N"
-    },
-    "bot_l2l3_lateral_bending": {
-      "facet_force": "N"
-    },
-    "bot_l2l3_axial_rotation": {
-      "facet_force": "N"
-    },
-    "bot_l3l4_flexion": {
-      "facet_force": "N"
-    },
-    "bot_l3l4_extension": {
-      "facet_force": "N"
-    },
-    "bot_l3l4_lateral_bending": {
-      "facet_force": "N"
-    },
-    "bot_l3l4_axial_rotation": {
-      "facet_force": "N"
-    },
-    "ivi_intact_extension": {
-      "facet_share": "%"
-    },
-    "ivi_intact_flexion": {
-      "facet_share": "%"
-    },
-    "ivi_intact_entire": {
-      "facet_share": "%"
-    },
-    "ivi_nucleo_extension": {
-      "facet_share": "%"
-    },
-    "ivi_nucleo_flexion": {
-      "facet_share": "%"
-    },
-    "ivi_nucleo_entire": {
-      "facet_share": "%"
-    },
-    "yk_c": {
-      "facet_share": "%"
-    },
-    "yk_ant": {
-      "facet_share": "%"
-    },
-    "yk_post": {
-      "facet_share": "%"
-    },
-    "pol_extension": {
-      "facet_share": "%"
-    },
-    "pol_flexion": {
-      "facet_share": "%"
-    },
-    "far_comp": {
-      "facet_share": "%"
+    "arch_flexion": {
+      "facet_share": {
+        "lumbar": "%"
+      }
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "pm_flex",
+      "title": "Intact lumbar spine, flexion, no preload: facet force vs moment",
+      "note": "Facet = right/mean in flexion-extension, the loaded facet in lateral bending and axial rotation.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_flex",
+        "sawa_l12_flex",
+        "pop_l45_flex",
+        "sch_peak_flexion"
+      ]
+    },
+    {
+      "id": "pm_ext",
+      "title": "Intact lumbar spine, extension, no preload: facet force vs moment",
+      "note": "Facet = right/mean in flexion-extension, the loaded facet in lateral bending and axial rotation.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "extension",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        },
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_ext",
+        "sawa_l12_ext",
+        "pop_l45_ext",
+        "jar_l4l5_ext",
+        "jar_l5s1_ext"
+      ]
+    },
+    {
+      "id": "pm_lb",
+      "title": "Intact lumbar spine, lateral bending, one side, no preload: facet force vs moment",
+      "note": "Facet = right/mean in flexion-extension, the loaded facet in lateral bending and axial rotation.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        },
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_lb",
+        "sawa_l12_lb",
+        "pop_l45_lb",
+        "jar_l4l5_lb",
+        "jar_l5s1_lb"
+      ]
+    },
+    {
+      "id": "pm_ar",
+      "title": "Intact lumbar spine, axial rotation, one side, no preload: facet force vs moment",
+      "note": "Facet = right/mean in flexion-extension, the loaded facet in lateral bending and axial rotation.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        },
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_ar",
+        "sawa_l12_ar",
+        "pop_l45_ar",
+        "jar_l4l5_ar",
+        "jar_l5s1_ar"
+      ]
+    },
+    {
+      "id": "pelvic_tilt",
+      "title": "L1-sacrum, sacrum tilted 5 or 10 deg, left axial rotation 10 Nm: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-sacrum spine",
+        "direction": "left axial rotation",
+        "moment_nm": 10,
+        "axial_n": 0,
+        "facet": "right facet (contralateral)"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "condition": "sacrum tilted 5 deg left (pelvic obliquity)"
+        },
+        {
+          "key": "facet_force",
+          "condition": "sacrum tilted 10 deg left (pelvic obliquity)"
+        }
+      ],
+      "task_ids": [
+        "pop_l45_po5",
+        "pop_l45_po10"
+      ]
+    },
+    {
+      "id": "ext15_ax700",
+      "title": "Lumbar spine, extension 15 Nm + 700 N: facet force per level",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar spine (Wiseman 2005)",
+        "condition": "intact",
+        "direction": "extension",
+        "moment_nm": 15,
+        "axial_n": 700,
+        "facet": "per facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "wis_l2l3",
+        "wis_l3l4",
+        "wis_l4l5"
+      ]
+    },
+    {
+      "id": "fl400_neutral",
+      "title": "L1-L2 in T12-L2, 400 N follower, neutral (upright): facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 within T12-L2",
+        "condition": "intact, 400 N follower",
+        "direction": "neutral (upright)",
+        "moment_nm": 0,
+        "axial_n": 400,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sawa_fl_neutral"
+      ]
+    },
+    {
+      "id": "fl400_flexion",
+      "title": "L1-L2 in T12-L2, 400 N follower, flexion to 7.5 Nm angle: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 within T12-L2",
+        "condition": "intact, 400 N follower",
+        "direction": "flexion to 7.5 Nm angle",
+        "moment_nm": 7.5,
+        "axial_n": 400,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sawa_fl_flexion"
+      ]
+    },
+    {
+      "id": "fl400_extension",
+      "title": "L1-L2 in T12-L2, 400 N follower, extension to 7.5 Nm angle: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 within T12-L2",
+        "condition": "intact, 400 N follower",
+        "direction": "extension to 7.5 Nm angle",
+        "moment_nm": 7.5,
+        "axial_n": 400,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sawa_fl_extension"
+      ]
+    },
+    {
+      "id": "peak_extension",
+      "title": "L1-L2 FSU, extension: largest facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact",
+        "direction": "extension",
+        "moment_nm": 10,
+        "facet": "right facet",
+        "axial_n": 190
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_peak_extension"
+      ]
+    },
+    {
+      "id": "peak_axial_rotation",
+      "title": "L1-L2 FSU, axial rotation: largest facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact",
+        "direction": "axial rotation",
+        "moment_nm": 10,
+        "facet": "right facet",
+        "axial_n": 150
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_peak_axial_rotation"
+      ]
+    },
+    {
+      "id": "peak_lateral_bending",
+      "title": "L1-L2 FSU, lateral bending: largest facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact",
+        "direction": "lateral bending",
+        "moment_nm": 3,
+        "facet": "right facet",
+        "axial_n": 160
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_peak_lateral_bending"
+      ]
+    },
+    {
+      "id": "slope_extension",
+      "title": "L1-L2 FSU, eccentric compression, extension: facet force slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact, eccentric compression 50-300 N",
+        "direction": "extension",
+        "facet": "right facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_slope",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_slope_extension"
+      ]
+    },
+    {
+      "id": "slope_flexion",
+      "title": "L1-L2 FSU, eccentric compression, flexion: facet force slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact, eccentric compression 50-300 N",
+        "direction": "flexion",
+        "facet": "right facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_slope",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_slope_flexion"
+      ]
+    },
+    {
+      "id": "slope_lateral_bending_right",
+      "title": "L1-L2 FSU, eccentric compression, lateral bending right: facet force slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact, eccentric compression 50-300 N",
+        "direction": "right lateral bending (toward facet)",
+        "facet": "right facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_slope",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_slope_lateral_bending_right"
+      ]
+    },
+    {
+      "id": "slope_lateral_bending_left",
+      "title": "L1-L2 FSU, eccentric compression, lateral bending left: facet force slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact, eccentric compression 50-300 N",
+        "direction": "left lateral bending",
+        "facet": "right facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_slope",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_slope_lateral_bending_left"
+      ]
+    },
+    {
+      "id": "slope_axial_rotation",
+      "title": "L1-L2 FSU, eccentric compression, axial rotation: facet force slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-L2 FSU",
+        "condition": "intact, eccentric compression 50-300 N",
+        "direction": "axial rotation",
+        "facet": "right facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_slope",
+          "level": "L1-L2"
+        }
+      ],
+      "task_ids": [
+        "sch_slope_axial_rotation"
+      ]
+    },
+    {
+      "id": "compression",
+      "title": "Lumbar FSU, centric axial compression: facet force and share vs force",
+      "note": "Levels combined; facet force, facet share and neural-arch share are separate outputs.",
+      "sweep": "axial_n",
+      "fixed": {
+        "condition": "intact"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "facet": "left and right"
+        },
+        {
+          "key": "facet_share",
+          "facet": "both facets"
+        },
+        {
+          "key": "facet_share",
+          "facet": "neural arch"
+        }
+      ],
+      "task_ids": [
+        "lor_l2l3_compression",
+        "lor_l4l5_compression",
+        "yk_c",
+        "far_comp"
+      ]
+    },
+    {
+      "id": "ext_compression",
+      "title": "Lumbar FSU, 6-8 deg extension + 1373 N compression: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (Lorenz 1983)",
+        "condition": "intact",
+        "direction": "extension 6-8 deg + compression",
+        "axial_n": 1373,
+        "rotation_deg": "6-8",
+        "facet": "left and right"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "lor_l2l3_extension",
+        "lor_l4l5_extension"
+      ]
+    },
+    {
+      "id": "shear_neutral",
+      "title": "L5-S1, 650 N compression + 550 N anterior shear, neutral: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L5-S1 (Rousseau 2006)",
+        "condition": "intact, 650 N compression + 550 N anterior shear",
+        "direction": "neutral",
+        "axial_n": 650,
+        "rotation_deg": 0,
+        "facet": "per facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "rou_l5s1_neutral"
+      ]
+    },
+    {
+      "id": "shear_flexion",
+      "title": "L5-S1, 650 N compression + 550 N anterior shear, flexion: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L5-S1 (Rousseau 2006)",
+        "condition": "intact, 650 N compression + 550 N anterior shear",
+        "direction": "flexion",
+        "axial_n": 650,
+        "rotation_deg": 6,
+        "facet": "per facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "rou_l5s1_flexion"
+      ]
+    },
+    {
+      "id": "shear_extension",
+      "title": "L5-S1, 650 N compression + 550 N anterior shear, extension: facet force",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L5-S1 (Rousseau 2006)",
+        "condition": "intact, 650 N compression + 550 N anterior shear",
+        "direction": "extension",
+        "axial_n": 650,
+        "rotation_deg": 6,
+        "facet": "per facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "rou_l5s1_extension"
+      ]
+    },
+    {
+      "id": "shear_lb",
+      "title": "L5-S1, 650 N + 550 N shear, lateral bending: facet force vs rotation",
+      "sweep": "rotation_deg",
+      "fixed": {
+        "specimen": "L5-S1 (Rousseau 2006)",
+        "condition": "intact, 650 N compression + 550 N anterior shear",
+        "direction": "lateral bending",
+        "axial_n": 650,
+        "facet": "per facet"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L5-S1"
+        }
+      ],
+      "task_ids": [
+        "rou_l5s1_lateral_bending",
+        "rou_l5s1_lateral_bending_neg"
+      ]
+    },
+    {
+      "id": "rot_flex",
+      "title": "T12-L5, imposed flexion rotation: facet force per level",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L5 spine, rotation-controlled",
+        "condition": "intact",
+        "direction": "flexion",
+        "rotation_deg": 15,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "bot_l2l3_flexion",
+        "bot_l3l4_flexion"
+      ]
+    },
+    {
+      "id": "rot_ext",
+      "title": "T12-L5, imposed extension rotation: facet force per level",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L5 spine, rotation-controlled",
+        "condition": "intact",
+        "direction": "extension",
+        "rotation_deg": 15,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "bot_l2l3_extension",
+        "bot_l3l4_extension"
+      ]
+    },
+    {
+      "id": "rot_lb",
+      "title": "T12-L5, imposed lateral bending, one side rotation: facet force per level",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L5 spine, rotation-controlled",
+        "condition": "intact",
+        "direction": "lateral bending",
+        "rotation_deg": 10,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "bot_l2l3_lateral_bending",
+        "bot_l3l4_lateral_bending"
+      ]
+    },
+    {
+      "id": "rot_ar",
+      "title": "T12-L5, imposed axial rotation, one side rotation: facet force per level",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L5 spine, rotation-controlled",
+        "condition": "intact",
+        "direction": "axial rotation",
+        "rotation_deg": 10,
+        "facet": "mean of both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "bot_l2l3_axial_rotation",
+        "bot_l3l4_axial_rotation"
+      ]
+    },
+    {
+      "id": "cycle_intact",
+      "title": "L3-L4/L4-L5 FSU, 700 N, +-5 deg cycle, intact disc: facet share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L3-L4 / L4-L5 FSU",
+        "condition": "intact disc",
+        "axial_n": 700,
+        "rotation_deg": 5,
+        "facet": "both facets + capsules"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "direction": "extension 5 deg"
+        },
+        {
+          "key": "facet_share",
+          "direction": "flexion 5 deg"
+        },
+        {
+          "key": "facet_share",
+          "direction": "+-5 deg cycle mean"
+        }
+      ],
+      "task_ids": [
+        "ivi_intact_extension",
+        "ivi_intact_flexion",
+        "ivi_intact_entire"
+      ]
+    },
+    {
+      "id": "cycle_nucleotomy",
+      "title": "L3-L4/L4-L5 FSU, 700 N, +-5 deg cycle, after partial nucleotomy: facet share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L3-L4 / L4-L5 FSU",
+        "condition": "after partial nucleotomy",
+        "axial_n": 700,
+        "rotation_deg": 5,
+        "facet": "both facets + capsules"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "direction": "extension 5 deg"
+        },
+        {
+          "key": "facet_share",
+          "direction": "flexion 5 deg"
+        },
+        {
+          "key": "facet_share",
+          "direction": "+-5 deg cycle mean"
+        }
+      ],
+      "task_ids": [
+        "ivi_nucleo_extension",
+        "ivi_nucleo_flexion",
+        "ivi_nucleo_entire"
+      ]
+    },
+    {
+      "id": "ecc_ant",
+      "title": "Lumbar FSU, 1100 N compression 10 mm anterior: facet share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (Yang & King 1984)",
+        "condition": "intact",
+        "direction": "compression, 10 mm anterior",
+        "axial_n": 1100,
+        "facet": "both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "level": "lumbar"
+        }
+      ],
+      "task_ids": [
+        "yk_ant"
+      ]
+    },
+    {
+      "id": "ecc_post",
+      "title": "Lumbar FSU, 1100 N compression 10 mm posterior: facet share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (Yang & King 1984)",
+        "condition": "intact",
+        "direction": "compression, 10 mm posterior",
+        "axial_n": 1100,
+        "facet": "both facets"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "level": "lumbar"
+        }
+      ],
+      "task_ids": [
+        "yk_post"
+      ]
+    },
+    {
+      "id": "arch_extension",
+      "title": "Lumbar FSU, 2000 N + extension: neural-arch share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (Pollintine 2004)",
+        "condition": "intact",
+        "direction": "extension",
+        "axial_n": 2000,
+        "rotation_deg": 2,
+        "facet": "neural arch"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "level": "lumbar"
+        }
+      ],
+      "task_ids": [
+        "pol_extension"
+      ]
+    },
+    {
+      "id": "arch_flexion",
+      "title": "Lumbar FSU, 2000 N + flexion: neural-arch share",
+      "sweep": null,
+      "fixed": {
+        "specimen": "lumbar FSU (Pollintine 2004)",
+        "condition": "intact",
+        "direction": "flexion",
+        "axial_n": 2000,
+        "rotation_deg": "6-12",
+        "facet": "neural arch"
+      },
+      "outputs": [
+        {
+          "key": "facet_share",
+          "level": "lumbar"
+        }
+      ],
+      "task_ids": [
+        "pol_flexion"
+      ]
+    }
+  ]
 }

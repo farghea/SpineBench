@@ -5,8 +5,10 @@ Outcome benchmarks (what the site shows): reads bench/outcomes/*.json and writes
   outcomes.json           index of benchmarks (+ counts, planned ones not written yet)
   outcomes/<id>.json/.csv one card with pooled values (same rule as tools/pool_outcomes.py) / tasks x refs
   benchmark.json          every card in one file
-  agent_tasks.jsonl       one line per card: the tasks WITHOUT reference values
-  answers.json            {card id: {task id: {output, unit, refs, pooled}}}: the hidden answers
+  agent_tasks.jsonl       one line per card WITHOUT reference values: simulations (FE/tissue) or tasks (MSK)
+  agent/<id>.json         the same line per card (what the site's "Copy agent prompt" button copies)
+  answers.json            the hidden answers: {"answers": {card: {task: {output, unit, refs, pooled}}},
+                          "simulations": {card: {sim: {outputs: [{path, band, studies}]}}}}
 
 Raw per-test data (footer "Raw data" link) collects bench/tests/**/*.json and writes:
   index.json            light index (one entry per test) + taxonomy, groups, counts
@@ -620,56 +622,122 @@ def study_colors(cards):
 
 
 # ---- agent export (agent_tasks.jsonl / answers.json) ----
-# Curve tasks: in the tissue cards most tasks are single points of one measured curve (stress at 2 %, 4 %, ...).
-# The export groups them so an agent can answer a whole curve and the scorer counts one curve as one unit.
-# Grouping is computed here from the task inputs (same output, level and inputs except the x input); the cards
-# themselves are not changed. card id -> x inputs, tried in this order.
-CURVE_X = {"annulus_tissue": ("strain",), "ligament_tissue": ("deformation_mm", "strain"),
-           "ribcage_tissue": ("force_N", "angle_deg")}
-CURVE_MIN_POINTS = 3
-AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md): each study gives a band (mean +- SD, "
-                 "else min-max, else +-25 %, never narrower than a small absolute floor); a task passes inside the "
-                 "pooled band when the task has one, else inside the bands of at least half of its studies. A curve "
-                 "passes when >= 80 % of its points pass. Card score = passed units / all units (curves count once).")
+# FE and tissue cards are answered per SIMULATION (card key `agent_sims`, bench/OUTCOMES.md): one test a modeller runs
+# once, with its sweep input (moment, strain, displacement, force, load) as the x of the output curves. The bands
+# written to answers.json come from tools/score_agent.py (one implementation of the rule, also used by the scorer).
+# MSK cards stay task by task.
+AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md). Simulations: at each x where studies have "
+                 "data the band runs from the lowest (mean - SD, else min, else mean) to the highest (mean + SD, else "
+                 "max, else mean) over the studies, never narrower than a small floor (+-25 % for a lone value without "
+                 "spread); a simulation passes when its curves lie inside the band at >= 80 % of the band points (x "
+                 "outside your curve fails). Tasks (MSK): inside the pooled mean +- SD, else inside the bands of at least "
+                 "half of the studies. Card score = passed units / all units.")
 _PATIENT = re.compile(r"^\s*(WP\d+)\b")
 
 
-def agent_curves(c):
-    """([{id, label, output, unit, level, x, x_unit, points: [{task, x}]}], {task id: curve id}) for the card's
-    curve tasks (see CURVE_X)."""
-    xs = CURVE_X.get(c["id"], ())
-    if not xs:
-        return [], {}
-    in_units = {i.get("key"): i.get("unit", "") for i in c["inputs"] if isinstance(i, dict)}
-    units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
-    curves, of = [], {}
-    for xk in xs:
-        groups = {}
-        for t in c["tasks"]:
-            xv = t["inputs"].get(xk)
-            if t["id"] in of or not isinstance(xv, (int, float)) or isinstance(xv, bool):
+def _score_agent():
+    """tools/score_agent.py as a module (its slot and band functions)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("spinebench_score_agent", ROOT / "tools" / "score_agent.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+SA = _score_agent()
+
+
+def _distinct(vals):
+    out = []
+    for v in vals:
+        if v is not None and v not in out:
+            out.append(v)
+    return out
+
+
+def agent_sims(c):
+    """(agent view [{id, title, note, fixed, variants, sweep, outputs, studies, answer}], answers {sim id: entry},
+    {task id: sim id}) for a card with `agent_sims`; never reference values in the agent view."""
+    sims = c.get("agent_sims")
+    if not isinstance(sims, list) or not sims:
+        return None, None, {}
+    in_meta = {i.get("key"): i for i in c["inputs"] if isinstance(i, dict)}
+    out_meta = {o.get("key"): o for o in c["outputs"] if isinstance(o, dict)}
+    agent, answers, sim_of = [], {}, {}
+    for s in sims:
+        try:
+            slots = SA.sim_slots(c, s)
+        except (ValueError, KeyError) as e:
+            warn(f"{c['id']}: {e}; simulation skipped")
+            continue
+        sweep, fixed, tr = s.get("sweep"), s.get("fixed") or {}, s.get("transpose") or {}
+        tasks = [t for sl in slots for t in sl["tasks"]]
+        for t in tasks:
+            sim_of[t["id"]] = s["id"]
+        fields = set(SA.sim_fields(s))
+        hide = set(fixed) | {sweep} | fields | ({"level"} if "level" in fields else set())
+        # sweep values: task inputs only (force-controlled tasks of a transposed simulation are read at their
+        # measured value, which is a reference value: never exported)
+        xs = sorted({t["inputs"].get(sweep) for sl in slots if not sl["scalar"] for t in sl["tasks"]
+                     if SA.num(t["inputs"].get(sweep)) is not None and SA.transposed_y(s, t) is None}) if sweep else []
+        variants = {}
+        for k in in_meta:
+            if k in hide or (tr and k == tr.get("y_input")):
                 continue
-            rest = json.dumps({k: v for k, v in t["inputs"].items() if k != xk}, sort_keys=True, ensure_ascii=False)
-            groups.setdefault((t.get("output", ""), t.get("level", ""), rest), []).append(t)
-        for (outk, lev, _), ts in groups.items():
-            xv = [t["inputs"][xk] for t in ts]
-            if len(set(xv)) < CURVE_MIN_POINTS or len(set(xv)) != len(xv):
-                continue  # too short, or two tasks at one x (then not one curve)
-            ts = sorted(ts, key=lambda t: t["inputs"][xk])
-            base = re.sub(r"_\d+$", "", ts[0]["id"]) or ts[0]["id"]
-            cid, k = base, 2
-            while any(x["id"] == cid for x in curves):
-                cid, k = f"{base}~{k}", k + 1
-            lab = re.sub(r",[^,]*$", "", ts[0].get("label", "")).strip() or cid
-            curves.append({"id": cid, "label": lab, "output": outk, "unit": units.get(outk, ""), "level": lev,
-                           "x": xk, "x_unit": in_units.get(xk, ""),
-                           "points": [{"task": t["id"], "x": t["inputs"][xk]} for t in ts]})
-            for t in ts:
-                of[t["id"]] = cid
-    return curves, of
+            vals = _distinct(t["inputs"].get(k) for t in tasks)
+            if vals:
+                variants[k] = vals
+        outs, template = [], {}
+        for sl in slots:
+            o = {"key": sl["key"], "label": out_meta.get(sl["key"], {}).get("label", sl["key"]), "unit": sl["unit"]}
+            o.update({f: v for f, v in sl["by"].items()})
+            if sl["scalar"] and sweep:
+                o["scalar"] = True
+            at = {}
+            for k in in_meta:
+                if k in hide or k in variants and len(variants[k]) == 1:
+                    continue
+                vals = _distinct(t["inputs"].get(k) for t in sl["tasks"])
+                if len(vals) == 1 and k in variants:
+                    at[k] = vals[0]
+            if at:
+                o["at"] = at
+            outs.append(o)
+            d = template
+            for p in sl["path"][:-1]:
+                d = d.setdefault(p, {})
+            xu = in_meta.get(sweep, {}).get("unit", "") if sweep else ""
+            d[sl["path"][-1]] = sl["unit"] if sl["scalar"] else f"[[{xu or sweep}, {sl['unit'] or sl['key']}], ...]"
+        studies = _distinct(r.get("study") for t in tasks for r in t["refs"])
+        e = {"id": s["id"], "title": s.get("title", s["id"])}
+        if s.get("note"):
+            e["note"] = s["note"]
+        e["fixed"] = fixed
+        if variants:
+            e["variants"] = variants
+        e["sweep"] = ({"key": sweep, "label": in_meta.get(sweep, {}).get("label", sweep),
+                       "unit": in_meta.get(sweep, {}).get("unit", ""), "values": xs} if sweep else None)
+        if tr:
+            loads = sorted({y for t in tasks for y in [SA.transposed_y(s, t)] if y is not None})
+            e["force_controlled"] = {"read_as": tr.get("as"), "loads": loads,
+                                     "rule": "force-controlled studies are scored at their measured displacement: "
+                                             "your curve must reach these loads"}
+        e["outputs"] = outs
+        e["studies"] = studies
+        if s.get("study_notes"):
+            e["study_notes"] = {k: v for k, v in s["study_notes"].items() if k in studies}
+        e["answer"] = template
+        agent.append(e)
+        answers[s["id"]] = {
+            "title": e["title"], "sweep": sweep, "sweep_unit": in_meta.get(sweep, {}).get("unit", "") if sweep else "",
+            "task_ids": [t["id"] for t in tasks],
+            "outputs": [{"slot": sl["id"], "key": sl["key"], "path": sl["path"], "unit": sl["unit"],
+                         "scalar": sl["scalar"], "tasks": [t["id"] for t in sl["tasks"]], **SA.slot_band(c["id"], sl, s)}
+                        for sl in slots]}
+    return agent, answers, sim_of
 
 
-def agent_task(t, units, curve_of):
+def agent_task(t, units):
     """One task as the agent sees it: inputs, unit and the studies (keys only) whose subject or specimen it is.
     Never values: no refs, pooled, ref notes or test ids (ref notes can hold raw values)."""
     keep = {k: t[k] for k in ("id", "label", "inputs", "output", "level") if k in t}
@@ -686,8 +754,6 @@ def agent_task(t, units, curve_of):
             pts.append(m.group(1))
     if pts:
         keep["patients"] = pts  # per-patient refs (implant loads): answer {patient id: value}
-    if t["id"] in curve_of:
-        keep["curve"] = curve_of[t["id"]]
     return keep
 
 
@@ -697,7 +763,7 @@ def build_outcomes(real_dir, ex_dir, out):
     shutil.rmtree(odir, ignore_errors=True)
     odir.mkdir(parents=True, exist_ok=True)
     generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    index, all_studies, lines, answers = [], {}, [], {}
+    index, all_studies, lines, answers, sim_answers = [], {}, [], {}, {}
     for c in cards:
         fn = safe_name(c["id"])
         (odir / f"{fn}.json").write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -713,7 +779,8 @@ def build_outcomes(real_dir, ex_dir, out):
             "years": [min(years), max(years)] if years else [], "example": bool(c.get("example")),
         })
         units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
-        curves, curve_of = agent_curves(c)
+        sim_view, sim_ans, sim_of = agent_sims(c)
+        index[-1]["simulations"] = len(sim_view) if sim_view is not None else 0
         # card notes are NOT exported: some quote reference magnitudes (e.g. "~0.2-0.3 MPa even unloaded")
         lines.append({
             "id": c["id"], "title": c.get("title", ""), "domain": c.get("domain", ""), "levels": c["levels"],
@@ -721,32 +788,45 @@ def build_outcomes(real_dir, ex_dir, out):
             "answer_format": c["answer_format"],
             "simulate": c["simulate"], "inputs": c["inputs"], "outputs": c["outputs"], "subjects": c["subjects"],
             "studies": [{k: s.get(k) for k in ("key", "short", "year", "n", "sample")} for s in c["studies"]],
-            "tasks": [agent_task(t, units, curve_of) for t in c["tasks"]],
-            **({"curves": curves} if curves else {}),
+            **({"simulations": sim_view} if sim_view is not None else {"tasks": [agent_task(t, units) for t in c["tasks"]]}),
             "scoring": AGENT_SCORING,
             **({"example": True} if c.get("example") else {}),
         })
         answers[c["id"]] = {t["id"]: {"output": t.get("output", ""), "unit": units.get(t.get("output"), ""),
                                       "refs": [{k: r.get(k) for k in REF_KEYS if k in r} for r in t["refs"]],
                                       "pooled": t.get("pooled"),
-                                      **({"curve": curve_of[t["id"]]} if t["id"] in curve_of else {})}
+                                      **({"simulation": sim_of[t["id"]]} if t["id"] in sim_of else {})}
                             for t in c["tasks"]}
+        if sim_ans:
+            sim_answers[c["id"]] = sim_ans
     have = {c["id"] for c in cards}
     planned = [{"id": i, "title": t, "domain": d} for i, t, d in KNOWN_OUTCOMES if i not in have]
+    n_sims = sum(len(v) for v in sim_answers.values())
+    n_sim_tasks = sum(len(sd["task_ids"]) for v in sim_answers.values() for sd in v.values())
+    n_task_units = sum(len(c["tasks"]) for c in cards if c["id"] not in sim_answers)
     counts = {"benchmarks": len(cards), "tasks": sum(len(c["tasks"]) for c in cards), "studies": len(all_studies),
-              "N": int(sum(all_studies.values())), "examples": sum(1 for c in cards if c.get("example"))}
-    ex_line = None
-    if lines:
-        l0 = dict(lines[0]); l0["tasks"] = l0["tasks"][:1]; l0.pop("curves", None)
-        l0["answer_format"] = {k: v for k, v in list(l0["answer_format"].items())[:1]}
+              "N": int(sum(all_studies.values())), "examples": sum(1 for c in cards if c.get("example")),
+              "simulations": n_sims, "simulation_tasks": n_sim_tasks, "task_units": n_task_units,
+              "units": n_sims + n_task_units}
+
+    def shorten(line, n_units=1):
+        l0 = dict(line)
+        if "tasks" in l0:
+            l0["tasks"] = l0["tasks"][:n_units]
+        if "simulations" in l0:
+            l0["simulations"] = l0["simulations"][:n_units]
+        l0["answer_format"] = {k: v for k, v in list(l0["answer_format"].items())[:n_units]}
         l0["subjects"] = {k: v for k, v in list(l0["subjects"].items())[:1]}
         l0["studies"] = l0["studies"][:1]
-        ex_line = l0
+        return l0
+    ex_line = shorten(lines[0]) if lines else None
+    ex_sim = next((shorten(l) for l in lines if l.get("simulations")), None)
     schem = load_schematics(have)
     for b in index:
         b["schematic"] = schem.get(b["id"])
     (out / "outcomes.json").write_text(json.dumps(
         {"generated": generated, "counts": counts, "benchmarks": index, "planned": planned, "agent_example": ex_line,
+         "agent_example_sim": ex_sim,
          "study_colors": study_colors(cards), "schematics": schem, "schematics_index": (SITE / "assets" / "schematics" / "index.json").is_file()},
         ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "benchmark.json").write_text(json.dumps(
@@ -758,9 +838,12 @@ def build_outcomes(real_dir, ex_dir, out):
     for l in lines:
         (out / "agent" / f"{l['id']}.json").write_text(json.dumps(l, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "answers.json").write_text(json.dumps(
-        {"generated": generated, "answers": answers}, ensure_ascii=False, indent=1), encoding="utf-8")
+        {"generated": generated, "answers": answers, "simulations": sim_answers}, ensure_ascii=False, indent=1),
+        encoding="utf-8")
     print(f"{counts['benchmarks']} outcome benchmarks ({counts['examples']} examples), {counts['tasks']} tasks, "
           f"{counts['studies']} studies, N = {counts['N']}; {len(planned)} not written yet")
+    print(f"agent units: {n_sims} simulations ({n_sim_tasks} FE/tissue tasks) + {n_task_units} MSK tasks = "
+          f"{counts['units']}")
 
 
 if __name__ == "__main__":

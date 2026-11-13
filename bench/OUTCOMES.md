@@ -67,7 +67,7 @@ Out of v1 (kept in `bench/tests`, not shown): inputs, properties, in vivo passiv
   ],
   "notes": ["<= 3 short caveats a modeller must know"],
   "agent_prompt": "Plain text given to an agent: what model, subject, tasks, and what to return (short).",
-  "answer_format": {"standing": {"idp": "MPa"}}   // one entry per task id
+  "answer_format": {"standing": {"idp": "MPa"}}   // MSK: one entry per task id; FE/tissue: one entry per simulation
 }
 ```
 - `stat`: mean | median | value (single subject or no spread). `sd` only if SD (convert SE to SD only if n is known; say so in `note`).
@@ -84,14 +84,49 @@ A curve view can be drawn like a paper figure: one small chart per panel, a shar
 ```
 - `panel_by`: input key (or `level`, read from the task) whose value gives the panel. Panel order: `panels` if given (list of values, or `{"value", "label"}`), else levels cranial→caudal (whole specimens first, "pooled" last), else numbers ascending, else first appearance.
 - `panel_map` `{value: panel}` merges values into one panel (e.g. `"right lateral bending": "lateral bending"`); `panel_labels` `{value: label}` renames a panel.
-- `series` (optional): inputs that split a study into several curves inside a panel (line style + marker, keyed per study). Several refs of one study in one task whose notes start with different words (e.g. `right;` / `left;`) become separate curves too.
-- Unloaded points (panel value `none`/`neutral` at x = 0) start the curve in every panel.
-- `legend_inputs`: inputs shown next to a study in the legend when all its tasks in the view share one non-zero value (e.g. "axial preload 100 N").
+- `series` (optional): inputs that split a study into several curves inside a panel (line style + marker, keyed per study). Several refs of one study in one task whose notes start with different words (e.g. `right;` / `left;`) become separate curves too. Parts of a curve name shared by every curve of one study are dropped in the key.
+- Unloaded points (panel value `none`/`neutral` at x = 0) start the curve in every panel; tasks whose `series` inputs are all `unloaded` at x = 0 start the curves of their own panel.
+- `legend_inputs`: inputs shown next to a study in the legend when all its tasks in the view share one non-zero value (e.g. "axial preload 100 N"). `legend_notes` `{study: text}` (≤ 60 chars) adds a short note next to a study, e.g. its loading rate.
+- One panel (all tasks share the panel value) = one plain figure: drawn taller, no panel title.
 - Axes: x is shared by all panels (`"share_x": false` to free it), y is shared by panels with the same output (`"share_y": false` to free it); `x_min`, `x_max`, `x_title`, `y_title` override. `columns` caps the grid (default 3 on desktop, 2 on tablet/phone).
 - Encoding (one line under each figure): mean ± SD → marker + line + error bars; mean with min/max and no SD over ≥ 2 x values → shaded min–max corridor; median → open marker + [min–max] bar; no spread → marker only.
 - `models` (optional): `[{"test_id": "fe_model_comparison...", "x": "load", "where": {"x": "compression"}, "panel": "L4-L5", "label": "Published FE models (Dreischarf 2014)"}]` draws the min–max range across published models as a grey band under the data, labelled as models. It is read from `data/tests/<test_id>.json`, never pooled or scored. Use only when the test's condition matches the panel.
 - `group`: views with the same group are listed together (tabs / menu). Titles read like short figure captions.
+- `transpose` (force-controlled data on displacement-controlled axes): `{"output": "disp", "as": "force", "y_input": ["compression_n", "load"], "y_values": {"<task id>": 500}}` — same keys as in `agent_sims`. Tasks of `output` measured a displacement at a set force; they are drawn at x = the measured value (its SD as a horizontal bar), y = the applied force (first numeric `y_input`, a string such as "500 N at balance point" counts; `y_values` where no input holds it), next to the tasks of the `as` output (x = the view's `x` input, y = force). `as` defaults to the other output in the view; with no other output give `y_title`. A view with `transpose` is always drawn as a figure (one panel unless `layout: panels`). The checker requires the x input and `output` to share a unit, and `y_input` and `as` too. `input` / `y_output` are accepted as aliases.
+- Secondary sources (`"secondary": true` on the study) stay in the same figure as the primary data: hollow markers, dashed line, "(secondary)" in the legend.
+- Study `loading` (one line: control mode, rate, preload, specimen) is listed under every figure for the studies in it, shown as the study chip's tooltip and as a column of the Studies table.
+
+#### One figure per physical test
+A view is one figure of one physical test: same specimen type and boundary conditions, loading mode/direction, preload type and output definition. All studies of that test go into it: never split by study age, primary vs secondary source, or force- vs displacement-controlled protocol (use `transpose`); fast/impact data stay in with their rate in the legend (`legend_notes`). Separate figures only where the test or the output truly differs (one-direction vs full-range ROM; no/axial/follower preload; lumbar vs thoracic; with vs without rib cage; tissue, ligament or test mode; resection sequence). Do not add views that repeat values already in a figure (e.g. bar charts of one moment that the moment sweep already shows); single-condition tasks with no sweep go into one bar view per topic. Every task must be listed in at least one view (checked).
 - The new keys are checked by `tools/check_outcomes.py`.
 - Pooled values are computed by `tools/pool_outcomes.py` (n-weighted mean, shared samples counted once, medians not pooled). Do not hand-write them.
+
+### Simulations (`agent_sims`, FE and tissue cards)
+What an agent answers on an FE or tissue card. One simulation = one physical test a modeller runs once: same specimen
+type and boundary conditions, loading direction, preload type, output definition. All studies of that test go into it
+(any age or source, displacement- or force-controlled, any level, region or specimen where the output is the same);
+their spread is the acceptance band. Tasks and refs stay as they are; the simulation only lists them.
+```json
+"agent_sims": [
+  {"id": "flex_none", "title": "Flexion, no preload: ROM vs moment",
+   "note": "optional one line for the agent (no values)",
+   "sweep": "moment_nm",                       // input that is the x of the curves, or null (one number per output)
+   "fixed": {"direction": "flexion (one direction)", "follower_n": 0, "axial_n": 0},   // equal in every task
+   "outputs": [{"key": "rom_segmental", "level": "L4-L5"}, {"key": "rom_total", "level": "L1-L5 / T12-L4"}],
+   "task_ids": ["L4L5_flex_1", "..."],
+   "transpose": {"output": "disp", "as": "force", "y_input": "compression_n", "y_values": {"task id": 500}},  // optional
+   "curve_by": ["specimen", "condition"],      // optional: inputs that name one measured curve (for interpolation)
+   "study_notes": {"jamison2013": "fast loading ..."}}                                  // optional, shown to the agent
+]
+```
+- Every task is in exactly one simulation. An output entry names the output key plus the fields that tell outputs apart
+  (`level` = the task's level, or any input key such as `direction`); all outputs of one simulation name the same fields
+  and every task maps to one of them. `"scalar": true` marks an output read as one number in a swept simulation (e.g. a
+  slope read from the same curve).
+- `transpose`: force-controlled tasks (output `disp` at input `compression_n`) inside a displacement-swept simulation are
+  read as points (measured displacement, applied force) of the `force` curve; `y_values` gives the load where no input holds it.
+- `answer_format` of an FE/tissue card has one entry per simulation, nested as the agent must answer, e.g.
+  `{"flex_none": {"rom_segmental": {"L4-L5": "[[Nm, deg], ...]"}}}`; MSK cards keep one entry per task.
+- Bands and scoring: `tools/score_agent.py` (rule in `bench/AGENTS.md`). The keys are checked by `tools/check_outcomes.py`.
 
 Check a file: `python3 tools/check_outcomes.py bench/outcomes/<id>.json`

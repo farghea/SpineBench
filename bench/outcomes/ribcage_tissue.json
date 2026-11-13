@@ -13,7 +13,7 @@
     "Fix as tested: clamped rib end, potted ends (pinned-pinned), simple supports, or fixed vertebrae.",
     "Apply the stated load slowly (quasi-static): bending, torsion, compression, indentation, pure moment, rib tension or dead weights.",
     "Use nominal stress (force / undeformed area) and nominal strain (ΔL / L0).",
-    "Report the output as defined: modulus, failure value, ROM, moment at angle, or deflection at each load."
+    "Report each output as defined (modulus, failure value, ROM, moment at angle, deflection at load): one curve over the sweep, one number where there is no sweep."
   ],
   "inputs": [
     {
@@ -132,7 +132,8 @@
       "n": 12,
       "sample": "12 costal cartilages (ribs 2-6) from 2 male cadavers",
       "doi": "10.1016/j.jbiomech.2022.111242",
-      "secondary": false
+      "secondary": false,
+      "loading": "Cantilever bending to 4 N at the sternal end, torsion couple to 175 N·mm, tension to 50 N at 1.3e-3/s; no preload; 3 repeats; costal cartilages ribs 2-6"
     },
     {
       "key": "weber2021",
@@ -141,7 +142,8 @@
       "n": 12,
       "sample": "costal cartilage (ribs 1-10) from 12 cadavers",
       "doi": "10.1038/s41598-021-93176-x",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control: unconfined compression at 1 mm/s to failure, or spherical indentation at 0.5 mm/s to 0.9 mm; 0.1 N preload; costal cartilage ribs 1-10"
     },
     {
       "key": "yoganandan1998",
@@ -150,7 +152,8 @@
       "n": 30,
       "sample": "ribs 7 and 8 segments from 30 autopsy cadavers",
       "doi": "10.1115/1.2834288",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, three-point bending at 2.5 mm/min to failure, 100 mm span; no preload; rib 7 and 8 segments (~150 mm)"
     },
     {
       "key": "kindig2011",
@@ -159,7 +162,8 @@
       "n": 27,
       "sample": "27 whole ribs (levels 2-10) from 3 PMHS",
       "doi": "10.1080/15389588.2011.583960",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control, pinned-pinned end-to-end (AP) compression at 2 mm/s to fracture; no preload; whole ribs 2-10, ends potted"
     },
     {
       "key": "granik1973",
@@ -168,7 +172,8 @@
       "n": 10,
       "sample": "rib segments, 10 autopsy patients with normal bone",
       "doi": "10.1016/0021-9290(73)90045-6",
-      "secondary": false
+      "secondary": false,
+      "loading": "Three-point bending to failure, 101.6 mm (4 in) span, quasi-static (rate not stated); no preload; autopsy rib segments"
     },
     {
       "key": "duprey2010",
@@ -177,7 +182,8 @@
       "n": 15,
       "sample": "15 costovertebral joints (ribs 2-10) from 3 male PMHS",
       "doi": "10.1016/j.medengphy.2009.12.001",
-      "secondary": false
+      "secondary": false,
+      "loading": "Manual quasi-static loading at ~3 mm/s on a rod: moments to ±0.1 N·m about 3 axes (torsion, cranial-caudal, ventral-dorsal); costovertebral joints ribs 2-10"
     },
     {
       "key": "lemosse1998",
@@ -186,7 +192,8 @@
       "n": 9,
       "sample": "costovertebral units at R2, R6, R10 from 9 thoracic cages",
       "doi": "10.1007/s005860050021",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, dead-weight moments ±0.6 N·m in 0.1 N·m steps (torsion, cranial-caudal, ventral-dorsal); ~1 N disc on rib; costovertebral units R2, R6, R10"
     },
     {
       "key": "lebschy2024",
@@ -195,7 +202,8 @@
       "n": 7,
       "sample": "7 costovertebral samples (ribs 2-8) from 2 male cadavers",
       "doi": "10.1016/j.jbiomech.2023.111923",
-      "secondary": false
+      "secondary": false,
+      "loading": "Rib-end force -5 to +5 N at 0.29°/s (torsion, moments to ~±0.1 N·m), or rib tension to 28 N in 3 axes; 3 repeats; costovertebral joints ribs 2-8"
     },
     {
       "key": "schultz1974b",
@@ -204,7 +212,8 @@
       "n": 1,
       "sample": "one cadaver tabulated per test (rib heads; sternum)",
       "doi": "10.1016/0021-9290(74)90024-4",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, dead weights 0.25-0.75 kp (2.5-7.4 N) on a pin in 4-5 directions, read ~1 min after loading; rib-6 head (costovertebral) and sternum"
     }
   ],
   "shared": [
@@ -676,13 +685,13 @@
         {
           "study": "yoganandan1998",
           "mean": 153,
-          "sd": null,
+          "sd": 9,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_failure_force",
-          "note": "+-9 printed, statistic unspecified"
+          "note": "+-9 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -701,13 +710,13 @@
         {
           "study": "yoganandan1998",
           "mean": 3.0,
-          "sd": null,
+          "sd": 0.1,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_failure_deflection",
-          "note": "+-0.1 printed, statistic unspecified"
+          "note": "+-0.1 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -726,13 +735,13 @@
         {
           "study": "yoganandan1998",
           "mean": 2318,
-          "sd": null,
+          "sd": 364.6,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_youngs_modulus",
-          "note": "beam theory; +-364.6 printed, statistic unspecified"
+          "note": "beam theory; +-364.6 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -751,13 +760,13 @@
         {
           "study": "yoganandan1998",
           "mean": 137,
-          "sd": null,
+          "sd": 12,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_failure_force",
-          "note": "+-9 printed, statistic unspecified"
+          "note": "+-9 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -776,13 +785,13 @@
         {
           "study": "yoganandan1998",
           "mean": 3.2,
-          "sd": null,
+          "sd": 0.1,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_failure_deflection",
-          "note": "+-0.1 printed, statistic unspecified"
+          "note": "+-0.1 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -801,13 +810,13 @@
         {
           "study": "yoganandan1998",
           "mean": 1886,
-          "sd": null,
+          "sd": 287.0,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 30,
           "test_id": "passive_tissue.yoganandan1998.rib_youngs_modulus",
-          "note": "beam theory; +-287.0 printed, statistic unspecified"
+          "note": "beam theory; +-287.0 printed, statistic unspecified; ± from the paper (type not stated)"
         }
       ]
     },
@@ -2542,259 +2551,742 @@
     "Stress = nominal (force / undeformed area), strain = nominal (ΔL / L0), as in Ghezelbash et al. 2020 J Biomech 102:109463.",
     "Gradischar and Lebschy (shared donors) report medians, not pooled; Schultz 1974b curves are one cadaver; Duprey curves come from the published mean polynomial."
   ],
-  "agent_prompt": "You are given a model of the human rib cage (costal cartilage, ribs, costovertebral and costotransverse joints, sternum). For every task, build the specimen named in the inputs, fix it as tested (clamped, potted pinned-pinned, simply supported, or vertebrae fixed) and apply the stated load quasi-statically: bending, torsion, tension, unconfined compression or indentation of cartilage; three-point or end-to-end bending of ribs; pure moments, rib tension or dead weights on the joints and sternum. Use nominal stress (force / undeformed area) and nominal strain (change in length / initial length). Report the requested output: modulus, failure force or deflection, range of motion between the moment limits, moment at the given rotation, or pin deflection at each load. Return one JSON object following answer_format (task id -> {output key: value}); use null for tasks you cannot simulate. Tasks with the same `curve` id are points of one measured curve (see `curves`): you may answer a whole curve as {curve id: [[x, y], ...]} with x in the curve's x unit; it is read at each point by linear interpolation.",
+  "agent_prompt": "You are given a model of the human rib cage (costal cartilage, ribs, costovertebral and costotransverse joints, sternum). Run the 30 simulations in `simulations`: build the specimen named in `fixed`, fix it as tested (clamped, potted pinned-pinned, simply supported, or vertebrae fixed) and apply the load quasi-statically: bending, torsion, tension, unconfined compression or indentation of cartilage; three-point or end-to-end bending of ribs; pure moments, imposed rotations, rib tension or dead weights on the joints and sternum. Use nominal stress (force / undeformed area) and nominal strain. Report modulus, failure force or deflection, range of motion between the moment limits, moment at each angle, or pin deflection at each load. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "cc_EB_anterior": {
+    "cc_bending_anterior": {
       "modulus": "MPa"
     },
-    "cc_EB_superior": {
+    "cc_bending_superior": {
       "modulus": "MPa"
     },
-    "cc_EB_posterior": {
+    "cc_bending_posterior": {
       "modulus": "MPa"
     },
-    "cc_EB_inferior": {
+    "cc_bending_inferior": {
       "modulus": "MPa"
     },
-    "cc_EZ": {
+    "cc_tension": {
       "modulus": "MPa"
     },
-    "cc_GT1": {
-      "shear_modulus": "MPa"
+    "cc_torsion": {
+      "shear_modulus": {
+        "torsion by force couple (<= 175 Nmm), direction 1": "MPa",
+        "torsion by force couple (<= 175 Nmm), direction 2": "MPa"
+      }
     },
-    "cc_GT2": {
-      "shear_modulus": "MPa"
-    },
-    "cc_E_comp": {
-      "modulus": "MPa"
-    },
-    "cc_strength_comp": {
+    "cc_compression": {
+      "modulus": "MPa",
       "strength": "MPa"
     },
-    "cc_Ei_5": {
+    "cc_indentation": {
+      "modulus": {
+        "spherical indentation (R 1.5 mm), Hertz fit at 5% indentation": "MPa",
+        "spherical indentation (R 1.5 mm), Hertz fit at 10% indentation": "MPa",
+        "spherical indentation (R 1.5 mm), Hertz fit at max indentation": "MPa"
+      }
+    },
+    "rib_3pb": {
+      "failure_force": "N",
+      "failure_deflection": "mm",
       "modulus": "MPa"
     },
-    "cc_Ei_10": {
-      "modulus": "MPa"
-    },
-    "cc_Ei_max": {
-      "modulus": "MPa"
-    },
-    "rib7_3pb_F": {
-      "failure_force": "N"
-    },
-    "rib7_3pb_d": {
-      "failure_deflection": "mm"
-    },
-    "rib7_3pb_E": {
-      "modulus": "MPa"
-    },
-    "rib8_3pb_F": {
-      "failure_force": "N"
-    },
-    "rib8_3pb_d": {
-      "failure_deflection": "mm"
-    },
-    "rib8_3pb_E": {
-      "modulus": "MPa"
-    },
-    "rib_whole_K": {
-      "stiffness": "N/mm"
-    },
-    "rib_whole_Fmax": {
-      "failure_force": "N"
-    },
-    "rib_whole_Ffrac": {
-      "fracture_force": "N"
-    },
-    "rib_whole_Dfrac": {
+    "rib_end_compression": {
+      "stiffness": "N/mm",
+      "failure_force": "N",
+      "fracture_force": "N",
       "fracture_displacement_norm": "-"
     },
-    "rib_seg_E_granik": {
-      "modulus": "MPa"
-    },
-    "rib_seg_sigma_granik": {
+    "rib_3pb_granik": {
+      "modulus": "MPa",
       "failure_stress": "MPa"
     },
-    "cvj_rom01_torsion": {
+    "cvj_torsion": {
+      "rom": "[[Nm, deg], ...]"
+    },
+    "cvj_cc_flexion": {
+      "rom": "[[Nm, deg], ...]"
+    },
+    "cvj_vd_flexion": {
+      "rom": "[[Nm, deg], ...]"
+    },
+    "cvj_torsion_axis": {
       "rom": "deg"
     },
-    "cvj_rom01_torsion_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom01_torsion_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom01_torsion_R10": {
-      "rom": "deg"
-    },
-    "cvj_rom01_cc_flex": {
-      "rom": "deg"
-    },
-    "cvj_rom01_cc_flex_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom01_cc_flex_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom01_cc_flex_R10": {
-      "rom": "deg"
-    },
-    "cvj_rom01_vd_flex": {
-      "rom": "deg"
-    },
-    "cvj_rom01_vd_flex_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom01_vd_flex_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom01_vd_flex_R10": {
-      "rom": "deg"
-    },
-    "cvj_rom_EZ_torsion": {
-      "rom": "deg"
-    },
-    "cvj_rom06_torsion_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom06_torsion_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom06_torsion_R10": {
-      "rom": "deg"
-    },
-    "cvj_rom06_cc_flex_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom06_cc_flex_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom06_cc_flex_R10": {
-      "rom": "deg"
-    },
-    "cvj_rom06_vd_flex_R2": {
-      "rom": "deg"
-    },
-    "cvj_rom06_vd_flex_R6": {
-      "rom": "deg"
-    },
-    "cvj_rom06_vd_flex_R10": {
-      "rom": "deg"
-    },
-    "cvj_disp_longitudinal": {
+    "cvj_pull_longitudinal": {
       "displacement": "mm"
     },
-    "cvj_disp_sagittal": {
+    "cvj_pull_sagittal": {
       "displacement": "mm"
     },
-    "cvj_disp_transverse": {
+    "cvj_pull_transverse": {
       "displacement": "mm"
     },
-    "cvj_curve_X_p1": {
-      "moment": "Nm"
+    "cvj_rot_x": {
+      "moment": "[[deg, Nm], ...]"
     },
-    "cvj_curve_X_p3": {
-      "moment": "Nm"
+    "cvj_rot_y": {
+      "moment": "[[deg, Nm], ...]"
     },
-    "cvj_curve_X_p5": {
-      "moment": "Nm"
+    "cvj_rot_z": {
+      "moment": "[[deg, Nm], ...]"
     },
-    "cvj_curve_Y_m4": {
-      "moment": "Nm"
+    "rib6_pin_anterior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Y_m2": {
-      "moment": "Nm"
+    "rib6_pin_inferior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Y_p2": {
-      "moment": "Nm"
+    "rib6_pin_lateral": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Y_p4": {
-      "moment": "Nm"
+    "rib6_pin_posterior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Z_m2": {
-      "moment": "Nm"
+    "rib6_pin_superior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Z_m1": {
-      "moment": "Nm"
+    "sternum_pin_anterior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Z_p1": {
-      "moment": "Nm"
+    "sternum_pin_inferior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_curve_Z_p2": {
-      "moment": "Nm"
+    "sternum_pin_posterior": {
+      "deflection": "[[N, mm], ...]"
     },
-    "cvj_pin_r6_anterior_2p45": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_anterior": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_inferior_2p45": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_inferior_4p9": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_inferior": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_lateral_2p45": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_lateral": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_posterior_2p45": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_posterior": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_superior_2p45": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_superior_4p9": {
-      "deflection": "mm"
-    },
-    "cvj_pin_r6_superior": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_anterior_2p45": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_anterior_4p9": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_anterior": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_inferior_2p45": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_inferior_4p9": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_inferior": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_posterior_2p45": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_posterior_4p9": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_posterior": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_superior_2p45": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_superior_4p9": {
-      "deflection": "mm"
-    },
-    "csj_pin_I_superior": {
-      "deflection": "mm"
+    "sternum_pin_superior": {
+      "deflection": "[[N, mm], ...]"
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "cc_bending_anterior",
+      "title": "Costal cartilage, cantilever bending toward anterior: modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward anterior"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "cc_EB_anterior"
+      ]
+    },
+    {
+      "id": "cc_bending_superior",
+      "title": "Costal cartilage, cantilever bending toward superior: modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward superior"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "cc_EB_superior"
+      ]
+    },
+    {
+      "id": "cc_bending_posterior",
+      "title": "Costal cartilage, cantilever bending toward posterior: modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward posterior"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "cc_EB_posterior"
+      ]
+    },
+    {
+      "id": "cc_bending_inferior",
+      "title": "Costal cartilage, cantilever bending toward inferior: modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "cantilever bending (rib end clamped), load toward inferior"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "cc_EB_inferior"
+      ]
+    },
+    {
+      "id": "cc_tension",
+      "title": "Costal cartilage, axial tension: modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6",
+        "mode": "axial tension, secant 20-40 N, 1.3e-3 /s"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "cc_EZ"
+      ]
+    },
+    {
+      "id": "cc_torsion",
+      "title": "Costal cartilage, torsion (both directions): shear modulus",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage",
+        "region": "ribs 2-6"
+      },
+      "outputs": [
+        {
+          "key": "shear_modulus",
+          "mode": "torsion by force couple (<= 175 Nmm), direction 1"
+        },
+        {
+          "key": "shear_modulus",
+          "mode": "torsion by force couple (<= 175 Nmm), direction 2"
+        }
+      ],
+      "task_ids": [
+        "cc_GT1",
+        "cc_GT2"
+      ]
+    },
+    {
+      "id": "cc_compression",
+      "title": "Costal cartilage, unconfined compression to failure: modulus and strength",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        },
+        {
+          "key": "strength"
+        }
+      ],
+      "task_ids": [
+        "cc_E_comp",
+        "cc_strength_comp"
+      ]
+    },
+    {
+      "id": "cc_indentation",
+      "title": "Costal cartilage, spherical indentation: modulus at 3 depths",
+      "sweep": null,
+      "fixed": {
+        "structure": "costal cartilage midsubstance",
+        "region": "ribs 1-10"
+      },
+      "outputs": [
+        {
+          "key": "modulus",
+          "mode": "spherical indentation (R 1.5 mm), Hertz fit at 5% indentation"
+        },
+        {
+          "key": "modulus",
+          "mode": "spherical indentation (R 1.5 mm), Hertz fit at 10% indentation"
+        },
+        {
+          "key": "modulus",
+          "mode": "spherical indentation (R 1.5 mm), Hertz fit at max indentation"
+        }
+      ],
+      "task_ids": [
+        "cc_Ei_5",
+        "cc_Ei_10",
+        "cc_Ei_max"
+      ]
+    },
+    {
+      "id": "rib_3pb",
+      "title": "Rib segment (ribs 7-8), three-point bending to failure",
+      "note": "Ribs 7 and 8 combined into one band.",
+      "sweep": null,
+      "fixed": {
+        "mode": "three-point bending, 100 mm span, 2.5 mm/min"
+      },
+      "outputs": [
+        {
+          "key": "failure_force"
+        },
+        {
+          "key": "failure_deflection"
+        },
+        {
+          "key": "modulus"
+        }
+      ],
+      "task_ids": [
+        "rib7_3pb_F",
+        "rib7_3pb_d",
+        "rib7_3pb_E",
+        "rib8_3pb_F",
+        "rib8_3pb_d",
+        "rib8_3pb_E"
+      ]
+    },
+    {
+      "id": "rib_end_compression",
+      "title": "Whole rib, pinned-pinned end-to-end compression to fracture",
+      "sweep": null,
+      "fixed": {
+        "structure": "whole rib, ends potted",
+        "region": "ribs 2-10 pooled",
+        "mode": "pinned-pinned end-to-end compression (A-P), 2 mm/s"
+      },
+      "outputs": [
+        {
+          "key": "stiffness"
+        },
+        {
+          "key": "failure_force"
+        },
+        {
+          "key": "fracture_force"
+        },
+        {
+          "key": "fracture_displacement_norm"
+        }
+      ],
+      "task_ids": [
+        "rib_whole_K",
+        "rib_whole_Fmax",
+        "rib_whole_Ffrac",
+        "rib_whole_Dfrac"
+      ]
+    },
+    {
+      "id": "rib_3pb_granik",
+      "title": "Rib segment, three-point bending (101.6 mm span): modulus and failure stress",
+      "note": "Kept apart from the 100 mm span tests: its modulus is defined differently.",
+      "sweep": null,
+      "fixed": {
+        "structure": "rib segment",
+        "region": "level not specified",
+        "mode": "three-point bending, 101.6 mm span"
+      },
+      "outputs": [
+        {
+          "key": "modulus"
+        },
+        {
+          "key": "failure_stress"
+        }
+      ],
+      "task_ids": [
+        "rib_seg_E_granik",
+        "rib_seg_sigma_granik"
+      ]
+    },
+    {
+      "id": "cvj_torsion",
+      "title": "Costovertebral joints, pure moment torsion: ROM vs moment",
+      "note": "Rib levels (R2, R6, R10, pooled 2-10) combined into one band.",
+      "sweep": "moment_Nm",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, torsion"
+      },
+      "outputs": [
+        {
+          "key": "rom"
+        }
+      ],
+      "task_ids": [
+        "cvj_rom01_torsion",
+        "cvj_rom01_torsion_R2",
+        "cvj_rom01_torsion_R6",
+        "cvj_rom01_torsion_R10",
+        "cvj_rom06_torsion_R2",
+        "cvj_rom06_torsion_R6",
+        "cvj_rom06_torsion_R10"
+      ]
+    },
+    {
+      "id": "cvj_cc_flexion",
+      "title": "Costovertebral joints, pure moment cranial-caudal flexion: ROM vs moment",
+      "note": "Rib levels (R2, R6, R10, pooled 2-10) combined into one band.",
+      "sweep": "moment_Nm",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, cranial caudal flexion"
+      },
+      "outputs": [
+        {
+          "key": "rom"
+        }
+      ],
+      "task_ids": [
+        "cvj_rom01_cc_flex",
+        "cvj_rom01_cc_flex_R2",
+        "cvj_rom01_cc_flex_R6",
+        "cvj_rom01_cc_flex_R10",
+        "cvj_rom06_cc_flex_R2",
+        "cvj_rom06_cc_flex_R6",
+        "cvj_rom06_cc_flex_R10"
+      ]
+    },
+    {
+      "id": "cvj_vd_flexion",
+      "title": "Costovertebral joints, pure moment ventral-dorsal flexion: ROM vs moment",
+      "note": "Rib levels (R2, R6, R10, pooled 2-10) combined into one band.",
+      "sweep": "moment_Nm",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "pure moment, ventral dorsal flexion"
+      },
+      "outputs": [
+        {
+          "key": "rom"
+        }
+      ],
+      "task_ids": [
+        "cvj_rom01_vd_flex",
+        "cvj_rom01_vd_flex_R2",
+        "cvj_rom01_vd_flex_R6",
+        "cvj_rom01_vd_flex_R10",
+        "cvj_rom06_vd_flex_R2",
+        "cvj_rom06_vd_flex_R6",
+        "cvj_rom06_vd_flex_R10"
+      ]
+    },
+    {
+      "id": "cvj_torsion_axis",
+      "title": "Costovertebral joints, torsion about the rib rotation axis: ROM",
+      "sweep": null,
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "mode": "torsion about rib rotation axis",
+        "region": "ribs 2, 4, 6, 8 pooled"
+      },
+      "outputs": [
+        {
+          "key": "rom"
+        }
+      ],
+      "task_ids": [
+        "cvj_rom_EZ_torsion"
+      ]
+    },
+    {
+      "id": "cvj_pull_longitudinal",
+      "title": "Costovertebral joints, 28 N rib tension: longitudinal displacement",
+      "sweep": null,
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, longitudinal axis",
+        "force_N": 28
+      },
+      "outputs": [
+        {
+          "key": "displacement"
+        }
+      ],
+      "task_ids": [
+        "cvj_disp_longitudinal"
+      ]
+    },
+    {
+      "id": "cvj_pull_sagittal",
+      "title": "Costovertebral joints, 28 N rib tension: sagittal displacement",
+      "sweep": null,
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, sagittal axis",
+        "force_N": 28
+      },
+      "outputs": [
+        {
+          "key": "displacement"
+        }
+      ],
+      "task_ids": [
+        "cvj_disp_sagittal"
+      ]
+    },
+    {
+      "id": "cvj_pull_transverse",
+      "title": "Costovertebral joints, 28 N rib tension: transverse displacement",
+      "sweep": null,
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "mode": "rib tension 28 N, transverse axis",
+        "force_N": 28
+      },
+      "outputs": [
+        {
+          "key": "displacement"
+        }
+      ],
+      "task_ids": [
+        "cvj_disp_transverse"
+      ]
+    },
+    {
+      "id": "cvj_rot_x",
+      "title": "Costovertebral joints, rotation about X: moment vs angle",
+      "sweep": "angle_deg",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about X axis, ~3 mm/s"
+      },
+      "outputs": [
+        {
+          "key": "moment"
+        }
+      ],
+      "task_ids": [
+        "cvj_curve_X_p1",
+        "cvj_curve_X_p3",
+        "cvj_curve_X_p5"
+      ]
+    },
+    {
+      "id": "cvj_rot_y",
+      "title": "Costovertebral joints, rotation about Y: moment vs angle",
+      "sweep": "angle_deg",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Y axis, ~3 mm/s"
+      },
+      "outputs": [
+        {
+          "key": "moment"
+        }
+      ],
+      "task_ids": [
+        "cvj_curve_Y_m4",
+        "cvj_curve_Y_m2",
+        "cvj_curve_Y_p2",
+        "cvj_curve_Y_p4"
+      ]
+    },
+    {
+      "id": "cvj_rot_z",
+      "title": "Costovertebral joints, rotation about Z: moment vs angle",
+      "sweep": "angle_deg",
+      "fixed": {
+        "structure": "costovertebral + costotransverse joint",
+        "region": "ribs 2-10 pooled",
+        "mode": "rotation about Z axis, ~3 mm/s"
+      },
+      "outputs": [
+        {
+          "key": "moment"
+        }
+      ],
+      "task_ids": [
+        "cvj_curve_Z_m2",
+        "cvj_curve_Z_m1",
+        "cvj_curve_Z_p1",
+        "cvj_curve_Z_p2"
+      ]
+    },
+    {
+      "id": "rib6_pin_anterior",
+      "title": "Rib 6 head pin, dead weight anterior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, anterior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "cvj_pin_r6_anterior_2p45",
+        "cvj_pin_r6_anterior"
+      ]
+    },
+    {
+      "id": "rib6_pin_inferior",
+      "title": "Rib 6 head pin, dead weight inferior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, inferior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "cvj_pin_r6_inferior_2p45",
+        "cvj_pin_r6_inferior_4p9",
+        "cvj_pin_r6_inferior"
+      ]
+    },
+    {
+      "id": "rib6_pin_lateral",
+      "title": "Rib 6 head pin, dead weight lateral: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, lateral"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "cvj_pin_r6_lateral_2p45",
+        "cvj_pin_r6_lateral"
+      ]
+    },
+    {
+      "id": "rib6_pin_posterior",
+      "title": "Rib 6 head pin, dead weight posterior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, posterior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "cvj_pin_r6_posterior_2p45",
+        "cvj_pin_r6_posterior"
+      ]
+    },
+    {
+      "id": "rib6_pin_superior",
+      "title": "Rib 6 head pin, dead weight superior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "costovertebral joint, short rib stump with pin",
+        "region": "rib 6",
+        "mode": "dead-weight load on rib-head pin, superior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "cvj_pin_r6_superior_2p45",
+        "cvj_pin_r6_superior_4p9",
+        "cvj_pin_r6_superior"
+      ]
+    },
+    {
+      "id": "sternum_pin_anterior",
+      "title": "Sternum pin, dead weight anterior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, anterior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "csj_pin_I_anterior_2p45",
+        "csj_pin_I_anterior_4p9",
+        "csj_pin_I_anterior"
+      ]
+    },
+    {
+      "id": "sternum_pin_inferior",
+      "title": "Sternum pin, dead weight inferior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, inferior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "csj_pin_I_inferior_2p45",
+        "csj_pin_I_inferior_4p9",
+        "csj_pin_I_inferior"
+      ]
+    },
+    {
+      "id": "sternum_pin_posterior",
+      "title": "Sternum pin, dead weight posterior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, posterior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "csj_pin_I_posterior_2p45",
+        "csj_pin_I_posterior_4p9",
+        "csj_pin_I_posterior"
+      ]
+    },
+    {
+      "id": "sternum_pin_superior",
+      "title": "Sternum pin, dead weight superior: deflection vs load",
+      "sweep": "force_N",
+      "fixed": {
+        "structure": "sternum with costal cartilages, rib stumps fixed",
+        "region": "sternum (I pin)",
+        "mode": "dead-weight load on sternum pin, superior"
+      },
+      "outputs": [
+        {
+          "key": "deflection"
+        }
+      ],
+      "task_ids": [
+        "csj_pin_I_superior_2p45",
+        "csj_pin_I_superior_4p9",
+        "csj_pin_I_superior"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,111 @@
+{
+ "id": "fe_idp_invitro.brinckmann1991.L4L5_idp_vs_compression_secondary",
+ "title": "Nucleus pressure vs axial compression, 5 lumbar segments (Brinckmann & Grootenboer 1991, via Dreischarf 2014)",
+ "layer": "outcome",
+ "category": "fe_idp_invitro",
+ "subcategory": "IDP vs compression (secondary)",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute intradiscal (nucleus) pressure vs axial compressive force; median and range (min-max) of 5 L4-L5 segments at 0, 300 and 1000 N, as re-plotted in Dreischarf 2014 Fig 2d",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Brinckmann 1991 (via Dreischarf 2014)",
+  "authors": "Brinckmann P, Grootenboer H",
+  "year": 1991,
+  "journal": "Spine 16(6):641-646",
+  "doi": "10.1097/00007632-199106000-00008",
+  "n": 5,
+  "sample": "5 human cadaveric lumbar segments (L4-L5 per Dreischarf 2014: 'median relationship for fife L4-5 segments'); primary PDF not on disk",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null,
+  "secondary_source": {
+   "short": "Dreischarf 2014",
+   "authors": "Dreischarf M, Zander T, Shirazi-Adl A, Puttlitz CM, Adam CJ, Chen CS, Goel VK, Kiapour A, Kim YH, Labus KM, Little JP, Park WM, Wang YH, Wilke HJ, Rohlmann A, Schmidt H",
+   "year": 2014,
+   "journal": "J Biomech 47(8):1757-1766",
+   "doi": "10.1016/j.jbiomech.2014.04.002",
+   "where": "Fig 2d (black dashed median line with markers; red ranges at 0, 300, 1000 N)"
+  }
+ },
+ "protocol": {
+  "summary": "Axial compression of single lumbar segments, nucleus pressure measured (primary protocol not restated in Dreischarf 2014). Dreischarf applied the compression to its L1-L5 FE models as a follower load and read the L4-L5 nucleus pressure.",
+  "how_to_simulate": [
+   "Model the segment (disc with both vertebral bodies; or L1-L5 with a follower load as in Dreischarf 2014)",
+   "Apply axial compression 0-1000 N, no moment",
+   "Read nucleus pressure in the L4-L5 disc at 0, 300 and 1000 N",
+   "Compare with the 5-specimen range (min <= model <= max)"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data (re-plot); the level is L4-L5 according to Dreischarf 2014. The owner's Ghezelbash 2024 Fig 2d plots the same three points (0.30 [0.19, 0.47] MPa at 300 N, 0.95 [0.65, 1.40] at 1000 N) labelled as the L2-L3 comparison, and its bars are this specimen RANGE, not SD. Remus 2021 (not on disk) quotes Brinckmann & Grootenboer 1991 as 1.08 +/- 0.2 MPa (L2-L3) and 0.88 +/- 0.26 MPa (L4-L5) at 1000 N - cannot be checked without the primary. Same data also in fe_model_comparison.dreischarf2014.L4L5_invitro_idp_compression_secondary (shared sample, do not pool both). Fig 2 of the on-disk author version (QUT eprints) is one embedded bitmap of 552x415 px for all four panels (Fig 2b plot area 208x123 px: 13 px per Nm, 2.248 px per deg). The image was read at its native pixels (pdfimages, lossless PNG); rendering the page at >=300 dpi only up-samples this bitmap and adds no detail."
+ },
+ "data": [
+  {
+   "x": "compression",
+   "load": "0 N",
+   "mean": null,
+   "sd": null,
+   "min": null,
+   "max": 0.08,
+   "median": 0.03,
+   "n": 5,
+   "force_N": 0,
+   "level": "L4-L5",
+   "note": "lower end of the range not resolvable (at or near 0)"
+  },
+  {
+   "x": "compression",
+   "load": "300 N",
+   "mean": null,
+   "sd": null,
+   "min": 0.2,
+   "max": 0.46,
+   "median": 0.31,
+   "n": 5,
+   "force_N": 300,
+   "level": "L4-L5"
+  },
+  {
+   "x": "compression",
+   "load": "1000 N",
+   "mean": null,
+   "sd": null,
+   "min": 0.66,
+   "max": 1.38,
+   "median": 0.94,
+   "n": 5,
+   "force_N": 1000,
+   "level": "L4-L5"
+  }
+ ],
+ "extraction": {
+  "from": "Dreischarf 2014 Fig 2d (black markers = median, red bars = range)",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 MPa (1 px = 0.013 MPa)",
+  "checked": true,
+  "check_notes": "Re-read 2026-11-13 on the native bitmap: x frame cols 324 = 0 N, 532 = 1000 N (300 N at col 386); y row 350 = 0 MPa, 76 px/MPa (gridlines every 19 px = 0.25 MPa). Red bar at 300 N rows 315-335 -> 0.20-0.46 MPa, marker rows 325-328 -> 0.31; red bar at 1000 N rows 245-300 -> 0.66-1.38 MPa. Same as the earlier verified test (0.31 [0.20, 0.46], 0.94 [0.66, 1.38]). Owner targets fe.json 'comp.L2L3.idp_300N.fig2d' 0.3 [0.19, 0.47] and 'comp.L2L3.idp_1000N.fig2d' 0.95 [0.65, 1.4]: same values within 0.02 MPa, i.e. the owner re-plotted this Dreischarf range; the 'L2L3' label there is the owner's model level, not the specimens' level."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "min <= model <= max at 300 and 1000 N"
+ },
+ "combine_group": "secondary__fe_idp_invitro__idp_abs__l4_l5__intact__compression",
+ "shared_sample_with": [
+  "fe_model_comparison.dreischarf2014.L4L5_invitro_idp_compression_secondary",
+  "brinckmann1991: primary (Spine 16:641), not on disk"
+ ],
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "secondary",
+  "IDP",
+  "compression"
+ ]
+}

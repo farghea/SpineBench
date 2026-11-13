@@ -14,11 +14,11 @@
   ],
   "summary": "Apply each pure moment, compression, shear or follower load to the specimen and report nucleus pressure, absolute or relative as stated.",
   "simulate": [
-    "Build the specimen of the view (FSU, disc-only unit, multi-level lumbar spine, or T1-T12 with rib cage).",
-    "Fix the caudal end; apply the load to the cranial end: pure moment, axial or follower compression, or shear.",
+    "Build the specimen of the simulation (FSU, disc-only unit, multi-level lumbar spine, or T1-T12 with rib cage).",
+    "Fix the caudal end; apply the load to the cranial end (pure moment, axial or follower compression, or shear), sweeping the listed input.",
     "Read nucleus pressure at the disc centre (hydrostatic pressure of the nucleus, MPa).",
     "idp = absolute pressure; idp_change = rise above the stated reference state; idp_rel = % of your intact value.",
-    "Slopes: fit pressure vs load (kPa/N) or vs moment (kPa/Nm) over the stated range."
+    "Report every output as one curve over the sweep; slopes (kPa/N, kPa/Nm) as one number read from the same run."
   ],
   "inputs": [
     {
@@ -88,7 +88,8 @@
       "n": 8,
       "sample": "8 human L4-L5 FSUs (same as Heuer 2007a), no preload",
       "doi": "10.1016/j.jbiomech.2006.03.016",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments 1-10 N·m (flexion, extension) at 1°/s; no preload (500 N for 15 min beforehand); 2.5 cycles, last evaluated; L4-L5 FSUs"
     },
     {
       "key": "rohlmann2001a",
@@ -97,7 +98,8 @@
       "n": 7,
       "sample": "7 four-segment lumbar spines (4 L1-L5, 3 T12-L4)",
       "doi": "10.1007/s005860100295",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±3.75 N·m (FE, LB, AR) at 1.7°/s; no preload; 3 cycles, 3rd evaluated; 4-segment L1-L5 / T12-L4 spines"
     },
     {
       "key": "popovich2013",
@@ -106,7 +108,8 @@
       "n": 8,
       "sample": "8 lumbosacral spines (7 L1-S, 1 L3-S), L4-L5 measured",
       "doi": "10.1016/j.spinee.2013.04.011",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments ±10 N·m (FE, LB, AR) at 1°/s; no preload; 5 preconditioning + 3 cycles, 2nd analysed; L1-sacrum spines (L4-L5 disc)"
     },
     {
       "key": "schultz1979",
@@ -115,7 +118,8 @@
       "n": 42,
       "sample": "42 lumbar FSUs from 23 cadavers, 400 N preload",
       "doi": "10.1115/1.3426223",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, static moments 4.7 and 10.6 N·m by weights (FE, LB, AR) on a 400 N axial preload; read 15 s after each step; lumbar FSUs"
     },
     {
       "key": "wilke2020b",
@@ -124,7 +128,8 @@
       "n": 30,
       "sample": "30 thoracic FSUs (T1-T2 to T11-T12) with rib stumps, 19 donors",
       "doi": "10.3389/fbioe.2020.00614",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, pure moments to 7.5 N·m (FE, LB at 1°/s; AR 0.5°/s); no preload; 3.5 cycles, 3rd evaluated; thoracic FSUs T1-T12 with rib stumps"
     },
     {
       "key": "anderson2016",
@@ -133,7 +138,8 @@
       "n": 8,
       "sample": "8 T1-T12 spines with rib cage, follower 0-600 N",
       "doi": "10.1016/j.jbiomech.2016.02.038",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, static follower load 0, 200, 400, 600 N; no moment; T1-T12 with rib cage (intact, then ribs cut); IDP at T4-T5 and T8-T9"
     },
     {
       "key": "anderson2018",
@@ -142,7 +148,8 @@
       "n": 7,
       "sample": "same T1-T12 rib cage spines, 7 analysed, 400 N follower",
       "doi": "10.1016/j.jbiomech.2017.10.005",
-      "secondary": false
+      "secondary": false,
+      "loading": "Displacement control at 1°/s to ±5 N·m pure moment (FE, LB, AR); 400 N follower preload; 5 cycles, 3rd analysed; T1-T12 with/without rib cage"
     },
     {
       "key": "cannella2008",
@@ -151,7 +158,8 @@
       "n": 6,
       "sample": "6 lumbar disc-only units (DS1, T12-L1 to L4-L5)",
       "doi": "10.1016/j.jbiomech.2008.04.037",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, axial 150 N tension to 1500 N compression, 5 cycles at 0.1 Hz (5th analysed); no preload; lumbar discs, posterior elements removed"
     },
     {
       "key": "frei2002",
@@ -160,7 +168,8 @@
       "n": 12,
       "sample": "12 thoracolumbar FSUs (11 T12-L1, 1 L1-L2)",
       "doi": "10.1016/S0736-0266(02)00058-X",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, 500 N at 50 N/s with 10 s hold: axial, ±20 mm eccentric compression, or AP shear; no preload; T12-L1 FSUs"
     },
     {
       "key": "steffen1998",
@@ -169,7 +178,8 @@
       "n": 16,
       "sample": "16 L1-S1 spines, L3-L4 disc instrumented",
       "doi": "10.1016/S0268-0033(98)00039-4",
-      "secondary": false
+      "secondary": false,
+      "loading": "600 N axial compression in imposed postures (upright, 15° flex, 10° ext) with ±10° axial rotation; 300 N for 15 min beforehand; L1-S1 (L3-L4 disc)"
     },
     {
       "key": "dennison2008",
@@ -178,7 +188,18 @@
       "n": 5,
       "sample": "5 lumbar FSUs (3 L4-L5, 1 L2-L3, 1 L1-L2), grade 2-3",
       "doi": "10.1016/j.jbiomech.2007.07.015",
-      "secondary": false
+      "secondary": false,
+      "loading": "Load control, axial compression 0-2000 N at 10 N/s after preconditioning cycles 0-2000 N; no preload; lumbar FSUs (L1-L2, L2-L3, L4-L5)"
+    },
+    {
+      "key": "brinckmann1991",
+      "short": "Brinckmann & Grootenboer 1991",
+      "year": 1991,
+      "n": 5,
+      "sample": "5 L4-L5 motion segments; median and range via Dreischarf 2014 Fig 2d",
+      "doi": "10.1097/00007632-199106000-00008",
+      "secondary": true,
+      "loading": "Axial compression to 1000 N on L4-L5 motion segments; no bending; quasi-static (per review)"
     }
   ],
   "shared": [
@@ -305,7 +326,10 @@
         "cann_acu_50",
         "sch_400",
         "frei_compression",
-        "stef_upright"
+        "stef_upright",
+        "brk_0",
+        "brk_300",
+        "brk_1000"
       ],
       "x": "input:load_n",
       "group": "Disc pressure vs compression",
@@ -320,6 +344,7 @@
         "T8-T9",
         "T12-L1",
         "L3-L4",
+        "L4-L5",
         "L1-L5 FSUs",
         "T12-L5 ACUs"
       ]
@@ -362,7 +387,11 @@
         "l45s_fc_ext",
         "l45s_va_ext",
         "l45s_pll_ext",
-        "l45s_all_ext"
+        "l45s_all_ext",
+        "cann_rel_0",
+        "cann_rel_100",
+        "cann_rel_400",
+        "cann_rel_1400"
       ],
       "x": "task",
       "group": "Other conditions"
@@ -3146,6 +3175,90 @@
           "note": "mixed-model estimate, 95% CI 29.1 to 61.8; n=7"
         }
       ]
+    },
+    {
+      "id": "brk_0",
+      "label": "L4-L5 · compression 0 N",
+      "view": "idp_vs_load",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "condition": "intact",
+        "direction": "axial compression",
+        "load_n": 0,
+        "load_type": "axial"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "brinckmann1991",
+          "mean": null,
+          "median": 0.03,
+          "sd": null,
+          "min": null,
+          "max": 0.08,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_idp_invitro.brinckmann1991.L4L5_idp_vs_compression_secondary",
+          "note": "median of 5 L4-L5 segments; bar = range (via Dreischarf 2014 Fig 2d); lower end of range not resolvable"
+        }
+      ]
+    },
+    {
+      "id": "brk_300",
+      "label": "L4-L5 · compression 300 N",
+      "view": "idp_vs_load",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "condition": "intact",
+        "direction": "axial compression",
+        "load_n": 300,
+        "load_type": "axial"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "brinckmann1991",
+          "mean": null,
+          "median": 0.31,
+          "sd": null,
+          "min": 0.2,
+          "max": 0.46,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_idp_invitro.brinckmann1991.L4L5_idp_vs_compression_secondary",
+          "note": "median of 5 L4-L5 segments; bar = range (via Dreischarf 2014 Fig 2d)"
+        }
+      ]
+    },
+    {
+      "id": "brk_1000",
+      "label": "L4-L5 · compression 1000 N",
+      "view": "idp_vs_load",
+      "inputs": {
+        "specimen": "L4-L5 FSU",
+        "condition": "intact",
+        "direction": "axial compression",
+        "load_n": 1000,
+        "load_type": "axial"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "brinckmann1991",
+          "mean": null,
+          "median": 0.94,
+          "sd": null,
+          "min": 0.66,
+          "max": 1.38,
+          "stat": "median",
+          "n": 5,
+          "test_id": "fe_idp_invitro.brinckmann1991.L4L5_idp_vs_compression_secondary",
+          "note": "median of 5 L4-L5 segments; bar = range (via Dreischarf 2014 Fig 2d)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -3153,295 +3266,1200 @@
     "One value per condition: Heuer flexion/extension only; Wilke 2020b right bending and left twist (other sides similar).",
     "Popovich is the mean of 9 needle sensors whose position was not confirmed: approximate nucleus pressure."
   ],
-  "agent_prompt": "Use your finite element spine model. For each task build the specimen given in its inputs (lumbar or thoracic FSU, disc-only unit with posterior elements removed, multi-segment lumbar spine, or T1-T12 with rib cage). Fix the caudal end and apply the listed load to the cranial end: pure moment, axial or follower compression, eccentric compression, or shear. Report the nucleus pressure at the disc centre at the stated level. \"idp\" is absolute pressure in MPa; \"idp_change\" is the rise above the stated reference state; \"idp_rel\" is your value divided by your intact value times 100. For slope tasks fit pressure against load (kPa/N) or moment magnitude (kPa/Nm) over the given range. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
+  "agent_prompt": "Use your finite element spine model. Run the 39 simulations in `simulations`. Each gives the specimen (lumbar or thoracic FSU, disc-only unit, multi-segment lumbar spine, or T1-T12 with rib cage), the load type and direction, and the swept input (pure moment in Nm, or compressive / follower force in N). Fix the caudal end, load the cranial end and read the nucleus pressure at the disc centre of each listed level. idp = absolute pressure (MPa); idp_change = rise above the stated reference state; idp_rel = % of your intact value; slope outputs (scalar): pressure vs load (kPa/N) or vs moment (kPa/Nm) over the stated range, read from the same run. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "l45_neutral": {
-      "idp": "MPa"
-    },
-    "l45_fle_1": {
-      "idp": "MPa"
-    },
-    "l45_fle_2p5": {
-      "idp": "MPa"
-    },
-    "l45_fle_5": {
-      "idp": "MPa"
-    },
-    "l45_fle_7p5": {
-      "idp": "MPa"
-    },
-    "l45_fle_10": {
-      "idp": "MPa"
-    },
-    "l45_ext_1": {
-      "idp": "MPa"
-    },
-    "l45_ext_2p5": {
-      "idp": "MPa"
-    },
-    "l45_ext_5": {
-      "idp": "MPa"
-    },
-    "l45_ext_7p5": {
-      "idp": "MPa"
-    },
-    "l45_ext_10": {
-      "idp": "MPa"
-    },
-    "l45s_ssl_fle": {
-      "idp": "MPa"
-    },
-    "l45s_isl_fle": {
-      "idp": "MPa"
-    },
-    "l45s_fl_fle": {
-      "idp": "MPa"
-    },
-    "l45s_fc_fle": {
-      "idp": "MPa"
-    },
-    "l45s_va_fle": {
-      "idp": "MPa"
-    },
-    "l45s_pll_fle": {
-      "idp": "MPa"
-    },
-    "l45s_all_fle": {
-      "idp": "MPa"
-    },
-    "l45s_ssl_ext": {
-      "idp": "MPa"
-    },
-    "l45s_isl_ext": {
-      "idp": "MPa"
-    },
-    "l45s_fl_ext": {
-      "idp": "MPa"
-    },
-    "l45s_fc_ext": {
-      "idp": "MPa"
-    },
-    "l45s_va_ext": {
-      "idp": "MPa"
-    },
-    "l45s_pll_ext": {
-      "idp": "MPa"
-    },
-    "l45s_all_ext": {
-      "idp": "MPa"
-    },
-    "rohl_neutral": {
-      "idp": "MPa"
-    },
-    "pop_flex_10": {
-      "idp": "MPa"
-    },
-    "pop_ext_10": {
-      "idp": "MPa"
-    },
-    "pop_lb_10": {
-      "idp": "MPa"
-    },
-    "pop_ar_10": {
-      "idp": "MPa"
-    },
-    "rohl_chg_flex": {
-      "idp_change": "MPa"
-    },
-    "rohl_chg_ext": {
-      "idp_change": "MPa"
-    },
-    "rohl_chg_lb": {
-      "idp_change": "MPa"
-    },
-    "rohl_chg_ar": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_flex_4p7": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_flex_10p6": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_ext_4p7": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_ext_10p6": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_lb_4p7": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_lb_10p6": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_ar_4p7": {
-      "idp_change": "MPa"
-    },
-    "sch_chg_ar_10p6": {
-      "idp_change": "MPa"
-    },
-    "thor_neutral": {
-      "idp": "MPa"
-    },
-    "thor_fle_2p5": {
-      "idp": "MPa"
-    },
-    "thor_fle_5": {
-      "idp": "MPa"
-    },
-    "thor_fle_7p5": {
-      "idp": "MPa"
-    },
-    "thor_ext_2p5": {
-      "idp": "MPa"
-    },
-    "thor_ext_5": {
-      "idp": "MPa"
-    },
-    "thor_ext_7p5": {
-      "idp": "MPa"
-    },
-    "thor_latr_2p5": {
-      "idp": "MPa"
-    },
-    "thor_latr_5": {
-      "idp": "MPa"
-    },
-    "thor_latr_7p5": {
-      "idp": "MPa"
-    },
-    "thor_axil_2p5": {
-      "idp": "MPa"
-    },
-    "thor_axil_5": {
-      "idp": "MPa"
-    },
-    "thor_axil_7p5": {
-      "idp": "MPa"
-    },
-    "and_t4t5_0": {
-      "idp": "MPa"
-    },
-    "and_t4t5_200": {
-      "idp": "MPa"
-    },
-    "and_t4t5_400": {
-      "idp": "MPa"
-    },
-    "and_t4t5_600": {
-      "idp": "MPa"
-    },
-    "and_t8t9_0": {
-      "idp": "MPa"
-    },
-    "and_t8t9_200": {
-      "idp": "MPa"
-    },
-    "and_t8t9_400": {
-      "idp": "MPa"
-    },
-    "and_t8t9_600": {
-      "idp": "MPa"
-    },
-    "cann_acu_50": {
-      "idp": "MPa"
-    },
-    "sch_400": {
-      "idp": "MPa"
-    },
-    "frei_compression": {
-      "idp": "MPa"
-    },
-    "frei_flexion_compression": {
-      "idp": "MPa"
-    },
-    "frei_extension_compression": {
-      "idp": "MPa"
-    },
-    "frei_anterior_shear": {
-      "idp": "MPa"
-    },
-    "frei_posterior_shear": {
-      "idp": "MPa"
-    },
-    "stef_upright": {
-      "idp": "MPa"
-    },
-    "stef_flexion15": {
-      "idp": "MPa"
-    },
-    "stef_extension10": {
-      "idp": "MPa"
-    },
-    "stef_upright_ar": {
-      "idp": "MPa"
-    },
-    "cann_rel_0": {
-      "idp_rel": "%"
-    },
-    "cann_rel_100": {
-      "idp_rel": "%"
-    },
-    "cann_rel_400": {
-      "idp_rel": "%"
-    },
-    "cann_rel_1400": {
-      "idp_rel": "%"
-    },
-    "and_slope_t4t5_intact": {
+    "lum_unloaded": {
+      "idp": {
+        "L4-L5": "MPa",
+        "L1-L5": "MPa"
+      }
+    },
+    "lum_flex": {
+      "idp": {
+        "L4-L5": "[[Nm, MPa], ...]"
+      },
+      "idp_change": {
+        "L4-L5 / L3-L4": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_ext": {
+      "idp": {
+        "L4-L5": "[[Nm, MPa], ...]"
+      },
+      "idp_change": {
+        "L4-L5 / L3-L4": "[[Nm, MPa], ...]"
+      }
+    },
+    "l45_step1": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step2": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step3": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step4": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step5": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step6": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "l45_step7": {
+      "idp": {
+        "flexion": "MPa",
+        "extension": "MPa"
+      }
+    },
+    "lum_lb": {
+      "idp": {
+        "L4-L5": "[[Nm, MPa], ...]"
+      },
+      "idp_change": {
+        "L4-L5 / L3-L4": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_ar": {
+      "idp": {
+        "L4-L5": "[[Nm, MPa], ...]"
+      },
+      "idp_change": {
+        "L4-L5 / L3-L4": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_flex_ax400": {
+      "idp_change": {
+        "L1-L5 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_ext_ax400": {
+      "idp_change": {
+        "L1-L5 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_lb_ax400": {
+      "idp_change": {
+        "L1-L5 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "lum_ar_ax400": {
+      "idp_change": {
+        "L1-L5 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "thor_unloaded": {
+      "idp": {
+        "T1-T12 FSUs": "MPa"
+      }
+    },
+    "thor_flex": {
+      "idp": {
+        "T1-T12 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "thor_ext": {
+      "idp": {
+        "T1-T12 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "thor_lb": {
+      "idp": {
+        "T1-T12 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "thor_ar": {
+      "idp": {
+        "T1-T12 FSUs": "[[Nm, MPa], ...]"
+      }
+    },
+    "ribcage_follower": {
+      "idp": {
+        "T4-T5": "[[N, MPa], ...]",
+        "T8-T9": "[[N, MPa], ...]"
+      },
+      "idp_load_slope": {
+        "T4-T5": "kPa/N",
+        "T8-T9": "kPa/N"
+      }
+    },
+    "compression": {
+      "idp": "[[N, MPa], ...]",
       "idp_load_slope": "kPa/N"
     },
-    "and_slope_t4t5_noribs": {
-      "idp_load_slope": "kPa/N"
+    "ecc_ant": {
+      "idp": {
+        "T12-L1": "MPa"
+      }
     },
-    "and_slope_t8t9_intact": {
-      "idp_load_slope": "kPa/N"
+    "ecc_post": {
+      "idp": {
+        "T12-L1": "MPa"
+      }
     },
-    "and_slope_t8t9_noribs": {
-      "idp_load_slope": "kPa/N"
+    "shear_ant": {
+      "idp": {
+        "T12-L1": "MPa"
+      }
     },
-    "denn_slope": {
-      "idp_load_slope": "kPa/N"
+    "shear_post": {
+      "idp": {
+        "T12-L1": "MPa"
+      }
     },
-    "cann_slope": {
-      "idp_load_slope": "kPa/N"
+    "posture_upright": {
+      "idp": {
+        "L3-L4": "MPa"
+      }
     },
-    "and18_t4t5_intact_flex": {
-      "idp_moment_slope": "kPa/Nm"
+    "posture_flex15": {
+      "idp": {
+        "L3-L4": "MPa"
+      }
     },
-    "and18_t4t5_intact_ext": {
-      "idp_moment_slope": "kPa/Nm"
+    "posture_ext10": {
+      "idp": {
+        "L3-L4": "MPa"
+      }
     },
-    "and18_t4t5_intact_ar": {
-      "idp_moment_slope": "kPa/Nm"
+    "posture_rot10": {
+      "idp": {
+        "L3-L4": "MPa"
+      }
     },
-    "and18_t4t5_noribs_flex": {
-      "idp_moment_slope": "kPa/Nm"
+    "acu_nucleotomy": {
+      "idp_rel": {
+        "T12-L5 ACUs": "[[N, %], ...]"
+      }
     },
-    "and18_t4t5_noribs_ext": {
-      "idp_moment_slope": "kPa/Nm"
+    "noribs_follower": {
+      "idp_load_slope": {
+        "T4-T5": "kPa/N",
+        "T8-T9": "kPa/N"
+      }
     },
-    "and18_t4t5_noribs_ar": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_flex_intact_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     },
-    "and18_t8t9_intact_flex": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_ext_intact_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     },
-    "and18_t8t9_intact_ext": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_ar_intact_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     },
-    "and18_t8t9_intact_ar": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_flex_noribs_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     },
-    "and18_t8t9_noribs_flex": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_ext_noribs_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     },
-    "and18_t8t9_noribs_ext": {
-      "idp_moment_slope": "kPa/Nm"
-    },
-    "and18_t8t9_noribs_ar": {
-      "idp_moment_slope": "kPa/Nm"
+    "thor_ar_noribs_fl400": {
+      "idp_moment_slope": {
+        "T4-T5": "kPa/Nm",
+        "T8-T9": "kPa/Nm"
+      }
     }
-  }
+  },
+  "agent_sims": [
+    {
+      "id": "lum_unloaded",
+      "title": "Lumbar specimen, unloaded: IDP",
+      "sweep": null,
+      "fixed": {
+        "condition": "intact",
+        "direction": "none",
+        "moment_nm": 0,
+        "load_n": 0,
+        "load_type": "none"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "idp",
+          "level": "L1-L5"
+        }
+      ],
+      "task_ids": [
+        "l45_neutral",
+        "rohl_neutral"
+      ]
+    },
+    {
+      "id": "lum_flex",
+      "title": "Lumbar specimen, flexion, no preload: IDP vs moment",
+      "note": "L4-L5 FSU and L4-L5 inside an L1-sacrum spine combined; the change from unloaded is a second output.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "flexion",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "idp_change",
+          "level": "L4-L5 / L3-L4"
+        }
+      ],
+      "task_ids": [
+        "l45_fle_1",
+        "l45_fle_2p5",
+        "l45_fle_5",
+        "l45_fle_7p5",
+        "l45_fle_10",
+        "pop_flex_10",
+        "rohl_chg_flex"
+      ]
+    },
+    {
+      "id": "lum_ext",
+      "title": "Lumbar specimen, extension, no preload: IDP vs moment",
+      "note": "L4-L5 FSU and L4-L5 inside an L1-sacrum spine combined; the change from unloaded is a second output.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "extension",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "idp_change",
+          "level": "L4-L5 / L3-L4"
+        }
+      ],
+      "task_ids": [
+        "l45_ext_1",
+        "l45_ext_2p5",
+        "l45_ext_5",
+        "l45_ext_7p5",
+        "l45_ext_10",
+        "pop_ext_10",
+        "rohl_chg_ext"
+      ]
+    },
+    {
+      "id": "l45_step1",
+      "title": "Step 1: SSL removed (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 1: w/o SSL removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_ssl_fle",
+        "l45s_ssl_ext"
+      ]
+    },
+    {
+      "id": "l45_step2",
+      "title": "Step 2: + ISL (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 2: + ISL removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_isl_fle",
+        "l45s_isl_ext"
+      ]
+    },
+    {
+      "id": "l45_step3",
+      "title": "Step 3: + ligamentum flavum (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 3: + ligamentum flavum removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_fl_fle",
+        "l45s_fl_ext"
+      ]
+    },
+    {
+      "id": "l45_step4",
+      "title": "Step 4: + facet capsules (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 4: + facet capsules removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_fc_fle",
+        "l45s_fc_ext"
+      ]
+    },
+    {
+      "id": "l45_step5",
+      "title": "Step 5: + vertebral arch (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 5: + vertebral arch removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_va_fle",
+        "l45s_va_ext"
+      ]
+    },
+    {
+      "id": "l45_step6",
+      "title": "Step 6: + PLL (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 6: + PLL removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_pll_fle",
+        "l45s_pll_ext"
+      ]
+    },
+    {
+      "id": "l45_step7",
+      "title": "Step 7: + ALL (L4-L5 FSU), 7.5 Nm flexion and extension",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L4-L5 FSU",
+        "condition": "step 7: + ALL removed (cumulative)",
+        "moment_nm": 7.5,
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "direction": "flexion"
+        },
+        {
+          "key": "idp",
+          "direction": "extension"
+        }
+      ],
+      "task_ids": [
+        "l45s_all_fle",
+        "l45s_all_ext"
+      ]
+    },
+    {
+      "id": "lum_lb",
+      "title": "Lumbar specimen, lateral bending, one side, no preload: IDP vs moment",
+      "note": "L4-L5 FSU and L4-L5 inside an L1-sacrum spine combined; the change from unloaded is a second output.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "idp_change",
+          "level": "L4-L5 / L3-L4"
+        }
+      ],
+      "task_ids": [
+        "pop_lb_10",
+        "rohl_chg_lb"
+      ]
+    },
+    {
+      "id": "lum_ar",
+      "title": "Lumbar specimen, axial rotation, one side, no preload: IDP vs moment",
+      "note": "L4-L5 FSU and L4-L5 inside an L1-sacrum spine combined; the change from unloaded is a second output.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L4-L5"
+        },
+        {
+          "key": "idp_change",
+          "level": "L4-L5 / L3-L4"
+        }
+      ],
+      "task_ids": [
+        "pop_ar_10",
+        "rohl_chg_ar"
+      ]
+    },
+    {
+      "id": "lum_flex_ax400",
+      "title": "Lumbar FSU, flexion, 400 N axial preload: IDP rise vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "condition": "intact; rise above 400 N preload state",
+        "direction": "flexion",
+        "load_n": 400,
+        "load_type": "pure moment + axial preload"
+      },
+      "outputs": [
+        {
+          "key": "idp_change",
+          "level": "L1-L5 FSUs"
+        }
+      ],
+      "task_ids": [
+        "sch_chg_flex_4p7",
+        "sch_chg_flex_10p6"
+      ]
+    },
+    {
+      "id": "lum_ext_ax400",
+      "title": "Lumbar FSU, extension, 400 N axial preload: IDP rise vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "condition": "intact; rise above 400 N preload state",
+        "direction": "extension",
+        "load_n": 400,
+        "load_type": "pure moment + axial preload"
+      },
+      "outputs": [
+        {
+          "key": "idp_change",
+          "level": "L1-L5 FSUs"
+        }
+      ],
+      "task_ids": [
+        "sch_chg_ext_4p7",
+        "sch_chg_ext_10p6"
+      ]
+    },
+    {
+      "id": "lum_lb_ax400",
+      "title": "Lumbar FSU, lateral bending, one side, 400 N axial preload: IDP rise vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "condition": "intact; rise above 400 N preload state",
+        "direction": "right lateral bending",
+        "load_n": 400,
+        "load_type": "pure moment + axial preload"
+      },
+      "outputs": [
+        {
+          "key": "idp_change",
+          "level": "L1-L5 FSUs"
+        }
+      ],
+      "task_ids": [
+        "sch_chg_lb_4p7",
+        "sch_chg_lb_10p6"
+      ]
+    },
+    {
+      "id": "lum_ar_ax400",
+      "title": "Lumbar FSU, axial rotation, one side, 400 N axial preload: IDP rise vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "lumbar FSU (L1-L5 pooled)",
+        "condition": "intact; rise above 400 N preload state",
+        "direction": "clockwise axial rotation",
+        "load_n": 400,
+        "load_type": "pure moment + axial preload"
+      },
+      "outputs": [
+        {
+          "key": "idp_change",
+          "level": "L1-L5 FSUs"
+        }
+      ],
+      "task_ids": [
+        "sch_chg_ar_4p7",
+        "sch_chg_ar_10p6"
+      ]
+    },
+    {
+      "id": "thor_unloaded",
+      "title": "Thoracic FSU, unloaded: IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
+        "condition": "intact",
+        "direction": "none",
+        "moment_nm": 0,
+        "load_n": 0,
+        "load_type": "none"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T1-T12 FSUs"
+        }
+      ],
+      "task_ids": [
+        "thor_neutral"
+      ]
+    },
+    {
+      "id": "thor_flex",
+      "title": "Thoracic FSU, flexion, no preload: IDP vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
+        "condition": "intact",
+        "direction": "flexion",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T1-T12 FSUs"
+        }
+      ],
+      "task_ids": [
+        "thor_fle_2p5",
+        "thor_fle_5",
+        "thor_fle_7p5"
+      ]
+    },
+    {
+      "id": "thor_ext",
+      "title": "Thoracic FSU, extension, no preload: IDP vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
+        "condition": "intact",
+        "direction": "extension",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T1-T12 FSUs"
+        }
+      ],
+      "task_ids": [
+        "thor_ext_2p5",
+        "thor_ext_5",
+        "thor_ext_7p5"
+      ]
+    },
+    {
+      "id": "thor_lb",
+      "title": "Thoracic FSU, lateral bending, one side, no preload: IDP vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
+        "condition": "intact",
+        "direction": "right lateral bending",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T1-T12 FSUs"
+        }
+      ],
+      "task_ids": [
+        "thor_latr_2p5",
+        "thor_latr_5",
+        "thor_latr_7p5"
+      ]
+    },
+    {
+      "id": "thor_ar",
+      "title": "Thoracic FSU, axial rotation, one side, no preload: IDP vs moment",
+      "sweep": "moment_nm",
+      "fixed": {
+        "specimen": "thoracic FSU (T1-T2 to T11-T12 pooled)",
+        "condition": "intact",
+        "direction": "left axial rotation",
+        "load_n": 0,
+        "load_type": "pure moment"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T1-T12 FSUs"
+        }
+      ],
+      "task_ids": [
+        "thor_axil_2p5",
+        "thor_axil_5",
+        "thor_axil_7p5"
+      ]
+    },
+    {
+      "id": "ribcage_follower",
+      "title": "T1-T12 with rib cage, follower load: IDP vs follower",
+      "note": "Slope (kPa/N) read from the same loading curve.",
+      "sweep": "load_n",
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage intact"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp",
+          "level": "T8-T9"
+        },
+        {
+          "key": "idp_load_slope",
+          "level": "T4-T5",
+          "scalar": true
+        },
+        {
+          "key": "idp_load_slope",
+          "level": "T8-T9",
+          "scalar": true
+        }
+      ],
+      "task_ids": [
+        "and_t4t5_0",
+        "and_t4t5_200",
+        "and_t4t5_400",
+        "and_t4t5_600",
+        "and_t8t9_0",
+        "and_t8t9_200",
+        "and_t8t9_400",
+        "and_t8t9_600",
+        "and_slope_t4t5_intact",
+        "and_slope_t8t9_intact"
+      ]
+    },
+    {
+      "id": "compression",
+      "title": "Lumbar FSU or disc unit, axial compression: IDP vs force",
+      "note": "FSUs and disc units of any lumbar level in one band; the slope (kPa/N) is read from the same curve.",
+      "sweep": "load_n",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "idp"
+        },
+        {
+          "key": "idp_load_slope",
+          "scalar": true
+        }
+      ],
+      "task_ids": [
+        "cann_acu_50",
+        "sch_400",
+        "frei_compression",
+        "denn_slope",
+        "cann_slope",
+        "brk_0",
+        "brk_300",
+        "brk_1000"
+      ]
+    },
+    {
+      "id": "ecc_ant",
+      "title": "T12-L1 FSU, 500 N compression 20 mm anterior: IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "direction": "compression 20 mm anterior",
+        "load_n": 500,
+        "load_type": "eccentric"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T12-L1"
+        }
+      ],
+      "task_ids": [
+        "frei_flexion_compression"
+      ]
+    },
+    {
+      "id": "ecc_post",
+      "title": "T12-L1 FSU, 500 N compression 20 mm posterior: IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "direction": "compression 20 mm posterior",
+        "load_n": 500,
+        "load_type": "eccentric"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T12-L1"
+        }
+      ],
+      "task_ids": [
+        "frei_extension_compression"
+      ]
+    },
+    {
+      "id": "shear_ant",
+      "title": "T12-L1 FSU, 500 N anterior shear: IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "direction": "anterior shear",
+        "load_n": 500,
+        "load_type": "shear"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T12-L1"
+        }
+      ],
+      "task_ids": [
+        "frei_anterior_shear"
+      ]
+    },
+    {
+      "id": "shear_post",
+      "title": "T12-L1 FSU, 500 N posterior shear: IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T12-L1 FSU",
+        "condition": "intact",
+        "direction": "posterior shear",
+        "load_n": 500,
+        "load_type": "shear"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "T12-L1"
+        }
+      ],
+      "task_ids": [
+        "frei_posterior_shear"
+      ]
+    },
+    {
+      "id": "posture_upright",
+      "title": "L1-S1 spine, 600 N + imposed posture (upright): L3-L4 IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
+        "condition": "intact",
+        "direction": "upright",
+        "load_n": 600,
+        "load_type": "axial + imposed posture"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "stef_upright"
+      ]
+    },
+    {
+      "id": "posture_flex15",
+      "title": "L1-S1 spine, 600 N + imposed posture (15 deg flexion): L3-L4 IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
+        "condition": "intact",
+        "direction": "15 deg flexion",
+        "load_n": 600,
+        "load_type": "axial + imposed posture"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "stef_flexion15"
+      ]
+    },
+    {
+      "id": "posture_ext10",
+      "title": "L1-S1 spine, 600 N + imposed posture (10 deg extension): L3-L4 IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
+        "condition": "intact",
+        "direction": "10 deg extension",
+        "load_n": 600,
+        "load_type": "axial + imposed posture"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "stef_extension10"
+      ]
+    },
+    {
+      "id": "posture_rot10",
+      "title": "L1-S1 spine, 600 N + imposed posture (upright + 10 deg left rotation): L3-L4 IDP",
+      "sweep": null,
+      "fixed": {
+        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
+        "condition": "intact",
+        "direction": "upright + 10 deg left rotation",
+        "load_n": 600,
+        "load_type": "axial + imposed posture"
+      },
+      "outputs": [
+        {
+          "key": "idp",
+          "level": "L3-L4"
+        }
+      ],
+      "task_ids": [
+        "stef_upright_ar"
+      ]
+    },
+    {
+      "id": "acu_nucleotomy",
+      "title": "Disc unit after 20 min nucleotomy: IDP (% of intact) vs force",
+      "sweep": "load_n",
+      "fixed": {
+        "specimen": "lumbar ACU (posterior elements removed)",
+        "condition": "20-min cumulative nucleotomy",
+        "direction": "axial compression",
+        "load_type": "axial"
+      },
+      "outputs": [
+        {
+          "key": "idp_rel",
+          "level": "T12-L5 ACUs"
+        }
+      ],
+      "task_ids": [
+        "cann_rel_0",
+        "cann_rel_100",
+        "cann_rel_400",
+        "cann_rel_1400"
+      ]
+    },
+    {
+      "id": "noribs_follower",
+      "title": "T1-T12, rib cage removed, follower 0-600 N: IDP slope",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage removed",
+        "direction": "axial",
+        "load_n": 600,
+        "load_type": "follower 0-600 N"
+      },
+      "outputs": [
+        {
+          "key": "idp_load_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_load_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and_slope_t4t5_noribs",
+        "and_slope_t8t9_noribs"
+      ]
+    },
+    {
+      "id": "thor_flex_intact_fl400",
+      "title": "T1-T12 with rib cage, flexion, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage intact",
+        "direction": "flexion",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_intact_flex",
+        "and18_t8t9_intact_flex"
+      ]
+    },
+    {
+      "id": "thor_ext_intact_fl400",
+      "title": "T1-T12 with rib cage, extension, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage intact",
+        "direction": "extension",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_intact_ext",
+        "and18_t8t9_intact_ext"
+      ]
+    },
+    {
+      "id": "thor_ar_intact_fl400",
+      "title": "T1-T12 with rib cage, axial rotation, one side, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage intact",
+        "direction": "axial rotation (L/R combined)",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_intact_ar",
+        "and18_t8t9_intact_ar"
+      ]
+    },
+    {
+      "id": "thor_flex_noribs_fl400",
+      "title": "T1-T12 rib cage removed, flexion, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage removed",
+        "direction": "flexion",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_noribs_flex",
+        "and18_t8t9_noribs_flex"
+      ]
+    },
+    {
+      "id": "thor_ext_noribs_fl400",
+      "title": "T1-T12 rib cage removed, extension, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage removed",
+        "direction": "extension",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_noribs_ext",
+        "and18_t8t9_noribs_ext"
+      ]
+    },
+    {
+      "id": "thor_ar_noribs_fl400",
+      "title": "T1-T12 rib cage removed, axial rotation, one side, 400 N follower: IDP slope vs moment",
+      "sweep": null,
+      "fixed": {
+        "specimen": "T1-T12 with rib cage",
+        "condition": "rib cage removed",
+        "direction": "axial rotation (L/R combined)",
+        "moment_nm": 5,
+        "load_n": 400,
+        "load_type": "pure moment + 400 N follower"
+      },
+      "outputs": [
+        {
+          "key": "idp_moment_slope",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "level": "T8-T9"
+        }
+      ],
+      "task_ids": [
+        "and18_t4t5_noribs_ar",
+        "and18_t8t9_noribs_ar"
+      ]
+    }
+  ]
 }

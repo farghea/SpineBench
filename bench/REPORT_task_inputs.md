@@ -41,13 +41,13 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 | annulus_tissue | tissue | 218 | 0 | - |
 | emg_load_holding | msk | 62 | 36 | 28 posture described only, 34 neutral posture |
 | facet_forces | fe | 64 | 38 | - |
-| flexion_relaxation | msk | 72 | 14 | 58 posture quantified, 14 posture described only |
-| idp_invitro | fe | 96 | 0 | - |
+| flexion_relaxation | msk | 84 | 14 | 70 posture quantified, 14 posture described only |
+| idp_invitro | fe | 99 | 0 | - |
 | implant_loads_invivo | msk | 30 | 17 | 8 neutral posture, 17 posture described only, 5 posture quantified |
 | ligament_tissue | tissue | 227 | 0 | - |
 | lumbar_idp_invivo | msk | 34 | 11 | 18 posture quantified, 10 posture described only, 6 neutral posture |
 | lumbar_resection | fe | 66 | 2 | - |
-| lumbar_rom | fe | 197 | 0 | - |
+| lumbar_rom | fe | 240 | 0 | - |
 | maximal_exertions | msk | 137 | 0 | 127 neutral posture, 10 posture quantified |
 | ribcage_tissue | tissue | 84 | 0 | - |
 | segment_stiffness | fe | 203 | 57 | - |
@@ -76,16 +76,16 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - no load/moment magnitude (5): sch_slope_axial_rotation, sch_slope_extension, sch_slope_flexion, sch_slope_lateral_bending_left, sch_slope_lateral_bending_right
 - study sample without donor age in the card (see test) (14): botolin2011, farooq2005, ivicsics2014, jaramillo2016, lorenz1983, pollintine2004, popovich2013, rousseau2006, sawa2008, schendel1993, wiseman2005, yangking1984, zhu2008_eas, zhu2008_tekscan
 
-## flexion_relaxation (msk, 72 tasks)
+## flexion_relaxation (msk, 84 tasks)
 
-- Posture: 58 posture quantified (numeric angle); 14 posture described only (no numeric angle)
+- Posture: 70 posture quantified (numeric angle); 14 posture described only (no numeric angle)
 - Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
 - posture described only (14): desc_cessation_l2_0, desc_cessation_l2_12, desc_cessation_l5_0, desc_cessation_l5_12, desc_onset_l2_0, desc_onset_l2_12, desc_onset_l5_0, desc_onset_l5_12, gupta_cessation_trunk, gupta_cessation_vertebral, gupta_onset_trunk, gupta_onset_vertebral, zwam_onset_incl, zwam_onset_lumbar
 
-## idp_invitro (fe, 96 tasks)
+## idp_invitro (fe, 99 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
-- study sample without donor age in the card (see test) (9): cannella2008, dennison2008, frei2002, heuer2007b, popovich2013, rohlmann2001a, schultz1979, steffen1998, wilke2020b
+- study sample without donor age in the card (see test) (10): brinckmann1991, cannella2008, dennison2008, frei2002, heuer2007b, popovich2013, rohlmann2001a, schultz1979, steffen1998, wilke2020b
 
 ## implant_loads_invivo (msk, 30 tasks)
 
@@ -115,10 +115,10 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - preload not stated (2): acu_denuc_axial_comp, acu_denuc_axial_tension
 - study sample without donor age in the card (see test) (4): cannella2008, heuer2007a, heuer2008, schultz1979
 
-## lumbar_rom (fe, 197 tasks)
+## lumbar_rom (fe, 240 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
-- study sample without donor age in the card (see test) (16): busscher2009, cook2015, gornet2011, guan2007, heuer2007a, heuer2008, kettler2011, oxland1992, panjabi1994, patwardhan2003, renner2007, rohlmann2001a, sawa2008, schultz1979 ...
+- study sample without donor age in the card (see test) (17): busscher2009, cook2015, gornet2011, guan2007, heuer2007a, heuer2008, kettler2011, oxland1992, panjabi1994, patwardhan2003, renner2007, rohlmann2001a, rohlmann2001s, sawa2008 ...
 
 ## maximal_exertions (msk, 137 tasks)
 
