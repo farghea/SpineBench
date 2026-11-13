@@ -6273,7 +6273,8 @@
       "label": "Disc anterior shear stiffness",
       "view": "disc_shear",
       "inputs": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, anterior shear 0-150 N"
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior shear 0-150 N",
+        "dof": "anterior shear"
       },
       "output": "shear_stiffness",
       "level": "L4-L5",
@@ -6297,7 +6298,8 @@
       "label": "Disc posterior shear stiffness",
       "view": "disc_shear",
       "inputs": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, posterior shear 0-150 N"
+        "mode": "shear of disc segment (facets removed), 500 N compression, posterior shear 0-150 N",
+        "dof": "posterior shear"
       },
       "output": "shear_stiffness",
       "level": "L4-L5",
@@ -6321,7 +6323,8 @@
       "label": "Disc anterior shear strength",
       "view": "disc_shear",
       "inputs": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure"
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure",
+        "dof": "anterior shear to failure"
       },
       "output": "shear_strength",
       "level": "L4-L5",
@@ -6560,16 +6563,20 @@
         "extension": "[[N, deg], ...]"
       }
     },
-    "pj_lateral_shear": {
+    "pj_six_dof": {
       "k_lin": {
         "lateral shear, positive direction": "N/mm",
-        "lateral shear, negative direction": "N/mm"
-      }
-    },
-    "pj_axial": {
-      "k_lin": {
+        "lateral shear, negative direction": "N/mm",
         "axial (+ tension, - compression), positive direction": "N/mm",
         "axial (+ tension, - compression), negative direction": "N/mm"
+      },
+      "k_rot": {
+        "flexion-extension, positive direction": "Nm/deg",
+        "flexion-extension, negative direction": "Nm/deg",
+        "axial rotation, positive direction": "Nm/deg",
+        "axial rotation, negative direction": "Nm/deg",
+        "lateral bending, positive direction": "Nm/deg",
+        "lateral bending, negative direction": "Nm/deg"
       }
     },
     "thor_ap_shear": {
@@ -6590,113 +6597,73 @@
         }
       }
     },
-    "pj_flexion_extension": {
-      "k_rot": {
-        "flexion-extension, positive direction": "Nm/deg",
-        "flexion-extension, negative direction": "Nm/deg"
-      }
-    },
-    "pj_axial_rotation": {
-      "k_rot": {
-        "axial rotation, positive direction": "Nm/deg",
-        "axial rotation, negative direction": "Nm/deg"
-      }
-    },
-    "pj_lateral_bending": {
-      "k_rot": {
-        "lateral bending, positive direction": "Nm/deg",
-        "lateral bending, negative direction": "Nm/deg"
-      }
-    },
     "axial_stiffness_preloaded": {
       "k_lin": "N/mm"
     },
-    "amin_anterior_shear": {
-      "k_lin": "N/mm"
+    "amin_six_dof": {
+      "k_lin": {
+        "anterior shear": "N/mm",
+        "posterior shear": "N/mm",
+        "lateral shear": "N/mm"
+      },
+      "k_rot": {
+        "flexion": "Nm/deg",
+        "extension": "Nm/deg",
+        "lateral bending": "Nm/deg",
+        "axial rotation": "Nm/deg"
+      }
     },
-    "amin_posterior_shear": {
-      "k_lin": "N/mm"
-    },
-    "amin_lateral_shear": {
-      "k_lin": "N/mm"
-    },
-    "amin_flexion": {
-      "k_rot": "Nm/deg"
-    },
-    "amin_extension": {
-      "k_rot": "Nm/deg"
-    },
-    "amin_lateral_bending": {
-      "k_rot": "Nm/deg"
-    },
-    "amin_axial_rotation": {
-      "k_rot": "Nm/deg"
-    },
-    "costi_anterior_shear": {
-      "k_lin": "N/mm"
-    },
-    "costi_posterior_shear": {
-      "k_lin": "N/mm"
-    },
-    "costi_lateral_shear": {
-      "k_lin": "N/mm"
-    },
-    "costi_flexion": {
-      "k_rot": "Nm/deg"
-    },
-    "costi_extension": {
-      "k_rot": "Nm/deg"
-    },
-    "costi_lateral_bending": {
-      "k_rot": "Nm/deg"
-    },
-    "costi_axial_rotation": {
-      "k_rot": "Nm/deg"
+    "costi_six_dof": {
+      "k_lin": {
+        "anterior shear": "N/mm",
+        "posterior shear": "N/mm",
+        "lateral shear": "N/mm"
+      },
+      "k_rot": {
+        "flexion": "Nm/deg",
+        "extension": "Nm/deg",
+        "lateral bending": "Nm/deg",
+        "axial rotation": "Nm/deg"
+      }
     },
     "compression": {
       "force": "[[mm, N], ...]"
     },
-    "berk_intact_anterior": {
+    "berk_intact": {
       "disp": {
-        "86 N at upper body centre (3.4 cm above disc)": "mm",
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
+        "anterior shear": {
+          "86 N at upper body centre (3.4 cm above disc)": "mm",
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        },
+        "posterior shear": {
+          "86 N at upper body centre (3.4 cm above disc)": "mm",
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        },
+        "right lateral shear": {
+          "86 N at upper body centre (3.4 cm above disc)": "mm",
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        }
       }
     },
-    "berk_intact_posterior": {
+    "berk_pe": {
       "disp": {
-        "86 N at upper body centre (3.4 cm above disc)": "mm",
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
+        "anterior shear": {
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        },
+        "posterior shear": {
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        },
+        "right lateral shear": {
+          "145 N at upper body centre (3.4 cm above disc)": "mm"
+        }
       }
     },
-    "berk_intact_right": {
+    "frei_shear": {
       "disp": {
-        "86 N at upper body centre (3.4 cm above disc)": "mm",
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
+        "anterior shear": "mm",
+        "posterior shear": "mm",
+        "lateral shear": "mm"
       }
-    },
-    "berk_pe_anterior": {
-      "disp": {
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
-      }
-    },
-    "berk_pe_posterior": {
-      "disp": {
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
-      }
-    },
-    "berk_pe_right": {
-      "disp": {
-        "145 N at upper body centre (3.4 cm above disc)": "mm"
-      }
-    },
-    "frei_anterior_shear": {
-      "disp": "mm"
-    },
-    "frei_posterior_shear": {
-      "disp": "mm"
-    },
-    "frei_lateral_shear": {
-      "disp": "mm"
     },
     "acu_cyclic_tension": {
       "disp": "mm"
@@ -6718,29 +6685,19 @@
         "L1-S1": "deg"
       }
     },
-    "tencer_lateral_shear": {
-      "flex_lin": "mm/N"
-    },
-    "tencer_anterior_shear": {
-      "flex_lin": "mm/N"
-    },
-    "tencer_posterior_shear": {
-      "flex_lin": "mm/N"
-    },
-    "tencer_axial_compression": {
-      "flex_lin": "mm/N"
-    },
-    "tencer_flexion": {
-      "flex_rot": "deg/Nm"
-    },
-    "tencer_extension": {
-      "flex_rot": "deg/Nm"
-    },
-    "tencer_lateral_bending": {
-      "flex_rot": "deg/Nm"
-    },
-    "tencer_axial_rotation": {
-      "flex_rot": "deg/Nm"
+    "tencer_six_dof": {
+      "flex_lin": {
+        "lateral shear": "mm/N",
+        "anterior shear": "mm/N",
+        "posterior shear": "mm/N",
+        "axial compression": "mm/N"
+      },
+      "flex_rot": {
+        "flexion": "deg/Nm",
+        "extension": "deg/Nm",
+        "lateral bending": "deg/Nm",
+        "axial rotation": "deg/Nm"
+      }
     },
     "edw_flex": {
       "k_lin": {
@@ -6763,14 +6720,14 @@
     "flexion_moment": {
       "moment_pct": "[[%, %], ...]"
     },
-    "disc_shear_anterior": {
-      "shear_stiffness": "N/mm"
-    },
-    "disc_shear_posterior": {
-      "shear_stiffness": "N/mm"
-    },
-    "disc_shear_failure": {
-      "shear_strength": "kN"
+    "disc_shear": {
+      "shear_stiffness": {
+        "anterior shear": "N/mm",
+        "posterior shear": "N/mm"
+      },
+      "shear_strength": {
+        "anterior shear to failure": "kN"
+      }
     }
   },
   "agent_sims": [
@@ -6935,8 +6892,8 @@
       ]
     },
     {
-      "id": "pj_lateral_shear",
-      "title": "Thoracic FSU, lateral shear stiffness (both directions)",
+      "id": "pj_six_dof",
+      "title": "Thoracic FSU with rib heads, 100 N or 5 Nm per direction: stiffness (Panjabi 1976)",
       "sweep": null,
       "fixed": {
         "specimen": "thoracic FSU with rib heads",
@@ -6952,24 +6909,7 @@
         {
           "key": "k_lin",
           "dof": "lateral shear, negative direction"
-        }
-      ],
-      "task_ids": [
-        "pj_k11_p",
-        "pj_k11_m"
-      ]
-    },
-    {
-      "id": "pj_axial",
-      "title": "Thoracic FSU, axial (+ tension, - compression) stiffness (both directions)",
-      "sweep": null,
-      "fixed": {
-        "specimen": "thoracic FSU with rib heads",
-        "condition": "intact, no preload",
-        "load": "100 N or 5 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
+        },
         {
           "key": "k_lin",
           "dof": "axial (+ tension, - compression), positive direction"
@@ -6977,11 +6917,43 @@
         {
           "key": "k_lin",
           "dof": "axial (+ tension, - compression), negative direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "flexion-extension, negative direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "axial rotation, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "axial rotation, negative direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "lateral bending, positive direction"
+        },
+        {
+          "key": "k_rot",
+          "dof": "lateral bending, negative direction"
         }
       ],
       "task_ids": [
+        "pj_k11_p",
+        "pj_k11_m",
         "pj_k22_p",
-        "pj_k22_m"
+        "pj_k22_m",
+        "pj_k44_p",
+        "pj_k44_m",
+        "pj_k55_p",
+        "pj_k55_m",
+        "pj_k66_p",
+        "pj_k66_m"
       ]
     },
     {
@@ -7034,81 +7006,6 @@
       ]
     },
     {
-      "id": "pj_flexion_extension",
-      "title": "Thoracic FSU, flexion-extension stiffness (both directions)",
-      "sweep": null,
-      "fixed": {
-        "specimen": "thoracic FSU with rib heads",
-        "condition": "intact, no preload",
-        "load": "100 N or 5 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
-        {
-          "key": "k_rot",
-          "dof": "flexion-extension, positive direction"
-        },
-        {
-          "key": "k_rot",
-          "dof": "flexion-extension, negative direction"
-        }
-      ],
-      "task_ids": [
-        "pj_k44_p",
-        "pj_k44_m"
-      ]
-    },
-    {
-      "id": "pj_axial_rotation",
-      "title": "Thoracic FSU, axial rotation stiffness (both directions)",
-      "sweep": null,
-      "fixed": {
-        "specimen": "thoracic FSU with rib heads",
-        "condition": "intact, no preload",
-        "load": "100 N or 5 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
-        {
-          "key": "k_rot",
-          "dof": "axial rotation, positive direction"
-        },
-        {
-          "key": "k_rot",
-          "dof": "axial rotation, negative direction"
-        }
-      ],
-      "task_ids": [
-        "pj_k55_p",
-        "pj_k55_m"
-      ]
-    },
-    {
-      "id": "pj_lateral_bending",
-      "title": "Thoracic FSU, lateral bending stiffness (both directions)",
-      "sweep": null,
-      "fixed": {
-        "specimen": "thoracic FSU with rib heads",
-        "condition": "intact, no preload",
-        "load": "100 N or 5 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
-        {
-          "key": "k_rot",
-          "dof": "lateral bending, positive direction"
-        },
-        {
-          "key": "k_rot",
-          "dof": "lateral bending, negative direction"
-        }
-      ],
-      "task_ids": [
-        "pj_k66_p",
-        "pj_k66_m"
-      ]
-    },
-    {
       "id": "axial_stiffness_preloaded",
       "title": "Lumbar FSU or disc unit, ~0.4-0.5 MPa preload, 37 C: axial compression stiffness",
       "note": "Motion segments, isolated discs and disc units combined (as for the compression curve).",
@@ -7128,268 +7025,99 @@
       ]
     },
     {
-      "id": "amin_anterior_shear",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., anterior shear stiffness",
+      "id": "amin_six_dof",
+      "title": "Lumbar FSU, follower preload, 37 °C: stiffness per direction (Amin 2016b)",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "anterior shear",
-        "load": "0.6 mm, slope 0.4-0.58 mm"
+        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv."
       },
       "outputs": [
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "amin_anterior_shear"
-      ]
-    },
-    {
-      "id": "amin_posterior_shear",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., posterior shear stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "posterior shear",
-        "load": "0.6 mm, slope 0.4-0.58 mm"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "anterior shear"
+        },
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "amin_posterior_shear"
-      ]
-    },
-    {
-      "id": "amin_lateral_shear",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., lateral shear stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "lateral shear",
-        "load": "0.6 mm, slope 0.4-0.58 mm"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "posterior shear"
+        },
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "amin_lateral_shear"
-      ]
-    },
-    {
-      "id": "amin_flexion",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., flexion stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "flexion",
-        "load": "5 deg, slope 2-2.8 deg"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "lateral shear"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "amin_flexion"
-      ]
-    },
-    {
-      "id": "amin_extension",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., extension stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "extension",
-        "load": "2 deg, slope 0.85-1.25 deg"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "flexion"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "amin_extension"
-      ]
-    },
-    {
-      "id": "amin_lateral_bending",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., lateral bending stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "lateral bending",
-        "load": "3 deg, slope 2-2.8 deg"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "extension"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "amin_lateral_bending"
-      ]
-    },
-    {
-      "id": "amin_axial_rotation",
-      "title": "Lumbar FSU, follower preload 0.5 MPa-equiv., axial rotation stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-L5)",
-        "condition": "intact, 37 C saline, follower preload 0.5 MPa-equiv.",
-        "dof": "axial rotation",
-        "load": "2 deg, slope 1.5-1.8 deg"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "lateral bending"
+        },
         {
-          "key": "k_rot"
+          "key": "k_rot",
+          "dof": "axial rotation"
         }
       ],
       "task_ids": [
+        "amin_anterior_shear",
+        "amin_posterior_shear",
+        "amin_lateral_shear",
+        "amin_flexion",
+        "amin_extension",
+        "amin_lateral_bending",
         "amin_axial_rotation"
       ]
     },
     {
-      "id": "costi_anterior_shear",
-      "title": "Disc unit, 0.4 MPa axial preload, anterior shear stiffness",
+      "id": "costi_six_dof",
+      "title": "Lumbar disc segment, 0.4 MPa preload, 37 °C: stiffness per direction (Costi 2008)",
       "sweep": null,
       "fixed": {
         "specimen": "vertebra-disc-vertebra (posterior elements removed)",
         "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "anterior shear",
         "load": "0.001 Hz sinusoid"
       },
       "outputs": [
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "costi_anterior_shear"
-      ]
-    },
-    {
-      "id": "costi_posterior_shear",
-      "title": "Disc unit, 0.4 MPa axial preload, posterior shear stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "posterior shear",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "anterior shear"
+        },
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "costi_posterior_shear"
-      ]
-    },
-    {
-      "id": "costi_lateral_shear",
-      "title": "Disc unit, 0.4 MPa axial preload, lateral shear stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "lateral shear",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "posterior shear"
+        },
         {
-          "key": "k_lin"
-        }
-      ],
-      "task_ids": [
-        "costi_lateral_shear"
-      ]
-    },
-    {
-      "id": "costi_flexion",
-      "title": "Disc unit, 0.4 MPa axial preload, flexion stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "flexion",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_lin",
+          "dof": "lateral shear"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "costi_flexion"
-      ]
-    },
-    {
-      "id": "costi_extension",
-      "title": "Disc unit, 0.4 MPa axial preload, extension stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "extension",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "flexion"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "costi_extension"
-      ]
-    },
-    {
-      "id": "costi_lateral_bending",
-      "title": "Disc unit, 0.4 MPa axial preload, lateral bending stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "lateral bending",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "extension"
+        },
         {
-          "key": "k_rot"
-        }
-      ],
-      "task_ids": [
-        "costi_lateral_bending"
-      ]
-    },
-    {
-      "id": "costi_axial_rotation",
-      "title": "Disc unit, 0.4 MPa axial preload, axial rotation stiffness",
-      "sweep": null,
-      "fixed": {
-        "specimen": "vertebra-disc-vertebra (posterior elements removed)",
-        "condition": "37 C saline, 0.4 MPa axial preload",
-        "dof": "axial rotation",
-        "load": "0.001 Hz sinusoid"
-      },
-      "outputs": [
+          "key": "k_rot",
+          "dof": "lateral bending"
+        },
         {
-          "key": "k_rot"
+          "key": "k_rot",
+          "dof": "axial rotation"
         }
       ],
       "task_ids": [
+        "costi_anterior_shear",
+        "costi_posterior_shear",
+        "costi_lateral_shear",
+        "costi_flexion",
+        "costi_extension",
+        "costi_lateral_bending",
         "costi_axial_rotation"
       ]
     },
@@ -7530,197 +7258,114 @@
       }
     },
     {
-      "id": "berk_intact_anterior",
-      "title": "Lumbar FSU (intact), 400 N preload, anterior shear: displacement",
+      "id": "berk_intact",
+      "title": "Lumbar FSU, 400 N preload, intact: shear displacement per direction (Berkson 1979)",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
-        "dof": "anterior shear",
         "preload_n": 400
       },
       "outputs": [
         {
           "key": "disp",
+          "dof": "anterior shear",
           "load": "86 N at upper body centre (3.4 cm above disc)"
         },
         {
           "key": "disp",
+          "dof": "anterior shear",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "dof": "posterior shear",
+          "load": "86 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "dof": "posterior shear",
+          "load": "145 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "dof": "right lateral shear",
+          "load": "86 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp",
+          "dof": "right lateral shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
         }
       ],
       "task_ids": [
         "berk_intact_anterior_86",
-        "berk_intact_anterior_145"
-      ]
-    },
-    {
-      "id": "berk_intact_posterior",
-      "title": "Lumbar FSU (intact), 400 N preload, posterior shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-S1 mixed)",
-        "condition": "intact",
-        "dof": "posterior shear",
-        "preload_n": 400
-      },
-      "outputs": [
-        {
-          "key": "disp",
-          "load": "86 N at upper body centre (3.4 cm above disc)"
-        },
-        {
-          "key": "disp",
-          "load": "145 N at upper body centre (3.4 cm above disc)"
-        }
-      ],
-      "task_ids": [
+        "berk_intact_anterior_145",
         "berk_intact_posterior_86",
-        "berk_intact_posterior_145"
-      ]
-    },
-    {
-      "id": "berk_intact_right",
-      "title": "Lumbar FSU (intact), 400 N preload, right shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-S1 mixed)",
-        "condition": "intact",
-        "dof": "right lateral shear",
-        "preload_n": 400
-      },
-      "outputs": [
-        {
-          "key": "disp",
-          "load": "86 N at upper body centre (3.4 cm above disc)"
-        },
-        {
-          "key": "disp",
-          "load": "145 N at upper body centre (3.4 cm above disc)"
-        }
-      ],
-      "task_ids": [
+        "berk_intact_posterior_145",
         "berk_intact_right_86",
         "berk_intact_right_145"
       ]
     },
     {
-      "id": "berk_pe_anterior",
-      "title": "Lumbar FSU (posterior elements cut), 400 N preload, anterior shear: displacement",
+      "id": "berk_pe",
+      "title": "Lumbar FSU, 400 N preload, posterior elements cut: shear displacement (Berkson 1979)",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
-        "dof": "anterior shear",
         "preload_n": 400
       },
       "outputs": [
         {
           "key": "disp",
+          "dof": "anterior shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
-        }
-      ],
-      "task_ids": [
-        "berk_pe_anterior_145"
-      ]
-    },
-    {
-      "id": "berk_pe_posterior",
-      "title": "Lumbar FSU (posterior elements cut), 400 N preload, posterior shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-S1 mixed)",
-        "condition": "posterior elements cut",
-        "dof": "posterior shear",
-        "preload_n": 400
-      },
-      "outputs": [
+        },
         {
           "key": "disp",
+          "dof": "posterior shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
-        }
-      ],
-      "task_ids": [
-        "berk_pe_posterior_145"
-      ]
-    },
-    {
-      "id": "berk_pe_right",
-      "title": "Lumbar FSU (posterior elements cut), 400 N preload, right shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (L1-S1 mixed)",
-        "condition": "posterior elements cut",
-        "dof": "right lateral shear",
-        "preload_n": 400
-      },
-      "outputs": [
+        },
         {
           "key": "disp",
+          "dof": "right lateral shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
         }
       ],
       "task_ids": [
+        "berk_pe_anterior_145",
+        "berk_pe_posterior_145",
         "berk_pe_right_145"
       ]
     },
     {
-      "id": "frei_anterior_shear",
-      "title": "T12-L1 FSU, 500 N anterior shear: displacement",
+      "id": "frei_shear",
+      "title": "T12-L1 FSU, 500 N shear through mid-disc: displacement per direction (Frei 2002)",
       "sweep": null,
       "fixed": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
-        "dof": "anterior shear",
         "load": "500 N through mid-disc",
         "preload_n": 0
       },
       "outputs": [
         {
-          "key": "disp"
-        }
-      ],
-      "task_ids": [
-        "frei_anterior_shear"
-      ]
-    },
-    {
-      "id": "frei_posterior_shear",
-      "title": "T12-L1 FSU, 500 N posterior shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-L1 FSU",
-        "condition": "intact",
-        "dof": "posterior shear",
-        "load": "500 N through mid-disc",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "disp",
+          "dof": "anterior shear"
+        },
         {
-          "key": "disp"
-        }
-      ],
-      "task_ids": [
-        "frei_posterior_shear"
-      ]
-    },
-    {
-      "id": "frei_lateral_shear",
-      "title": "T12-L1 FSU, 500 N lateral shear: displacement",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-L1 FSU",
-        "condition": "intact",
-        "dof": "lateral shear",
-        "load": "500 N through mid-disc",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "disp",
+          "dof": "posterior shear"
+        },
         {
-          "key": "disp"
+          "key": "disp",
+          "dof": "lateral shear"
         }
       ],
       "task_ids": [
+        "frei_anterior_shear",
+        "frei_posterior_shear",
         "frei_lateral_shear"
       ]
     },
@@ -7810,162 +7455,56 @@
       ]
     },
     {
-      "id": "tencer_lateral_shear",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, lateral shear flexibility",
+      "id": "tencer_six_dof",
+      "title": "L2-L3 / L4-L5 joint, nucleus pressurised: flexibility per direction (Tencer 1982)",
       "sweep": null,
       "fixed": {
         "specimen": "L2-L3 or L4-L5 joint",
         "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "lateral shear",
-        "load": "3 equal steps to 90 N",
         "preload_n": 0
       },
       "outputs": [
         {
-          "key": "flex_lin"
-        }
-      ],
-      "task_ids": [
-        "ten_lateral_shear"
-      ]
-    },
-    {
-      "id": "tencer_anterior_shear",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, anterior shear flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "anterior shear",
-        "load": "3 equal steps to 90 N",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_lin",
+          "dof": "lateral shear"
+        },
         {
-          "key": "flex_lin"
-        }
-      ],
-      "task_ids": [
-        "ten_anterior_shear"
-      ]
-    },
-    {
-      "id": "tencer_posterior_shear",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, posterior shear flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "posterior shear",
-        "load": "3 equal steps to 90 N",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_lin",
+          "dof": "anterior shear"
+        },
         {
-          "key": "flex_lin"
-        }
-      ],
-      "task_ids": [
-        "ten_posterior_shear"
-      ]
-    },
-    {
-      "id": "tencer_axial_compression",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, axial compression flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "axial compression",
-        "load": "3 equal steps to 823 N",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_lin",
+          "dof": "posterior shear"
+        },
         {
-          "key": "flex_lin"
-        }
-      ],
-      "task_ids": [
-        "ten_axial_compression"
-      ]
-    },
-    {
-      "id": "tencer_flexion",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, flexion flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "flexion",
-        "load": "3 equal steps to 11.2 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_lin",
+          "dof": "axial compression"
+        },
         {
-          "key": "flex_rot"
-        }
-      ],
-      "task_ids": [
-        "ten_flexion"
-      ]
-    },
-    {
-      "id": "tencer_extension",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, extension flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "extension",
-        "load": "3 equal steps to 11.2 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_rot",
+          "dof": "flexion"
+        },
         {
-          "key": "flex_rot"
-        }
-      ],
-      "task_ids": [
-        "ten_extension"
-      ]
-    },
-    {
-      "id": "tencer_lateral_bending",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, lateral bending flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "lateral bending",
-        "load": "3 equal steps to 14.7 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_rot",
+          "dof": "extension"
+        },
         {
-          "key": "flex_rot"
-        }
-      ],
-      "task_ids": [
-        "ten_lateral_bending"
-      ]
-    },
-    {
-      "id": "tencer_axial_rotation",
-      "title": "L2-L3/L4-L5 joint, pressurised nucleus, axial rotation flexibility",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L2-L3 or L4-L5 joint",
-        "condition": "intact, nucleus pressurised 0.63 MPa",
-        "dof": "axial rotation",
-        "load": "3 equal steps to 12.9 Nm",
-        "preload_n": 0
-      },
-      "outputs": [
+          "key": "flex_rot",
+          "dof": "lateral bending"
+        },
         {
-          "key": "flex_rot"
+          "key": "flex_rot",
+          "dof": "axial rotation"
         }
       ],
       "task_ids": [
+        "ten_lateral_shear",
+        "ten_anterior_shear",
+        "ten_posterior_shear",
+        "ten_axial_compression",
+        "ten_flexion",
+        "ten_extension",
+        "ten_lateral_bending",
         "ten_axial_rotation"
       ]
     },
@@ -8054,50 +7593,27 @@
       ]
     },
     {
-      "id": "disc_shear_anterior",
-      "title": "L4-L5 disc segment (facets removed), 500 N, anterior shear stiffness",
+      "id": "disc_shear",
+      "title": "Disc segment (facets removed), 500 N compression: shear stiffness and strength (Skrzypiec 2013)",
       "sweep": null,
-      "fixed": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, anterior shear 0-150 N"
-      },
+      "fixed": {},
       "outputs": [
         {
-          "key": "shear_stiffness"
+          "key": "shear_stiffness",
+          "dof": "anterior shear"
+        },
+        {
+          "key": "shear_stiffness",
+          "dof": "posterior shear"
+        },
+        {
+          "key": "shear_strength",
+          "dof": "anterior shear to failure"
         }
       ],
       "task_ids": [
-        "disc_shear_k_ant"
-      ]
-    },
-    {
-      "id": "disc_shear_posterior",
-      "title": "L4-L5 disc segment (facets removed), 500 N, posterior shear stiffness",
-      "sweep": null,
-      "fixed": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, posterior shear 0-150 N"
-      },
-      "outputs": [
-        {
-          "key": "shear_stiffness"
-        }
-      ],
-      "task_ids": [
-        "disc_shear_k_post"
-      ]
-    },
-    {
-      "id": "disc_shear_failure",
-      "title": "L4-L5 disc segment (facets removed), 500 N, anterior shear to failure",
-      "sweep": null,
-      "fixed": {
-        "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure"
-      },
-      "outputs": [
-        {
-          "key": "shear_strength"
-        }
-      ],
-      "task_ids": [
+        "disc_shear_k_ant",
+        "disc_shear_k_post",
         "disc_shear_strength"
       ]
     }

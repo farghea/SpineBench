@@ -3407,44 +3407,36 @@
       "idp": "[[N, MPa], ...]",
       "idp_load_slope": "kPa/N"
     },
-    "ecc_ant": {
+    "frei_idp": {
       "idp": {
-        "T12-L1": "MPa"
+        "compression 20 mm anterior": {
+          "T12-L1": "MPa"
+        },
+        "compression 20 mm posterior": {
+          "T12-L1": "MPa"
+        },
+        "anterior shear": {
+          "T12-L1": "MPa"
+        },
+        "posterior shear": {
+          "T12-L1": "MPa"
+        }
       }
     },
-    "ecc_post": {
+    "steffen_posture": {
       "idp": {
-        "T12-L1": "MPa"
-      }
-    },
-    "shear_ant": {
-      "idp": {
-        "T12-L1": "MPa"
-      }
-    },
-    "shear_post": {
-      "idp": {
-        "T12-L1": "MPa"
-      }
-    },
-    "posture_upright": {
-      "idp": {
-        "L3-L4": "MPa"
-      }
-    },
-    "posture_flex15": {
-      "idp": {
-        "L3-L4": "MPa"
-      }
-    },
-    "posture_ext10": {
-      "idp": {
-        "L3-L4": "MPa"
-      }
-    },
-    "posture_rot10": {
-      "idp": {
-        "L3-L4": "MPa"
+        "upright": {
+          "L3-L4": "MPa"
+        },
+        "15 deg flexion": {
+          "L3-L4": "MPa"
+        },
+        "10 deg extension": {
+          "L3-L4": "MPa"
+        },
+        "upright + 10 deg left rotation": {
+          "L3-L4": "MPa"
+        }
       }
     },
     "acu_nucleotomy": {
@@ -3458,40 +3450,36 @@
         "T8-T9": "kPa/N"
       }
     },
-    "thor_flex_intact_fl400": {
+    "thor_intact_fl400": {
       "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
+        "flexion": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        },
+        "extension": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        },
+        "axial rotation (L/R combined)": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        }
       }
     },
-    "thor_ext_intact_fl400": {
+    "thor_noribs_fl400": {
       "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
-      }
-    },
-    "thor_ar_intact_fl400": {
-      "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
-      }
-    },
-    "thor_flex_noribs_fl400": {
-      "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
-      }
-    },
-    "thor_ext_noribs_fl400": {
-      "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
-      }
-    },
-    "thor_ar_noribs_fl400": {
-      "idp_moment_slope": {
-        "T4-T5": "kPa/Nm",
-        "T8-T9": "kPa/Nm"
+        "flexion": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        },
+        "extension": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        },
+        "axial rotation (L/R combined)": {
+          "T4-T5": "kPa/Nm",
+          "T8-T9": "kPa/Nm"
+        }
       }
     }
   },
@@ -4083,170 +4071,79 @@
       ]
     },
     {
-      "id": "ecc_ant",
-      "title": "T12-L1 FSU, 500 N compression 20 mm anterior: IDP",
+      "id": "frei_idp",
+      "title": "T12-L1 FSU, 500 N eccentric compression or shear: IDP per load case (Frei 2002)",
       "sweep": null,
       "fixed": {
         "specimen": "T12-L1 FSU",
         "condition": "intact",
-        "direction": "compression 20 mm anterior",
-        "load_n": 500,
-        "load_type": "eccentric"
+        "load_n": 500
       },
       "outputs": [
         {
           "key": "idp",
+          "direction": "compression 20 mm anterior",
           "level": "T12-L1"
-        }
-      ],
-      "task_ids": [
-        "frei_flexion_compression"
-      ]
-    },
-    {
-      "id": "ecc_post",
-      "title": "T12-L1 FSU, 500 N compression 20 mm posterior: IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-L1 FSU",
-        "condition": "intact",
-        "direction": "compression 20 mm posterior",
-        "load_n": 500,
-        "load_type": "eccentric"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "compression 20 mm posterior",
           "level": "T12-L1"
-        }
-      ],
-      "task_ids": [
-        "frei_extension_compression"
-      ]
-    },
-    {
-      "id": "shear_ant",
-      "title": "T12-L1 FSU, 500 N anterior shear: IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-L1 FSU",
-        "condition": "intact",
-        "direction": "anterior shear",
-        "load_n": 500,
-        "load_type": "shear"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "anterior shear",
           "level": "T12-L1"
-        }
-      ],
-      "task_ids": [
-        "frei_anterior_shear"
-      ]
-    },
-    {
-      "id": "shear_post",
-      "title": "T12-L1 FSU, 500 N posterior shear: IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-L1 FSU",
-        "condition": "intact",
-        "direction": "posterior shear",
-        "load_n": 500,
-        "load_type": "shear"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "posterior shear",
           "level": "T12-L1"
         }
       ],
       "task_ids": [
+        "frei_flexion_compression",
+        "frei_extension_compression",
+        "frei_anterior_shear",
         "frei_posterior_shear"
       ]
     },
     {
-      "id": "posture_upright",
-      "title": "L1-S1 spine, 600 N + imposed posture (upright): L3-L4 IDP",
+      "id": "steffen_posture",
+      "title": "L1-S1 spine, 600 N + imposed posture: L3-L4 IDP per posture (Steffen 1998)",
       "sweep": null,
       "fixed": {
         "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
         "condition": "intact",
-        "direction": "upright",
         "load_n": 600,
         "load_type": "axial + imposed posture"
       },
       "outputs": [
         {
           "key": "idp",
+          "direction": "upright",
           "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
-        "stef_upright"
-      ]
-    },
-    {
-      "id": "posture_flex15",
-      "title": "L1-S1 spine, 600 N + imposed posture (15 deg flexion): L3-L4 IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
-        "condition": "intact",
-        "direction": "15 deg flexion",
-        "load_n": 600,
-        "load_type": "axial + imposed posture"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "15 deg flexion",
           "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
-        "stef_flexion15"
-      ]
-    },
-    {
-      "id": "posture_ext10",
-      "title": "L1-S1 spine, 600 N + imposed posture (10 deg extension): L3-L4 IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
-        "condition": "intact",
-        "direction": "10 deg extension",
-        "load_n": 600,
-        "load_type": "axial + imposed posture"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "10 deg extension",
           "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
-        "stef_extension10"
-      ]
-    },
-    {
-      "id": "posture_rot10",
-      "title": "L1-S1 spine, 600 N + imposed posture (upright + 10 deg left rotation): L3-L4 IDP",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-S1 spine (L1-L2, L5-S1 fused)",
-        "condition": "intact",
-        "direction": "upright + 10 deg left rotation",
-        "load_n": 600,
-        "load_type": "axial + imposed posture"
-      },
-      "outputs": [
+        },
         {
           "key": "idp",
+          "direction": "upright + 10 deg left rotation",
           "level": "L3-L4"
         }
       ],
       "task_ids": [
+        "stef_upright",
+        "stef_flexion15",
+        "stef_extension10",
         "stef_upright_ar"
       ]
     },
@@ -4300,13 +4197,12 @@
       ]
     },
     {
-      "id": "thor_flex_intact_fl400",
-      "title": "T1-T12 with rib cage, flexion, 400 N follower: IDP slope vs moment",
+      "id": "thor_intact_fl400",
+      "title": "T1-T12 with rib cage, 400 N follower: IDP slope vs moment per direction",
       "sweep": null,
       "fixed": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage intact",
-        "direction": "flexion",
         "moment_nm": 5,
         "load_n": 400,
         "load_type": "pure moment + 400 N follower"
@@ -4314,80 +4210,51 @@
       "outputs": [
         {
           "key": "idp_moment_slope",
+          "direction": "flexion",
           "level": "T4-T5"
         },
         {
           "key": "idp_moment_slope",
+          "direction": "flexion",
+          "level": "T8-T9"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "extension",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "extension",
+          "level": "T8-T9"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "axial rotation (L/R combined)",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "axial rotation (L/R combined)",
           "level": "T8-T9"
         }
       ],
       "task_ids": [
         "and18_t4t5_intact_flex",
-        "and18_t8t9_intact_flex"
-      ]
-    },
-    {
-      "id": "thor_ext_intact_fl400",
-      "title": "T1-T12 with rib cage, extension, 400 N follower: IDP slope vs moment",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T1-T12 with rib cage",
-        "condition": "rib cage intact",
-        "direction": "extension",
-        "moment_nm": 5,
-        "load_n": 400,
-        "load_type": "pure moment + 400 N follower"
-      },
-      "outputs": [
-        {
-          "key": "idp_moment_slope",
-          "level": "T4-T5"
-        },
-        {
-          "key": "idp_moment_slope",
-          "level": "T8-T9"
-        }
-      ],
-      "task_ids": [
+        "and18_t8t9_intact_flex",
         "and18_t4t5_intact_ext",
-        "and18_t8t9_intact_ext"
-      ]
-    },
-    {
-      "id": "thor_ar_intact_fl400",
-      "title": "T1-T12 with rib cage, axial rotation, one side, 400 N follower: IDP slope vs moment",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T1-T12 with rib cage",
-        "condition": "rib cage intact",
-        "direction": "axial rotation (L/R combined)",
-        "moment_nm": 5,
-        "load_n": 400,
-        "load_type": "pure moment + 400 N follower"
-      },
-      "outputs": [
-        {
-          "key": "idp_moment_slope",
-          "level": "T4-T5"
-        },
-        {
-          "key": "idp_moment_slope",
-          "level": "T8-T9"
-        }
-      ],
-      "task_ids": [
+        "and18_t8t9_intact_ext",
         "and18_t4t5_intact_ar",
         "and18_t8t9_intact_ar"
       ]
     },
     {
-      "id": "thor_flex_noribs_fl400",
-      "title": "T1-T12 rib cage removed, flexion, 400 N follower: IDP slope vs moment",
+      "id": "thor_noribs_fl400",
+      "title": "T1-T12, rib cage removed, 400 N follower: IDP slope vs moment per direction",
       "sweep": null,
       "fixed": {
         "specimen": "T1-T12 with rib cage",
         "condition": "rib cage removed",
-        "direction": "flexion",
         "moment_nm": 5,
         "load_n": 400,
         "load_type": "pure moment + 400 N follower"
@@ -4395,68 +4262,40 @@
       "outputs": [
         {
           "key": "idp_moment_slope",
+          "direction": "flexion",
           "level": "T4-T5"
         },
         {
           "key": "idp_moment_slope",
+          "direction": "flexion",
+          "level": "T8-T9"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "extension",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "extension",
+          "level": "T8-T9"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "axial rotation (L/R combined)",
+          "level": "T4-T5"
+        },
+        {
+          "key": "idp_moment_slope",
+          "direction": "axial rotation (L/R combined)",
           "level": "T8-T9"
         }
       ],
       "task_ids": [
         "and18_t4t5_noribs_flex",
-        "and18_t8t9_noribs_flex"
-      ]
-    },
-    {
-      "id": "thor_ext_noribs_fl400",
-      "title": "T1-T12 rib cage removed, extension, 400 N follower: IDP slope vs moment",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T1-T12 with rib cage",
-        "condition": "rib cage removed",
-        "direction": "extension",
-        "moment_nm": 5,
-        "load_n": 400,
-        "load_type": "pure moment + 400 N follower"
-      },
-      "outputs": [
-        {
-          "key": "idp_moment_slope",
-          "level": "T4-T5"
-        },
-        {
-          "key": "idp_moment_slope",
-          "level": "T8-T9"
-        }
-      ],
-      "task_ids": [
+        "and18_t8t9_noribs_flex",
         "and18_t4t5_noribs_ext",
-        "and18_t8t9_noribs_ext"
-      ]
-    },
-    {
-      "id": "thor_ar_noribs_fl400",
-      "title": "T1-T12 rib cage removed, axial rotation, one side, 400 N follower: IDP slope vs moment",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T1-T12 with rib cage",
-        "condition": "rib cage removed",
-        "direction": "axial rotation (L/R combined)",
-        "moment_nm": 5,
-        "load_n": 400,
-        "load_type": "pure moment + 400 N follower"
-      },
-      "outputs": [
-        {
-          "key": "idp_moment_slope",
-          "level": "T4-T5"
-        },
-        {
-          "key": "idp_moment_slope",
-          "level": "T8-T9"
-        }
-      ],
-      "task_ids": [
+        "and18_t8t9_noribs_ext",
         "and18_t4t5_noribs_ar",
         "and18_t8t9_noribs_ar"
       ]

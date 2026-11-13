@@ -42,6 +42,10 @@
       "key": "force_N",
       "label": "Force",
       "unit": "N"
+    },
+    {
+      "key": "direction",
+      "label": "Loading direction"
     }
   ],
   "outputs": [
@@ -370,7 +374,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward anterior"
+        "mode": "cantilever bending (rib end clamped), load toward anterior",
+        "direction": "bending, anterior"
       },
       "output": "modulus",
       "level": "ribs 2-6",
@@ -396,7 +401,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward superior"
+        "mode": "cantilever bending (rib end clamped), load toward superior",
+        "direction": "bending, superior"
       },
       "output": "modulus",
       "level": "ribs 2-6",
@@ -422,7 +428,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward posterior"
+        "mode": "cantilever bending (rib end clamped), load toward posterior",
+        "direction": "bending, posterior"
       },
       "output": "modulus",
       "level": "ribs 2-6",
@@ -448,7 +455,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward inferior"
+        "mode": "cantilever bending (rib end clamped), load toward inferior",
+        "direction": "bending, inferior"
       },
       "output": "modulus",
       "level": "ribs 2-6",
@@ -474,7 +482,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "axial tension, secant 20-40 N, 1.3e-3 /s"
+        "mode": "axial tension, secant 20-40 N, 1.3e-3 /s",
+        "direction": "tension"
       },
       "output": "modulus",
       "level": "ribs 2-6",
@@ -500,7 +509,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "torsion by force couple (<= 175 Nmm), direction 1"
+        "mode": "torsion by force couple (<= 175 Nmm), direction 1",
+        "direction": "torsion, direction 1"
       },
       "output": "shear_modulus",
       "level": "ribs 2-6",
@@ -526,7 +536,8 @@
       "inputs": {
         "structure": "costal cartilage",
         "region": "ribs 2-6",
-        "mode": "torsion by force couple (<= 175 Nmm), direction 2"
+        "mode": "torsion by force couple (<= 175 Nmm), direction 2",
+        "direction": "torsion, direction 2"
       },
       "output": "shear_modulus",
       "level": "ribs 2-6",
@@ -1301,7 +1312,8 @@
       "inputs": {
         "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
         "mode": "torsion about rib rotation axis",
-        "region": "ribs 2, 4, 6, 8 pooled"
+        "region": "ribs 2, 4, 6, 8 pooled",
+        "direction": "torsion"
       },
       "output": "rom",
       "level": "ribs 2-8",
@@ -1562,7 +1574,8 @@
         "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
         "region": "ribs 2, 4, 6, 8 pooled",
         "mode": "rib tension 28 N, longitudinal axis",
-        "force_N": 28
+        "force_N": 28,
+        "direction": "pull, longitudinal"
       },
       "output": "displacement",
       "level": "ribs 2-8",
@@ -1589,7 +1602,8 @@
         "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
         "region": "ribs 2, 4, 6, 8 pooled",
         "mode": "rib tension 28 N, sagittal axis",
-        "force_N": 28
+        "force_N": 28,
+        "direction": "pull, sagittal"
       },
       "output": "displacement",
       "level": "ribs 2-8",
@@ -1616,7 +1630,8 @@
         "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
         "region": "ribs 2, 4, 6, 8 pooled",
         "mode": "rib tension 28 N, transverse axis",
-        "force_N": 28
+        "force_N": 28,
+        "direction": "pull, transverse"
       },
       "output": "displacement",
       "level": "ribs 2-8",
@@ -2553,25 +2568,17 @@
   ],
   "agent_prompt": "You are given a model of the human rib cage (costal cartilage, ribs, costovertebral and costotransverse joints, sternum). Run the 30 simulations in `simulations`: build the specimen named in `fixed`, fix it as tested (clamped, potted pinned-pinned, simply supported, or vertebrae fixed) and apply the load quasi-statically: bending, torsion, tension, unconfined compression or indentation of cartilage; three-point or end-to-end bending of ribs; pure moments, imposed rotations, rib tension or dead weights on the joints and sternum. Use nominal stress (force / undeformed area) and nominal strain. Report modulus, failure force or deflection, range of motion between the moment limits, moment at each angle, or pin deflection at each load. Run each simulation once, sweeping the input in `sweep` over all its listed values (start from the unloaded state; a denser curve is fine), and record every listed output. Return one JSON object following answer_format: per simulation id, one curve [[x, y], ...] per output (x = the sweep input; it is read by linear interpolation and listed x values outside your curve fail), or one number where there is no sweep or the output is marked scalar; null where your model cannot run it. Do not tune the model to the reference values.",
   "answer_format": {
-    "cc_bending_anterior": {
-      "modulus": "MPa"
-    },
-    "cc_bending_superior": {
-      "modulus": "MPa"
-    },
-    "cc_bending_posterior": {
-      "modulus": "MPa"
-    },
-    "cc_bending_inferior": {
-      "modulus": "MPa"
-    },
-    "cc_tension": {
-      "modulus": "MPa"
-    },
-    "cc_torsion": {
+    "cc_gradischar": {
+      "modulus": {
+        "bending, anterior": "MPa",
+        "bending, superior": "MPa",
+        "bending, posterior": "MPa",
+        "bending, inferior": "MPa",
+        "tension": "MPa"
+      },
       "shear_modulus": {
-        "torsion by force couple (<= 175 Nmm), direction 1": "MPa",
-        "torsion by force couple (<= 175 Nmm), direction 2": "MPa"
+        "torsion, direction 1": "MPa",
+        "torsion, direction 2": "MPa"
       }
     },
     "cc_compression": {
@@ -2609,17 +2616,15 @@
     "cvj_vd_flexion": {
       "rom": "[[Nm, deg], ...]"
     },
-    "cvj_torsion_axis": {
-      "rom": "deg"
-    },
-    "cvj_pull_longitudinal": {
-      "displacement": "mm"
-    },
-    "cvj_pull_sagittal": {
-      "displacement": "mm"
-    },
-    "cvj_pull_transverse": {
-      "displacement": "mm"
+    "cvj_lebschy": {
+      "rom": {
+        "torsion": "deg"
+      },
+      "displacement": {
+        "pull, longitudinal": "mm",
+        "pull, sagittal": "mm",
+        "pull, transverse": "mm"
+      }
     },
     "cvj_rot_x": {
       "moment": "[[deg, Nm], ...]"
@@ -2660,98 +2665,8 @@
   },
   "agent_sims": [
     {
-      "id": "cc_bending_anterior",
-      "title": "Costal cartilage, cantilever bending toward anterior: modulus",
-      "sweep": null,
-      "fixed": {
-        "structure": "costal cartilage",
-        "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward anterior"
-      },
-      "outputs": [
-        {
-          "key": "modulus"
-        }
-      ],
-      "task_ids": [
-        "cc_EB_anterior"
-      ]
-    },
-    {
-      "id": "cc_bending_superior",
-      "title": "Costal cartilage, cantilever bending toward superior: modulus",
-      "sweep": null,
-      "fixed": {
-        "structure": "costal cartilage",
-        "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward superior"
-      },
-      "outputs": [
-        {
-          "key": "modulus"
-        }
-      ],
-      "task_ids": [
-        "cc_EB_superior"
-      ]
-    },
-    {
-      "id": "cc_bending_posterior",
-      "title": "Costal cartilage, cantilever bending toward posterior: modulus",
-      "sweep": null,
-      "fixed": {
-        "structure": "costal cartilage",
-        "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward posterior"
-      },
-      "outputs": [
-        {
-          "key": "modulus"
-        }
-      ],
-      "task_ids": [
-        "cc_EB_posterior"
-      ]
-    },
-    {
-      "id": "cc_bending_inferior",
-      "title": "Costal cartilage, cantilever bending toward inferior: modulus",
-      "sweep": null,
-      "fixed": {
-        "structure": "costal cartilage",
-        "region": "ribs 2-6",
-        "mode": "cantilever bending (rib end clamped), load toward inferior"
-      },
-      "outputs": [
-        {
-          "key": "modulus"
-        }
-      ],
-      "task_ids": [
-        "cc_EB_inferior"
-      ]
-    },
-    {
-      "id": "cc_tension",
-      "title": "Costal cartilage, axial tension: modulus",
-      "sweep": null,
-      "fixed": {
-        "structure": "costal cartilage",
-        "region": "ribs 2-6",
-        "mode": "axial tension, secant 20-40 N, 1.3e-3 /s"
-      },
-      "outputs": [
-        {
-          "key": "modulus"
-        }
-      ],
-      "task_ids": [
-        "cc_EZ"
-      ]
-    },
-    {
-      "id": "cc_torsion",
-      "title": "Costal cartilage, torsion (both directions): shear modulus",
+      "id": "cc_gradischar",
+      "title": "Costal cartilage (ribs 2-6): bending, tension and torsion moduli (Gradischar 2022)",
       "sweep": null,
       "fixed": {
         "structure": "costal cartilage",
@@ -2759,15 +2674,40 @@
       },
       "outputs": [
         {
-          "key": "shear_modulus",
-          "mode": "torsion by force couple (<= 175 Nmm), direction 1"
+          "key": "modulus",
+          "direction": "bending, anterior"
+        },
+        {
+          "key": "modulus",
+          "direction": "bending, superior"
+        },
+        {
+          "key": "modulus",
+          "direction": "bending, posterior"
+        },
+        {
+          "key": "modulus",
+          "direction": "bending, inferior"
+        },
+        {
+          "key": "modulus",
+          "direction": "tension"
         },
         {
           "key": "shear_modulus",
-          "mode": "torsion by force couple (<= 175 Nmm), direction 2"
+          "direction": "torsion, direction 1"
+        },
+        {
+          "key": "shear_modulus",
+          "direction": "torsion, direction 2"
         }
       ],
       "task_ids": [
+        "cc_EB_anterior",
+        "cc_EB_superior",
+        "cc_EB_posterior",
+        "cc_EB_inferior",
+        "cc_EZ",
         "cc_GT1",
         "cc_GT2"
       ]
@@ -2975,77 +2915,35 @@
       ]
     },
     {
-      "id": "cvj_torsion_axis",
-      "title": "Costovertebral joints, torsion about the rib rotation axis: ROM",
+      "id": "cvj_lebschy",
+      "title": "Costovertebral joints (ribs 2-8): torsion ROM and 28 N rib-pull displacements (Lebschy 2024)",
       "sweep": null,
       "fixed": {
         "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
-        "mode": "torsion about rib rotation axis",
         "region": "ribs 2, 4, 6, 8 pooled"
       },
       "outputs": [
         {
-          "key": "rom"
-        }
-      ],
-      "task_ids": [
-        "cvj_rom_EZ_torsion"
-      ]
-    },
-    {
-      "id": "cvj_pull_longitudinal",
-      "title": "Costovertebral joints, 28 N rib tension: longitudinal displacement",
-      "sweep": null,
-      "fixed": {
-        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
-        "region": "ribs 2, 4, 6, 8 pooled",
-        "mode": "rib tension 28 N, longitudinal axis",
-        "force_N": 28
-      },
-      "outputs": [
+          "key": "rom",
+          "direction": "torsion"
+        },
         {
-          "key": "displacement"
-        }
-      ],
-      "task_ids": [
-        "cvj_disp_longitudinal"
-      ]
-    },
-    {
-      "id": "cvj_pull_sagittal",
-      "title": "Costovertebral joints, 28 N rib tension: sagittal displacement",
-      "sweep": null,
-      "fixed": {
-        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
-        "region": "ribs 2, 4, 6, 8 pooled",
-        "mode": "rib tension 28 N, sagittal axis",
-        "force_N": 28
-      },
-      "outputs": [
+          "key": "displacement",
+          "direction": "pull, longitudinal"
+        },
         {
-          "key": "displacement"
-        }
-      ],
-      "task_ids": [
-        "cvj_disp_sagittal"
-      ]
-    },
-    {
-      "id": "cvj_pull_transverse",
-      "title": "Costovertebral joints, 28 N rib tension: transverse displacement",
-      "sweep": null,
-      "fixed": {
-        "structure": "costovertebral + costotransverse joint (rib + vertebrae)",
-        "region": "ribs 2, 4, 6, 8 pooled",
-        "mode": "rib tension 28 N, transverse axis",
-        "force_N": 28
-      },
-      "outputs": [
+          "key": "displacement",
+          "direction": "pull, sagittal"
+        },
         {
-          "key": "displacement"
+          "key": "displacement",
+          "direction": "pull, transverse"
         }
       ],
       "task_ids": [
+        "cvj_rom_EZ_torsion",
+        "cvj_disp_longitudinal",
+        "cvj_disp_sagittal",
         "cvj_disp_transverse"
       ]
     },

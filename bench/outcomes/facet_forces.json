@@ -2257,59 +2257,49 @@
         "L4-L5": "N"
       }
     },
-    "fl400_neutral": {
+    "fl400": {
       "facet_force": {
-        "L1-L2": "N"
+        "neutral (upright)": {
+          "L1-L2": "N"
+        },
+        "flexion to 7.5 Nm angle": {
+          "L1-L2": "N"
+        },
+        "extension to 7.5 Nm angle": {
+          "L1-L2": "N"
+        }
       }
     },
-    "fl400_flexion": {
+    "peak": {
       "facet_force": {
-        "L1-L2": "N"
+        "extension": {
+          "L1-L2": "N"
+        },
+        "axial rotation": {
+          "L1-L2": "N"
+        },
+        "lateral bending": {
+          "L1-L2": "N"
+        }
       }
     },
-    "fl400_extension": {
-      "facet_force": {
-        "L1-L2": "N"
-      }
-    },
-    "peak_extension": {
-      "facet_force": {
-        "L1-L2": "N"
-      }
-    },
-    "peak_axial_rotation": {
-      "facet_force": {
-        "L1-L2": "N"
-      }
-    },
-    "peak_lateral_bending": {
-      "facet_force": {
-        "L1-L2": "N"
-      }
-    },
-    "slope_extension": {
+    "slope": {
       "facet_slope": {
-        "L1-L2": "N/Nm"
-      }
-    },
-    "slope_flexion": {
-      "facet_slope": {
-        "L1-L2": "N/Nm"
-      }
-    },
-    "slope_lateral_bending_right": {
-      "facet_slope": {
-        "L1-L2": "N/Nm"
-      }
-    },
-    "slope_lateral_bending_left": {
-      "facet_slope": {
-        "L1-L2": "N/Nm"
-      }
-    },
-    "slope_axial_rotation": {
-      "facet_slope": {
-        "L1-L2": "N/Nm"
+        "extension": {
+          "L1-L2": "N/Nm"
+        },
+        "flexion": {
+          "L1-L2": "N/Nm"
+        },
+        "right lateral bending (toward facet)": {
+          "L1-L2": "N/Nm"
+        },
+        "left lateral bending": {
+          "L1-L2": "N/Nm"
+        },
+        "axial rotation": {
+          "L1-L2": "N/Nm"
+        }
       }
     },
     "compression": {
@@ -2326,19 +2316,17 @@
         "L4-L5": "N"
       }
     },
-    "shear_neutral": {
+    "shear_sagittal": {
       "facet_force": {
-        "L5-S1": "N"
-      }
-    },
-    "shear_flexion": {
-      "facet_force": {
-        "L5-S1": "N"
-      }
-    },
-    "shear_extension": {
-      "facet_force": {
-        "L5-S1": "N"
+        "neutral": {
+          "L5-S1": "N"
+        },
+        "flexion": {
+          "L5-S1": "N"
+        },
+        "extension": {
+          "L5-S1": "N"
+        }
       }
     },
     "shear_lb": {
@@ -2346,28 +2334,24 @@
         "L5-S1": "[[deg, N], ...]"
       }
     },
-    "rot_flex": {
+    "rot": {
       "facet_force": {
-        "L2-L3": "N",
-        "L3-L4": "N"
-      }
-    },
-    "rot_ext": {
-      "facet_force": {
-        "L2-L3": "N",
-        "L3-L4": "N"
-      }
-    },
-    "rot_lb": {
-      "facet_force": {
-        "L2-L3": "N",
-        "L3-L4": "N"
-      }
-    },
-    "rot_ar": {
-      "facet_force": {
-        "L2-L3": "N",
-        "L3-L4": "N"
+        "flexion": {
+          "L2-L3": "N",
+          "L3-L4": "N"
+        },
+        "extension": {
+          "L2-L3": "N",
+          "L3-L4": "N"
+        },
+        "lateral bending": {
+          "L2-L3": "N",
+          "L3-L4": "N"
+        },
+        "axial rotation": {
+          "L2-L3": "N",
+          "L3-L4": "N"
+        }
       }
     },
     "cycle_intact": {
@@ -2384,34 +2368,34 @@
         "+-5 deg cycle mean": "%"
       }
     },
-    "ecc_ant": {
+    "ecc": {
       "facet_share": {
-        "lumbar": "%"
+        "compression, 10 mm anterior": {
+          "lumbar": "%"
+        },
+        "compression, 10 mm posterior": {
+          "lumbar": "%"
+        }
       }
     },
-    "ecc_post": {
+    "arch_2000": {
       "facet_share": {
-        "lumbar": "%"
+        "extension": {
+          "lumbar": "%"
+        },
+        "flexion": {
+          "lumbar": "%"
+        }
       }
     },
-    "arch_extension": {
+    "arch_1500": {
       "facet_share": {
-        "lumbar": "%"
-      }
-    },
-    "arch_flexion": {
-      "facet_share": {
-        "lumbar": "%"
-      }
-    },
-    "arch_erect_1500": {
-      "facet_share": {
-        "thoracolumbar": "%"
-      }
-    },
-    "arch_flexed_1500": {
-      "facet_share": {
-        "thoracolumbar": "%"
+        "extension": {
+          "thoracolumbar": "%"
+        },
+        "flexion": {
+          "thoracolumbar": "%"
+        }
       }
     }
   },
@@ -2607,234 +2591,111 @@
       ]
     },
     {
-      "id": "fl400_neutral",
-      "title": "L1-L2 in T12-L2, 400 N follower, neutral (upright): facet force",
+      "id": "fl400",
+      "title": "L1-L2 in T12-L2, 400 N follower, neutral / flexion / extension: facet force",
       "sweep": null,
       "fixed": {
         "specimen": "L1-L2 within T12-L2",
         "condition": "intact, 400 N follower",
-        "direction": "neutral (upright)",
-        "moment_nm": 0,
         "axial_n": 400,
         "facet": "mean of both facets"
       },
       "outputs": [
         {
           "key": "facet_force",
+          "direction": "neutral (upright)",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sawa_fl_neutral"
-      ]
-    },
-    {
-      "id": "fl400_flexion",
-      "title": "L1-L2 in T12-L2, 400 N follower, flexion to 7.5 Nm angle: facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 within T12-L2",
-        "condition": "intact, 400 N follower",
-        "direction": "flexion to 7.5 Nm angle",
-        "moment_nm": 7.5,
-        "axial_n": 400,
-        "facet": "mean of both facets"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "flexion to 7.5 Nm angle",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sawa_fl_flexion"
-      ]
-    },
-    {
-      "id": "fl400_extension",
-      "title": "L1-L2 in T12-L2, 400 N follower, extension to 7.5 Nm angle: facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 within T12-L2",
-        "condition": "intact, 400 N follower",
-        "direction": "extension to 7.5 Nm angle",
-        "moment_nm": 7.5,
-        "axial_n": 400,
-        "facet": "mean of both facets"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "extension to 7.5 Nm angle",
           "level": "L1-L2"
         }
       ],
       "task_ids": [
+        "sawa_fl_neutral",
+        "sawa_fl_flexion",
         "sawa_fl_extension"
       ]
     },
     {
-      "id": "peak_extension",
-      "title": "L1-L2 FSU, extension: largest facet force",
+      "id": "peak",
+      "title": "L1-L2 FSU, peak facet force per bending direction (Schendel 1993)",
       "sweep": null,
       "fixed": {
         "specimen": "L1-L2 FSU",
         "condition": "intact",
-        "direction": "extension",
-        "moment_nm": 10,
-        "facet": "right facet",
-        "axial_n": 190
+        "facet": "right facet"
       },
       "outputs": [
         {
           "key": "facet_force",
+          "direction": "extension",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_peak_extension"
-      ]
-    },
-    {
-      "id": "peak_axial_rotation",
-      "title": "L1-L2 FSU, axial rotation: largest facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact",
-        "direction": "axial rotation",
-        "moment_nm": 10,
-        "facet": "right facet",
-        "axial_n": 150
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "axial rotation",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_peak_axial_rotation"
-      ]
-    },
-    {
-      "id": "peak_lateral_bending",
-      "title": "L1-L2 FSU, lateral bending: largest facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact",
-        "direction": "lateral bending",
-        "moment_nm": 3,
-        "facet": "right facet",
-        "axial_n": 160
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "lateral bending",
           "level": "L1-L2"
         }
       ],
       "task_ids": [
+        "sch_peak_extension",
+        "sch_peak_axial_rotation",
         "sch_peak_lateral_bending"
       ]
     },
     {
-      "id": "slope_extension",
-      "title": "L1-L2 FSU, eccentric compression, extension: facet force slope",
+      "id": "slope",
+      "title": "L1-L2 FSU, eccentric compression: slope of facet force vs moment per direction (Schendel 1993)",
       "sweep": null,
       "fixed": {
         "specimen": "L1-L2 FSU",
         "condition": "intact, eccentric compression 50-300 N",
-        "direction": "extension",
         "facet": "right facet"
       },
       "outputs": [
         {
           "key": "facet_slope",
+          "direction": "extension",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_slope_extension"
-      ]
-    },
-    {
-      "id": "slope_flexion",
-      "title": "L1-L2 FSU, eccentric compression, flexion: facet force slope",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact, eccentric compression 50-300 N",
-        "direction": "flexion",
-        "facet": "right facet"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_slope",
+          "direction": "flexion",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_slope_flexion"
-      ]
-    },
-    {
-      "id": "slope_lateral_bending_right",
-      "title": "L1-L2 FSU, eccentric compression, lateral bending right: facet force slope",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact, eccentric compression 50-300 N",
-        "direction": "right lateral bending (toward facet)",
-        "facet": "right facet"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_slope",
+          "direction": "right lateral bending (toward facet)",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_slope_lateral_bending_right"
-      ]
-    },
-    {
-      "id": "slope_lateral_bending_left",
-      "title": "L1-L2 FSU, eccentric compression, lateral bending left: facet force slope",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact, eccentric compression 50-300 N",
-        "direction": "left lateral bending",
-        "facet": "right facet"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_slope",
+          "direction": "left lateral bending",
           "level": "L1-L2"
-        }
-      ],
-      "task_ids": [
-        "sch_slope_lateral_bending_left"
-      ]
-    },
-    {
-      "id": "slope_axial_rotation",
-      "title": "L1-L2 FSU, eccentric compression, axial rotation: facet force slope",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L1-L2 FSU",
-        "condition": "intact, eccentric compression 50-300 N",
-        "direction": "axial rotation",
-        "facet": "right facet"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_slope",
+          "direction": "axial rotation",
           "level": "L1-L2"
         }
       ],
       "task_ids": [
+        "sch_slope_extension",
+        "sch_slope_flexion",
+        "sch_slope_lateral_bending_right",
+        "sch_slope_lateral_bending_left",
         "sch_slope_axial_rotation"
       ]
     },
@@ -2890,68 +2751,35 @@
       ]
     },
     {
-      "id": "shear_neutral",
-      "title": "L5-S1, 650 N compression + 550 N anterior shear, neutral: facet force",
+      "id": "shear_sagittal",
+      "title": "L5-S1, 650 N compression + 550 N anterior shear, neutral / 6° flexion / 6° extension: facet force",
       "sweep": null,
       "fixed": {
         "specimen": "L5-S1 (Rousseau 2006)",
         "condition": "intact, 650 N compression + 550 N anterior shear",
-        "direction": "neutral",
         "axial_n": 650,
-        "rotation_deg": 0,
         "facet": "mean of both facets"
       },
       "outputs": [
         {
           "key": "facet_force",
+          "direction": "neutral",
           "level": "L5-S1"
-        }
-      ],
-      "task_ids": [
-        "rou_l5s1_neutral"
-      ]
-    },
-    {
-      "id": "shear_flexion",
-      "title": "L5-S1, 650 N compression + 550 N anterior shear, flexion: facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L5-S1 (Rousseau 2006)",
-        "condition": "intact, 650 N compression + 550 N anterior shear",
-        "direction": "flexion",
-        "axial_n": 650,
-        "rotation_deg": 6,
-        "facet": "mean of both facets"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "flexion",
           "level": "L5-S1"
-        }
-      ],
-      "task_ids": [
-        "rou_l5s1_flexion"
-      ]
-    },
-    {
-      "id": "shear_extension",
-      "title": "L5-S1, 650 N compression + 550 N anterior shear, extension: facet force",
-      "sweep": null,
-      "fixed": {
-        "specimen": "L5-S1 (Rousseau 2006)",
-        "condition": "intact, 650 N compression + 550 N anterior shear",
-        "direction": "extension",
-        "axial_n": 650,
-        "rotation_deg": 6,
-        "facet": "mean of both facets"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_force",
+          "direction": "extension",
           "level": "L5-S1"
         }
       ],
       "task_ids": [
+        "rou_l5s1_neutral",
+        "rou_l5s1_flexion",
         "rou_l5s1_extension"
       ]
     },
@@ -2979,109 +2807,64 @@
       "note": "+6 deg = the facet on the side the segment bends toward; -6 deg = the opposite facet."
     },
     {
-      "id": "rot_flex",
-      "title": "T12-S1 + 400 N follower, imposed flexion rotation: facet force per level",
+      "id": "rot",
+      "title": "T12-S1 + 400 N follower, imposed rotation per direction: facet force per level",
       "sweep": null,
       "fixed": {
         "specimen": "T12-S1 spine, rotation-controlled",
         "condition": "intact, 400 N follower",
-        "direction": "flexion",
-        "rotation_deg": 15,
         "facet": "mean of both facets",
         "axial_n": 400
       },
       "outputs": [
         {
           "key": "facet_force",
+          "direction": "flexion",
           "level": "L2-L3"
         },
         {
           "key": "facet_force",
+          "direction": "flexion",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "direction": "extension",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "direction": "extension",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "direction": "lateral bending",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "direction": "lateral bending",
+          "level": "L3-L4"
+        },
+        {
+          "key": "facet_force",
+          "direction": "axial rotation",
+          "level": "L2-L3"
+        },
+        {
+          "key": "facet_force",
+          "direction": "axial rotation",
           "level": "L3-L4"
         }
       ],
       "task_ids": [
         "bot_l2l3_flexion",
-        "bot_l3l4_flexion"
-      ]
-    },
-    {
-      "id": "rot_ext",
-      "title": "T12-S1 + 400 N follower, imposed extension rotation: facet force per level",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-S1 spine, rotation-controlled",
-        "condition": "intact, 400 N follower",
-        "direction": "extension",
-        "rotation_deg": 15,
-        "facet": "mean of both facets",
-        "axial_n": 400
-      },
-      "outputs": [
-        {
-          "key": "facet_force",
-          "level": "L2-L3"
-        },
-        {
-          "key": "facet_force",
-          "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
+        "bot_l3l4_flexion",
         "bot_l2l3_extension",
-        "bot_l3l4_extension"
-      ]
-    },
-    {
-      "id": "rot_lb",
-      "title": "T12-S1 + 400 N follower, imposed lateral bending, one side rotation: facet force per level",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-S1 spine, rotation-controlled",
-        "condition": "intact, 400 N follower",
-        "direction": "lateral bending",
-        "rotation_deg": 10,
-        "facet": "mean of both facets",
-        "axial_n": 400
-      },
-      "outputs": [
-        {
-          "key": "facet_force",
-          "level": "L2-L3"
-        },
-        {
-          "key": "facet_force",
-          "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
+        "bot_l3l4_extension",
         "bot_l2l3_lateral_bending",
-        "bot_l3l4_lateral_bending"
-      ]
-    },
-    {
-      "id": "rot_ar",
-      "title": "T12-S1 + 400 N follower, imposed axial rotation, one side rotation: facet force per level",
-      "sweep": null,
-      "fixed": {
-        "specimen": "T12-S1 spine, rotation-controlled",
-        "condition": "intact, 400 N follower",
-        "direction": "axial rotation",
-        "rotation_deg": 10,
-        "facet": "mean of both facets",
-        "axial_n": 400
-      },
-      "outputs": [
-        {
-          "key": "facet_force",
-          "level": "L2-L3"
-        },
-        {
-          "key": "facet_force",
-          "level": "L3-L4"
-        }
-      ],
-      "task_ids": [
+        "bot_l3l4_lateral_bending",
         "bot_l2l3_axial_rotation",
         "bot_l3l4_axial_rotation"
       ]
@@ -3149,132 +2932,83 @@
       ]
     },
     {
-      "id": "ecc_ant",
-      "title": "Lumbar FSU, 1112 N compression 10 mm anterior: facet share",
+      "id": "ecc",
+      "title": "Lumbar FSU, 1112 N compression 10 mm anterior / posterior: facet share",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (Yang & King 1984)",
         "condition": "intact",
-        "direction": "compression, 10 mm anterior",
         "axial_n": 1112,
         "facet": "both facets"
       },
       "outputs": [
         {
           "key": "facet_share",
+          "direction": "compression, 10 mm anterior",
           "level": "lumbar"
-        }
-      ],
-      "task_ids": [
-        "yk_ant"
-      ]
-    },
-    {
-      "id": "ecc_post",
-      "title": "Lumbar FSU, 1112 N compression 10 mm posterior: facet share",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (Yang & King 1984)",
-        "condition": "intact",
-        "direction": "compression, 10 mm posterior",
-        "axial_n": 1112,
-        "facet": "both facets"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_share",
+          "direction": "compression, 10 mm posterior",
           "level": "lumbar"
         }
       ],
       "task_ids": [
+        "yk_ant",
         "yk_post"
       ]
     },
     {
-      "id": "arch_extension",
-      "title": "Lumbar FSU, 2000 N + extension: neural-arch share",
+      "id": "arch_2000",
+      "title": "Lumbar FSU (grade-1 discs), 2000 N in 2° extension / 6-12° flexion: neural-arch share",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (Pollintine 2004)",
         "condition": "grade-1 disc, after 2 h creep",
-        "direction": "extension",
         "axial_n": 2000,
-        "rotation_deg": 2,
         "facet": "neural arch"
       },
       "outputs": [
         {
           "key": "facet_share",
+          "direction": "extension",
           "level": "lumbar"
-        }
-      ],
-      "task_ids": [
-        "pol_extension"
-      ]
-    },
-    {
-      "id": "arch_flexion",
-      "title": "Lumbar FSU, 2000 N + flexion: neural-arch share",
-      "sweep": null,
-      "fixed": {
-        "specimen": "lumbar FSU (Pollintine 2004)",
-        "condition": "grade-1 disc, after 2 h creep",
-        "direction": "flexion",
-        "axial_n": 2000,
-        "rotation_deg": "6-12",
-        "facet": "neural arch"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_share",
+          "direction": "flexion",
           "level": "lumbar"
         }
       ],
       "task_ids": [
+        "pol_extension",
         "pol_flexion"
       ]
     },
     {
-      "id": "arch_erect_1500",
-      "title": "Elderly thoracolumbar FSU, 1500 N + 2 deg extension: neural-arch share",
+      "id": "arch_1500",
+      "title": "Elderly thoracolumbar FSU, 1500 N erect (2° extension) / 2-8° flexion: neural-arch share",
       "sweep": null,
       "fixed": {
         "specimen": "elderly thoracolumbar FSU (Farooq 2005)",
         "condition": "degenerated disc, after 1 h creep",
-        "direction": "extension",
         "axial_n": 1500,
-        "rotation_deg": 2,
         "facet": "neural arch"
       },
       "outputs": [
         {
           "key": "facet_share",
+          "direction": "extension",
           "level": "thoracolumbar"
-        }
-      ],
-      "task_ids": [
-        "far_comp"
-      ]
-    },
-    {
-      "id": "arch_flexed_1500",
-      "title": "Elderly thoracolumbar FSU, 1500 N + 2-8 deg flexion: neural-arch share",
-      "sweep": null,
-      "fixed": {
-        "specimen": "elderly thoracolumbar FSU (Farooq 2005)",
-        "condition": "degenerated disc, after 1 h creep",
-        "direction": "flexion",
-        "axial_n": 1500,
-        "rotation_deg": "2-8",
-        "facet": "neural arch"
-      },
-      "outputs": [
+        },
         {
           "key": "facet_share",
+          "direction": "flexion",
           "level": "thoracolumbar"
         }
       ],
       "task_ids": [
+        "far_comp",
         "far_flex"
       ]
     }

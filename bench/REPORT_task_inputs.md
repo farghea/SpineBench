@@ -135,7 +135,6 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
 - ref without n (41): asn_050, asn_100, asn_150, asn_comp_000, brn_comp_000, brn_max_020, brn_max_040, brn_max_060, brn_max_080, brn_max_100, brn_max_110, brn_min_020, brn_min_040, brn_min_060 ...
 - identical inputs on several tasks (check definitions) (13): brn_comp_000/mkm_comp_000, brn_max_040/mkm_max_040, brn_max_060/mkm_max_060, brn_max_080/mkm_max_080, brn_max_100/mkm_max_100, brn_min_040/mkm_min_040, brn_min_060/mkm_min_060, brn_min_080/mkm_min_080, brn_min_100/mkm_min_100, brn_min_120/mkm_min_120, brn_min_140/mkm_min_140, brn_min_160/mkm_min_160, brn_min_180/mkm_min_180
-- no direction/DOF (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
 - no load/moment magnitude (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
 - preload not stated (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
 - study sample without donor age in the card (see test) (18): adamsdolan1991, amin2016a, amin2016b, asano1992, berkson1979, brown1957, cannella2008, costi2008, edwards1987, frei2002, gardnermorse2004, janevic1991, panjabi1976, patwardhan2003 ...
