@@ -1,0 +1,79 @@
+{
+ "id": "passive_tissue.ebara1996.AF_hydration_saline_equilibrium",
+ "title": "Ebara 1996 AF hydration at equilibrium in 0.15 M NaCl, inner vs outer",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "non-degenerate (Thompson grade I-II)",
+ "quantity": {
+  "name": "hydration",
+  "definition": "water content (g H2O / g wet tissue) of AF test specimens at equilibrium after soaking in 0.15 M NaCl (pilot specimens)",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Ebara 1996",
+  "authors": "Ebara S, Iatridis JC, Setton LA, Foster RJ, Mow VC, Weidenbaum M",
+  "year": 1996,
+  "journal": "Spine 21(4):452-461",
+  "doi": "10.1097/00007632-199602150-00009",
+  "n": 60,
+  "sample": "60 multiple-layer circumferential AF specimens, 15 per region (anterior outer AO, anterior inner AI, posterolateral outer PO, posterolateral inner PI), from the L3-L4 discs of 15 lumbar spines (autopsy, frozen -20 C), Thompson grade I-II",
+  "age": "26-53 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Pilot specimens soaked in 0.15 M NaCl for up to 120 min; hydration reached 98 % of equilibrium within 30 min and stayed nearly constant (~2 % variation) for more than 90 min.",
+  "how_to_simulate": [
+   "Free swelling of an AF specimen in 0.15 M NaCl to equilibrium",
+   "Report water content as g water / g wet tissue"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "inner AF",
+   "load": "",
+   "mean": 88.5,
+   "sd": 4.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "outer AF",
+   "load": "",
+   "mean": 82.5,
+   "sd": 0.45,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2 caption (p.454)",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Caption: equilibrium hydration inner 88.5 +- 4.7 % (n=5), outer 82.5 +- 0.45 % (n=5). Region (anterior/posterolateral) not stated."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__hydration__af__human_nondegen__free_swelling_0_15m_nacl",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar"
+ ]
+}

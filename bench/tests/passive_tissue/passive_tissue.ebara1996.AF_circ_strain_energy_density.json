@@ -1,0 +1,114 @@
+{
+ "id": "passive_tissue.ebara1996.AF_circ_strain_energy_density",
+ "title": "Ebara 1996 AF circumferential strain energy density to failure by region",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "non-degenerate (Thompson grade I-II)",
+ "quantity": {
+  "name": "strain energy density to failure",
+  "definition": "integral of nominal stress over nominal strain from 0 to failure strain (cubic fit), gauge-region failures only",
+  "unit": "kJ/m3"
+ },
+ "source": {
+  "short": "Ebara 1996",
+  "authors": "Ebara S, Iatridis JC, Setton LA, Foster RJ, Mow VC, Weidenbaum M",
+  "year": 1996,
+  "journal": "Spine 21(4):452-461",
+  "doi": "10.1097/00007632-199602150-00009",
+  "n": 60,
+  "sample": "60 multiple-layer circumferential AF specimens, 15 per region (anterior outer AO, anterior inner AI, posterolateral outer PO, posterolateral inner PI), from the L3-L4 discs of 15 lumbar spines (autopsy, frozen -20 C), Thompson grade I-II",
+  "age": "26-53 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L3-L4 hemidisc; AF blocks from anterior and posterolateral regions, each split into inner and outer halves, microtomed to uniform thickness, soaked 15 min in 0.15 M NaCl, then a dumbbell cut with its long axis along the disc circumference (multi-layer, fibres at about +-30 deg to the load axis). Specimen ~10 mm long; gauge region 3.7 x 4.4 x 2.3 mm (L x W x T); thickness increased 17 % with soaking. Spring-loaded self-gripping jaws with polishing paper, test bath 0.15 M NaCl; preconditioning 10 cycles at 0.4 Hz to 0.05 N, then 0.1 N tare held 15 min; elongation at 0.07 mm/min (~0.0001 /s, quasi-static). Strain = change in gauge-mark length / initial gauge length (video dimension analyser); stress = force / undeformed cross-section. Per specimen cubic fit sigma = A eps + B eps^3; tensile modulus E = d sigma/d eps of the fit at 75 % of failure strain; failure stress/strain = maximum stress before failure and its strain, only for the 32 specimens that failed in the gauge region (24 failed at the grips, 4 by delamination outside the gauge).",
+  "how_to_simulate": [
+   "Multi-layer circumferential AF strip (gauge 3.7 x 4.4 x 2.3 mm), lamellae at about +-30 deg to the load axis, region-specific properties (anterior/posterolateral, outer/inner)",
+   "Grip the ends, sides free, tare 0.1 N; pull circumferentially at ~0.0001 /s (quasi-static) in 0.15 M NaCl",
+   "Report nominal stress (force / undeformed area) vs gauge nominal strain"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "AO (anterior outer)",
+   "load": "",
+   "mean": 138.1,
+   "sd": 143.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "AI (anterior inner)",
+   "load": "",
+   "mean": 71.9,
+   "sd": 54.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 12
+  },
+  {
+   "x": "PO (posterolateral outer)",
+   "load": "",
+   "mean": 56.7,
+   "sd": 35.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 8
+  },
+  {
+   "x": "PI (posterolateral inner)",
+   "load": "",
+   "mean": 82.9,
+   "sd": 91.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7
+  },
+  {
+   "x": "all regions pooled (text p.456)",
+   "load": "",
+   "mean": 80.6,
+   "sd": 78.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 32,
+   "orig": "80.6 +- 78.1 kJ/m3 (all samples), text p.456"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6c (p.457); pooled value text p.456",
+  "method": "digitised_figure",
+  "uncertainty": "+/-3 kJ/m3 (means), +/-5 kJ/m3 (SD)",
+  "checked": true,
+  "check_notes": "Bar chart read from the native page scan: frame top/bottom located per column (the printed frame is rotated ~1 deg and slightly keystoned), bar top and SD whisker cap located by pixel runs; value = axis_max x (bottom - y)/(bottom - top). Axis 0-300 kJ/m3 (1.38 px per kJ/m3). Check: n-weighted mean of the four bars = 80.9 kJ/m3 vs text 80.6 kJ/m3 (n=32)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__sed_failure__af_regional__human_nondegen__uniaxial_circ_saline",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "quasi-static",
+  "digitised",
+  "failure"
+ ]
+}

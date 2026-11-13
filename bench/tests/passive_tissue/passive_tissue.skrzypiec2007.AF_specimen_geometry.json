@@ -1,0 +1,199 @@
+{
+ "id": "passive_tissue.skrzypiec2007.AF_specimen_geometry",
+ "title": "Skrzypiec 2007 AF tensile specimen dimensions by radial region",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "thoracolumbar",
+ "levels": [
+  "T8-T9",
+  "T9-T10",
+  "T10-T11",
+  "T11-T12",
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "mixed degeneration (grades 1-4, mostly 2-3), elderly",
+ "quantity": {
+  "name": "specimen geometry",
+  "definition": "free length L between sandpaper edges, width and thickness of the narrowed region (Vernier caliper, 0.1 mm), cross-sectional area",
+  "unit": "mm / mm2"
+ },
+ "source": {
+  "short": "Skrzypiec 2007",
+  "authors": "Skrzypiec D, Tarala M, Pollintine P, Dolan P, Adams MA",
+  "year": 2007,
+  "journal": "Spine 32(22):2455-2461",
+  "doi": "10.1097/brs.0b013e3181573b87",
+  "n": 132,
+  "sample": "132 successfully tested AF slices (39 inner, 46 middle, 47 outer) from discs adjacent to 47 thoracolumbar motion segments (T8-T9 to L5-S1) of 30 cadavers (20 female, 27 male segments); degeneration grades 1-4 (mostly 2-3)",
+  "age": "48-91 y (mean 75)",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "2.2-mm-thick circumferential (tangential) slices of anterolateral AF cut with parallel razor blades from partially frozen discs, designated outer/middle/inner third; dumbbell specimens (narrowed region typically 6 x 2 x 2.2 mm) cut with curved blades; ends glued (cyanoacrylate) to folded sandpaper and clamped; test region wrapped in cling film, then a drop of saline; tested in air within 5 min (outer AF hydration 63 % -> 57.5 % in simulated tests). Preconditioning 4 cycles to ~20 % strain at 1 mm/s, then stretched to failure at 1 mm/s (~15 %/s; NOT quasi-static). Strain and stiffness from clamp separation (length L between sandpaper edges); stress = force / initial cross-section. If two specimens came from one region the stronger was kept.",
+  "how_to_simulate": [
+   "Use these dimensions to build the dumbbell specimen model"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "length, inner anulus",
+   "load": "",
+   "mean": 6.81,
+   "sd": 1.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 39,
+   "unit": "mm"
+  },
+  {
+   "x": "length, middle anulus",
+   "load": "",
+   "mean": 6.77,
+   "sd": 1.56,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "unit": "mm"
+  },
+  {
+   "x": "length, outer anulus",
+   "load": "",
+   "mean": 6.33,
+   "sd": 1.69,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 47,
+   "unit": "mm"
+  },
+  {
+   "x": "width, inner anulus",
+   "load": "",
+   "mean": 2.09,
+   "sd": 0.25,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 39,
+   "unit": "mm"
+  },
+  {
+   "x": "width, middle anulus",
+   "load": "",
+   "mean": 2.04,
+   "sd": 0.26,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "unit": "mm"
+  },
+  {
+   "x": "width, outer anulus",
+   "load": "",
+   "mean": 2.13,
+   "sd": 0.21,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 47,
+   "unit": "mm"
+  },
+  {
+   "x": "thickness, inner anulus",
+   "load": "",
+   "mean": 2.44,
+   "sd": 0.51,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 39,
+   "unit": "mm"
+  },
+  {
+   "x": "thickness, middle anulus",
+   "load": "",
+   "mean": 2.38,
+   "sd": 0.43,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "unit": "mm"
+  },
+  {
+   "x": "thickness, outer anulus",
+   "load": "",
+   "mean": 2.27,
+   "sd": 0.36,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 47,
+   "unit": "mm"
+  },
+  {
+   "x": "cross-sectional area, inner anulus",
+   "load": "",
+   "mean": 5.16,
+   "sd": 1.58,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 39,
+   "unit": "mm2"
+  },
+  {
+   "x": "cross-sectional area, middle anulus",
+   "load": "",
+   "mean": 4.92,
+   "sd": 1.17,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "unit": "mm2"
+  },
+  {
+   "x": "cross-sectional area, outer anulus",
+   "load": "",
+   "mean": 4.84,
+   "sd": 0.9,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 47,
+   "unit": "mm2"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.2458)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1, mean (SD); n = 39/46/47."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__specimen_geometry__af_anterolateral_radial__human__uniaxial_circ_dumbbell",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "thoracolumbar"
+ ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternectomy_rom_7.5Nm",
+  "title": "Middle-segment ROM in 4-vertebra rib cage specimen, step 2: resection of costosternal joints and sternum (Brasiliense 2011)",
+  "layer": "outcome",
+  "category": "fe_resection_thoracic",
+  "subcategory": "short segment with rib cage, stepwise reduction",
+  "region": "thoracic",
+  "levels": [
+    "T3-T4",
+    "T4-T5",
+    "T5-T6"
+  ],
+  "condition": "ribcage_sternectomy",
+  "quantity": {
+    "name": "ROM",
+    "definition": "unidirectional ROM of the middle motion segment of the 4-vertebra specimen: angle at 7.5 Nm relative to neutral (centre of the bidirectional lax zone); LB and AR one side (presumably mean of left and right); mean (SD) of 6",
+    "unit": "deg"
+  },
+  "source": {
+    "short": "Brasiliense 2011",
+    "authors": "Brasiliense LBC, Lazaro BCR, Reyes PM, Dogan S, Theodore N, Crawford NR",
+    "year": 2011,
+    "journal": "Spine 36(26):E1686-E1693",
+    "doi": "10.1097/BRS.0b013e318219ce84",
+    "n": 6,
+    "sample": "8 unembalmed human 4-vertebra upper thoracic segments with 4 rib pairs, sternum, costosternal joints and intercostal muscles: T2-T5 (4), T3-T6 (3), T4-T7 (1); ROM and lax zone from 6 (2 detached from potting in the final steps)",
+    "age": "median 62 y (range 36-92), of 8",
+    "sex": "5 M, 3 F (of 8)",
+    "height_cm": null,
+    "weight_kg": null
+  },
+  "protocol": {
+    "summary": "End vertebrae reinforced with screws and potted in PMMA. Rostral rib pair fixed (6 points) to a metal ring joined to the rostral pot; caudal rib pair fixed to a baseboard joined to the caudal pot, so end ribs cannot move relative to their vertebrae. Nonconstraining pure moments by cables and pulleys driven by an MTS frame, applied to the upper pot + ring; lower pot + caudal ribs fixed. Flexion, extension, left/right LB, left/right AR; preconditioning 3 x 7.5 Nm for 60 s, 60 s rest, then quasistatic 1.25 Nm steps to 7.5 Nm, each held 45 s; no preload. Optotrak 3020 markers on posterior elements of each vertebra; angles at the middle motion segment. Neutral = centre of the bidirectional lax zone. Cumulative steps: intact; 1 midline (longitudinal) sternotomy with posterior displacement of the fragment; 2 resection of costosternal joints and sternum; 3 resection of 50% of rib length (from anterior); 4 resection of 75% of rib length; 5 resection of the remaining ribs and disarticulation at the costovertebral joints.",
+    "how_to_simulate": [
+      "Model a 4-vertebra upper thoracic segment (e.g. T3-T6) with its 4 rib pairs, costal cartilage, sternum and intercostal muscles; tie the cranial rib pair rigidly to the cranial vertebra and the caudal rib pair rigidly to the caudal vertebra",
+      "Remove structures cumulatively up to this step",
+      "Fix the caudal vertebra with its ribs; apply a pure moment of 7.5 Nm to the cranial vertebra with its ribs, no preload",
+      "Report rotation of the middle motion segment from neutral to 7.5 Nm (one direction)"
+    ],
+    "subject_model": null,
+    "notes": "Values digitised from Fig. 3 (ROM, unidirectional, mean bars with SD whiskers) and Fig. 4 (bidirectional lax zone). One bar per plane for LB and AR: presumably the mean of left and right (not stated). Middle segment = T3-T4 (4), T4-T5 (3) or T5-T6 (1). Coupling ratio (intact 0.2 +/- 0.2 opposite-side AR per deg LB, Fig. 5) and AOR (Fig. 6) not extracted. Unusual boundary condition: the end rib pairs are rigidly tied to the end vertebrae and loaded with them."
+  },
+  "data": [
+    {
+      "x": "flexion",
+      "load": "7.5 Nm",
+      "mean": 1.35,
+      "sd": 0.64,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "extension",
+      "load": "7.5 Nm",
+      "mean": 1.67,
+      "sd": 0.61,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "LB_one_side",
+      "load": "7.5 Nm",
+      "mean": 2.48,
+      "sd": 1.06,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    },
+    {
+      "x": "AR_one_side",
+      "load": "7.5 Nm",
+      "mean": 1.36,
+      "sd": 0.57,
+      "min": null,
+      "max": null,
+      "median": null,
+      "n": 6
+    }
+  ],
+  "extraction": {
+    "from": "Fig. 3",
+    "method": "digitised",
+    "uncertainty": "+/-0.05 deg for means and SDs (vector figure rendered at 600 dpi, 221 px/deg)",
+    "checked": true,
+    "check_notes": "Bar tops and SD caps located by pixel analysis against the 0-8 deg ticks. Checks against text: intact AR 0.47 +/- 0.30 vs printed 0.5 +/- 0.3; printed % increases vs intact reproduced within ~2% for flexion (+74/141/154/181 %), LB (+8/16/31/96/182 %) and AR (+103/190/527/801/948 %); extension stages 3-5 digitised 3.38/3.67/3.71 vs 3.44/3.73/3.77 implied by printed +631/694/702 % on intact 0.47 (intact extension may be ~0.46). Stage-1 flexion (0.72) is below intact as stated in the text."
+  },
+  "pass_rule": {
+    "template": true,
+    "rule": "|model-mean| <= 1 SD"
+  },
+  "combine_group": "fe_resection_thoracic__rom__t2_t7_midseg__ribcage_sternectomy__7_5nm",
+  "tags": [
+    "thoracic",
+    "in vitro",
+    "rib cage",
+    "short segment",
+    "stepwise reduction"
+  ],
+  "ribcage": {
+    "present": true,
+    "intact_structures": "ribs and intercostals without sternum and costosternal joints"
+  },
+  "loading": {
+    "moment_Nm": 7.5,
+    "rate": "quasistatic, 1.25 Nm increments held 45 s",
+    "cycles": "3 preconditioning loads (7.5 Nm, 60 s), then one quasistatic loading per direction",
+    "branch": "angle at 7.5 Nm",
+    "preload": "none",
+    "device": "cable-pulley pure moment apparatus on MTS servohydraulic frame; Optotrak 3020"
+  },
+  "resection": {
+    "step_index": 2,
+    "step_name": "resection of costosternal joints and sternum",
+    "sequence": [
+      "intact",
+      "midline sternotomy (posterior displacement of the fragment)",
+      "resection of costosternal joints and sternum",
+      "resection of 50% of the ribs (anterior half of rib length)",
+      "resection of 75% of the ribs",
+      "resection of the remaining ribs and disarticulation at the costovertebral joints"
+    ],
+    "cumulative": true
+  },
+  "specimen_levels": "T2-T5 (4), T3-T6 (3), T4-T7 (1)"
+}

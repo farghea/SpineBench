@@ -1,0 +1,112 @@
+{
+ "id": "fe_rom_thoracic.busscher2009.T10T11_in_T9T12_rib_stumps_rom_4Nm",
+ "title": "T10-T11 ROM in T9-T12 4-vertebra segment at +/-4 Nm (Busscher 2009)",
+ "layer": "outcome",
+ "category": "fe_rom_thoracic",
+ "subcategory": "multi-segment, middle segment",
+ "region": "thoracic",
+ "levels": [
+  "T10-T11"
+ ],
+ "condition": "rib_stumps_costovertebral",
+ "quantity": {
+  "name": "ROM",
+  "definition": "range of angular deflection of the middle motion segment between the maximum moments in positive and negative direction (+/-4 Nm, full range), 3rd cycle; mean (SD) of 6",
+  "unit": "deg"
+ },
+ "source": {
+  "short": "Busscher 2009",
+  "authors": "Busscher I, van Dieen JH, Kingma I, van der Veen AJ, Verkerke GJ, Veldhuizen AG",
+  "year": 2009,
+  "journal": "Spine 34(26):2858-2864",
+  "doi": "10.1097/BRS.0b013e3181b4c75d",
+  "n": 6,
+  "sample": "6 male fresh-frozen T1-L4 spines, each cut into four 4-vertebra segments (T1-T4, T5-T8, T9-T12, L1-L4); ~3 cm of ribs kept with costotransverse and costovertebral joints; mildly degenerated on CT",
+  "age": "mean 72 y (range 55-84)",
+  "sex": "6 M",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "End vertebrae (3 endplate screws) embedded in low-melting-alloy cups with the segment hanging freely (tension-free neutral curvature); segment horizontal in a custom 4-point bending device on a Zwick TC-FR2.5TN (rotated 90 deg for LB); AR via a steel cable on the cranial cup. 250 N axial compressive preload for 1 h before testing, then removed (no preload during bending). Displacement controlled at 0.5 deg/s, reversed at +/-4 Nm; 3 continuous cycles, 3rd analysed. Optotrak 3020 LED markers on each vertebral body; rotation of the middle intervertebral joint (middle 2 vertebrae) in local axes.",
+  "how_to_simulate": [
+   "Model the 4-vertebra segment with ~3 cm rib stumps and costovertebral/costotransverse joints (thoracic) or the plain L1-L4 segment; no rib cage",
+   "Fix the caudal end vertebra; apply pure moment +/-4 Nm to the cranial end vertebra, no preload",
+   "Report rotation of the middle segment between +4 and -4 Nm (full range)"
+  ],
+  "subject_model": null,
+  "notes": "Values digitised from Figs 2-4 (bar = mean, whisker = +SD), n = 6 per region. Middle level inferred from 'middle intervertebral joint, calculated from the middle 2 vertebrae'. NZ stiffness (Fig. 5) and flexibility between 3.5 and 4 Nm (Fig. 6) not extracted. The same 6 donors supply all four regions."
+ },
+ "data": [
+  {
+   "x": "FE_total",
+   "load": "4 Nm",
+   "mean": 2.55,
+   "sd": 1.07,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "LB_total",
+   "load": "4 Nm",
+   "mean": 2.82,
+   "sd": 0.98,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  },
+  {
+   "x": "AR_total",
+   "load": "4 Nm",
+   "mean": 3.17,
+   "sd": 0.76,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 6
+  }
+ ],
+ "extraction": {
+  "from": "Figs 2-4 (ROM bars)",
+  "method": "digitised",
+  "uncertainty": "+/-0.1 deg for means and SDs",
+  "checked": true,
+  "check_notes": "Embedded raster figures (300 dpi) extracted at native resolution; bar tops and SD caps located by pixel analysis against y ticks 0-8 deg (~52 px/deg). Discussion quotes lumbar (L1-L4) ROM of about 5 deg FE, 6 deg LB and 2 deg AR, matching 5.17 / 5.89 / 2.20."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD"
+ },
+ "combine_group": "fe_rom_thoracic__rom__t10_t11_in_t9_t12__rib_stumps__4nm",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "multi-segment",
+  "rib stumps"
+ ],
+ "loading": {
+  "moment_Nm": 4,
+  "rate": "0.5 deg/s",
+  "cycles": "3, 3rd analysed",
+  "branch": "peak at +/-4 Nm",
+  "preload": "none during bending (250 N for 1 h before testing)",
+  "device": "custom 4-point bending device on Zwick materials testing machine; Optotrak 3020"
+ },
+ "specimen_levels": "T9-T12",
+ "shared_sample_with": [
+  "fe_rom_thoracic.busscher2009.T2T3_in_T1T4_rib_stumps_rom_4Nm",
+  "fe_rom_thoracic.busscher2009.T2T3_in_T1T4_rib_stumps_nz_4Nm",
+  "fe_rom_thoracic.busscher2009.T6T7_in_T5T8_rib_stumps_rom_4Nm",
+  "fe_rom_thoracic.busscher2009.T6T7_in_T5T8_rib_stumps_nz_4Nm",
+  "fe_rom_thoracic.busscher2009.T10T11_in_T9T12_rib_stumps_nz_4Nm",
+  "fe_rom_lumbar_multi.busscher2009.L2L3_in_L1L4_intact_rom_4Nm",
+  "fe_rom_lumbar_multi.busscher2009.L2L3_in_L1L4_intact_nz_4Nm"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "~3 cm rib stumps with costovertebral and costotransverse joints"
+ }
+}

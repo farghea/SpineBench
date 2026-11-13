@@ -10425,5 +10425,119 @@
   "usable": "partly",
   "why": "In vivo lifting EMG/moment comparison but only statistics in table and scatter plots; weak as absolute target.",
   "notes": "PDF includes a 2004 corrigendum (J Biomech 37:1457, doi 10.1016/j.jbiomech.2003.11.006) correcting the third author's name only. Dynamic lifting, not static posture; best fit for EMG-validation category."
+ },
+ {
+  "file": "stuart-mcgill-passive-stiffness-of-the-lumbar-torso-in.pdf",
+  "short": "McGill 1994",
+  "year": 1994,
+  "title": "Passive stiffness of the lumbar torso in flexion, extension, lateral bending, and axial rotation. Effect of belt wearing and breath holding",
+  "journal": "Spine 19(6):696-704",
+  "doi": "10.1097/00007632-199403001-00009",
+  "n": "37 young adults (22 M 21.1 y, 15 F 20.8 y), relaxed with EMG biofeedback",
+  "layer": "property",
+  "category": "trunk_passive_invivo",
+  "subcategory": "passive trunk torque-angle in 6 directions (normal, held breath, belt), M and F",
+  "region": "lumbar",
+  "quantities": [
+   {
+    "name": "subject characteristics",
+    "unit": "y, kg, cm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "torque levels with significant belt / breath-hold effect",
+    "unit": "Nm",
+    "where": "Table 2",
+    "extractable": "table"
+   },
+   {
+    "name": "exponential torque-angle fit coefficients T = lambda exp(beta alpha) per sex, condition and direction",
+    "unit": "Nm, 1/deg",
+    "where": "Table 3",
+    "extractable": "table"
+   },
+   {
+    "name": "stiffness k and strain energy E vs angle, males normal (flex, ext, CW twist, R bend)",
+    "unit": "Nm/deg, Nm deg",
+    "where": "Table 4",
+    "extractable": "table"
+   },
+   {
+    "name": "fitted angle-torque curves, all conditions",
+    "unit": "deg vs Nm",
+    "where": "Fig 3",
+    "extractable": "figure"
+   },
+   {
+    "name": "participation (drop-out) vs ultimate torque, males",
+    "unit": "% vs Nm",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "max angle at ultimate torque, males (ext, L bend)",
+    "unit": "deg",
+    "where": "Fig 5",
+    "extractable": "figure"
+   },
+   {
+    "name": "intact torso vs osteoligamentous flexion torque vs % elastic limit",
+    "unit": "Nm",
+    "where": "Fig 6",
+    "extractable": "figure"
+   }
+  ],
+  "usable": "yes",
+  "why": "Classic in vivo passive trunk moment-angle fits in all three planes for both sexes; tabulated coefficients and stiffness; PC2 property data and a source of passive trunk stiffness for models.",
+  "notes": "Scanned PDF (no text layer). Fits start at T = lambda (1.2-2.4 Nm) at 0 deg; fitted only to the torque tolerated by half the subjects; no SD. Table 4 E is an indefinite integral (includes lambda/beta). CW/CCW not mapped to left/right. Tests: trunk_passive_invivo.mcgill1994.*. Catalog layer set to property to match PLAN PC2 and the other trunk_passive_invivo entries."
+ },
+ {
+  "file": "takahito-fujimori-kinematics-of-the-thoracic-spine-in.pdf",
+  "short": "Fujimori 2012",
+  "year": 2012,
+  "title": "Kinematics of the thoracic spine in trunk rotation: in vivo 3-dimensional analysis",
+  "journal": "Spine 37(21):E1318-E1328",
+  "doi": "10.1097/BRS.0b013e318267254b",
+  "n": "13 healthy male volunteers (supine CT)",
+  "layer": "input",
+  "category": "kinematics",
+  "subcategory": "thoracic rotation & lateral bending (segmental AR ROM and coupled LB)",
+  "region": "thoracic",
+  "quantities": [
+   {
+    "name": "segmental axial rotation T1-T2 to T12-L1 (one side)",
+    "unit": "deg",
+    "where": "Table 1, Fig 3, abstract",
+    "extractable": "table"
+   },
+   {
+    "name": "coupled lateral bending, flexion-extension, lateral/SI/AP translation per level",
+    "unit": "deg, mm",
+    "where": "Table 1",
+    "extractable": "table"
+   },
+   {
+    "name": "frequency of same-direction coupled LB per level; T1-L1 AR and coupled motions",
+    "unit": "%, deg",
+    "where": "Results text",
+    "extractable": "text"
+   },
+   {
+    "name": "per-subject AR vs coupled LB scatter per level",
+    "unit": "deg",
+    "where": "Fig 4",
+    "extractable": "figure"
+   },
+   {
+    "name": "comparison with literature (T1-T12 24.1 deg)",
+    "unit": "deg",
+    "where": "Table 2, Table 3",
+    "extractable": "table"
+   }
+  ],
+  "usable": "yes",
+  "why": "In vivo CT-based segmental thoracic axial rotation with intact rib cage, tabulated per level with coupled motions; IN2 rotation distribution.",
+  "notes": "Supine, pelvis belted, maximal voluntary rotation (no defined moment); males only; 13 of the 15 Fujimori 2014 subjects. Table 2 gives SD 0.8 at T2-T3 vs 0.7 in Table 1. Tests: kinematics.fujimori2012.*."
  }
 ]

@@ -140,114 +140,119 @@
    "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
   },
   "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Sato's abstract reports loads from pressure x MRI disc area: standing 800 N, prone 144 N (Ghezelbash lab validation targets primary_source_check)."
+  "notes": "Sato's abstract reports loads from pressure x MRI disc area: standing 800 N, prone 144 N (Ghezelbash lab validation targets primary_source_check).",
+  "segment_angle_deg": {
+   "mean": 15,
+   "sd": 3,
+   "definition": "angle between L4 and L5 measured on lateral radiographs taken during the measurement (Sato Table 2); upright standing 15 +/- 3 deg"
+  }
  },
  "data": [
   {
    "x": "upright standing, cohort mean (n=8)",
    "load": "none",
-   "mean": 0.54,
+   "mean": 0.539,
    "sd": 0.179,
-   "min": 0.22,
-   "max": 0.75,
+   "min": 0.215,
+   "max": 0.747,
    "median": null,
    "n": 8,
-   "src": "mean: Sato 1999 Table 2 (quoted by Guenther & Moerl 2021, via Ghezelbash lab validation targets); SD: 8 individual values in Ghezelbash 2020 Fig 4a (Ghezelbash lab validation targets, 0.547 +/- 0.179); min/max: V05 Table 2"
+   "src": "Sato 1999 Table 2, vertical pressure, mean +/- SD of the 8 healthy volunteers (primary)"
   },
   {
    "x": "upright standing, subject No. 1",
    "load": "none",
-   "mean": 0.44,
+   "mean": 0.442,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 1",
    "digitised_G2020": 0.44
   },
   {
    "x": "upright standing, subject No. 2",
    "load": "none",
-   "mean": 0.75,
+   "mean": 0.747,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 2",
    "digitised_G2020": 0.746
   },
   {
    "x": "upright standing, subject No. 3",
    "load": "none",
-   "mean": 0.46,
+   "mean": 0.462,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 3",
    "digitised_G2020": 0.462
   },
   {
    "x": "upright standing, subject No. 4",
    "load": "none",
-   "mean": 0.71,
+   "mean": 0.709,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 4",
    "digitised_G2020": 0.708
   },
   {
    "x": "upright standing, subject No. 5",
    "load": "none",
-   "mean": 0.56,
+   "mean": 0.563,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 5",
    "digitised_G2020": 0.563
   },
   {
    "x": "upright standing, subject No. 6",
    "load": "none",
-   "mean": 0.68,
+   "mean": 0.702,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 6",
    "digitised_G2020": 0.7
   },
   {
    "x": "upright standing, subject No. 7",
    "load": "none",
-   "mean": 0.47,
+   "mean": 0.473,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 7",
    "digitised_G2020": 0.472
   },
   {
    "x": "upright standing, subject No. 8",
    "load": "none",
-   "mean": 0.22,
+   "mean": 0.215,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "V05 Table 2",
+   "src": "Sato 1999 Table 2 (primary), subject 8",
    "digitised_G2020": 0.214
   }
  ],
@@ -255,12 +260,18 @@
   "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (sato_stand), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows from Dreischarf 2016 J Biomech (V05) Table 2 p.836 (page image)",
   "method": "table",
   "uncertainty": "cohort mean/SD secondary; per-subject values as printed in V05 (2 decimals)",
-  "checked": "via Ghezelbash lab validation targets",
-  "check_notes": "Cohort mean/SD exist only in Ghezelbash lab validation targets (original PDF not available). Per-subject rows checked against the V05 Table 2 page image: mean of the 8 = 0.536 MPa, SD 0.176 MPa - consistent with 0.54 / 0.179. Independently re-digitised Ghezelbash 2020 Fig S2-3a 'Upright-Sub 1..8' (digitised_G2020 field): agree with V05 within 0.02 MPa (Sub 6: 0.70 vs 0.68). Subject numbering in G2020 matches V05. | verified 2026-11-12 independent check: PARTIAL - per-subject values match V05 Table p.836 (0.44/0.75/0.46/0.71/0.56/0.68/0.47/0.22; mean 0.536, sample SD 0.176); cohort mean 0.54 and SD 0.179 come from secondary sources and could not be verified against Sato 1999 (primary PDF not in donwload/). Values left unchanged."
+  "checked": "primary (Sato 1999 Table 2)",
+  "check_notes": "Cohort mean/SD exist only in Ghezelbash lab validation targets (original PDF not available). Per-subject rows checked against the V05 Table 2 page image: mean of the 8 = 0.536 MPa, SD 0.176 MPa - consistent with 0.54 / 0.179. Independently re-digitised Ghezelbash 2020 Fig S2-3a 'Upright-Sub 1..8' (digitised_G2020 field): agree with V05 within 0.02 MPa (Sub 6: 0.70 vs 0.68). Subject numbering in G2020 matches V05. | verified 2026-11-12 independent check: PARTIAL - per-subject values match V05 Table p.836 (0.44/0.75/0.46/0.71/0.56/0.68/0.47/0.22; mean 0.536, sample SD 0.176); cohort mean 0.54 and SD 0.179 come from secondary sources and could not be verified against Sato 1999 (primary PDF not in donwload/). Values left unchanged. | Checked against the primary paper (Sato 1999 Spine 24:2468, Table 2) on 2026-11-12: cohort mean/SD and all 8 per-subject values, ages, weights, heights and disc areas match; values now taken from the primary."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__standing_relaxed__none",
  "shared_sample_with": [
-  "msk_idp_lumbar.sato1999.L4L5_flexed_standing"
+  "msk_idp_lumbar.sato1999.L4L5_extended_standing",
+  "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
+  "msk_idp_lumbar.sato1999.L4L5_lying_lateral",
+  "msk_idp_lumbar.sato1999.L4L5_lying_prone",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_extended",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_flexed",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_upright"
  ],
  "tags": [
   "lumbar",

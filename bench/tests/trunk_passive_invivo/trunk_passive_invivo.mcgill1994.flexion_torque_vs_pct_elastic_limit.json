@@ -1,0 +1,260 @@
+{
+ "id": "trunk_passive_invivo.mcgill1994.flexion_torque_vs_pct_elastic_limit",
+ "title": "Passive flexion torque of the intact torso vs the osteoligamentous lumbar spine, as % of the in vivo elastic limit",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_moment_angle",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (whole torso vs osteoligamentous L-spine)"
+ ],
+ "condition": "relaxed flexion, males, normal condition",
+ "quantity": {
+  "name": "flexion torque vs % of in vivo elastic limit",
+  "definition": "torque (Nm) of the intact torso (this study, flexion fit) and of the osteoligamentous spine (Adams & Dolan 1991 in vivo/in vitro relation) plotted against % of the in vivo flexion elastic limit; the difference is attributed to passive tissues other than disc and ligaments (muscle, skin, viscera)",
+  "unit": "Nm"
+ },
+ "source": {
+  "short": "McGill 1994",
+  "authors": "McGill S, Seguin J, Bennett G",
+  "year": 1994,
+  "journal": "Spine 19(6):696-704",
+  "doi": "10.1097/00007632-199403001-00009",
+  "n": 37,
+  "sample": "22 male + 15 female undergraduates, no disabling LBP in the previous year",
+  "age": "M 21.1 (1.2) y; F 20.8 (1.8) y",
+  "sex": "22 M, 15 F",
+  "height_cm": "M 176.9 (6.3); F 164.8 (4.5)",
+  "weight_kg": "M 74.9 (7.6); F 62.3 (8.8)"
+ },
+ "protocol": {
+  "summary": "Flexion/extension: side-lying; lateral bend: supine. Pelvis and lower body strapped to a fixed jig, upper torso (top of head to ~T12) strapped in a 'floating' cradle on precision nylon ball bearings over glass (no resistance to planar translation/rotation); scissor jacks aligned the spine in neutral, foam cushions under waist/knees when needed. Bending moment applied to the cradle by a cable kept normal to the cradle (load cell); moment = force x perpendicular distance to the lateral iliac crest (~L4/L5). Axial rotation: upright standing, rib cage fixed by a restraining harness, torque applied to a rotating platform under the feet. Angle = rib cage (3-SPACE Isotrak sensor over xiphoid) relative to pelvis (source strapped to pelvis), accuracy +-0.3 deg. Audio EMG biofeedback (bilateral L3 erector spinae and external oblique) to relax; trials with prolonged EMG repeated. Torque ramped over ~10 s (peak at 7-8 s) until the subject's tolerance limit. 3 trials x 6 directions (flexion, extension, CW twist, CCW twist, right and left lateral bend) x 3 conditions (normal, held breath at maximal inhalation, leather lifting belt 11 cm posterior / 6.5 cm anterior); condition order fixed (normal, breath hold, belt). Mean raw torque-angle data per sex, direction and condition fitted with T = lambda*exp(beta*alpha) (T in Nm, alpha in deg) from 0 Nm up to the torque still tolerated by half the subjects. Fig 6: the authors converted the intact-torso flexion data to % of the in vivo elastic limit using the Adams & Dolan (1991) equations and overlaid the osteoligamentous curve.",
+  "how_to_simulate": [
+   "Side-lying passive flexion, pelvis fixed, zero muscle activation; express lumbar flexion as % of the model's in vivo elastic (end-range) flexion limit",
+   "Report the total passive moment and the part carried by the osteoligamentous structures (discs + ligaments + facets) separately",
+   "Compare the total with the intact-torso curve and the difference (non-ligamentous passive tissues) with the derived series"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 21.1,
+   "height_cm": 176.9,
+   "weight_kg": 74.9,
+   "disc_area_mm2": null,
+   "source": "Table 1 male means (female cohort: 20.8 y, 164.8 cm, 62.3 kg)"
+  },
+  "notes": "Shape comparison only: both curves are converted/derived by the authors (the osteoligamentous curve is from another study). The flat line at ~0 Nm in Fig 6 is the x-axis. Authors' conclusion: non-ligamentous tissues add < ~6 Nm over the mid range."
+ },
+ "data": [
+  {
+   "x": 0,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "intact torso (this study)",
+   "mean": 0.0,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (dashed line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 25,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "intact torso (this study)",
+   "mean": 4.0,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (dashed line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 50,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "intact torso (this study)",
+   "mean": 6.9,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (dashed line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 75,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "intact torso (this study)",
+   "mean": 12.4,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (dashed line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 100,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "intact torso (this study)",
+   "mean": 21.7,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (dashed line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 0,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "osteoligamentous spine (Adams & Dolan 1991 relation, plotted by authors)",
+   "mean": 0.0,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (solid line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 25,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "osteoligamentous spine (Adams & Dolan 1991 relation, plotted by authors)",
+   "mean": 0.1,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (solid line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 50,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "osteoligamentous spine (Adams & Dolan 1991 relation, plotted by authors)",
+   "mean": 1.0,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (solid line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 75,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "osteoligamentous spine (Adams & Dolan 1991 relation, plotted by authors)",
+   "mean": 7.0,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (solid line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 100,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "osteoligamentous spine (Adams & Dolan 1991 relation, plotted by authors)",
+   "mean": 21.7,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "source_detail": "digitised Fig 6 (solid line)",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 25,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "non-ligamentous passive contribution (intact minus osteoligamentous)",
+   "mean": 3.9,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "derived": true,
+   "note": "difference of the two digitised curves",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 50,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "non-ligamentous passive contribution (intact minus osteoligamentous)",
+   "mean": 5.9,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "derived": true,
+   "note": "difference of the two digitised curves",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 75,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "non-ligamentous passive contribution (intact minus osteoligamentous)",
+   "mean": 5.4,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "derived": true,
+   "note": "difference of the two digitised curves",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 100,
+   "x_unit": "% of in vivo flexion elastic limit",
+   "series": "non-ligamentous passive contribution (intact minus osteoligamentous)",
+   "mean": 0.0,
+   "sd": null,
+   "n": null,
+   "unit": "Nm",
+   "derived": true,
+   "note": "difference of the two digitised curves",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Fig 6 (p.703)",
+  "method": "digitised_figure",
+  "uncertainty": "+-0.5 Nm (scanned figure, 12.5 px/Nm at 300 dpi)",
+  "checked": true,
+  "check_notes": "Digitised by pixel column scans of a 300 dpi render at the printed x ticks (0/25/50/75/100%) against the y tick marks (25, 20, 15, 10 Nm at 382, 445, 507, 570 px; zero taken at the x-axis line ~692 px). Both curves meet at 100% (~21.7 Nm). Osteoligamentous value at 25% is within line width of zero."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "shape check: model total passive flexion moment above the osteoligamentous moment at 25-75% of the elastic limit and converging at end range; values within +-30% of the intact-torso curve"
+ },
+ "combine_group": "trunk_passive_invivo__passive_flexion_moment_partition__lumbar__relaxed_side_lying__pct_elastic_limit",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "flexion",
+  "tissue partition"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.mcgill1994.relaxed_trunk_moment_angle_fit",
+  "trunk_passive_invivo.mcgill1994.stiffness_strain_energy_males_normal",
+  "trunk_passive_invivo.mcgill1994.belt_breath_hold_moment_angle_fit"
+ ]
+}

@@ -1,0 +1,142 @@
+{
+ "id": "passive_tissue.ebara1996.AF_circ_cubic_fit_coefficients",
+ "title": "Ebara 1996 AF circumferential cubic stress-strain law coefficients (A, B) by circumferential and radial position",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4"
+ ],
+ "condition": "non-degenerate (Thompson grade I-II)",
+ "quantity": {
+  "name": "cubic law coefficients",
+  "definition": "coefficients of sigma = A eps + B eps^3 fitted per specimen (nominal stress in MPa, nominal strain as fraction); A = tangent modulus at zero strain; marginal groups of the 60 specimens",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Ebara 1996",
+  "authors": "Ebara S, Iatridis JC, Setton LA, Foster RJ, Mow VC, Weidenbaum M",
+  "year": 1996,
+  "journal": "Spine 21(4):452-461",
+  "doi": "10.1097/00007632-199602150-00009",
+  "n": 60,
+  "sample": "60 multiple-layer circumferential AF specimens, 15 per region (anterior outer AO, anterior inner AI, posterolateral outer PO, posterolateral inner PI), from the L3-L4 discs of 15 lumbar spines (autopsy, frozen -20 C), Thompson grade I-II",
+  "age": "26-53 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "L3-L4 hemidisc; AF blocks from anterior and posterolateral regions, each split into inner and outer halves, microtomed to uniform thickness, soaked 15 min in 0.15 M NaCl, then a dumbbell cut with its long axis along the disc circumference (multi-layer, fibres at about +-30 deg to the load axis). Specimen ~10 mm long; gauge region 3.7 x 4.4 x 2.3 mm (L x W x T); thickness increased 17 % with soaking. Spring-loaded self-gripping jaws with polishing paper, test bath 0.15 M NaCl; preconditioning 10 cycles at 0.4 Hz to 0.05 N, then 0.1 N tare held 15 min; elongation at 0.07 mm/min (~0.0001 /s, quasi-static). Strain = change in gauge-mark length / initial gauge length (video dimension analyser); stress = force / undeformed cross-section. Per specimen cubic fit sigma = A eps + B eps^3; tensile modulus E = d sigma/d eps of the fit at 75 % of failure strain; failure stress/strain = maximum stress before failure and its strain, only for the 32 specimens that failed in the gauge region (24 failed at the grips, 4 by delamination outside the gauge).",
+  "how_to_simulate": [
+   "Multi-layer circumferential AF strip (gauge 3.7 x 4.4 x 2.3 mm), lamellae at about +-30 deg to the load axis, region-specific properties (anterior/posterolateral, outer/inner)",
+   "Grip the ends, sides free, tare 0.1 N; pull circumferentially at ~0.0001 /s (quasi-static) in 0.15 M NaCl",
+   "Report nominal stress (force / undeformed area) vs gauge nominal strain"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "A, anterior",
+   "load": "",
+   "mean": 15,
+   "sd": 15,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "A, posterolateral",
+   "load": "",
+   "mean": 8.7,
+   "sd": 8.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "A, outer",
+   "load": "",
+   "mean": 18,
+   "sd": 14,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "A, inner",
+   "load": "",
+   "mean": 5.2,
+   "sd": 3.8,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "B, anterior",
+   "load": "",
+   "mean": 2696,
+   "sd": 9198,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "B, posterolateral",
+   "load": "",
+   "mean": 1149,
+   "sd": 3039,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "B, outer",
+   "load": "",
+   "mean": 3722,
+   "sd": 9391,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "B, inner",
+   "load": "",
+   "mean": 112,
+   "sd": 326,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.455)",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1, mean +- SD. Groups are marginal (anterior = AO+AI, posterolateral = PO+PI, outer = AO+PO, inner = AI+PI); group n not printed (60 specimens in total, presumably 30 per group). SDs of B exceed the means (strongly skewed)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__cubic_fit_coefficients__af_regional__human_nondegen__uniaxial_circ",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "quasi-static",
+  "table"
+ ]
+}

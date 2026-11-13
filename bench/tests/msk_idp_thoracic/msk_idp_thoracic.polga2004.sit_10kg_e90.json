@@ -1,0 +1,129 @@
+{
+ "id": "msk_idp_thoracic.polga2004.sit_10kg_e90",
+ "title": "Polga 2004: thoracic IDP (mid and lower), sitting upright, 10 kg in each hand, elbows flexed 90 deg",
+ "layer": "outcome",
+ "category": "msk_idp_thoracic",
+ "subcategory": "thoracic in vivo, cohort",
+ "region": "thoracic",
+ "levels": [
+  "T6-T7",
+  "T7-T8",
+  "T9-T10",
+  "T10-T11"
+ ],
+ "condition": "sitting upright, 10 kg in each hand, elbows flexed 90 deg",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo thoracic intradiscal pressure (MPa), mean of the volunteers measured at that level group; min/max = range of the individual values",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Polga 2004",
+  "authors": "Polga DJ, Beaubien BP, Kallemeier PM, Schellhas KP, Lew WD, Buttermann GR, Wood KB",
+  "year": 2004,
+  "journal": "Spine 29:1320-1324",
+  "doi": "10.1097/01.BRS.0000127179.13271.78",
+  "n": 6,
+  "sample": "6 subjects (4M, 2F); 6 healthy adult volunteers, mid (T6-T7 or T7-T8) and lower (T9-T10 or T10-T11) thoracic discs",
+  "age": "28 (19-47)",
+  "sex": "4M/2F",
+  "height_cm": 178.0,
+  "weight_kg": 73.0
+ },
+ "protocol": {
+  "summary": "Needle pressure transducer in mid (T6-T7 or T7-T8) and lower (T9-T10 or T10-T11) thoracic discs of 6 volunteers; standing postures and hand loads. Level and needle orientation had no significant effect; highest pressure holding 10 kg in each hand (abstract via Ghezelbash lab validation targets).",
+  "how_to_simulate": [
+   "Scale the model to the Polga subject (protocol.subject_model: male, 28 y, 178 cm, 73 kg; Polga Methods)",
+   "Posture: sitting upright, forearms horizontal (elbows 90 deg)",
+   "Hand load: 10 kg in each hand (20 kg total)",
+   "Output: compression F and flexion th at T6-T7 and T7-T8 (average -> 'mid') and at T9-T10 and T10-T11 (average -> 'lower')",
+   "Convert with Ghezelbash 2016 Eq. 6 applied unchanged: P = F / A, A = 663 mm2 (mid) / 897 mm2 (lower) (Kishimoto 2016 CT areas, sex-weighted); compare with data[].mean and range"
+  ],
+  "subject_model": {
+   "sex": "male (modelled; cohort 4 M / 2 F)",
+   "age": 28,
+   "age_range": [
+    19,
+    47
+   ],
+   "height_cm": 178.0,
+   "weight_kg": 73.0,
+   "source": "Polga 2004 Methods (primary): 4 men, 2 women, mean age 28 y (19-47), 73 kg (54-81), 178 cm (163-191), BMI 22.8.",
+   "disc_area_mm2": {
+    "T6-T7": 663,
+    "T7-T8": 663,
+    "T9-T10": 897,
+    "T10-T11": 897
+   },
+   "disc_area_source": "Ghezelbash lab validation targets (subjects.polga): in vivo CT vertebral endplate CSA of Kishimoto et al. 2016 J Orthop Res 34:1418 as used for Polga's data by Schmid et al. 2020 J Biomech 99:109536: T7-8 7.1 / 5.7 cm2 (M/F), T10-11 9.6 / 7.7 cm2, weighted 4 M : 2 F -> mid 6.63 cm2, lower 8.97 cm2. Bruno 2015 instead measured vertebral CSA on their own CT of matched subjects (values not tabulated)."
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A). For thoracic discs no thoracic-specific relation exists; the Ghezelbash lab validation applies Eq. 6 unchanged with th = the segment's flexion (Bruno 2015 and Schmid 2020 likewise applied the lumbar factor).",
+  "notes": "Thoracic discs show ~0.2-0.3 MPa even prone/unloaded (Polga 2004 via Wilke 2020, MSK_VALIDATION.md), which compression-based models do not reproduce. Level groups: mid = T6-T7 or T7-T8; lower = T9-T10 or T10-T11 (each volunteer measured at one disc per group).",
+  "posture_note": "Flexion/extension set with a pendulum inclinometer (to 30 deg flexion, 15 deg extension); twisting and lateral bending to the maximum comfortable limit (lateral bending angle not reported)."
+ },
+ "data": [
+  {
+   "x": "mid thoracic (T6-T7 or T7-T8)",
+   "load": "10 kg in each hand (20 kg total)",
+   "mean": 2.77,
+   "sd": 0.157,
+   "se": 0.07,
+   "min": 2.57,
+   "max": 2.9,
+   "median": null,
+   "n": 5,
+   "src": "Polga 2004 Table 1 (primary)"
+  },
+  {
+   "x": "lower thoracic (T9-T10 or T10-T11)",
+   "load": "10 kg in each hand (20 kg total)",
+   "mean": 2.57,
+   "sd": 0.37,
+   "se": 0.14,
+   "min": 2.14,
+   "max": 3.13,
+   "median": null,
+   "n": 7,
+   "src": "Polga 2004 Table 1 (primary)"
+  }
+ ],
+ "extraction": {
+  "from": "Polga DJ et al. Spine 2004;29:1320-1324, Table 1",
+  "method": "table",
+  "uncertainty": "none (printed table)",
+  "checked": "primary",
+  "check_notes": "Checked against the primary paper (Polga 2004 Spine 29:1320, Table 1) on 2026-11-12. Polga 2004 Table 1 (primary): mean +/- SE (range). n = discs measured: mid 5 (4 T6-T7, 1 T7-T8), lower 7 (5 T9-T10, 2 T10-T11) from 6 volunteers (Methods). SD = SE x sqrt(n) assuming the SE is over these discs. New task added from the primary table."
+ },
+ "combine_group": "msk_idp_thoracic__idp_abs__mid_lower__sit_10kg_e90",
+ "shared_sample_with": [
+  "msk_idp_thoracic.polga2004.10kg",
+  "msk_idp_thoracic.polga2004.10kg_elbows90",
+  "msk_idp_thoracic.polga2004.ext15",
+  "msk_idp_thoracic.polga2004.flex30",
+  "msk_idp_thoracic.polga2004.flex30_10kg",
+  "msk_idp_thoracic.polga2004.latbend20",
+  "msk_idp_thoracic.polga2004.latbend_left",
+  "msk_idp_thoracic.polga2004.prone",
+  "msk_idp_thoracic.polga2004.side",
+  "msk_idp_thoracic.polga2004.sit",
+  "msk_idp_thoracic.polga2004.sit_ext15",
+  "msk_idp_thoracic.polga2004.sit_flex30",
+  "msk_idp_thoracic.polga2004.sit_valsalva",
+  "msk_idp_thoracic.polga2004.stand",
+  "msk_idp_thoracic.polga2004.stand_valsalva",
+  "msk_idp_thoracic.polga2004.twist30",
+  "msk_idp_thoracic.polga2004.twist_right"
+ ],
+ "tags": [
+  "thoracic",
+  "in vivo",
+  "IDP",
+  "cohort",
+  "healthy"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "per task: model inside the measured range (min-max of the 6 volunteers) or within 0.26 x measured; pooled Polga tasks: Pearson r >= 0.80 and regression slope 95% CI contains 1",
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_thoracic_aggregate (Bruno 2015 obtained r = 0.87, slope CI 0.99-1.97)"
+ }
+}

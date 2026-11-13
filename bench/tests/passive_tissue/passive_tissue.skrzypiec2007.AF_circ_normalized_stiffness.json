@@ -1,0 +1,103 @@
+{
+ "id": "passive_tissue.skrzypiec2007.AF_circ_normalized_stiffness",
+ "title": "Skrzypiec 2007 AF circumferential stiffness normalised by cross-sectional area",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "thoracolumbar",
+ "levels": [
+  "T8-T9",
+  "T9-T10",
+  "T10-T11",
+  "T11-T12",
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "mixed degeneration (grades 1-4, mostly 2-3), elderly",
+ "quantity": {
+  "name": "normalised tensile stiffness",
+  "definition": "tensile stiffness divided by specimen cross-sectional area (stiffness [N/mm] / CSA [mm2]); unit not printed",
+  "unit": "N/mm3"
+ },
+ "source": {
+  "short": "Skrzypiec 2007",
+  "authors": "Skrzypiec D, Tarala M, Pollintine P, Dolan P, Adams MA",
+  "year": 2007,
+  "journal": "Spine 32(22):2455-2461",
+  "doi": "10.1097/brs.0b013e3181573b87",
+  "n": 132,
+  "sample": "132 successfully tested AF slices (39 inner, 46 middle, 47 outer) from discs adjacent to 47 thoracolumbar motion segments (T8-T9 to L5-S1) of 30 cadavers (20 female, 27 male segments); degeneration grades 1-4 (mostly 2-3)",
+  "age": "48-91 y (mean 75)",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "2.2-mm-thick circumferential (tangential) slices of anterolateral AF cut with parallel razor blades from partially frozen discs, designated outer/middle/inner third; dumbbell specimens (narrowed region typically 6 x 2 x 2.2 mm) cut with curved blades; ends glued (cyanoacrylate) to folded sandpaper and clamped; test region wrapped in cling film, then a drop of saline; tested in air within 5 min (outer AF hydration 63 % -> 57.5 % in simulated tests). Preconditioning 4 cycles to ~20 % strain at 1 mm/s, then stretched to failure at 1 mm/s (~15 %/s; NOT quasi-static). Strain and stiffness from clamp separation (length L between sandpaper edges); stress = force / initial cross-section. If two specimens came from one region the stronger was kept.",
+  "how_to_simulate": [
+   "Dumbbell circumferential AF slice (narrowed region ~6.5 x 2.1 x 2.3 mm), lamellae at about +-30 deg to the load axis, region inner/middle/outer anterolateral AF",
+   "Pull along the circumference at 1 mm/s (clamp separation) to failure",
+   "Report the requested quantity per region"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "inner anulus",
+   "load": "",
+   "mean": 1.2,
+   "sd": 1.11,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 39,
+   "orig": "1.2 (1.11) (no unit printed)"
+  },
+  {
+   "x": "middle anulus",
+   "load": "",
+   "mean": 2.77,
+   "sd": 1.62,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 46,
+   "orig": "2.77 (1.62) (no unit printed)"
+  },
+  {
+   "x": "outer anulus",
+   "load": "",
+   "mean": 5.67,
+   "sd": 3.38,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 47,
+   "orig": "5.67 (3.38) (no unit printed)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.2458)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Table 1, mean (SD); n = 39/46/47 specimens (inner/middle/outer). Regional differences P < 0.01; gender and level effects slight (P > 0.2). Unit not printed; N/mm per mm2 inferred from the definition (Results p.2457). Not a modulus (not multiplied by length)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__normalised_stiffness__af_anterolateral_radial__human__uniaxial_circ_dumbbell_1mm_s",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "thoracolumbar",
+  "dynamic"
+ ]
+}

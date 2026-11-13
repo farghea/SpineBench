@@ -68,15 +68,15 @@
       "height_cm": 173.4,
       "weight_kg": 72.6,
       "disc_area_mm2": 1585,
-      "note": "cohort means of 8; disc area 1340-1890 mm2"
+      "note": "cohort means of 8 (Sato Table 2); disc area 1340-1890 mm2"
     },
     "takahashi2006": {
       "sex": "male",
       "age": 25.3,
       "height_cm": 176,
       "weight_kg": 72.3,
-      "disc_area_mm2": 1970,
-      "note": "means of 3 (Dreischarf 2016); Ghezelbash lab uses 1910 mm2"
+      "disc_area_mm2": 1910,
+      "note": "means of 3 (Takahashi Table 1: 18.8, 21.2, 17.3 cm2)"
     },
     "nachemson1964": {
       "sex": "male",
@@ -101,6 +101,14 @@
       "weight_kg": 63,
       "disc_area_mm2": null,
       "note": "group means; L3-L4 disc area not reported"
+    },
+    "wilke1999": {
+      "sex": "male",
+      "age": 45,
+      "height_cm": 174,
+      "weight_kg": 72,
+      "disc_area_mm2": 1800,
+      "note": "same volunteer as Wilke 2001"
     }
   },
   "studies": [
@@ -111,6 +119,15 @@
       "n": 1,
       "sample": "1 healthy male volunteer (data of Wilke 1999)",
       "doi": "10.1016/S0268-0033(00)00103-0",
+      "secondary": false
+    },
+    {
+      "key": "wilke1999",
+      "short": "Wilke 1999",
+      "year": 1999,
+      "n": 1,
+      "sample": "1 healthy male (same volunteer as Wilke 2001)",
+      "doi": "10.1097/00007632-199904150-00005",
       "secondary": false
     },
     {
@@ -162,7 +179,12 @@
       "pool": false
     }
   ],
-  "shared": [],
+  "shared": [
+    [
+      "wilke1999",
+      "wilke2001"
+    ]
+  ],
   "views": [
     {
       "id": "standing_flexion",
@@ -182,7 +204,8 @@
         "flex_l4l5_5",
         "extension",
         "latbend20",
-        "axial_rot"
+        "axial_rot",
+        "stand_ext_sato"
       ],
       "x": "task"
     },
@@ -206,7 +229,15 @@
         "sit_flex20",
         "sit_flex_max",
         "sit_backrest",
-        "lie_prone"
+        "lie_prone",
+        "lie_supine",
+        "lie_side",
+        "lie_prone_elbows",
+        "sit_upright",
+        "sit_flexed_sato",
+        "sit_extended_sato",
+        "sit_elbows_thighs",
+        "sit_slouched"
       ],
       "x": "task"
     }
@@ -237,14 +268,14 @@
         },
         {
           "study": "sato1999",
-          "mean": 0.54,
+          "mean": 0.539,
           "sd": 0.179,
           "min": 0.22,
           "max": 0.75,
           "stat": "mean",
           "n": 8,
           "test_id": "msk_idp_lumbar.sato1999.L4L5_standing",
-          "note": "cohort mean (Table 2, via secondary source); per-subject rows not used"
+          "note": "Sato 1999 Table 2 (primary)"
         },
         {
           "study": "takahashi2006",
@@ -255,7 +286,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing",
-          "note": "group mean digitised from Ghezelbash 2020 Fig 4a"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         },
         {
           "study": "nachemson1964",
@@ -303,8 +334,8 @@
         }
       ],
       "pooled": {
-        "mean": 0.4877,
-        "sd": 0.1674,
+        "mean": 0.487,
+        "sd": 0.1672,
         "N": 12,
         "k": 3,
         "studies": [
@@ -504,7 +535,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_standing_10kg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ]
     },
@@ -540,7 +571,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ],
       "pooled": {
@@ -576,7 +607,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_10deg_10kg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ]
     },
@@ -601,7 +632,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ]
     },
@@ -627,7 +658,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_20deg_10kg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ]
     },
@@ -663,7 +694,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ],
       "pooled": {
@@ -699,7 +730,7 @@
           "stat": "mean",
           "n": 3,
           "test_id": "msk_idp_lumbar.takahashi2006.L4L5_trunk_flexion_30deg_10kg",
-          "note": "digitised group mean"
+          "note": "digitised group mean; primary text (disc load / area) agrees within 2%"
         }
       ]
     },
@@ -759,21 +790,22 @@
       "view": "standing_flexion",
       "inputs": {
         "posture": "standing flexed forward until L4-L5 is flexed 5°",
-        "hand_load_kg": 0
+        "hand_load_kg": 0,
+        "trunk_flexion_deg": 50.8
       },
       "output": "idp",
       "level": "L4-L5",
       "refs": [
         {
           "study": "sato1999",
-          "mean": 1.32,
-          "sd": 0.223,
+          "mean": 1.324,
+          "sd": 0.222,
           "min": 0.9,
           "max": 1.49,
           "stat": "mean",
           "n": 8,
           "test_id": "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
-          "note": "cohort mean (Table 2 via secondary); trunk angle not reported"
+          "note": "Sato 1999 Table 2 (primary); trunk flexion 50.8° estimated from the X-ray"
         }
       ]
     },
@@ -823,7 +855,7 @@
           "stat": "value",
           "n": 1,
           "test_id": "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
-          "note": "abstract and Rohlmann 2001 (220%) give 1.1 MPa"
+          "note": "Wilke 2001 text ~1.0; Wilke 1999 Table 1 gives 1.1"
         }
       ]
     },
@@ -1044,9 +1076,30 @@
           "stat": "value",
           "n": 1,
           "test_id": "msk_idp_lumbar.wilke2001.L4L5_lying",
-          "note": "lying lateral 0.12 MPa"
+          "note": "Wilke 1999 Table 1: prone 0.11"
+        },
+        {
+          "study": "sato1999",
+          "mean": 0.091,
+          "sd": 0.027,
+          "min": 0.065,
+          "max": 0.149,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_lying_prone",
+          "note": "Table 2"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 0.092,
+        "sd": 0.0254,
+        "N": 9,
+        "k": 2,
+        "studies": [
+          "wilke2001",
+          "sato1999"
+        ]
+      }
     },
     {
       "id": "latbend20",
@@ -1095,6 +1148,240 @@
           "n": 1,
           "test_id": "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
           "note": "left 24°; right twist (17°) gave 0.6 MPa"
+        }
+      ]
+    },
+    {
+      "id": "lie_supine",
+      "label": "Lying supine",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "lying supine, legs straight"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke1999",
+          "mean": 0.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke1999.L4L5_table1",
+          "note": "Table 1"
+        }
+      ]
+    },
+    {
+      "id": "lie_side",
+      "label": "Lying on the side",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "lying on the side (lateral decubitus)"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.12,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_lying",
+          "note": "also Wilke 1999 Table 1"
+        },
+        {
+          "study": "sato1999",
+          "mean": 0.151,
+          "sd": 0.053,
+          "min": 0.09,
+          "max": 0.248,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_lying_lateral",
+          "note": "Table 2"
+        }
+      ],
+      "pooled": {
+        "mean": 0.1476,
+        "sd": 0.0506,
+        "N": 9,
+        "k": 2,
+        "studies": [
+          "wilke2001",
+          "sato1999"
+        ]
+      }
+    },
+    {
+      "id": "lie_prone_elbows",
+      "label": "Prone on elbows (back extended)",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "lying prone, upper body supported on the elbows"
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke1999",
+          "mean": 0.25,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke1999.L4L5_table1",
+          "note": "Table 1"
+        }
+      ]
+    },
+    {
+      "id": "stand_ext_sato",
+      "label": "Standing extended (L4-L5 +3°)",
+      "view": "standing_flexion",
+      "inputs": {
+        "posture": "standing, extended until the L4-L5 angle is 18° (upright 15°)",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 0.6,
+          "sd": 0.187,
+          "min": 0.325,
+          "max": 0.858,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_extended_standing",
+          "note": "Table 2; angles from the radiographs"
+        }
+      ]
+    },
+    {
+      "id": "sit_upright",
+      "label": "Sitting upright, unsupported",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting upright, no backrest (L4-L5 angle 9°)",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 0.623,
+          "sd": 0.154,
+          "min": 0.455,
+          "max": 0.904,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_sitting_upright",
+          "note": "Table 2"
+        }
+      ]
+    },
+    {
+      "id": "sit_flexed_sato",
+      "label": "Sitting flexed (L4-L5 angle 7°)",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting, flexed forward, no support (L4-L5 angle 7°)",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 1.133,
+          "sd": 0.254,
+          "min": 0.715,
+          "max": 1.482,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_sitting_flexed",
+          "note": "Table 2"
+        }
+      ]
+    },
+    {
+      "id": "sit_extended_sato",
+      "label": "Sitting extended (L4-L5 angle 13°)",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting, extended backward, no support (L4-L5 angle 13°)",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "sato1999",
+          "mean": 0.737,
+          "sd": 0.167,
+          "min": 0.52,
+          "max": 1.027,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_idp_lumbar.sato1999.L4L5_sitting_extended",
+          "note": "Table 2"
+        }
+      ]
+    },
+    {
+      "id": "sit_elbows_thighs",
+      "label": "Sitting bent forward, elbows on thighs",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "sitting on a stool, bent forward, elbows supported on the thighs",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.43,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+          "note": "also Wilke 1999 Table 1"
+        }
+      ]
+    },
+    {
+      "id": "sit_slouched",
+      "label": "Sitting slouched in an armchair",
+      "view": "sitting_lying",
+      "inputs": {
+        "posture": "armchair, slouched low against the backrest",
+        "hand_load_kg": 0
+      },
+      "output": "idp",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "wilke2001",
+          "mean": 0.27,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+          "note": "minimum; also Wilke 1999 Table 1"
         }
       ]
     }
@@ -1179,6 +1466,33 @@
       "idp": "MPa"
     },
     "axial_rot": {
+      "idp": "MPa"
+    },
+    "lie_supine": {
+      "idp": "MPa"
+    },
+    "lie_side": {
+      "idp": "MPa"
+    },
+    "lie_prone_elbows": {
+      "idp": "MPa"
+    },
+    "stand_ext_sato": {
+      "idp": "MPa"
+    },
+    "sit_upright": {
+      "idp": "MPa"
+    },
+    "sit_flexed_sato": {
+      "idp": "MPa"
+    },
+    "sit_extended_sato": {
+      "idp": "MPa"
+    },
+    "sit_elbows_thighs": {
+      "idp": "MPa"
+    },
+    "sit_slouched": {
       "idp": "MPa"
     }
   }

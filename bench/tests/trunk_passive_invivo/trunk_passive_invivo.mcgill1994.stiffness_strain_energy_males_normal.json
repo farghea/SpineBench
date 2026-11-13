@@ -1,0 +1,1586 @@
+{
+ "id": "trunk_passive_invivo.mcgill1994.stiffness_strain_energy_males_normal",
+ "title": "Passive lumbar torso stiffness (Nm/deg) and strain energy vs angle, males, normal condition (flexion, extension, CW twist, right lateral bend)",
+ "layer": "property",
+ "category": "trunk_passive_invivo",
+ "subcategory": "passive_stiffness",
+ "region": "lumbar",
+ "levels": [
+  "lumbar (rib cage/xiphoid relative to pelvis; moment about ~L4/L5)"
+ ],
+ "condition": "relaxed (EMG biofeedback), normal breathing, no belt; males",
+ "quantity": {
+  "name": "tangent stiffness and strain energy vs lumbar torso angle",
+  "definition": "k = dT/dalpha = lambda*beta*exp(beta*alpha) from the male normal fits (eq 2); E = (lambda/beta)*exp(beta*alpha) (eq 3, integral of the fit without subtracting the value at 0 deg), listed in 2-deg steps up to the angle reached by 50% of subjects",
+  "unit": "Nm/deg (energy see data[].unit)"
+ },
+ "source": {
+  "short": "McGill 1994",
+  "authors": "McGill S, Seguin J, Bennett G",
+  "year": 1994,
+  "journal": "Spine 19(6):696-704",
+  "doi": "10.1097/00007632-199403001-00009",
+  "n": 37,
+  "sample": "22 male + 15 female undergraduates, no disabling LBP in the previous year",
+  "age": "M 21.1 (1.2) y; F 20.8 (1.8) y",
+  "sex": "22 M, 15 F",
+  "height_cm": "M 176.9 (6.3); F 164.8 (4.5)",
+  "weight_kg": "M 74.9 (7.6); F 62.3 (8.8)"
+ },
+ "protocol": {
+  "summary": "Flexion/extension: side-lying; lateral bend: supine. Pelvis and lower body strapped to a fixed jig, upper torso (top of head to ~T12) strapped in a 'floating' cradle on precision nylon ball bearings over glass (no resistance to planar translation/rotation); scissor jacks aligned the spine in neutral, foam cushions under waist/knees when needed. Bending moment applied to the cradle by a cable kept normal to the cradle (load cell); moment = force x perpendicular distance to the lateral iliac crest (~L4/L5). Axial rotation: upright standing, rib cage fixed by a restraining harness, torque applied to a rotating platform under the feet. Angle = rib cage (3-SPACE Isotrak sensor over xiphoid) relative to pelvis (source strapped to pelvis), accuracy +-0.3 deg. Audio EMG biofeedback (bilateral L3 erector spinae and external oblique) to relax; trials with prolonged EMG repeated. Torque ramped over ~10 s (peak at 7-8 s) until the subject's tolerance limit. 3 trials x 6 directions (flexion, extension, CW twist, CCW twist, right and left lateral bend) x 3 conditions (normal, held breath at maximal inhalation, leather lifting belt 11 cm posterior / 6.5 cm anterior); condition order fixed (normal, breath hold, belt). Mean raw torque-angle data per sex, direction and condition fitted with T = lambda*exp(beta*alpha) (T in Nm, alpha in deg) from 0 Nm up to the torque still tolerated by half the subjects.",
+  "how_to_simulate": [
+   "Same set-up as trunk_passive_invivo.mcgill1994.relaxed_trunk_moment_angle_fit (side-lying flexion/extension, supine lateral bend, standing twist with rib cage fixed; zero muscle activation)",
+   "Compute the passive moment about L4/L5 at 2-deg steps and differentiate to get tangent stiffness (Nm/deg)",
+   "For energy, integrate the model moment from 0 deg and compare with E(alpha) - E(0) (see data notes), not with the printed E"
+  ],
+  "subject_model": {
+   "sex": "M",
+   "age": 21.1,
+   "height_cm": 176.9,
+   "weight_kg": 74.9,
+   "disc_area_mm2": null,
+   "source": "Table 1 male means (female cohort: 20.8 y, 164.8 cm, 62.3 kg)"
+  },
+  "notes": "Derived by the authors from the regression fits (no SD). Stiffness is per degree of rib cage-pelvis rotation (whole lumbar torso), not per motion segment. Lateral bending is the stiffest axis at a given angle; CW twist the least stiff. Converted stiffness in Nm/rad given in data[].converted; energies converted from Nm deg to J (x pi/180) with the printed value kept in orig."
+ },
+ "data": [
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.29,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 16.6,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.36,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 20.6,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.45,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 25.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.56,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 32.1,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.69,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 39.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.86,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 49.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 1.08,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 61.9,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 1.34,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 76.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.422,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 24.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.525,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 30.1,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.653,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 37.4,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.813,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 46.6,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.012,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 58.0,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.26,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 72.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.567,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 89.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "flexion, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.951,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 111.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.17,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 9.7,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.2,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 11.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.23,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 13.2,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.28,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 16.0,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.32,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 18.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.38,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 21.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.45,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 25.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.53,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 30.4,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.62,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 35.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.73,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 41.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 22,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.86,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 49.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.449,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 25.7,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.527,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 30.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.621,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 35.6,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.73,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 41.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.859,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 49.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.011,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 57.9,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.189,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 68.1,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.398,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 80.1,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.644,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 94.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.936,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 110.9,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 22,
+   "x_unit": "deg",
+   "series": "extension, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 2.276,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 130.4,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.13,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 7.4,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.15,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 8.6,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.17,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 9.7,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.2,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 11.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.23,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 13.2,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.26,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 14.9,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.31,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 17.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.36,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 20.6,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.41,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 23.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.48,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 27.5,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 22,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.56,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 32.1,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 24,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.64,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 36.7,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.398,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 22.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.463,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 26.5,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.538,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 30.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.623,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 35.7,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.723,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 41.4,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.838,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 48.0,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.972,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 55.7,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.127,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 64.6,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.307,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 74.9,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.517,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 86.9,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 22,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.759,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 100.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 24,
+   "x_unit": "deg",
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 2.04,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 116.9,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.32,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 18.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.4,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 22.9,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.49,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 28.1,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.61,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 35.0,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.75,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 43.0,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 0.93,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 53.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 1.14,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 65.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 1.41,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 80.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 1.75,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 100.3,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "stiffness k = dT/dalpha",
+   "mean": 2.16,
+   "sd": null,
+   "n": 22,
+   "unit": "Nm/deg",
+   "converted": {
+    "mean": 123.8,
+    "unit": "Nm/rad"
+   },
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 2,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.496,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 28.4,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 4,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.613,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 35.1,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 6,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.812,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 46.5,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 8,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 0.939,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 53.8,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 10,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.161,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 66.5,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 12,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.435,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 82.2,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 14,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 1.773,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 101.6,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 16,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 2.194,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 125.7,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 18,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 2.712,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 155.4,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": 20,
+   "x_unit": "deg",
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy E = (lambda/beta)*exp(beta*alpha) (indefinite integral, includes constant lambda/beta)",
+   "mean": 3.353,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 192.1,
+    "unit": "Nm deg"
+   },
+   "note": "as printed; NOT energy stored from 0 deg: subtract E(0) = lambda/beta (Nm deg) to get the energy from neutral",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "E(0) = lambda/beta (integration constant, Table 3 rounded coefficients)",
+   "x_unit": null,
+   "series": "flexion, male, normal",
+   "quantity": "strain energy offset",
+   "mean": 0.336,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 19.3,
+    "unit": "Nm deg"
+   },
+   "derived": true,
+   "note": "derived; Table 4 E at 2 deg minus this is the energy from neutral only approximately because Table 4 used unrounded beta",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "E(0) = lambda/beta (integration constant, Table 3 rounded coefficients)",
+   "x_unit": null,
+   "series": "extension, male, normal",
+   "quantity": "strain energy offset",
+   "mean": 0.386,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 22.1,
+    "unit": "Nm deg"
+   },
+   "derived": true,
+   "note": "derived; Table 4 E at 2 deg minus this is the energy from neutral only approximately because Table 4 used unrounded beta",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "E(0) = lambda/beta (integration constant, Table 3 rounded coefficients)",
+   "x_unit": null,
+   "series": "CW twist, male, normal",
+   "quantity": "strain energy offset",
+   "mean": 0.364,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 20.9,
+    "unit": "Nm deg"
+   },
+   "derived": true,
+   "note": "derived; Table 4 E at 2 deg minus this is the energy from neutral only approximately because Table 4 used unrounded beta",
+   "min": null,
+   "max": null,
+   "median": null
+  },
+  {
+   "x": "E(0) = lambda/beta (integration constant, Table 3 rounded coefficients)",
+   "x_unit": null,
+   "series": "right lateral bend, male, normal",
+   "quantity": "strain energy offset",
+   "mean": 0.387,
+   "sd": null,
+   "n": 22,
+   "unit": "J (Nm rad)",
+   "orig": {
+    "mean": 22.2,
+    "unit": "Nm deg"
+   },
+   "derived": true,
+   "note": "derived; Table 4 E at 2 deg minus this is the energy from neutral only approximately because Table 4 used unrounded beta",
+   "min": null,
+   "max": null,
+   "median": null
+  }
+ ],
+ "extraction": {
+  "from": "Table 4 (p.701); equations 2-3 (p.698); Table 3 for E(0)",
+  "method": "table",
+  "uncertainty": "as printed (k 0.01 Nm/deg, E 0.1 Nm deg)",
+  "checked": true,
+  "check_notes": "Scanned PDF: Table 4 read from a 300 dpi render, all 41 angle rows checked twice. Recomputed k from Table 3 (rounded) coefficients reproduces the printed values at 2 deg (0.29, 0.17, 0.13, 0.32) and deviates at the far end (extension 22 deg: 0.82 vs printed 0.86) because the authors used unrounded beta - printed Table 4 is preferred. E is the indefinite integral: E(2 deg) for flexion 24.2 Nm deg vs lambda/beta = 19.3 Nm deg."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model tangent stiffness within +-25% of the tabulated value at each angle (no SD reported); stiffness increasing with angle"
+ },
+ "combine_group": "trunk_passive_invivo__passive_stiffness_vs_angle__lumbar__relaxed_males__side_lying_supine_standing_deg",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "human",
+  "passive",
+  "axial rotation",
+  "lateral bending",
+  "strain energy"
+ ],
+ "shared_sample_with": [
+  "trunk_passive_invivo.mcgill1994.relaxed_trunk_moment_angle_fit",
+  "trunk_passive_invivo.mcgill1994.belt_breath_hold_moment_angle_fit",
+  "trunk_passive_invivo.mcgill1994.flexion_torque_vs_pct_elastic_limit"
+ ]
+}

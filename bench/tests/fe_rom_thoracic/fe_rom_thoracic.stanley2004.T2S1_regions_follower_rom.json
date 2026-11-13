@@ -1,0 +1,270 @@
+{
+ "layer": "outcome",
+ "subcategory": "follower preload",
+ "source": {
+  "short": "Stanley 2004",
+  "authors": "Stanley SK, Ghanayem AJ, Voronov LI, Havey RM, Paxinos O, Carandang G, Zindrick MR, Patwardhan AG",
+  "year": 2004,
+  "journal": "Spine 29(22):E510-E514",
+  "doi": "10.1097/01.brs.0000145417.94357.39",
+  "n": 7,
+  "sample": "7 fresh human cadaveric T2-sacrum thoracolumbar spines (ligamentous; no rib cage visible in Fig. 1B, not stated in text); no metastatic disease or bridging osteophytes",
+  "age": "mean 59.9 (SD 12.3) y, range 46-75",
+  "sex": "6 M, 1 F",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "T2 and sacrum potted in cups (cement, pins); mounted in neutral posture with L1 over the sacrum. FE moments by water flowing into bags on loading arms on the T2 cup; continuous cycling between 8 Nm flexion and 6 Nm extension until 2 reproducible loops. Follower preload via bilateral cables from the T2 cup through adjustable guides on each body T4-sacrum to a hanger; path optimised in neutral posture (800 N changed T2-L1 kyphosis by 2.3 +/- 1.6 deg and L1-S lordosis by 1.8 +/- 1.3 deg). Order: 0 N baseline, then 800, 600, 400, 200 N (descending), >= 5 min between. Optotrak markers on T2, T4, T6, T9, L3 relative to the sacrum; biaxial angle sensors on T2, T5, T8, T10, T11, L1, L2, L4, L5; 6-axis load cell under the specimen.",
+  "how_to_simulate": [
+   "Model the ligamentous T2-sacrum spine without rib cage; fix the sacrum, load at the T2 cup",
+   "Apply a follower preload of 0, 200, 400, 600 or 800 N along a path tangent to the kypholordotic curve (optimised to minimise posture change in neutral)",
+   "Apply 8 Nm flexion and 6 Nm extension to T2",
+   "Report sagittal rotation range (flexion+extension) of the region: T2-sacrum, T2-T11, T11-L1 or L1-sacrum"
+  ],
+  "subject_model": null,
+  "notes": "Table 1, mean (SD), n = 7. Regional ROM probably from the T11/L1 angle sensors (Optotrak markers were on T2, T4, T6, T9, L3; not stated). Preload order not randomised (descending). Same lab as Patwardhan 2003 / Renner 2007 (L1-S1 specimens) but different, longer specimens; no overlap stated."
+ },
+ "extraction": {
+  "from": "Table 1",
+  "method": "table",
+  "uncertainty": "as printed (0.1 deg)",
+  "checked": true,
+  "check_notes": "Read from the PDF text layer. T2-sacrum 73.0 -> 56.6 deg at 800 N (-22 %) and T2-T11 / L1-S -23 % / -30 % match the abstract. T2-T11 at 200 N printed '24' (taken as 24.0). pct_of_0N and pct_of_T2S1 as printed (rounded integers)."
+ },
+ "loading": {
+  "moment_Nm": "8 flexion / 6 extension",
+  "rate": "continuous cycling (water flow into bags)",
+  "cycles": "until 2 reproducible loops",
+  "branch": "peak flexion to peak extension",
+  "preload": "0/200/400/600/800 N follower (optimised neutral path)",
+  "device": "water-bag moment apparatus, Optotrak 3020, biaxial angle sensors, AMTI 6-axis load cell"
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model-mean| <= 1 SD; ROM of T2-S1, T2-T11 and L1-S1 decreases with preload >= 400 N, T11-L1 unchanged"
+ },
+ "specimen_levels": "T2-S1",
+ "id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+ "title": "T2-sacrum, T2-T11 and T11-L1 flexion-extension ROM under 0-800 N follower preload (Stanley 2004)",
+ "category": "fe_rom_thoracic",
+ "region": "thoracic",
+ "levels": [
+  "T2-S1",
+  "T2-T11",
+  "T11-L1"
+ ],
+ "condition": "intact (no rib cage), follower preload 0-800 N",
+ "quantity": {
+  "name": "ROM",
+  "definition": "sagittal rotation range of the region between 8 Nm flexion and 6 Nm extension (full range); mean (SD) of 7",
+  "unit": "deg"
+ },
+ "data": [
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 0 N follower",
+   "mean": 73.0,
+   "sd": 12.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-S1",
+   "pct_of_0N": 100
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 200 N follower",
+   "mean": 75.7,
+   "sd": 15.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-S1",
+   "pct_of_0N": 100
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 400 N follower",
+   "mean": 66.5,
+   "sd": 11.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-S1",
+   "pct_of_0N": 91
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 600 N follower",
+   "mean": 61.6,
+   "sd": 13.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-S1",
+   "pct_of_0N": 85
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 800 N follower",
+   "mean": 56.6,
+   "sd": 12.3,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-S1",
+   "pct_of_0N": 78
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 0 N follower",
+   "mean": 25.3,
+   "sd": 10.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-T11",
+   "pct_of_0N": 100,
+   "pct_of_T2S1": 33
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 200 N follower",
+   "mean": 24.0,
+   "sd": 9.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-T11",
+   "pct_of_0N": 96,
+   "pct_of_T2S1": 31
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 400 N follower",
+   "mean": 18.8,
+   "sd": 6.2,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-T11",
+   "pct_of_0N": 77,
+   "pct_of_T2S1": 28
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 600 N follower",
+   "mean": 18.3,
+   "sd": 5.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-T11",
+   "pct_of_0N": 76,
+   "pct_of_T2S1": 29
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 800 N follower",
+   "mean": 18.2,
+   "sd": 5.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T2-T11",
+   "pct_of_0N": 77,
+   "pct_of_T2S1": 32
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 0 N follower",
+   "mean": 8.2,
+   "sd": 3.4,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T11-L1",
+   "pct_of_0N": 100,
+   "pct_of_T2S1": 11
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 200 N follower",
+   "mean": 9.0,
+   "sd": 3.7,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T11-L1",
+   "pct_of_0N": 110,
+   "pct_of_T2S1": 12
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 400 N follower",
+   "mean": 9.6,
+   "sd": 3.1,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T11-L1",
+   "pct_of_0N": 123,
+   "pct_of_T2S1": 15
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 600 N follower",
+   "mean": 9.4,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T11-L1",
+   "pct_of_0N": 120,
+   "pct_of_T2S1": 16
+  },
+  {
+   "x": "flexion_extension_total",
+   "load": "8 Nm flexion / 6 Nm extension + 800 N follower",
+   "mean": 9.0,
+   "sd": 3.0,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 7,
+   "level": "T11-L1",
+   "pct_of_0N": 114,
+   "pct_of_T2S1": 17
+  }
+ ],
+ "combine_group": "fe_rom_thoracic__rom__t2_s1_regions__intact_follower__8nm_flex_6nm_ext",
+ "tags": [
+  "thoracic",
+  "in vitro",
+  "multi-segment",
+  "follower load",
+  "no rib cage"
+ ],
+ "ribcage": {
+  "present": false,
+  "intact_structures": "none (spine only, per Fig. 1B)"
+ },
+ "shared_sample_with": [
+  "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom"
+ ]
+}

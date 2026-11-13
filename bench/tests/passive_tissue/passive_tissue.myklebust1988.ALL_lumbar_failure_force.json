@@ -1,0 +1,149 @@
+{
+ "id": "passive_tissue.myklebust1988.ALL_lumbar_failure_force",
+ "title": "Myklebust 1988 lumbar ALL failure force by level",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "ligament",
+ "region": "lumbar",
+ "levels": [
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "intact",
+ "quantity": {
+  "name": "failure force",
+  "definition": "maximum tensile force before load decreases with increasing deflection (peak load), in situ isolated ligament, 10 mm/s",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Myklebust 1988",
+  "authors": "Myklebust JB, Pintar F, Yoganandan N, Cusick JF, Maiman D, Myers TJ, Sances A Jr",
+  "year": 1988,
+  "journal": "Spine 13(5):526-531",
+  "doi": "10.1097/00007632-198805000-00016",
+  "n": 402,
+  "sample": "402 ligaments (C2-S1 plus upper cervical) from 41 fresh male cadavers; 2-5 specimens per ligament and level (Table 1 footnote); SSL only from C7-S1. Same laboratory and mechanical data set later used by Pintar 1992 (lumbar ligaments, 38 cadavers)",
+  "age": "mean 67 y (30-89)",
+  "sex": "male",
+  "height_cm": 175,
+  "weight_kg": 65
+ },
+ "protocol": {
+  "summary": "Ligamentous spine kept at 2 C, tested within 1-3 days of death, moist with Ringer's solution; divided at C5-6 or T2-3 and T10-11 or T9-10. In situ isolation: at each level the disc and all supporting structures except the ligament under study were sectioned; vertebral bodies above and below fixed with Steinmann pins in a frame; ligament pulled in direct axial tension at a constant rate of 1 cm/s (10 mm/s, NOT quasi-static) on an MTS electrohydraulic system; deflection from the LVDT, confirmed by a potentiometer across the two vertebrae. Failure = maximum point at which load continued to decrease with increasing deflection. No cross-sectional areas or initial lengths reported (no stress or strain). JC tested as a bilateral unit including the facet joints; ISL/SSL divided at the end of the spinous process.",
+  "how_to_simulate": [
+   "Bone-ligament-bone unit of the named ligament at the stated level, all other structures removed (in situ isolation)",
+   "Pull along the ligament's line of action at 10 mm/s to failure (peak load)",
+   "Report peak force (N) and the deflection at peak force (mm)"
+  ],
+  "subject_model": null,
+  "notes": "Ligament: anterior longitudinal ligament."
+ },
+ "data": [
+  {
+   "x": "T12-L1",
+   "load": "",
+   "mean": 276,
+   "sd": 81,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "276 (81) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  },
+  {
+   "x": "L1-L2",
+   "load": "",
+   "mean": 341,
+   "sd": 72,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "341 (72) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  },
+  {
+   "x": "L2-L3",
+   "load": "",
+   "mean": 504,
+   "sd": 218,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "504 (218) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  },
+  {
+   "x": "L3-L4",
+   "load": "",
+   "mean": 676,
+   "sd": 359,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "676 (359) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  },
+  {
+   "x": "L4-L5",
+   "load": "",
+   "mean": 606,
+   "sd": 191,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "606 (191) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  },
+  {
+   "x": "L5-S1",
+   "load": "",
+   "mean": 209,
+   "sd": 196,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "orig": "209 (196) N",
+   "n_note": "2-5 samples (exact n per level not printed)"
+  }
+ ],
+ "extraction": {
+  "from": "Table 1 (p.529, rotated)",
+  "method": "table",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Read from the 300-dpi page scan rotated upright, columns cropped and enlarged; mean (SD). Footnotes: means/SD based on 2 to 5 samples; dagger = only one sample or insufficient data (sd null, n=1); '-' = SSL does not exist (C2-C7). Cervical rows (C2-C3 to C7-T1) and Table 2 (upper cervical) not extracted. Text checks: ALL highest 676 N at lumbar levels (L3-L4) and PLL greatest at lumbar (160 N, L2-L3) agree with the table."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__failure_force__all_lumbar__human__uniaxial_tension",
+ "tags": [
+  "human",
+  "in vitro",
+  "ligament",
+  "lumbar",
+  "ALL",
+  "dynamic",
+  "failure"
+ ],
+ "shared_sample_with": [
+  "passive_tissue.pintar1992.ALL_failure_force",
+  "passive_tissue.pintar1992.ALL_failure_elongation",
+  "passive_tissue.pintar1992.ALL_failure_strain",
+  "passive_tissue.pintar1992.ALL_failure_stress",
+  "passive_tissue.pintar1992.ALL_stiffness",
+  "passive_tissue.pintar1992.ALL_energy_to_failure",
+  "passive_tissue.pintar1992.ALL_force_deformation_curve"
+ ]
+}

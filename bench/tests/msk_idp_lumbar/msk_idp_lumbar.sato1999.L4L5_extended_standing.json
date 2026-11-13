@@ -1,0 +1,263 @@
+{
+ "id": "msk_idp_lumbar.sato1999.L4L5_extended_standing",
+ "title": "Sato 1999: L4-L5 IDP standing, extended backward (L4-L5 angle 18 deg vs 15 deg upright), 8 healthy subjects",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L4-L5 in vivo, cohort",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "standing, extended backward (L4-L5 angle 18 deg vs 15 deg upright), no hand load",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Sato 1999",
+  "authors": "Sato K, Kikuchi S, Yonezawa T",
+  "year": 1999,
+  "journal": "Spine 24:2468-2474",
+  "doi": "10.1097/00007632-199912010-00008",
+  "n": 8,
+  "sample": "8 healthy subjects (men); 8 healthy volunteers without back problems (plus 28 patients not used here), L4-L5",
+  "age": "24.5 (22-29)",
+  "sex": "M",
+  "height_cm": 173.4,
+  "weight_kg": 72.6
+ },
+ "protocol": {
+  "summary": "Needle transducer in the L4-L5 nucleus of 8 healthy volunteers; standing, extended backward (L4-L5 angle 18 deg vs 15 deg upright) (Sato 1999 Table 2).",
+  "how_to_simulate": [
+   "Scale the model to the Sato cohort mean (protocol.subject_model: male, 24.5 y, 173.4 cm, 72.6 kg) - or to each subject in per_subject for a per-subject comparison",
+   "Posture: standing, trunk extended backward until the L4-L5 angle is 18 deg (3 deg more lordotic than upright); arms hanging",
+   "Hand load: none",
+   "Output: L4-L5 compression F and L4-L5 intersegmental rotation th relative to upright standing",
+   "Convert with Ghezelbash 2016 Eq. 6: P = F / A, A = 1585 mm2 (cohort mean) or the subject's own area; compare with data[0].mean"
+  ],
+  "subject_model": {
+   "sex": "male (Bruno 2015 J Biomech Eng Table 3: '8M'; Ghezelbash lab validation targets: male); V05 Table 2 prints '-' (sex not given)",
+   "age": 24.5,
+   "age_range": [
+    22,
+    29
+   ],
+   "height_cm": 173.4,
+   "weight_kg": 72.6,
+   "weight_range_kg": [
+    60,
+    94
+   ],
+   "disc_area_mm2": 1585,
+   "disc_area_range_mm2": [
+    1340,
+    1890
+   ],
+   "source": "Means computed here from the 8 per-subject rows of Dreischarf 2016 (V05) Table 2 (age, body weight, height, disc area; BMI column re-computed and matches). The Ghezelbash lab validation targets (subjects.sato) uses 25 y, 174 cm, 73 kg, 1590 (1340-1890) mm2 (Fasser 2021 Suppl. Table S1, Bruno 2015 Table 3: BM 73 kg, HT 174 cm, ages 22-29) - consistent except the weight range (targets 60-96 kg; V05 max 94 kg).",
+   "per_subject": [
+    {
+     "no": 1,
+     "age": 26,
+     "weight_kg": 72,
+     "height_cm": 168,
+     "bmi": 25.5,
+     "disc_area_mm2": 1690
+    },
+    {
+     "no": 2,
+     "age": 24,
+     "weight_kg": 74,
+     "height_cm": 168,
+     "bmi": 26.2,
+     "disc_area_mm2": 1420
+    },
+    {
+     "no": 3,
+     "age": 22,
+     "weight_kg": 65,
+     "height_cm": 181,
+     "bmi": 19.8,
+     "disc_area_mm2": 1460
+    },
+    {
+     "no": 4,
+     "age": 24,
+     "weight_kg": 94,
+     "height_cm": 181,
+     "bmi": 28.7,
+     "disc_area_mm2": 1340
+    },
+    {
+     "no": 5,
+     "age": 23,
+     "weight_kg": 66,
+     "height_cm": 177,
+     "bmi": 21.1,
+     "disc_area_mm2": 1540
+    },
+    {
+     "no": 6,
+     "age": 24,
+     "weight_kg": 60,
+     "height_cm": 166,
+     "bmi": 21.8,
+     "disc_area_mm2": 1600
+    },
+    {
+     "no": 7,
+     "age": 24,
+     "weight_kg": 66,
+     "height_cm": 172,
+     "bmi": 22.3,
+     "disc_area_mm2": 1740
+    },
+    {
+     "no": 8,
+     "age": 29,
+     "weight_kg": 84,
+     "height_cm": 174,
+     "bmi": 27.7,
+     "disc_area_mm2": 1890
+    }
+   ],
+   "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "segment_angle_deg": {
+   "mean": 18,
+   "sd": 2,
+   "definition": "angle between L4 and L5 measured on lateral radiographs taken during the measurement (Sato Table 2); upright standing 15 +/- 3 deg"
+  }
+ },
+ "data": [
+  {
+   "x": "standing, extended backward (L4-L5 angle 18 deg vs 15 deg upright), cohort mean (n=8)",
+   "load": "none",
+   "mean": 0.6,
+   "sd": 0.187,
+   "min": 0.325,
+   "max": 0.858,
+   "median": null,
+   "n": 8,
+   "src": "Sato 1999 Table 2, vertical pressure, mean +/- SD (primary)"
+  },
+  {
+   "x": "standing, extended backward, subject No. 1",
+   "load": "none",
+   "mean": 0.325,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 1"
+  },
+  {
+   "x": "standing, extended backward, subject No. 2",
+   "load": "none",
+   "mean": 0.663,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 2"
+  },
+  {
+   "x": "standing, extended backward, subject No. 3",
+   "load": "none",
+   "mean": 0.858,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 3"
+  },
+  {
+   "x": "standing, extended backward, subject No. 4",
+   "load": "none",
+   "mean": 0.546,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 4"
+  },
+  {
+   "x": "standing, extended backward, subject No. 5",
+   "load": "none",
+   "mean": 0.578,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 5"
+  },
+  {
+   "x": "standing, extended backward, subject No. 6",
+   "load": "none",
+   "mean": 0.858,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 6"
+  },
+  {
+   "x": "standing, extended backward, subject No. 7",
+   "load": "none",
+   "mean": 0.532,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 7"
+  },
+  {
+   "x": "standing, extended backward, subject No. 8",
+   "load": "none",
+   "mean": 0.442,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "src": "Sato 1999 Table 2 (primary), subject 8"
+  }
+ ],
+ "extraction": {
+  "from": "Sato K, Kikuchi S, Yonezawa T. Spine 1999;24:2468-2474, Table 2 (vertical pressure V; horizontal H differs by <= 2%)",
+  "method": "table",
+  "uncertainty": "none (printed table)",
+  "checked": "primary",
+  "check_notes": "Checked against the primary paper (Sato 1999 Spine 24:2468, Table 2) on 2026-11-12; table means recomputed from the 8 rows (within 1 kPa)."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__extended_standing__none",
+ "shared_sample_with": [
+  "msk_idp_lumbar.sato1999.L4L5_flexed_standing",
+  "msk_idp_lumbar.sato1999.L4L5_lying_lateral",
+  "msk_idp_lumbar.sato1999.L4L5_lying_prone",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_extended",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_flexed",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_upright",
+  "msk_idp_lumbar.sato1999.L4L5_standing"
+ ],
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "cohort",
+  "healthy"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

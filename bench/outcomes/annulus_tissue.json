@@ -111,6 +111,15 @@
       "sample": "16 anterior AF square samples, 13 spines; circ-fixed biaxial curve digitised from Ghezelbash 2021 Fig 7a",
       "doi": "10.1007/s10237-011-0328-9",
       "secondary": true
+    },
+    {
+      "key": "ebara1996",
+      "short": "Ebara 1996",
+      "year": 1996,
+      "n": 60,
+      "sample": "60 circumferential multi-layer AF strips (AO, AI, PO, PI; 15 each), L3-L4, 15 spines 26-53 y, grade I-II; curves = one typical grade I disc (28 y)",
+      "doi": "10.1097/00007632-199602150-00009",
+      "secondary": false
     }
   ],
   "shared": [
@@ -240,7 +249,60 @@
         "circ_oc_14",
         "circ_oc_15",
         "circ_oc_16",
-        "circ_oc_17"
+        "circ_oc_17",
+        "circ_ebAO_00",
+        "circ_ebAO_01",
+        "circ_ebAO_02",
+        "circ_ebAO_03",
+        "circ_ebAO_04",
+        "circ_ebAO_05",
+        "circ_ebAO_06",
+        "circ_ebAO_07",
+        "circ_ebAO_08",
+        "circ_ebAO_09",
+        "circ_ebAO_10",
+        "circ_ebAO_11",
+        "circ_ebAO_12",
+        "circ_ebAO_13",
+        "circ_ebAO_14",
+        "circ_ebAO_15",
+        "circ_ebAO_16",
+        "circ_ebAO_17",
+        "circ_ebAI_00",
+        "circ_ebAI_01",
+        "circ_ebAI_02",
+        "circ_ebAI_03",
+        "circ_ebAI_04",
+        "circ_ebAI_05",
+        "circ_ebAI_06",
+        "circ_ebPO_00",
+        "circ_ebPO_01",
+        "circ_ebPO_02",
+        "circ_ebPO_03",
+        "circ_ebPO_04",
+        "circ_ebPO_05",
+        "circ_ebPO_06",
+        "circ_ebPO_07",
+        "circ_ebPO_08",
+        "circ_ebPO_09",
+        "circ_ebPO_10",
+        "circ_ebPO_11",
+        "circ_ebPO_12",
+        "circ_ebPO_13",
+        "circ_ebPO_14",
+        "circ_ebPO_15",
+        "circ_ebPO_16",
+        "circ_ebPI_00",
+        "circ_ebPI_01",
+        "circ_ebPI_02",
+        "circ_ebPI_03",
+        "circ_ebPI_04",
+        "circ_ebPI_05",
+        "circ_ebPI_06",
+        "circ_ebPI_07",
+        "circ_ebPI_08",
+        "circ_ebPI_09",
+        "circ_ebPI_10"
       ],
       "note": "Multi-lamella strip pulled circumferentially (fibres at about +-30 deg to the load), sides free; nominal stress vs nominal strain of the central region."
     },
@@ -2984,6 +3046,1384 @@
       ]
     },
     {
+      "id": "circ_ebAO_00",
+      "label": "AO typical, 0%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 0
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_01",
+      "label": "AO typical, 2.66%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 2.66
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.323,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_02",
+      "label": "AO typical, 3.1%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 3.1
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.409,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_03",
+      "label": "AO typical, 3.37%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 3.37
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.484,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_04",
+      "label": "AO typical, 3.98%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 3.98
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.574,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_05",
+      "label": "AO typical, 4.48%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 4.48
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.657,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_06",
+      "label": "AO typical, 4.87%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 4.87
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.756,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_07",
+      "label": "AO typical, 5.24%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 5.24
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.842,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_08",
+      "label": "AO typical, 5.39%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 5.39
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.94,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_09",
+      "label": "AO typical, 5.7%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 5.7
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.038,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_10",
+      "label": "AO typical, 6.15%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 6.15
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.14,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_11",
+      "label": "AO typical, 6.52%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 6.52
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.235,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_12",
+      "label": "AO typical, 6.67%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 6.67
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.347,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_13",
+      "label": "AO typical, 6.94%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 6.94
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.547,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_14",
+      "label": "AO typical, 7.28%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 7.28
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.772,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_15",
+      "label": "AO typical, 7.79%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 7.79
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.882,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_16",
+      "label": "AO typical, 8.32%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 8.32
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 2.017,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAO_17",
+      "label": "AO typical, 8.47%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer anterior AF",
+        "curve": "AO typical",
+        "strain": 8.47
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 2.109,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_00",
+      "label": "AI typical, 0%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 0
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_01",
+      "label": "AI typical, 2.67%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 2.67
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.129,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_02",
+      "label": "AI typical, 4.06%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 4.06
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.259,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_03",
+      "label": "AI typical, 4.95%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 4.95
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.337,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_04",
+      "label": "AI typical, 6.48%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 6.48
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.435,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_05",
+      "label": "AI typical, 7.18%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 7.18
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.481,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebAI_06",
+      "label": "AI typical, 8.85%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner anterior AF",
+        "curve": "AI typical",
+        "strain": 8.85
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.601,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_00",
+      "label": "PO typical, 0%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 0
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_01",
+      "label": "PO typical, 1.66%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 1.66
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.158,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_02",
+      "label": "PO typical, 2.7%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 2.7
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.246,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_03",
+      "label": "PO typical, 3.53%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 3.53
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.348,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_04",
+      "label": "PO typical, 4.55%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 4.55
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.46,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_05",
+      "label": "PO typical, 5.33%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 5.33
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.574,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_06",
+      "label": "PO typical, 6.35%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 6.35
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.711,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_07",
+      "label": "PO typical, 7.21%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 7.21
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.84,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_08",
+      "label": "PO typical, 8.25%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 8.25
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.976,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_09",
+      "label": "PO typical, 8.95%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 8.95
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.121,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_10",
+      "label": "PO typical, 9.85%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 9.85
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.286,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_11",
+      "label": "PO typical, 10.3%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 10.3
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.435,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_12",
+      "label": "PO typical, 11.01%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 11.01
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.569,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_13",
+      "label": "PO typical, 11.38%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 11.38
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.739,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_14",
+      "label": "PO typical, 12.1%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 12.1
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 1.908,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_15",
+      "label": "PO typical, 12.34%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 12.34
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 2.094,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPO_16",
+      "label": "PO typical, 12.52%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "outer posterolateral AF",
+        "curve": "PO typical",
+        "strain": 12.52
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 2.154,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_00",
+      "label": "PI typical, 0%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 0
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_01",
+      "label": "PI typical, 2%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 2.0
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.032,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_02",
+      "label": "PI typical, 3.35%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 3.35
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.065,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_03",
+      "label": "PI typical, 5.17%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 5.17
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.077,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_04",
+      "label": "PI typical, 6.78%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 6.78
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.104,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_05",
+      "label": "PI typical, 8.48%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 8.48
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.135,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_06",
+      "label": "PI typical, 9.68%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 9.68
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.134,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_07",
+      "label": "PI typical, 11.14%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 11.14
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.158,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_08",
+      "label": "PI typical, 12.63%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 12.63
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.168,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_09",
+      "label": "PI typical, 14.03%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 14.03
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.19,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
+      "id": "circ_ebPI_10",
+      "label": "PI typical, 15.25%",
+      "view": "circumferential",
+      "inputs": {
+        "mode": "uniaxial tension, circumferential",
+        "region": "inner posterolateral AF",
+        "curve": "PI typical",
+        "strain": 15.25
+      },
+      "output": "stress",
+      "level": "L3-L4",
+      "refs": [
+        {
+          "study": "ebara1996",
+          "mean": 0.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.ebara1996.AF_circ_stress_strain_typical",
+          "note": "Fig 4, one typical specimen per region (L3-L4, grade I, 28 y), 0.07 mm/min (~0.0001/s) in 0.15 M NaCl; nominal stress (force/undeformed area) vs gauge-mark nominal strain (no conversion)"
+        }
+      ]
+    },
+    {
       "id": "ax_bass_00",
       "label": "Typical specimen, 6.58%",
       "view": "axial",
@@ -4277,7 +5717,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4303,7 +5743,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4329,7 +5769,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4355,7 +5795,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4381,7 +5821,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4407,7 +5847,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4433,7 +5873,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4459,7 +5899,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4485,7 +5925,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4511,7 +5951,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4537,7 +5977,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4563,7 +6003,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4589,7 +6029,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4615,7 +6055,7 @@
           "min": null,
           "max": null,
           "stat": "value",
-          "n": null,
+          "n": 16,
           "test_id": "passive_tissue.oconnell2012.AF_biaxial_circfixed_axial_curve_secondary",
           "note": "secondary: digitised from Ghezelbash 2021 Fig 7a; 0.01 %/s; stress = force/reference area; strain converted from Lagrangian E (assumed plotted as E); one sample or mean not stated"
         }
@@ -4933,6 +6373,165 @@
       "stress": "MPa"
     },
     "circ_oc_17": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_00": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_01": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_02": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_03": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_04": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_05": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_06": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_07": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_08": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_09": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_10": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_11": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_12": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_13": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_14": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_15": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_16": {
+      "stress": "MPa"
+    },
+    "circ_ebAO_17": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_00": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_01": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_02": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_03": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_04": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_05": {
+      "stress": "MPa"
+    },
+    "circ_ebAI_06": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_00": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_01": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_02": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_03": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_04": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_05": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_06": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_07": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_08": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_09": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_10": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_11": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_12": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_13": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_14": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_15": {
+      "stress": "MPa"
+    },
+    "circ_ebPO_16": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_00": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_01": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_02": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_03": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_04": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_05": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_06": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_07": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_08": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_09": {
+      "stress": "MPa"
+    },
+    "circ_ebPI_10": {
       "stress": "MPa"
     },
     "ax_bass_00": {

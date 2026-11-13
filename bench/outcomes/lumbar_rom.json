@@ -13,7 +13,7 @@
   ],
   "summary": "Apply pure moments, with a preload where listed, to intact lumbar specimens and report the rotation of each segment or the whole specimen.",
   "simulate": [
-    "Build the intact ligamentous specimen named in the task (FSU, or multi-level L1-S1 / L1-L5); fix the caudal vertebra (sacrum).",
+    "Build the intact ligamentous specimen named in the task (FSU, or multi-level L1-S1 / L1-L5 / L1-L4); fix the caudal vertebra (sacrum).",
     "Apply a pure moment to the cranial vertebra in the task direction; leave the other 5 DOF free.",
     "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force. Panjabi 1994 tasks: 100 N compression kept along the specimen axis during bending (model it as a follower load or an axial load that rotates with the top vertebra).",
     "Report rotation of each upper vertebra relative to the one below (segmental) and of the cranial end relative to the caudal end (total), at peak moment, loading branch.",
@@ -193,6 +193,24 @@
       "n": 5,
       "sample": "5 L1-S1 spines, L4-L5, 450 N follower",
       "doi": "10.1115/1.4004862",
+      "secondary": false
+    },
+    {
+      "key": "busscher2009",
+      "short": "Busscher 2009",
+      "year": 2009,
+      "n": 6,
+      "sample": "6 male L1-L4 segments, middle level L2-L3, 4 Nm",
+      "doi": "10.1097/BRS.0b013e3181b4c75d",
+      "secondary": false
+    },
+    {
+      "key": "stanley2004",
+      "short": "Stanley 2004",
+      "year": 2004,
+      "n": 7,
+      "sample": "7 T2-sacrum spines, L1-S1 region, 0-800 N follower",
+      "doi": "10.1097/01.brs.0000145417.94357.39",
       "secondary": false
     }
   ],
@@ -379,6 +397,7 @@
         "L1S1_fe_8_6",
         "L1S1_fe_8_6_fl200",
         "L1S1_fe_8_6_fl400",
+        "L1S1_fe_8_6_fl600",
         "L1S1_fe_8_6_fl800",
         "L1S1_fe_8_6_fl1200",
         "L1L2_fe_8_6",
@@ -409,6 +428,16 @@
         "4seg_ext_3p75",
         "4seg_lb_3p75",
         "4seg_ar_3p75"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "seg_4nm",
+      "title": "Both directions summed (4 Nm)",
+      "task_ids": [
+        "L2L3_fe_4",
+        "L2L3_lbr_4",
+        "L2L3_arr_4"
       ],
       "x": "task"
     }
@@ -702,7 +731,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -713,7 +742,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -731,9 +760,9 @@
         }
       ],
       "pooled": {
-        "mean": 7.22,
-        "sd": 0.5503,
-        "N": 7,
+        "mean": 7.3225,
+        "sd": 1.981,
+        "N": 48,
         "k": 2,
         "studies": [
           "sawa2008",
@@ -763,7 +792,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -774,7 +803,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -814,7 +843,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -825,7 +854,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -981,7 +1010,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -992,7 +1021,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1032,7 +1061,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1043,7 +1072,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1083,7 +1112,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1094,7 +1123,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1134,7 +1163,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1145,7 +1174,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1185,7 +1214,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1196,7 +1225,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1236,7 +1265,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1247,7 +1276,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1403,7 +1432,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1414,7 +1443,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1454,9 +1483,9 @@
         }
       ],
       "pooled": {
-        "mean": 10.2009,
-        "sd": 2.5064,
-        "N": 133,
+        "mean": 10.3857,
+        "sd": 2.6663,
+        "N": 174,
         "k": 2,
         "studies": [
           "cook2015",
@@ -1486,7 +1515,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1497,7 +1526,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1537,9 +1566,9 @@
         }
       ],
       "pooled": {
-        "mean": 9.2643,
-        "sd": 2.5957,
-        "N": 141,
+        "mean": 9.2419,
+        "sd": 2.5498,
+        "N": 182,
         "k": 2,
         "studies": [
           "cook2015",
@@ -1569,7 +1598,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1580,7 +1609,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1620,9 +1649,9 @@
         }
       ],
       "pooled": {
-        "mean": 4.5314,
-        "sd": 1.6936,
-        "N": 132,
+        "mean": 4.5761,
+        "sd": 1.8653,
+        "N": 173,
         "k": 2,
         "studies": [
           "cook2015",
@@ -1652,7 +1681,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1663,7 +1692,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1703,7 +1732,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1714,7 +1743,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1754,7 +1783,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_female",
           "note": "female FSUs inside L1-S1; per-level n not reported"
         },
@@ -1765,7 +1794,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_multi.cook2015.L1S1_intact_male",
           "note": "male FSUs inside L1-S1; per-level n not reported"
         },
@@ -1903,8 +1932,29 @@
           "n": 21,
           "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
           "note": "0 N follower, neutral path"
+        },
+        {
+          "study": "stanley2004",
+          "mean": 41.9,
+          "sd": 5.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom",
+          "note": "L1-S1 region inside T2-S1 specimen"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 46.2824,
+        "sd": 8.9295,
+        "N": 17,
+        "k": 2,
+        "studies": [
+          "renner2007",
+          "stanley2004"
+        ]
+      }
     },
     {
       "id": "L1S1_lbr_6",
@@ -2746,8 +2796,29 @@
           "n": 21,
           "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
           "note": "neutral path"
+        },
+        {
+          "study": "stanley2004",
+          "mean": 42.7,
+          "sd": 7.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom",
+          "note": "L1-S1 region inside T2-S1 specimen"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 50.95,
+        "sd": 13.1417,
+        "N": 28,
+        "k": 2,
+        "studies": [
+          "patwardhan2003",
+          "stanley2004"
+        ]
+      }
     },
     {
       "id": "L1S1_fe_8_6_fl400",
@@ -2774,8 +2845,29 @@
           "n": 21,
           "test_id": "fe_rom_lumbar_multi.patwardhan2003.L1S1_follower_rom",
           "note": "neutral path"
+        },
+        {
+          "study": "stanley2004",
+          "mean": 37.9,
+          "sd": 7.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom",
+          "note": "L1-S1 region inside T2-S1 specimen"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 47.2,
+        "sd": 12.8503,
+        "N": 28,
+        "k": 2,
+        "studies": [
+          "patwardhan2003",
+          "stanley2004"
+        ]
+      }
     },
     {
       "id": "L1S1_fe_8_6_fl800",
@@ -2813,8 +2905,29 @@
           "n": 10,
           "test_id": "fe_rom_lumbar_multi.renner2007.L1S1_follower800N_rom",
           "note": ""
+        },
+        {
+          "study": "stanley2004",
+          "mean": 29.3,
+          "sd": 10.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom",
+          "note": "L1-S1 region inside T2-S1 specimen"
         }
-      ]
+      ],
+      "pooled": {
+        "mean": 41.075,
+        "sd": 12.6027,
+        "N": 28,
+        "k": 2,
+        "studies": [
+          "patwardhan2003",
+          "stanley2004"
+        ]
+      }
     },
     {
       "id": "L1S1_fe_8_6_fl1200",
@@ -3174,7 +3287,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
           "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
         }
@@ -3202,7 +3315,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
           "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
         }
@@ -3230,7 +3343,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
           "note": "right; n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
         },
@@ -3241,7 +3354,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
           "note": "left; n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
         }
@@ -3269,7 +3382,7 @@
           "min": null,
           "max": null,
           "stat": "mean",
-          "n": null,
+          "n": 42,
           "test_id": "fe_rom_lumbar_fsu.schultz1979.lumbarFSU_intact_rom",
           "note": "n per cell not reported (42 segments, some stopped < 10.6 Nm); L1-L5 levels pooled"
         }
@@ -4583,6 +4696,118 @@
           "note": "right; 100 N axial preload; L1-S1 specimen 100 N compressive preload kept along the specimen axis (Panjabi 1994 Methods)."
         }
       ]
+    },
+    {
+      "id": "L1S1_fe_8_6_fl600",
+      "label": "L1-S1 · Flex+ext · follower 600 N",
+      "view": "follower",
+      "inputs": {
+        "level": "L1-S1",
+        "specimen": "L1-S1",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 600,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "L1-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 33.7,
+          "sd": 11.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_lumbar_multi.stanley2004.L1S1_in_T2S1_follower_rom",
+          "note": "L1-S1 region inside T2-S1 specimen"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_fe_4",
+      "label": "L2-L3 · Flexion+extension · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "L1-L4 (4 vertebrae)",
+        "moment_nm": 4,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 5.17,
+          "sd": 0.99,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_multi.busscher2009.L2L3_in_L1L4_intact_rom_4Nm",
+          "note": "middle segment of L1-L4; digitised"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_lbr_4",
+      "label": "L2-L3 · Lateral bending L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "L1-L4 (4 vertebrae)",
+        "moment_nm": 4,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 5.89,
+          "sd": 1.99,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_multi.busscher2009.L2L3_in_L1L4_intact_rom_4Nm",
+          "note": "middle segment of L1-L4; digitised"
+        }
+      ]
+    },
+    {
+      "id": "L2L3_arr_4",
+      "label": "L2-L3 · Axial rotation L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "L2-L3",
+        "specimen": "L1-L4 (4 vertebrae)",
+        "moment_nm": 4,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 2.2,
+          "sd": 1.59,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_lumbar_multi.busscher2009.L2L3_in_L1L4_intact_rom_4Nm",
+          "note": "middle segment of L1-L4; digitised"
+        }
+      ]
     }
   ],
   "notes": [
@@ -4590,7 +4815,7 @@
     "Segmental tasks mix isolated FSUs and segments inside multi-level specimens (see ref notes).",
     "Many refs are medians (Wilke 2025, Heuer), not pooled; Wilke 2025, Kettler 2011 and Heuer share Ulm specimens."
   ],
-  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, or a 4-segment L1-L5), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, a 4-segment L1-L5, or L1-L4 for the 4 Nm L2-L3 tasks), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
   "answer_format": {
     "T12L1_flex_7p5": {
       "rom_segmental": "deg"
@@ -4944,6 +5169,18 @@
       "rom_segmental": "deg"
     },
     "L4L5_ar_10_ax100": {
+      "rom_segmental": "deg"
+    },
+    "L1S1_fe_8_6_fl600": {
+      "rom_total": "deg"
+    },
+    "L2L3_fe_4": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_lbr_4": {
+      "rom_segmental": "deg"
+    },
+    "L2L3_arr_4": {
       "rom_segmental": "deg"
     }
   }

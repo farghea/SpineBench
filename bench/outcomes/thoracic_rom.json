@@ -19,8 +19,8 @@
   ],
   "summary": "Apply pure moments to thoracic spines with intact rib cage, or to single segments, and report total, regional and segmental rotation.",
   "simulate": [
-    "Build the specimen in the task: T1-T12 with intact rib cage (ribs, costal cartilage, sternum), or a single FSU with rib heads but no rib cage.",
-    "Fix the caudal vertebra (T12, or the lower FSU vertebra); apply a pure moment to the cranial vertebra (T1); leave the other 5 DOF free.",
+    "Build the specimen in the task: T1-T12 with intact rib cage (ribs, costal cartilage, sternum); a single FSU or 4-vertebra segment with rib heads/stumps but no rib cage; or a T2-sacrum spine without ribs.",
+    "Fix the caudal vertebra (T12, the lowest vertebra, or the sacrum); apply a pure moment to the cranial vertebra; leave the other 5 DOF free.",
     "Preload only if listed: follower load along a path through the vertebral centres, or a fixed vertical axial force.",
     "Report rotation of each upper vertebra relative to the one below (segmental), of the region end vertebrae (regional), and of T1 relative to T12 (total), at peak moment.",
     "One-direction tasks: neutral to peak. \"L+R\" and \"Flexion+extension\" tasks: sum of both directions (full range)."
@@ -174,9 +174,9 @@
       "short": "Watkins 2005",
       "year": 2005,
       "n": 10,
-      "sample": "10 T1-T12 spines with rib cage (via Mannen 2015)",
+      "sample": "10 C7-L1 spines with rib cage and sternum, T1 vs T12",
       "doi": "",
-      "secondary": true
+      "secondary": false
     },
     {
       "key": "wilke2025",
@@ -212,6 +212,24 @@
       "n": 11,
       "sample": "11 T11-L1 specimens, no ribs, T11-T12 level",
       "doi": "10.1002/jor.1100100412",
+      "secondary": false
+    },
+    {
+      "key": "busscher2009",
+      "short": "Busscher 2009",
+      "year": 2009,
+      "n": 6,
+      "sample": "6 male spines cut into 4-vertebra segments, 3 cm rib stumps",
+      "doi": "10.1097/BRS.0b013e3181b4c75d",
+      "secondary": false
+    },
+    {
+      "key": "stanley2004",
+      "short": "Stanley 2004",
+      "year": 2004,
+      "n": 7,
+      "sample": "7 T2-sacrum spines, no rib cage, 0-800 N follower",
+      "doi": "10.1097/01.brs.0000145417.94357.39",
       "secondary": false
     }
   ],
@@ -427,6 +445,47 @@
       "series": [
         "level",
         "direction"
+      ]
+    },
+    {
+      "id": "seg_4nm",
+      "title": "Mid-segment of 4-vertebra specimens (4 Nm)",
+      "task_ids": [
+        "T2T3_fe_4_ms",
+        "T2T3_lbr_4_ms",
+        "T2T3_arr_4_ms",
+        "T6T7_fe_4_ms",
+        "T6T7_lbr_4_ms",
+        "T6T7_arr_4_ms",
+        "T10T11_fe_4_ms",
+        "T10T11_lbr_4_ms",
+        "T10T11_arr_4_ms"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "follower_t2s1",
+      "title": "Follower load, T2-sacrum regions (8/6 Nm)",
+      "task_ids": [
+        "T2S1_fe_8_6",
+        "T2S1_fe_8_6_fl200",
+        "T2S1_fe_8_6_fl400",
+        "T2S1_fe_8_6_fl600",
+        "T2S1_fe_8_6_fl800",
+        "T2T11_fe_8_6",
+        "T2T11_fe_8_6_fl200",
+        "T2T11_fe_8_6_fl400",
+        "T2T11_fe_8_6_fl600",
+        "T2T11_fe_8_6_fl800",
+        "T11L1_fe_8_6",
+        "T11L1_fe_8_6_fl200",
+        "T11L1_fe_8_6_fl400",
+        "T11L1_fe_8_6_fl600",
+        "T11L1_fe_8_6_fl800"
+      ],
+      "x": "input:follower_n",
+      "series": [
+        "level"
       ]
     }
   ],
@@ -880,7 +939,7 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_5Nm_ax50n",
-          "note": "50 N axial preload; via Mannen 2015 Table 3 (secondary)"
+          "note": "50 N axial preload; min-max = range, no SD"
         }
       ]
     },
@@ -931,7 +990,7 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
-          "note": "via Mannen 2015 Table 3 (secondary)"
+          "note": "min-max = range, no SD"
         }
       ],
       "pooled": {
@@ -993,7 +1052,7 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
-          "note": "via Mannen 2015 Table 3 (secondary)"
+          "note": "min-max = range, no SD"
         }
       ],
       "pooled": {
@@ -5398,14 +5457,710 @@
           "note": ""
         }
       ]
+    },
+    {
+      "id": "T2T3_fe_4_ms",
+      "label": "T2-T3 · Flexion+extension · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T2-T3",
+        "specimen": "T1-T4 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 6.02,
+          "sd": 2.57,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T2T3_in_T1T4_rib_stumps_rom_4Nm",
+          "note": "middle segment of T1-T4; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T2T3_lbr_4_ms",
+      "label": "T2-T3 · Lateral bending L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T2-T3",
+        "specimen": "T1-T4 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 6.12,
+          "sd": 1.33,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T2T3_in_T1T4_rib_stumps_rom_4Nm",
+          "note": "middle segment of T1-T4; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T2T3_arr_4_ms",
+      "label": "T2-T3 · Axial rotation L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T2-T3",
+        "specimen": "T1-T4 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T2-T3",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 7.28,
+          "sd": 1.38,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T2T3_in_T1T4_rib_stumps_rom_4Nm",
+          "note": "middle segment of T1-T4; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_fe_4_ms",
+      "label": "T6-T7 · Flexion+extension · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "T5-T8 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 2.55,
+          "sd": 1.01,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T6T7_in_T5T8_rib_stumps_rom_4Nm",
+          "note": "middle segment of T5-T8; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_lbr_4_ms",
+      "label": "T6-T7 · Lateral bending L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "T5-T8 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 3.09,
+          "sd": 1.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T6T7_in_T5T8_rib_stumps_rom_4Nm",
+          "note": "middle segment of T5-T8; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_arr_4_ms",
+      "label": "T6-T7 · Axial rotation L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "T5-T8 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 4.63,
+          "sd": 1.54,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T6T7_in_T5T8_rib_stumps_rom_4Nm",
+          "note": "middle segment of T5-T8; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T10T11_fe_4_ms",
+      "label": "T10-T11 · Flexion+extension · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T10-T11",
+        "specimen": "T9-T12 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T10-T11",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 2.55,
+          "sd": 1.07,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T10T11_in_T9T12_rib_stumps_rom_4Nm",
+          "note": "middle segment of T9-T12; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T10T11_lbr_4_ms",
+      "label": "T10-T11 · Lateral bending L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T10-T11",
+        "specimen": "T9-T12 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "lateral bending left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T10-T11",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 2.82,
+          "sd": 0.98,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T10T11_in_T9T12_rib_stumps_rom_4Nm",
+          "note": "middle segment of T9-T12; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T10T11_arr_4_ms",
+      "label": "T10-T11 · Axial rotation L+R · 4 Nm",
+      "view": "seg_4nm",
+      "inputs": {
+        "level": "T10-T11",
+        "specimen": "T9-T12 (4 vertebrae)",
+        "rib_cage": "removed (3 cm rib stumps)",
+        "moment_nm": 4,
+        "direction": "axial rotation left+right (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T10-T11",
+      "refs": [
+        {
+          "study": "busscher2009",
+          "mean": 3.17,
+          "sd": 0.76,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_rom_thoracic.busscher2009.T10T11_in_T9T12_rib_stumps_rom_4Nm",
+          "note": "middle segment of T9-T12; digitised"
+        }
+      ]
+    },
+    {
+      "id": "T2S1_fe_8_6",
+      "label": "T2-S1 · Flex+ext · 8/6 Nm",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-S1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 73.0,
+          "sd": 12.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "whole specimen"
+        }
+      ]
+    },
+    {
+      "id": "T2S1_fe_8_6_fl200",
+      "label": "T2-S1 · Flex+ext · follower 200 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-S1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 75.7,
+          "sd": 15.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "whole specimen"
+        }
+      ]
+    },
+    {
+      "id": "T2S1_fe_8_6_fl400",
+      "label": "T2-S1 · Flex+ext · follower 400 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-S1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 66.5,
+          "sd": 11.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "whole specimen"
+        }
+      ]
+    },
+    {
+      "id": "T2S1_fe_8_6_fl600",
+      "label": "T2-S1 · Flex+ext · follower 600 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-S1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 600,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 61.6,
+          "sd": 13.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "whole specimen"
+        }
+      ]
+    },
+    {
+      "id": "T2S1_fe_8_6_fl800",
+      "label": "T2-S1 · Flex+ext · follower 800 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-S1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-S1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 56.6,
+          "sd": 12.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "whole specimen"
+        }
+      ]
+    },
+    {
+      "id": "T2T11_fe_8_6",
+      "label": "T2-T11 · Flex+ext · 8/6 Nm",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-T11",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-T11",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 25.3,
+          "sd": 10.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T2T11_fe_8_6_fl200",
+      "label": "T2-T11 · Flex+ext · follower 200 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-T11",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-T11",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 24.0,
+          "sd": 9.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T2T11_fe_8_6_fl400",
+      "label": "T2-T11 · Flex+ext · follower 400 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-T11",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-T11",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 18.8,
+          "sd": 6.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T2T11_fe_8_6_fl600",
+      "label": "T2-T11 · Flex+ext · follower 600 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-T11",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 600,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-T11",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 18.3,
+          "sd": 5.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T2T11_fe_8_6_fl800",
+      "label": "T2-T11 · Flex+ext · follower 800 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T2-T11",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T2-T11",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 18.2,
+          "sd": 5.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T11L1_fe_8_6",
+      "label": "T11-L1 · Flex+ext · 8/6 Nm",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T11-L1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T11-L1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 8.2,
+          "sd": 3.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T11L1_fe_8_6_fl200",
+      "label": "T11-L1 · Flex+ext · follower 200 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T11-L1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 200,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T11-L1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 9.0,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T11L1_fe_8_6_fl400",
+      "label": "T11-L1 · Flex+ext · follower 400 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T11-L1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 400,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T11-L1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 9.6,
+          "sd": 3.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T11L1_fe_8_6_fl600",
+      "label": "T11-L1 · Flex+ext · follower 600 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T11-L1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 600,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T11-L1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 9.4,
+          "sd": 3.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
+    },
+    {
+      "id": "T11L1_fe_8_6_fl800",
+      "label": "T11-L1 · Flex+ext · follower 800 N",
+      "view": "follower_t2s1",
+      "inputs": {
+        "level": "T11-L1",
+        "specimen": "T2-S1",
+        "rib_cage": "removed (no ribs)",
+        "moment_nm": "8 flex / 6 ext",
+        "direction": "flexion+extension (full range)",
+        "follower_n": 800,
+        "axial_n": 0
+      },
+      "output": "rom_total",
+      "level": "T11-L1",
+      "refs": [
+        {
+          "study": "stanley2004",
+          "mean": 9.0,
+          "sd": 3.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 7,
+          "test_id": "fe_rom_thoracic.stanley2004.T2S1_regions_follower_rom",
+          "note": "region inside T2-S1"
+        }
+      ]
     }
   ],
   "notes": [
     "One direction (e.g. Flexion) and both directions summed (Flexion+extension, L+R) are separate tasks; moments differ (2, 5, 7.5, 8 Nm).",
     "The rib cage roughly halves segmental ROM: compare rib-cage tasks with rib-cage models and single-segment tasks with FSU models.",
-    "Most Ulm values (Wilke 2025, Liebsch) are medians on overlapping donors; Watkins 2005 comes via Mannen 2015."
+    "Most Ulm values (Wilke 2025, Liebsch) are medians on overlapping donors; Busscher 2009 mid-segments keep 3 cm rib stumps."
   ],
-  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", or a single FSU at the task level with rib heads but no rib cage. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", a single FSU at the task level with rib heads but no rib cage, a 4-vertebra segment (e.g. T1-T4) with 3 cm rib stumps when inputs.rib_cage says so (report its middle segment), or a T2-sacrum spine without ribs. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction (\"8 flex / 6 ext\" = 8 Nm flexion and 6 Nm extension), with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
   "answer_format": {
     "T1T12_fe_5": {
       "rom_total": "deg"
@@ -5772,6 +6527,78 @@
     },
     "T1T12_arr_5_nz": {
       "nz": "deg"
+    },
+    "T2T3_fe_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T2T3_lbr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T2T3_arr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T6T7_fe_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T6T7_lbr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T6T7_arr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T10T11_fe_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T10T11_lbr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T10T11_arr_4_ms": {
+      "rom_segmental": "deg"
+    },
+    "T2S1_fe_8_6": {
+      "rom_total": "deg"
+    },
+    "T2S1_fe_8_6_fl200": {
+      "rom_total": "deg"
+    },
+    "T2S1_fe_8_6_fl400": {
+      "rom_total": "deg"
+    },
+    "T2S1_fe_8_6_fl600": {
+      "rom_total": "deg"
+    },
+    "T2S1_fe_8_6_fl800": {
+      "rom_total": "deg"
+    },
+    "T2T11_fe_8_6": {
+      "rom_total": "deg"
+    },
+    "T2T11_fe_8_6_fl200": {
+      "rom_total": "deg"
+    },
+    "T2T11_fe_8_6_fl400": {
+      "rom_total": "deg"
+    },
+    "T2T11_fe_8_6_fl600": {
+      "rom_total": "deg"
+    },
+    "T2T11_fe_8_6_fl800": {
+      "rom_total": "deg"
+    },
+    "T11L1_fe_8_6": {
+      "rom_total": "deg"
+    },
+    "T11L1_fe_8_6_fl200": {
+      "rom_total": "deg"
+    },
+    "T11L1_fe_8_6_fl400": {
+      "rom_total": "deg"
+    },
+    "T11L1_fe_8_6_fl600": {
+      "rom_total": "deg"
+    },
+    "T11L1_fe_8_6_fl800": {
+      "rom_total": "deg"
     }
   }
 }

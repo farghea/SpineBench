@@ -9,11 +9,12 @@
     "T1-T4",
     "T4-T8",
     "T6-T7",
-    "T8-T12"
+    "T8-T12",
+    "T3-T4/T4-T5/T5-T6 (middle)"
   ],
   "summary": "Cut away thoracic structures and the rib cage step by step as each study did and report rotation after every step.",
   "simulate": [
-    "Build the specimen of the view: T6-T7 FSU without ribs, or C7-L1/T1-T12 spine with rib cage.",
+    "Build the specimen of the view: T6-T7 FSU without ribs, C7-L1/T1-T12 spine with rib cage, or a 4-vertebra segment with its 4 rib pairs and sternum (end ribs tied to end vertebrae).",
     "Fix the caudal vertebra; apply the pure moment (and follower preload, if stated) to the cranial end.",
     "Remove structures cumulatively in the listed order (step 0 = intact); re-run the same load at every step.",
     "Report rotation at peak moment: one direction (rom) or both directions summed (rom_range).",
@@ -100,9 +101,9 @@
       "short": "Watkins 2005",
       "year": 2005,
       "n": 10,
-      "sample": "10 T1-T12 spines with rib cage and sternum",
+      "sample": "10 C7-L1 spines with rib cage and sternum, T1 vs T12",
       "doi": null,
-      "secondary": true
+      "secondary": false
     },
     {
       "key": "liebsch2020",
@@ -147,6 +148,15 @@
       "n": 8,
       "sample": "same 8 T1-T12 spines after rib cage removal",
       "doi": "10.1016/j.jmbbm.2018.05.019",
+      "secondary": false
+    },
+    {
+      "key": "brasiliense2011",
+      "short": "Brasiliense 2011",
+      "year": 2011,
+      "n": 6,
+      "sample": "6 (of 8) 4-vertebra T2-T7 segments with rib cage, end ribs tied to vertebrae",
+      "doi": "10.1097/BRS.0b013e318219ce84",
       "secondary": false
     }
   ],
@@ -239,7 +249,9 @@
         "rc2_wat_arc_fe",
         "rc2_wat_arc_lb",
         "rc2_wat_fx_fe",
+        "rc2_wat_fx_lb",
         "rc5_wat_intact_ar",
+        "rc5_wat_fx_ar",
         "rc5_wat_arc_ar"
       ],
       "x": "task"
@@ -260,7 +272,13 @@
         "rcp_mst_ar",
         "rcp_arc_ar",
         "rcp_rh68_ar",
-        "rcp_rh_ar"
+        "rcp_rh_ar",
+        "rcp_wat_fx_fe",
+        "rcp_wat_arc_fe",
+        "rcp_wat_fx_lb",
+        "rcp_wat_arc_lb",
+        "rcp_wat_fx_ar",
+        "rcp_wat_arc_ar"
       ],
       "x": "task"
     },
@@ -341,6 +359,40 @@
         "fl_t8t12_noribs_ar"
       ],
       "x": "task"
+    },
+    {
+      "id": "t_ribcage_short",
+      "title": "Rib cage cut away, 4-vertebra segments (7.5 Nm)",
+      "task_ids": [
+        "rc4v_intact_flex",
+        "rc4v_sts_flex",
+        "rc4v_stx_flex",
+        "rc4v_r50_flex",
+        "rc4v_r75_flex",
+        "rc4v_dis_flex",
+        "rc4v_intact_ext",
+        "rc4v_sts_ext",
+        "rc4v_stx_ext",
+        "rc4v_r50_ext",
+        "rc4v_r75_ext",
+        "rc4v_dis_ext",
+        "rc4v_intact_lb",
+        "rc4v_sts_lb",
+        "rc4v_stx_lb",
+        "rc4v_r50_lb",
+        "rc4v_r75_lb",
+        "rc4v_dis_lb",
+        "rc4v_intact_ar",
+        "rc4v_sts_ar",
+        "rc4v_stx_ar",
+        "rc4v_r50_ar",
+        "rc4v_r75_ar",
+        "rc4v_dis_ar"
+      ],
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
     }
   ],
   "tasks": [
@@ -1423,7 +1475,7 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
-          "note": "secondary source; min-max = range"
+          "note": "min-max = range, no SD"
         }
       ],
       "pooled": {
@@ -1640,7 +1692,7 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_2Nm",
-          "note": "secondary source; min-max = range"
+          "note": "min-max = range, no SD"
         }
       ],
       "pooled": {
@@ -2020,12 +2072,12 @@
     },
     {
       "id": "rc2_wat_arc_fe",
-      "label": "Flex+ext, sternum and front ribs out",
+      "label": "Flex+ext, ribs cut 3 cm from spine",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
-        "step_no": 1,
-        "step": "sternum and anterior rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
         "direction": "flexion+extension",
         "moment_nm": 2,
         "preload_n": 0
@@ -2035,25 +2087,25 @@
       "refs": [
         {
           "study": "watkins2005",
-          "mean": 13.2,
+          "mean": 13.17,
           "sd": null,
-          "min": null,
-          "max": null,
+          "min": 3.11,
+          "max": 29.29,
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_2Nm",
-          "note": "secondary source, no SD"
+          "note": "min-max = range, no SD"
         }
       ]
     },
     {
       "id": "rc2_wat_arc_lb",
-      "label": "Lat. bend, sternum and front ribs out",
+      "label": "Lat. bend, ribs cut 3 cm from spine",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
-        "step_no": 1,
-        "step": "sternum and anterior rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
         "direction": "left+right lateral bending",
         "moment_nm": 2,
         "preload_n": 0
@@ -2063,14 +2115,14 @@
       "refs": [
         {
           "study": "watkins2005",
-          "mean": 16.0,
+          "mean": 16.04,
           "sd": null,
-          "min": null,
-          "max": null,
+          "min": 3.71,
+          "max": 27.96,
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_2Nm",
-          "note": "secondary source, no SD"
+          "note": "min-max = range, no SD"
         }
       ]
     },
@@ -2091,14 +2143,14 @@
       "refs": [
         {
           "study": "watkins2005",
-          "mean": 11.2,
+          "mean": 11.24,
           "sd": null,
-          "min": null,
-          "max": null,
+          "min": 2.84,
+          "max": 25.64,
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_2Nm",
-          "note": "secondary source, no SD"
+          "note": "min-max = range, no SD"
         }
       ]
     },
@@ -2126,18 +2178,18 @@
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_intact_rom_5Nm_ax50n",
-          "note": "secondary source; min-max = range"
+          "note": "min-max = range, no SD"
         }
       ]
     },
     {
       "id": "rc5_wat_arc_ar",
-      "label": "Axial rot., 5 Nm, 50 N: front ribs out",
+      "label": "Axial rot., 5 Nm, 50 N: ribs cut",
       "view": "t_ribcage_2nm",
       "inputs": {
         "specimen": "T1-T12 with rib cage",
-        "step_no": 1,
-        "step": "sternum and anterior rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
         "direction": "left+right axial rotation",
         "moment_nm": 5,
         "preload_n": 50
@@ -2149,12 +2201,12 @@
           "study": "watkins2005",
           "mean": 33.6,
           "sd": null,
-          "min": null,
-          "max": null,
+          "min": 11.95,
+          "max": 67.55,
           "stat": "mean",
           "n": 10,
           "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_5Nm_ax50n",
-          "note": "secondary source, no SD"
+          "note": "min-max = range, no SD"
         }
       ]
     },
@@ -4117,6 +4169,902 @@
           "note": "400 N follower; mean (SD) of 8"
         }
       ]
+    },
+    {
+      "id": "rc2_wat_fx_lb",
+      "label": "Lat. bend, sternum fractured across",
+      "view": "t_ribcage_2nm",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 1,
+        "step": "transverse sternal fracture",
+        "direction": "left+right lateral bending",
+        "moment_nm": 2,
+        "preload_n": 0
+      },
+      "output": "rom_range",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 12.61,
+          "sd": null,
+          "min": 3.47,
+          "max": 26.3,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_2Nm",
+          "note": "min-max = range, no SD"
+        }
+      ]
+    },
+    {
+      "id": "rc5_wat_fx_ar",
+      "label": "Axial rot., 5 Nm, 50 N: sternum fract.",
+      "view": "t_ribcage_2nm",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 1,
+        "step": "transverse sternal fracture",
+        "direction": "left+right axial rotation",
+        "moment_nm": 5,
+        "preload_n": 50
+      },
+      "output": "rom_range",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 26.59,
+          "sd": null,
+          "min": 8.66,
+          "max": 56.59,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_5Nm_ax50n",
+          "note": "min-max = range, no SD"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_fx_fe",
+      "label": "Flex+ext, sternum fractured across",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 1,
+        "step": "transverse sternal fracture",
+        "direction": "flexion+extension",
+        "moment_nm": 2,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 141.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_2Nm",
+          "note": "100 + printed increase vs intact (+41.7 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_arc_fe",
+      "label": "Flex+ext, ribs cut 3 cm from spine",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
+        "direction": "flexion+extension",
+        "moment_nm": 2,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 166.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_2Nm",
+          "note": "100 + printed increase vs intact (+66.0 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_fx_lb",
+      "label": "Lat. bend, sternum fractured across",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 1,
+        "step": "transverse sternal fracture",
+        "direction": "left+right lateral bending",
+        "moment_nm": 2,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 121.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_2Nm",
+          "note": "100 + printed increase vs intact (+21.7 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_arc_lb",
+      "label": "Lat. bend, ribs cut 3 cm from spine",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
+        "direction": "left+right lateral bending",
+        "moment_nm": 2,
+        "preload_n": 0
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 154.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_2Nm",
+          "note": "100 + printed increase vs intact (+54.8 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_fx_ar",
+      "label": "Axial rot., 5 Nm, 50 N: sternum fract.",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 1,
+        "step": "transverse sternal fracture",
+        "direction": "left+right axial rotation",
+        "moment_nm": 5,
+        "preload_n": 50
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 115.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_5Nm_ax50n",
+          "note": "100 + printed increase vs intact (+15.4 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rcp_wat_arc_ar",
+      "label": "Axial rot., 5 Nm, 50 N: ribs cut",
+      "view": "t_ribcage_pct",
+      "inputs": {
+        "specimen": "T1-T12 with rib cage",
+        "step_no": 2,
+        "step": "+ ribs cut 3 cm from the spine",
+        "direction": "left+right axial rotation",
+        "moment_nm": 5,
+        "preload_n": 50
+      },
+      "output": "rom_pct",
+      "level": "T1-T12",
+      "refs": [
+        {
+          "study": "watkins2005",
+          "mean": 145.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_anterior_removed_rom_5Nm_ax50n",
+          "note": "100 + printed increase vs intact (+45.9 %, Table 1)"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_intact_flex",
+      "label": "Flexion, intact",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 0,
+        "step": "none",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.78,
+          "sd": 0.39,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_sts_flex",
+      "label": "Flexion, 1: sternum split",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 1,
+        "step": "+ midline sternotomy",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.72,
+          "sd": 0.43,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternum_split_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_stx_flex",
+      "label": "Flexion, 2: sternum removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 2,
+        "step": "+ sternum and costosternal joints",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 1.35,
+          "sd": 0.64,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternectomy_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r50_flex",
+      "label": "Flexion, 3: 50% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 3,
+        "step": "+ anterior 50% of rib length",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 1.88,
+          "sd": 0.71,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs50_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r75_flex",
+      "label": "Flexion, 4: 75% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 4,
+        "step": "+ anterior 75% of rib length",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 1.98,
+          "sd": 0.79,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs75_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_dis_flex",
+      "label": "Flexion, 5: ribs disarticulated",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 5,
+        "step": "+ remaining ribs, costovertebral joints",
+        "direction": "flexion",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.19,
+          "sd": 0.85,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribs_disarticulated_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_intact_ext",
+      "label": "Extension, intact",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 0,
+        "step": "none",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.47,
+          "sd": 0.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_sts_ext",
+      "label": "Extension, 1: sternum split",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 1,
+        "step": "+ midline sternotomy",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.63,
+          "sd": 0.42,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternum_split_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_stx_ext",
+      "label": "Extension, 2: sternum removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 2,
+        "step": "+ sternum and costosternal joints",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 1.67,
+          "sd": 0.61,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternectomy_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r50_ext",
+      "label": "Extension, 3: 50% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 3,
+        "step": "+ anterior 50% of rib length",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 3.38,
+          "sd": 0.97,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs50_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r75_ext",
+      "label": "Extension, 4: 75% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 4,
+        "step": "+ anterior 75% of rib length",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 3.67,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs75_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_dis_ext",
+      "label": "Extension, 5: ribs disarticulated",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 5,
+        "step": "+ remaining ribs, costovertebral joints",
+        "direction": "extension",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 3.71,
+          "sd": 0.93,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribs_disarticulated_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_intact_lb",
+      "label": "Lat. bend, intact",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 0,
+        "step": "none",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.13,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_sts_lb",
+      "label": "Lat. bend, 1: sternum split",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 1,
+        "step": "+ midline sternotomy",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.32,
+          "sd": 1.13,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternum_split_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_stx_lb",
+      "label": "Lat. bend, 2: sternum removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 2,
+        "step": "+ sternum and costosternal joints",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.48,
+          "sd": 1.06,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternectomy_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r50_lb",
+      "label": "Lat. bend, 3: 50% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 3,
+        "step": "+ anterior 50% of rib length",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.81,
+          "sd": 1.11,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs50_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r75_lb",
+      "label": "Lat. bend, 4: 75% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 4,
+        "step": "+ anterior 75% of rib length",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 4.19,
+          "sd": 1.14,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs75_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_dis_lb",
+      "label": "Lat. bend, 5: ribs disarticulated",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 5,
+        "step": "+ remaining ribs, costovertebral joints",
+        "direction": "lateral bending (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 6.02,
+          "sd": 2.19,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribs_disarticulated_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_intact_ar",
+      "label": "Axial rot., intact",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 0,
+        "step": "none",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.47,
+          "sd": 0.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_sts_ar",
+      "label": "Axial rot., 1: sternum split",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 1,
+        "step": "+ midline sternotomy",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.96,
+          "sd": 0.56,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternum_split_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_stx_ar",
+      "label": "Axial rot., 2: sternum removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 2,
+        "step": "+ sternum and costosternal joints",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 1.36,
+          "sd": 0.57,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_sternectomy_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r50_ar",
+      "label": "Axial rot., 3: 50% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 3,
+        "step": "+ anterior 50% of rib length",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.94,
+          "sd": 0.73,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs50_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_r75_ar",
+      "label": "Axial rot., 4: 75% of ribs removed",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 4,
+        "step": "+ anterior 75% of rib length",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 4.22,
+          "sd": 1.15,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_ribs75_removed_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "rc4v_dis_ar",
+      "label": "Axial rot., 5: ribs disarticulated",
+      "view": "t_ribcage_short",
+      "inputs": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "step_no": 5,
+        "step": "+ remaining ribs, costovertebral joints",
+        "direction": "axial rotation (one side)",
+        "moment_nm": 7.5,
+        "preload_n": 0
+      },
+      "output": "rom",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 4.91,
+          "sd": 1.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribs_disarticulated_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
     }
   ],
   "notes": [
@@ -4124,7 +5072,7 @@
     "One direction (rom) and both directions summed (rom_range) are different outputs; never compare across them.",
     "Healy 2014 and Lubelski 2014 (one lab) and Sis 2016 / Mannen 2018 (same 8 spines) are listed as shared samples."
   ],
-  "agent_prompt": "Use your finite element thoracic spine model. For each task build the specimen in its inputs (T6-T7 FSU without ribs, or a C7-L1 / T1-T12 spine with rib cage). Fix the caudal end, apply the pure moment (plus follower preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), of T1 relative to T12 unless the label names another span; \"rom_pct\" is your value divided by your intact value times 100. Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format.",
+  "agent_prompt": "Use your finite element thoracic spine model. For each task build the specimen in its inputs (T6-T7 FSU without ribs, a C7-L1 / T1-T12 spine with rib cage, or a 4-vertebra upper thoracic segment with its 4 rib pairs and sternum in which the end rib pairs are rigidly tied to the end vertebrae; for these report the middle segment). Fix the caudal end, apply the pure moment (plus follower preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), of T1 relative to T12 unless the label names another span; \"rom_pct\" is your value divided by your intact value times 100. Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format.",
   "answer_format": {
     "t67_intact_flex": {
       "rom": "deg"
@@ -4512,6 +5460,102 @@
     },
     "fl_t8t12_noribs_ar": {
       "rom_range": "deg"
+    },
+    "rc2_wat_fx_lb": {
+      "rom_range": "deg"
+    },
+    "rc5_wat_fx_ar": {
+      "rom_range": "deg"
+    },
+    "rcp_wat_fx_fe": {
+      "rom_pct": "%"
+    },
+    "rcp_wat_arc_fe": {
+      "rom_pct": "%"
+    },
+    "rcp_wat_fx_lb": {
+      "rom_pct": "%"
+    },
+    "rcp_wat_arc_lb": {
+      "rom_pct": "%"
+    },
+    "rcp_wat_fx_ar": {
+      "rom_pct": "%"
+    },
+    "rcp_wat_arc_ar": {
+      "rom_pct": "%"
+    },
+    "rc4v_intact_flex": {
+      "rom": "deg"
+    },
+    "rc4v_sts_flex": {
+      "rom": "deg"
+    },
+    "rc4v_stx_flex": {
+      "rom": "deg"
+    },
+    "rc4v_r50_flex": {
+      "rom": "deg"
+    },
+    "rc4v_r75_flex": {
+      "rom": "deg"
+    },
+    "rc4v_dis_flex": {
+      "rom": "deg"
+    },
+    "rc4v_intact_ext": {
+      "rom": "deg"
+    },
+    "rc4v_sts_ext": {
+      "rom": "deg"
+    },
+    "rc4v_stx_ext": {
+      "rom": "deg"
+    },
+    "rc4v_r50_ext": {
+      "rom": "deg"
+    },
+    "rc4v_r75_ext": {
+      "rom": "deg"
+    },
+    "rc4v_dis_ext": {
+      "rom": "deg"
+    },
+    "rc4v_intact_lb": {
+      "rom": "deg"
+    },
+    "rc4v_sts_lb": {
+      "rom": "deg"
+    },
+    "rc4v_stx_lb": {
+      "rom": "deg"
+    },
+    "rc4v_r50_lb": {
+      "rom": "deg"
+    },
+    "rc4v_r75_lb": {
+      "rom": "deg"
+    },
+    "rc4v_dis_lb": {
+      "rom": "deg"
+    },
+    "rc4v_intact_ar": {
+      "rom": "deg"
+    },
+    "rc4v_sts_ar": {
+      "rom": "deg"
+    },
+    "rc4v_stx_ar": {
+      "rom": "deg"
+    },
+    "rc4v_r50_ar": {
+      "rom": "deg"
+    },
+    "rc4v_r75_ar": {
+      "rom": "deg"
+    },
+    "rc4v_dis_ar": {
+      "rom": "deg"
     }
   }
 }

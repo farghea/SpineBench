@@ -1,6 +1,6 @@
 {
  "id": "fe_resection_thoracic.watkins2005.T1T12_ribcage_sternal_fracture_rom_2Nm",
- "title": "T1-T12 FE ROM after transverse sternal fracture (Watkins 2005, secondary)",
+ "title": "T1-T12 FE and LB ROM, transverse sternal fracture, 2 Nm (Watkins 2005)",
  "layer": "outcome",
  "category": "fe_resection_thoracic",
  "subcategory": "long segment with rib cage, stepwise reduction",
@@ -11,75 +11,87 @@
  "condition": "ribcage_sternal_fracture",
  "quantity": {
   "name": "ROM",
-  "definition": "overall T1-T12 ROM (full range), mean (SD not reported in secondary sources)",
+  "definition": "overall T1-T12 rotation range (T1 relative to fixed T12, both directions summed), mean with min-max range of 10 specimens (no SD reported)",
   "unit": "deg"
  },
  "source": {
   "short": "Watkins 2005",
   "authors": "Watkins R 4th, Watkins R 3rd, Williams L, Ahlbrand S, Garcia R, Karamanian A, Sharp L, Vo C, Hedman T",
   "year": 2005,
-  "journal": "Spine 30:1283-1286",
+  "journal": "Spine 30(11):1283-1286",
   "doi": "",
   "n": 10,
-  "sample": "10 human T1-T12 thoracic spines with rib cage and sternum (values via secondary sources)",
-  "age": "55-91 y (mean 72 per Mannen 2015 Table 3)",
-  "sex": "6 F, 4 M (per Liebsch & Wilke 2022 Table 1)",
+  "sample": "10 fresh-frozen human C7-L1 thoracic spines with intact rib cage, sternum and intercostal muscles (4 specimens had 2-3 rib fractures, repaired with 1/3 tubular plates before testing)",
+  "age": "mean 72 y (range 55-91)",
+  "sex": "6 F, 4 M",
   "height_cm": null,
   "weight_kg": null
  },
  "protocol": {
-  "summary": "Pure moments 2 Nm in FE and LB, 5 Nm + 50 N axial preload in AR (automated test machine); stepwise: intact, transverse sternal fracture, anterior rib cage removal up to rib stumps.",
+  "summary": "Harvested C7-L1 with rib cage, sternum, intercostals, all ligaments and costovertebral joints; potted at C7-T1 and T12-L1 (T12 rigidly fixed to the MTS base). MTS 858 Bionix with universal cradle / x-y table at T1 (free rotation and translation about 2 axes): pure moments 2 Nm in FE (specimen horizontal, rib cage to the side) and LB (rib cage facing down), 5 Nm AR with 50 N axial compressive preload; axial compression 50-500 N. 5 cycles of a 10 s ramp, 5th cycle analysed. Optotrak 3020 array on a T1 pedicle pin = motion of T1 relative to T12. Cumulative steps: intact; transverse sternal fracture at the sternomanubrial junction (intercostals between ribs 2 and 3 disrupted, proximal fragment displaced posteriorly, fragments overlapping); entire rib cage removed by severing the ribs 3 cm lateral to the costovertebral articulations.",
   "how_to_simulate": [
-   "Model T1-T12 with rib cage and sternum; apply the resection of this step",
-   "Apply pure moment (2 Nm FE/LB; 5 Nm AR with 50 N axial compressive preload) at T1, T12 fixed",
-   "Report T1-T12 full-range rotation"
+   "Model T1-T12 with rib cage, sternum and intercostal muscles; apply the resection of this step (cumulative)",
+   "Fix T12; apply pure moment 2 Nm (FE, LB) or 5 Nm with 50 N axial compressive preload (AR) to T1",
+   "Report overall T1-T12 rotation range (FE: flexion+extension summed; neutral point not identified in the study)"
   ],
   "subject_model": null,
-  "notes": "PDF of Watkins 2005 not in download folder; values taken from secondary sources (see extraction.from). Ranges from Mannen 2015 Table 3."
+  "notes": "Primary PDF read 2026-11-12 (replaces values previously taken from Mannen 2015 Table 3 / Liebsch & Wilke 2022). Values = mean (min-max range) of 10; no SD reported. FE is explicitly overall flexion-extension ('flexion and extension moments were not isolated, and a neutral point was not identified'); LB and AR presumably also full range (both sides) - not stated explicitly. Only data sets with all three conditions were analysed (n per condition not stated; 10 assumed). pct_of_intact = % increase vs intact as printed in Table 1 (equals ratio of printed means). Axial compression displacement (50-500 N: 4.72/5.31/5.95 mm) not extracted into this test."
  },
  "data": [
   {
    "x": "FE_total",
    "load": "2 Nm",
-   "mean": 11.2,
+   "mean": 11.24,
    "sd": null,
-   "min": null,
-   "max": null,
+   "min": 2.84,
+   "max": 25.64,
    "median": null,
    "n": 10,
-   "note": "'about 40 %' increase vs intact 7.9"
+   "pct_of_intact": 41.7,
+   "p_vs_intact": 0.036
+  },
+  {
+   "x": "LB_total",
+   "load": "2 Nm",
+   "mean": 12.61,
+   "sd": null,
+   "min": 3.47,
+   "max": 26.3,
+   "median": null,
+   "n": 10,
+   "pct_of_intact": 21.7,
+   "p_vs_intact": 0.038
   }
  ],
  "extraction": {
-  "from": "Liebsch & Wilke 2022 review text (section 3.3)",
+  "from": "Results text p.1284 and Table 1 p.1285 (primary)",
   "method": "text",
-  "uncertainty": "as printed in secondary source",
+  "uncertainty": "as printed (0.01 deg)",
   "checked": true,
-  "check_notes": "Cross-consistent: intact 7.93/10.36/23.03 (Mannen Table 3) = 7.9/10.4/23.0 (Liebsch & Wilke text)."
+  "check_notes": "Read from the primary PDF text layer. Table 1 % increases equal the ratio of printed means (11.24/7.93 = 1.417, 13.17/7.93 = 1.66, 12.61/10.36 = 1.217, 16.04/10.36 = 1.548, 26.59/23.03 = 1.155, 33.60/23.03 = 1.459). Earlier secondary values (FE 11.2 / 13.2, LB 16.0, AR 33.6 deg) agree with the primary to rounding; primary adds min-max ranges for the resection steps and the sternal-fracture LB and AR values."
  },
  "pass_rule": {
   "template": true,
-  "rule": "model within [min,max] of specimens (median as target)"
+  "rule": "model within [min,max] of specimens (mean as target)"
  },
  "combine_group": "fe_resection_thoracic__rom__t1_t12__ribcage_sternal_fracture__2nm",
  "tags": [
   "thoracic",
   "in vitro",
   "rib cage",
-  "secondary_from_review",
   "long segment"
  ],
  "ribcage": {
   "present": true,
-  "intact_structures": "rib cage with fractured sternum (sternomanubrial junction)"
+  "intact_structures": "rib cage with transverse sternal fracture at the sternomanubrial junction (proximal fragment displaced posteriorly, overlapping fragments; intercostals between ribs 2 and 3 disrupted)"
  },
  "loading": {
   "moment_Nm": "2 (FE, LB) / 5 (AR)",
-  "rate": "not stated",
-  "cycles": "not stated",
+  "rate": "10 s ramp per cycle",
+  "cycles": "5, 5th analysed",
   "branch": "peak",
-  "preload": "none (FE, LB); 50 N axial (AR)",
-  "device": "automated test machine"
+  "preload": "none (FE, LB); 50 N axial compressive (AR)",
+  "device": "MTS 858 Bionix with universal cradle and x-y table; Optotrak 3020"
  },
  "resection": {
   "step_index": 1,
@@ -87,7 +99,7 @@
   "sequence": [
    "intact rib cage",
    "transverse sternal fracture at the sternomanubrial junction",
-   "rib cage removed up to rib stumps (costovertebral/costotransverse joints kept)"
+   "rib cage removed: ribs severed 3 cm lateral to the costovertebral articulations (rib stumps with costovertebral/costotransverse joints kept)"
   ],
   "cumulative": true
  }

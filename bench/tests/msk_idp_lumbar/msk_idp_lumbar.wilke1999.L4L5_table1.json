@@ -1,0 +1,381 @@
+{
+ "id": "msk_idp_lumbar.wilke1999.L4L5_table1",
+ "title": "Wilke 1999: L4-L5 IDP in daily-life positions and exercises (Table 1), one volunteer",
+ "layer": "outcome",
+ "category": "msk_idp_lumbar",
+ "subcategory": "L4-L5 in vivo, single subject",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "positions and exercises of daily life (Table 1)",
+ "quantity": {
+  "name": "IDP",
+  "definition": "absolute in vivo intradiscal pressure in the nucleus (MPa), peak/plateau value for the posture",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Wilke 1999",
+  "authors": "Wilke HJ, Neef P, Caimi M, Hoogland T, Claes LE",
+  "year": 1999,
+  "journal": "Spine 24:755-762",
+  "doi": "10.1097/00007632-199904150-00005",
+  "n": 1,
+  "sample": "1 subject (male volunteer); 1 healthy male volunteer (orthopaedist), non-degenerated L4-L5 disc; telemetric piezoresistive transducer (1.5 mm) in the nucleus; original measurements Wilke et al. 1999 Spine 24:755",
+  "age": "45",
+  "sex": "M",
+  "height_cm": 174,
+  "weight_kg": 72
+ },
+ "protocol": {
+  "summary": "Piezo-resistive transducer implanted in the L4-L5 nucleus of one healthy 45-year-old male volunteer; positions and exercises of daily life over 24 h. Same volunteer and measurement series as Wilke 2001.",
+  "how_to_simulate": [
+   "Scale the model to the volunteer (protocol.subject_model)",
+   "Posture/load: as each data row; dynamic rows (ranges) are not static tasks",
+   "Output: L4-L5 IDP (MPa); compare with each row"
+  ],
+  "subject_model": {
+   "sex": "male",
+   "age": 45,
+   "height_cm": 174,
+   "height_source": "174 cm (Wilke 1999 / V05 Table 2; Wilke 2001 Appendix A measured 173.9 cm about 2.5 yr later). Wilke 2001 Appendix A 'Body height 173.9 cm' (measured by the authors ~2.5 yr after the IDP study); Wilke 1999 self-reported ~174 cm (Dreischarf 2016 V05 Table 2: 174 cm)",
+   "weight_kg": 72,
+   "disc_area_mm2": 1800,
+   "disc_area_source": "Wilke 2001 p.S112 Sec 2.2 and p.S119: L4-5 disc area 18 cm2 from the mid-horizontal MRI scan taken 4 weeks before the IDP measurements (same in Rohlmann 2001 Ergonomics p.784 '1800 mm2' and V05 Table 2 '18.0 cm2'). Wilke 2001 also gives anthropometric predictions 19.36 cm2 (from body mass) and 23.97 cm2 (from stature and joint diameters) - not used.",
+   "other": "Full anthropometry (trunk segments standing/sitting, 60+ body dimensions, skinfolds) in Wilke 2001 Tables 1-2 and Appendix A; 50th-percentile German male (45-49 y), active body mass 63.5 kg, fat 8.5 kg (p.S119).",
+   "level": "L4-L5 (transducer in the centre of the non-degenerated L4-5 nucleus)"
+  },
+  "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
+  "notes": "min/max = the reproducibility range of repeated relaxed standing in the same subject (not a between-subject SD)."
+ },
+ "data": [
+  {
+   "x": "lying supine",
+   "load": "see condition",
+   "mean": 0.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lying on the side",
+   "load": "see condition",
+   "mean": 0.12,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lying prone",
+   "load": "see condition",
+   "mean": 0.11,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lying prone, extended back, supporting on elbows",
+   "load": "see condition",
+   "mean": 0.25,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "laughing heartily, lying laterally",
+   "load": "see condition",
+   "mean": 0.15,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sneezing, lying laterally",
+   "load": "see condition",
+   "mean": 0.38,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "peaks by turning around (dynamic)",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.7,
+   "max": 0.8,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "relaxed standing",
+   "load": "see condition",
+   "mean": 0.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "standing, Valsalva manoeuvre",
+   "load": "see condition",
+   "mean": 0.92,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "standing, bent forward (angle not reported)",
+   "load": "see condition",
+   "mean": 1.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sitting relaxed, without backrest",
+   "load": "see condition",
+   "mean": 0.46,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sitting actively straightening the back",
+   "load": "see condition",
+   "mean": 0.55,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sitting with maximum flexion",
+   "load": "see condition",
+   "mean": 0.83,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sitting bent forward with tight supporting the elbows",
+   "load": "see condition",
+   "mean": 0.43,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "sitting slouched into the chair",
+   "load": "see condition",
+   "mean": 0.27,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "standing up from a chair (peak)",
+   "load": "see condition",
+   "mean": 1.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "walking barefoot",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.53,
+   "max": 0.65,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "walking with tennis shoes",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.53,
+   "max": 0.65,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "jogging with hard street shoes",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.35,
+   "max": 0.95,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "jogging with tennis shoes",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.35,
+   "max": 0.85,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "climbing stairs, one stair at a time",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.5,
+   "max": 0.7,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "climbing stairs, two stairs at a time",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.3,
+   "max": 1.2,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "walking down stairs, one stair at a time",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.38,
+   "max": 0.6,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "walking down stairs, two stairs at a time",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.3,
+   "max": 0.9,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lifting 20 kg, bent over with round back",
+   "load": "see condition",
+   "mean": 2.3,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "lifting 20 kg as taught in back school",
+   "load": "see condition",
+   "mean": 1.7,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "holding 20 kg close to the body",
+   "load": "see condition",
+   "mean": 1.1,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "holding 20 kg, 60 cm away from the chest",
+   "load": "see condition",
+   "mean": 1.8,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "pressure increase during night (7 h)",
+   "load": "see condition",
+   "mean": null,
+   "sd": null,
+   "min": 0.1,
+   "max": 0.24,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Wilke HJ et al. Spine 1999;24:755-762, Table 1 (p.757) and text",
+  "method": "table",
+  "uncertainty": "none (printed table)",
+  "checked": "primary",
+  "check_notes": "Read from the page image 2026-11-12. Ranges = means within regions around maxima and minima (text). Text adds: supine with legs flexed 0.08, legs straight 0.11; Valsalva while standing from 0.52."
+ },
+ "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__wilke1999_table1__various",
+ "tags": [
+  "lumbar",
+  "in vivo",
+  "IDP",
+  "single subject",
+  "healthy"
+ ],
+ "shared_sample_with": [
+  "msk_idp_lumbar.wilke2001.L4L5_axial_rotation_vs_lumbar_angle",
+  "msk_idp_lumbar.wilke2001.L4L5_flex70_19.8kg_round_back",
+  "msk_idp_lumbar.wilke2001.L4L5_flex_ext_vs_lumbar_angle",
+  "msk_idp_lumbar.wilke2001.L4L5_full_flexion",
+  "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_away",
+  "msk_idp_lumbar.wilke2001.L4L5_hold_19.8kg_close",
+  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_trunk_U01",
+  "msk_idp_lumbar.wilke2001.L4L5_lateral_bending_vs_lumbar_angle",
+  "msk_idp_lumbar.wilke2001.L4L5_lifting_carrying_crate_variants",
+  "msk_idp_lumbar.wilke2001.L4L5_lying",
+  "msk_idp_lumbar.wilke2001.L4L5_sitting_armchair",
+  "msk_idp_lumbar.wilke2001.L4L5_sitting_stool_ball",
+  "msk_idp_lumbar.wilke2001.L4L5_standing_relaxed",
+  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_10deg",
+  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_30deg",
+  "msk_idp_lumbar.wilke2001.L4L5_trunk_flexion_50deg"
+ ],
+ "pass_rule": {
+  "template": false,
+  "rule": "pass if |model - measured| <= max(SD or half-range, 0.26 x measured); pooled over all L4-L5 tasks R2 >= 0.78 with slope 95% CI containing 1 and intercept CI containing 0",
+  "source": "Ghezelbash lab validation targets tolerance_policy.idp_task / idp_aggregate (CV_pool 0.26 = pooled between-subject CV of Sato 1999's 8 healthy subjects)"
+ }
+}

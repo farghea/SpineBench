@@ -1,0 +1,87 @@
+{
+ "id": "passive_tissue.skrzypiec2007.AF_hydration_test_dehydration",
+ "title": "Skrzypiec 2007 outer AF hydration before and after simulated tensile testing in air",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "thoracolumbar",
+ "levels": [
+  "T8-T9",
+  "T9-T10",
+  "T10-T11",
+  "T11-T12",
+  "T12-L1",
+  "L1-L2",
+  "L2-L3",
+  "L3-L4",
+  "L4-L5",
+  "L5-S1"
+ ],
+ "condition": "mixed degeneration (grades 1-4, mostly 2-3), elderly",
+ "quantity": {
+  "name": "hydration",
+  "definition": "water content of whole outer AF specimens (freeze-dried to constant weight), control vs after a simulated 5-min test in air",
+  "unit": "%"
+ },
+ "source": {
+  "short": "Skrzypiec 2007",
+  "authors": "Skrzypiec D, Tarala M, Pollintine P, Dolan P, Adams MA",
+  "year": 2007,
+  "journal": "Spine 32(22):2455-2461",
+  "doi": "10.1097/brs.0b013e3181573b87",
+  "n": 132,
+  "sample": "132 successfully tested AF slices (39 inner, 46 middle, 47 outer) from discs adjacent to 47 thoracolumbar motion segments (T8-T9 to L5-S1) of 30 cadavers (20 female, 27 male segments); degeneration grades 1-4 (mostly 2-3)",
+  "age": "48-91 y (mean 75)",
+  "sex": "mixed",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Five outer AF specimens taken through the testing procedure without adhesive and without failure, then freeze-dried; five adjacent controls dried immediately.",
+  "how_to_simulate": [
+   "Not a mechanical target; documents test-induced dehydration (<10 % in the central region per the authors)"
+  ],
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "control (initial)",
+   "load": "",
+   "mean": 63,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  },
+  {
+   "x": "after simulated testing",
+   "load": "",
+   "mean": 57.5,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5
+  }
+ ],
+ "extraction": {
+  "from": "Results text (p.2458)",
+  "method": "text",
+  "uncertainty": "as printed (no SD)",
+  "checked": true,
+  "check_notes": "'Hydration of (whole) outer anulus specimens averaged 63 % initially and 57.5 % after simulated testing (P < 0.05)'. Definition of hydration (water/wet weight) not stated."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__hydration__af_outer__human__after_testing_air",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "thoracolumbar"
+ ]
+}

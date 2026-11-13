@@ -34,7 +34,7 @@
    "Posture: standing, 20 deg trunk flexion (forward bending); arms hanging",
    "Hand load: none",
    "Output: L4-L5 compression F and L4-L5 intersegmental flexion th",
-   "Convert with Ghezelbash 2016 Eq. 6: P = F / A with A = 1970 mm2 (V05 mean) - or 1910 mm2 as in Ghezelbash lab validation targets (Fasser 2021); compare with data[0].mean"
+   "Convert with Ghezelbash 2016 Eq. 6: P = F / A with A = 1910 mm2 (Takahashi Table 1 mean); compare with data[0].mean"
   ],
   "subject_model": {
    "sex": "male",
@@ -49,13 +49,12 @@
     70,
     77
    ],
-   "disc_area_mm2": 1970,
+   "disc_area_mm2": 1910,
    "disc_area_range_mm2": [
-    1880,
+    1730,
     2120
    ],
-   "source": "Means computed here from V05 Table 2 (3 men: 26 y/70 kg/170 cm/18.8 cm2; 26 y/70 kg/180 cm/21.2 cm2; 24 y/77 kg/178 cm/19.1 cm2). Bruno 2015 Table 3: 3M, BM 72 kg, HT 176 cm, ages 24-26.",
-   "disc_area_discrepancy": "Ghezelbash lab validation targets (subjects.takahashi) uses 1910 (1730-2120) mm2 from Fasser 2021 Suppl. Table S1 (not verified by the user). V05 Table 2 gives 18.8, 21.2, 19.1 cm2 (mean 19.7 cm2 = 1970 mm2, range 1880-2120). Use 1970 mm2 if following V05; difference 3%.",
+   "source": "Takahashi 2006 Table 1 (primary): 3 men, 26 y/170 cm/70 kg/18.8 cm2; 26 y/180 cm/70 kg/21.2 cm2; 24 y/178 cm/77 kg/17.3 cm2; mean 25 y, 176 cm, 72 kg, 19.1 cm2. (Dreischarf 2016 V05 printed 19.1 cm2 for subject 3, which is the mean; corrected.)",
    "per_subject": [
     {
      "no": 1,
@@ -84,7 +83,8 @@
    ]
   },
   "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Task set and hand load (5 kg in each hand at the side) confirmed by Bruno 2015 J Biomech Eng Table 3 (M01.pdf). Only group means are published (V05: 'only mean published')."
+  "notes": "Task set and hand load (5 kg in each hand at the side) confirmed by Bruno 2015 J Biomech Eng Table 3 (M01.pdf). Only group means are published (V05: 'only mean published').",
+  "angle_definition": "forward tilt of the lumbar spine measured with Fastrak magnetic sensors on the L1 and L5 spinous processes, upright standing = 0 deg (Takahashi 2006 Methods)"
  },
  "data": [
   {
@@ -106,7 +106,7 @@
   "method": "digitised_figure",
   "uncertainty": "+/-0.01 MPa (digitisation) on top of the secondary-source uncertainty",
   "checked": "via Ghezelbash lab validation targets",
-  "check_notes": "Original PDF not available. Independently re-digitised the same measured bar in Ghezelbash 2020 Fig S2-3a (accepted manuscript p.40, 300 dpi): 1.005 vs targets 1.013 MPa (diff 0.008 MPa, within the +/-0.01 MPa + bar-outline width)."
+  "check_notes": "Original PDF not available. Independently re-digitised the same measured bar in Ghezelbash 2020 Fig S2-3a (accepted manuscript p.40, 300 dpi): 1.005 vs targets 1.013 MPa (diff 0.008 MPa, within the +/-0.01 MPa + bar-outline width). | Checked against the primary paper (Takahashi 2006 Spine 31:18) on 2026-11-12: the text gives the mean disc load (load = IDP x disc area): 645 / 1277 / 1922 / 2305 N without and 791 / 1504 / 2215 / 2776 N with 10 kg at 0/10/20/30 deg; / 1910 mm2 = 0.338 / 0.669 / 1.006 / 1.207 and 0.414 / 0.787 / 1.160 / 1.453 MPa, within 2% of the digitised means kept here."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__trunk_flexion_20deg__none",
  "shared_sample_with": [

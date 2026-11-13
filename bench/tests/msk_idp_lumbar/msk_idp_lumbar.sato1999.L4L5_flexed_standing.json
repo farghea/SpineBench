@@ -140,41 +140,46 @@
    "per_subject_source": "V05 Table 2 p.836 (page image; the published table is typeset with cells split across lines - re-assembled here and checked: BMI = weight/height^2 and the V05 compression = 0.66 x IDP x area reproduce every row within rounding)."
   },
   "idp_conversion": "IDP = -1.556e-2 + 1.255 P + 1.243e-2 th + 3.988e-2 P^2 - 1.212e-2 P th + 1.669e-3 th^2 (MPa), P = F_compression / A_disc (MPa = N/mm2), th = L4-L5 intersegmental flexion from upright standing (deg, + flexion). Source: Ghezelbash et al. 2016 Biomech Model Mechanobiol 15:1699, Eq. 6 (U01 p.10; quadratic fit to the Shirazi-Adl 2006 L4-L5 FE model, R2 0.999, RMSE 0.025 MPa; derived with that model's disc area 1455 mm2, applied with the subject's own area); used again as Eq. 1-2 in Ghezelbash et al. 2020 J Biomech 102:109550 and in the Ghezelbash lab MSK validation. Sensitivity alternative: classical Nachemson factor IDP = F / (0.66 A) (Bruno et al. 2015 J Biomech Eng Eq. 2; Dreischarf 2016 V05 uses F = 0.66 IDP A).",
-  "notes": "Flexion definition (5 deg at L4/L5) from Sato Table 2 as quoted by Guenther & Moerl 2021 (via Ghezelbash lab validation targets)."
+  "notes": "L4-L5 flexed 5 deg = upright 15 deg - flexed 10 deg (Sato Table 2 radiographic segment angles). Trunk flexion 50.8 deg: estimated from the X-ray.",
+  "segment_angle_deg": {
+   "mean": 10,
+   "sd": 3,
+   "definition": "angle between L4 and L5 measured on lateral radiographs taken during the measurement (Sato Table 2); upright standing 15 +/- 3 deg"
+  }
  },
  "data": [
   {
    "x": "flexed forward (L4/L5 5 deg), cohort mean (n=8)",
    "load": "none",
-   "mean": 1.32,
-   "sd": 0.223,
-   "min": 0.9,
-   "max": 1.49,
+   "mean": 1.324,
+   "sd": 0.222,
+   "min": 0.904,
+   "max": 1.495,
    "median": null,
    "n": 8,
-   "src": "mean: Sato 1999 Table 2 via Ghezelbash lab validation targets; SD: targets (Ghezelbash 2020 Fig 4a individual values, 1.333 +/- 0.223); min/max: my digitisation of G2020 Fig S2-3a"
+   "src": "Sato 1999 Table 2, vertical pressure, mean +/- SD of the 8 healthy volunteers (primary)"
   },
   {
    "x": "flexed, subject No. 1",
    "load": "none",
-   "mean": 1.35,
+   "mean": 1.352,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 1"
   },
   {
    "x": "flexed, subject No. 2",
    "load": "none",
-   "mean": 1.402,
+   "mean": 1.404,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 2"
   },
   {
    "x": "flexed, subject No. 3",
@@ -185,29 +190,29 @@
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 3"
   },
   {
    "x": "flexed, subject No. 4",
    "load": "none",
-   "mean": 1.494,
+   "mean": 1.495,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 4"
   },
   {
    "x": "flexed, subject No. 5",
    "load": "none",
-   "mean": 1.471,
+   "mean": 1.473,
    "sd": null,
    "min": null,
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 5"
   },
   {
    "x": "flexed, subject No. 6",
@@ -218,7 +223,7 @@
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 6"
   },
   {
    "x": "flexed, subject No. 7",
@@ -229,7 +234,7 @@
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 7"
   },
   {
    "x": "flexed, subject No. 8",
@@ -240,18 +245,24 @@
    "max": null,
    "median": null,
    "n": 1,
-   "src": "Ghezelbash 2020 Fig S2-3a 'Flex-Sub' gray bar, digitised here (+/-0.01 MPa)"
+   "src": "Sato 1999 Table 2 (primary), subject 8"
   }
  ],
  "extraction": {
   "from": "Ghezelbash lab validation targets (Ghezelbash lab validation targets) (sato_flexed), original Sato et al. 1999 Spine 24:2468 Table 2; per-subject rows digitised from Ghezelbash 2020 J Biomech accepted manuscript Fig S2-3a (file 'Mitutoyo Digital Caliper ... DDE14R52L.PDF', p.40)",
   "method": "digitised_figure",
   "uncertainty": "cohort mean secondary; per-subject +/-0.01 MPa (pixel measurement, 300 dpi; bar outline mid-line)",
-  "checked": "via Ghezelbash lab validation targets",
-  "check_notes": "Mean of my 8 digitised values 1.323 MPa, SD 0.222 - matches targets 1.333 +/- 0.223 and the primary 1.32. Digitisation accuracy checked on the upright bars of the same figure against V05's printed values (<=0.02 MPa)."
+  "checked": "primary (Sato 1999 Table 2)",
+  "check_notes": "Mean of my 8 digitised values 1.323 MPa, SD 0.222 - matches targets 1.333 +/- 0.223 and the primary 1.32. Digitisation accuracy checked on the upright bars of the same figure against V05's printed values (<=0.02 MPa). | Checked against the primary paper (Sato 1999 Spine 24:2468, Table 2) on 2026-11-12: cohort mean/SD and all 8 per-subject values, ages, weights, heights and disc areas match; values now taken from the primary."
  },
  "combine_group": "msk_idp_lumbar__idp_abs__l4_l5__flexed_l4l5_5deg__none",
  "shared_sample_with": [
+  "msk_idp_lumbar.sato1999.L4L5_extended_standing",
+  "msk_idp_lumbar.sato1999.L4L5_lying_lateral",
+  "msk_idp_lumbar.sato1999.L4L5_lying_prone",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_extended",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_flexed",
+  "msk_idp_lumbar.sato1999.L4L5_sitting_upright",
   "msk_idp_lumbar.sato1999.L4L5_standing"
  ],
  "tags": [
