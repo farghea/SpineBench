@@ -395,12 +395,38 @@ a.tile:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,.0
 .modal .btns { display: flex; justify-content: flex-end; gap: 8px; }
 .btn[disabled] { opacity: .45; cursor: not-allowed; }
 
-/* "In my papers" page */
-.pstat { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); vertical-align: 1px; }
-.pstat.covered { color: #1f7a4d; border-color: #1f7a4d55; background: #1f7a4d12; }
-.pstat.partly { color: #a8661a; border-color: #a8661a55; background: #a8661a12; }
-.pstat.missing { color: var(--muted); }
-ul.cmp { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 10px; }
-ul.cmp li { padding-top: 10px; border-top: 1px solid var(--line); }
-ul.cmp li:first-child { border-top: 0; padding-top: 0; }
-details.paper h2 { font-size: 1rem; line-height: 1.35; }
+
+/* ---------- small-multiple figures (view "layout": "panels") ---------- */
+.fig-title { font-size: 1.05rem; }
+.fig-wrap .def { margin-bottom: 2px; }
+.chips-fig { margin: 10px 0 6px; gap: 5px; }
+.chips-fig .chip { gap: 5px; padding: 2px 10px 2px 8px; }
+.chip .eg { flex: none; display: block; }
+.chip[aria-pressed="false"] .eg { opacity: 0.25; }
+.chip .cx { font-size: 0.74rem; color: var(--muted); }
+.chip-models { border-style: dashed; }
+.fig { position: relative; min-height: 160px; }
+.pgrid { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px 14px; }
+.pcell { min-width: 0; }
+.ptitle { font-size: 0.8rem; font-weight: 600; color: var(--ink); text-align: center; line-height: 1.2; margin: 2px 0 1px; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
+.pbox { position: relative; }
+.enc { display: flex; flex-wrap: wrap; gap: 3px 16px; font-size: 0.78rem; color: var(--muted); margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.enc:empty { display: none; }
+.enc span { display: inline-flex; align-items: center; gap: 6px; }
+.enc b { font-weight: 600; color: var(--ink-2); }
+.fig-wrap .series-key { margin-top: 8px; }
+.fig-side { margin-top: 14px; max-width: 560px; }
+.fig-side .schem > summary { display: flex; list-style: none; align-items: center; gap: 8px; }
+.tabs-grouped { flex-direction: column; flex-wrap: nowrap; gap: 6px; }
+.tab-group { display: flex; align-items: baseline; gap: 4px 10px; }
+.tg-h { flex: none; width: 170px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding-top: 5px; }
+.tg-tabs { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+@media (max-width: 720px) {
+  .tab-group { flex-direction: column; gap: 2px; }
+  .tg-h { width: auto; }
+  .pgrid { gap: 6px 8px; }
+}
+@media (max-width: 520px) {
+  .chips-fig .chip { font-size: 0.78rem; min-height: 26px; padding: 1px 8px 1px 6px; }
+  .chips-fig .chip .cx { display: none; }
+}

@@ -1,0 +1,104 @@
+{
+ "id": "segment_stiffness.ghezelbash2020a.L4L5_FSU_asano1992_compression_secondary",
+ "title": "Lumbar L4-L5 motion segments in axial compression - Asano et al. 1992 (Spine 17:1343) force at 0.5, 1.0, 1.5 mm (secondary, Ghezelbash 2020a Fig 4a)",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "secondary compilation",
+ "region": "lumbar",
+ "levels": [
+  "L4-L5"
+ ],
+ "condition": "intact motion segment",
+ "quantity": {
+  "name": "axial compression force-displacement curve",
+  "definition": "axial compressive force at 0.5, 1.0 and 1.5 mm axial displacement (square markers) as plotted by Ghezelbash 2020a",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Ghezelbash 2020a",
+  "authors": "Ghezelbash F, Shirazi-Adl A, Baghani M, Eskandari AH",
+  "year": 2020,
+  "journal": "J Biomech 102:109463",
+  "doi": "10.1016/j.jbiomech.2019.109463",
+  "n": null,
+  "sample": "not stated in the secondary source (see primary: Asano S, Kaneda K, Umehara S, Tadano S 1992, Spine 17:1343-1352); human L4-L5 functional spinal units, intact (posterior elements present), cyclic loading",
+  "age": "",
+  "sex": "",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Cyclic compression-tension of intact L4-L5 FSUs (Asano et al. 1992); rate and preload not given in the secondary source. Legend of Fig 4a reads \"Asano et al. (1999)\"; the caption and reference list give 1992.",
+  "how_to_simulate": [
+   "Model an intact L4-L5 motion segment; fix the lower vertebra",
+   "Apply axial compression slowly",
+   "Report the compressive force at 0.5, 1.0 and 1.5 mm axial displacement"
+  ],
+  "subject_model": null,
+  "notes": "Secondary data: digitised from a figure of Ghezelbash et al. 2020a (the owner's FE validation band; also Fig 2c of Ghezelbash 2025 bioRxiv). Primary paper not in the repository. Error bars are drawn but not defined; not extracted as SD."
+ },
+ "data": [
+  {
+   "x": "L4-L5 FSU, mean",
+   "x_value": 0.5,
+   "load": "",
+   "mean": 246,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L4-L5 FSU, mean",
+   "x_value": 1.0,
+   "load": "",
+   "mean": 608,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null
+  },
+  {
+   "x": "L4-L5 FSU, mean",
+   "x_value": 1.5,
+   "load": "",
+   "mean": 1203,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": null,
+   "note": "error bar about +/-80 N drawn at 1.5 mm (type not stated)"
+  }
+ ],
+ "extraction": {
+  "from": "Ghezelbash 2020a Fig 4a (lime square markers); same data form the 'Experiment' band of Ghezelbash 2025 bioRxiv Fig 2c",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.01 mm, +/-30 N; where curves overlap below 0.3 mm: +/-60 N",
+  "checked": true,
+  "check_notes": "Page rendered at 600 dpi; axes from tick marks (831 px/mm, 0.302 px/N); curves found by colour (green = Brown, red = Markolf & Morris, lime squares = Asano) in column scans every 0.025-0.1 mm, line style (solid/dashed/dash-dot) assigned by continuity and checked against a gridded zoom. Values are the review authors' plot of the primary data, not the primary paper."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model curve inside the min-max envelope (or within +/-25% of the curve)"
+ },
+ "combine_group": "secondary__segment_stiffness__axial_compression_force_at_displacement__l4_l5_fsu__asano1992",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "compression",
+  "secondary",
+  "digitised"
+ ],
+ "curve": {
+  "x_name": "axial displacement",
+  "x_unit": "mm",
+  "y_name": "compressive force",
+  "y_unit": "N"
+ },
+ "shared_sample_with": []
+}

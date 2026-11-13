@@ -1,0 +1,285 @@
+{
+ "id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+ "title": "Jamison 2013 lumbar anterior column units: axial compression load-displacement at 1000 ms triangular impacts (fast, not quasi-static)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "disc_whole",
+ "region": "lumbar",
+ "levels": [],
+ "condition": "healthy (fluoroscopy), posterior elements removed, 50 N preload",
+ "quantity": {
+  "name": "axial compression force-displacement curve",
+  "definition": "total axial compressive force (N, includes the 50 N preload) vs imposed axial displacement from the preloaded position (mm), loading branch of the 1000 ms (baseline) triangular displacement impact to 0.8 mm; plus the mean peak load of 5 discs at 0.2 and 0.8 mm",
+  "unit": "N"
+ },
+ "source": {
+  "short": "Jamison 2013",
+  "authors": "Jamison D, Cannella M, Pierce EC, Marcolongo MS",
+  "year": 2013,
+  "journal": "J Biomech Eng 135:091009",
+  "doi": "10.1115/1.4024828",
+  "n": 5,
+  "sample": "5 lumbar anterior column units (disc + adjacent vertebral bodies, posterior elements, muscles and ligaments removed), NDRI donors; levels not reported",
+  "age": "64.6+-11.4 y (59-85)",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Potted ACUs on a servohydraulic tester; preconditioning 50 cycles 50-150 N at 1 Hz; 50 N compressive preload; displacement-controlled triangular axial impacts of 0.2, 0.5 and 0.8 mm with durations 80-1000 ms (randomised, 3 s apart). The 1000 ms impact (0.8 mm reached in 0.5 s, about 1.6 mm/s) is the paper's 'baseline'. This is a FAST test, not quasi-static.",
+  "how_to_simulate": [
+   "Model a lumbar disc with both vertebral bodies (posterior elements removed); fix the lower body",
+   "Apply a 50 N axial preload, then zero the displacement",
+   "Impose axial compression to 0.8 mm in 0.5 s (1.6 mm/s; use a rate-dependent / poroelastic model or note the rate)",
+   "Report total axial force at each displacement on loading"
+  ],
+  "subject_model": null,
+  "notes": "The curve is one representative specimen (Fig 2 top right; which specimen is not stated). The mean peak loads (n=5) come from the Results text."
+ },
+ "data": [
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 45,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1,
+   "note": "50 N compressive preload (zero displacement = preloaded position)"
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.05,
+   "load": "",
+   "mean": 91,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.1,
+   "load": "",
+   "mean": 134,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.15,
+   "load": "",
+   "mean": 179,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.2,
+   "load": "",
+   "mean": 224,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.25,
+   "load": "",
+   "mean": 270,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.3,
+   "load": "",
+   "mean": 318,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.35,
+   "load": "",
+   "mean": 369,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.4,
+   "load": "",
+   "mean": 424,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.45,
+   "load": "",
+   "mean": 482,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.5,
+   "load": "",
+   "mean": 543,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.55,
+   "load": "",
+   "mean": 607,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.6,
+   "load": "",
+   "mean": 675,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.65,
+   "load": "",
+   "mean": 746,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.7,
+   "load": "",
+   "mean": 822,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.75,
+   "load": "",
+   "mean": 900,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "representative ACU, 1000 ms triangle to 0.8 mm, loading branch",
+   "x_value": 0.78,
+   "load": "",
+   "mean": 950,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  },
+  {
+   "x": "mean peak load of 5 ACUs (all impact durations)",
+   "x_value": 0.2,
+   "load": "",
+   "mean": 150,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "text: peak loads averaged 150 N at 0.2 mm; did not vary significantly across durations 80-1000 ms; no SD"
+  },
+  {
+   "x": "mean peak load of 5 ACUs (all impact durations)",
+   "x_value": 0.8,
+   "load": "",
+   "mean": 700,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "text: 700 N at 0.8 mm; no SD"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 2 top-right panel (0.8 mm, black 1000 ms loop), Results text for mean peak loads",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.005 mm, +/-5 N (vector-like plot, 600 dpi)",
+  "checked": true,
+  "check_notes": "Axes calibrated from tick marks (130 px / 0.1 mm, 93 px / 100 N). Loading branch = lower branch of the loop (larger force at the same displacement, starts at the 45 N preload point, ends at the 950 N peak). Sign flipped (paper plots compression as negative). Representative peak 950 N is above the 5-disc mean of 700 N."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model force within +/-15% of the curve at the same displacement and rate"
+ },
+ "combine_group": "passive_tissue__axial_compression_force_displacement_curve__lumbar_acu__human__dynamic_1s",
+ "tags": [
+  "human",
+  "in vitro",
+  "disc",
+  "lumbar",
+  "compression",
+  "curve",
+  "digitised",
+  "dynamic"
+ ],
+ "curve": {
+  "x_name": "axial displacement",
+  "x_unit": "mm",
+  "y_name": "compressive force",
+  "y_unit": "N"
+ },
+ "shared_sample_with": [
+  "passive_tissue.jamison2013.disc_baseline_axial_stiffness",
+  "passive_tissue.jamison2013.disc_normalized_stiffness_vs_duration"
+ ]
+}

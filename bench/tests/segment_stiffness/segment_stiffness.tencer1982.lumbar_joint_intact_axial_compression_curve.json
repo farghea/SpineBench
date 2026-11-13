@@ -1,0 +1,173 @@
+{
+ "id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+ "title": "Tencer 1982 lumbar joints (L2-L3, L4-L5): axial compression displacement vs force, intact, two groups of 5",
+ "layer": "property",
+ "category": "segment_stiffness",
+ "subcategory": "compression_curve",
+ "region": "lumbar",
+ "levels": [
+  "L2-L3",
+  "L4-L5"
+ ],
+ "condition": "intact, no preload, nucleus pressurised to 626 kPa",
+ "quantity": {
+  "name": "axial displacement under compressive force (load-displacement curve)",
+  "definition": "mean axial translation of the moving (upper) vertebra relative to the fixed one along the compression axis Z (through the disc centre) at each force step; force applied in 3 approximately equal steps to 823 N (1 min creep for steps 1-2, 2 min for step 3); mean of 5 joints per sequence",
+  "unit": "mm"
+ },
+ "source": {
+  "short": "Tencer 1982",
+  "authors": "Tencer AF, Ahmed AM, Burke DL",
+  "year": 1982,
+  "journal": "J Biomech Eng 104:193-201",
+  "doi": "10.1115/1.3138348",
+  "n": 10,
+  "sample": "two groups of 5 lumbar intervertebral joints (L2-3 and L4-5) used for the two sectioning sequences (Table 2), from 8 cadavers; disc grade 1-2",
+  "age": "16-57 y",
+  "sex": "7 M, 1 F (donors)",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Whole motion segments (posterior elements intact), lower vertebra fixed; nucleus pressurised to 626 kPa; 4 conditioning cycles of axial torsion; axial compression applied along the line through the vertebral body centres in 3 approximately equal force steps to 823 N; displacement read 1 min (steps 1-2) or 2 min (step 3) after each step. Force-controlled, quasi-static (creep included).",
+  "how_to_simulate": [
+   "Model an L2-L3 or L4-L5 motion segment with posterior elements; fix the lower vertebra",
+   "Pressurise the nucleus to ~0.63 MPa if possible; no preload",
+   "Apply axial compression through the disc centre in steps of about 275, 535 and 823 N",
+   "Report the axial translation of the upper vertebra at each step (include creep for 1-2 min if the model is time dependent)"
+  ],
+  "subject_model": null,
+  "notes": "Only the intact curves of Fig 5(g) and 5(h) are extracted (two sequences = two groups of 5 specimens; Table 2). Scatter bands at the middle step are not extracted: the caption calls them 'representative' and they cannot be assigned to one curve reliably."
+ },
+ "data": [
+  {
+   "x": "sequence BF-PL-DA, intact",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "origin"
+  },
+  {
+   "x": "sequence BF-PL-DA, intact",
+   "x_value": 275,
+   "load": "",
+   "mean": 0.37,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  },
+  {
+   "x": "sequence BF-PL-DA, intact",
+   "x_value": 530,
+   "load": "",
+   "mean": 0.85,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  },
+  {
+   "x": "sequence BF-PL-DA, intact",
+   "x_value": 825,
+   "load": "",
+   "mean": 1.31,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  },
+  {
+   "x": "sequence DA-PL-BF, intact",
+   "x_value": 0.0,
+   "load": "",
+   "mean": 0.0,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "origin"
+  },
+  {
+   "x": "sequence DA-PL-BF, intact",
+   "x_value": 275,
+   "load": "",
+   "mean": 0.79,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  },
+  {
+   "x": "sequence DA-PL-BF, intact",
+   "x_value": 540,
+   "load": "",
+   "mean": 1.37,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  },
+  {
+   "x": "sequence DA-PL-BF, intact",
+   "x_value": 825,
+   "load": "",
+   "mean": 1.64,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 5,
+   "note": "applied force digitised (nominal: 3 approximately equal steps to 823 N)"
+  }
+ ],
+ "extraction": {
+  "from": "Fig 5(g) and 5(h), filled-circle (intact) curves",
+  "method": "digitised_figure",
+  "uncertainty": "+/-0.02 mm, +/-10 N (marker centres, 400 dpi)",
+  "checked": true,
+  "check_notes": "Axes calibrated from tick marks (182 px/mm, 0.456 px/N); marker centres from blob detection. Top step 824-825 N matches Table 3 (823 N). Middle step reads 531/540 N rather than 549 N (paper: 'approximately equal steps'). Consistent with the Table 4 mean flexibility f = 0.002 mm/N (1.31-1.64 mm at 823 N)."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "model displacement within the range spanned by the two group curves (or +/-25%) at each force"
+ },
+ "combine_group": "segment_stiffness__axial_compression_displacement_vs_force__lumbar_fsu__intact__no_preload",
+ "tags": [
+  "lumbar",
+  "in vitro",
+  "human",
+  "FSU",
+  "compression",
+  "curve",
+  "digitised",
+  "passive"
+ ],
+ "curve": {
+  "x_name": "axial compressive force",
+  "x_unit": "N",
+  "y_name": "axial displacement",
+  "y_unit": "mm"
+ },
+ "shared_sample_with": [
+  "segment_stiffness.tencer1982.lumbar_joint_intact_flexibility_single_loads",
+  "segment_stiffness.tencer1982.lumbar_joint_intact_coupled_ratios_single_loads",
+  "segment_stiffness.tencer1982.lumbar_joint_preload_displacement_ratio_Rc"
+ ]
+}

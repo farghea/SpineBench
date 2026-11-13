@@ -2,6 +2,29 @@
 import json, sys, glob, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 TESTS = {os.path.basename(f)[:-5] for f in glob.glob(f'{ROOT}/bench/tests/*/*.json')}
+def check_view_layout(v, ins):
+    """Optional figure keys of a view (bench/OUTCOMES.md, "Figures")."""
+    e, vid = [], v.get('id')
+    for k in ('series', 'legend_inputs'):
+        for x in v.get(k) or []:
+            if x not in ins and x != 'level': e.append(f'view {vid}: {k} key {x} not an input')
+    if 'layout' in v and v['layout'] not in ('panels',): e.append(f'view {vid}: layout must be "panels"')
+    if v.get('layout') == 'panels':
+        if not str(v.get('x', '')).startswith('input:'): e.append(f'view {vid}: panels need x "input:<key>"')
+        pb = v.get('panel_by', 'level')
+        if pb != 'level' and pb not in ins: e.append(f'view {vid}: panel_by {pb} not an input')
+    for k in ('panel_labels', 'panel_map'):
+        if k in v and not isinstance(v[k], dict): e.append(f'view {vid}: {k} must be an object')
+    if 'panels' in v and not isinstance(v['panels'], list): e.append(f'view {vid}: panels must be a list')
+    for k in ('share_y', 'share_x'):
+        if k in v and not isinstance(v[k], bool): e.append(f'view {vid}: {k} must be true/false')
+    if 'columns' in v and v['columns'] not in (1, 2, 3, 4): e.append(f'view {vid}: columns must be 1-4')
+    for k in ('x_min', 'x_max'):
+        if k in v and not isinstance(v[k], (int, float)): e.append(f'view {vid}: {k} must be a number')
+    if 'group' in v and (not isinstance(v['group'], str) or len(v['group']) > 40): e.append(f'view {vid}: group must be text <= 40 chars')
+    for m in v.get('models') or []:
+        if not isinstance(m, dict) or m.get('test_id') not in TESTS: e.append(f'view {vid}: models entry needs a known test_id')
+    return e
 REQ = ['id', 'title', 'domain', 'region', 'levels', 'summary', 'simulate', 'inputs', 'outputs', 'studies', 'views', 'tasks', 'agent_prompt', 'answer_format']
 def check(path):
     e = []; b = json.load(open(path))
@@ -25,6 +48,7 @@ def check(path):
         for t in v['task_ids']:
             if t not in tids: e.append(f'view {v["id"]}: unknown task {t}')
         if v['x'] != 'task' and not (v['x'].startswith('input:') and v['x'][6:] in ins): e.append(f'view {v["id"]}: bad x {v["x"]}')
+        e += check_view_layout(v, ins)
     for t in b['tasks']:
         if t.get('output') not in outs: e.append(f'task {t["id"]}: output not in outputs')
         if t.get('view') and t['view'] not in vids: e.append(f'task {t["id"]}: unknown view')

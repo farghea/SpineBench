@@ -84,7 +84,7 @@
       "year": 1979,
       "n": 42,
       "sample": "42 lumbar FSUs, 23 cadavers; 18 retested without posterior elements",
-      "doi": null,
+      "doi": "10.1115/1.3426223",
       "secondary": false
     },
     {
@@ -106,7 +106,7 @@
   "views": [
     {
       "id": "l45_heuer",
-      "title": "L4-L5: structures removed one by one",
+      "title": "L4-L5: ROM as structures are removed (7.5 Nm)",
       "task_ids": [
         "l45_intact_flex",
         "l45_ssl_flex",
@@ -146,13 +146,21 @@
         "l45_nuc_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "right lateral bending": "Lateral bending (right)",
+        "clockwise axial rotation": "Axial rotation",
+        "right axial rotation": "Axial rotation (right)",
+        "left axial rotation": "Axial rotation (left)",
+        "flexion": "Flexion",
+        "extension": "Extension"
+      }
     },
     {
       "id": "l23_heuer",
-      "title": "L2-L3: posterior parts, ligaments, nucleus",
+      "title": "L2-L3: ROM as structures are removed (7.5 Nm)",
       "task_ids": [
         "l23_intact_flex",
         "l23_va_flex",
@@ -172,13 +180,21 @@
         "l23_nuc_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "right lateral bending": "Lateral bending (right)",
+        "clockwise axial rotation": "Axial rotation",
+        "right axial rotation": "Axial rotation (right)",
+        "left axial rotation": "Axial rotation (left)",
+        "flexion": "Flexion",
+        "extension": "Extension"
+      }
     },
     {
       "id": "lumbar_pe_schultz",
-      "title": "Posterior elements removed (4.7 Nm, 400 N)",
+      "title": "L1–L5 FSUs: posterior elements removed (4.7 Nm, 400 N)",
       "task_ids": [
         "sch_intact_flex",
         "sch_wope_flex",
@@ -189,7 +205,18 @@
         "sch_intact_ar",
         "sch_wope_ar"
       ],
-      "x": "task"
+      "x": "input:step_no",
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "right lateral bending": "Lateral bending (right)",
+        "clockwise axial rotation": "Axial rotation",
+        "right axial rotation": "Axial rotation (right)",
+        "left axial rotation": "Axial rotation (left)",
+        "flexion": "Flexion",
+        "extension": "Extension"
+      }
     },
     {
       "id": "lumbar_denuc_pct",
@@ -202,7 +229,8 @@
         "acu_denuc_axial_comp",
         "acu_denuc_axial_tension"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Other"
     }
   ],
   "tasks": [

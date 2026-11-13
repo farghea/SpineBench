@@ -149,7 +149,7 @@
       "year": 1998,
       "n": 30,
       "sample": "ribs 7 and 8 segments from 30 autopsy cadavers",
-      "doi": null,
+      "doi": "10.1115/1.2834288",
       "secondary": false
     },
     {
@@ -167,7 +167,7 @@
       "year": 1973,
       "n": 10,
       "sample": "rib segments, 10 autopsy patients with normal bone",
-      "doi": null,
+      "doi": "10.1016/0021-9290(73)90045-6",
       "secondary": false
     },
     {
@@ -185,7 +185,7 @@
       "year": 1998,
       "n": 9,
       "sample": "costovertebral units at R2, R6, R10 from 9 thoracic cages",
-      "doi": null,
+      "doi": "10.1007/s005860050021",
       "secondary": false
     },
     {
@@ -203,7 +203,7 @@
       "year": 1974,
       "n": 1,
       "sample": "one cadaver tabulated per test (rib heads; sternum)",
-      "doi": null,
+      "doi": "10.1016/0021-9290(74)90024-4",
       "secondary": false
     }
   ],
@@ -231,7 +231,8 @@
         "cc_Ei_10",
         "cc_Ei_max"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Properties per test"
     },
     {
       "id": "rib",
@@ -250,7 +251,8 @@
         "rib_seg_E_granik",
         "rib_seg_sigma_granik"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Properties per test"
     },
     {
       "id": "cvj_rom01",
@@ -282,7 +284,8 @@
         "cvj_disp_sagittal",
         "cvj_disp_transverse"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Properties per test"
     },
     {
       "id": "cvj_curve",
@@ -301,9 +304,9 @@
         "cvj_curve_Z_p2"
       ],
       "x": "input:angle_deg",
-      "series": [
-        "mode"
-      ]
+      "group": "Load–deformation curves",
+      "layout": "panels",
+      "panel_by": "mode"
     },
     {
       "id": "pin_cvj",
@@ -323,9 +326,9 @@
         "cvj_pin_r6_superior"
       ],
       "x": "input:force_N",
-      "series": [
-        "mode"
-      ]
+      "group": "Load–deformation curves",
+      "layout": "panels",
+      "panel_by": "mode"
     },
     {
       "id": "pin_sternum",
@@ -345,9 +348,9 @@
         "csj_pin_I_superior"
       ],
       "x": "input:force_N",
-      "series": [
-        "mode"
-      ]
+      "group": "Load–deformation curves",
+      "layout": "panels",
+      "panel_by": "mode"
     }
   ],
   "tasks": [

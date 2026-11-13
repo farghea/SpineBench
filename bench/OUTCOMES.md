@@ -7,7 +7,7 @@ Inputs (kinematics, anthropometry) and muscle geometry are "coming next" and are
 Source of values: the extracted tests in `bench/tests/` (already checked against the PDFs). Do not re-extract; reorganise.
 Every reference value keeps its `test_id`, so it stays traceable.
 
-## The benchmarks (17 cards)
+## The benchmarks (16 cards)
 
 | id | Title | Domain | What is compared |
 |---|---|---|---|
@@ -23,9 +23,8 @@ Every reference value keeps its `test_id`, so it stays traceable.
 | `thoracic_resection` | Thoracic stepwise resection | FE | ROM after each removal step incl. rib cage reduction and costovertebral joints |
 | `idp_invitro` | Disc pressure in vitro | FE | IDP vs moment / compression / follower load |
 | `facet_forces` | Facet joint forces | FE | Facet contact force (or load share) per direction and moment |
-| `segment_stiffness` | Segment force-displacement | FE | Compression/shear force-displacement and stiffness of motion segments (human only) |
+| `segment_stiffness` | Segment force-displacement | FE | Compression force-displacement curves and shear/compression stiffness of motion segments and whole discs (disc with vertebral bodies), whole-disc shear strength (human only) |
 | `annulus_tissue` | Annulus fibrosus | tissue | Test mode = task: single lamella along fibre, uniaxial circumferential / axial / radial, biaxial, shear, confined compression, bone-AF-bone; by region (outer/inner, ant/post) and degeneration |
-| `nucleus_endplate_tissue` | Nucleus, endplate and whole disc | tissue | Nucleus shear / confined compression / swelling; endplate; whole-disc compression and shear |
 | `ligament_tissue` | Spinal ligaments | tissue | Per ligament (ALL, PLL, LF, ISL, SSL, capsule) and level: stiffness, failure force, failure elongation/strain, stress-strain |
 | `ribcage_tissue` | Rib cage tissue and joints | tissue | Costal cartilage, ribs, costovertebral and costotransverse joints: stiffness / load-deflection / ROM |
 
@@ -75,6 +74,24 @@ Out of v1 (kept in `bench/tests`, not shown): inputs, properties, in vivo passiv
 - `series` (optional): which inputs name the curves in the legend (keeps legends short).
 - `x: "input:<key>"` → numeric input on the x axis (curves: EMG vs flexion angle, ROM vs moment). Otherwise `"task"` (bars).
 - Keep labels short (≤ 40 chars). No study names in task labels.
+
+### Figures: small multiples (`"layout": "panels"`)
+A curve view can be drawn like a paper figure: one small chart per panel, a shared legend on top (the study chips; click to hide a study in every panel), shared axes. Only the `views` entry changes; tasks and refs stay as they are.
+```json
+{"id": "rom_flex", "group": "ROM vs moment, one direction", "title": "Flexion ROM vs moment, per level",
+ "layout": "panels", "panel_by": "level", "x": "input:moment_nm", "task_ids": ["..."],
+ "legend_inputs": ["axial_n"], "panel_labels": {"L1-L2..L4-L5 pooled": "L1–L5, levels pooled"}}
+```
+- `panel_by`: input key (or `level`, read from the task) whose value gives the panel. Panel order: `panels` if given (list of values, or `{"value", "label"}`), else levels cranial→caudal (whole specimens first, "pooled" last), else numbers ascending, else first appearance.
+- `panel_map` `{value: panel}` merges values into one panel (e.g. `"right lateral bending": "lateral bending"`); `panel_labels` `{value: label}` renames a panel.
+- `series` (optional): inputs that split a study into several curves inside a panel (line style + marker, keyed per study). Several refs of one study in one task whose notes start with different words (e.g. `right;` / `left;`) become separate curves too.
+- Unloaded points (panel value `none`/`neutral` at x = 0) start the curve in every panel.
+- `legend_inputs`: inputs shown next to a study in the legend when all its tasks in the view share one non-zero value (e.g. "axial preload 100 N").
+- Axes: x is shared by all panels (`"share_x": false` to free it), y is shared by panels with the same output (`"share_y": false` to free it); `x_min`, `x_max`, `x_title`, `y_title` override. `columns` caps the grid (default 3 on desktop, 2 on tablet/phone).
+- Encoding (one line under each figure): mean ± SD → marker + line + error bars; mean with min/max and no SD over ≥ 2 x values → shaded min–max corridor; median → open marker + [min–max] bar; no spread → marker only.
+- `models` (optional): `[{"test_id": "fe_model_comparison...", "x": "load", "where": {"x": "compression"}, "panel": "L4-L5", "label": "Published FE models (Dreischarf 2014)"}]` draws the min–max range across published models as a grey band under the data, labelled as models. It is read from `data/tests/<test_id>.json`, never pooled or scored. Use only when the test's condition matches the panel.
+- `group`: views with the same group are listed together (tabs / menu). Titles read like short figure captions.
+- The new keys are checked by `tools/check_outcomes.py`.
 - Pooled values are computed by `tools/pool_outcomes.py` (n-weighted mean, shared samples counted once, medians not pooled). Do not hand-write them.
 
 Check a file: `python3 tools/check_outcomes.py bench/outcomes/<id>.json`

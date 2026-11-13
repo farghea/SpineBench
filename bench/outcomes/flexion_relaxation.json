@@ -205,6 +205,103 @@
   ],
   "views": [
     {
+      "id": "fig_emg",
+      "group": "EMG vs flexion angle",
+      "title": "Back-muscle EMG vs trunk flexion, per muscle",
+      "layout": "panels",
+      "panel_by": "muscle",
+      "x": "input:flexion_deg",
+      "task_ids": [
+        "g20_lg_t11_18",
+        "g20_lg_t11_50",
+        "g20_lg_t11_68",
+        "g20_lg_t11_92",
+        "g20_ic_t11_18",
+        "g20_ic_t11_50",
+        "g20_ic_t11_68",
+        "g20_ic_t11_92",
+        "g24_lg_t11_18",
+        "g24_lg_t11_50",
+        "g24_lg_t11_68",
+        "g24_lg_t11_92",
+        "g24_ic_t11_18",
+        "g24_ic_t11_50",
+        "g24_ic_t11_68",
+        "g24_ic_t11_92",
+        "g24s_lg_t11_25",
+        "g24s_lg_t11_50",
+        "g24s_lg_t11_95",
+        "g24s_ic_t11_25",
+        "g24s_ic_t11_50",
+        "g24s_ic_t11_95",
+        "g20_ic_l3_18",
+        "g20_ic_l3_50",
+        "g20_ic_l3_68",
+        "g20_ic_l3_92",
+        "shin_lo_30",
+        "shin_lo_50",
+        "shin_lo_70",
+        "shin_lo_90",
+        "shin_il_30",
+        "shin_il_50",
+        "shin_il_70",
+        "shin_il_90",
+        "koo19_il_0",
+        "koo19_il_66",
+        "koo19_il_93",
+        "koo19_il_113",
+        "koo19_il_126",
+        "koo19_lo_0",
+        "koo19_lo_66",
+        "koo19_lo_93",
+        "koo19_lo_113",
+        "koo19_lo_126",
+        "koo20b_back_1",
+        "koo20b_back_31",
+        "koo20b_back_42",
+        "koo20b_back_55",
+        "koo20b_back_64",
+        "koo20b_back_67",
+        "g20_mf_l4_18",
+        "g20_mf_l4_50",
+        "g20_mf_l4_68",
+        "g20_mf_l4_92",
+        "shin_mu_30",
+        "shin_mu_50",
+        "shin_mu_70",
+        "shin_mu_90"
+      ],
+      "legend_inputs": [
+        "load"
+      ],
+      "panel_map": {
+        "IC(L3)": "IC lumbar",
+        "IC(L2)": "IC lumbar",
+        "IC (site n.s.)": "IC lumbar",
+        "LG(L2)": "LG lumbar",
+        "LL (site n.s.)": "LG lumbar",
+        "MF(L4/L5)": "MF",
+        "MF(L4)": "MF"
+      },
+      "panels": [
+        "LG(T11)",
+        "IC(T11)",
+        "LG lumbar",
+        "IC lumbar",
+        "IC+LL mean (site n.s.)",
+        "MF"
+      ],
+      "panel_labels": {
+        "LG(T11)": "Longissimus, T11",
+        "IC(T11)": "Iliocostalis, T11",
+        "LG lumbar": "Longissimus, lumbar",
+        "IC lumbar": "Iliocostalis, lumbar",
+        "IC+LL mean (site n.s.)": "Lumbar erector (IC + LL mean)",
+        "MF": "Multifidus, L4–L5"
+      },
+      "note": "Flexion angle definitions and EMG normalisation differ between studies (see the Values table); compare shapes and onsets."
+    },
+    {
       "id": "emg_flexion_thoracic",
       "title": "Thoracic back muscles (T11)",
       "task_ids": [
@@ -235,7 +332,8 @@
       "series": [
         "muscle",
         "load"
-      ]
+      ],
+      "group": "One region per chart"
     },
     {
       "id": "emg_flexion_lumbar",
@@ -274,7 +372,8 @@
       "series": [
         "muscle",
         "load"
-      ]
+      ],
+      "group": "One region per chart"
     },
     {
       "id": "emg_flexion_mf",
@@ -293,7 +392,8 @@
       "series": [
         "muscle",
         "load"
-      ]
+      ],
+      "group": "One region per chart"
     },
     {
       "id": "fr_angle",
@@ -314,7 +414,8 @@
         "zwam_onset_lumbar",
         "zwam_onset_incl"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Flexion-relaxation angles"
     }
   ],
   "tasks": [

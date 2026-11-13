@@ -13,8 +13,8 @@ What the agent has to **develop**: a working simulation pipeline for one model f
 | Domain | Cards | The agent's model must... |
 |---|---|---|
 | MSK (in vivo) | `lumbar_idp_invivo`, `thoracic_idp_invivo`, `implant_loads_invivo`, `emg_load_holding`, `flexion_relaxation`, `maximal_exertions` | scale a trunk musculoskeletal model to a subject (sex, age, height, mass), set a posture and hand load, solve muscle forces, and report disc pressure (from compression with Ghezelbash 2016 Eq. 6), implant force, muscle activation (%MVC, normalised as the study did) or maximal moments |
-| FE (in vitro) | `lumbar_rom`, `thoracic_rom`, `lumbar_resection`, `thoracic_resection`, `idp_invitro`, `facet_forces`, `segment_stiffness` | build the cadaveric specimen (FSU, multi-level spine, with/without rib cage), fix the caudal end, apply the pure moment / preload / displacement, remove structures step by step, and report rotation, nucleus pressure, facet force or stiffness |
-| Tissue | `annulus_tissue`, `nucleus_endplate_tissue`, `ligament_tissue`, `ribcage_tissue` | reproduce a material test (uniaxial / biaxial tension, confined compression, swelling, bone-ligament-bone pull, rib bending, joint moment) with one parameter set per tissue, and report stress at strain, moduli, failure values |
+| FE (in vitro) | `lumbar_rom`, `thoracic_rom`, `lumbar_resection`, `thoracic_resection`, `idp_invitro`, `facet_forces`, `segment_stiffness` | build the cadaveric specimen (FSU, whole disc with vertebral bodies, multi-level spine, with/without rib cage), fix the caudal end, apply the pure moment / preload / displacement, remove structures step by step, and report rotation, nucleus pressure, facet force or stiffness |
+| Tissue | `annulus_tissue`, `ligament_tissue`, `ribcage_tissue` | reproduce a material test (uniaxial / biaxial tension, confined compression, swelling, bone-ligament-bone pull, rib bending, joint moment) with one parameter set per tissue, and report stress at strain, moduli, failure values |
 
 What is **validated**: the model's predictions against 135 studies (1790 tasks; 1296 scoring units once tissue curves are
 grouped). An agent that runs every task and stays within the experimental scatter has a validated model for that card.
@@ -74,7 +74,7 @@ python3 tools/score_agent.py --selftest      # study means score 1293/1296, all-
    card scores (each card weighs the same); the plain total is reported too.
 
 The per-test `pass_rule` strings in `bench/tests` are richer (trend checks, sign of change after resection) and stay the
-reference for a human review; the scorer applies the uniform rule above so that all 17 cards are scored the same way.
+reference for a human review; the scorer applies the uniform rule above so that all 16 cards are scored the same way.
 
 ## Three worked examples
 

@@ -386,7 +386,6 @@ KNOWN_OUTCOMES = [
     ("facet_forces", "Facet joint forces", "fe"),
     ("segment_stiffness", "Segment force-displacement", "fe"),
     ("annulus_tissue", "Annulus fibrosus", "tissue"),
-    ("nucleus_endplate_tissue", "Nucleus, endplate and whole disc", "tissue"),
     ("ligament_tissue", "Spinal ligaments", "tissue"),
     ("ribcage_tissue", "Rib cage tissue and joints", "tissue"),
 ]
@@ -758,19 +757,6 @@ def build_outcomes(real_dir, ex_dir, out):
     (out / "agent").mkdir(exist_ok=True)
     for l in lines:
         (out / "agent" / f"{l['id']}.json").write_text(json.dumps(l, ensure_ascii=False, indent=1), encoding="utf-8")
-    # comparisons made in the author's own papers (bench/owner_papers_map.json), without local file paths
-    pm = ROOT / "bench" / "owner_papers_map.json"
-    if pm.is_file():
-        m = json.loads(pm.read_text(encoding="utf-8"))
-        local = re.compile(r"(donwload/|plan_agent|/mnt/|\.pdf\b|\.PDF\b)")
-        def clean(o):
-            if isinstance(o, dict):
-                return {k: clean(v) for k, v in o.items() if k not in ("file", "scope") and not (isinstance(v, str) and local.search(v))}
-            if isinstance(o, list):
-                return [clean(v) for v in o if not (isinstance(v, str) and local.search(v))]
-            return o
-        keep = {k: m[k] for k in ("generated", "status_legend", "papers", "summary_by_category", "totals") if k in m}
-        (out / "papers.json").write_text(json.dumps(clean(keep), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "answers.json").write_text(json.dumps(
         {"generated": generated, "answers": answers}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{counts['benchmarks']} outcome benchmarks ({counts['examples']} examples), {counts['tasks']} tasks, "

@@ -175,7 +175,7 @@
       "year": 2005,
       "n": 10,
       "sample": "10 C7-L1 spines with rib cage and sternum, T1 vs T12",
-      "doi": "",
+      "doi": "10.1097/01.brs.0000164257.69354.bb",
       "secondary": false
     },
     {
@@ -273,6 +273,154 @@
   ],
   "views": [
     {
+      "id": "fig_total_full",
+      "group": "T1–T12 ROM vs moment",
+      "title": "T1–T12 ROM (full range) vs moment",
+      "layout": "panels",
+      "panel_by": "direction",
+      "x": "input:moment_nm",
+      "task_ids": [
+        "T1T12_fe_5",
+        "T1T12_lbr_5",
+        "T1T12_arr_5",
+        "T1T12_arr_5_ax50",
+        "T1T12_fe_2",
+        "T1T12_lbr_2",
+        "T1T12_arr_2"
+      ],
+      "legend_inputs": [
+        "axial_n"
+      ],
+      "panel_labels": {
+        "flexion+extension (full range)": "Flexion + extension",
+        "lateral bending left+right (full range)": "Lateral bending, left + right",
+        "axial rotation left+right (full range)": "Axial rotation, left + right",
+        "flexion (one direction)": "Flexion",
+        "extension (one direction)": "Extension",
+        "lateral bending (one side)": "Lateral bending, one side",
+        "axial rotation (one side)": "Axial rotation, one side"
+      }
+    },
+    {
+      "id": "fig_total_one",
+      "group": "T1–T12 ROM vs moment",
+      "title": "T1–T12 ROM (one direction) vs moment",
+      "layout": "panels",
+      "panel_by": "direction",
+      "x": "input:moment_nm",
+      "task_ids": [
+        "T1T12_flex_5",
+        "T1T12_ext_5",
+        "T1T12_lb_5",
+        "T1T12_ar_5",
+        "T1T12_flex_8",
+        "T1T12_ext_8",
+        "T1T12_lb_8",
+        "T1T12_ar_8"
+      ],
+      "panel_labels": {
+        "flexion+extension (full range)": "Flexion + extension",
+        "lateral bending left+right (full range)": "Lateral bending, left + right",
+        "axial rotation left+right (full range)": "Axial rotation, left + right",
+        "flexion (one direction)": "Flexion",
+        "extension (one direction)": "Extension",
+        "lateral bending (one side)": "Lateral bending, one side",
+        "axial rotation (one side)": "Axial rotation, one side"
+      }
+    },
+    {
+      "id": "follower",
+      "title": "T1–T12 ROM (one direction, 5 Nm) vs follower load",
+      "task_ids": [
+        "T1T12_flex_5",
+        "T1T12_flex_5_fl400",
+        "T1T12_ext_5",
+        "T1T12_ext_5_fl400",
+        "T1T12_lb_5",
+        "T1T12_lb_5_fl400",
+        "T1T12_ar_5",
+        "T1T12_ar_5_fl400"
+      ],
+      "x": "input:follower_n",
+      "group": "ROM vs follower load",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "flexion+extension (full range)": "Flexion + extension",
+        "lateral bending left+right (full range)": "Lateral bending, left + right",
+        "axial rotation left+right (full range)": "Axial rotation, left + right",
+        "flexion (one direction)": "Flexion",
+        "extension (one direction)": "Extension",
+        "lateral bending (one side)": "Lateral bending, one side",
+        "axial rotation (one side)": "Axial rotation, one side"
+      }
+    },
+    {
+      "id": "follower_regional",
+      "title": "Regional ROM (full range, 5 Nm) vs follower load",
+      "task_ids": [
+        "T1T4_fe_5",
+        "T1T4_fe_5_fl200",
+        "T1T4_fe_5_fl400",
+        "T1T4_lbr_5",
+        "T1T4_lbr_5_fl200",
+        "T1T4_lbr_5_fl400",
+        "T1T4_arr_5",
+        "T1T4_arr_5_fl200",
+        "T1T4_arr_5_fl400",
+        "T4T8_fe_5",
+        "T4T8_fe_5_fl200",
+        "T4T8_fe_5_fl400",
+        "T4T8_lbr_5",
+        "T4T8_lbr_5_fl200",
+        "T4T8_lbr_5_fl400",
+        "T4T8_arr_5",
+        "T4T8_arr_5_fl200",
+        "T4T8_arr_5_fl400",
+        "T8T12_fe_5",
+        "T8T12_fe_5_fl200",
+        "T8T12_fe_5_fl400",
+        "T8T12_lbr_5",
+        "T8T12_lbr_5_fl200",
+        "T8T12_lbr_5_fl400",
+        "T8T12_arr_5",
+        "T8T12_arr_5_fl200",
+        "T8T12_arr_5_fl400"
+      ],
+      "x": "input:follower_n",
+      "series": [
+        "direction"
+      ],
+      "group": "ROM vs follower load",
+      "layout": "panels",
+      "panel_by": "level"
+    },
+    {
+      "id": "follower_t2s1",
+      "title": "Regions of T2–S1 (flex 8 / ext 6 Nm) vs follower load",
+      "task_ids": [
+        "T2S1_fe_8_6",
+        "T2S1_fe_8_6_fl200",
+        "T2S1_fe_8_6_fl400",
+        "T2S1_fe_8_6_fl600",
+        "T2S1_fe_8_6_fl800",
+        "T2T11_fe_8_6",
+        "T2T11_fe_8_6_fl200",
+        "T2T11_fe_8_6_fl400",
+        "T2T11_fe_8_6_fl600",
+        "T2T11_fe_8_6_fl800",
+        "T11L1_fe_8_6",
+        "T11L1_fe_8_6_fl200",
+        "T11L1_fe_8_6_fl400",
+        "T11L1_fe_8_6_fl600",
+        "T11L1_fe_8_6_fl800"
+      ],
+      "x": "input:follower_n",
+      "group": "ROM vs follower load",
+      "layout": "panels",
+      "panel_by": "level"
+    },
+    {
       "id": "total",
       "title": "Whole T1-T12, both directions",
       "task_ids": [
@@ -287,7 +435,8 @@
         "T1T12_lbr_5_nz",
         "T1T12_arr_5_nz"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "total_one",
@@ -302,7 +451,8 @@
         "T1T12_lb_8",
         "T1T12_ar_8"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "seg_ribcage",
@@ -336,7 +486,8 @@
         "T11T12_lbr_5_rc",
         "T11T12_arr_5_rc"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "seg_fsu",
@@ -361,7 +512,8 @@
         "T11T12_lbr_5_fsu",
         "T11T12_arr_5_fsu"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "seg_fsu_one",
@@ -372,7 +524,8 @@
         "pooled_lb_5_fsu",
         "pooled_ar_5_fsu"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "fsu_7p5",
@@ -403,7 +556,8 @@
         "T11T12_lb_7p5_fsu",
         "T11T12_ar_7p5_fsu"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "At one moment"
     },
     {
       "id": "seg_4nm",
@@ -419,88 +573,8 @@
         "T10T11_lbr_4_ms",
         "T10T11_arr_4_ms"
       ],
-      "x": "task"
-    },
-    {
-      "id": "follower",
-      "title": "Follower load, whole T1-T12 (one direction)",
-      "task_ids": [
-        "T1T12_flex_5",
-        "T1T12_flex_5_fl400",
-        "T1T12_ext_5",
-        "T1T12_ext_5_fl400",
-        "T1T12_lb_5",
-        "T1T12_lb_5_fl400",
-        "T1T12_ar_5",
-        "T1T12_ar_5_fl400"
-      ],
-      "x": "input:follower_n",
-      "series": [
-        "direction"
-      ]
-    },
-    {
-      "id": "follower_regional",
-      "title": "Follower load, three regions (5 Nm)",
-      "task_ids": [
-        "T1T4_fe_5",
-        "T1T4_fe_5_fl200",
-        "T1T4_fe_5_fl400",
-        "T1T4_lbr_5",
-        "T1T4_lbr_5_fl200",
-        "T1T4_lbr_5_fl400",
-        "T1T4_arr_5",
-        "T1T4_arr_5_fl200",
-        "T1T4_arr_5_fl400",
-        "T4T8_fe_5",
-        "T4T8_fe_5_fl200",
-        "T4T8_fe_5_fl400",
-        "T4T8_lbr_5",
-        "T4T8_lbr_5_fl200",
-        "T4T8_lbr_5_fl400",
-        "T4T8_arr_5",
-        "T4T8_arr_5_fl200",
-        "T4T8_arr_5_fl400",
-        "T8T12_fe_5",
-        "T8T12_fe_5_fl200",
-        "T8T12_fe_5_fl400",
-        "T8T12_lbr_5",
-        "T8T12_lbr_5_fl200",
-        "T8T12_lbr_5_fl400",
-        "T8T12_arr_5",
-        "T8T12_arr_5_fl200",
-        "T8T12_arr_5_fl400"
-      ],
-      "x": "input:follower_n",
-      "series": [
-        "level",
-        "direction"
-      ]
-    },
-    {
-      "id": "follower_t2s1",
-      "title": "Follower load, T2-sacrum regions (8/6 Nm)",
-      "task_ids": [
-        "T2S1_fe_8_6",
-        "T2S1_fe_8_6_fl200",
-        "T2S1_fe_8_6_fl400",
-        "T2S1_fe_8_6_fl600",
-        "T2S1_fe_8_6_fl800",
-        "T2T11_fe_8_6",
-        "T2T11_fe_8_6_fl200",
-        "T2T11_fe_8_6_fl400",
-        "T2T11_fe_8_6_fl600",
-        "T2T11_fe_8_6_fl800",
-        "T11L1_fe_8_6",
-        "T11L1_fe_8_6_fl200",
-        "T11L1_fe_8_6_fl400",
-        "T11L1_fe_8_6_fl600",
-        "T11L1_fe_8_6_fl800"
-      ],
-      "x": "input:follower_n",
-      "series": [
-        "level"
-      ]
+      "x": "task",
+      "group": "At one moment"
     }
   ],
   "tasks": [

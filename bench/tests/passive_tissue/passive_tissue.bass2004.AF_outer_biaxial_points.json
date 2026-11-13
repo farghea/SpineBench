@@ -1,93 +1,93 @@
 {
-  "id": "passive_tissue.bass2004.AF_outer_biaxial_points",
-  "title": "Bass 2004 outer AF biaxial vs uniaxial axial stress at E11 = 0.07 (typical specimen)",
-  "layer": "property",
-  "category": "passive_tissue",
-  "subcategory": "annulus",
-  "region": "lumbar",
-  "levels": [
-    "L3-L4",
-    "L4-L5"
+ "id": "passive_tissue.bass2004.AF_outer_biaxial_points",
+ "title": "Bass 2004 outer AF biaxial vs uniaxial axial stress at E11 = 0.07 (typical specimen)",
+ "layer": "property",
+ "category": "passive_tissue",
+ "subcategory": "annulus",
+ "region": "lumbar",
+ "levels": [
+  "L3-L4",
+  "L4-L5"
+ ],
+ "condition": "non-degenerate (grade I-II)",
+ "quantity": {
+  "name": "axial stress at E11 = 0.07",
+  "definition": "axial Lagrangian stress S11 required to reach axial strain E11 = 0.07 with the circumferential strain held at E22 (biaxial) or free (uniaxial)",
+  "unit": "MPa"
+ },
+ "source": {
+  "short": "Bass 2004",
+  "authors": "Bass EC, Ashford FA, Segal MR, Lotz JC",
+  "year": 2004,
+  "journal": "Ann Biomed Eng 32(9):1231-1242",
+  "doi": "10.1114/b:abme.0000039357.70905.94",
+  "n": 5,
+  "sample": "5 outer anterior AF cruciform (bone-AF-bone with circumferential AF 'wings') specimens from 5 lumbar motion segments (3 L3-L4, 2 L4-L5) of 5 autopsy spines, Thompson grade I-II",
+  "age": "28-50 y",
+  "sex": "not reported",
+  "height_cm": null,
+  "weight_kg": null
+ },
+ "protocol": {
+  "summary": "Outer anterior AF slice with vertebral bone at top/bottom (bone ~10 mm wide) and circumferential AF wings gripped by hooks; thickness 1.57+-0.14 mm; physiologic saline bath; 3 biaxial preconditioning cycles (axial strain with E22 held 0, to 1.0 MPa axial or 1.2 MPa circumferential), 15 min re-equilibration; 0.5 N axial preload; axial deformation at <0.0001 /s with circumferential Lagrangian strain E22 held at 0, +-0.0125, +-0.025, +0.0375 (biaxial) or free (uniaxial); strain from optical grid (~3.3 x 3.0 mm) in the centre; stress = force / undeformed area.",
+  "how_to_simulate": [
+   "Model the cruciform bone-AF-bone specimen (AF thickness ~1.6 mm, bone 10 mm wide; Ghezelbash 2021 used w=20, ww=10, h=12, hw=9 mm) with outer anterior fibre architecture",
+   "Uniaxial: pull circumferential wings (or axial bones) with the other direction free; biaxial: pull axially at <0.0001 /s while holding central E22 constant",
+   "Report stress vs central Lagrangian strain from a 3x3 mm marker grid"
   ],
-  "condition": "non-degenerate (grade I-II)",
-  "quantity": {
-    "name": "axial stress at E11 = 0.07",
-    "definition": "axial Lagrangian stress S11 required to reach axial strain E11 = 0.07 with the circumferential strain held at E22 (biaxial) or free (uniaxial)",
-    "unit": "MPa"
+  "subject_model": null,
+  "notes": ""
+ },
+ "data": [
+  {
+   "x": "biaxial, E22 = -0.025",
+   "load": "E11=0.07",
+   "mean": 0.16,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
   },
-  "source": {
-    "short": "Bass 2004",
-    "authors": "Bass EC, Ashford FA, Segal MR, Lotz JC",
-    "year": 2004,
-    "journal": "Ann Biomed Eng 32(9):1231-1242",
-    "doi": "",
-    "n": 5,
-    "sample": "5 outer anterior AF cruciform (bone-AF-bone with circumferential AF 'wings') specimens from 5 lumbar motion segments (3 L3-L4, 2 L4-L5) of 5 autopsy spines, Thompson grade I-II",
-    "age": "28-50 y",
-    "sex": "not reported",
-    "height_cm": null,
-    "weight_kg": null
+  {
+   "x": "biaxial, E22 = +0.025",
+   "load": "E11=0.07",
+   "mean": 0.56,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
   },
-  "protocol": {
-    "summary": "Outer anterior AF slice with vertebral bone at top/bottom (bone ~10 mm wide) and circumferential AF wings gripped by hooks; thickness 1.57+-0.14 mm; physiologic saline bath; 3 biaxial preconditioning cycles (axial strain with E22 held 0, to 1.0 MPa axial or 1.2 MPa circumferential), 15 min re-equilibration; 0.5 N axial preload; axial deformation at <0.0001 /s with circumferential Lagrangian strain E22 held at 0, +-0.0125, +-0.025, +0.0375 (biaxial) or free (uniaxial); strain from optical grid (~3.3 x 3.0 mm) in the centre; stress = force / undeformed area.",
-    "how_to_simulate": [
-      "Model the cruciform bone-AF-bone specimen (AF thickness ~1.6 mm, bone 10 mm wide; Ghezelbash 2021 used w=20, ww=10, h=12, hw=9 mm) with outer anterior fibre architecture",
-      "Uniaxial: pull circumferential wings (or axial bones) with the other direction free; biaxial: pull axially at <0.0001 /s while holding central E22 constant",
-      "Report stress vs central Lagrangian strain from a 3x3 mm marker grid"
-    ],
-    "subject_model": null,
-    "notes": ""
-  },
-  "data": [
-    {
-      "x": "biaxial, E22 = -0.025",
-      "load": "E11=0.07",
-      "mean": 0.16,
-      "sd": null,
-      "min": null,
-      "max": null,
-      "median": null,
-      "n": 1
-    },
-    {
-      "x": "biaxial, E22 = +0.025",
-      "load": "E11=0.07",
-      "mean": 0.56,
-      "sd": null,
-      "min": null,
-      "max": null,
-      "median": null,
-      "n": 1
-    },
-    {
-      "x": "uniaxial axial (E22 free)",
-      "load": "E11=0.07",
-      "mean": 0.02,
-      "sd": null,
-      "min": null,
-      "max": null,
-      "median": null,
-      "n": 1
-    }
-  ],
-  "extraction": {
-    "from": "Results text (p.1236)",
-    "method": "text",
-    "uncertainty": "as printed",
-    "checked": true,
-    "check_notes": "Values quoted in text for the typical specimen of Fig 3. Full biaxial curves (6 E22 levels, Fig 3a,b) overlap heavily and were not digitised. Table 1 strain-energy coefficients are fits (not extracted). doi not printed."
-  },
-  "pass_rule": {
-    "template": true,
-    "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
-  },
-  "combine_group": "passive_tissue__axial_stress_at_e11_0_07__af_outer__human_nondegen__biaxial",
-  "tags": [
-    "human",
-    "in vitro",
-    "annulus",
-    "lumbar",
-    "biaxial",
-    "representative"
-  ]
+  {
+   "x": "uniaxial axial (E22 free)",
+   "load": "E11=0.07",
+   "mean": 0.02,
+   "sd": null,
+   "min": null,
+   "max": null,
+   "median": null,
+   "n": 1
+  }
+ ],
+ "extraction": {
+  "from": "Results text (p.1236)",
+  "method": "text",
+  "uncertainty": "as printed",
+  "checked": true,
+  "check_notes": "Values quoted in text for the typical specimen of Fig 3. Full biaxial curves (6 E22 levels, Fig 3a,b) overlap heavily and were not digitised. Table 1 strain-energy coefficients are fits (not extracted). doi not printed."
+ },
+ "pass_rule": {
+  "template": true,
+  "rule": "|model - mean| <= 1 SD (or inside [min, max] when no SD)"
+ },
+ "combine_group": "passive_tissue__axial_stress_at_e11_0_07__af_outer__human_nondegen__biaxial",
+ "tags": [
+  "human",
+  "in vitro",
+  "annulus",
+  "lumbar",
+  "biaxial",
+  "representative"
+ ]
 }

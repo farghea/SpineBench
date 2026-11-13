@@ -102,7 +102,7 @@
       "year": 2005,
       "n": 10,
       "sample": "10 C7-L1 spines with rib cage and sternum, T1 vs T12",
-      "doi": null,
+      "doi": "10.1097/01.brs.0000164257.69354.bb",
       "secondary": false
     },
     {
@@ -177,7 +177,7 @@
   "views": [
     {
       "id": "t67_wilke",
-      "title": "T6-T7 segment: parts removed one by one",
+      "title": "T6-T7: ROM as structures are removed (2.5 Nm)",
       "task_ids": [
         "t67_intact_flex",
         "t67_ssl_flex",
@@ -217,13 +217,13 @@
         "t67_nuc_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction"
     },
     {
       "id": "t_ribcage_2nm",
-      "title": "Rib cage cut away step by step (2 Nm)",
+      "title": "T1–T12: rib cage cut away step by step (2 Nm)",
       "task_ids": [
         "rc2_intact_fe",
         "rc2_im_fe",
@@ -245,39 +245,13 @@
         "rc2_rh_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
-    },
-    {
-      "id": "t_ribcage_other",
-      "title": "Sternum split or fractured, ribs cut",
-      "task_ids": [
-        "rc2_intact_fe",
-        "rc2_intact_lb",
-        "rc2_intact_ar",
-        "rc2_wired_fe",
-        "rc2_wired_lb",
-        "rc2_wired_ar",
-        "rc2_wat_arc_fe",
-        "rc2_wat_arc_lb",
-        "rc2_wat_fx_fe",
-        "rc2_wat_fx_lb",
-        "rc5_wat_intact_ar",
-        "rc5_wat_fx_ar",
-        "rc5_wat_arc_ar",
-        "rcp_wat_fx_fe",
-        "rcp_wat_arc_fe",
-        "rcp_wat_fx_lb",
-        "rcp_wat_arc_lb",
-        "rcp_wat_fx_ar",
-        "rcp_wat_arc_ar"
-      ],
-      "x": "task"
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction"
     },
     {
       "id": "t_ribcage_pct",
-      "title": "Rib cage cut away, % of intact (2 Nm)",
+      "title": "T1–T12: rib cage cut away, % of intact (2 Nm)",
       "task_ids": [
         "rcp_im_fe",
         "rcp_mst_fe",
@@ -294,91 +268,13 @@
         "rcp_rh_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
-    },
-    {
-      "id": "t_ribcage_5nm",
-      "title": "Rib joints cut, then segments isolated",
-      "task_ids": [
-        "rc5_intact_fe",
-        "rc5_anterior_fe",
-        "rc5_intact_lb",
-        "rc5_anterior_lb",
-        "rc5_intact_ar",
-        "rc5_anterior_ar",
-        "rcs_intact_fe",
-        "rcs_anterior_fe",
-        "rcs_mono_fe",
-        "rcs_noribs_fe",
-        "rcs_intact_lb",
-        "rcs_anterior_lb",
-        "rcs_mono_lb",
-        "rcs_noribs_lb",
-        "rcs_intact_ar",
-        "rcs_anterior_ar",
-        "rcs_mono_ar",
-        "rcs_noribs_ar"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "t_decompression",
-      "title": "Posterior decompression (5 Nm)",
-      "task_ids": [
-        "rc5_intact_fe",
-        "rc5_intact_lb",
-        "rc5_intact_ar",
-        "dec_t4t5_lam_fe",
-        "dec_t4t5_fac_fe",
-        "dec_t4t5_ctv_fe",
-        "dec_t4t5_lam_lb",
-        "dec_t4t5_fac_lb",
-        "dec_t4t5_ctv_lb",
-        "dec_t4t5_lam_ar",
-        "dec_t4t5_fac_ar",
-        "dec_t4t5_ctv_ar",
-        "dec_t8t9_lam_fe",
-        "dec_t8t9_fac_fe",
-        "dec_t8t9_ctv_fe",
-        "dec_t8t9_lam_lb",
-        "dec_t8t9_fac_lb",
-        "dec_t8t9_ctv_lb",
-        "dec_t8t9_lam_ar",
-        "dec_t8t9_fac_ar",
-        "dec_t8t9_ctv_ar"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "t_ribcage_fl400",
-      "title": "Rib cage removed, 400 N follower (5 Nm)",
-      "task_ids": [
-        "fl_t1t4_intact_fe",
-        "fl_t1t4_noribs_fe",
-        "fl_t1t4_intact_lb",
-        "fl_t1t4_noribs_lb",
-        "fl_t1t4_intact_ar",
-        "fl_t1t4_noribs_ar",
-        "fl_t4t8_intact_fe",
-        "fl_t4t8_noribs_fe",
-        "fl_t4t8_intact_lb",
-        "fl_t4t8_noribs_lb",
-        "fl_t4t8_intact_ar",
-        "fl_t4t8_noribs_ar",
-        "fl_t8t12_intact_fe",
-        "fl_t8t12_noribs_fe",
-        "fl_t8t12_intact_lb",
-        "fl_t8t12_noribs_lb",
-        "fl_t8t12_intact_ar",
-        "fl_t8t12_noribs_ar"
-      ],
-      "x": "task"
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction"
     },
     {
       "id": "t_ribcage_short",
-      "title": "Rib cage cut away, 4-vertebra segments (7.5 Nm)",
+      "title": "4-vertebra segments: rib cage cut away (7.5 Nm)",
       "task_ids": [
         "rc4v_intact_flex",
         "rc4v_sts_flex",
@@ -406,9 +302,117 @@
         "rc4v_dis_ar"
       ],
       "x": "input:step_no",
-      "series": [
-        "direction"
-      ]
+      "group": "ROM vs resection step",
+      "layout": "panels",
+      "panel_by": "direction"
+    },
+    {
+      "id": "t_ribcage_other",
+      "title": "Sternum split or fractured, ribs cut",
+      "task_ids": [
+        "rc2_intact_fe",
+        "rc2_intact_lb",
+        "rc2_intact_ar",
+        "rc2_wired_fe",
+        "rc2_wired_lb",
+        "rc2_wired_ar",
+        "rc2_wat_arc_fe",
+        "rc2_wat_arc_lb",
+        "rc2_wat_fx_fe",
+        "rc2_wat_fx_lb",
+        "rc5_wat_intact_ar",
+        "rc5_wat_fx_ar",
+        "rc5_wat_arc_ar",
+        "rcp_wat_fx_fe",
+        "rcp_wat_arc_fe",
+        "rcp_wat_fx_lb",
+        "rcp_wat_arc_lb",
+        "rcp_wat_fx_ar",
+        "rcp_wat_arc_ar"
+      ],
+      "x": "task",
+      "group": "Other resections"
+    },
+    {
+      "id": "t_ribcage_5nm",
+      "title": "Rib joints cut, then segments isolated",
+      "task_ids": [
+        "rc5_intact_fe",
+        "rc5_anterior_fe",
+        "rc5_intact_lb",
+        "rc5_anterior_lb",
+        "rc5_intact_ar",
+        "rc5_anterior_ar",
+        "rcs_intact_fe",
+        "rcs_anterior_fe",
+        "rcs_mono_fe",
+        "rcs_noribs_fe",
+        "rcs_intact_lb",
+        "rcs_anterior_lb",
+        "rcs_mono_lb",
+        "rcs_noribs_lb",
+        "rcs_intact_ar",
+        "rcs_anterior_ar",
+        "rcs_mono_ar",
+        "rcs_noribs_ar"
+      ],
+      "x": "task",
+      "group": "Other resections"
+    },
+    {
+      "id": "t_decompression",
+      "title": "Posterior decompression (5 Nm)",
+      "task_ids": [
+        "rc5_intact_fe",
+        "rc5_intact_lb",
+        "rc5_intact_ar",
+        "dec_t4t5_lam_fe",
+        "dec_t4t5_fac_fe",
+        "dec_t4t5_ctv_fe",
+        "dec_t4t5_lam_lb",
+        "dec_t4t5_fac_lb",
+        "dec_t4t5_ctv_lb",
+        "dec_t4t5_lam_ar",
+        "dec_t4t5_fac_ar",
+        "dec_t4t5_ctv_ar",
+        "dec_t8t9_lam_fe",
+        "dec_t8t9_fac_fe",
+        "dec_t8t9_ctv_fe",
+        "dec_t8t9_lam_lb",
+        "dec_t8t9_fac_lb",
+        "dec_t8t9_ctv_lb",
+        "dec_t8t9_lam_ar",
+        "dec_t8t9_fac_ar",
+        "dec_t8t9_ctv_ar"
+      ],
+      "x": "task",
+      "group": "Other resections"
+    },
+    {
+      "id": "t_ribcage_fl400",
+      "title": "Rib cage removed, 400 N follower (5 Nm)",
+      "task_ids": [
+        "fl_t1t4_intact_fe",
+        "fl_t1t4_noribs_fe",
+        "fl_t1t4_intact_lb",
+        "fl_t1t4_noribs_lb",
+        "fl_t1t4_intact_ar",
+        "fl_t1t4_noribs_ar",
+        "fl_t4t8_intact_fe",
+        "fl_t4t8_noribs_fe",
+        "fl_t4t8_intact_lb",
+        "fl_t4t8_noribs_lb",
+        "fl_t4t8_intact_ar",
+        "fl_t4t8_noribs_ar",
+        "fl_t8t12_intact_fe",
+        "fl_t8t12_noribs_fe",
+        "fl_t8t12_intact_lb",
+        "fl_t8t12_noribs_lb",
+        "fl_t8t12_intact_ar",
+        "fl_t8t12_noribs_ar"
+      ],
+      "x": "task",
+      "group": "Other resections"
     }
   ],
   "tasks": [

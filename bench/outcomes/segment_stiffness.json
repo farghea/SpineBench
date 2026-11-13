@@ -10,14 +10,17 @@
     "T12-L1",
     "L1-S1",
     "T1-T12 FSUs",
-    "T1-T2"
+    "T1-T2",
+    "lumbar discs",
+    "lumbar ACU",
+    "L2-L3/L4-L5"
   ],
-  "summary": "Load single motion segments (or L1-S1 under follower load) slowly as stated and report stiffness, flexibility, translation or rotation.",
+  "summary": "Load motion segments and whole discs slowly as stated; report compression force-displacement curves, shear and other stiffness, translation or rotation.",
   "simulate": [
-    "Build the motion segment of the task (intact, posterior elements removed, or disc-only); fix the lower vertebra.",
+    "Build the specimen of the task (motion segment intact or without posterior elements, disc with its vertebral bodies, or L1-S1); fix the lower vertebra.",
     "Apply the preload first, then the single test load or displacement of the task; other DOF free unless stated.",
     "Measure at the reference point stated (upper vertebral body centre or disc centre).",
-    "Stiffness = slope over the stated range; displacement = translation or rotation at the stated load.",
+    "Compression curves: impose axial displacement (report force) or apply axial force (report displacement) at the stated rate; stiffness = slope over the stated range.",
     "Matrix terms: impose one DOF at a time with the others held, read the reaction on that DOF (diagonal only)."
   ],
   "inputs": [
@@ -46,6 +49,20 @@
       "key": "flexion_pct",
       "label": "Flexion, % of elastic limit",
       "unit": "%"
+    },
+    {
+      "key": "displacement_mm",
+      "label": "Axial displacement",
+      "unit": "mm"
+    },
+    {
+      "key": "compression_n",
+      "label": "Axial compressive force",
+      "unit": "N"
+    },
+    {
+      "key": "mode",
+      "label": "Test mode"
     }
   ],
   "outputs": [
@@ -90,6 +107,24 @@
       "label": "Bending moment, % of elastic-limit moment",
       "unit": "%",
       "definition": "Flexion moment at the stated % of the elastic-limit angle (10.5°), as % of the moment at that limit"
+    },
+    {
+      "key": "force",
+      "label": "Axial compressive force",
+      "unit": "N",
+      "definition": "Axial compressive force on the upper vertebra at the stated axial displacement (N); displacement counted from the zero-load position (or from the preloaded position when a preload is stated)"
+    },
+    {
+      "key": "shear_stiffness",
+      "label": "Shear stiffness",
+      "unit": "N/mm",
+      "definition": "Shear force / shear displacement of the upper vertebra, 0-150 N, 2nd cycle, 500 N preload (N/mm)"
+    },
+    {
+      "key": "shear_strength",
+      "label": "Shear strength",
+      "unit": "kN",
+      "definition": "Peak anterior shear force, displacement at 0.5 mm/s to failure, 500 N preload (kN)"
     }
   ],
   "studies": [
@@ -153,7 +188,7 @@
       "year": 1979,
       "n": 42,
       "sample": "42 lumbar FSUs; 18 retested without posterior elements",
-      "doi": null,
+      "doi": "10.1115/1.3426225",
       "secondary": false
     },
     {
@@ -207,7 +242,7 @@
       "year": 1982,
       "n": 14,
       "sample": "14 L2-L3 and L4-L5 joints, 8 cadavers, grade 1-2",
-      "doi": null,
+      "doi": "10.1115/1.3138348",
       "secondary": false
     },
     {
@@ -216,7 +251,7 @@
       "year": 1987,
       "n": 12,
       "sample": "12 FSUs (6 L1-L2, 6 L3-L4); 4-6 per load mode",
-      "doi": null,
+      "doi": "10.1115/1.3138639",
       "secondary": false
     },
     {
@@ -225,7 +260,61 @@
       "year": 1991,
       "n": 10,
       "sample": "10 L4-L5 segments (42 lumbar segments in study)",
-      "doi": null,
+      "doi": "10.1016/0021-9290(91)90356-r",
+      "secondary": false
+    },
+    {
+      "key": "marini2016",
+      "short": "Marini 2016",
+      "year": 2016,
+      "n": 6,
+      "sample": "6 lumbar disc-vertebra units (2 L2-L3, 4 L4-L5), 34-47 y, posterior elements removed",
+      "doi": "10.1007/s10237-015-0709-6",
+      "secondary": false
+    },
+    {
+      "key": "jamison2013",
+      "short": "Jamison 2013",
+      "year": 2013,
+      "n": 5,
+      "sample": "5 lumbar anterior column units (disc + vertebral bodies), 59-85 y",
+      "doi": "10.1115/1.4024828",
+      "secondary": false
+    },
+    {
+      "key": "brown1957",
+      "short": "Brown 1957",
+      "year": 1957,
+      "n": null,
+      "sample": "lumbar disc specimens in compression; min/max curves via Ghezelbash 2020a Fig 4a",
+      "doi": "10.2106/00004623-195739050-00014",
+      "secondary": true
+    },
+    {
+      "key": "markolfmorris1974",
+      "short": "Markolf & Morris 1974",
+      "year": 1974,
+      "n": null,
+      "sample": "lumbar discs with vertebral bodies; min/average/max curves via Ghezelbash 2020a Fig 4a",
+      "doi": "10.2106/00004623-197456040-00003",
+      "secondary": true
+    },
+    {
+      "key": "asano1992",
+      "short": "Asano 1992",
+      "year": 1992,
+      "n": null,
+      "sample": "intact L4-L5 FSUs (cyclic loading); points via Ghezelbash 2020a Fig 4a",
+      "doi": "10.1097/00007632-199211000-00014",
+      "secondary": true
+    },
+    {
+      "key": "skrzypiec2013",
+      "short": "Skrzypiec 2013",
+      "year": 2013,
+      "n": 6,
+      "sample": "6 lumbar disc segments with facets removed, grade II-III",
+      "doi": "10.1016/j.jbiomech.2012.11.050",
       "secondary": false
     }
   ],
@@ -342,8 +431,6 @@
       "id": "translation",
       "title": "Translation under single loads",
       "task_ids": [
-        "berk_intact_compression_400",
-        "berk_pe_compression_400",
         "berk_pe_anterior_145",
         "berk_pe_posterior_145",
         "berk_pe_right_145",
@@ -411,6 +498,146 @@
         "ad_l45_90"
       ],
       "x": "input:flexion_pct"
+    },
+    {
+      "id": "comp_fd",
+      "title": "Compression: force vs displacement",
+      "task_ids": [
+        "mar_comp_000",
+        "mar1_comp_010",
+        "mar1_comp_020",
+        "mar1_comp_030",
+        "mar1_comp_040",
+        "mar1_comp_051",
+        "mar2_comp_020",
+        "mar2_comp_040",
+        "mar2_comp_060",
+        "mar2_comp_077",
+        "mar3_comp_010",
+        "mar3_comp_020",
+        "mar3_comp_030",
+        "mar3_comp_040",
+        "mar3_comp_050",
+        "mar3_comp_060",
+        "mar3_comp_070",
+        "mar4_comp_020",
+        "mar4_comp_040",
+        "mar4_comp_060",
+        "mar4_comp_080",
+        "mar4_comp_084",
+        "mar5_comp_020",
+        "mar5_comp_040",
+        "mar5_comp_060",
+        "mar5_comp_080",
+        "mar5_comp_100",
+        "mar5_comp_116",
+        "mar6_comp_020",
+        "mar6_comp_040",
+        "mar6_comp_060",
+        "mar6_comp_080",
+        "mar6_comp_100",
+        "mar6_comp_110",
+        "jam_rep_010",
+        "jam_rep_020",
+        "jam_rep_040",
+        "jam_rep_060",
+        "jam_rep_078",
+        "jam_peak_020",
+        "jam_peak_080"
+      ],
+      "x": "input:displacement_mm",
+      "series": [
+        "specimen"
+      ],
+      "x_title": "Axial displacement (mm)"
+    },
+    {
+      "id": "comp_fd_sec",
+      "title": "Compression: force vs displacement, older studies",
+      "task_ids": [
+        "asn_comp_000",
+        "mkm_comp_000",
+        "brn_comp_000",
+        "brn_max_020",
+        "brn_max_040",
+        "brn_max_060",
+        "brn_max_080",
+        "brn_max_100",
+        "brn_max_110",
+        "brn_min_020",
+        "brn_min_040",
+        "brn_min_060",
+        "brn_min_080",
+        "brn_min_100",
+        "brn_min_120",
+        "brn_min_140",
+        "brn_min_160",
+        "brn_min_180",
+        "brn_min_195",
+        "mkm_max_040",
+        "mkm_max_060",
+        "mkm_max_080",
+        "mkm_max_100",
+        "mkm_max_120",
+        "mkm_ave_040",
+        "mkm_ave_060",
+        "mkm_ave_080",
+        "mkm_ave_100",
+        "mkm_ave_120",
+        "mkm_ave_140",
+        "mkm_min_040",
+        "mkm_min_060",
+        "mkm_min_080",
+        "mkm_min_100",
+        "mkm_min_120",
+        "mkm_min_140",
+        "mkm_min_160",
+        "mkm_min_180",
+        "asn_050",
+        "asn_100",
+        "asn_150"
+      ],
+      "x": "input:displacement_mm",
+      "series": [
+        "specimen"
+      ],
+      "x_title": "Axial displacement (mm)"
+    },
+    {
+      "id": "comp_df",
+      "title": "Compression: displacement vs force",
+      "task_ids": [
+        "berk_compression_000",
+        "ten_comp_000",
+        "berk_intact_compression_400",
+        "berk_pe_compression_400",
+        "ten_comp_a_275",
+        "ten_comp_a_530",
+        "ten_comp_a_825",
+        "ten_comp_b_275",
+        "ten_comp_b_540",
+        "ten_comp_b_825",
+        "berk_intact_compression_86",
+        "berk_intact_compression_145",
+        "berk_pe_compression_86",
+        "berk_pe_compression_145"
+      ],
+      "x": "input:compression_n",
+      "series": [
+        "specimen",
+        "condition"
+      ],
+      "x_title": "Axial compressive force (N)"
+    },
+    {
+      "id": "disc_shear",
+      "title": "Whole disc: shear stiffness and strength",
+      "task_ids": [
+        "disc_shear_k_ant",
+        "disc_shear_k_post",
+        "disc_shear_strength"
+      ],
+      "x": "task"
     }
   ],
   "tasks": [
@@ -2069,13 +2296,14 @@
     {
       "id": "berk_intact_compression_400",
       "label": "FSU intact, compression 400 N",
-      "view": "translation",
+      "view": "comp_df",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "intact",
         "dof": "compression",
         "load": "400 N",
-        "preload_n": 0
+        "preload_n": 0,
+        "compression_n": 400
       },
       "output": "disp",
       "level": "L1-L5 FSUs",
@@ -2258,13 +2486,14 @@
     {
       "id": "berk_pe_compression_400",
       "label": "FSU no post. elem., compression 400 N",
-      "view": "translation",
+      "view": "comp_df",
       "inputs": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
         "condition": "posterior elements cut",
         "dof": "compression",
         "load": "400 N",
-        "preload_n": 0
+        "preload_n": 0,
+        "compression_n": 400
       },
       "output": "disp",
       "level": "L1-L5 FSUs",
@@ -3555,14 +3784,2718 @@
           "note": "mean (SD) of 10; 100% moment = 50.1 (SD 23.0) Nm at 10.5 (SD 1.5) deg"
         }
       ]
+    },
+    {
+      "id": "mar1_comp_010",
+      "label": "Disc unit No.1, 0.1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.1 L2-L3 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.1,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 115,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.1 (L2-L3, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar1_comp_020",
+      "label": "Disc unit No.1, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.1 L2-L3 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 215,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.1 (L2-L3, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar1_comp_030",
+      "label": "Disc unit No.1, 0.3 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.1 L2-L3 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.3,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 385,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.1 (L2-L3, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar1_comp_040",
+      "label": "Disc unit No.1, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.1 L2-L3 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 650,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.1 (L2-L3, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar1_comp_051",
+      "label": "Disc unit No.1, 0.51 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.1 L2-L3 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.51,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.1 (L2-L3, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "mar2_comp_020",
+      "label": "Disc unit No.2, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.2 L4-L5 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 60,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.2 (L4-L5, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar2_comp_040",
+      "label": "Disc unit No.2, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.2 L4-L5 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 195,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.2 (L4-L5, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar2_comp_060",
+      "label": "Disc unit No.2, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.2 L4-L5 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 500,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.2 (L4-L5, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar2_comp_077",
+      "label": "Disc unit No.2, 0.77 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.2 L4-L5 (34 y, grade 3)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.77,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.2 (L4-L5, 34 y, Thompson 3); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_010",
+      "label": "Disc unit No.3, 0.1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.1,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 55,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_020",
+      "label": "Disc unit No.3, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 115,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_030",
+      "label": "Disc unit No.3, 0.3 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.3,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 195,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_040",
+      "label": "Disc unit No.3, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 310,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_050",
+      "label": "Disc unit No.3, 0.5 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.5,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 465,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_060",
+      "label": "Disc unit No.3, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 685,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar3_comp_070",
+      "label": "Disc unit No.3, 0.7 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.3 L2-L3 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.7,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.3 (L2-L3, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "mar4_comp_020",
+      "label": "Disc unit No.4, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.4 L4-L5 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 45,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.4 (L4-L5, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar4_comp_040",
+      "label": "Disc unit No.4, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.4 L4-L5 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 175,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.4 (L4-L5, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar4_comp_060",
+      "label": "Disc unit No.4, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.4 L4-L5 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 455,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.4 (L4-L5, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar4_comp_080",
+      "label": "Disc unit No.4, 0.8 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.4 L4-L5 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.8,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 860,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.4 (L4-L5, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar4_comp_084",
+      "label": "Disc unit No.4, 0.84 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.4 L4-L5 (35 y, grade 1)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.84,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.4 (L4-L5, 35 y, Thompson 1); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_020",
+      "label": "Disc unit No.5, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 24,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_040",
+      "label": "Disc unit No.5, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 64,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_060",
+      "label": "Disc unit No.5, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 185,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_080",
+      "label": "Disc unit No.5, 0.8 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.8,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 400,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_100",
+      "label": "Disc unit No.5, 1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 1.0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 680,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar5_comp_116",
+      "label": "Disc unit No.5, 1.16 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.5 L4-L5 (39 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 1.16,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.5 (L4-L5, 39 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_020",
+      "label": "Disc unit No.6, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 75,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_040",
+      "label": "Disc unit No.6, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 170,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_060",
+      "label": "Disc unit No.6, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 325,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_080",
+      "label": "Disc unit No.6, 0.8 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 0.8,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 555,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_100",
+      "label": "Disc unit No.6, 1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 1.0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 810,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N"
+        }
+      ]
+    },
+    {
+      "id": "mar6_comp_110",
+      "label": "Disc unit No.6, 1.1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit No.6 L4-L5 (47 y, grade 2)",
+        "condition": "posterior elements removed, no preload",
+        "dof": "axial compression",
+        "load": "5 mm/min, quasi-static",
+        "displacement_mm": 1.1,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 1000,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "single specimen No.6 (L4-L5, 47 y, Thompson 2); midline of loop, +/-0.03 mm or +/-40 N; end of loading at the 1000 N limit"
+        }
+      ]
+    },
+    {
+      "id": "jam_rep_010",
+      "label": "Disc unit, 1.6 mm/s impact, 0.1 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 1.6 mm/s impact (1 specimen)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "1000 ms triangle to 0.8 mm (about 1.6 mm/s), NOT quasi-static",
+        "displacement_mm": 0.1,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 134,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "representative specimen, loading branch; total force incl. 50 N preload; displacement from preloaded position"
+        }
+      ]
+    },
+    {
+      "id": "jam_rep_020",
+      "label": "Disc unit, 1.6 mm/s impact, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 1.6 mm/s impact (1 specimen)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "1000 ms triangle to 0.8 mm (about 1.6 mm/s), NOT quasi-static",
+        "displacement_mm": 0.2,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 224,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "representative specimen, loading branch; total force incl. 50 N preload; displacement from preloaded position"
+        }
+      ]
+    },
+    {
+      "id": "jam_rep_040",
+      "label": "Disc unit, 1.6 mm/s impact, 0.4 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 1.6 mm/s impact (1 specimen)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "1000 ms triangle to 0.8 mm (about 1.6 mm/s), NOT quasi-static",
+        "displacement_mm": 0.4,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 424,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "representative specimen, loading branch; total force incl. 50 N preload; displacement from preloaded position"
+        }
+      ]
+    },
+    {
+      "id": "jam_rep_060",
+      "label": "Disc unit, 1.6 mm/s impact, 0.6 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 1.6 mm/s impact (1 specimen)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "1000 ms triangle to 0.8 mm (about 1.6 mm/s), NOT quasi-static",
+        "displacement_mm": 0.6,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 675,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "representative specimen, loading branch; total force incl. 50 N preload; displacement from preloaded position"
+        }
+      ]
+    },
+    {
+      "id": "jam_rep_078",
+      "label": "Disc unit, 1.6 mm/s impact, 0.78 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 1.6 mm/s impact (1 specimen)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "1000 ms triangle to 0.8 mm (about 1.6 mm/s), NOT quasi-static",
+        "displacement_mm": 0.78,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 950,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "representative specimen, loading branch; total force incl. 50 N preload; displacement from preloaded position"
+        }
+      ]
+    },
+    {
+      "id": "jam_peak_020",
+      "label": "Disc unit, 1 s impact peak, 0.2 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 80-1000 ms impact peak (5 discs)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "triangular impacts 80-1000 ms (fast), peak load",
+        "displacement_mm": 0.2,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 150,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "mean peak load of 5 discs, averaged over impact durations (no SD; text value)"
+        }
+      ]
+    },
+    {
+      "id": "jam_peak_080",
+      "label": "Disc unit, 1 s impact peak, 0.8 mm",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "Disc unit 80-1000 ms impact peak (5 discs)",
+        "condition": "posterior elements removed, 50 N preload",
+        "dof": "axial compression",
+        "load": "triangular impacts 80-1000 ms (fast), peak load",
+        "displacement_mm": 0.8,
+        "preload_n": 50
+      },
+      "output": "force",
+      "level": "lumbar ACU",
+      "refs": [
+        {
+          "study": "jamison2013",
+          "mean": 700,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "passive_tissue.jamison2013.ACU_axial_compression_force_displacement_1s_impact",
+          "note": "mean peak load of 5 discs, averaged over impact durations (no SD; text value)"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_020",
+      "label": "Disc unit, stiffest, 0.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 301,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_040",
+      "label": "Disc unit, stiffest, 0.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 720,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_060",
+      "label": "Disc unit, stiffest, 0.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 1320,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_080",
+      "label": "Disc unit, stiffest, 0.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 1857,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_100",
+      "label": "Disc unit, stiffest, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 2535,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_max_110",
+      "label": "Disc unit, stiffest, 1.1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.1,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 2970,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_020",
+      "label": "Disc unit, softest, 0.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 33,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_040",
+      "label": "Disc unit, softest, 0.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 78,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_060",
+      "label": "Disc unit, softest, 0.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 110,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_080",
+      "label": "Disc unit, softest, 0.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 151,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_100",
+      "label": "Disc unit, softest, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 194,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_120",
+      "label": "Disc unit, softest, 1.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 262,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_140",
+      "label": "Disc unit, softest, 1.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 335,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_160",
+      "label": "Disc unit, softest, 1.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 445,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_180",
+      "label": "Disc unit, softest, 1.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 578,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "brn_min_195",
+      "label": "Disc unit, softest, 1.95 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.95,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 724,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_max_040",
+      "label": "Disc unit, stiffest, 0.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 714,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_max_060",
+      "label": "Disc unit, stiffest, 0.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1281,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_max_080",
+      "label": "Disc unit, stiffest, 0.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1937,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_max_100",
+      "label": "Disc unit, stiffest, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 2775,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_max_120",
+      "label": "Disc unit, stiffest, 1.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, stiffest (MAX)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 3693,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_040",
+      "label": "Disc unit, average, 0.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 331,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_060",
+      "label": "Disc unit, average, 0.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 660,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_080",
+      "label": "Disc unit, average, 0.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1128,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_100",
+      "label": "Disc unit, average, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1740,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_120",
+      "label": "Disc unit, average, 1.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 2480,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_ave_140",
+      "label": "Disc unit, average, 1.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, average",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 3310,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_040",
+      "label": "Disc unit, softest, 0.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 255,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_060",
+      "label": "Disc unit, softest, 0.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 400,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_080",
+      "label": "Disc unit, softest, 0.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 680,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_100",
+      "label": "Disc unit, softest, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1050,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_120",
+      "label": "Disc unit, softest, 1.2 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.2,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 1531,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_140",
+      "label": "Disc unit, softest, 1.4 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.4,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 2186,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_160",
+      "label": "Disc unit, softest, 1.6 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.6,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 2990,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "mkm_min_180",
+      "label": "Disc unit, softest, 1.8 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "Disc unit, softest (MIN)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.8,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 3805,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); curve of one extreme specimen"
+        }
+      ]
+    },
+    {
+      "id": "asn_050",
+      "label": "L4-L5 FSU, intact, 0.5 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "L4-L5 FSU, intact (mean)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 0.5,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "asano1992",
+          "mean": 246,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "segment_stiffness.ghezelbash2020a.L4L5_FSU_asano1992_compression_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "asn_100",
+      "label": "L4-L5 FSU, intact, 1 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "L4-L5 FSU, intact (mean)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.0,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "asano1992",
+          "mean": 608,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "segment_stiffness.ghezelbash2020a.L4L5_FSU_asano1992_compression_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "asn_150",
+      "label": "L4-L5 FSU, intact, 1.5 mm",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "L4-L5 FSU, intact (mean)",
+        "condition": "as in primary (via Ghezelbash 2020a)",
+        "dof": "axial compression",
+        "load": "rate and preload not given in secondary source",
+        "displacement_mm": 1.5,
+        "preload_n": null
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "asano1992",
+          "mean": 1203,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": null,
+          "test_id": "segment_stiffness.ghezelbash2020a.L4L5_FSU_asano1992_compression_secondary",
+          "note": "secondary: digitised from Ghezelbash 2020a Fig 4a (n not given); mean curve"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_a_275",
+      "label": "FSU group A, compression 275 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "275 N, read after 1-2 min",
+        "compression_n": 275,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 0.37,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence BF-PL-DA), intact curve of Fig 5g; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_a_530",
+      "label": "FSU group A, compression 530 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "530 N, read after 1-2 min",
+        "compression_n": 530,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 0.85,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence BF-PL-DA), intact curve of Fig 5g; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_a_825",
+      "label": "FSU group A, compression 825 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group A (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "825 N, read after 1-2 min",
+        "compression_n": 825,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 1.31,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence BF-PL-DA), intact curve of Fig 5g; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_b_275",
+      "label": "FSU group B, compression 275 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "275 N, read after 1-2 min",
+        "compression_n": 275,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 0.79,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence DA-PL-BF), intact curve of Fig 5h; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_b_540",
+      "label": "FSU group B, compression 540 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "540 N, read after 1-2 min",
+        "compression_n": 540,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 1.37,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence DA-PL-BF), intact curve of Fig 5h; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_b_825",
+      "label": "FSU group B, compression 825 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "FSU group B (5 L2-L3/L4-L5 joints)",
+        "condition": "intact",
+        "dof": "axial compression",
+        "load": "825 N, read after 1-2 min",
+        "compression_n": 825,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 1.64,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 5,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "mean of 5 joints (sectioning sequence DA-PL-BF), intact curve of Fig 5h; nucleus pressurised 0.63 MPa"
+        }
+      ]
+    },
+    {
+      "id": "berk_intact_compression_86",
+      "label": "FSU intact, compression 86 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "intact",
+        "dof": "compression",
+        "load": "86 N",
+        "compression_n": 86,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "berkson1979",
+          "mean": 0.11,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+        }
+      ]
+    },
+    {
+      "id": "berk_intact_compression_145",
+      "label": "FSU intact, compression 145 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "intact",
+        "dof": "compression",
+        "load": "145 N",
+        "compression_n": 145,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "berkson1979",
+          "mean": 0.18,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 42,
+          "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+        }
+      ]
+    },
+    {
+      "id": "berk_pe_compression_86",
+      "label": "FSU no post. elem., compression 86 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "posterior elements cut",
+        "dof": "compression",
+        "load": "86 N",
+        "compression_n": 86,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "berkson1979",
+          "mean": 0.1,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+        }
+      ]
+    },
+    {
+      "id": "berk_pe_compression_145",
+      "label": "FSU no post. elem., compression 145 N",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "lumbar FSU (L1-S1 mixed)",
+        "condition": "posterior elements cut",
+        "dof": "compression",
+        "load": "145 N",
+        "compression_n": 145,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "berkson1979",
+          "mean": 0.19,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 18,
+          "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+        }
+      ]
+    },
+    {
+      "id": "disc_shear_k_ant",
+      "label": "Disc anterior shear stiffness",
+      "view": "disc_shear",
+      "inputs": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior shear 0-150 N"
+      },
+      "output": "shear_stiffness",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "skrzypiec2013",
+          "mean": null,
+          "sd": null,
+          "min": 120,
+          "max": 324,
+          "stat": "median",
+          "n": 6,
+          "test_id": "passive_tissue.skrzypiec2013.DS_anterior_shear_stiffness",
+          "note": "median of 6 disc segments (5 L4-L5, 1 L2-L3); motion segments left out",
+          "median": 203
+        }
+      ]
+    },
+    {
+      "id": "disc_shear_k_post",
+      "label": "Disc posterior shear stiffness",
+      "view": "disc_shear",
+      "inputs": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, posterior shear 0-150 N"
+      },
+      "output": "shear_stiffness",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "skrzypiec2013",
+          "mean": null,
+          "sd": null,
+          "min": 126,
+          "max": 342,
+          "stat": "median",
+          "n": 6,
+          "test_id": "passive_tissue.skrzypiec2013.DS_posterior_shear_stiffness",
+          "note": "median of 6 disc segments",
+          "median": 202
+        }
+      ]
+    },
+    {
+      "id": "disc_shear_strength",
+      "label": "Disc anterior shear strength",
+      "view": "disc_shear",
+      "inputs": {
+        "mode": "shear of disc segment (facets removed), 500 N compression, anterior displacement 0.5 mm/s to failure"
+      },
+      "output": "shear_strength",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "skrzypiec2013",
+          "mean": null,
+          "sd": null,
+          "min": 1.61,
+          "max": 3.4,
+          "stat": "median",
+          "n": 6,
+          "test_id": "passive_tissue.skrzypiec2013.DS_shear_strength",
+          "note": "median of 6 disc segments",
+          "median": 1.99
+        }
+      ]
+    },
+    {
+      "id": "mar_comp_000",
+      "label": "Disc units, unloaded (0 mm)",
+      "view": "comp_fd",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "displacement_mm": 0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "marini2016",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 6,
+          "test_id": "passive_tissue.marini2016.ACU_axial_compression_force_displacement_curves",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
+    },
+    {
+      "id": "brn_comp_000",
+      "label": "Disc units, unloaded (0 mm)",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "displacement_mm": 0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "brown1957",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_brown1957_compression_curve_secondary",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
+    },
+    {
+      "id": "mkm_comp_000",
+      "label": "Disc units, unloaded (0 mm)",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "displacement_mm": 0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "lumbar discs",
+      "refs": [
+        {
+          "study": "markolfmorris1974",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "passive_tissue.ghezelbash2020a.disc_markolfmorris1974_compression_curve_secondary",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
+    },
+    {
+      "id": "asn_comp_000",
+      "label": "L4-L5 FSU, unloaded (0 mm)",
+      "view": "comp_fd_sec",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "displacement_mm": 0,
+        "preload_n": 0
+      },
+      "output": "force",
+      "level": "L4-L5",
+      "refs": [
+        {
+          "study": "asano1992",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": null,
+          "test_id": "segment_stiffness.ghezelbash2020a.L4L5_FSU_asano1992_compression_secondary",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
+    },
+    {
+      "id": "ten_comp_000",
+      "label": "FSU, unloaded (0 N)",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "compression_n": 0,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L2-L3/L4-L5",
+      "refs": [
+        {
+          "study": "tencer1982",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 10,
+          "test_id": "segment_stiffness.tencer1982.lumbar_joint_intact_axial_compression_curve",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
+    },
+    {
+      "id": "berk_compression_000",
+      "label": "FSU, unloaded (0 N)",
+      "view": "comp_df",
+      "inputs": {
+        "specimen": "unloaded",
+        "condition": "unloaded",
+        "dof": "axial compression",
+        "load": "0 (start of the curve)",
+        "compression_n": 0,
+        "preload_n": 0
+      },
+      "output": "disp",
+      "level": "L1-L5 FSUs",
+      "refs": [
+        {
+          "study": "berkson1979",
+          "mean": 0.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 42,
+          "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
+          "note": "origin of the curve (zero load, zero displacement); drawn so every line starts at 0"
+        }
+      ]
     }
   ],
   "notes": [
-    "Quasi-static only: Costi 2008 at 0.001 Hz (slowest of 0.001-1 Hz); Amin 2016 and Cannella 2008 use slow 0.1 Hz cycles. Dynamic and failure tests are excluded.",
+    "Quasi-static only: Costi 2008 at 0.001 Hz (slowest of 0.001-1 Hz); Amin 2016 and Cannella 2008 use slow 0.1 Hz cycles. Dynamic and failure tests are excluded. Exception: Jamison 2013 compression curve is a 1 s impact (about 1.6 mm/s); its rate is in the label.",
     "Only diagonal (direct) terms and principal motions; coupling terms stay in bench/tests.",
-    "Amin 2016b refs are degeneration grades of the same 14 FSUs as Amin 2016a; Patwardhan 2003 and Renner 2007 share a lab."
+    "Amin 2016b refs are degeneration grades of the same 14 FSUs as Amin 2016a; Patwardhan 2003 and Renner 2007 share a lab. Brown 1957, Markolf & Morris 1974 and Asano 1992 compression curves are secondary (digitised from Ghezelbash 2020a Fig 4a)."
   ],
-  "agent_prompt": "Use your finite element spine model. For each task build the motion segment in its inputs (intact, posterior elements removed, or disc-only; L1-S1 for follower-load tasks), fix the lower vertebra and apply the preload first. Then apply the single test load or imposed displacement given in \"load\" with the other degrees of freedom free (for 6x6 diagonal terms, hold them fixed). Report stiffness (k_lin N/mm, k_rot Nm/deg) as the slope over the stated range, flexibility (mm/N, deg/Nm), or the translation (mm) or rotation (deg) at the stated load and reference point. For moment_pct, report the flexion moment at the given % of 10.5 deg as % of the moment at 10.5 deg. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
+  "agent_prompt": "Use your finite element spine model. For each task build the specimen in its inputs (motion segment intact or without posterior elements, disc with its two vertebral bodies, or L1-S1 for follower-load tasks), fix the lower vertebra and apply the preload first. Axial compression curves: for tasks with displacement_mm, impose that axial compressive displacement of the upper vertebra (from the zero-load or preloaded position) at the stated rate and report the axial force (N); for tasks with compression_n, apply that axial compressive force and report the axial displacement (mm). Other tasks: apply the single test load or imposed displacement given in \"load\" with the other degrees of freedom free (for 6x6 diagonal terms, hold them fixed). Report stiffness (k_lin N/mm, k_rot Nm/deg) as the slope over the stated range, flexibility (mm/N, deg/Nm), the translation (mm) or rotation (deg) at the stated load, whole-disc shear stiffness (N/mm) or shear strength (kN). For moment_pct, report the flexion moment at the given % of 10.5 deg as % of the moment at 10.5 deg. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
   "answer_format": {
     "gms_k11_0": {
       "k_lin": "N/mm"
@@ -3881,6 +6814,297 @@
     },
     "ad_l45_90": {
       "moment_pct": "%"
+    },
+    "mar1_comp_010": {
+      "force": "N"
+    },
+    "mar1_comp_020": {
+      "force": "N"
+    },
+    "mar1_comp_030": {
+      "force": "N"
+    },
+    "mar1_comp_040": {
+      "force": "N"
+    },
+    "mar1_comp_051": {
+      "force": "N"
+    },
+    "mar2_comp_020": {
+      "force": "N"
+    },
+    "mar2_comp_040": {
+      "force": "N"
+    },
+    "mar2_comp_060": {
+      "force": "N"
+    },
+    "mar2_comp_077": {
+      "force": "N"
+    },
+    "mar3_comp_010": {
+      "force": "N"
+    },
+    "mar3_comp_020": {
+      "force": "N"
+    },
+    "mar3_comp_030": {
+      "force": "N"
+    },
+    "mar3_comp_040": {
+      "force": "N"
+    },
+    "mar3_comp_050": {
+      "force": "N"
+    },
+    "mar3_comp_060": {
+      "force": "N"
+    },
+    "mar3_comp_070": {
+      "force": "N"
+    },
+    "mar4_comp_020": {
+      "force": "N"
+    },
+    "mar4_comp_040": {
+      "force": "N"
+    },
+    "mar4_comp_060": {
+      "force": "N"
+    },
+    "mar4_comp_080": {
+      "force": "N"
+    },
+    "mar4_comp_084": {
+      "force": "N"
+    },
+    "mar5_comp_020": {
+      "force": "N"
+    },
+    "mar5_comp_040": {
+      "force": "N"
+    },
+    "mar5_comp_060": {
+      "force": "N"
+    },
+    "mar5_comp_080": {
+      "force": "N"
+    },
+    "mar5_comp_100": {
+      "force": "N"
+    },
+    "mar5_comp_116": {
+      "force": "N"
+    },
+    "mar6_comp_020": {
+      "force": "N"
+    },
+    "mar6_comp_040": {
+      "force": "N"
+    },
+    "mar6_comp_060": {
+      "force": "N"
+    },
+    "mar6_comp_080": {
+      "force": "N"
+    },
+    "mar6_comp_100": {
+      "force": "N"
+    },
+    "mar6_comp_110": {
+      "force": "N"
+    },
+    "jam_rep_010": {
+      "force": "N"
+    },
+    "jam_rep_020": {
+      "force": "N"
+    },
+    "jam_rep_040": {
+      "force": "N"
+    },
+    "jam_rep_060": {
+      "force": "N"
+    },
+    "jam_rep_078": {
+      "force": "N"
+    },
+    "jam_peak_020": {
+      "force": "N"
+    },
+    "jam_peak_080": {
+      "force": "N"
+    },
+    "brn_max_020": {
+      "force": "N"
+    },
+    "brn_max_040": {
+      "force": "N"
+    },
+    "brn_max_060": {
+      "force": "N"
+    },
+    "brn_max_080": {
+      "force": "N"
+    },
+    "brn_max_100": {
+      "force": "N"
+    },
+    "brn_max_110": {
+      "force": "N"
+    },
+    "brn_min_020": {
+      "force": "N"
+    },
+    "brn_min_040": {
+      "force": "N"
+    },
+    "brn_min_060": {
+      "force": "N"
+    },
+    "brn_min_080": {
+      "force": "N"
+    },
+    "brn_min_100": {
+      "force": "N"
+    },
+    "brn_min_120": {
+      "force": "N"
+    },
+    "brn_min_140": {
+      "force": "N"
+    },
+    "brn_min_160": {
+      "force": "N"
+    },
+    "brn_min_180": {
+      "force": "N"
+    },
+    "brn_min_195": {
+      "force": "N"
+    },
+    "mkm_max_040": {
+      "force": "N"
+    },
+    "mkm_max_060": {
+      "force": "N"
+    },
+    "mkm_max_080": {
+      "force": "N"
+    },
+    "mkm_max_100": {
+      "force": "N"
+    },
+    "mkm_max_120": {
+      "force": "N"
+    },
+    "mkm_ave_040": {
+      "force": "N"
+    },
+    "mkm_ave_060": {
+      "force": "N"
+    },
+    "mkm_ave_080": {
+      "force": "N"
+    },
+    "mkm_ave_100": {
+      "force": "N"
+    },
+    "mkm_ave_120": {
+      "force": "N"
+    },
+    "mkm_ave_140": {
+      "force": "N"
+    },
+    "mkm_min_040": {
+      "force": "N"
+    },
+    "mkm_min_060": {
+      "force": "N"
+    },
+    "mkm_min_080": {
+      "force": "N"
+    },
+    "mkm_min_100": {
+      "force": "N"
+    },
+    "mkm_min_120": {
+      "force": "N"
+    },
+    "mkm_min_140": {
+      "force": "N"
+    },
+    "mkm_min_160": {
+      "force": "N"
+    },
+    "mkm_min_180": {
+      "force": "N"
+    },
+    "asn_050": {
+      "force": "N"
+    },
+    "asn_100": {
+      "force": "N"
+    },
+    "asn_150": {
+      "force": "N"
+    },
+    "ten_comp_a_275": {
+      "disp": "mm"
+    },
+    "ten_comp_a_530": {
+      "disp": "mm"
+    },
+    "ten_comp_a_825": {
+      "disp": "mm"
+    },
+    "ten_comp_b_275": {
+      "disp": "mm"
+    },
+    "ten_comp_b_540": {
+      "disp": "mm"
+    },
+    "ten_comp_b_825": {
+      "disp": "mm"
+    },
+    "berk_intact_compression_86": {
+      "disp": "mm"
+    },
+    "berk_intact_compression_145": {
+      "disp": "mm"
+    },
+    "berk_pe_compression_86": {
+      "disp": "mm"
+    },
+    "berk_pe_compression_145": {
+      "disp": "mm"
+    },
+    "disc_shear_k_ant": {
+      "shear_stiffness": "N/mm"
+    },
+    "disc_shear_k_post": {
+      "shear_stiffness": "N/mm"
+    },
+    "disc_shear_strength": {
+      "shear_strength": "kN"
+    },
+    "mar_comp_000": {
+      "force": "N"
+    },
+    "brn_comp_000": {
+      "force": "N"
+    },
+    "mkm_comp_000": {
+      "force": "N"
+    },
+    "asn_comp_000": {
+      "force": "N"
+    },
+    "ten_comp_000": {
+      "disp": "mm"
+    },
+    "berk_compression_000": {
+      "disp": "mm"
     }
   }
 }

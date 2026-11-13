@@ -329,17 +329,17 @@
       ctx.save();
       ctx.beginPath(); ctx.rect(area.left - 8, area.top - 2, area.right - area.left + 16, area.bottom - area.top + 4); ctx.clip();
       chart.data.datasets.forEach(function (ds, i) {
-        if (!ds._vals || !chart.isDatasetVisible(i)) return;
+        if (!ds._vals || ds._noWhisk || !chart.isDatasetVisible(i)) return;
         var meta = chart.getDatasetMeta(i);
-        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : ds._color ? alpha(ds._color, 0.6) : alpha(ink, 0.6);
-        ctx.lineWidth = ds._pooled ? STY.whiskerPooled : STY.whisker;
+        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : ds._color ? alpha(ds._color, ds._whiskA || 0.6) : alpha(ink, 0.6);
+        ctx.lineWidth = ds._pooled ? STY.whiskerPooled : (ds._whiskW || STY.whisker);
         ctx.setLineDash([]);
         meta.data.forEach(function (el, j) {
           var v = ds._vals[j];
           if (!v || v.lo == null || v.hi == null || el.skip) return;
           var a = vs.getPixelForValue(v.lo), b = vs.getPixelForValue(v.hi);
           var size = horiz ? el.height : el.width;
-          var cap = size ? Math.max(2.5, Math.min(STY.cap + 1, size / 4)) : STY.cap;
+          var cap = ds._cap || (size ? Math.max(2.5, Math.min(STY.cap + 1, size / 4)) : STY.cap);
           ctx.beginPath();
           if (horiz) {
             ctx.moveTo(a, el.y); ctx.lineTo(b, el.y);
@@ -694,6 +694,359 @@
     return html;
   }
 
+  // ---------- small multiples: view {"layout": "panels", "panel_by": "<input key or level>"} ----------
+  // One small chart per panel value (e.g. per level), a shared legend (the study chips) and shared axes.
+  // How each study's spread is drawn (bench/OUTCOMES.md): mean ± SD -> marker + line + error bars;
+  // min–max without SD (not a median) -> shaded corridor between min and max; median -> open marker + [min–max] bar;
+  // no spread -> marker only. Optional "models": published model ranges as a grey band underneath, never pooled.
+  var PANEL_GAP = 14;
+  function panelCols(n, w, v) {
+    var max = v && v.columns ? v.columns : 3;
+    var c = w >= 860 ? max : w >= 300 ? Math.min(2, max) : 1;
+    if (n === 4 && c === 3 && !(v && v.columns)) c = 2; // 2 × 2 reads better than 3 + 1
+    return Math.max(1, Math.min(c, n));
+  }
+  function niceCeil(v) {
+    if (!(v > 0)) return v < 0 ? -niceFloorAbs(-v) : 1;
+    var p = Math.pow(10, Math.floor(Math.log10(v))), m = [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10];
+    for (var i = 0; i < m.length; i++) if (m[i] * p >= v - 1e-12) return +(m[i] * p).toPrecision(6);
+    return 10 * p;
+  }
+  function niceFloorAbs(v) { // largest nice number <= v (for negative axis ends)
+    var p = Math.pow(10, Math.floor(Math.log10(v))), m = [10, 8, 6, 5, 4, 3, 2.5, 2, 1.5, 1.2, 1];
+    for (var i = 0; i < m.length; i++) if (m[i] * p <= v + 1e-12) return +(m[i] * p).toPrecision(6);
+    return p;
+  }
+  // axis ends on whole tick steps (1, 2, 2.5, 5 × 10^k), about 4-6 ticks; starts at 0 for positive data
+  function niceExtent(lo, hi, nt, tight) {
+    nt = nt || 5;
+    var a = Math.min(lo, 0) < 0 ? lo : 0, b = Math.max(hi, 0) > 0 ? hi : 0;
+    if (a === b) b = a + 1;
+    var raw = (b - a) * 1.03 / nt, p = Math.pow(10, Math.floor(Math.log10(raw))), step = p;
+    [1, 2, 5, 10].some(function (m) { step = m * p; return m * p >= raw - 1e-12; });
+    var r = [a < 0 ? -Math.ceil(-a / step - 1e-9) * step : 0, Math.ceil(b * (tight ? 1 : 1.02) / step - 1e-9) * step];
+    if (r[1] <= b && !tight) r[1] += step;
+    r[0] = +r[0].toPrecision(10); r[1] = +r[1].toPrecision(10); r.step = step;
+    return r;
+  }
+
+  function levelKey(s) {
+    s = String(s);
+    var toks = (s.match(/\b[CTLS]\d{1,2}\b/g) || []).filter(function (t) { return VORD[t] != null; });
+    if (!toks.length) return null;
+    var o = toks.map(function (t) { return VORD[t]; });
+    var span = Math.max.apply(null, o) - Math.min.apply(null, o);
+    // whole specimens (several segments) first, then cranial to caudal; "levels pooled" last
+    return (/pool/i.test(s) ? 2000 : span > 1 ? 0 : 1000) + Math.min.apply(null, o);
+  }
+  function panelValues(v, tasks, pvOf) {
+    var vals = uniq(tasks.map(pvOf));
+    if (Array.isArray(v.panels) && v.panels.length) {
+      var given = v.panels.map(function (p) { return String(p && typeof p === 'object' ? p.value : p); });
+      return given.filter(function (g) { return vals.indexOf(g) >= 0; }).concat(vals.filter(function (x) { return given.indexOf(x) < 0; }));
+    }
+    if (vals.length > 1 && vals.every(function (x) { return levelKey(x) != null; })) return vals.slice().sort(function (a, b) { return levelKey(a) - levelKey(b); });
+    if (vals.every(function (x) { return xNum(x) != null; })) return vals.slice().sort(function (a, b) { return xNum(a) - xNum(b); });
+    return vals;
+  }
+  function panelLabel(card, v, pk, val) {
+    var m = v.panel_labels || {};
+    if (m[val]) return m[val];
+    var p = (v.panels || []).filter(function (x) { return x && typeof x === 'object' && String(x.value) === val; })[0];
+    if (p && p.label) return p.label;
+    if (val === '') return 'Other';
+    var d = card._input[pk] || {};
+    return isNum(toNum(val)) ? withUnit(fmt(toNum(val)), d.unit) : upperFirst(human(val));
+  }
+  // left/right etc.: several refs of one study in one task, told apart by the first word(s) of their notes
+  function refTag(r) { var s = String(r.note || '').split(/[;,(]/)[0].trim(); return s.length && s.length <= 24 ? s : ''; }
+  function encOf(pts) {
+    if (pts.some(function (p) { return p.err === 'sd'; })) return 'sd';
+    if (pts.every(function (p) { return p.kind === 'median'; })) return 'median';
+    if (pts.length > 1 && pts.every(function (p) { return p.err === 'range' && !p.multi; })) return 'band';
+    if (pts.some(function (p) { return p.err === 'range'; })) return p0kind(pts) === 'median' ? 'median' : 'range';
+    return 'point';
+  }
+  function p0kind(pts) { return pts.some(function (p) { return p.kind === 'median'; }) ? 'median' : 'mean'; }
+  // study -> how its values are drawn in this view (for the legend glyphs), from its refs
+  function studyEnc(card, tasks, k) {
+    var rs = [];
+    tasks.forEach(function (t) { t.refs.forEach(function (r) { if (r.study === k) { var x = refValue(r); if (x) rs.push(x); } }); });
+    if (!rs.length) return 'point';
+    if (rs.some(function (p) { return p.err === 'sd'; })) return 'sd';
+    if (rs.some(function (p) { return p.kind === 'median'; })) return 'median';
+    if (rs.some(function (p) { return p.err === 'range'; })) return rs.length > 1 ? 'band' : 'range';
+    return 'point';
+  }
+  function encGlyph(enc, col, w) {
+    w = w || 22;
+    var m = w / 2, s = 'stroke="' + col + '"';
+    switch (enc) {
+      case 'band': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M1 9 L' + (w - 1) + ' 2 L' + (w - 1) + ' 7 L1 11 Z" fill="' + col + '" fill-opacity="0.28" ' + s + ' stroke-opacity="0.6" stroke-width="0.8"/><path d="M1 10 L' + (w - 1) + ' 4.5" ' + s + ' stroke-width="1.3" stroke-dasharray="2.5 2"/></svg>';
+      case 'median': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M' + m + ' 1 V11 M' + (m - 3) + ' 1 H' + (m + 3) + ' M' + (m - 3) + ' 11 H' + (m + 3) + '" ' + s + ' stroke-width="1.2"/><rect x="' + (m - 3) + '" y="3" width="6" height="6" fill="var(--surface)" ' + s + ' stroke-width="1.5"/></svg>';
+      case 'range': case 'sd': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M1 8 L' + (w - 1) + ' 4" ' + s + ' stroke-width="1.6"/><path d="M' + m + ' 1 V11 M' + (m - 3) + ' 1 H' + (m + 3) + ' M' + (m - 3) + ' 11 H' + (m + 3) + '" ' + s + ' stroke-width="1.2"/><circle cx="' + m + '" cy="6" r="3" fill="' + col + '" stroke="var(--surface)" stroke-width="1"/></svg>';
+      case 'models': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M1 8 L' + (w - 1) + ' 1 L' + (w - 1) + ' 8 L1 11 Z" fill="' + col + '" fill-opacity="0.35"/></svg>';
+      case 'pooled': return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><path d="M' + m + ' 2 L' + (m + 4) + ' 6 L' + m + ' 10 L' + (m - 4) + ' 6 Z" fill="var(--surface)" ' + s + ' stroke-width="1.6"/></svg>';
+      default: return '<svg class="eg" viewBox="0 0 ' + w + ' 12" width="' + w + '" height="12" aria-hidden="true"><circle cx="' + m + '" cy="6" r="3.4" fill="' + col + '" stroke="var(--surface)" stroke-width="1"/></svg>';
+    }
+  }
+  // published model ranges (bench/tests, served as data/tests/<test_id>.json): [{label, panel, pts: [{x, lo, hi, y}]}]
+  function loadModels(v) {
+    var ms = Array.isArray(v.models) ? v.models : [];
+    if (!ms.length) return Promise.resolve([]);
+    return Promise.all(ms.map(function (m) {
+      if (!m || !m.test_id) return null;
+      return fetchJSON('data/tests/' + encodeURIComponent(m.test_id) + '.json').then(function (d) {
+        var rows = (d.data || []).filter(function (r) {
+          return Object.keys(m.where || {}).every(function (k) { return String(r[k]) === String(m.where[k]); });
+        });
+        var pts = rows.map(function (r) {
+          var x = xNum(r[m.x || 'x']), lo = toNum(r.min), hi = toNum(r.max), y = toNum(r.median != null ? r.median : r.mean);
+          return x == null || lo == null || hi == null ? null : { x: x, lo: lo, hi: hi, y: y };
+        }).filter(Boolean).sort(function (a, b) { return a.x - b.x; });
+        var src = d.source || {};
+        return pts.length ? { label: m.label || 'Published models' + (src.short ? ' (' + src.short + ')' : ''), panel: m.panel == null ? null : String(m.panel), pts: pts,
+          n: src.n, test_id: m.test_id } : null;
+      }, function () { return null; });
+    })).then(function (a) { return a.filter(Boolean); });
+  }
+  // e.g. "axial preload 100 N" next to a study whose tasks in this view all share a value the others do not
+  function studySuffix(card, v, tasks, k) {
+    var mine = tasks.filter(function (t) { return t.refs.some(function (r) { return r.study === k; }); });
+    return (v.legend_inputs || []).map(function (x) {
+      var vals = uniq(mine.map(function (t) { return JSON.stringify(sv(t, x) == null ? null : sv(t, x)); }));
+      var val = mine.length ? sv(mine[0], x) : null;
+      return vals.length === 1 && val != null && val !== '' && val !== 0 ? phrase(card, x, val) : '';
+    }).filter(Boolean).join(', ');
+  }
+  function drawPanels(fig, card, v, tasks, xKey, models) {
+    if (typeof Chart === 'undefined') { chartMsg(fig, 'The chart library did not load. The table below has every value.'); return null; }
+    var pk = v.panel_by || 'level', pmap = v.panel_map || {};
+    var xOf = function (t) { return xNum(t.inputs[xKey]); };
+    var pvOf = function (t) { var x = sv(t, pk); x = x == null ? '' : String(x); return pmap[x] != null ? String(pmap[x]) : x; };
+    var all = tasks.filter(function (t) { return xOf(t) != null; });
+    // unloaded points (e.g. direction "none" at 0 Nm) start the curve in every panel instead of forming a panel
+    var isBase = function (t) { return xOf(t) === 0 && BASELINE.test(pvOf(t).trim()); };
+    var base = all.filter(isBase), rest = all.filter(function (t) { return !isBase(t); });
+    if (!rest.length) { rest = all; base = []; }
+    var pvals = panelValues(v, rest, pvOf);
+    var varies = function (k) { return uniq(rest.map(function (t) { return JSON.stringify(sv(t, k) == null ? null : sv(t, k)); })).length > 1; };
+    var skeys = (v.series || []).filter(function (k) { return k !== pk && k !== xKey && varies(k); });
+    var sName0 = skeys.length ? seriesNamer(card, rest, skeys) : function () { return ''; };
+    var multiOut = uniq(all.map(function (t) { return t.output || ''; })).length > 1;
+    var sName = function (t) { return isBase(t) ? '' : sName0(t); };
+    var studies = viewStudies(card, all).filter(function (k) { return !S.off[k]; });
+    // line styles (dash + marker) are numbered per study: the k-th curve of a study looks the same in every panel
+    var styles = {}, styleOf = function (k, name) {
+      var a = styles[k] || (styles[k] = []), i = a.indexOf(name);
+      if (i < 0) { a.push(name); i = a.length - 1; }
+      return i;
+    };
+    var steps = stepNames(all, xKey);
+    var panels = pvals.map(function (pv) {
+      var own = rest.filter(function (t) { return pvOf(t) === pv; });
+      var ts = own.concat(base);
+      var pOuts = uniq(own.map(function (t) { return t.output || ''; }));
+      var oName = function (t) { return multiOut && pOuts.length > 1 ? outLabel(card, t.output) : ''; };
+      var lines = [];
+      studies.forEach(function (k) {
+        var groups = {}, order = [], baseOnly = [];
+        own.forEach(function (t) {
+          var refs = refsOf(card, t).filter(function (r) { return r.study === k; });
+          if (!refs.length) return;
+          var tags = refs.map(refTag);
+          var split = refs.length > 1 && tags.every(Boolean) && uniq(tags).length === refs.length;
+          var items = split ? refs.map(function (r, i) { return { tag: tags[i], v: refValue(r) }; }) : [{ tag: '', v: firstRef(card, t, k) }];
+          items.forEach(function (it) {
+            if (!it.v) return;
+            var name = [oName(t), sName(t), it.tag].filter(Boolean).join(' · ');
+            if (!groups[name]) { groups[name] = []; order.push(name); }
+            var p = {}; Object.keys(it.v).forEach(function (q) { p[q] = it.v[q]; });
+            p.x = xOf(t); p.task = t; groups[name].push(p);
+          });
+        });
+        base.forEach(function (t) { // the shared unloaded point joins every curve of the study (or stands alone)
+          var bv = firstRef(card, t, k); if (!bv) return;
+          bv.x = xOf(t); bv.task = t; bv.base = true;
+          if (order.length) order.forEach(function (name) { if (!groups[name].some(function (q) { return q.x === bv.x; })) groups[name].push(bv); });
+          else baseOnly.push(bv);
+        });
+        if (baseOnly.length) { groups[''] = baseOnly; order.push(''); baseOnly.only = true; }
+        order.forEach(function (name) {
+          var pts = groups[name].sort(function (a, b) { return a.x - b.x; });
+          lines.push({ key: k, name: name, pts: pts, si: styleOf(k, name), color: colorOf(card, k), hollow: noPool(card, k), enc: encOf(pts),
+            label: studyLabel(card, k, false) + (name ? ' · ' + name : groups[name] === baseOnly ? ' · unloaded' : '') });
+        });
+      });
+      if (!S.hidePooled) uniq(own.map(function (t) { return [oName(t), sName(t)].filter(Boolean).join(' · '); })).forEach(function (s) {
+        var pts = own.filter(function (t) { return [oName(t), sName(t)].filter(Boolean).join(' · ') === s; }).map(function (t) {
+          var q = pooledValue(pooledFor(card, t)); if (q) { q.x = xOf(t); q.task = t; } return q;
+        }).filter(Boolean).sort(function (a, b) { return a.x - b.x; });
+        if (pts.length) lines.push({ key: '_pooled', pooled: true, name: s, pts: pts, si: styleOf('_pooled', s), color: cssVar('--pooled'), enc: 'pooled', label: 'Pooled' + (s ? ' · ' + s : '') });
+      });
+      var mods = S.hideModels ? [] : models.filter(function (m) { return m.panel == null || m.panel === pv; });
+      return { value: pv, label: panelLabel(card, v, pk, pv), tasks: ts, lines: lines, models: mods, outs: pOuts.length ? pOuts : uniq(ts.map(function (t) { return t.output || ''; })) };
+    });
+    // panel titles: drop a lead-in every title shares ("Dead-weight load on rib-head pin, anterior" -> "Anterior")
+    if (panels.length > 1) {
+      var heads = panels.map(function (p) { var m = /^(.*[,:])\s+\S/.exec(p.label); return m ? m[1] : null; });
+      var lead = heads[0];
+      if (lead && heads.every(function (h) { return h === lead; })) panels.forEach(function (p) { p.label = upperFirst(p.label.slice(lead.length).trim()); });
+    }
+    // axes: x shared by all panels; y shared by panels of the same output unless "share_y": false
+    var xsOf = function (p) { var xs = []; p.lines.forEach(function (l) { l.pts.forEach(function (q) { xs.push(q.x); }); }); p.models.forEach(function (m) { m.pts.forEach(function (q) { xs.push(q.x); }); }); return xs; };
+    var xrange = function (xs) {
+      var xlo = Math.min.apply(null, xs), xhi = Math.max.apply(null, xs);
+      var r = steps ? [xlo - 0.4, xhi + 0.4] : niceExtent(Math.min(0, xlo), xhi, 6, true);
+      if (!steps && xlo > 0 && xlo > (xhi - xlo)) { var st = niceExtent(0, xhi - xlo, 5, true).step; r = [Math.floor(xlo / st) * st, Math.ceil(xhi / st) * st]; r.step = st; } // data far from 0
+      if (isNum(v.x_min)) r[0] = v.x_min;
+      if (isNum(v.x_max)) r[1] = v.x_max;
+      return r;
+    };
+    var xsAll = [];
+    panels.forEach(function (p) { p.xs = xsOf(p); xsAll = xsAll.concat(p.xs); });
+    if (!xsAll.length) { chartMsg(fig, studies.length ? 'No plottable values. See the table.' : 'Nothing to show. Switch a study on above.'); return null; }
+    var xrAll = xrange(xsAll);
+    panels.forEach(function (p) { p.xr = v.share_x === false && p.xs.length ? xrange(p.xs) : xrAll; });
+    var yr = {}, yc = {};
+    panels.forEach(function (p) {
+      var g = v.share_y === false ? 'p' + p.value : p.outs.join('|');
+      var ys = yr[g] || (yr[g] = []);
+      var cs = yc[g] || (yc[g] = []);
+      p.lines.forEach(function (l) { l.pts.forEach(function (q) { ys.push(q.y); cs.push(q.y); if (q.lo != null) ys.push(q.lo); if (q.hi != null) ys.push(q.hi); }); });
+      p.models.forEach(function (m) { m.pts.forEach(function (q) { ys.push(q.lo, q.hi); cs.push(q.lo); }); });
+      p.ygroup = g;
+    });
+    // an SD bar that dips below 0 does not pull the axis below 0 when every value is positive
+    Object.keys(yr).forEach(function (g) {
+      var ys = yr[g], lo = Math.min.apply(null, ys);
+      if (yc[g].length && Math.min.apply(null, yc[g]) >= 0) lo = Math.max(0, lo);
+      yr[g] = ys.length ? niceExtent(lo, Math.max.apply(null, ys)) : [0, 1];
+    });
+    var w = fig.clientWidth || 600, n = panels.length, cols = panelCols(n, w, v);
+    S.panelCols = cols;
+    var cellW = (w - (cols - 1) * PANEL_GAP) / cols;
+    var h = Math.round(Math.max(150, Math.min(250, cellW * (cols === 1 ? 0.62 : 0.74))));
+    fig.innerHTML = '<div class="pgrid" style="--cols:' + cols + '">' + panels.map(function (p, i) {
+      return '<div class="pcell"><div class="ptitle">' + esc(p.label) + '</div><div class="pbox" id="pbox-' + i + '" style="height:' + h + 'px"></div></div>';
+    }).join('') + '</div>';
+    var xTitle = steps ? 'Resection step' : xAxisTitle(card, xKey, v.x_title);
+    var grid = cssVar('--grid'), ink2 = cssVar('--ink-2'), muted = cssVar('--muted'), surface = cssVar('--surface'), axisLine = cssVar('--line-2'), modelInk = cssVar('--muted');
+    var small = cellW < 230, tickFont = { size: small ? 9.5 : 10.5 }, titleFont = { size: small ? 10.5 : 11.5, weight: '500' };
+    var mainY = v.y_title || null;
+    var encs = {}, allLines = [];
+    panels.forEach(function (p, i) {
+      var box = $('#pbox-' + i, fig), col = i % cols, row = Math.floor(i / cols);
+      var lastInCol = i + cols >= n; // nothing below this panel
+      var unit = p.outs.length === 1 ? unitOf(card, p.outs[0]) : '';
+      var yTitle = mainY || (p.outs.length === 1 ? axisTitle(card, p.outs[0]) : outLabel(card, p.outs[0]));
+      var firstY = col === 0 ? null : panels[row * cols].ygroup;
+      var showYTitle = col === 0 || firstY !== p.ygroup;
+      if (!p.lines.length && !p.models.length) { box.innerHTML = '<div class="chart-msg">No values</div>'; return; }
+      // dodge: lines whose whiskers share an x value move a few pixels apart
+      var xr = p.xr, plotW = Math.max(80, cellW - (showYTitle ? 58 : 40)), perPx = (xr[1] - xr[0]) / plotW;
+      var slotLines = p.lines.filter(function (l) { return l.enc !== 'band'; });
+      var at = {};
+      slotLines.forEach(function (l, j) { l.pts.forEach(function (q) { (at[q.x] = at[q.x] || {})[j] = 1; }); });
+      var crowd = Object.keys(at).some(function (k) { return Object.keys(at[k]).length > 1; });
+      var stepPx = crowd && slotLines.length > 1 ? Math.min(4, 14 / (slotLines.length - 1)) : 0;
+      slotLines.forEach(function (l, j) { l.dx = (j - (slotLines.length - 1) / 2) * stepPx * perPx; });
+      var ds = [];
+      var band = function (pts, color, fillA, lineA, label, order, key) {
+        var i0 = ds.length;
+        ds.push({ label: label, _key: key, data: pts.map(function (q) { return { x: q.x, y: q.lo }; }), borderColor: alpha(color, lineA), borderWidth: 0.9,
+          pointRadius: 0, pointHoverRadius: 0, fill: false, tension: 0, order: order, clip: 4 });
+        ds.push({ label: label, _key: key, data: pts.map(function (q) { return { x: q.x, y: q.hi }; }), borderColor: alpha(color, lineA), borderWidth: 0.9,
+          backgroundColor: alpha(color, fillA), pointRadius: 0, pointHoverRadius: 0, fill: i0, tension: 0, order: order, clip: 4 });
+      };
+      p.models.forEach(function (m) {
+        encs.models = 1;
+        if (m.pts.length > 1) band(m.pts, modelInk, 0.22, 0.45, m.label, 40, '_models');
+        ds.push({ label: m.label, _key: '_models', _vals: m.pts.map(function (q) { return { x: q.x, y: q.y != null ? q.y : (q.lo + q.hi) / 2, lo: q.lo, hi: q.hi, err: 'range', kind: 'models', model: true }; }),
+          _noWhisk: m.pts.length > 1, _color: modelInk, _whiskW: 6, _whiskA: 0.35, _cap: 0.01,
+          data: m.pts.map(function (q) { return { x: q.x, y: q.y != null ? q.y : (q.lo + q.hi) / 2 }; }), showLine: false, pointRadius: 0, pointHoverRadius: 4,
+          borderColor: modelInk, backgroundColor: modelInk, order: 39 });
+      });
+      p.lines.forEach(function (l) {
+        allLines.push(l);
+        encs[l.enc] = 1;
+        if (l.enc === 'median' && l.pts.some(function (q) { return q.lo != null; })) encs.medR = 1;
+        var mark = l.pooled ? 'rectRot' : MARKS[l.si % MARKS.length], dash = l.pooled ? [] : DASHES[l.si % DASHES.length];
+        var open = l.hollow || l.pooled || l.enc === 'median';
+        if (l.enc === 'band') band(l.pts, l.color, 0.2, 0.55, l.label, 20, l.key);
+        ds.push({ label: l.label, _key: l.key, _pooled: !!l.pooled, _color: l.pooled ? null : l.color, _vals: l.pts, _noWhisk: l.enc === 'band', _cap: 3,
+          data: l.pts.map(function (q) { return { x: q.x + (l.dx || 0), y: q.y }; }),
+          borderColor: l.color, backgroundColor: l.color, borderWidth: l.enc === 'band' ? 1.2 : l.enc === 'median' ? 1.3 : 1.7,
+          borderDash: l.enc === 'band' && !dash.length ? [3, 2] : dash, showLine: l.pts.length > 1,
+          pointStyle: l.enc === 'median' && mark === 'circle' ? 'rect' : mark,
+          pointRadius: l.enc === 'band' ? 2 : l.pooled ? 4.2 : l.pts.length > 10 ? 2 : 3.1, pointHoverRadius: 5.5,
+          pointBorderColor: open || /^(star|cross)/.test(mark) ? l.color : surface, pointBorderWidth: open ? 1.5 : 1,
+          pointBackgroundColor: open ? surface : l.color, fill: false, tension: 0, order: l.pooled ? 5 : 10, clip: 6 });
+      });
+      var yrr = yr[p.ygroup];
+      var o = chartBase();
+      o.layout = { padding: { top: 4, right: 8, left: 0, bottom: 0 } };
+      o.interaction = { mode: 'nearest', intersect: false, axis: 'xy' };
+      var xt = { color: muted, font: tickFont, padding: 3, maxRotation: 0, maxTicksLimit: 9, includeBounds: !steps };
+      if (!steps && xr.step) xt.stepSize = small && (xr[1] - xr[0]) / xr.step > 6 ? xr.step * 2 : xr.step;
+      if (steps) { xt.stepSize = 1; xt.maxTicksLimit = 40; xt.autoSkip = false; xt.callback = function (val) { return Math.abs(val - Math.round(val)) < 1e-6 ? String(Math.round(val)) : ''; }; }
+      o.scales = {
+        x: { type: 'linear', min: xr[0], max: xr[1], grid: { color: grid, drawTicks: false }, border: { display: true, color: axisLine },
+          title: { display: lastInCol, text: xTitle, color: ink2, font: titleFont, padding: { top: 2 } }, ticks: xt },
+        y: { min: yrr[0], max: yrr[1], grid: { color: grid, drawTicks: false }, border: { display: true, color: axisLine },
+          title: { display: showYTitle, text: yTitle, color: ink2, font: titleFont, padding: { bottom: 2 } },
+          ticks: { color: muted, font: tickFont, padding: 3, maxTicksLimit: 9, stepSize: yrr.step } }
+      };
+      if (steps) o.scales.x.afterBuildTicks = function (ax) { ax.ticks = Object.keys(steps).map(function (k) { return { value: +k }; }); };
+      o.plugins.tooltip.filter = function (item) { return !!item.dataset._vals; };
+      o.plugins.tooltip.callbacks = {
+        title: function (items) {
+          if (!items.length) return '';
+          var q = items[0].dataset._vals[items[0].dataIndex];
+          return p.label + ' · ' + (steps ? 'step ' + fmt(q.x) + (steps[q.x] ? ': ' + steps[q.x] : '') : xTitle.replace(/\s*\(([^)]*)\)$/, '') + ' ' + withUnit(fmt(q.x), (/\(([^)]*)\)$/.exec(xTitle) || [])[1]));
+        },
+        label: function (c) {
+          var q = c.dataset._vals[c.dataIndex];
+          if (q.model) return ' ' + c.dataset.label + ': ' + fmt(q.lo) + '–' + fmt(q.hi) + (unit ? ' ' + unit : '') + ' (range of models)';
+          return tipLabel(c, q, unit);
+        }
+      };
+      var chart = new Chart(canvasIn(box, p.label + ': ' + yTitle + ' versus ' + xTitle), { type: 'line', data: { datasets: ds }, options: o, plugins: [whiskers] });
+      S.charts.push(chart);
+    });
+    return { kind: 'panels', sets: allLines, styles: styles, encs: encs, steps: steps };
+  }
+  // line styles under a panel figure: one row of names when every study uses the same ones, else per study
+  function panelKeyHtml(info, card) {
+    var ks = Object.keys(info.styles).filter(function (k) { return info.styles[k].length > 1 || (info.styles[k][0] && info.styles[k][0] !== 'unloaded'); });
+    var html = '';
+    var same = ks.length && ks.every(function (k) { return info.styles[k].join('|') === info.styles[ks[0]].join('|'); });
+    var item = function (name, si, col) {
+      return '<span><svg viewBox="0 0 28 8" aria-hidden="true"><line x1="1" y1="4" x2="27" y2="4" stroke="' + col + '" stroke-width="1.8" stroke-dasharray="' + DASHES[si % DASHES.length].join(' ') + '"/>' +
+        markSvg(MARKS[si % MARKS.length], col, true) + '</svg>' + esc(name) + '</span>';
+    };
+    if (same && info.styles[ks[0]].length > 1) html = info.styles[ks[0]].map(function (n, i) { return item(n, i, cssVar('--ink-2')); }).join('');
+    else if (ks.length) html = ks.filter(function (k) { return k !== '_pooled'; }).map(function (k) {
+      var col = k === '_pooled' ? cssVar('--pooled') : colorOf(card, k);
+      return '<span class="sk-row"><b>' + esc(studyLabel(card, k, false)) + '</b>' + info.styles[k].map(function (n, i) { return item(n || 'all', i, col); }).join('') + '</span>';
+    }).join('');
+    if (info.steps) html += '<span class="steps-key">' + Object.keys(info.steps).sort(function (a, b) { return a - b; }).map(function (k) {
+      return '<b>' + esc(k) + '</b> ' + esc(info.steps[k]);
+    }).join(' · ') + '</span>';
+    return html;
+  }
+  // one short line under a figure: what each mark means
+  function encLine(info, card) {
+    var ink = cssVar('--ink-2'), e = info.encs, bits = [];
+    if (e.sd || e.range && !e.median) bits.push(encGlyph('sd', ink) + 'mean ± SD' + (e.range ? ' (or [min–max])' : ''));
+    if (e.band) bits.push(encGlyph('band', ink) + 'mean with min–max corridor (specimen range, no SD)');
+    if (e.median) bits.push(encGlyph('median', ink) + (e.medR ? 'median [min–max]' : 'median'));
+    if (e.point) bits.push(encGlyph('point', ink) + 'single value, no spread reported');
+    if (e.pooled) bits.push(encGlyph('pooled', cssVar('--pooled')) + 'pooled mean ± SD (n-weighted)');
+    if (e.models) bits.push(encGlyph('models', cssVar('--muted')) + 'published models: range across models (not data; never pooled or scored)');
+    return bits.map(function (b) { return '<span>' + b + '</span>'; }).join('');
+  }
+
   // ---------- home ----------
   var VORD = (function () { var o = {}, i = 0; ['C', 'T', 'L', 'S'].forEach(function (r) { var n = r === 'C' ? 7 : r === 'T' ? 12 : r === 'L' ? 5 : 5; for (var k = 1; k <= n; k++) o[r + k] = i++; }); return o; })();
   // "L4-L5, L3-L4" -> "L3–L5"; falls back to the first level text
@@ -758,7 +1111,7 @@
     main.innerHTML = '<p class="loading">Loading ' + esc(meta.title) + '</p>';
     return fetchJSON('data/outcomes/' + enc(meta.file) + '.json').then(function (card) {
       prep(card);
-      if (S.card !== card) { S.off = {}; S.offP = {}; S.bw = false; S.hidePooled = false; }
+      if (S.card !== card) { S.off = {}; S.offP = {}; S.bw = false; S.hidePooled = false; S.hideModels = false; }
       S.card = card;
       S.viewId = card.views.some(function (v) { return v.id === viewId; }) ? viewId : (card.views[0] || {}).id;
       renderBench(card, meta);
@@ -777,14 +1130,22 @@
       dlBtn('data/outcomes/' + enc(meta.file) + '.json', 'JSON') + dlBtn('data/outcomes/' + enc(meta.file) + '.csv', 'CSV') +
       '</div></div></div>';
     if (card.views.length > 1) {
-      var many = card.views.length > 10; // a long row of tabs pushes the chart down: use a menu instead
-      html += (many ? '' : '<div class="tabs" role="tablist" aria-label="Views">' + card.views.map(function (v) {
+      // views may carry a "group" (e.g. "ROM vs moment, one direction"): tabs and menu are grouped under it
+      var groups = [], byG = {};
+      card.views.forEach(function (v) { var g = v.group || ''; if (!byG[g]) { byG[g] = []; groups.push(g); } byG[g].push(v); });
+      var grouped = groups.some(Boolean);
+      var many = card.views.length > (grouped ? 30 : 10); // a long row of tabs pushes the chart down: use a menu instead
+      var tabBtn = function (v) {
         var on = v.id === S.viewId;
-        return '<button type="button" role="tab" class="tab' + (v.overview ? ' tab-ov' : '') + '" data-view="' + esc(v.id) + '" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '">' + esc(v.title || v.id) + '</button>';
-      }).join('') + '</div>') +
-        '<label class="view-select' + (many ? ' always' : '') + '"><span class="' + (many ? 'vs-h' : 'sr') + '">View <small>' + card.views.length + '</small></span><select id="view-select">' + card.views.map(function (v) {
-          return '<option value="' + esc(v.id) + '"' + (v.id === S.viewId ? ' selected' : '') + '>' + esc(v.title || v.id) + '</option>';
-        }).join('') + '</select></label>';
+        return '<button type="button" role="tab" class="tab' + (v.overview ? ' tab-ov' : '') + (v.layout === 'panels' ? ' tab-fig' : '') + '" data-view="' + esc(v.id) + '" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '">' + esc(v.title || v.id) + '</button>';
+      };
+      var opt = function (v) { return '<option value="' + esc(v.id) + '"' + (v.id === S.viewId ? ' selected' : '') + '>' + esc(v.title || v.id) + '</option>'; };
+      html += (many ? '' : grouped ? '<div class="tabs tabs-grouped" role="tablist" aria-label="Views">' + groups.map(function (g) {
+          return '<div class="tab-group"><span class="tg-h">' + esc(g || 'Other') + '</span><span class="tg-tabs">' + byG[g].map(tabBtn).join('') + '</span></div>';
+        }).join('') + '</div>' : '<div class="tabs" role="tablist" aria-label="Views">' + card.views.map(tabBtn).join('') + '</div>') +
+        '<label class="view-select' + (many ? ' always' : '') + '"><span class="' + (many ? 'vs-h' : 'sr') + '">View <small>' + card.views.length + '</small></span><select id="view-select">' +
+        (grouped ? groups.map(function (g) { return '<optgroup label="' + esc(g || 'Other') + '">' + byG[g].map(opt).join('') + '</optgroup>'; }).join('') : card.views.map(opt).join('')) +
+        '</select></label>';
     }
     html += '<section id="view-body" class="viz" aria-live="polite"></section>';
     if (card.simulate.length || Object.keys(card.subjects).length || card.summary) {
@@ -909,13 +1270,21 @@
       '<p class="hint">Per-patient values only. Untick to leave a patient out of the chart, table and pooled value.</p></div>';
   }
 
-  function chipsHtml(card, studies, anyPooled) {
-    return '<div class="chips" role="group" aria-label="Show or hide studies">' + studies.map(function (k) {
+  // study chips = legend and filter; in panel figures each chip shows how that study's spread is drawn (opts.enc)
+  function chipsHtml(card, studies, anyPooled, opts) {
+    opts = opts || {};
+    return '<div class="chips' + (opts.enc ? ' chips-fig' : '') + '" role="group" aria-label="Show or hide studies">' + studies.map(function (k) {
       var np = noPool(card, k), s = card._study[k] || {};
+      var sw = opts.enc ? encGlyph(opts.enc(k), swatch(card, k)) :
+        '<span class="sw' + (np ? ' hollow' : '') + '" style="--c:' + swatch(card, k) + ';background:' + swatch(card, k) + '"></span>';
+      var extra = opts.suffix ? opts.suffix(k) : '';
       return '<button type="button" class="chip" data-study="' + esc(k) + '" aria-pressed="' + !S.off[k] + '" title="' + esc((s.sample || '') + (np ? ' · not pooled' : '')) + '">' +
-        '<span class="sw' + (np ? ' hollow' : '') + '" style="--c:' + swatch(card, k) + ';background:' + swatch(card, k) + '"></span>' + esc(studyLabel(card, k, false)) +
+        sw + esc(studyLabel(card, k, false)) + (extra ? '<span class="cx">' + esc(extra) + '</span>' : '') +
         (s.n != null ? '<span class="cn">n=' + esc(s.n) + '</span>' : '') + '</button>';
-    }).join('') + (anyPooled ? '<button type="button" class="chip chip-pooled" data-study="_pooled" aria-pressed="' + !S.hidePooled + '"><span class="sw sw-pooled"></span>Pooled</button>' : '') + '</div>';
+    }).join('') + (anyPooled ? '<button type="button" class="chip chip-pooled" data-study="_pooled" aria-pressed="' + !S.hidePooled + '">' +
+      (opts.enc ? encGlyph('pooled', 'var(--pooled)') : '<span class="sw sw-pooled"></span>') + 'Pooled</button>' : '') +
+      (opts.models ? '<button type="button" class="chip chip-models" data-study="_models" aria-pressed="' + !S.hideModels + '" title="Range across published models. Not experimental data; never pooled or scored.">' +
+        encGlyph('models', 'var(--muted)') + esc(opts.models) + '</button>' : '') + '</div>';
   }
   function schemBlock(card, v) {
     var sc = schematicFor(card.id, v.id === '_activity' ? null : v.id);
@@ -938,9 +1307,11 @@
     var outs = uniq(tasks.map(function (t) { return t.output || ''; }));
     var xKey = v.x && String(v.x).indexOf('input:') === 0 ? String(v.x).slice(6) : null;
     if (xKey && !tasks.some(function (t) { return xNum(t.inputs[xKey]) != null; })) xKey = null;
-    var bwAble = !v.overview && outs.some(function (o) { return canBW(card, o); });
+    var panelMode = v.layout === 'panels' && !!xKey && !v.overview;
+    var bwAble = !v.overview && !panelMode && outs.some(function (o) { return canBW(card, o); });
     var side = schemBlock(card, v) + patientTable(card, tasks);
     var main1;
+    if (panelMode) return renderPanelView(card, v, tasks, studies, anyPooled, outs, xKey, body, side);
     if (v.overview) main1 = '<div id="overview"></div>';
     else main1 = outs.map(function (o, i) {
       var def = (card._output[o] || {}).definition, vnote = i === 0 ? v.note : '';
@@ -983,10 +1354,52 @@
       // curves: the chart already shows every point; keep the long table folded
       $('#task-table', body).innerHTML = xKey || tasks.length > 12 ? '<details class="fold values-fold"><summary>Values <span class="muted">(' + plural(tasks.length, xKey ? 'point' : 'task') + ')</span></summary>' + tt + '</details>' : tt;
     }
+    wireView(card, body);
+  }
+  // small-multiple figure: caption title, shared legend (chips), panel grid, one line on the encoding
+  function renderPanelView(card, v, tasks, studies, anyPooled, outs, xKey, body, side) {
+    var encMap = {};
+    studies.forEach(function (k) { encMap[k] = studyEnc(card, tasks, k); });
+    var mods = Array.isArray(v.models) && v.models.length ? (v.models[0].label || 'Published models') : '';
+    var defs = uniq(outs.map(function (o) { return (card._output[o] || {}).definition || ''; }).filter(Boolean));
+    var note = v.note || (defs.length === 1 ? defs[0] : '');
+    body.innerHTML = '<div class="fig-wrap"><div class="chart-head"><h2 class="chart-title fig-title">' + esc(v.title || v.id) + '</h2></div>' +
+      (note ? '<p class="def">' + esc(note) + '</p>' : '') +
+      chipsHtml(card, studies, anyPooled, { enc: function (k) { return encMap[k]; }, models: mods, suffix: function (k) { return studySuffix(card, v, tasks, k); } }) +
+      '<div class="fig" id="fig"><p class="loading">Drawing</p></div><div class="series-key" id="skey-p"></div><p class="enc" id="enc"></p><p class="chart-cap" id="chart-cap"></p></div>' +
+      (side ? '<div class="fig-side">' + side.replace(' open>', '>') + '</div>' : '') +
+      whatLine(card, tasks, outs, xKey, v.x_title) + '<div id="task-table"></div>';
+    wireSchemImgs(body);
+    var tok = S.drawTok = (S.drawTok || 0) + 1;
+    var draw = function (models) {
+      if (tok !== S.drawTok || !document.body.contains(body)) return;
+      var fig = $('#fig', body), info = drawPanels(fig, card, v, tasks, xKey, models);
+      if (info) {
+        $('#skey-p', body).innerHTML = panelKeyHtml(info, card);
+        $('#enc', body).innerHTML = encLine(info, card);
+        // legend glyphs: how each study was actually drawn (corridor only where it has a range over several x values)
+        var rank = { sd: 5, band: 4, median: 3, range: 2, point: 1 }, best = {};
+        info.sets.forEach(function (l) { if (!l.pooled && (!best[l.key] || rank[l.enc] > rank[best[l.key]])) best[l.key] = l.enc; });
+        Object.keys(best).forEach(function (k) {
+          var chip = $('.chip[data-study="' + k.replace(/"/g, '') + '"]', body), g = chip && $('.eg', chip);
+          if (g && best[k] !== encMap[k]) g.outerHTML = encGlyph(best[k], swatch(card, k));
+        });
+        var bits = [];
+        if (info.sets.some(function (l) { return l.hollow; })) bits.push('Open markers of a study marked “not pooled”: shown, not pooled.');
+        if (anyOn(S.off) || anyOn(S.offP)) bits.push('<b>Pooled recomputed for your selection.</b>');
+        $('#chart-cap', body).innerHTML = bits.join(' ');
+      }
+    };
+    loadModels(v).then(draw, function () { draw([]); });
+    var tt = taskTable(card, tasks, studies, xKey);
+    $('#task-table', body).innerHTML = '<details class="fold values-fold"><summary>Values <span class="muted">(' + plural(tasks.length, 'point') + ')</span></summary>' + tt + '</details>';
+    wireView(card, body);
+  }
+  function wireView(card, body) {
     $$('.chip', body).forEach(function (c) {
       c.addEventListener('click', function () {
         var k = c.getAttribute('data-study');
-        if (k === '_pooled') S.hidePooled = !S.hidePooled; else S.off[k] = !S.off[k];
+        if (k === '_pooled') S.hidePooled = !S.hidePooled; else if (k === '_models') S.hideModels = !S.hideModels; else S.off[k] = !S.off[k];
         rerender(card, '[data-study="' + k + '"]');
       });
     });
@@ -1169,43 +1582,9 @@
       '<li>An independent second pass re-checked values against the papers (<code>bench/VERIFICATION.md</code> in the repository).</li>' +
       '<li>Pooled value: n-weighted mean of studies that report a mean; SD combines within- and between-study spread; overlapping samples count once; medians are not pooled; at least two studies.</li>' +
       '<li>Created and maintained by <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</li>' +
-      '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. https://sites.google.com/view/farshidghezelbash/home. Please also cite the original studies behind the values you use.</li>' +
+      '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. Please also cite the original studies behind the values you use.</li>' +
       '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>. Downloads require accepting the <a href="#terms">Terms of use</a>.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
-  }
-  function viewPapers() {
-    setTitle('In my papers');
-    return fetchJSON('data/papers.json').then(function (d) {
-      var titles = {}, B = S.index.benchmarks || [];
-      B.forEach(function (b) { titles[b.id] = b.title; });
-      var tag = function (s) { return '<span class="pstat ' + esc(s) + '">' + esc(s) + '</span>'; };
-      var cardLink = function (c) { return titles[c] ? '<a href="#b/' + enc(c) + '">' + esc(titles[c]) + '</a>' : esc(String(c || '').replace(/_/g, ' ')); };
-      var T = d.totals || {};
-      var cats = Object.keys(d.summary_by_category || {}).filter(function (c) { return d.summary_by_category[c].comparisons > 0; }).sort(function (x, y) { return d.summary_by_category[y].comparisons - d.summary_by_category[x].comparisons; });
-      var html = '<div class="stack"><div><h1>In my papers</h1><p class="lede">What my models were compared against, paper by paper, and where each comparison sits in SpineBench. ' +
-        esc(T.comparisons || 0) + ' comparisons with measurements in ' + esc((d.papers || []).length) + ' papers: ' +
-        esc(T.covered || 0) + ' covered, ' + esc(T.partly || 0) + ' partly, ' + esc(T.missing || 0) + ' not yet in SpineBench.</p></div>';
-      html += '<section class="panel"><h2>By benchmark</h2><div class="tablewrap"><table class="vals"><thead><tr><th>Benchmark</th><th>Comparisons</th><th>Papers</th><th>Covered</th><th>Partly</th><th>Missing</th></tr></thead><tbody>' +
-        cats.map(function (c) { var s = d.summary_by_category[c];
-          return '<tr><td>' + cardLink(c) + '</td><td>' + esc(s.comparisons) + '</td><td>' + esc(s.n_papers) + '</td><td>' + esc(s.covered) + '</td><td>' + esc(s.partly) + '</td><td>' + esc(s.missing) + '</td></tr>'; }).join('') +
-        '</tbody></table></div></section>';
-      (d.papers || []).slice().sort(function (x, y) { return y.year - x.year; }).forEach(function (p) {
-        var all = p.comparisons || [];
-        html += '<details class="panel fold-panel paper"><summary><h2>' + esc(p.year) + ' · ' + esc(p.title) + ' <span class="count">' + esc(all.length) + '</span></h2></summary>' +
-          '<p class="small muted">' + esc(p.journal || '') + (p.doi ? ' · <a href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">doi</a>' : '') + '</p>' +
-          (p.model ? '<p class="small">' + esc(p.model) + '</p>' : '') +
-          (all.length ? '<ul class="cmp">' + all.map(function (c) {
-            var exp = (c.experimental || []).join(', ');
-            return '<li>' + tag(c.status) + ' <b>' + esc(c.output) + '</b>' + (exp ? ' vs ' + esc(exp) : '') +
-              (c.where ? ' <span class="muted">(' + esc(c.where) + ')</span>' : '') +
-              (c.result ? '<div class="small">' + esc(c.result) + (c.metric ? ' · ' + esc(c.metric) : '') + '</div>' : '') +
-              '<div class="small muted">' + cardLink(c.card || c.category) + '</div></li>';
-          }).join('') + '</ul>' : '<p class="small muted">No comparison with measurements.</p>') + '</details>';
-      });
-      main.innerHTML = html + '</div>';
-    }, function () {
-      main.innerHTML = '<h1>In my papers</h1><p class="lede">The paper map is not built yet.</p>';
-    });
   }
   function notFound(msg) {
     setTitle('Not found');
@@ -1292,7 +1671,6 @@
         case 'home': p = viewHome(); break;
         case 'b': p = viewBench(r.arg, r.sub); break;
         case 'agents': p = viewAgents(); break;
-        case 'papers': p = viewPapers(); break;
         case 'about': p = viewAbout(); break;
         case 'terms': p = viewTerms(); break;
         case 'test': case 'group': case 'category': case 'browse': case 'groups': case 'search': p = oldLink(r.page, r.arg); break;
@@ -1334,8 +1712,10 @@
     window.addEventListener('resize', function () {
       clearTimeout(timer);
       timer = setTimeout(function () {
-        var wide = isWide();
-        if (wide !== S.lastWide) redrawCharts(); // layout and bar orientation depend on width
+        var wide = isWide(), fig = $('#fig'), pg = fig && $('.pgrid', fig);
+        var cv = (S.card && S.card.views.filter(function (x) { return x.id === S.viewId; })[0]) || {};
+        var cols = pg ? panelCols($$('.pcell', pg).length, fig.clientWidth, cv) : null;
+        if (wide !== S.lastWide || (pg && cols !== S.panelCols)) redrawCharts(); // layout, bar orientation and panel columns depend on width
         S.lastWide = wide;
       }, 200);
     });

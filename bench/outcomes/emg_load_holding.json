@@ -117,53 +117,15 @@
       "year": 2005,
       "n": 14,
       "sample": "14 healthy adults (7 M, 7 F), T10 pulls, upright",
-      "doi": "",
+      "doi": "10.1016/j.clinbiomech.2005.07.006",
       "secondary": false
     }
   ],
   "shared": [],
   "views": [
     {
-      "id": "height",
-      "title": "Back muscles vs load height",
-      "task_ids": [
-        "g20_lg_t11_umbilicus",
-        "g20_lg_t11_midfemur",
-        "g20_lg_t11_knee",
-        "g20_lg_t11_midtibia",
-        "g20_ic_l3_umbilicus",
-        "g20_ic_l3_midfemur",
-        "g20_ic_l3_knee",
-        "g20_ic_l3_midtibia",
-        "g20_mf_l4_umbilicus",
-        "g20_mf_l4_midfemur",
-        "g20_mf_l4_knee",
-        "g20_mf_l4_midtibia",
-        "lar19_lg_t10_p1",
-        "lar19_lg_t10_p2",
-        "lar19_lg_l1_p1",
-        "lar19_lg_l1_p2",
-        "lar19_mf_l5_p1",
-        "lar19_mf_l5_p2"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "distance",
-      "title": "Abdominals vs load distance",
-      "task_ids": [
-        "lar19_ra_p2",
-        "lar19_ra_p3",
-        "lar19_eo_p2",
-        "lar19_eo_p3",
-        "lar19_io_p2",
-        "lar19_io_p3"
-      ],
-      "x": "task"
-    },
-    {
       "id": "asymmetry",
-      "title": "Load turned to the left",
+      "title": "Back-muscle EMG vs load asymmetry, per muscle",
       "task_ids": [
         "g20_asym_lg_t11_l_0",
         "g20_asym_lg_t11_l_30",
@@ -184,13 +146,19 @@
       ],
       "x": "input:asymmetry_deg",
       "series": [
-        "muscle",
         "side"
-      ]
+      ],
+      "group": "EMG vs load direction",
+      "layout": "panels",
+      "panel_by": "muscle",
+      "panel_labels": {
+        "LG(T11)": "Longissimus, T11",
+        "MF(L4/L5)": "Multifidus, L4–L5"
+      }
     },
     {
       "id": "moment_dir",
-      "title": "Direction of a chest pull",
+      "title": "Trunk EMG vs direction of a chest pull, per muscle",
       "task_ids": [
         "lav_ersl_0",
         "lav_ersl_30",
@@ -217,9 +185,64 @@
       ],
       "x": "input:pull_dir_deg",
       "series": [
-        "muscle",
         "side"
+      ],
+      "group": "EMG vs load direction",
+      "layout": "panels",
+      "panel_by": "muscle",
+      "panel_map": {
+        "ES(L3/L4)": "ES",
+        "ES(L3)": "ES"
+      },
+      "panel_labels": {
+        "ES": "Erector spinae, L3–L4",
+        "EO": "External oblique",
+        "RA": "Rectus abdominis",
+        "IO": "Internal oblique"
+      },
+      "legend_inputs": [
+        "load"
       ]
+    },
+    {
+      "id": "height",
+      "title": "Back muscles vs load height",
+      "task_ids": [
+        "g20_lg_t11_umbilicus",
+        "g20_lg_t11_midfemur",
+        "g20_lg_t11_knee",
+        "g20_lg_t11_midtibia",
+        "g20_ic_l3_umbilicus",
+        "g20_ic_l3_midfemur",
+        "g20_ic_l3_knee",
+        "g20_ic_l3_midtibia",
+        "g20_mf_l4_umbilicus",
+        "g20_mf_l4_midfemur",
+        "g20_mf_l4_knee",
+        "g20_mf_l4_midtibia",
+        "lar19_lg_t10_p1",
+        "lar19_lg_t10_p2",
+        "lar19_lg_l1_p1",
+        "lar19_lg_l1_p2",
+        "lar19_mf_l5_p1",
+        "lar19_mf_l5_p2"
+      ],
+      "x": "task",
+      "group": "EMG per task"
+    },
+    {
+      "id": "distance",
+      "title": "Abdominals vs load distance",
+      "task_ids": [
+        "lar19_ra_p2",
+        "lar19_ra_p3",
+        "lar19_eo_p2",
+        "lar19_eo_p3",
+        "lar19_io_p2",
+        "lar19_io_p3"
+      ],
+      "x": "task",
+      "group": "EMG per task"
     }
   ],
   "tasks": [

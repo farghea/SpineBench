@@ -44,14 +44,13 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 | flexion_relaxation | msk | 72 | 14 | 58 posture quantified, 14 posture described only |
 | idp_invitro | fe | 96 | 0 | - |
 | implant_loads_invivo | msk | 30 | 17 | 8 neutral posture, 17 posture described only, 5 posture quantified |
-| ligament_tissue | tissue | 332 | 0 | - |
+| ligament_tissue | tissue | 227 | 0 | - |
 | lumbar_idp_invivo | msk | 34 | 11 | 18 posture quantified, 10 posture described only, 6 neutral posture |
 | lumbar_resection | fe | 66 | 2 | - |
-| lumbar_rom | fe | 122 | 0 | - |
+| lumbar_rom | fe | 197 | 0 | - |
 | maximal_exertions | msk | 137 | 0 | 127 neutral posture, 10 posture quantified |
-| nucleus_endplate_tissue | tissue | 28 | 0 | - |
 | ribcage_tissue | tissue | 84 | 0 | - |
-| segment_stiffness | fe | 106 | 0 | - |
+| segment_stiffness | fe | 203 | 57 | - |
 | thoracic_idp_invivo | msk | 32 | 6 | 12 neutral posture, 14 posture quantified, 6 posture described only |
 | thoracic_resection | fe | 161 | 0 | - |
 | thoracic_rom | fe | 146 | 0 | - |
@@ -96,7 +95,7 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - dynamic / peak value (static model = approximation) (3): fix_walk, walk_pct, walking
 - hand load without position (1): lift_max
 
-## ligament_tissue (tissue, 332 tasks)
+## ligament_tissue (tissue, 227 tasks)
 
 - Still to assume: stress/strain definitions and rate are stated once at card level (simulate/notes); specimen dimensions come from the test JSON (protocol), not the task
 - No gaps found.
@@ -116,7 +115,7 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - preload not stated (2): acu_denuc_axial_comp, acu_denuc_axial_tension
 - study sample without donor age in the card (see test) (4): cannella2008, heuer2007a, heuer2008, schultz1979
 
-## lumbar_rom (fe, 122 tasks)
+## lumbar_rom (fe, 197 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
 - study sample without donor age in the card (see test) (16): busscher2009, cook2015, gornet2011, guan2007, heuer2007a, heuer2008, kettler2011, oxland1992, panjabi1994, patwardhan2003, renner2007, rohlmann2001a, sawa2008, schultz1979 ...
@@ -127,20 +126,20 @@ Run: `python3 tools/audit_task_inputs.py` (re-run after any card change). Input-
 - Still to assume: split of trunk flexion between lumbar spine and pelvis (lumbopelvic rhythm) - covered by 111 kinematics tests (50 lumbopelvic rhythm); segment masses/COM and muscle geometry of the scaled model - covered by 31 anthropometry and 1087 muscle-geometry tests
 - subject entry incomplete (3): elouaaid2013 (age), kumar2001 (age, height_cm, weight_kg), mcgill1991 (age, height_cm, weight_kg)
 
-## nucleus_endplate_tissue (tissue, 28 tasks)
-
-- Still to assume: stress/strain definitions and rate are stated once at card level (simulate/notes); specimen dimensions come from the test JSON (protocol), not the task
-- No gaps found.
-
 ## ribcage_tissue (tissue, 84 tasks)
 
 - Still to assume: stress/strain definitions and rate are stated once at card level (simulate/notes); specimen dimensions come from the test JSON (protocol), not the task
 - No gaps found.
 
-## segment_stiffness (fe, 106 tasks)
+## segment_stiffness (fe, 203 tasks)
 
 - Still to assume: specimen geometry and material properties are the modeller's own (not given per specimen); loading rate assumed quasi-static unless the task says otherwise
-- study sample without donor age in the card (see test) (15): adamsdolan1991, amin2016a, amin2016b, berkson1979, cannella2008, costi2008, edwards1987, frei2002, gardnermorse2004, janevic1991, panjabi1976, patwardhan2003, renner2007, tencer1982 ...
+- ref without n (41): asn_050, asn_100, asn_150, asn_comp_000, brn_comp_000, brn_max_020, brn_max_040, brn_max_060, brn_max_080, brn_max_100, brn_max_110, brn_min_020, brn_min_040, brn_min_060 ...
+- identical inputs on several tasks (check definitions) (13): brn_comp_000/mkm_comp_000, brn_max_040/mkm_max_040, brn_max_060/mkm_max_060, brn_max_080/mkm_max_080, brn_max_100/mkm_max_100, brn_min_040/mkm_min_040, brn_min_060/mkm_min_060, brn_min_080/mkm_min_080, brn_min_100/mkm_min_100, brn_min_120/mkm_min_120, brn_min_140/mkm_min_140, brn_min_160/mkm_min_160, brn_min_180/mkm_min_180
+- no direction/DOF (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
+- no load/moment magnitude (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
+- preload not stated (3): disc_shear_k_ant, disc_shear_k_post, disc_shear_strength
+- study sample without donor age in the card (see test) (18): adamsdolan1991, amin2016a, amin2016b, asano1992, berkson1979, brown1957, cannella2008, costi2008, edwards1987, frei2002, gardnermorse2004, janevic1991, panjabi1976, patwardhan2003 ...
 
 ## thoracic_idp_invivo (msk, 32 tasks)
 

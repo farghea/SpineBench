@@ -114,7 +114,7 @@
       "year": 1979,
       "n": 42,
       "sample": "42 lumbar FSUs from 23 cadavers, 400 N preload",
-      "doi": null,
+      "doi": "10.1115/1.3426223",
       "secondary": false
     },
     {
@@ -190,7 +190,7 @@
   "views": [
     {
       "id": "l45_moment",
-      "title": "Lumbar disc pressure vs moment",
+      "title": "Lumbar IDP vs moment, per direction",
       "task_ids": [
         "l45_neutral",
         "l45_fle_1",
@@ -210,13 +210,21 @@
         "pop_ar_10"
       ],
       "x": "input:moment_nm",
-      "series": [
-        "direction"
-      ]
+      "group": "Disc pressure vs moment",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "right lateral bending": "Lateral bending",
+        "left axial rotation": "Axial rotation",
+        "flexion": "Flexion",
+        "extension": "Extension",
+        "lateral bending": "Lateral bending",
+        "axial rotation": "Axial rotation"
+      }
     },
     {
       "id": "thoracic_fsu",
-      "title": "Thoracic disc pressure vs moment",
+      "title": "Thoracic IDP vs moment (FSUs), per direction",
       "task_ids": [
         "thor_neutral",
         "thor_fle_2p5",
@@ -233,35 +241,21 @@
         "thor_axil_7p5"
       ],
       "x": "input:moment_nm",
-      "series": [
-        "direction"
-      ]
-    },
-    {
-      "id": "idp_vs_load",
-      "title": "Disc pressure vs compressive load",
-      "task_ids": [
-        "and_t4t5_0",
-        "and_t4t5_200",
-        "and_t4t5_400",
-        "and_t4t5_600",
-        "and_t8t9_0",
-        "and_t8t9_200",
-        "and_t8t9_400",
-        "and_t8t9_600",
-        "cann_rel_0",
-        "cann_rel_100",
-        "cann_rel_400",
-        "cann_rel_1400"
-      ],
-      "x": "input:load_n",
-      "series": [
-        "level"
-      ]
+      "group": "Disc pressure vs moment",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_labels": {
+        "right lateral bending": "Lateral bending",
+        "left axial rotation": "Axial rotation",
+        "flexion": "Flexion",
+        "extension": "Extension",
+        "lateral bending": "Lateral bending",
+        "axial rotation": "Axial rotation"
+      }
     },
     {
       "id": "idp_change",
-      "title": "Pressure rise under a moment",
+      "title": "IDP rise under a moment vs moment",
       "task_ids": [
         "rohl_chg_flex",
         "rohl_chg_ext",
@@ -276,7 +270,78 @@
         "sch_chg_ar_4p7",
         "sch_chg_ar_10p6"
       ],
-      "x": "task"
+      "x": "input:moment_nm",
+      "group": "Disc pressure vs moment",
+      "layout": "panels",
+      "panel_by": "direction",
+      "panel_map": {
+        "right lateral bending": "lateral bending",
+        "clockwise axial rotation": "axial rotation"
+      },
+      "panel_labels": {
+        "right lateral bending": "Lateral bending",
+        "left axial rotation": "Axial rotation",
+        "flexion": "Flexion",
+        "extension": "Extension",
+        "lateral bending": "Lateral bending",
+        "axial rotation": "Axial rotation"
+      },
+      "legend_inputs": [
+        "load_n"
+      ]
+    },
+    {
+      "id": "idp_vs_load",
+      "title": "IDP vs compressive load, per disc",
+      "task_ids": [
+        "and_t4t5_0",
+        "and_t4t5_200",
+        "and_t4t5_400",
+        "and_t4t5_600",
+        "and_t8t9_0",
+        "and_t8t9_200",
+        "and_t8t9_400",
+        "and_t8t9_600",
+        "cann_acu_50",
+        "sch_400",
+        "frei_compression",
+        "stef_upright"
+      ],
+      "x": "input:load_n",
+      "group": "Disc pressure vs compression",
+      "layout": "panels",
+      "panel_by": "level",
+      "panel_labels": {
+        "L1-L5 FSUs": "L1–L5 FSUs (pooled)",
+        "T12-L5 ACUs": "T12–L5 disc units"
+      },
+      "panels": [
+        "T4-T5",
+        "T8-T9",
+        "T12-L1",
+        "L3-L4",
+        "L1-L5 FSUs",
+        "T12-L5 ACUs"
+      ]
+    },
+    {
+      "id": "compression_shear",
+      "title": "Compression and shear",
+      "task_ids": [
+        "cann_acu_50",
+        "sch_400",
+        "frei_compression",
+        "frei_flexion_compression",
+        "frei_extension_compression",
+        "frei_anterior_shear",
+        "frei_posterior_shear",
+        "stef_upright",
+        "stef_flexion15",
+        "stef_extension10",
+        "stef_upright_ar"
+      ],
+      "x": "task",
+      "group": "Other conditions"
     },
     {
       "id": "l45_steps",
@@ -299,25 +364,8 @@
         "l45s_pll_ext",
         "l45s_all_ext"
       ],
-      "x": "task"
-    },
-    {
-      "id": "compression_shear",
-      "title": "Compression and shear",
-      "task_ids": [
-        "cann_acu_50",
-        "sch_400",
-        "frei_compression",
-        "frei_flexion_compression",
-        "frei_extension_compression",
-        "frei_anterior_shear",
-        "frei_posterior_shear",
-        "stef_upright",
-        "stef_flexion15",
-        "stef_extension10",
-        "stef_upright_ar"
-      ],
-      "x": "task"
+      "x": "task",
+      "group": "Other conditions"
     },
     {
       "id": "slopes",
@@ -342,7 +390,8 @@
         "and18_t8t9_noribs_ext",
         "and18_t8t9_noribs_ar"
       ],
-      "x": "task"
+      "x": "task",
+      "group": "Other conditions"
     }
   ],
   "tasks": [
