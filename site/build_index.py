@@ -585,6 +585,113 @@ def load_schematics(card_ids):
     return keep
 
 
+N_COLORS = 12  # --s1 .. --s12 in site/assets/style.css
+
+
+def study_colors(cards):
+    """One colour slot (1..N_COLORS) per study key, the same on every card, so a study keeps its colour across
+    benchmarks. Studies drawn in the same chart (one view) get different slots where possible: greedy colouring
+    of the "shown together" graph (views weigh more than sharing a card), busiest studies first, lowest slot first."""
+    nbr = {}
+
+    def link(group, w):
+        for a in group:
+            nbr.setdefault(a, {})
+            for b in group:
+                if a != b:
+                    nbr[a][b] = nbr[a].get(b, 0) + w
+
+    for c in cards:
+        tasks = {t["id"]: t for t in c["tasks"]}
+        for v in c.get("views", []):
+            if isinstance(v, dict):
+                link({r.get("study") for tid in v.get("task_ids", []) for r in tasks.get(tid, {}).get("refs", [])} - {None}, 10)
+        link({s["key"] for s in c["studies"]}, 1)  # chips and tables of the card
+    order = sorted(nbr, key=lambda k: (-sum(nbr[k].values()), k))
+    slot = {}
+    for k in order:
+        vclash, cclash = [0] * (N_COLORS + 1), [0] * (N_COLORS + 1)
+        for b, w in nbr[k].items():
+            if b in slot:
+                vclash[slot[b]] += w // 10
+                cclash[slot[b]] += w % 10
+        # never share a colour inside one chart; prefer the 8 validated palette slots; then avoid card-mates
+        slot[k] = min(range(1, N_COLORS + 1), key=lambda s: (vclash[s], s > 8, cclash[s], s))
+    return dict(sorted(slot.items()))
+
+
+# ---- agent export (agent_tasks.jsonl / answers.json) ----
+# Curve tasks: in the tissue cards most tasks are single points of one measured curve (stress at 2 %, 4 %, ...).
+# The export groups them so an agent can answer a whole curve and the scorer counts one curve as one unit.
+# Grouping is computed here from the task inputs (same output, level and inputs except the x input); the cards
+# themselves are not changed. card id -> x inputs, tried in this order.
+CURVE_X = {"annulus_tissue": ("strain",), "ligament_tissue": ("deformation_mm", "strain"),
+           "ribcage_tissue": ("force_N", "angle_deg")}
+CURVE_MIN_POINTS = 3
+AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md): each study gives a band (mean +- SD, "
+                 "else min-max, else +-25 %, never narrower than a small absolute floor); a task passes inside the "
+                 "pooled band when the task has one, else inside the bands of at least half of its studies. A curve "
+                 "passes when >= 80 % of its points pass. Card score = passed units / all units (curves count once).")
+_PATIENT = re.compile(r"^\s*(WP\d+)\b")
+
+
+def agent_curves(c):
+    """([{id, label, output, unit, level, x, x_unit, points: [{task, x}]}], {task id: curve id}) for the card's
+    curve tasks (see CURVE_X)."""
+    xs = CURVE_X.get(c["id"], ())
+    if not xs:
+        return [], {}
+    in_units = {i.get("key"): i.get("unit", "") for i in c["inputs"] if isinstance(i, dict)}
+    units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
+    curves, of = [], {}
+    for xk in xs:
+        groups = {}
+        for t in c["tasks"]:
+            xv = t["inputs"].get(xk)
+            if t["id"] in of or not isinstance(xv, (int, float)) or isinstance(xv, bool):
+                continue
+            rest = json.dumps({k: v for k, v in t["inputs"].items() if k != xk}, sort_keys=True, ensure_ascii=False)
+            groups.setdefault((t.get("output", ""), t.get("level", ""), rest), []).append(t)
+        for (outk, lev, _), ts in groups.items():
+            xv = [t["inputs"][xk] for t in ts]
+            if len(set(xv)) < CURVE_MIN_POINTS or len(set(xv)) != len(xv):
+                continue  # too short, or two tasks at one x (then not one curve)
+            ts = sorted(ts, key=lambda t: t["inputs"][xk])
+            base = re.sub(r"_\d+$", "", ts[0]["id"]) or ts[0]["id"]
+            cid, k = base, 2
+            while any(x["id"] == cid for x in curves):
+                cid, k = f"{base}~{k}", k + 1
+            lab = re.sub(r",[^,]*$", "", ts[0].get("label", "")).strip() or cid
+            curves.append({"id": cid, "label": lab, "output": outk, "unit": units.get(outk, ""), "level": lev,
+                           "x": xk, "x_unit": in_units.get(xk, ""),
+                           "points": [{"task": t["id"], "x": t["inputs"][xk]} for t in ts]})
+            for t in ts:
+                of[t["id"]] = cid
+    return curves, of
+
+
+def agent_task(t, units, curve_of):
+    """One task as the agent sees it: inputs, unit and the studies (keys only) whose subject or specimen it is.
+    Never values: no refs, pooled, ref notes or test ids (ref notes can hold raw values)."""
+    keep = {k: t[k] for k in ("id", "label", "inputs", "output", "level") if k in t}
+    keep["unit"] = units.get(t.get("output"), "")
+    st = []
+    for r in t["refs"]:
+        if r.get("study") and r["study"] not in st:
+            st.append(r["study"])
+    keep["studies"] = st
+    pts = []
+    for r in t["refs"]:
+        m = _PATIENT.match(str(r.get("note") or ""))
+        if m and r.get("n") in (None, 1) and m.group(1) not in pts:
+            pts.append(m.group(1))
+    if pts:
+        keep["patients"] = pts  # per-patient refs (implant loads): answer {patient id: value}
+    if t["id"] in curve_of:
+        keep["curve"] = curve_of[t["id"]]
+    return keep
+
+
 def build_outcomes(real_dir, ex_dir, out):
     cards = load_cards(real_dir, ex_dir)
     odir = out / "outcomes"
@@ -607,24 +714,31 @@ def build_outcomes(real_dir, ex_dir, out):
             "years": [min(years), max(years)] if years else [], "example": bool(c.get("example")),
         })
         units = {o.get("key"): o.get("unit", "") for o in c["outputs"] if isinstance(o, dict)}
+        curves, curve_of = agent_curves(c)
+        # card notes are NOT exported: some quote reference magnitudes (e.g. "~0.2-0.3 MPa even unloaded")
         lines.append({
             "id": c["id"], "title": c.get("title", ""), "domain": c.get("domain", ""), "levels": c["levels"],
-            "agent_prompt": c.get("agent_prompt", ""), "answer_format": c["answer_format"],
+            "summary": c.get("summary", ""), "agent_prompt": c.get("agent_prompt", ""),
+            "answer_format": c["answer_format"],
             "simulate": c["simulate"], "inputs": c["inputs"], "outputs": c["outputs"], "subjects": c["subjects"],
             "studies": [{k: s.get(k) for k in ("key", "short", "year", "n", "sample")} for s in c["studies"]],
-            "tasks": [{k: t[k] for k in ("id", "label", "inputs", "output", "level") if k in t} for t in c["tasks"]],
+            "tasks": [agent_task(t, units, curve_of) for t in c["tasks"]],
+            **({"curves": curves} if curves else {}),
+            "scoring": AGENT_SCORING,
             **({"example": True} if c.get("example") else {}),
         })
         answers[c["id"]] = {t["id"]: {"output": t.get("output", ""), "unit": units.get(t.get("output"), ""),
                                       "refs": [{k: r.get(k) for k in REF_KEYS if k in r} for r in t["refs"]],
-                                      "pooled": t.get("pooled")} for t in c["tasks"]}
+                                      "pooled": t.get("pooled"),
+                                      **({"curve": curve_of[t["id"]]} if t["id"] in curve_of else {})}
+                            for t in c["tasks"]}
     have = {c["id"] for c in cards}
     planned = [{"id": i, "title": t, "domain": d} for i, t, d in KNOWN_OUTCOMES if i not in have]
     counts = {"benchmarks": len(cards), "tasks": sum(len(c["tasks"]) for c in cards), "studies": len(all_studies),
               "N": int(sum(all_studies.values())), "examples": sum(1 for c in cards if c.get("example"))}
     ex_line = None
     if lines:
-        l0 = dict(lines[0]); l0["tasks"] = l0["tasks"][:1]
+        l0 = dict(lines[0]); l0["tasks"] = l0["tasks"][:1]; l0.pop("curves", None)
         l0["answer_format"] = {k: v for k, v in list(l0["answer_format"].items())[:1]}
         l0["subjects"] = {k: v for k, v in list(l0["subjects"].items())[:1]}
         l0["studies"] = l0["studies"][:1]
@@ -634,12 +748,29 @@ def build_outcomes(real_dir, ex_dir, out):
         b["schematic"] = schem.get(b["id"])
     (out / "outcomes.json").write_text(json.dumps(
         {"generated": generated, "counts": counts, "benchmarks": index, "planned": planned, "agent_example": ex_line,
-         "schematics": schem, "schematics_index": (SITE / "assets" / "schematics" / "index.json").is_file()},
+         "study_colors": study_colors(cards), "schematics": schem, "schematics_index": (SITE / "assets" / "schematics" / "index.json").is_file()},
         ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "benchmark.json").write_text(json.dumps(
         {"name": "SpineBench", "version": "v1", "generated": generated, "benchmarks": cards}, ensure_ascii=False, indent=1),
         encoding="utf-8")
     (out / "agent_tasks.jsonl").write_text("".join(json.dumps(l, ensure_ascii=False) + "\n" for l in lines), encoding="utf-8")
+    # one agent file per card (what the site's "Copy agent prompt" button copies: prompt + tasks + subjects, no answers)
+    (out / "agent").mkdir(exist_ok=True)
+    for l in lines:
+        (out / "agent" / f"{l['id']}.json").write_text(json.dumps(l, ensure_ascii=False, indent=1), encoding="utf-8")
+    # comparisons made in the author's own papers (bench/owner_papers_map.json), without local file paths
+    pm = ROOT / "bench" / "owner_papers_map.json"
+    if pm.is_file():
+        m = json.loads(pm.read_text(encoding="utf-8"))
+        local = re.compile(r"(donwload/|plan_agent|/mnt/|\.pdf\b|\.PDF\b)")
+        def clean(o):
+            if isinstance(o, dict):
+                return {k: clean(v) for k, v in o.items() if k not in ("file", "scope") and not (isinstance(v, str) and local.search(v))}
+            if isinstance(o, list):
+                return [clean(v) for v in o if not (isinstance(v, str) and local.search(v))]
+            return o
+        keep = {k: m[k] for k in ("generated", "status_legend", "papers", "summary_by_category", "totals") if k in m}
+        (out / "papers.json").write_text(json.dumps(clean(keep), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "answers.json").write_text(json.dumps(
         {"generated": generated, "answers": answers}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{counts['benchmarks']} outcome benchmarks ({counts['examples']} examples), {counts['tasks']} tasks, "

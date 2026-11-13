@@ -12,7 +12,7 @@
     "Scale the model to the study subject (subjects table).",
     "Set the posture: trunk flexion = trunk inclination from upright; sitting, lying, bending and twisting as described.",
     "Add the hand load at the stated position (both hands unless stated).",
-    "Output L4-L5 compression F and L4-L5 flexion θ from standing (L3-L4 for standing_l3l4).",
+    "Output L4-L5 compression F and L4-L5 flexion θ relative to upright standing (+ flexion; L3-L4 for standing_l3l4). Sato tasks: θ = 15° - stated L4-L5 angle.",
     "IDP = Ghezelbash 2016 Eq. 6: -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ² (P = F/A, MPa); or IDP = F/(0.66A)."
   ],
   "inputs": [
@@ -1391,7 +1391,7 @@
     "Wilke 2001 is one 72 kg male; his lifts are dynamic peaks, his flexion angles reconstructed from the lumbar record.",
     "Lying IDP is mostly disc swelling pressure, which compression-driven models underpredict."
   ],
-  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the posture, trunk angle and hand load given in its inputs for the subject of each study with a ref in that task (see \"subjects\": sex, age, height, body mass, disc area; for studies with individual refs the cohort mean subject is enough). Compute compression and flexion at L4-L5 (L3-L4 for standing_l3l4) and convert to intradiscal pressure with Ghezelbash 2016 Eq. 6 (P = F/A) or IDP = F/(0.66 A); say which. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with IDP in MPa, or an object {study_key: number} when you simulated several subjects for that task.",
+  "agent_prompt": "Use your spine musculoskeletal model. For each task simulate the posture, trunk angle and hand load in its inputs for the subject of every study in the task's `studies` (`subjects`: sex, age, height, body mass, L4-L5 disc area; for Nachemson the cohort-mean subject is enough). trunk_flexion_deg is trunk inclination from upright; tasks without an angle describe the posture in words. hand_load_kg is the total mass held, at load_position. Output L4-L5 compression F (N) and L4-L5 intersegmental flexion θ relative to upright standing (deg, + flexion); use L3-L4 for standing_l3l4. Convert to IDP (MPa) with Ghezelbash 2016 Eq. 6: IDP = -0.01556 + 1.255P + 0.01243θ + 0.03988P² - 0.01212Pθ + 0.001669θ², P = F/A (MPa, A = the study's disc area in mm²), or with IDP = F/(0.66 A); say which in a note outside the JSON. Sato 1999 tasks state the radiographic L4-L5 angle (upright standing = 15°): θ = 15° minus that angle (standing flexed 5°, sitting upright 6°, sitting flexed 8°, sitting extended 2°, standing extended -3°). Wilke lifts (lift_stoop, lift_squat) were dynamic; simulate the static posture given. When a task lists several studies you may answer {\"idp\": {study key: MPa}} (one value per subject). Do not tune the model to the reference values. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there (each task also states its `unit`); use null for tasks you cannot simulate.",
   "answer_format": {
     "standing": {
       "idp": "MPa"

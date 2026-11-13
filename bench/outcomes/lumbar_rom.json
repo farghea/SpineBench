@@ -276,7 +276,7 @@
     },
     {
       "id": "seg_full",
-      "title": "Both directions summed (7.5 Nm)",
+      "title": "Both directions (7.5 Nm)",
       "task_ids": [
         "T12L1_fe_7p5",
         "T12L1_lbr_7p5",
@@ -309,35 +309,8 @@
       "x": "task"
     },
     {
-      "id": "ax100_seg",
-      "title": "One direction, 100 N preload (7.5 Nm)",
-      "task_ids": [
-        "L1L2_flex_7p5_ax100",
-        "L1L2_ext_7p5_ax100",
-        "L1L2_lb_7p5_ax100",
-        "L1L2_ar_7p5_ax100",
-        "L2L3_flex_7p5_ax100",
-        "L2L3_ext_7p5_ax100",
-        "L2L3_lb_7p5_ax100",
-        "L2L3_ar_7p5_ax100",
-        "L3L4_flex_7p5_ax100",
-        "L3L4_ext_7p5_ax100",
-        "L3L4_lb_7p5_ax100",
-        "L3L4_ar_7p5_ax100",
-        "L4L5_flex_7p5_ax100",
-        "L4L5_ext_7p5_ax100",
-        "L4L5_lb_7p5_ax100",
-        "L4L5_ar_7p5_ax100",
-        "L5S1_flex_7p5_ax100",
-        "L5S1_ext_7p5_ax100",
-        "L5S1_lb_7p5_ax100",
-        "L5S1_ar_7p5_ax100"
-      ],
-      "x": "task"
-    },
-    {
       "id": "rom_moment",
-      "title": "L4-L5 flexion, extension vs moment",
+      "title": "Flexion, extension vs moment",
       "task_ids": [
         "L4L5_flex_1",
         "L4L5_flex_2p5",
@@ -365,7 +338,7 @@
     },
     {
       "id": "rom_moment_lb_ar",
-      "title": "L4-L5 bending, twisting vs moment",
+      "title": "Bending, twisting vs moment",
       "task_ids": [
         "L4L5_lb_1",
         "L4L5_lb_2p5",
@@ -391,8 +364,66 @@
       ]
     },
     {
+      "id": "ax100_seg",
+      "title": "One direction, 100 N preload",
+      "task_ids": [
+        "L1L2_flex_7p5_ax100",
+        "L1L2_ext_7p5_ax100",
+        "L1L2_lb_7p5_ax100",
+        "L1L2_ar_7p5_ax100",
+        "L2L3_flex_7p5_ax100",
+        "L2L3_ext_7p5_ax100",
+        "L2L3_lb_7p5_ax100",
+        "L2L3_ar_7p5_ax100",
+        "L3L4_flex_7p5_ax100",
+        "L3L4_ext_7p5_ax100",
+        "L3L4_lb_7p5_ax100",
+        "L3L4_ar_7p5_ax100",
+        "L4L5_flex_7p5_ax100",
+        "L4L5_ext_7p5_ax100",
+        "L4L5_lb_7p5_ax100",
+        "L4L5_ar_7p5_ax100",
+        "L5S1_flex_7p5_ax100",
+        "L5S1_ext_7p5_ax100",
+        "L5S1_lb_7p5_ax100",
+        "L5S1_ar_7p5_ax100"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "seg_4nm",
+      "title": "Both directions (4 Nm)",
+      "task_ids": [
+        "L2L3_fe_4",
+        "L2L3_lbr_4",
+        "L2L3_arr_4"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "total",
+      "title": "Whole specimen, both directions",
+      "task_ids": [
+        "L1S1_fe_8_6",
+        "L1S1_lbr_6",
+        "L1S1_arr_4"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "total_one",
+      "title": "Whole specimen, one direction",
+      "task_ids": [
+        "4seg_flex_3p75",
+        "4seg_ext_3p75",
+        "4seg_lb_3p75",
+        "4seg_ar_3p75"
+      ],
+      "x": "task"
+    },
+    {
       "id": "follower",
-      "title": "Effect of a follower load",
+      "title": "Follower load",
       "task_ids": [
         "L1S1_fe_8_6",
         "L1S1_fe_8_6_fl200",
@@ -416,30 +447,6 @@
       "series": [
         "level"
       ]
-    },
-    {
-      "id": "total",
-      "title": "Whole specimen",
-      "task_ids": [
-        "L1S1_fe_8_6",
-        "L1S1_lbr_6",
-        "L1S1_arr_4",
-        "4seg_flex_3p75",
-        "4seg_ext_3p75",
-        "4seg_lb_3p75",
-        "4seg_ar_3p75"
-      ],
-      "x": "task"
-    },
-    {
-      "id": "seg_4nm",
-      "title": "Both directions summed (4 Nm)",
-      "task_ids": [
-        "L2L3_fe_4",
-        "L2L3_lbr_4",
-        "L2L3_arr_4"
-      ],
-      "x": "task"
     }
   ],
   "tasks": [
@@ -4815,7 +4822,7 @@
     "Segmental tasks mix isolated FSUs and segments inside multi-level specimens (see ref notes).",
     "Many refs are medians (Wilke 2025, Heuer), not pooled; Wilke 2025, Kettler 2011 and Heuer share Ulm specimens."
   ],
-  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, a 4-segment L1-L5, or L1-L4 for the 4 Nm L2-L3 tasks), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "agent_prompt": "You have a finite element model of the intact ligamentous human lumbar spine (no muscles). For each task, build the specimen given in inputs.specimen (single FSU at the task level, L1-S1, a 4-segment L1-L5, or L1-L4 for the 4 Nm L2-L3 tasks), fix the caudal vertebra and apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction, with the follower or axial preload listed (0 = none). \"8 flex / 6 ext\" means 8 Nm in flexion and 6 Nm in extension. Report, in degrees, the rotation of the upper relative to the lower vertebra at the task level (rom_segmental), or of the cranial end relative to the sacrum (rom_total), or the neutral zone (nz: rotation difference at 0 Nm on the third-cycle hysteresis, both directions summed). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. nz needs loading and unloading branches (a model with hysteresis); return null for nz if your model is elastic. Each task lists `studies` (whose specimens it uses) and `unit`. Do not tune the model to the reference values. Return only JSON following answer_format, one number per task; null for tasks you cannot simulate.",
   "answer_format": {
     "T12L1_flex_7p5": {
       "rom_segmental": "deg"

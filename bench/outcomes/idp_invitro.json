@@ -238,6 +238,28 @@
       ]
     },
     {
+      "id": "idp_vs_load",
+      "title": "Disc pressure vs compressive load",
+      "task_ids": [
+        "and_t4t5_0",
+        "and_t4t5_200",
+        "and_t4t5_400",
+        "and_t4t5_600",
+        "and_t8t9_0",
+        "and_t8t9_200",
+        "and_t8t9_400",
+        "and_t8t9_600",
+        "cann_rel_0",
+        "cann_rel_100",
+        "cann_rel_400",
+        "cann_rel_1400"
+      ],
+      "x": "input:load_n",
+      "series": [
+        "level"
+      ]
+    },
+    {
       "id": "idp_change",
       "title": "Pressure rise under a moment",
       "task_ids": [
@@ -275,17 +297,13 @@
         "l45s_fc_ext",
         "l45s_va_ext",
         "l45s_pll_ext",
-        "l45s_all_ext",
-        "cann_rel_0",
-        "cann_rel_100",
-        "cann_rel_400",
-        "cann_rel_1400"
+        "l45s_all_ext"
       ],
       "x": "task"
     },
     {
       "id": "compression_shear",
-      "title": "Compression, shear and follower loads",
+      "title": "Compression and shear",
       "task_ids": [
         "cann_acu_50",
         "sch_400",
@@ -297,15 +315,7 @@
         "stef_upright",
         "stef_flexion15",
         "stef_extension10",
-        "stef_upright_ar",
-        "and_t4t5_0",
-        "and_t4t5_200",
-        "and_t4t5_400",
-        "and_t4t5_600",
-        "and_t8t9_0",
-        "and_t8t9_200",
-        "and_t8t9_400",
-        "and_t8t9_600"
+        "stef_upright_ar"
       ],
       "x": "task"
     },
@@ -3094,7 +3104,7 @@
     "One value per condition: Heuer flexion/extension only; Wilke 2020b right bending and left twist (other sides similar).",
     "Popovich is the mean of 9 needle sensors whose position was not confirmed: approximate nucleus pressure."
   ],
-  "agent_prompt": "Use your finite element spine model. For each task build the specimen given in its inputs (lumbar or thoracic FSU, disc-only unit with posterior elements removed, multi-segment lumbar spine, or T1-T12 with rib cage). Fix the caudal end and apply the listed load to the cranial end: pure moment, axial or follower compression, eccentric compression, or shear. Report the nucleus pressure at the disc centre at the stated level. \"idp\" is absolute pressure in MPa; \"idp_change\" is the rise above the stated reference state; \"idp_rel\" is your value divided by your intact value times 100. For slope tasks fit pressure against load (kPa/N) or moment magnitude (kPa/Nm) over the given range. Return JSON with one entry per task id, as in answer_format.",
+  "agent_prompt": "Use your finite element spine model. For each task build the specimen given in its inputs (lumbar or thoracic FSU, disc-only unit with posterior elements removed, multi-segment lumbar spine, or T1-T12 with rib cage). Fix the caudal end and apply the listed load to the cranial end: pure moment, axial or follower compression, eccentric compression, or shear. Report the nucleus pressure at the disc centre at the stated level. \"idp\" is absolute pressure in MPa; \"idp_change\" is the rise above the stated reference state; \"idp_rel\" is your value divided by your intact value times 100. For slope tasks fit pressure against load (kPa/N) or moment magnitude (kPa/Nm) over the given range. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
   "answer_format": {
     "l45_neutral": {
       "idp": "MPa"

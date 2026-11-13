@@ -1,0 +1,1937 @@
+{
+ "generated": "2026-11-12",
+ "scope": "Papers authored or co-authored by F. Ghezelbash found in SpineBench donwload/ and plan_agent/validation papers/ (read-only). Card snapshot read on the same date.",
+ "status_legend": {
+  "covered": "all experimental data of the comparison are booked as tasks",
+  "partly": "some of the data are booked",
+  "missing": "data not in SpineBench"
+ },
+ "type_legend": {
+  "model_vs_experiment": "paper's own model vs measured data",
+  "experiment_vs_literature": "own measurements vs published measurements",
+  "literature_compilation": "review table of published measurements (no own model)"
+ },
+ "papers": [
+  {
+   "key": "Ghezelbash2016",
+   "year": 2016,
+   "title": "Subject-specific biomechanics of trunk: musculoskeletal scaling, internal loads and intradiscal pressure estimation",
+   "journal": "Biomech Model Mechanobiol 15(6):1699-1712",
+   "doi": "10.1007/s10237-016-0792-3",
+   "file": "donwload/U01_Ghezelbash2016_BMMB.pdf (also plan_agent/validation papers/BMMB-Subj Specific-2016.pdf)",
+   "model": "Sagittally symmetric kinematics-driven nonlinear FE musculoskeletal trunk model (T1-S1, Abaqus), 126 muscles with wrapping, T11-S1 nonlinear beam motion segments; personalised by sex/age/BH/BW (Anderson 2012, Shi 2014); L4-L5 IDP from a new compression-rotation regression (Eq. 6).",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "L4-L5 IDP in vivo",
+     "category": "lumbar_idp_invivo",
+     "experimental": [
+      "wilke2001"
+     ],
+     "conditions": "11 tasks: upright relaxed; 19.8 kg close / away; flexion 10, 30, 50 deg; full flexion 107 deg; flexion 70 deg + 19.8 kg; one-handed asymmetric lift 19.8 kg; lateral bending 10 and 20 deg (model scaled to Wilke subject)",
+     "where": "Fig 5",
+     "metric": "r = 0.984, RMSE = 0.14 MPa",
+     "result": "matched (largest misses: upright 0.33 vs 0.47 MPa; flex 70 deg + 19.8 kg 2.65 vs 2.3 MPa)",
+     "card": "lumbar_idp_invivo",
+     "task_ids": [
+      "standing",
+      "hold_close",
+      "hold_away",
+      "flex10",
+      "flex30",
+      "flex50",
+      "flex_full",
+      "lift_stoop",
+      "latbend20"
+     ],
+     "status": "partly",
+     "note": "Not booked: one-handed asymmetric lift (~1.0 MPa) and lateral bending 10 deg (~0.48 MPa). Both in Wilke 2001 (P02_Wilke2001.pdf, catalogued) and readable from Fig 5."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Back muscle activity vs trunk flexion angle (LGPT, ICPT, L/R), flexion-relaxation",
+     "category": "flexion_relaxation",
+     "experimental": [
+      "Arjmand 2010"
+     ],
+     "conditions": "Unloaded forward flexion 0-107 deg, single male subject (52 y, 68.4 kg, 174.5 cm)",
+     "where": "Fig 6a",
+     "metric": "visual (trend)",
+     "result": "matched (pattern and FR onset ~60-80 deg; model LGPT peak 22% vs EMG ~20%)",
+     "card": "flexion_relaxation",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Arjmand 2010 J Biomech 43:485 (not in donwload); same subject/protocol in Arjmand 2009 Clin Biomech (donwload/Arjmand2009CB.pdf, catalogued as msk_idp_lumbar). Curve digitisable from Fig 6a."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle activity in MVE extension (242 Nm) and flexion (151 Nm): LGPT, ICPT, MF, RA, EO, IO",
+     "category": "maximal_exertions",
+     "experimental": [
+      "elouaaid2013"
+     ],
+     "conditions": "Semi-seated MVE, mean of 12 males; IAP 0/10/25 kPa and antagonist moment variants I-V",
+     "where": "Fig 7, Table 3",
+     "metric": "Pearson r 0.96-0.99 (extension), 0.79-0.87 (flexion)",
+     "result": "matched (extension); moderate in flexion (RA/EO under-predicted without IAP)",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "emg_ss_ext_lg",
+      "emg_ss_ext_ic",
+      "emg_ss_ext_mf",
+      "emg_ss_ext_ra",
+      "emg_ss_ext_eo",
+      "emg_ss_ext_io",
+      "emg_ss_flex_lg",
+      "emg_ss_flex_ic",
+      "emg_ss_flex_mf",
+      "emg_ss_flex_ra",
+      "emg_ss_flex_eo",
+      "emg_ss_flex_io",
+      "ss_ext_m_primary",
+      "ss_flex_m_primary"
+     ],
+     "status": "covered",
+     "note": ""
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle activity in axial-torque MVE (78.3 Nm + coupled lateral/flexion), ICPT, MF, RA, EO, IO, both sides",
+     "category": "maximal_exertions",
+     "experimental": [
+      "ng2001"
+     ],
+     "conditions": "Upright standing, right axial torque; model scaled to 30 y, 73 kg, 179.9 cm",
+     "where": "Fig 8",
+     "metric": "visual",
+     "result": "mostly matched (left EO/IO, right IO); right RA/EO and right ICPT under-predicted",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "emg_st_axr_ng_ra",
+      "emg_st_axr_ng_eo",
+      "emg_st_axr_ng_io",
+      "emg_st_axr_ng_ic",
+      "emg_st_axr_ng_mf",
+      "emg_st_axl_ng_ra",
+      "emg_st_axl_ng_eo",
+      "emg_st_axl_ng_io",
+      "emg_st_axl_ng_ic",
+      "emg_st_axl_ng_mf"
+     ],
+     "status": "covered",
+     "note": "Left-side muscles under right torque = mirror of the right-side tasks under left torque (emg_st_axl_ng_*)."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "L4-L5 IDP vs compression and flexion rotation",
+     "compared_with": "Detailed lumbar FE model (Shirazi-Adl 2006), Dreischarf 2013 relation (IDP = P/0.77), Shirazi-Adl & Drouin 1988 (L2-L3)",
+     "where": "Fig 4, Eq. 6",
+     "metric": "regression fit R2 = 0.999, RMSE = 0.025 MPa",
+     "result": "differences grow with compression and rotation; earlier relations ignore rotation"
+    },
+    {
+     "output": "L4-L5 compression and shear in forward flexion",
+     "compared_with": "4 personal-parameter sets (subjects of Wilke, Arjmand, El Ouaaid, Ng)",
+     "where": "Fig 9",
+     "metric": "relative difference",
+     "result": "up to 21% compression, 30% shear"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2018",
+   "year": 2018,
+   "title": "Trunk musculoskeletal response in maximum voluntary exertions: a combined measurement-modeling investigation",
+   "journal": "J Biomech 70:124-133",
+   "doi": "10.1016/j.jbiomech.2017.11.007",
+   "file": "donwload/U03_Ghezelbash2018.pdf",
+   "model": "Same subject-specific KD nonlinear FE musculoskeletal trunk model (126 muscles), semi-seated posture with reduced lordosis, driven by each subject's measured MVE moments; 19 subjects (9 F, 10 M).",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle activity in flexion and extension MVE (LGPT, ICPT T-level and L3, MF, RA, EO, IO; both sides)",
+     "category": "maximal_exertions",
+     "experimental": [
+      "ghezelbash2018"
+     ],
+     "conditions": "Own data: 19 subjects, semi-seated dynamometer",
+     "where": "Fig 4",
+     "metric": "Pearson r = 0.72 (flexion), 0.69 (extension)",
+     "result": "matched (qualitatively good; MF over-predicted in extension)",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "emg_ss_flex_lg",
+      "emg_ss_flex_ic",
+      "emg_ss_flex_mf",
+      "emg_ss_flex_ra",
+      "emg_ss_flex_eo",
+      "emg_ss_flex_io",
+      "emg_ss_ext_lg",
+      "emg_ss_ext_ic",
+      "emg_ss_ext_mf",
+      "emg_ss_ext_ra",
+      "emg_ss_ext_eo",
+      "emg_ss_ext_io"
+     ],
+     "status": "covered",
+     "note": "Card books L/R mean and IC at L3; the thoracic-level ICPT electrode is not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle activity in right/left lateral MVE",
+     "category": "maximal_exertions",
+     "experimental": [
+      "ghezelbash2018"
+     ],
+     "conditions": "Own data, 4 subjects with least coupled moments simulated",
+     "where": "Fig 5",
+     "metric": "Pearson r = 0.44",
+     "result": "not matched (weak; ipsilateral EO/IO and MF under-predicted)",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "emg_ss_latr_lg",
+      "emg_ss_latr_ic",
+      "emg_ss_latr_mf",
+      "emg_ss_latr_ra",
+      "emg_ss_latr_eo",
+      "emg_ss_latr_io",
+      "emg_ss_latl_lg",
+      "emg_ss_latl_ic",
+      "emg_ss_latl_mf",
+      "emg_ss_latl_ra",
+      "emg_ss_latl_eo",
+      "emg_ss_latl_io"
+     ],
+     "status": "partly",
+     "note": "Only right-side electrodes booked; left-side bars of Fig 5 not booked (owner data)."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle activity in right/left axial MVE",
+     "category": "maximal_exertions",
+     "experimental": [
+      "ghezelbash2018"
+     ],
+     "conditions": "Own data, 4 subjects simulated",
+     "where": "Fig 6",
+     "metric": "Pearson r = 0.34",
+     "result": "not matched (weak)",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "emg_ss_axr_lg",
+      "emg_ss_axr_ic",
+      "emg_ss_axr_mf",
+      "emg_ss_axr_ra",
+      "emg_ss_axr_eo",
+      "emg_ss_axr_io",
+      "emg_ss_axl_lg",
+      "emg_ss_axl_ic",
+      "emg_ss_axl_mf",
+      "emg_ss_axl_ra",
+      "emg_ss_axl_eo",
+      "emg_ss_axl_io"
+     ],
+     "status": "partly",
+     "note": "Only right-side electrodes booked; left-side bars of Fig 6 not booked (owner data)."
+    },
+    {
+     "type": "experiment_vs_literature",
+     "output": "Measured MVE primary and coupled moments (F, M) vs literature",
+     "category": "maximal_exertions",
+     "experimental": [
+      "ghezelbash2018",
+      "elouaaid2013",
+      "ng2001",
+      "ng2002",
+      "lariviere2009",
+      "gravel1997",
+      "kumar2001",
+      "Azghani 2009",
+      "Cholewicki 1995",
+      "Kumar 1996",
+      "Lee & Kuo 2000",
+      "Malchaire & Masset 1995",
+      "McNeill 1980",
+      "Parnianpour 1988a/b",
+      "Plamondon 2014",
+      "Keller 2002"
+     ],
+     "conditions": "6 directions, semi-seated (own) vs standing/seated literature",
+     "where": "Fig 3, Table 2",
+     "metric": "within range (descriptive)",
+     "result": "own moments in range; women exerted more than other female cohorts",
+     "card": "maximal_exertions",
+     "task_ids": [
+      "ss_flex_f_primary",
+      "ss_flex_m_primary",
+      "ss_ext_f_primary",
+      "ss_ext_m_primary",
+      "ss_latr_f_primary",
+      "ss_latr_m_primary",
+      "ss_latl_f_primary",
+      "ss_latl_m_primary",
+      "ss_axr_f_primary",
+      "ss_axr_m_primary",
+      "ss_axl_f_primary",
+      "ss_axl_m_primary",
+      "ss_flex_f_coupled_lat",
+      "ss_flex_f_coupled_axial",
+      "ss_flex_m_coupled_lat",
+      "ss_flex_m_coupled_axial",
+      "ss_ext_f_coupled_lat",
+      "ss_ext_f_coupled_axial",
+      "ss_ext_m_coupled_lat",
+      "ss_ext_m_coupled_axial",
+      "ss_latr_f_coupled_sag",
+      "ss_latr_f_coupled_axial",
+      "ss_latr_m_coupled_sag",
+      "ss_latr_m_coupled_axial",
+      "ss_latl_f_coupled_sag",
+      "ss_latl_f_coupled_axial",
+      "ss_latl_m_coupled_sag",
+      "ss_latl_m_coupled_axial",
+      "ss_axr_f_coupled_sag",
+      "ss_axr_f_coupled_lat",
+      "ss_axr_m_coupled_sag",
+      "ss_axr_m_coupled_lat",
+      "ss_axl_f_coupled_sag",
+      "ss_axl_f_coupled_lat",
+      "ss_axl_m_coupled_sag",
+      "ss_axl_m_coupled_lat",
+      "st_flex_m_primary",
+      "st_ext_m_primary",
+      "st_latr_m_primary",
+      "st_latl_m_primary",
+      "st_axr_m_primary",
+      "st_axl_m_primary",
+      "st_flex_m_abscoupled_lat",
+      "st_flex_m_abscoupled_axial",
+      "st_ext_m_abscoupled_lat",
+      "st_ext_m_abscoupled_axial",
+      "st_latr_m_abscoupled_sag",
+      "st_latr_m_abscoupled_axial",
+      "st_latl_m_abscoupled_sag",
+      "st_latl_m_abscoupled_axial",
+      "st_axr_m_abscoupled_sag",
+      "st_axr_m_abscoupled_lat",
+      "st_axr_m_pctcoupled_sag",
+      "st_axr_m_pctcoupled_lat",
+      "st_axl_m_abscoupled_sag",
+      "st_axl_m_abscoupled_lat",
+      "st_axl_m_pctcoupled_sag",
+      "st_axl_m_pctcoupled_lat"
+     ],
+     "status": "partly",
+     "note": "Experiment-vs-literature (no model). Not booked: Azghani 2009, Cholewicki 1995, Kumar 1996, Lee & Kuo 2000, Malchaire 1995, McNeill 1980, Parnianpour 1988a/b, Plamondon 2014, Keller 2002."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Estimated peak muscle stress needed to reach MVE (sigma_max)",
+     "category": "other: muscle specific tension",
+     "experimental": [
+      "Buchanan 1995",
+      "Burkhart 2017",
+      "Pruim 1980"
+     ],
+     "conditions": "All MVE directions, 19 subjects",
+     "where": "Fig 8, Discussion",
+     "metric": "within range (0.80 +/- 0.42 MPa; <1.5 MPa in 95% of muscles)",
+     "result": "matched",
+     "card": "",
+     "task_ids": [],
+     "status": "missing",
+     "note": "No SpineBench card for muscle stress. Burkhart (J Biomech 2018) is catalogued (msk_mvc_coupled); Buchanan 1995 (elbow) and Pruim 1980 (jaw) are not spine data."
+    }
+   ],
+   "model_vs_model": []
+  },
+  {
+   "key": "Ghezelbash2020a",
+   "year": 2020,
+   "title": "On the modeling of human intervertebral disc annulus fibrosus: elastic, permanent deformation and failure responses",
+   "journal": "J Biomech 102:109463",
+   "doi": "10.1016/j.jbiomech.2019.109463",
+   "file": "donwload/Ghezelbash2020AF.pdf",
+   "model": "Non-homogeneous fibre-reinforced AF model: Mooney-Rivlin-type matrix plus collagen fibres (types I/II) with elastic, plastic (permanent deformation) and damage/failure laws (Abaqus); applied to tissue specimens and an L2-L3 disc-body-unit model.",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "AF stress-strain, uniaxial along fibres (single lamella)",
+     "category": "annulus_tissue",
+     "experimental": [
+      "holzapfel2005",
+      "Skaggs 1994"
+     ],
+     "conditions": "Single-layer specimens",
+     "where": "Fig 2a",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "lam_VLe_00",
+      "lam_VLe_01",
+      "lam_VLe_02",
+      "lam_VLe_03",
+      "lam_VLe_04",
+      "lam_VLe_05",
+      "lam_VLe_06",
+      "lam_VLe_07",
+      "lam_VLe_08",
+      "lam_VLe_09",
+      "lam_VLe_10",
+      "lam_VLe_11",
+      "lam_VLe_12",
+      "lam_VLe_13",
+      "lam_VLe_14",
+      "lam_VLi_00",
+      "lam_VLi_01",
+      "lam_VLi_02",
+      "lam_VLi_03",
+      "lam_VLi_04",
+      "lam_VLi_05",
+      "lam_VLi_06",
+      "lam_VLi_07",
+      "lam_VLi_08",
+      "lam_VLi_09",
+      "lam_VLi_10",
+      "lam_VLi_11",
+      "lam_VLi_12",
+      "lam_VLi_13",
+      "lam_VLi_14",
+      "lam_De_00",
+      "lam_De_01",
+      "lam_De_02",
+      "lam_De_03",
+      "lam_De_04",
+      "lam_De_05",
+      "lam_De_06",
+      "lam_De_07",
+      "lam_De_08",
+      "lam_De_09",
+      "lam_De_10",
+      "lam_De_11",
+      "lam_De_12",
+      "lam_De_13",
+      "lam_Di_00",
+      "lam_Di_01",
+      "lam_Di_02",
+      "lam_Di_03",
+      "lam_Di_04",
+      "lam_Di_05",
+      "lam_Di_06",
+      "lam_Di_07",
+      "lam_Di_08",
+      "lam_Di_09",
+      "lam_Di_10",
+      "lam_Di_11",
+      "lam_Di_12",
+      "lam_Di_13"
+     ],
+     "status": "partly",
+     "note": "Skaggs 1994 (fibre-direction curves) not in SpineBench; not downloaded."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF stress-strain, uniaxial circumferential (multilayer)",
+     "category": "annulus_tissue",
+     "experimental": [
+      "ebara1996",
+      "elliottsetton2001",
+      "Acaroglu 1995",
+      "Skrzypiec 2007"
+     ],
+     "conditions": "Multilayer circumferential specimens",
+     "where": "Fig 2b",
+     "metric": "visual / within range",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "circ_ebAO_00",
+      "circ_ebAO_01",
+      "circ_ebAO_02",
+      "circ_ebAO_03",
+      "circ_ebAO_04",
+      "circ_ebAO_05",
+      "circ_ebAO_06",
+      "circ_ebAO_07",
+      "circ_ebAO_08",
+      "circ_ebAO_09",
+      "circ_ebAO_10",
+      "circ_ebAO_11",
+      "circ_ebAO_12",
+      "circ_ebAO_13",
+      "circ_ebAO_14",
+      "circ_ebAO_15",
+      "circ_ebAO_16",
+      "circ_ebAO_17",
+      "circ_ebAI_00",
+      "circ_ebAI_01",
+      "circ_ebAI_02",
+      "circ_ebAI_03",
+      "circ_ebAI_04",
+      "circ_ebAI_05",
+      "circ_ebAI_06",
+      "circ_ebPO_00",
+      "circ_ebPO_01",
+      "circ_ebPO_02",
+      "circ_ebPO_03",
+      "circ_ebPO_04",
+      "circ_ebPO_05",
+      "circ_ebPO_06",
+      "circ_ebPO_07",
+      "circ_ebPO_08",
+      "circ_ebPO_09",
+      "circ_ebPO_10",
+      "circ_ebPO_11",
+      "circ_ebPO_12",
+      "circ_ebPO_13",
+      "circ_ebPO_14",
+      "circ_ebPO_15",
+      "circ_ebPO_16",
+      "circ_ebPI_00",
+      "circ_ebPI_01",
+      "circ_ebPI_02",
+      "circ_ebPI_03",
+      "circ_ebPI_04",
+      "circ_ebPI_05",
+      "circ_ebPI_06",
+      "circ_ebPI_07",
+      "circ_ebPI_08",
+      "circ_ebPI_09",
+      "circ_ebPI_10",
+      "circ_es12_00",
+      "circ_es12_01",
+      "circ_es12_02",
+      "circ_es12_03",
+      "circ_es12_04",
+      "circ_es13_00",
+      "circ_es13_01",
+      "circ_es13_02",
+      "circ_es13_03"
+     ],
+     "status": "partly",
+     "note": "Acaroglu 1995 and Skrzypiec 2007 curves not booked (not downloaded)."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF axial (toe-region) modulus, uniaxial axial",
+     "category": "annulus_tissue",
+     "experimental": [
+      "elliottsetton2001",
+      "oconnell2009"
+     ],
+     "conditions": "Axial specimens",
+     "where": "Fig 2c",
+     "metric": "within range",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "ax_es21_00",
+      "ax_es21_01",
+      "ax_es21_02",
+      "ax_es21_03",
+      "ax_es21_04",
+      "ax_es21_05",
+      "ax_es21_06",
+      "ax_es21_07",
+      "ax_oc_00",
+      "ax_oc_01",
+      "ax_oc_02",
+      "ax_oc_03",
+      "ax_oc_04",
+      "ax_oc_05",
+      "ax_oc_06",
+      "ax_oc_07",
+      "ax_oc_08",
+      "ax_oc_09",
+      "ax_oc_10",
+      "ax_oc_11",
+      "ax_oc_12",
+      "ax_oc_13",
+      "ax_oc_14"
+     ],
+     "status": "covered",
+     "note": "Card books the curves; modulus is derivable."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF equi-biaxial circumferential stress-strain",
+     "category": "annulus_tissue",
+     "experimental": [
+      "oconnell2012"
+     ],
+     "conditions": "Equi-biaxial tension",
+     "where": "Fig 2d",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "bx_oc12_00",
+      "bx_oc12_01",
+      "bx_oc12_02",
+      "bx_oc12_03",
+      "bx_oc12_04",
+      "bx_oc12_05",
+      "bx_oc12_06",
+      "bx_oc12_07",
+      "bx_oc12_08",
+      "bx_oc12_09",
+      "bx_oc12_10",
+      "bx_oc12_11",
+      "bx_oc12_12",
+      "bx_oc12_13"
+     ],
+     "status": "partly",
+     "note": "Card books the circ-fixed O'Connell 2012 curve (via Ghezelbash 2021), not the equi-biaxial curve used here."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF failure stress and failure strain, circumferential",
+     "category": "annulus_tissue",
+     "experimental": [
+      "Acaroglu 1995",
+      "Skrzypiec 2007"
+     ],
+     "conditions": "Uniaxial circumferential to failure",
+     "where": "Fig 3a,b",
+     "metric": "within range",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Card notes exclude failure data. Not downloaded."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF failure stress vs modulus, fibre direction",
+     "category": "annulus_tissue",
+     "experimental": [
+      "Skaggs 1994"
+     ],
+     "conditions": "Collagen type I/II, content 5-25%",
+     "where": "Fig 3c",
+     "metric": "within range",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Not downloaded."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF axial failure stress (bone-AF-bone)",
+     "category": "annulus_tissue",
+     "experimental": [
+      "Green 1993"
+     ],
+     "conditions": "Uniaxial axial tension",
+     "where": "Fig 3d",
+     "metric": "within range",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Green1993.pdf is in donwload/ and catalogued (passive_tissue, usable=yes) but excluded by the card."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Disc-body-unit axial compression force-displacement (L2-L3)",
+     "category": "segment_stiffness",
+     "experimental": [
+      "Asano 1992",
+      "Brown 1957",
+      "Jamison 2013",
+      "Marini 2016",
+      "Markolf & Morris 1974",
+      "Tencer 1982"
+     ],
+     "conditions": "Compression to 4500 N, with/without 350 N preconditioning, Poisson ratio variants",
+     "where": "Fig 4a",
+     "metric": "within range (visual)",
+     "result": "matched with preconditioning",
+     "card": "segment_stiffness",
+     "task_ids": [
+      "ten_axial_compression"
+     ],
+     "status": "partly",
+     "note": "Card books only linear axial stiffness values (Tencer 1982, Costi 2008, Amin 2016, Berkson 1979, Frei 2002), not the force-displacement curves. Jamison2013.pdf, Marini2016.pdf, Tencer1982 are in donwload/ (catalogued); Asano 1992, Brown 1957, Markolf & Morris 1974 not downloaded. Curves also digitisable from Ghezelbash 2020a Fig 4a."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Cyclic compression-tension of an intact motion segment",
+     "category": "segment_stiffness",
+     "experimental": [
+      "Asano 1992"
+     ],
+     "conditions": "Loading-unloading cycles",
+     "where": "Fig 4b",
+     "metric": "visual",
+     "result": "matched",
+     "card": "segment_stiffness",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Asano 1992 not downloaded."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Cyclic compression-tension of a disc-body unit",
+     "category": "segment_stiffness",
+     "experimental": [
+      "Marini 2016"
+     ],
+     "conditions": "Sample #6 of Marini 2016",
+     "where": "Fig 4c",
+     "metric": "visual",
+     "result": "matched",
+     "card": "segment_stiffness",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Marini2016.pdf catalogued (fe_model_comparison, usable=no) but not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF residual-stress opening angle after radial transection",
+     "category": "other: disc residual stress",
+     "experimental": [
+      "Michalek 2012",
+      "Mengoni 2017"
+     ],
+     "conditions": "Bovine discs",
+     "where": "Discussion (text)",
+     "metric": "value",
+     "result": "not matched (11 deg vs 28 and 53 deg); attributed to swelling not modelled",
+     "card": "",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Bovine data; probably out of scope for SpineBench."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "AF uniaxial/biaxial stress-strain",
+     "compared_with": "Schmidt 2007 hyperelastic AF model (and Peng 2006, Shahraki 2015 cited)",
+     "where": "Fig 2",
+     "metric": "visual",
+     "result": "proposed model closer to tissue tests"
+    },
+    {
+     "output": "Disc compression response",
+     "compared_with": "Own model with Poisson ratio 0.499 vs 0.49999 and plasticity parameter variants",
+     "where": "Figs 6-7",
+     "metric": "relative change",
+     "result": "compression +173% at 1.49 mm"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2020rev",
+   "year": 2020,
+   "title": "Internal load-sharing in the human passive lumbar spine: review of in vitro and finite element model studies",
+   "journal": "J Biomech 102:109441",
+   "doi": "10.1016/j.jbiomech.2019.109441",
+   "file": "donwload/Ghezelbash2020rev.pdf",
+   "model": "Review (no own model); compiles in vitro measurements and FE predictions of load-sharing among disc, ligaments and facets.",
+   "comparisons": [
+    {
+     "type": "literature_compilation",
+     "output": "Facet joint forces in vitro (compiled table)",
+     "category": "facet_forces",
+     "experimental": [
+      "jaramillo2016",
+      "ivicsics2014",
+      "popovich2013",
+      "botolin2011",
+      "sawa2008",
+      "zhu2008_eas",
+      "zhu2008_tekscan",
+      "rousseau2006",
+      "Wilson 2006",
+      "farooq2005",
+      "wiseman2005",
+      "pollintine2004",
+      "schendel1993",
+      "yangking1984"
+     ],
+     "conditions": "Moments 7.5-15 Nm, compression/shear preloads, L1-S1 levels",
+     "where": "Table 2",
+     "metric": "compilation (no model)",
+     "result": "n/a",
+     "card": "facet_forces",
+     "task_ids": [
+      "jar_l4l5_ext",
+      "jar_l4l5_lb",
+      "jar_l4l5_ar",
+      "jar_l5s1_ext",
+      "jar_l5s1_lb",
+      "jar_l5s1_ar",
+      "ivi_intact_extension",
+      "ivi_intact_flexion",
+      "ivi_intact_entire",
+      "ivi_nucleo_extension",
+      "ivi_nucleo_flexion",
+      "ivi_nucleo_entire",
+      "pop_l45_flex",
+      "pop_l45_ext",
+      "pop_l45_lb",
+      "pop_l45_ar",
+      "pop_l45_po5",
+      "pop_l45_po10",
+      "bot_l2l3_flexion",
+      "bot_l2l3_extension",
+      "bot_l2l3_lateral_bending",
+      "bot_l2l3_axial_rotation",
+      "bot_l3l4_flexion",
+      "bot_l3l4_extension",
+      "bot_l3l4_lateral_bending",
+      "bot_l3l4_axial_rotation",
+      "sawa_l12_flex",
+      "sawa_l12_ext",
+      "sawa_l12_lb",
+      "sawa_l12_ar",
+      "sawa_fl_neutral",
+      "sawa_fl_flexion",
+      "sawa_fl_extension",
+      "zhu_l34_flex",
+      "zhu_l34_ext",
+      "zhu_l34_lb",
+      "zhu_l34_ar",
+      "rou_l5s1_neutral",
+      "rou_l5s1_flexion",
+      "rou_l5s1_extension",
+      "rou_l5s1_lateral_bending",
+      "rou_l5s1_lateral_bending_neg",
+      "far_comp",
+      "wis_l2l3",
+      "wis_l3l4",
+      "wis_l4l5",
+      "pol_extension",
+      "pol_flexion",
+      "sch_peak_extension",
+      "sch_peak_axial_rotation",
+      "sch_peak_lateral_bending",
+      "sch_peak_flexion",
+      "sch_slope_extension",
+      "sch_slope_flexion",
+      "sch_slope_lateral_bending_right",
+      "sch_slope_lateral_bending_left",
+      "sch_slope_axial_rotation",
+      "yk_c",
+      "yk_ant",
+      "yk_post"
+     ],
+     "status": "partly",
+     "note": "Wilson 2006 (L3-L4, 7.5 Nm extension/axial, min/max) not booked; catalogued."
+    },
+    {
+     "type": "literature_compilation",
+     "output": "Load-sharing fractions disc/ligaments/facets",
+     "category": "other: load-sharing",
+     "experimental": [
+      "Adams 1980",
+      "Adams 1987",
+      "Lu 2005"
+     ],
+     "conditions": "Flexion (fresh and after creep), anterior/posterior shear up to 250 N; resection-based",
+     "where": "Table 1",
+     "metric": "compilation",
+     "result": "n/a",
+     "card": "",
+     "task_ids": [],
+     "status": "missing",
+     "note": "No load-sharing card. In vitro rows (Adams 1980/1987, Lu 2005) not downloaded; FE rows are model-vs-model (below)."
+    },
+    {
+     "type": "literature_compilation",
+     "output": "Stepwise resection effects on ROM / IDP",
+     "category": "lumbar_resection",
+     "experimental": [
+      "heuer2007a",
+      "heuer2007b",
+      "heuer2008"
+     ],
+     "conditions": "Force-controlled pure moments with sequential resection",
+     "where": "Sec 3.6 (text)",
+     "metric": "compilation",
+     "result": "n/a",
+     "card": "lumbar_resection",
+     "task_ids": [
+      "l45_intact_flex",
+      "l45_ssl_flex",
+      "l45_isl_flex",
+      "l45_lf_flex",
+      "l45_fc_flex",
+      "l45_va_flex",
+      "l45_pll_flex",
+      "l45_all_flex",
+      "l45_nuc_flex",
+      "l45_intact_ext",
+      "l45_ssl_ext",
+      "l45_isl_ext",
+      "l45_lf_ext",
+      "l45_fc_ext",
+      "l45_va_ext",
+      "l45_pll_ext",
+      "l45_all_ext",
+      "l45_nuc_ext",
+      "l45_intact_lb",
+      "l45_ssl_lb",
+      "l45_isl_lb",
+      "l45_lf_lb",
+      "l45_fc_lb",
+      "l45_va_lb",
+      "l45_pll_lb",
+      "l45_all_lb",
+      "l45_nuc_lb",
+      "l45_intact_ar",
+      "l45_ssl_ar",
+      "l45_isl_ar",
+      "l45_lf_ar",
+      "l45_fc_ar",
+      "l45_va_ar",
+      "l45_pll_ar",
+      "l45_all_ar",
+      "l45_nuc_ar",
+      "l23_intact_flex",
+      "l23_va_flex",
+      "l23_all_flex",
+      "l23_nuc_flex",
+      "l23_intact_ext",
+      "l23_va_ext",
+      "l23_all_ext",
+      "l23_nuc_ext",
+      "l23_intact_lb",
+      "l23_va_lb",
+      "l23_all_lb",
+      "l23_nuc_lb",
+      "l23_intact_ar",
+      "l23_va_ar",
+      "l23_all_ar",
+      "l23_nuc_ar"
+     ],
+     "status": "covered",
+     "note": "Heuer 2007b IDP-with-resection rows are in idp_invitro (l45s_*)."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "Load-sharing fractions (disc/ligaments/facets)",
+     "compared_with": "FE studies: Naserkhaki 2016, Schmidt 2013a, Sharma 1995, Shirazi-Adl & Drouin 1987 vs in vitro Adams 1980/1987, Lu 2005",
+     "where": "Table 1, text",
+     "metric": "narrative",
+     "result": "FE and in vitro broadly consistent; protocol (resection order, BCs, preload) drives differences"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2020b",
+   "year": 2020,
+   "title": "Subject-specific regression equations to estimate lower spinal loads during symmetric and asymmetric static lifting",
+   "journal": "J Biomech 102:109550",
+   "doi": "10.1016/j.jbiomech.2019.109550",
+   "file": "donwload/Mitutoyo Digital Caliper - Certificate of Calibration Control # DDE14R52L.PDF (mis-named IRSST accepted manuscript); also plan_agent/validation papers/1-s2.0-S0021929019308073-main.pdf",
+   "model": "Subject-specific KD nonlinear FE musculoskeletal trunk model driven by measured T11/S1 rotations of 19 subjects (64 lifting tasks, 3840 simulations) -> regression equations for L4-L5/L5-S1 compression and shear; IDP via 2016 Eq. 6.",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "L4-L5 IDP in vivo (regression equations)",
+     "category": "lumbar_idp_invivo",
+     "experimental": [
+      "takahashi2006",
+      "wilke2001",
+      "sato1999"
+     ],
+     "conditions": "Takahashi: upright, +10 kg, flexion 10/20/30 deg with/without 10 kg; Wilke: stand, 20 kg close/away, flexion 10/30/50, full, 70 deg + 19.8 kg; Sato: 8 subjects individually, upright and flexed",
+     "where": "Fig 4a",
+     "metric": "R2 = 0.85",
+     "result": "matched",
+     "card": "lumbar_idp_invivo",
+     "task_ids": [
+      "standing",
+      "stand_10kg",
+      "flex10",
+      "flex10_10kg",
+      "flex20",
+      "flex20_10kg",
+      "flex30",
+      "flex30_10kg",
+      "flex50",
+      "flex_full",
+      "lift_stoop",
+      "hold_close",
+      "hold_away",
+      "flex_l4l5_5"
+     ],
+     "status": "partly",
+     "note": "Sato 1999 compared per subject (16 values); card books the cohort mean only. Individual values in Sato 1999 Table 2."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "L4-L5 IDP vs axial rotation angle (-17 to +25 deg)",
+     "category": "lumbar_idp_invivo",
+     "experimental": [
+      "wilke2001"
+     ],
+     "conditions": "Continuous axial twist, standing",
+     "where": "Fig 4b",
+     "metric": "visual",
+     "result": "partly matched (under-predicted near neutral, ~0.27 vs ~0.45 MPa; matched at large angles)",
+     "card": "lumbar_idp_invivo",
+     "task_ids": [
+      "axial_rot"
+     ],
+     "status": "partly",
+     "note": "Card books only the maximal-twist point (24 deg). Wilke 2001 IDP-vs-angle curve (P02_Wilke2001.pdf) could be added as several angle tasks."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "L4-L5 IDP vs lateral bending angle (-30 to +30 deg), FE-MS model driven by Narimani & Arjmand 2018 kinematics",
+     "category": "lumbar_idp_invivo",
+     "experimental": [
+      "wilke2001"
+     ],
+     "conditions": "Continuous lateral bending, standing",
+     "where": "Fig 4c",
+     "metric": "visual",
+     "result": "partly matched (within band at small/moderate angles; over-predicted at 30 deg)",
+     "card": "lumbar_idp_invivo",
+     "task_ids": [
+      "latbend20"
+     ],
+     "status": "partly",
+     "note": "Card books only 20 deg. Wilke 2001 curve could be added."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Back muscle EMG (LGPT T11, ICPT T11 and L3, MF L4; L/R) in static holds",
+     "category": "emg_load_holding",
+     "experimental": [
+      "ghezelbash2020"
+     ],
+     "conditions": "Own data: 19 subjects, 14 kg at 4 heights (mid-tibia, knee, mid-femur, upright) x 4 asymmetry angles (0-90 deg)",
+     "where": "Fig 5",
+     "metric": "R2 = 0.46 (extensors)",
+     "result": "moderate (good in symmetric tasks, weak in asymmetric)",
+     "card": "emg_load_holding",
+     "task_ids": [
+      "g20_lg_t11_umbilicus",
+      "g20_lg_t11_midfemur",
+      "g20_lg_t11_knee",
+      "g20_lg_t11_midtibia",
+      "g20_ic_l3_umbilicus",
+      "g20_ic_l3_midfemur",
+      "g20_ic_l3_knee",
+      "g20_ic_l3_midtibia",
+      "g20_mf_l4_umbilicus",
+      "g20_mf_l4_midfemur",
+      "g20_mf_l4_knee",
+      "g20_mf_l4_midtibia",
+      "g20_asym_lg_t11_l_0",
+      "g20_asym_lg_t11_l_30",
+      "g20_asym_lg_t11_l_60",
+      "g20_asym_lg_t11_l_90",
+      "g20_asym_lg_t11_r_0",
+      "g20_asym_lg_t11_r_30",
+      "g20_asym_lg_t11_r_60",
+      "g20_asym_lg_t11_r_90",
+      "g20_asym_mf_l4_l_0",
+      "g20_asym_mf_l4_l_30",
+      "g20_asym_mf_l4_l_60",
+      "g20_asym_mf_l4_l_90",
+      "g20_asym_mf_l4_r_0",
+      "g20_asym_mf_l4_r_30",
+      "g20_asym_mf_l4_r_60",
+      "g20_asym_mf_l4_r_90",
+      "flexion_relaxation:g20_lg_t11_18",
+      "flexion_relaxation:g20_lg_t11_50",
+      "flexion_relaxation:g20_lg_t11_68",
+      "flexion_relaxation:g20_lg_t11_92",
+      "flexion_relaxation:g20_ic_t11_18",
+      "flexion_relaxation:g20_ic_t11_50",
+      "flexion_relaxation:g20_ic_t11_68",
+      "flexion_relaxation:g20_ic_t11_92",
+      "flexion_relaxation:g20_ic_l3_18",
+      "flexion_relaxation:g20_ic_l3_50",
+      "flexion_relaxation:g20_ic_l3_68",
+      "flexion_relaxation:g20_ic_l3_92",
+      "flexion_relaxation:g20_mf_l4_18",
+      "flexion_relaxation:g20_mf_l4_50",
+      "flexion_relaxation:g20_mf_l4_68",
+      "flexion_relaxation:g20_mf_l4_92"
+     ],
+     "status": "partly",
+     "note": "Booked: symmetric 4 heights (L/R mean) and asymmetry 0-90 deg at mid-femur for LG(T11)/MF(L4). Not booked: other height x asymmetry cells, IC asymmetric tasks."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Abdominal EMG (RA, EO, IO; L/R) in static holds",
+     "category": "emg_load_holding",
+     "experimental": [
+      "ghezelbash2020"
+     ],
+     "conditions": "Same 16 tasks, 14 kg",
+     "where": "Fig 6",
+     "metric": "R2 = 0.02",
+     "result": "not matched (model abdominals ~0 vs 3-20% EMG)",
+     "card": "emg_load_holding",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Owner data; readable from Fig 6."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "L4-L5 / L5-S1 compression and shear",
+     "compared_with": "Regression equations vs the FE-MS model they were fitted to",
+     "where": "Tables 3-4",
+     "metric": "R2 0.93-0.98; RMSE 32-274 N",
+     "result": "good fit"
+    },
+    {
+     "output": "Spinal loads",
+     "compared_with": "Other lifting tools (Arjmand 2011/2012 regressions, AnyBody; via Rajaee 2015)",
+     "where": "Discussion",
+     "metric": "narrative",
+     "result": "n/a"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2021",
+   "year": 2021,
+   "title": "Modeling of human intervertebral disc annulus fibrosus with complex multi-fiber networks",
+   "journal": "Acta Biomater 123:208-221 (SSRN preprint 3677348 in SpineBench)",
+   "doi": "10.1016/j.actbio.2020.12.062",
+   "file": "donwload/Ghezelbash2021_SSRN.pdf",
+   "model": "Micromechanical layerwise AF model (lamellae, inter-lamellar matrix, elastic fibres, cross-links) and microplane / hyperelastic AF models; single-equivalent-layer vs layerwise approaches; L2-L3 whole-disc model.",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "AF stress-strain along fibres",
+     "category": "annulus_tissue",
+     "experimental": [
+      "holzapfel2005",
+      "Skaggs 1994"
+     ],
+     "conditions": "Single lamella",
+     "where": "Fig 4a",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "lam_VLe_00",
+      "lam_VLe_01",
+      "lam_VLe_02",
+      "lam_VLe_03",
+      "lam_VLe_04",
+      "lam_VLe_05",
+      "lam_VLe_06",
+      "lam_VLe_07",
+      "lam_VLe_08",
+      "lam_VLe_09",
+      "lam_VLe_10",
+      "lam_VLe_11",
+      "lam_VLe_12",
+      "lam_VLe_13",
+      "lam_VLe_14",
+      "lam_VLi_00",
+      "lam_VLi_01",
+      "lam_VLi_02",
+      "lam_VLi_03",
+      "lam_VLi_04",
+      "lam_VLi_05",
+      "lam_VLi_06",
+      "lam_VLi_07",
+      "lam_VLi_08",
+      "lam_VLi_09",
+      "lam_VLi_10",
+      "lam_VLi_11",
+      "lam_VLi_12",
+      "lam_VLi_13",
+      "lam_VLi_14",
+      "lam_De_00",
+      "lam_De_01",
+      "lam_De_02",
+      "lam_De_03",
+      "lam_De_04",
+      "lam_De_05",
+      "lam_De_06",
+      "lam_De_07",
+      "lam_De_08",
+      "lam_De_09",
+      "lam_De_10",
+      "lam_De_11",
+      "lam_De_12",
+      "lam_De_13",
+      "lam_Di_00",
+      "lam_Di_01",
+      "lam_Di_02",
+      "lam_Di_03",
+      "lam_Di_04",
+      "lam_Di_05",
+      "lam_Di_06",
+      "lam_Di_07",
+      "lam_Di_08",
+      "lam_Di_09",
+      "lam_Di_10",
+      "lam_Di_11",
+      "lam_Di_12",
+      "lam_Di_13"
+     ],
+     "status": "partly",
+     "note": "Skaggs 1994 not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF circumferential uniaxial, geometry-matched specimens",
+     "category": "annulus_tissue",
+     "experimental": [
+      "elliottsetton2001",
+      "Skrzypiec 2007"
+     ],
+     "conditions": "Rectangular (7.73 x 2.87 x 1.35 mm) and necked (Skrzypiec) specimens",
+     "where": "Fig 4b,c",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "circ_es12_00",
+      "circ_es12_01",
+      "circ_es12_02",
+      "circ_es12_03",
+      "circ_es12_04",
+      "circ_es13_00",
+      "circ_es13_01",
+      "circ_es13_02",
+      "circ_es13_03"
+     ],
+     "status": "partly",
+     "note": "Skrzypiec 2007 not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF circumferential uniaxial, cross specimen",
+     "category": "annulus_tissue",
+     "experimental": [
+      "bass2004"
+     ],
+     "conditions": "Cruciform specimen",
+     "where": "Fig 5a",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "circ_bass_00",
+      "circ_bass_01",
+      "circ_bass_02",
+      "circ_bass_03",
+      "circ_bass_04",
+      "circ_bass_05",
+      "circ_bass_06",
+      "circ_bass_07",
+      "circ_bass_08"
+     ],
+     "status": "covered",
+     "note": ""
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF biaxial (circ-fixed) circumferential and axial stress",
+     "category": "annulus_tissue",
+     "experimental": [
+      "bass2004",
+      "bass2004_g21",
+      "wagnerlotz2004"
+     ],
+     "conditions": "Axial stretch with circumferential strain held at 0; 0.5 N preload; sample-geometry variants",
+     "where": "Fig 5b,c; Fig 7c",
+     "metric": "visual",
+     "result": "matched",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "bx_bass_ax_00",
+      "bx_bass_ax_01",
+      "bx_bass_ax_02",
+      "bx_bass_ax_03",
+      "bx_bass_ax_04",
+      "bx_bass_ax_05",
+      "bx_bass_ax_06",
+      "bx_bass_ax_07",
+      "bx_bass_ax_08",
+      "bx_bass_ci_00",
+      "bx_bass_ci_01",
+      "bx_bass_ci_02",
+      "bx_bass_ci_03",
+      "bx_bass_ci_04",
+      "bx_bass_ci_05",
+      "bx_bass_ci_06",
+      "bx_bass_ci_07",
+      "bx_bass_ci_08",
+      "bx_bass_ci_09",
+      "ax_bass_00",
+      "ax_bass_01",
+      "ax_bass_02",
+      "ax_bass_03",
+      "ax_bass_04",
+      "ax_bass_05",
+      "ax_bass_06",
+      "circ_wl_00",
+      "circ_wl_01",
+      "circ_wl_02",
+      "circ_wl_03",
+      "circ_wl_04",
+      "circ_wl_05",
+      "circ_wl_06",
+      "circ_wl_07"
+     ],
+     "status": "covered",
+     "note": "Wagner & Lotz is booked as the mean-coefficient fit, not their biaxial run."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "AF biaxial (circ-fixed) axial stress, square specimen",
+     "category": "annulus_tissue",
+     "experimental": [
+      "oconnell2012"
+     ],
+     "conditions": "Partial-surface vs through-depth grips",
+     "where": "Fig 7a",
+     "metric": "visual",
+     "result": "matched with through-depth grips",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "bx_oc12_00",
+      "bx_oc12_01",
+      "bx_oc12_02",
+      "bx_oc12_03",
+      "bx_oc12_04",
+      "bx_oc12_05",
+      "bx_oc12_06",
+      "bx_oc12_07",
+      "bx_oc12_08",
+      "bx_oc12_09",
+      "bx_oc12_10",
+      "bx_oc12_11",
+      "bx_oc12_12",
+      "bx_oc12_13"
+     ],
+     "status": "covered",
+     "note": ""
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Effect of specimen geometry on circumferential response",
+     "category": "annulus_tissue",
+     "experimental": [
+      "compiled measured variations (Fig 6 right)"
+     ],
+     "conditions": "Cross, rectangle, dumbbell, hourglass",
+     "where": "Fig 6",
+     "metric": "qualitative",
+     "result": "matched (up to 16x variation reproduced)",
+     "card": "annulus_tissue",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Compiled scatter; low priority."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Whole-disc axial compression force-displacement (L2-L3)",
+     "category": "segment_stiffness",
+     "experimental": [
+      "Asano 1992",
+      "Brown 1957",
+      "Jamison 2013",
+      "Marini 2016",
+      "Markolf & Morris 1974",
+      "Tencer 1982",
+      "costi2008"
+     ],
+     "conditions": "Disc height 11 mm, area 1695 mm2; several AF laws",
+     "where": "Fig 9",
+     "metric": "within range",
+     "result": "matched (all AF laws inside the band)",
+     "card": "segment_stiffness",
+     "task_ids": [
+      "ten_axial_compression",
+      "costi_axial_compression"
+     ],
+     "status": "partly",
+     "note": "Card books only linear axial stiffness values (Tencer 1982, Costi 2008, Amin 2016, Berkson 1979, Frei 2002), not the force-displacement curves. Jamison2013.pdf, Marini2016.pdf, Tencer1982 are in donwload/ (catalogued); Asano 1992, Brown 1957, Markolf & Morris 1974 not downloaded. Curves also digitisable from Ghezelbash 2020a Fig 4a."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "AF tissue and whole-disc responses",
+     "compared_with": "Published hyperelastic SEFs: Peng 2006, Ayturk 2012, Marini 2016, Stadelmann 2018, Momeni-Shahraki 2015, Yang & O'Connell, Jacobs 2013 (Table 1)",
+     "where": "Figs 4-5, 9; Table 1",
+     "metric": "visual",
+     "result": "all match whole-disc compression; some too stiff/compliant in uniaxial/biaxial tissue tests"
+    },
+    {
+     "output": "Stress/strain fields",
+     "compared_with": "Layerwise vs single-equivalent-layer AF representation",
+     "where": "Figs 2-3, 8, 10",
+     "metric": "visual",
+     "result": "different local fields, similar gross response"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2022",
+   "year": 2022,
+   "title": "Submaximal electromyography-driven musculoskeletal modeling of the human trunk during static tasks: equilibrium and stability analyses",
+   "journal": "J Electromyogr Kinesiol 65:102664",
+   "doi": "10.1016/j.jelekin.2022.102664",
+   "file": "donwload/U06_Ghezelbash2022_JEK.pdf",
+   "model": "Subject-specific EMG-assisted-optimisation multi-joint trunk model (KD-FE based) with stability analysis; gains calibrated from maximal or submaximal ramp MVC data; 30 subjects (15 F, 15 M; Lariviere 2019 cohort).",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "Muscle moments from calibrated EMG-driven model vs measured (required) moments, T11-T12 to L5-S1",
+     "category": "maximal_exertions",
+     "experimental": [
+      "Lariviere 2019 cohort (own dynamometer data)"
+     ],
+     "conditions": "Ramp MVCs in 6 directions, semi-seated; maximal vs submaximal calibration, with/without axial tasks",
+     "where": "Fig 3, Table 2",
+     "metric": "Pearson r 0.75-0.77 (relative error 41-44%); 0.91-0.92 (28%) without axial torque",
+     "result": "moderate; good when axial tasks excluded",
+     "card": "maximal_exertions",
+     "task_ids": [],
+     "status": "missing",
+     "note": "This cohort's MVC moments are not in maximal_exertions (Lariviere 2019 is booked only in emg_load_holding, lar19_*). Per-subject moments are not tabulated in the paper; would need the IRSST dataset."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "Gain ratios, individual muscle forces",
+     "compared_with": "Maximal vs submaximal calibration",
+     "where": "Fig 4",
+     "metric": "Pearson r",
+     "result": "weak (r = 0.34 +/- 0.28)"
+    },
+    {
+     "output": "L5-S1 compression, stability index, sum of abdominal / long back muscle forces",
+     "compared_with": "Maximal vs submaximal calibration (9 standing hold tasks)",
+     "where": "Figs 5-6, Tables 3-4",
+     "metric": "Pearson r, Bland-Altman, ANOVA",
+     "result": "r > 0.78; submaximal +6% compression, +11% abdominals"
+    },
+    {
+     "output": "Model outputs",
+     "compared_with": "Calibration with 1 vs 10 vs 15 points",
+     "where": "Table 4",
+     "metric": "ANOVA",
+     "result": "significant but small differences"
+    }
+   ]
+  },
+  {
+   "key": "Lariviere2024",
+   "year": 2024,
+   "title": "Effect of personalized spinal profile on its biomechanical response in an EMG-assisted optimization musculoskeletal model of the trunk",
+   "journal": "J Biomech 162:111867 (co-author)",
+   "doi": "10.1016/j.jbiomech.2023.111867",
+   "file": "donwload/U08_Lariviere2023.pdf",
+   "model": "Subject-specific multi-joint EMG-kinematics-assisted optimisation trunk model (Eskandari 2023) with generic vs personalised (skin-profile) spine curvature; 31 participants (healthy and chronic LBP).",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "Pattern of predicted muscle forces (IC, LG, MF, RA, EO, IO) vs surface EMG across conditions",
+     "category": "emg_load_holding",
+     "experimental": [
+      "Lariviere 2024 cohort (own data)"
+     ],
+     "conditions": "Upright static holds: load height P1-P3 and distance P2 vs P4, 0 vs 6-7 kg",
+     "where": "Figs 4-5, S3-S4",
+     "metric": "qualitative pattern + ANOVA",
+     "result": "Distance study: back muscles and IO matched, RA/EO diverged; Height study: generally not matched",
+     "card": "emg_load_holding",
+     "task_ids": [
+      "lar19_lg_t10_p1",
+      "lar19_lg_t10_p2",
+      "lar19_lg_l1_p1",
+      "lar19_lg_l1_p2",
+      "lar19_mf_l5_p1",
+      "lar19_mf_l5_p2",
+      "lar19_ra_p2",
+      "lar19_ra_p3",
+      "lar19_eo_p2",
+      "lar19_eo_p3",
+      "lar19_io_p2",
+      "lar19_io_p3"
+     ],
+     "status": "partly",
+     "note": "Analogous healthy-cohort protocol booked from Lariviere 2019 (lar19_*); the 2024 cohort EMG is non-normalised and not booked (catalogued, usable=partly)."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "17 outcomes (muscle forces, ratios, spinal loads, stability)",
+     "compared_with": "Generic vs personalised spine profile",
+     "where": "Tables 3-4, Fig 6",
+     "metric": "ANOVA effect sizes",
+     "result": "medium/large effects on muscle forces; negligible/small on loads and stability"
+    },
+    {
+     "output": "Generic-vs-personalised load differences",
+     "compared_with": "Bruno 2017, Caprara 2020, Schmid 2022",
+     "where": "Discussion",
+     "metric": "narrative",
+     "result": "19% vs 7% (Bruno); 102/116 N vs ~300/152 N (Caprara)"
+    }
+   ]
+  },
+  {
+   "key": "Ghezelbash2024",
+   "year": 2024,
+   "title": "Development and validation of a subject-specific integrated finite element musculoskeletal model of human trunk with ergonomic and clinical applications",
+   "journal": "bioRxiv 2024.01.06.574467; published Biomech Model Mechanobiol 24(5):1591-1603 (2025)",
+   "doi": "10.1101/2024.01.06.574467",
+   "file": "donwload/U11_Ghezelbash2025_bioRxiv.pdf (identical text: plan_agent/validation papers/2024.01.06.574467.full.pdf)",
+   "model": "Subject-specific coupled FE-MS trunk model: detailed T12-S1 FE ligamentous spine (AF model of 2021, facets, ligaments) integrated with the musculature; parametric scaling (Tang 2019/2022 SSM, Anderson 2012); kinematics-driven; applications to exoskeleton, nucleotomy and fusion.",
+   "comparisons": [
+    {
+     "type": "model_vs_experiment",
+     "output": "AF biaxial (circ-fixed) circumferential and axial stress",
+     "category": "annulus_tissue",
+     "experimental": [
+      "bass2004",
+      "bass2004_g21",
+      "Hollingsworth & Wagner 2011"
+     ],
+     "conditions": "Outer AF, circumferential strain held at 0",
+     "where": "Fig 2a",
+     "metric": "visual",
+     "result": "matched (model at upper edge of the +/-SD band)",
+     "card": "annulus_tissue",
+     "task_ids": [
+      "bx_bass_ax_00",
+      "bx_bass_ax_01",
+      "bx_bass_ax_02",
+      "bx_bass_ax_03",
+      "bx_bass_ax_04",
+      "bx_bass_ax_05",
+      "bx_bass_ax_06",
+      "bx_bass_ax_07",
+      "bx_bass_ax_08",
+      "bx_bass_ci_00",
+      "bx_bass_ci_01",
+      "bx_bass_ci_02",
+      "bx_bass_ci_03",
+      "bx_bass_ci_04",
+      "bx_bass_ci_05",
+      "bx_bass_ci_06",
+      "bx_bass_ci_07",
+      "bx_bass_ci_08",
+      "bx_bass_ci_09"
+     ],
+     "status": "partly",
+     "note": "Bass 2004 +/-SD band and Hollingsworth & Wagner 2011 not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Flexion moment-rotation (ROM) curves, L1-L5 and L1-L2 ... L5-S1",
+     "category": "lumbar_rom",
+     "experimental": [
+      "rohlmann2001a",
+      "panjabi1994",
+      "guan2007"
+     ],
+     "conditions": "0-5 Nm (segments) and 0-10 Nm (L1-L5); model BH 160-190 cm, BMI 19-30, both sexes",
+     "where": "Fig 2b",
+     "metric": "within range (visual)",
+     "result": "matched",
+     "card": "lumbar_rom",
+     "task_ids": [
+      "4seg_flex_3p75",
+      "L1L2_flex_7p5_ax100",
+      "L2L3_flex_7p5_ax100",
+      "L3L4_flex_7p5_ax100",
+      "L4L5_flex_7p5_ax100",
+      "L5S1_flex_7p5_ax100",
+      "L4L5_flex_2p5_ax100",
+      "L4L5_flex_5_ax100",
+      "L4L5_flex_10_ax100",
+      "L4L5_flex_1",
+      "L4L5_flex_2p5",
+      "L4L5_flex_4"
+     ],
+     "status": "partly",
+     "note": "Card books single moment levels; Guan 2007 only at L4-L5. Guan 2007 other levels and low-moment Panjabi points could be added (Guan 2007 catalogued)."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Disc-body-unit compression force-displacement (L2-L3)",
+     "category": "segment_stiffness",
+     "experimental": [
+      "Asano 1992",
+      "Brown 1957",
+      "Jamison 2013",
+      "Marini 2016",
+      "Markolf & Morris 1974",
+      "Tencer 1982"
+     ],
+     "conditions": "Same band as Ghezelbash 2020a",
+     "where": "Fig 2c",
+     "metric": "within range",
+     "result": "matched",
+     "card": "segment_stiffness",
+     "task_ids": [
+      "ten_axial_compression"
+     ],
+     "status": "partly",
+     "note": "Card books only linear axial stiffness values (Tencer 1982, Costi 2008, Amin 2016, Berkson 1979, Frei 2002), not the force-displacement curves. Jamison2013.pdf, Marini2016.pdf, Tencer1982 are in donwload/ (catalogued); Asano 1992, Brown 1957, Markolf & Morris 1974 not downloaded. Curves also digitisable from Ghezelbash 2020a Fig 4a."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "L2-L3 IDP vs axial compression in vitro",
+     "category": "idp_invitro",
+     "experimental": [
+      "Brinckmann & Grootenboer 1991"
+     ],
+     "conditions": "Single-level compression to ~1000 N",
+     "where": "Fig 2d",
+     "metric": "within range",
+     "result": "matched",
+     "card": "idp_invitro",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Brinckmann & Grootenboer 1991 (Spine 16:641) not catalogued; 3 points with SD readable from Fig 2d."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "L4-L5 IDP in vivo",
+     "category": "lumbar_idp_invivo",
+     "experimental": [
+      "sato1999",
+      "wilke2001",
+      "takahashi2006"
+     ],
+     "conditions": "Sagittally symmetric tasks (as Ghezelbash 2020b)",
+     "where": "Fig 3a",
+     "metric": "R2 = 0.78, slope 0.95",
+     "result": "matched",
+     "card": "lumbar_idp_invivo",
+     "task_ids": [
+      "standing",
+      "stand_10kg",
+      "flex10",
+      "flex10_10kg",
+      "flex20",
+      "flex20_10kg",
+      "flex30",
+      "flex30_10kg",
+      "flex50",
+      "flex_full",
+      "lift_stoop",
+      "hold_close",
+      "hold_away",
+      "flex_l4l5_5"
+     ],
+     "status": "partly",
+     "note": "Sato 1999 per-subject values not booked."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "LGPT/ICPT activity (L/R) vs flexion angle, no load, single subject",
+     "category": "flexion_relaxation",
+     "experimental": [
+      "ghezelbash2024s"
+     ],
+     "conditions": "Forward flexion 0-100 deg; 169 cm, 67 kg, 27 y",
+     "where": "Fig 3b",
+     "metric": "visual",
+     "result": "matched (rise to ~35-45 deg then flexion-relaxation)",
+     "card": "flexion_relaxation",
+     "task_ids": [
+      "g24s_lg_t11_25",
+      "g24s_lg_t11_50",
+      "g24s_lg_t11_95",
+      "g24s_ic_t11_25",
+      "g24s_ic_t11_50",
+      "g24s_ic_t11_95"
+     ],
+     "status": "covered",
+     "note": "Booked at 25/50/95 deg only."
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "LG/IC activity vs flexion angle (4 load heights), 10 kg",
+     "category": "flexion_relaxation",
+     "experimental": [
+      "ghezelbash2024"
+     ],
+     "conditions": "Own data, 19 subjects (average-subject model)",
+     "where": "Fig 3c",
+     "metric": "visual",
+     "result": "matched trend (IC over-predicted at 30-40 deg)",
+     "card": "flexion_relaxation",
+     "task_ids": [
+      "g24_lg_t11_18",
+      "g24_lg_t11_50",
+      "g24_lg_t11_68",
+      "g24_lg_t11_92",
+      "g24_ic_t11_18",
+      "g24_ic_t11_50",
+      "g24_ic_t11_68",
+      "g24_ic_t11_92"
+     ],
+     "status": "covered",
+     "note": ""
+    },
+    {
+     "type": "model_vs_experiment",
+     "output": "Abdominal activity (RA, EO, IO) vs flexion angle, 10 kg",
+     "category": "flexion_relaxation",
+     "experimental": [
+      "ghezelbash2024"
+     ],
+     "conditions": "Same tasks",
+     "where": "Fig 3d",
+     "metric": "visual",
+     "result": "not matched (model ~0 vs 3-9% EMG)",
+     "card": "flexion_relaxation",
+     "task_ids": [],
+     "status": "missing",
+     "note": "Owner data; readable from Fig 3d."
+    }
+   ],
+   "model_vs_model": [
+    {
+     "output": "Lumbar flexion ROM",
+     "compared_with": "Published FE models (Dreischarf 2014, 8-model comparison)",
+     "where": "Fig 2b",
+     "metric": "visual",
+     "result": "within model band"
+    },
+    {
+     "output": "IDP, AF stress, facet contact, muscle forces",
+     "compared_with": "With vs without exoskeleton (Koopman 2020 / Naf 2018 kinematics); intact vs L5-S1 nucleotomy vs L4-L5 fusion (Nie 2019 kinematics)",
+     "where": "Figs 4-5",
+     "metric": "differences",
+     "result": "exo: IDP 2.2 -> 1.9 MPa; fusion: adjacent IDP 1.58 -> 1.72 MPa"
+    }
+   ]
+  }
+ ],
+ "not_found_locally": [
+  "Ghezelbash, Arjmand, Shirazi-Adl 2015, Comput Methods Biomech Biomed Engin 18:1760 (intervertebral translational flexibilities)",
+  "Ghezelbash et al. 2016a, J Biomech 49:3492 (sex/age/BH/BW sensitivity)",
+  "Ghezelbash et al. 2017, Ann Biomed Eng 45:2373 (obesity and obesity shape)",
+  "Ghezelbash et al. 2018b, J Biomech 70:149 (motion-segment simulation and joint positioning)",
+  "Ghezelbash, Shahvarpour, Lariviere, Shirazi-Adl 2022a, Comput Methods Biomech Biomed Engin 25:1156 (stability in static tasks; in vivo-computational)",
+  "Ghezelbash et al. 2024, J Biomech 166:111967 (machine learning in spine biomechanics, review)"
+ ],
+ "excluded": [
+  "Bidhendi, Braun, Bouchard-Roy, Ghezelbash: Evaluating mechanical comfort of ear tips (donwload/1082-2132-1-SP (1).pdf) - not spine.",
+  "Fasser 2021 (donwload/Fasser2021.pdf) - Ghezelbash is not an author.",
+  "Arjmand 2009 Clin Biomech, El Ouaaid 2013 - Ghezelbash is not an author (used as data sources)."
+ ],
+ "summary_by_category": {
+  "annulus_tissue": {
+   "comparisons": 14,
+   "papers": [
+    "Ghezelbash2020a",
+    "Ghezelbash2021",
+    "Ghezelbash2024"
+   ],
+   "n_papers": 3,
+   "covered": 4,
+   "partly": 6,
+   "missing": 4
+  },
+  "emg_load_holding": {
+   "comparisons": 3,
+   "papers": [
+    "Ghezelbash2020b",
+    "Lariviere2024"
+   ],
+   "n_papers": 2,
+   "covered": 0,
+   "partly": 2,
+   "missing": 1
+  },
+  "facet_forces": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2020rev"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 1,
+   "missing": 0
+  },
+  "flexion_relaxation": {
+   "comparisons": 4,
+   "papers": [
+    "Ghezelbash2016",
+    "Ghezelbash2024"
+   ],
+   "n_papers": 2,
+   "covered": 2,
+   "partly": 0,
+   "missing": 2
+  },
+  "idp_invitro": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2024"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 0,
+   "missing": 1
+  },
+  "implant_loads_invivo": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "ligament_tissue": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "lumbar_idp_invivo": {
+   "comparisons": 5,
+   "papers": [
+    "Ghezelbash2016",
+    "Ghezelbash2020b",
+    "Ghezelbash2024"
+   ],
+   "n_papers": 3,
+   "covered": 0,
+   "partly": 5,
+   "missing": 0
+  },
+  "lumbar_resection": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2020rev"
+   ],
+   "n_papers": 1,
+   "covered": 1,
+   "partly": 0,
+   "missing": 0
+  },
+  "lumbar_rom": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2024"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 1,
+   "missing": 0
+  },
+  "maximal_exertions": {
+   "comparisons": 7,
+   "papers": [
+    "Ghezelbash2016",
+    "Ghezelbash2018",
+    "Ghezelbash2022"
+   ],
+   "n_papers": 3,
+   "covered": 3,
+   "partly": 3,
+   "missing": 1
+  },
+  "nucleus_endplate_tissue": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "ribcage_tissue": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "segment_stiffness": {
+   "comparisons": 5,
+   "papers": [
+    "Ghezelbash2020a",
+    "Ghezelbash2021",
+    "Ghezelbash2024"
+   ],
+   "n_papers": 3,
+   "covered": 0,
+   "partly": 3,
+   "missing": 2
+  },
+  "thoracic_idp_invivo": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "thoracic_resection": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "thoracic_rom": {
+   "comparisons": 0,
+   "papers": [],
+   "n_papers": 0,
+   "covered": 0,
+   "partly": 0,
+   "missing": 0
+  },
+  "other: muscle specific tension": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2018"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 0,
+   "missing": 1
+  },
+  "other: disc residual stress": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2020a"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 0,
+   "missing": 1
+  },
+  "other: load-sharing": {
+   "comparisons": 1,
+   "papers": [
+    "Ghezelbash2020rev"
+   ],
+   "n_papers": 1,
+   "covered": 0,
+   "partly": 0,
+   "missing": 1
+  }
+ },
+ "totals": {
+  "covered": 10,
+  "partly": 21,
+  "missing": 14,
+  "comparisons": 45,
+  "model_vs_model": 16
+ }
+}

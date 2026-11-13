@@ -274,26 +274,33 @@
   "views": [
     {
       "id": "total",
-      "title": "Whole T1-T12 with rib cage",
+      "title": "Whole T1-T12, both directions",
       "task_ids": [
         "T1T12_fe_5",
         "T1T12_lbr_5",
         "T1T12_arr_5",
-        "T1T12_flex_5",
-        "T1T12_ext_5",
-        "T1T12_lb_5",
-        "T1T12_ar_5",
         "T1T12_arr_5_ax50",
         "T1T12_fe_2",
         "T1T12_lbr_2",
         "T1T12_arr_2",
-        "T1T12_flex_8",
-        "T1T12_ext_8",
-        "T1T12_lb_8",
-        "T1T12_ar_8",
         "T1T12_fe_5_nz",
         "T1T12_lbr_5_nz",
         "T1T12_arr_5_nz"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "total_one",
+      "title": "Whole T1-T12, one direction",
+      "task_ids": [
+        "T1T12_flex_5",
+        "T1T12_ext_5",
+        "T1T12_lb_5",
+        "T1T12_ar_5",
+        "T1T12_flex_8",
+        "T1T12_ext_8",
+        "T1T12_lb_8",
+        "T1T12_ar_8"
       ],
       "x": "task"
     },
@@ -333,7 +340,7 @@
     },
     {
       "id": "seg_fsu",
-      "title": "Single segments, no rib cage (5 Nm)",
+      "title": "Single segments, both directions (5 Nm)",
       "task_ids": [
         "T1T2_fe_5_fsu",
         "T1T2_lbr_5_fsu",
@@ -352,7 +359,14 @@
         "T9T10_arr_5_fsu",
         "T11T12_fe_5_fsu",
         "T11T12_lbr_5_fsu",
-        "T11T12_arr_5_fsu",
+        "T11T12_arr_5_fsu"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "seg_fsu_one",
+      "title": "Mean single segment, one direction (5 Nm)",
+      "task_ids": [
         "pooled_flex_5_fsu",
         "pooled_ext_5_fsu",
         "pooled_lb_5_fsu",
@@ -392,8 +406,24 @@
       "x": "task"
     },
     {
+      "id": "seg_4nm",
+      "title": "Mid-segment of 4-vertebra specimens (4 Nm)",
+      "task_ids": [
+        "T2T3_fe_4_ms",
+        "T2T3_lbr_4_ms",
+        "T2T3_arr_4_ms",
+        "T6T7_fe_4_ms",
+        "T6T7_lbr_4_ms",
+        "T6T7_arr_4_ms",
+        "T10T11_fe_4_ms",
+        "T10T11_lbr_4_ms",
+        "T10T11_arr_4_ms"
+      ],
+      "x": "task"
+    },
+    {
       "id": "follower",
-      "title": "Follower load, whole T1-T12 (5 Nm)",
+      "title": "Follower load, whole T1-T12 (one direction)",
       "task_ids": [
         "T1T12_flex_5",
         "T1T12_flex_5_fl400",
@@ -446,22 +476,6 @@
         "level",
         "direction"
       ]
-    },
-    {
-      "id": "seg_4nm",
-      "title": "Mid-segment of 4-vertebra specimens (4 Nm)",
-      "task_ids": [
-        "T2T3_fe_4_ms",
-        "T2T3_lbr_4_ms",
-        "T2T3_arr_4_ms",
-        "T6T7_fe_4_ms",
-        "T6T7_lbr_4_ms",
-        "T6T7_arr_4_ms",
-        "T10T11_fe_4_ms",
-        "T10T11_lbr_4_ms",
-        "T10T11_arr_4_ms"
-      ],
-      "x": "task"
     },
     {
       "id": "follower_t2s1",
@@ -6160,7 +6174,7 @@
     "The rib cage roughly halves segmental ROM: compare rib-cage tasks with rib-cage models and single-segment tasks with FSU models.",
     "Most Ulm values (Wilke 2025, Liebsch) are medians on overlapping donors; Busscher 2009 mid-segments keep 3 cm rib stumps."
   ],
-  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", a single FSU at the task level with rib heads but no rib cage, a 4-vertebra segment (e.g. T1-T4) with 3 cm rib stumps when inputs.rib_cage says so (report its middle segment), or a T2-sacrum spine without ribs. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction (\"8 flex / 6 ext\" = 8 Nm flexion and 6 Nm extension), with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. Return only JSON following answer_format, one number per task.",
+  "agent_prompt": "You have a finite element model of the human thoracic spine (ligamentous, no muscles). For each task build the specimen in inputs.specimen: T1-T12 with the intact rib cage (ribs, costal cartilage, sternum, costovertebral joints) when inputs.rib_cage is \"intact\", a single FSU at the task level with rib heads but no rib cage, a 4-vertebra segment (e.g. T1-T4) with 3 cm rib stumps when inputs.rib_cage says so (report its middle segment), or a T2-sacrum spine without ribs. Fix the caudal vertebra, apply a pure moment of inputs.moment_nm to the cranial vertebra in inputs.direction (\"8 flex / 6 ext\" = 8 Nm flexion and 6 Nm extension), with the follower or axial preload listed (0 = none). Report in degrees: rom_total = rotation of the region end vertebrae (T1 vs T12, or e.g. T4 vs T8), rom_segmental = upper vs lower vertebra at the task level, nz = neutral zone (both directions). One-direction tasks: neutral to peak; full-range tasks (Flexion+extension, L+R): sum of both directions. nz needs loading and unloading branches (a model with hysteresis); return null for nz if your model is elastic. Each task lists `studies` (whose specimens it uses) and `unit`. Do not tune the model to the reference values. Return only JSON following answer_format, one number per task; null for tasks you cannot simulate.",
   "answer_format": {
     "T1T12_fe_5": {
       "rom_total": "deg"

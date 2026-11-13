@@ -231,20 +231,33 @@
         "rc2_arc_fe",
         "rc2_rh68_fe",
         "rc2_rh_fe",
-        "rc2_wired_fe",
         "rc2_intact_lb",
         "rc2_im_lb",
         "rc2_mst_lb",
         "rc2_arc_lb",
         "rc2_rh68_lb",
         "rc2_rh_lb",
-        "rc2_wired_lb",
         "rc2_intact_ar",
         "rc2_im_ar",
         "rc2_mst_ar",
         "rc2_arc_ar",
         "rc2_rh68_ar",
-        "rc2_rh_ar",
+        "rc2_rh_ar"
+      ],
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
+    },
+    {
+      "id": "t_ribcage_other",
+      "title": "Sternum split or fractured, ribs cut",
+      "task_ids": [
+        "rc2_intact_fe",
+        "rc2_intact_lb",
+        "rc2_intact_ar",
+        "rc2_wired_fe",
+        "rc2_wired_lb",
         "rc2_wired_ar",
         "rc2_wat_arc_fe",
         "rc2_wat_arc_lb",
@@ -252,7 +265,13 @@
         "rc2_wat_fx_lb",
         "rc5_wat_intact_ar",
         "rc5_wat_fx_ar",
-        "rc5_wat_arc_ar"
+        "rc5_wat_arc_ar",
+        "rcp_wat_fx_fe",
+        "rcp_wat_arc_fe",
+        "rcp_wat_fx_lb",
+        "rcp_wat_arc_lb",
+        "rcp_wat_fx_ar",
+        "rcp_wat_arc_ar"
       ],
       "x": "task"
     },
@@ -272,15 +291,12 @@
         "rcp_mst_ar",
         "rcp_arc_ar",
         "rcp_rh68_ar",
-        "rcp_rh_ar",
-        "rcp_wat_fx_fe",
-        "rcp_wat_arc_fe",
-        "rcp_wat_fx_lb",
-        "rcp_wat_arc_lb",
-        "rcp_wat_fx_ar",
-        "rcp_wat_arc_ar"
+        "rcp_rh_ar"
       ],
-      "x": "task"
+      "x": "input:step_no",
+      "series": [
+        "direction"
+      ]
     },
     {
       "id": "t_ribcage_5nm",
@@ -5072,7 +5088,7 @@
     "One direction (rom) and both directions summed (rom_range) are different outputs; never compare across them.",
     "Healy 2014 and Lubelski 2014 (one lab) and Sis 2016 / Mannen 2018 (same 8 spines) are listed as shared samples."
   ],
-  "agent_prompt": "Use your finite element thoracic spine model. For each task build the specimen in its inputs (T6-T7 FSU without ribs, a C7-L1 / T1-T12 spine with rib cage, or a 4-vertebra upper thoracic segment with its 4 rib pairs and sternum in which the end rib pairs are rigidly tied to the end vertebrae; for these report the middle segment). Fix the caudal end, apply the pure moment (plus follower preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), of T1 relative to T12 unless the label names another span; \"rom_pct\" is your value divided by your intact value times 100. Do not tune the model to the reference values. Return JSON with one entry per task id, as in answer_format.",
+  "agent_prompt": "Use your finite element thoracic spine model. For each task build the specimen in its inputs (T6-T7 FSU without ribs, a C7-L1 / T1-T12 spine with rib cage, or a 4-vertebra upper thoracic segment with its 4 rib pairs and sternum in which the end rib pairs are rigidly tied to the end vertebrae; for these report the middle segment). Fix the caudal end, apply the pure moment (plus follower preload if given) to the cranial end, and record rotation at peak moment. Then remove the structures in the listed order, cumulatively, and repeat the same load after every step. \"rom\" is rotation in one direction from neutral; \"rom_range\" is the sum of both directions (e.g. flexion plus extension), of T1 relative to T12 unless the label names another span; \"rom_pct\" is your value divided by your intact value times 100. Do not tune the model to the reference values. Each task lists `studies` (whose specimens it uses) and `unit`. Return JSON with one entry per task id, as in answer_format; null for tasks you cannot simulate.",
   "answer_format": {
     "t67_intact_flex": {
       "rom": "deg"

@@ -122,7 +122,8 @@
     if (!card.patients || typeof card.patients !== 'object' || Array.isArray(card.patients)) card.patients = {};
     card._pkeys = Object.keys(card.patients);
     card._study = {}; card._color = {}; card._input = {}; card._output = {}; card._task = {};
-    card.studies.forEach(function (s, i) { card._study[s.key] = s; card._color[s.key] = i % 12 + 1; });
+    var gc = (S.index && S.index.study_colors) || {}; // one colour per study across all benchmarks (site/build_index.py)
+    card.studies.forEach(function (s, i) { card._study[s.key] = s; card._color[s.key] = gc[s.key] || i % 12 + 1; });
     card.inputs.forEach(function (x) { if (x && x.key) card._input[x.key] = x; });
     card.outputs.forEach(function (x) { if (x && x.key) card._output[x.key] = x; });
     card.tasks.forEach(function (t) {
@@ -132,8 +133,9 @@
     // views as given, plus one "Other" view for tasks that no view lists
     var listed = {};
     card.views = card.views.filter(function (v) { return v && v.id; });
-    card.views.forEach(function (v) {
-      v.task_ids = (v.task_ids || []).filter(function (id) { return card._task[id] && !listed[id] && (listed[id] = 1); });
+    card.views.forEach(function (v) { // a task may sit in several views (e.g. the 0 N point of a follower-load curve)
+      var seen = {};
+      v.task_ids = (v.task_ids || []).filter(function (id) { return card._task[id] && !seen[id] && (seen[id] = listed[id] = 1); });
     });
     card.tasks.forEach(function (t) {
       if (listed[t.id]) return;
@@ -317,23 +319,27 @@
   }
 
   // ---------- Chart.js ----------
+  // one look for every chart: line and marker sizes, whiskers, axes
+  var STY = { line: 2, linePooled: 2.5, point: 3.5, pointPooled: 5, hover: 6, whisker: 1.1, whiskerPooled: 1.5, cap: 4 };
   var whiskers = {
     id: 'sbWhiskers',
     afterDatasetsDraw: function (chart, args, pluginOpts) {
-      var ctx = chart.ctx, horiz = !!(pluginOpts && pluginOpts.horiz);
+      var ctx = chart.ctx, horiz = !!(pluginOpts && pluginOpts.horiz), area = chart.chartArea;
       var vs = horiz ? chart.scales.x : chart.scales.y, ink = cssVar('--ink');
+      ctx.save();
+      ctx.beginPath(); ctx.rect(area.left - 8, area.top - 2, area.right - area.left + 16, area.bottom - area.top + 4); ctx.clip();
       chart.data.datasets.forEach(function (ds, i) {
         if (!ds._vals || !chart.isDatasetVisible(i)) return;
         var meta = chart.getDatasetMeta(i);
-        ctx.save();
-        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : ds._color ? alpha(ds._color, 0.7) : alpha(ink, 0.65);
-        ctx.lineWidth = ds._pooled ? 1.6 : 1.2;
+        ctx.strokeStyle = ds._pooled ? cssVar('--pooled') : ds._color ? alpha(ds._color, 0.6) : alpha(ink, 0.6);
+        ctx.lineWidth = ds._pooled ? STY.whiskerPooled : STY.whisker;
+        ctx.setLineDash([]);
         meta.data.forEach(function (el, j) {
           var v = ds._vals[j];
           if (!v || v.lo == null || v.hi == null || el.skip) return;
           var a = vs.getPixelForValue(v.lo), b = vs.getPixelForValue(v.hi);
           var size = horiz ? el.height : el.width;
-          var cap = Math.max(2.5, Math.min(5, (size || 10) / 4));
+          var cap = size ? Math.max(2.5, Math.min(STY.cap + 1, size / 4)) : STY.cap;
           ctx.beginPath();
           if (horiz) {
             ctx.moveTo(a, el.y); ctx.lineTo(b, el.y);
@@ -346,8 +352,8 @@
           }
           ctx.stroke();
         });
-        ctx.restore();
       });
+      ctx.restore();
     }
   };
   function chartBase() {
@@ -358,14 +364,23 @@
     return {
       responsive: true, maintainAspectRatio: false, animation: false, // charts are redrawn on every toggle; animating from a not-yet-laid-out size leaves stale points
       resizeDelay: 0,
+      layout: { padding: { top: 6, right: 8 } },
       plugins: {
         legend: { display: false },
         tooltip: {
           backgroundColor: cssVar('--surface'), titleColor: cssVar('--ink'), bodyColor: cssVar('--ink-2'),
-          borderColor: cssVar('--line-2'), borderWidth: 1, padding: 10, boxPadding: 4, usePointStyle: true
+          borderColor: cssVar('--line-2'), borderWidth: 1, padding: 10, boxPadding: 4, usePointStyle: true,
+          titleFont: { weight: '600' }
         }
       }
     };
+  }
+  // value axis and category axis, same look in every chart
+  function valAxis(title, extra) {
+    var ax = { title: { display: true, text: title, color: cssVar('--ink-2'), font: { size: 12, weight: '500' } },
+      grid: { color: cssVar('--grid') }, border: { display: false }, ticks: { color: cssVar('--muted'), padding: 6 } };
+    Object.keys(extra || {}).forEach(function (k) { ax[k] = extra[k]; });
+    return ax;
   }
   function chartMsg(box, msg) { box.style.height = ''; box.innerHTML = '<div class="chart-msg">' + esc(msg) + '</div>'; }
   function canvasIn(box, label) {
@@ -421,8 +436,7 @@
     opts.indexAxis = horiz ? 'y' : 'x';
     opts.plugins.sbWhiskers = { horiz: horiz };
     opts.interaction = { mode: 'index', axis: horiz ? 'y' : 'x', intersect: false };
-    var valueAxis = { beginAtZero: true, suggestedMax: hi > 0 ? hi * 1.04 : 0, suggestedMin: lo < 0 ? lo * 1.04 : 0,
-      title: { display: true, text: yTitle, color: ink2 }, grid: { color: grid }, border: { display: false } };
+    var valueAxis = valAxis(yTitle, { beginAtZero: true, suggestedMax: hi > 0 ? hi * 1.04 : 0, suggestedMin: lo < 0 ? lo * 1.04 : 0 });
     var catAxis = { grid: { display: false }, ticks: { color: ink2, autoSkip: false, maxRotation: 0 } };
     opts.scales = horiz ? { y: catAxis, x: valueAxis } : { x: catAxis, y: valueAxis };
     opts.plugins.tooltip.filter = function (item) { return item.dataset._vals[item.dataIndex] != null; };
@@ -439,7 +453,7 @@
           data: d.vals.map(function (v) { return v ? v.y : null; }),
           backgroundColor: d.pooled ? alpha(pooledInk, 0.12) : d.hollow ? alpha(d.color, 0.14) : d.color,
           borderColor: d.pooled ? pooledInk : d.color, borderWidth: d.pooled || d.hollow ? 1.5 : 0,
-          borderRadius: 3, borderSkipped: 'start', skipNull: true, maxBarThickness: 40,
+          borderRadius: 3, borderSkipped: 'start', skipNull: true, maxBarThickness: 36,
           categoryPercentage: 0.8, barPercentage: 0.9, pointStyle: 'rectRounded' };
       }) },
       options: opts, plugins: [whiskers]
@@ -469,7 +483,7 @@
     opts.plugins.sbWhiskers = { horiz: true };
     opts.interaction = { mode: 'nearest', intersect: false, axis: 'xy' };
     opts.scales = {
-      x: { beginAtZero: lo >= 0, title: { display: true, text: xTitle, color: ink2 }, grid: { color: grid }, border: { display: false } },
+      x: valAxis(xTitle, { beginAtZero: lo >= 0 }),
       y: { type: 'linear', reverse: true, min: -0.5, max: tasks.length - 0.5, grid: { color: grid, drawTicks: false }, border: { display: false },
         afterBuildTicks: function (ax) { ax.ticks = tasks.map(function (t, i) { return { value: i }; }); },
         ticks: { color: ink2, autoSkip: false, padding: 8, callback: function (v) { return labels[v] != null ? labels[v] : ''; } } }
@@ -486,7 +500,7 @@
         d.vals.forEach(function (v, i) { if (v) { pts.push({ x: v.y, y: i + offs[i][d.key], i: i, v: v }); vals.push(v); } });
         var col = d.pooled ? cssVar('--pooled') : d.color;
         return { label: d.label, _key: d.key, _pooled: !!d.pooled, _vals: vals, data: pts, _color: d.pooled ? null : col,
-          pointStyle: d.pooled ? 'rectRot' : 'circle', pointRadius: d.pooled ? 5.5 : 4.5, pointHoverRadius: 7,
+          pointStyle: d.pooled ? 'rectRot' : 'circle', pointRadius: d.pooled ? STY.pointPooled : STY.point + 0.5, pointHoverRadius: STY.hover,
           backgroundColor: d.pooled || d.hollow ? surface : col, borderColor: d.pooled || d.hollow ? col : surface,
           pointBorderWidth: d.pooled || d.hollow ? 2 : 1.5 };
       }) },
@@ -498,75 +512,186 @@
 
   // curves: x = a numeric input; one line per study and series (other varying inputs)
   var DASHES = [[], [6, 4], [2, 3], [10, 3, 2, 3], [1, 2], [12, 3, 3, 3, 3, 3], [16, 5]];
-  function xAxisTitle(card, xKey) {
+  var MARKS = ['circle', 'triangle', 'rect', 'star', 'crossRot', 'rectRounded', 'cross'];
+  var BASELINE = /^(none|neutral|neutral \(upright\)|unloaded|-|–)?$/i; // a 0-load point shared by every direction
+  // value of an input of a task; "level" etc. may sit on the task itself
+  function sv(t, k) { return t.inputs[k] != null ? t.inputs[k] : t[k]; }
+  // numeric x of a task: a number, or a string that starts with one ("86 N at upper body centre")
+  function xNum(v) {
+    var n = toNum(v);
+    if (n != null) return n;
+    var m = typeof v === 'string' && /^\s*(-?\d+(?:\.\d+)?)\s*(n|nm|n·m|mm|deg|°|%)?(?=[\s,;]|$)/i.exec(v);
+    return m ? parseFloat(m[1]) : null;
+  }
+  function xAxisTitle(card, xKey, given) {
+    if (given) return given;
     var xd = card._input[xKey] || {}, lab = xd.label || upperFirst(human(xKey)), u = unitTxt(xd.unit);
     if (!u && /strain|^E\d\d$/i.test(xKey + ' ' + lab)) u = 'mm/mm';
     return lab + (u ? ' (' + u + ')' : '');
   }
   function shortVal(s) { var c = String(s).split(/,|\s\(/)[0].trim(); return c || String(s); }
   function seriesNamer(card, tasks, skeys) {
-    var full = function (t) { return skeys.map(function (k) { return valueText(card, k, t.inputs[k]); }).join(' · '); };
+    var vt = function (t, k) { return valueText(card, k, sv(t, k)); };
+    var full = function (t) { return skeys.map(function (k) { return vt(t, k); }).join(' · '); };
     // drop keys whose short value is the same in every series (e.g. "uniaxial tension" twice)
-    var kk = skeys.filter(function (k) { return uniq(tasks.map(function (t) { return shortVal(valueText(card, k, t.inputs[k])); })).length > 1; });
+    var kk = skeys.filter(function (k) { return uniq(tasks.map(function (t) { return shortVal(vt(t, k)); })).length > 1; });
     if (!kk.length) kk = skeys;
-    var short = function (t) { return kk.map(function (k) { return shortVal(valueText(card, k, t.inputs[k])); }).join(' · '); };
+    var short = function (t) { return kk.map(function (k) { return shortVal(vt(t, k)); }).join(' · '); };
     // short names only if they still tell the series apart
     var ok = uniq(tasks.map(full)).length === uniq(tasks.map(short)).length;
     return ok ? short : full;
   }
-  function drawCurves(box, card, tasks, xKey, unit, yTitle, seriesKeys) {
+  // names of resection steps: x value -> "intact", "supraspinous lig.", ... (null if one x has two names)
+  function stepNames(tasks, xKey) {
+    if (!/step/i.test(xKey)) return null;
+    var nameKey = Object.keys(tasks[0].inputs).filter(function (k) { return k !== xKey && /^step/i.test(k) && typeof tasks[0].inputs[k] === 'string'; })[0];
+    if (!nameKey) return null;
+    var m = {};
+    for (var i = 0; i < tasks.length; i++) {
+      var x = xNum(tasks[i].inputs[xKey]), n = String(tasks[i].inputs[nameKey] || '').replace(/^\+\s*/, '').trim();
+      if (x == null) continue;
+      if (/^none\b/i.test(n) || x === 0) n = 'intact';
+      if (m[x] != null && m[x] !== n) return null;
+      m[x] = n;
+    }
+    return m;
+  }
+  function drawCurves(box, card, tasks, xKey, unit, yTitle, seriesKeys, xTitleGiven) {
     if (typeof Chart === 'undefined') { chartMsg(box, 'The chart library did not load. The table below has every value.'); return null; }
-    var split = splitInputs(card, tasks, [xKey]);
-    var skeys = (seriesKeys && seriesKeys.length) ? seriesKeys.filter(function (k) { return split.vary.indexOf(k) >= 0; }) : split.vary;
-    var sKey = seriesNamer(card, tasks, skeys);
-    var series = uniq(tasks.map(sKey));
+    var xOf = function (t) { return xNum(t.inputs[xKey]); };
+    var varies = function (k) { return uniq(tasks.map(function (t) { return JSON.stringify(sv(t, k) == null ? null : sv(t, k)); })).length > 1; };
+    var skeys = (seriesKeys && seriesKeys.length) ? seriesKeys.filter(varies) : splitInputs(card, tasks, [xKey]).vary;
+    // unloaded points (direction "none" at 0 Nm) start every line instead of forming a series of their own
+    var isBase = function (t) { return skeys.length && xOf(t) === 0 && skeys.every(function (k) { return BASELINE.test(String(sv(t, k) == null ? '' : sv(t, k)).trim()); }); };
+    var base = tasks.filter(isBase), rest = tasks.filter(function (t) { return !isBase(t); });
+    if (!rest.length) { rest = tasks; base = []; }
+    var sKey = seriesNamer(card, rest, skeys);
+    var series = uniq(rest.map(sKey));
     var studies = viewStudies(card, tasks).filter(function (k) { return !S.off[k]; });
-    var byStudyColor = studies.length > 1 || series.length === 1;
-    var xOf = function (t) { return toNum(t.inputs[xKey]); };
+    // FE curves: colour = study (the same on every card), line style and marker = series.
+    // Other domains with one study (e.g. stress-strain of four lamellae): colour by series reads better.
+    var byStudyColor = card.domain === 'fe' || studies.length > 1 || series.length === 1;
+    var steps = stepNames(tasks, xKey);
+    var lineOf = function (pick, s) { // points of one series (plus the shared baseline) for one study / the pooled value
+      var mine = rest.filter(function (t) { return sKey(t) === s && xOf(t) != null; });
+      var pts = mine.map(function (t) { var v = pick(t); if (!v) return null; v.x = xOf(t); v.task = t; return v; }).filter(Boolean);
+      if (pts.length && series.length > 1) base.forEach(function (t) {
+        if (pts.some(function (p) { return p.x === xOf(t); })) return;
+        var v = pick(t); if (v) { v.x = xOf(t); v.task = t; v.base = true; pts.push(v); }
+      });
+      else if (series.length === 1) base.forEach(function (t) { var v = pick(t); if (v) { v.x = xOf(t); v.task = t; pts.push(v); } });
+      return pts.sort(function (a, b) { return a.x - b.x; });
+    };
     var lines = [];
     studies.forEach(function (k) {
       series.forEach(function (s, si) {
-        var pts = tasks.filter(function (t) { return sKey(t) === s && xOf(t) != null; }).map(function (t) {
-          var v = firstRef(card, t, k); if (!v) return null; v.x = xOf(t); v.task = t; return v;
-        }).filter(Boolean).sort(function (a, b) { return a.x - b.x; });
+        var pts = lineOf(function (t) { return firstRef(card, t, k); }, s);
         if (!pts.length) return;
-        lines.push({ label: studyLabel(card, k, false) + (series.length > 1 ? ' · ' + s : ''), key: k, pts: pts, hollow: noPool(card, k),
+        lines.push({ label: studyLabel(card, k, false) + (series.length > 1 ? ' · ' + s : ''), key: k, pts: pts, hollow: noPool(card, k), si: si,
           color: byStudyColor ? colorOf(card, k) : cssVar('--s' + (si % 12 + 1)), dash: byStudyColor ? DASHES[si % DASHES.length] : [] });
       });
     });
+    if (base.length && series.length > 1) studies.forEach(function (k) { // a study with only the unloaded point
+      if (lines.some(function (l) { return l.key === k; })) return;
+      var pts = base.map(function (t) { var v = firstRef(card, t, k); if (!v) return null; v.x = xOf(t); v.task = t; return v; }).filter(Boolean);
+      if (pts.length) lines.push({ label: studyLabel(card, k, false) + ' · unloaded', key: k, pts: pts, hollow: noPool(card, k), si: 0, color: colorOf(card, k), dash: [] });
+    });
     if (!S.hidePooled) series.forEach(function (s, si) {
-      var pts = tasks.filter(function (t) { return sKey(t) === s && xOf(t) != null; }).map(function (t) {
-        var v = pooledValue(pooledFor(card, t)); if (!v) return null; v.x = xOf(t); v.task = t; return v;
-      }).filter(Boolean).sort(function (a, b) { return a.x - b.x; });
-      if (pts.length) lines.push({ label: 'Pooled' + (series.length > 1 ? ' · ' + s : ''), key: '_pooled', pooled: true, pts: pts,
+      var pts = lineOf(function (t) { return pooledValue(pooledFor(card, t)); }, s);
+      if (pts.length) lines.push({ label: 'Pooled' + (series.length > 1 ? ' · ' + s : ''), key: '_pooled', pooled: true, pts: pts, si: si,
         color: cssVar('--pooled'), dash: byStudyColor ? DASHES[si % DASHES.length] : [] });
     });
     if (!lines.length) { chartMsg(box, studies.length ? 'No plottable values. See the table.' : 'Nothing to show. Switch a study on above.'); return null; }
     box.style.height = '';
-    var xTitle = xAxisTitle(card, xKey);
-    var opts = chartBase(), ink2 = cssVar('--ink-2'), grid = cssVar('--grid'), surface = cssVar('--surface');
+    var xs = [], ys = [];
+    lines.forEach(function (l) { l.pts.forEach(function (p) { xs.push(p.x); ys.push(p.y); if (p.lo != null) ys.push(p.lo); if (p.hi != null) ys.push(p.hi); }); });
+    var xlo = Math.min.apply(null, xs), xhi = Math.max.apply(null, xs);
+    var yAllPos = lines.every(function (l) { return l.pts.every(function (p) { return p.y >= 0; }); });
+    // dodge: lines that share an x value are shifted a few pixels apart so their whiskers stay readable
+    var xmin = xlo >= 0 ? 0 : xlo, span = Math.max(xhi - xmin, 1e-9);
+    var plotW = Math.max(200, box.clientWidth - 90), perPx = span / plotW;
+    // one slot per study (lines of one study stay on the true x); lone points of one study are spread by series
+    var slots = [];
+    lines.forEach(function (l) {
+      if (l.pooled) { l.slot = null; return; }
+      var id = l.key + (l.pts.length === 1 && series.length > 1 ? '|' + l.si : '');
+      if (slots.indexOf(id) < 0) slots.push(id);
+      l.slot = slots.indexOf(id);
+    });
+    var shared = {};
+    lines.forEach(function (l) { if (l.slot != null) l.pts.forEach(function (p) { (shared[p.x] = shared[p.x] || {})[l.slot] = 1; }); });
+    var crowd = Object.keys(shared).some(function (k) { return Object.keys(shared[k]).length > 1; });
+    var stepPx = crowd && slots.length > 1 ? Math.min(5, 24 / (slots.length - 1)) : 0;
+    lines.forEach(function (l) { l.dx = l.slot == null ? 0 : (l.slot - (slots.length - 1) / 2) * stepPx * perPx; });
+    var padX = (stepPx * (slots.length - 1) / 2 + 8) * perPx;
+    var xTitle = xAxisTitle(card, xKey, xTitleGiven);
+    var narrow = box.clientWidth < 560;
+    var opts = chartBase(), surface = cssVar('--surface');
     opts.interaction = { mode: 'nearest', axis: 'x', intersect: false };
+    var xTicks = { color: cssVar('--muted'), padding: 6, maxRotation: 0 };
+    if (steps) {
+      xTicks.stepSize = 1;
+      xTicks.callback = function (v) {
+        if (Math.abs(v - Math.round(v)) > 1e-6) return '';
+        var n = steps[Math.round(v)];
+        return narrow || n == null ? String(Math.round(v)) : wrapLabel(shortVal(n), 12);
+      };
+    }
     opts.scales = {
-      x: { type: 'linear', title: { display: true, text: xTitle, color: ink2 }, grid: { color: grid }, border: { display: false } },
-      y: { title: { display: true, text: yTitle, color: ink2 }, grid: { color: grid }, border: { display: false } }
+      x: valAxis(steps && !narrow ? 'Resection step (cumulative)' : xTitle, { type: 'linear', min: xmin - padX, max: xhi + padX, ticks: xTicks, offset: false }),
+      y: valAxis(yTitle, yAllPos ? { beginAtZero: true, min: 0 } : {})
     };
+    xTicks.includeBounds = false;
+    if (steps) { opts.scales.x.min = xmin - 0.35; opts.scales.x.max = xhi + 0.35; opts.scales.x.afterBuildTicks = function (ax) { ax.ticks = Object.keys(steps).map(function (k) { return { value: +k }; }); }; }
+    else if (xlo >= 0) opts.scales.x.afterBuildTicks = function (ax) { ax.ticks = ax.ticks.filter(function (t) { return t.value >= 0; }); };
     opts.plugins.tooltip.callbacks = {
-      title: function (items) { return items.length ? xTitle + ' = ' + fmt(items[0].raw.x) : ''; },
+      title: function (items) {
+        if (!items.length) return '';
+        var p = items[0].dataset._vals[items[0].dataIndex];
+        return (steps ? 'Step ' + fmt(p.x) + (steps[p.x] ? ': ' + steps[p.x] : '') : xTitle + ' = ' + fmt(p.x));
+      },
       label: function (c) { return tipLabel(c, c.dataset._vals[c.dataIndex], unit); }
     };
     var chart = new Chart(canvasIn(box, yTitle + ' versus ' + xTitle), {
       type: 'line',
       data: { datasets: lines.map(function (l) {
-        return { label: l.label, _key: l.key, _pooled: !!l.pooled, _color: l.pooled ? null : l.color, _vals: l.pts, data: l.pts.map(function (p) { return { x: p.x, y: p.y }; }),
-          borderColor: l.color, backgroundColor: l.color, borderWidth: l.pooled ? 2.5 : 2, borderDash: l.dash,
-          pointRadius: l.pooled ? 4.5 : 3.5, pointHoverRadius: 6, pointBorderColor: l.hollow ? l.color : surface, pointBorderWidth: 1.5,
-          pointBackgroundColor: l.hollow ? surface : l.color,
-          pointStyle: l.pooled ? 'rectRot' : 'circle', fill: false, tension: 0 };
+        var mark = l.pooled ? 'rectRot' : MARKS[l.si % MARKS.length];
+        return { label: l.label, _key: l.key, _pooled: !!l.pooled, _color: l.pooled ? null : l.color, _vals: l.pts,
+          data: l.pts.map(function (p) { return { x: p.x + l.dx, y: p.y }; }),
+          borderColor: l.color, backgroundColor: l.color, borderWidth: l.pooled ? STY.linePooled : STY.line, borderDash: l.dash,
+          pointRadius: l.pooled ? STY.pointPooled : l.pts.length > 10 ? 2 : (mark === 'star' || mark === 'triangle' ? STY.point + 1 : STY.point), pointHoverRadius: STY.hover,
+          pointBorderColor: l.hollow || l.pooled || /^(star|cross)/.test(mark) ? l.color : surface, pointBorderWidth: l.hollow || l.pooled || /^(star|cross)/.test(mark) ? 1.6 : 1.2,
+          pointBackgroundColor: l.hollow || l.pooled ? surface : l.color,
+          pointStyle: mark, fill: false, tension: 0, clip: 8 };
       }) },
       options: opts, plugins: [whiskers]
     });
     S.charts.push(chart);
-    return { kind: 'curves', series: series, colorBySeries: !byStudyColor, sets: lines };
+    return { kind: 'curves', series: series, colorBySeries: !byStudyColor, sets: lines, steps: narrow ? steps : null };
+  }
+  // legend for the line styles (series) under a curve chart
+  function markSvg(mark, col, filled) {
+    var f = filled ? col : 'none', st = 'stroke="' + col + '" stroke-width="1.4"';
+    switch (mark) {
+      case 'triangle': return '<path d="M14 0.6 L18 7.4 L10 7.4 Z" fill="' + f + '" ' + st + '/>';
+      case 'rect': case 'rectRounded': return '<rect x="10.5" y="0.5" width="7" height="7" rx="' + (mark === 'rect' ? 0 : 2) + '" fill="' + f + '" ' + st + '/>';
+      case 'star': return '<path d="M14 0.3 L15.2 3.4 L18.4 3.6 L16 5.6 L16.7 8 L14 6.5 L11.3 8 L12 5.6 L9.6 3.6 L12.8 3.4 Z" fill="' + f + '" ' + st + '/>';
+      case 'crossRot': return '<path d="M11 1 L17 7 M17 1 L11 7" ' + st + '/>';
+      case 'cross': return '<path d="M14 0 V8 M10 4 H18" ' + st + '/>';
+      default: return '<circle cx="14" cy="4" r="3.4" fill="' + f + '" ' + st + '/>';
+    }
+  }
+  function seriesKeyHtml(info) {
+    var html = info.series.length > 1 ? info.series.map(function (s, si) {
+      var d = info.colorBySeries ? [] : DASHES[si % DASHES.length];
+      var col = info.colorBySeries ? cssVar('--s' + (si % 12 + 1)) : cssVar('--ink-2');
+      return '<span><svg viewBox="0 0 28 8" aria-hidden="true"><line x1="1" y1="4" x2="27" y2="4" stroke="' + col + '" stroke-width="2" stroke-dasharray="' + d.join(' ') + '"/>' +
+        markSvg(MARKS[si % MARKS.length], col, true) + '</svg>' + esc(s) + '</span>';
+    }).join('') : '';
+    if (info.steps) html += '<span class="steps-key">' + Object.keys(info.steps).sort(function (a, b) { return a - b; }).map(function (k) {
+      return '<b>' + esc(k) + '</b> ' + esc(info.steps[k]);
+    }).join(' · ') + '</span>';
+    return html;
   }
 
   // ---------- home ----------
@@ -663,14 +788,16 @@
     }
     html += '<section id="view-body" class="viz" aria-live="polite"></section>';
     if (card.simulate.length || Object.keys(card.subjects).length || card.summary) {
-      html += '<details class="panel how"><summary><h2>How to simulate this</h2></summary>' +
+      html += '<details class="panel fold-panel howto"><summary><h2>How to simulate this</h2></summary>' +
         (card.summary ? '<p class="lede">' + esc(card.summary) + '</p>' : '') +
         (card.simulate.length ? '<ol class="steps">' + card.simulate.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' : '') +
         subjectTable(card) + '</details>';
     }
-    html += '<section class="panel"><h2>Studies</h2>' + studiesTable(card) + '</section>';
+    html += '<details class="panel fold-panel"' + (card.studies.length <= 8 ? ' open' : '') + '><summary><h2>Studies <span class="count">' + card.studies.length + '</span></h2></summary>' + studiesTable(card) + '</details>';
     if (card.notes.length) html += '<section class="panel"><h2>Notes</h2><ul class="notes">' + card.notes.slice(0, 3).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></section>';
     main.innerHTML = '<div class="stack">' + html + '</div>';
+    // prefetch the full agent record (tasks, subjects, answer format; no answers) so the copy below is instant
+    if (!card._agent) fetchJSON('data/agent/' + encodeURIComponent(card.id) + '.json').then(function (a) { card._agent = a; }, function () { /* fall back to the prompt only */ });
 
     $('#copy-prompt').addEventListener('click', function () {
       var label = $('span', this), btns = this.parentNode, text = agentPrompt(card);
@@ -712,6 +839,11 @@
     renderView(card);
   }
   function agentPrompt(card) {
+    var a = card._agent;
+    if (a) { // the full benchmark record: prompt, simulate steps, subjects, studies, tasks, answer format (never the answers)
+      return (a.agent_prompt || card.agent_prompt || '') + '\n\nBenchmark "' + (a.title || card.title) +
+        '" as JSON (tasks, inputs, subjects and the answer format; return one JSON object following answer_format):\n' + JSON.stringify(a);
+    }
     var p = card.agent_prompt || card.summary || '';
     if (card.answer_format && Object.keys(card.answer_format).length) p += '\n\nAnswer format (JSON, one entry per task):\n' + JSON.stringify(card.answer_format);
     return p;
@@ -805,7 +937,7 @@
     var anyPooled = tasks.some(function (t) { return t.pooled; });
     var outs = uniq(tasks.map(function (t) { return t.output || ''; }));
     var xKey = v.x && String(v.x).indexOf('input:') === 0 ? String(v.x).slice(6) : null;
-    if (xKey && !tasks.some(function (t) { return toNum(t.inputs[xKey]) != null; })) xKey = null;
+    if (xKey && !tasks.some(function (t) { return xNum(t.inputs[xKey]) != null; })) xKey = null;
     var bwAble = !v.overview && outs.some(function (o) { return canBW(card, o); });
     var side = schemBlock(card, v) + patientTable(card, tasks);
     var main1;
@@ -823,7 +955,7 @@
     body.innerHTML = chipsHtml(card, studies, anyPooled) +
       '<div class="viz-grid' + (side ? ' has-side' : '') + '"><div class="viz-main">' + main1 + '<p class="chart-cap" id="chart-cap"></p></div>' +
       (side ? '<aside class="viz-side">' + side + '</aside>' : '') + '</div>' +
-      (v.overview ? '' : whatLine(card, tasks, outs, xKey)) + '<div id="task-table"></div>';
+      (v.overview ? '' : whatLine(card, tasks, outs, xKey, v.x_title)) + '<div id="task-table"></div>';
     wireSchemImgs(body);
     var flags = { kinds: {}, median: false, range: false, hollow: false, derived: false };
     if (v.overview) renderOverview(card, tasks, $('#overview', body), flags);
@@ -832,16 +964,13 @@
       var unit = unitOf(card, o), yTitle = axisTitle(card, o);
       if (bwOn(card, o)) flags.derived = true;
       var box = $('#chart-' + i, body), info;
-      if (xKey && ts.some(function (t) { return toNum(t.inputs[xKey]) != null; })) {
-        info = drawCurves(box, card, ts, xKey, unit, yTitle, v.series);
-        if (info && info.series.length > 1) $('#skey-' + i, body).innerHTML = info.series.map(function (s, si) {
-          var d = info.colorBySeries ? [] : DASHES[si % DASHES.length];
-          var col = info.colorBySeries ? 'var(--s' + (si % 12 + 1) + ')' : 'var(--ink-2)';
-          return '<span><svg viewBox="0 0 28 6" aria-hidden="true"><line x1="1" y1="3" x2="27" y2="3" stroke="' + col + '" stroke-width="2" stroke-dasharray="' + d.join(' ') + '"/></svg>' + esc(s) + '</span>';
-        }).join('');
+      if (xKey && ts.some(function (t) { return xNum(t.inputs[xKey]) != null; })) {
+        info = drawCurves(box, card, ts, xKey, unit, yTitle, v.series, v.x_title);
+        if (info) $('#skey-' + i, body).innerHTML = seriesKeyHtml(info);
       } else info = drawBars(box, card, ts, unit, yTitle);
       if (info) {
         flags.kinds[info.kind] = 1;
+        if (info.kind === 'curves') { if (info.colorBySeries && info.series.length > 1) flags.seriesColor = true; if (info.series.length > 1) flags.multiSeries = true; }
         info.sets.forEach(function (d) {
           if (d.hollow) flags.hollow = true;
           (d.vals || d.pts || []).forEach(function (x) { if (x) { if (x.kind === 'median') flags.median = true; if (x.err === 'range') flags.range = true; } });
@@ -852,7 +981,7 @@
     if (!v.overview) {
       var tt = taskTable(card, tasks, studies, xKey);
       // curves: the chart already shows every point; keep the long table folded
-      $('#task-table', body).innerHTML = xKey ? '<details class="fold values-fold"><summary>Show values (' + tasks.length + ' points)</summary>' + tt + '</details>' : tt;
+      $('#task-table', body).innerHTML = xKey || tasks.length > 12 ? '<details class="fold values-fold"><summary>Values <span class="muted">(' + plural(tasks.length, xKey ? 'point' : 'task') + ')</span></summary>' + tt + '</details>' : tt;
     }
     $$('.chip', body).forEach(function (c) {
       c.addEventListener('click', function () {
@@ -881,7 +1010,8 @@
   function capText(f, overview) {
     var bits = [];
     if (overview) bits.push('Headline value per task: the pooled mean of all studies (weighted by n), else the middle of the study values. Click a task to see every study.');
-    else if (f.kinds.curves && !f.kinds.bars && !f.kinds.dots) bits.push('Each line = one study (mean ± SD at each point). ◇ = pooled mean of all studies (weighted by n).');
+    else if (f.kinds.curves && !f.kinds.bars && !f.kinds.dots) bits.push((f.seriesColor ? 'Colour and marker = series' : 'Colour = study' + (f.multiSeries ? ', line style and marker = series' : '')) +
+      '; mean ± SD at each point. ◇ = pooled mean of all studies (weighted by n).');
     else if (f.kinds.bars && !f.kinds.dots) bits.push('Each bar = one study’s mean (± SD). Outlined grey bar = pooled mean of all studies (weighted by n).');
     else bits.push('Each dot = one study’s mean (± SD). ◇ = pooled mean of all studies (weighted by n).');
     if (f.median || f.range) bits.push('[min–max] for medians and individual subjects; medians are not pooled.');
@@ -891,16 +1021,17 @@
     return bits.join(' ');
   }
   // one line: what is fixed, what changes, what to report
-  function whatLine(card, tasks, outs, xKey) {
+  function whatLine(card, tasks, outs, xKey, xTitle) {
     var split = splitInputs(card, tasks, xKey ? [xKey] : []);
     var same = split.same.map(function (k) { return phrase(card, k, tasks[0].inputs[k]); }).filter(Boolean);
     var vary = split.vary.map(function (k) { return lowerFirst(inputLabel(card, k)); });
     var parts = [];
     if (same.length) parts.push('<span><b>Same for all:</b> ' + esc(same.join(', ')) + '</span>');
     if (xKey) {
-      var xs = tasks.map(function (t) { return toNum(t.inputs[xKey]); }).filter(isNum);
+      var xs = tasks.map(function (t) { return xNum(t.inputs[xKey]); }).filter(isNum);
       var xd = card._input[xKey] || {};
-      parts.push('<span><b>Sweep:</b> ' + esc(lowerFirst(inputLabel(card, xKey)) + ' ' + withUnit(fmt(Math.min.apply(null, xs)), xd.unit) + ' to ' + withUnit(fmt(Math.max.apply(null, xs)), xd.unit)) + '</span>');
+      var xu = xTitle ? (/\(([^)]+)\)\s*$/.exec(xTitle) || [])[1] : xd.unit, xl = xTitle ? xTitle.replace(/\s*\([^)]*\)\s*$/, '') : inputLabel(card, xKey);
+      parts.push('<span><b>Sweep:</b> ' + esc(lowerFirst(xl) + ' ' + withUnit(fmt(Math.min.apply(null, xs)), xu) + ' to ' + withUnit(fmt(Math.max.apply(null, xs)), xu)) + '</span>');
     }
     if (vary.length) parts.push('<span><b>Changes per task:</b> ' + esc(vary.join(', ')) + '</span>');
     parts.push('<span><b>Report:</b> ' + esc(outs.map(function (o) { return lowerFirst(axisTitle(card, o)); }).join(', ')) + '</span>');
@@ -916,7 +1047,7 @@
       var sk = splitInputs(card, tasks, [xKey]).vary;
       var key = function (t) { return sk.map(function (k) { return String(t.inputs[k]); }).join('|'); };
       var order = uniq(tasks.map(key));
-      rows.sort(function (a, b) { return order.indexOf(key(a)) - order.indexOf(key(b)) || (toNum(a.inputs[xKey]) || 0) - (toNum(b.inputs[xKey]) || 0); });
+      rows.sort(function (a, b) { return order.indexOf(key(a)) - order.indexOf(key(b)) || (xNum(a.inputs[xKey]) || 0) - (xNum(b.inputs[xKey]) || 0); });
     }
     // inputs that differ between rows, as short phrases; skip what the task label already says
     var inp = rows.map(function (t) {
@@ -1042,6 +1173,40 @@
       '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>. Downloads require accepting the <a href="#terms">Terms of use</a>.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
   }
+  function viewPapers() {
+    setTitle('In my papers');
+    return fetchJSON('data/papers.json').then(function (d) {
+      var titles = {}, B = S.index.benchmarks || [];
+      B.forEach(function (b) { titles[b.id] = b.title; });
+      var tag = function (s) { return '<span class="pstat ' + esc(s) + '">' + esc(s) + '</span>'; };
+      var cardLink = function (c) { return titles[c] ? '<a href="#b/' + enc(c) + '">' + esc(titles[c]) + '</a>' : esc(String(c || '').replace(/_/g, ' ')); };
+      var T = d.totals || {};
+      var cats = Object.keys(d.summary_by_category || {}).filter(function (c) { return d.summary_by_category[c].comparisons > 0; }).sort(function (x, y) { return d.summary_by_category[y].comparisons - d.summary_by_category[x].comparisons; });
+      var html = '<div class="stack"><div><h1>In my papers</h1><p class="lede">What my models were compared against, paper by paper, and where each comparison sits in SpineBench. ' +
+        esc(T.comparisons || 0) + ' comparisons with measurements in ' + esc((d.papers || []).length) + ' papers: ' +
+        esc(T.covered || 0) + ' covered, ' + esc(T.partly || 0) + ' partly, ' + esc(T.missing || 0) + ' not yet in SpineBench.</p></div>';
+      html += '<section class="panel"><h2>By benchmark</h2><div class="tablewrap"><table class="vals"><thead><tr><th>Benchmark</th><th>Comparisons</th><th>Papers</th><th>Covered</th><th>Partly</th><th>Missing</th></tr></thead><tbody>' +
+        cats.map(function (c) { var s = d.summary_by_category[c];
+          return '<tr><td>' + cardLink(c) + '</td><td>' + esc(s.comparisons) + '</td><td>' + esc(s.n_papers) + '</td><td>' + esc(s.covered) + '</td><td>' + esc(s.partly) + '</td><td>' + esc(s.missing) + '</td></tr>'; }).join('') +
+        '</tbody></table></div></section>';
+      (d.papers || []).slice().sort(function (x, y) { return y.year - x.year; }).forEach(function (p) {
+        var all = p.comparisons || [];
+        html += '<details class="panel fold-panel paper"><summary><h2>' + esc(p.year) + ' · ' + esc(p.title) + ' <span class="count">' + esc(all.length) + '</span></h2></summary>' +
+          '<p class="small muted">' + esc(p.journal || '') + (p.doi ? ' · <a href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">doi</a>' : '') + '</p>' +
+          (p.model ? '<p class="small">' + esc(p.model) + '</p>' : '') +
+          (all.length ? '<ul class="cmp">' + all.map(function (c) {
+            var exp = (c.experimental || []).join(', ');
+            return '<li>' + tag(c.status) + ' <b>' + esc(c.output) + '</b>' + (exp ? ' vs ' + esc(exp) : '') +
+              (c.where ? ' <span class="muted">(' + esc(c.where) + ')</span>' : '') +
+              (c.result ? '<div class="small">' + esc(c.result) + (c.metric ? ' · ' + esc(c.metric) : '') + '</div>' : '') +
+              '<div class="small muted">' + cardLink(c.card || c.category) + '</div></li>';
+          }).join('') + '</ul>' : '<p class="small muted">No comparison with measurements.</p>') + '</details>';
+      });
+      main.innerHTML = html + '</div>';
+    }, function () {
+      main.innerHTML = '<h1>In my papers</h1><p class="lede">The paper map is not built yet.</p>';
+    });
+  }
   function notFound(msg) {
     setTitle('Not found');
     main.innerHTML = '<h1>Page not found</h1><p class="lede">' + esc(msg) + '</p><p class="note"><a href="#">All benchmarks</a></p>';
@@ -1127,6 +1292,7 @@
         case 'home': p = viewHome(); break;
         case 'b': p = viewBench(r.arg, r.sub); break;
         case 'agents': p = viewAgents(); break;
+        case 'papers': p = viewPapers(); break;
         case 'about': p = viewAbout(); break;
         case 'terms': p = viewTerms(); break;
         case 'test': case 'group': case 'category': case 'browse': case 'groups': case 'search': p = oldLink(r.page, r.arg); break;

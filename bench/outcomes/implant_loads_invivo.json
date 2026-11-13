@@ -13,7 +13,7 @@
     "Scale the model to the patient (\"patients\") for per-patient refs, or to the cohort mean for group refs.",
     "Set the activity and posture; add hand loads, supports or limb positions as stated.",
     "VBR tasks: output the resultant force across the implant level (L1; L3 for WP5).",
-    "Fixator tasks: output the load on the bridged segments (state which: compression or flexion moment) as % of standing.",
+    "Fixator tasks: output the flexion moment across the bridged segments as % of relaxed standing.",
     "Increase and change tasks: simulate the reference activity with the same model and report the difference (N) or change (%)."
   ],
   "inputs": [
@@ -1507,5 +1507,5 @@
       "fixator_moment_rel": "% of standing"
     }
   },
-  "agent_prompt": "Use your spine musculoskeletal model. For each task in \"tasks\", simulate the activity in its inputs for the patients listed in \"subjects\" for the ref study (per-patient refs: each patient in \"patients\"; group refs: the cohort mean). VBR tasks: report the resultant force across the implant level (L1, L3 for WP5). Increase and change tasks: also simulate the reference activity and report the difference in N or the change in %. Fixator tasks: report the bridged-segment load as % of standing and say which quantity you used. State whether the implant is modelled. Do not tune the model to the reference values. Return JSON shaped like \"answer_format\": one entry per task id with a number in the stated unit, or an object {patient_id: number} for per-patient tasks."
+  "agent_prompt": "Use your spine musculoskeletal model. Each task lists the studies (`studies`) and, where the references are per patient, the patients (`patients`). VBR patients (same 5 in every VBR study): WP1 M 62 y 168 cm 66 kg, L1 VBR, fixator T12-L2; WP2 M 71 y 169 cm 74 kg, L1 VBR, T12-L2; WP3 F 69 y 168 cm 64 kg, L1 VBR, T11-L3 (her Rohlmann 2008 values are relative to lying supine at rest); WP4 M 63 y 170 cm 60 kg, L1 VBR, T11-L3; WP5 M 66 y 180 cm 63 kg, L3 VBR, L2-L4. Fixator tasks (Rohlmann 2001): 10 patients, 4M/6F, mean 51 y, 168 cm, 72 kg, bisegmental internal fixators between T10 and L5. For tasks with `patients` simulate each patient and answer {patient id: value}; otherwise simulate the cohort mean in `subjects` (or every patient and give their median). vbr_force: resultant force (N) across the implant level (L1; L3 for WP5); walking and lifting = peak over the activity. vbr_force_increase: task minus inputs.reference activity (N); vbr_force_change: (task - reference) / reference x 100 (%). fixator_moment_rel: flexion (bending) moment across the bridged segments in the task, as % of the same in relaxed standing. A model without the implant gives the total segment load, which the VBR only shares with fixator, bone and graft: return it anyway and say so in a note outside the JSON. Do not tune the model to the reference values. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there (each task also states its `unit`); use null for tasks you cannot simulate."
 }
