@@ -881,5 +881,18 @@ def build_outcomes(real_dir, ex_dir, out):
           f"{counts['units']}")
 
 
+def stamp_assets():
+    """Add ?v=<content hash> to app.js and style.css in index.html, so browsers load the new files after a change."""
+    import hashlib
+    site = Path(__file__).resolve().parent
+    idx = site / "index.html"
+    html = idx.read_text(encoding="utf-8")
+    for name in ("app.js", "style.css"):
+        h = hashlib.sha1((site / "assets" / name).read_bytes()).hexdigest()[:10]
+        html = re.sub(r'assets/' + re.escape(name) + r'(\?v=[0-9a-f]*)?"', f'assets/{name}?v={h}"', html)
+    idx.write_text(html, encoding="utf-8")
+
+
 if __name__ == "__main__":
     main()
+    stamp_assets()
