@@ -3,16 +3,16 @@
   "annulus_tissue": {
    "units": 4,
    "kind": "simulations",
-   "answered": 0,
-   "passed": 0,
-   "score": 0.0
+   "answered": 4,
+   "passed": 1,
+   "score": 0.25
   },
   "emg_load_holding": {
    "units": 112,
    "kind": "tasks",
-   "answered": 0,
-   "passed": 0,
-   "score": 0.0
+   "answered": 100,
+   "passed": 19,
+   "score": 0.17
   },
   "facet_forces": {
    "units": 19,
@@ -24,9 +24,9 @@
   "flexion_relaxation": {
    "units": 88,
    "kind": "tasks",
-   "answered": 0,
-   "passed": 0,
-   "score": 0.0
+   "answered": 70,
+   "passed": 31,
+   "score": 0.352
   },
   "idp_invitro": {
    "units": 29,
@@ -73,9 +73,9 @@
   "maximal_exertions": {
    "units": 137,
    "kind": "tasks",
-   "answered": 0,
-   "passed": 0,
-   "score": 0.0
+   "answered": 137,
+   "passed": 57,
+   "score": 0.416
   },
   "ribcage_tissue": {
    "units": 22,
@@ -114,8 +114,8 @@
   }
  },
  "overall": {
-  "mean_card_score": 0.071,
-  "passed": 38,
+  "mean_card_score": 0.145,
+  "passed": 146,
   "units": 634
  },
  "results": {
@@ -123,188 +123,291 @@
    "lamella": {
     "pass": false,
     "sim": true,
-    "points_passed": "0/56",
-    "answered": false,
-    "nrmse": null,
+    "points_passed": "38/56",
+    "answered": true,
+    "nrmse": 6.743,
     "studies": {
      "holzapfel2005": {
-      "in_own_spread": "0/50",
-      "nrmse": null
+      "in_own_spread": "31/50",
+      "nrmse": 8.869
      },
      "skaggs1994": {
-      "in_own_spread": "0/7",
-      "nrmse": null
+      "in_own_spread": "4/7",
+      "nrmse": 0.216
      }
     }
    },
    "circumferential": {
-    "pass": false,
+    "pass": true,
     "sim": true,
-    "points_passed": "0/88",
-    "answered": false,
-    "nrmse": null,
+    "points_passed": "77/88",
+    "answered": true,
+    "nrmse": 0.308,
     "studies": {
      "bass2004": {
-      "in_own_spread": "0/9",
-      "nrmse": null
+      "in_own_spread": "7/9",
+      "nrmse": 0.148
      },
      "ebara1996": {
-      "in_own_spread": "0/50",
-      "nrmse": null
+      "in_own_spread": "47/50",
+      "nrmse": 0.314
      },
      "elliottsetton2001": {
-      "in_own_spread": "0/7",
-      "nrmse": null
+      "in_own_spread": "6/7",
+      "nrmse": 0.104
      },
      "oconnell2009": {
-      "in_own_spread": "0/18",
-      "nrmse": null
+      "in_own_spread": "1/18",
+      "nrmse": 0.449
      },
      "wagnerlotz2004": {
       "in_own_spread": "0/8",
-      "nrmse": null
+      "nrmse": 1.05
      }
     }
    },
    "axial": {
     "pass": false,
     "sim": true,
-    "points_passed": "0/30",
-    "answered": false,
-    "nrmse": null,
+    "points_passed": "1/30",
+    "answered": true,
+    "nrmse": 1.215,
     "studies": {
      "bass2004": {
       "in_own_spread": "0/7",
-      "nrmse": null
+      "nrmse": 0.785
      },
      "elliottsetton2001": {
       "in_own_spread": "0/8",
-      "nrmse": null
+      "nrmse": 2.889
      },
      "oconnell2009": {
-      "in_own_spread": "0/15",
-      "nrmse": null
+      "in_own_spread": "1/15",
+      "nrmse": 1.63
      }
     }
    },
    "biaxial": {
     "pass": false,
     "sim": true,
-    "points_passed": "0/37",
-    "answered": false,
-    "nrmse": null,
+    "points_passed": "17/37",
+    "answered": true,
+    "nrmse": 0.291,
     "studies": {
      "bass2004_g21": {
-      "in_own_spread": "0/19",
-      "nrmse": null
+      "in_own_spread": "5/19",
+      "nrmse": 0.224
      },
      "oconnell2012": {
-      "in_own_spread": "0/18",
-      "nrmse": null
+      "in_own_spread": "3/18",
+      "nrmse": 0.376
      }
     }
    }
   },
   "emg_load_holding": {
    "g20_lg_t11_umbilicus": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.94672655882353,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_midfemur": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.80822820588235,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_knee": {
-    "pass": null,
-    "why": "not answered"
+    "value": 25.94311614705882,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_midtibia": {
-    "pass": null,
-    "why": "not answered"
+    "value": 21.901271441176476,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_umbilicus": {
-    "pass": null,
-    "why": "not answered"
+    "value": 11.791511833333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_midfemur": {
-    "pass": null,
-    "why": "not answered"
+    "value": 26.335200166666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_knee": {
-    "pass": null,
-    "why": "not answered"
+    "value": 35.35375833333333,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_ic_l3_midtibia": {
-    "pass": null,
-    "why": "not answered"
+    "value": 51.648633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_umbilicus": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.795232175,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_midfemur": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.1380015250000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_knee": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.37636925,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_midtibia": {
-    "pass": null,
-    "why": "not answered"
+    "value": 7.315178525,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_lg_t10_p1": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.535816466666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_lg_t10_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.995500866666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_lg_l1_p1": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.702040295454546,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_lg_l1_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.155214431818184,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_mf_l5_p1": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.81888906,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lar19_mf_l5_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.7227373,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lar19_ra_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000041,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_ra_p3": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000023,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lar19_eo_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000345625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lar19_eo_p3": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0002356875,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lar19_io_p2": {
-    "pass": null,
-    "why": "not answered"
+    "value": 7.350110666666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lar19_io_p3": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.430569333333333,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_asym_lg_t11_l_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.79459523529411,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_asym_lg_t11_l_30": {
     "pass": null,
@@ -319,8 +422,13 @@
     "why": "not answered"
    },
    "g20_asym_lg_t11_r_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.821861176470584,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_asym_lg_t11_r_30": {
     "pass": null,
@@ -335,8 +443,11 @@
     "why": "not answered"
    },
    "g20_asym_mf_l4_l_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.09470315,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_asym_mf_l4_l_30": {
     "pass": null,
@@ -351,8 +462,11 @@
     "why": "not answered"
    },
    "g20_asym_mf_l4_r_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.1812998999999995,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_asym_mf_l4_r_30": {
     "pass": null,
@@ -367,292 +481,516 @@
     "why": "not answered"
    },
    "lav_ersl_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.59277745573171,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersl_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.577273513521,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersl_60": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.577894647029522,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersl_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1558493032415234,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersl_120": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.4546410361234312,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersr_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.592874008301125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersr_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.268551323801087,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_ersr_60": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.6576634941175045,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lavender1992"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lav_exol_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.1706957498733808,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lavender1992"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "lav_exol_60": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.1954749129872075,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_exol_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.345125317600429,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_exol_120": {
-    "pass": null,
-    "why": "not answered"
+    "value": 7.224341605300312,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_exol_150": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.4725817418591336,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "lav_exol_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": -0.0008125098198789749,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_ra_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000088,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_ra_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 16.896592333333334,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "granata2005"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "gra_io_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.670702333333332,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "granata2005"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "gra_io_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 14.72979563888889,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_eo_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0008190624999997,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_eo_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.001374604166667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_es_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.697162561728395,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gra_es_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.3078279814814815,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_front_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.751941295454546,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_front_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1083851818181816,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_front_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.1297359772727273,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_front_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.230999818181819,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_front_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.2984360909090915,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_sides_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.751941295454546,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_sides_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1083851818181816,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_sides_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.1297359772727273,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_sides_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.230999818181819,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_lg_sides_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.2984360909090915,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_front_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_front_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.001653,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_front_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.00164,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_front_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0014775,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_front_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0013265,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_sides_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_sides_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.001653,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_sides_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.00164,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_sides_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0014775,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ic_sides_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0013265,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_front_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.6799099,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_front_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.9800461200000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_front_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.3822149,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_front_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.834290139999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_front_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.2947878799999994,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_sides_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.6799099,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_sides_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.9800461200000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_sides_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.3822149,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_sides_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.834290139999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_mf_sides_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.2947878799999994,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_front_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0019384375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_front_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0009078125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_front_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_front_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.00073125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_front_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0006682500000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_sides_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0019384375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_sides_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0009078125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_sides_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_sides_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.00073125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_eo_sides_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0006682500000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_front_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1619695,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_front_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000097,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_front_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000078,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_front_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000066,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_front_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0000580000000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_sides_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1619695,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_sides_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000097,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_sides_180": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000078,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_sides_280": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000066,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "er_ra_sides_380": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0000580000000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    }
   },
   "facet_forces": {
@@ -970,236 +1308,460 @@
   },
   "flexion_relaxation": {
    "g20_lg_t11_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.62679917647059,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 25.600939823529405,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 22.04152873529412,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_lg_t11_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.006977382352943,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_t11_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.136083428571428,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_ic_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 18.943197142857144,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_t11_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 19.56951885714286,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_ic_t11_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 14.20563135714286,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 11.870706333333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 25.9195805,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g20_ic_l3_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 32.3162275,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_ic_l3_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 39.51878166666667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.83762365,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.7652156000000003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.65651455,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g20_mf_l4_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.344193025000001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_lg_t11_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.373325705882355,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_lg_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 18.395283264705885,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_lg_t11_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 17.656281235294117,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_lg_t11_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.08662873529412,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_ic_t11_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.599609357142857,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_ic_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 11.845295928571431,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_ic_t11_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 14.966699928571428,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_ic_t11_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 10.47827792857143,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24s_lg_t11_25": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.36663517647059,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24s_lg_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 11.344468823529413,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24s_lg_t11_95": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.325551411764706,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24s_ic_t11_25": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.7855501428571428,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24s_ic_t11_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 6.739478285714286,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24s_ic_t11_95": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.5136154999999996,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "shin_mu_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.4933504,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_mu_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.010188,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_mu_70": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.79807345,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_mu_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.7915232750000007,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "shin_lo_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 6.86191545652174,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_lo_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.658876086956521,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_lo_70": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.102327065217391,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_lo_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 7.021429652173912,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "shin_il_30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.217531500000002,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_il_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.054975499999998,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "shin_il_70": {
-    "pass": null,
-    "why": "not answered"
+    "value": 19.152645,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "shin_il_90": {
-    "pass": null,
-    "why": "not answered"
+    "value": 21.781242,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_il_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0022223749999999,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2019"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "koo19_il_66": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.868470875000002,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_il_93": {
-    "pass": null,
-    "why": "not answered"
+    "value": 25.86826175,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_il_113": {
-    "pass": null,
-    "why": "not answered"
+    "value": 26.638448125000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_il_126": {
-    "pass": null,
-    "why": "not answered"
+    "value": 25.750291625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_lo_0": {
-    "pass": null,
-    "why": "not answered"
+    "value": 17.661499,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_lo_66": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.8760075,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_lo_93": {
-    "pass": null,
-    "why": "not answered"
+    "value": 60.400788000000006,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_lo_113": {
-    "pass": null,
-    "why": "not answered"
+    "value": 43.0339447,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo19_lo_126": {
-    "pass": null,
-    "why": "not answered"
+    "value": 40.6004115,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo20b_back_1": {
-    "pass": null,
-    "why": "not answered"
+    "value": 10.4428150625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo20b_back_31": {
-    "pass": null,
-    "why": "not answered"
+    "value": 30.9854089875,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2020b"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "koo20b_back_42": {
-    "pass": null,
-    "why": "not answered"
+    "value": 38.1768237875,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo20b_back_55": {
-    "pass": null,
-    "why": "not answered"
+    "value": 23.779385812500003,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2020b"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "koo20b_back_64": {
-    "pass": null,
-    "why": "not answered"
+    "value": 23.779385812500003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "koo20b_back_67": {
-    "pass": null,
-    "why": "not answered"
+    "value": 23.779385812500003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "gupta_onset_trunk": {
     "pass": null,
@@ -1258,52 +1820,100 @@
     "why": "not answered"
    },
    "g24_ra_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000063,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_ra_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0000689999999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_ra_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.000115,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_ra_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 3.164285,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_eo_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0012804375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_eo_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.420763437500001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_eo_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.6757170625,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_eo_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.0225390625,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_io_18": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.020571166666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_io_50": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.41465608333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "g24_io_68": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.103432499999998,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "g24_io_92": {
-    "pass": null,
-    "why": "not answered"
+    "value": 8.835420416666667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "sarti_onset_0": {
     "pass": null,
@@ -2901,552 +3511,939 @@
   },
   "maximal_exertions": {
    "ss_flex_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 82.72125303692752,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_flex_f_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.6014666645279845e-09,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_flex_f_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": -2.975281974825045e-09,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_flex_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "ss_flex_m_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 6.443538448441073e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_flex_m_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 2.1257085904734718e-10,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_flex_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "st_flex_m_abscoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.786265547578831e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_flex_m_abscoupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.0143219543370247e-10,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_ext_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 170.68603721397935,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_ext_f_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 4.132096480983746e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_ext_f_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": -1.0629105435183895e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_ext_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/2 subjects"
    },
    "ss_ext_m_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.6397141505914714e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_ext_m_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.869915186955483e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_ext_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "3/4 subjects"
    },
    "st_ext_m_abscoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 5.554765967477347e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_ext_m_abscoupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.4432461212187402e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latr_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 49.796637443355806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latr_f_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -32.81031233370868,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latr_f_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 12.264131044048554,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latr_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 56.60456125276603,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latr_m_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -43.4879588340209,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latr_m_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 9.57083798880376,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_latr_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/3 subjects"
    },
    "st_latr_m_abscoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.79119115421281,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_latr_m_abscoupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 26.350564752419814,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latl_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 49.79663744334865,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latl_f_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -32.81031268898005,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latl_f_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": -12.264131044048554,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latl_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 56.60456125277202,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_latl_m_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -43.4879588340209,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_latl_m_coupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": -9.57083798880376,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_latl_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "st_latl_m_abscoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.791190443670075,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_latl_m_abscoupled_axial": {
-    "pass": null,
-    "why": "not answered"
+    "value": 26.350564752419814,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axr_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 55.533115548635315,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axr_f_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -29.88160865413647,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axr_f_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 21.982537745657282,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axr_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 69.0300037722511,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_axr_m_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -36.832103589290455,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axr_m_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 22.575213343145606,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axr_f_primary_vert": {
-    "pass": null,
-    "why": "not answered"
+    "value": 50.69782994420837,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axr_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/4 subjects"
    },
    "st_axr_m_abscoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.953679621816264,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axr_m_abscoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.94371572496402,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_axr_m_pctcoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "st_axr_m_pctcoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "st_axr_m_primary_vert": {
-    "pass": null,
-    "why": "not answered"
+    "value": 68.45545071962735,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "se_axr_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 72.64809915330282,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "se_axr_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 102.63611467327262,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axl_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 55.5331155486281,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axl_f_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -29.88160865413647,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axl_f_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": -21.982537745657282,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_axl_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 69.03000377226095,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "ss_axl_m_coupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": -36.832103589290455,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "ss_axl_m_coupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": -22.57521352078129,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axl_f_primary_vert": {
-    "pass": null,
-    "why": "not answered"
+    "value": 50.69782994421097,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "mcgill1991"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_axl_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "1/3 subjects"
    },
    "st_axl_m_abscoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "value": 15.953679977087631,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axl_m_abscoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.94371572496402,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_axl_m_pctcoupled_sag": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "st_axl_m_pctcoupled_lat": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/2 subjects"
    },
    "st_axl_m_primary_vert": {
-    "pass": null,
-    "why": "not answered"
+    "value": 68.45545071962776,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "se_axl_f_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 72.64809915330481,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "se_axl_m_primary": {
-    "pass": null,
-    "why": "not answered"
+    "value": 102.6361146732689,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "st_ext_m_flexm20": {
-    "pass": null,
-    "why": "not answered"
+    "value": 190.54807964125348,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "gravel1997"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "sl_ext_m_lumbm20": {
-    "pass": null,
-    "why": "not answered"
+    "value": 171.24023148364688,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "sl_ext_m_lumbm10": {
-    "pass": null,
-    "why": "not answered"
+    "value": 173.7664516334929,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "daggfeldt2003"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "sl_ext_m_lumb10": {
-    "pass": null,
-    "why": "not answered"
+    "value": 177.89510308705007,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_ext_m_flex20": {
-    "pass": null,
-    "why": "not answered"
+    "value": 200.10345511959846,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "sl_ext_m_lumb30": {
-    "pass": null,
-    "why": "not answered"
+    "value": 178.50064823764566,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_ext_m_flex40": {
-    "pass": null,
-    "why": "not answered"
+    "value": 201.34851923586237,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "sl_ext_m_lumb45": {
-    "pass": null,
-    "why": "not answered"
+    "value": 177.07308001152919,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "st_ext_m_flex60": {
-    "pass": null,
-    "why": "not answered"
+    "value": 203.3449962213487,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_flex_lg": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/2 subjects"
    },
    "emg_ss_flex_ic": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_flex_mf": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_flex_ra": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "emg_ss_flex_eo": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_flex_io": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "emg_st_flex_rra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_flex_reo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 73.31208239621382,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_flex_rio": {
-    "pass": null,
-    "why": "not answered"
+    "value": 46.96789484573823,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_flex_resi": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_ext_lg": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_ext_ic": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_ext_mf": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "emg_ss_ext_ra": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_ext_eo": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_ext_io": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_ext_rra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_ext_reo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_ext_rio": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_ext_resi": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.00000000000001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_ss_latr_lg": {
-    "pass": null,
-    "why": "not answered"
+    "value": 37.76584732219834,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latr_ic": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latr_mf": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latr_ra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latr_eo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latr_io": {
-    "pass": null,
-    "why": "not answered"
+    "value": 53.4223014934134,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_latr_rra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_latr_reo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_latr_rio": {
-    "pass": null,
-    "why": "not answered"
+    "value": 56.20504724046121,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_latr_resi": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latl_lg": {
-    "pass": null,
-    "why": "not answered"
+    "value": 1.2282103960739217,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latl_ic": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latl_mf": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latl_ra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_latl_eo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 27.426340952624614,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_ss_latl_io": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axr_lg": {
-    "pass": null,
-    "why": "not answered"
+    "value": 26.707459889975432,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_ss_axr_ic": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axr_mf": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axr_ra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axr_eo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axr_io": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_axr_ng_ra": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axr_ng_eo": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axr_ng_io": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/2 subjects"
    },
    "emg_st_axr_ng_ic": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axr_ng_mf": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axr_ng_ld": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_ss_axl_lg": {
-    "pass": null,
-    "why": "not answered"
+    "value": 16.429734220687244,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axl_ic": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axl_mf": {
-    "pass": null,
-    "why": "not answered"
+    "value": 79.2315012627381,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_ss_axl_ra": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axl_eo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_ss_axl_io": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
    },
    "emg_st_axl_reo": {
-    "pass": null,
-    "why": "not answered"
+    "value": 100.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_axl_resi": {
-    "pass": null,
-    "why": "not answered"
+    "value": 0.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
    },
    "emg_st_axl_ng_ra": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/3 subjects"
    },
    "emg_st_axl_ng_eo": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axl_ng_io": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/3 subjects"
    },
    "emg_st_axl_ng_ic": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "1/2 subjects"
    },
    "emg_st_axl_ng_mf": {
-    "pass": null,
-    "why": "not answered"
+    "pass": false,
+    "hits": "0/2 subjects"
    },
    "emg_st_axl_ng_ld": {
-    "pass": null,
-    "why": "not answered"
+    "pass": true,
+    "hits": "2/2 subjects"
    }
   },
   "ribcage_tissue": {

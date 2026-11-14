@@ -1,0 +1,6386 @@
+{
+ "summary": {
+  "annulus_tissue": {
+   "units": 4,
+   "kind": "simulations",
+   "answered": 4,
+   "passed": 1,
+   "score": 0.25
+  },
+  "emg_load_holding": {
+   "units": 112,
+   "kind": "tasks",
+   "answered": 100,
+   "passed": 19,
+   "score": 0.17
+  },
+  "facet_forces": {
+   "units": 19,
+   "kind": "simulations",
+   "answered": 6,
+   "passed": 1,
+   "score": 0.053
+  },
+  "flexion_relaxation": {
+   "units": 88,
+   "kind": "tasks",
+   "answered": 70,
+   "passed": 31,
+   "score": 0.352
+  },
+  "idp_invitro": {
+   "units": 29,
+   "kind": "simulations",
+   "answered": 16,
+   "passed": 4,
+   "score": 0.138
+  },
+  "implant_loads_invivo": {
+   "units": 30,
+   "kind": "tasks",
+   "answered": 13,
+   "passed": 0,
+   "score": 0.0
+  },
+  "ligament_tissue": {
+   "units": 13,
+   "kind": "simulations",
+   "answered": 0,
+   "passed": 0,
+   "score": 0.0
+  },
+  "lumbar_idp_invivo": {
+   "units": 36,
+   "kind": "tasks",
+   "answered": 28,
+   "passed": 16,
+   "score": 0.444
+  },
+  "lumbar_resection": {
+   "units": 12,
+   "kind": "simulations",
+   "answered": 10,
+   "passed": 0,
+   "score": 0.0
+  },
+  "lumbar_rom": {
+   "units": 16,
+   "kind": "simulations",
+   "answered": 11,
+   "passed": 2,
+   "score": 0.125
+  },
+  "maximal_exertions": {
+   "units": 137,
+   "kind": "tasks",
+   "answered": 137,
+   "passed": 57,
+   "score": 0.416
+  },
+  "ribcage_tissue": {
+   "units": 22,
+   "kind": "simulations",
+   "answered": 0,
+   "passed": 0,
+   "score": 0.0
+  },
+  "segment_stiffness": {
+   "units": 23,
+   "kind": "simulations",
+   "answered": 0,
+   "passed": 0,
+   "score": 0.0
+  },
+  "thoracic_idp_invivo": {
+   "units": 32,
+   "kind": "tasks",
+   "answered": 32,
+   "passed": 22,
+   "score": 0.688
+  },
+  "thoracic_resection": {
+   "units": 38,
+   "kind": "simulations",
+   "answered": 8,
+   "passed": 1,
+   "score": 0.026
+  },
+  "thoracic_rom": {
+   "units": 23,
+   "kind": "simulations",
+   "answered": 7,
+   "passed": 0,
+   "score": 0.0
+  }
+ },
+ "overall": {
+  "mean_card_score": 0.166,
+  "passed": 154,
+  "units": 634
+ },
+ "results": {
+  "annulus_tissue": {
+   "lamella": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "38/56",
+    "answered": true,
+    "nrmse": 6.743,
+    "studies": {
+     "holzapfel2005": {
+      "in_own_spread": "31/50",
+      "nrmse": 8.869
+     },
+     "skaggs1994": {
+      "in_own_spread": "4/7",
+      "nrmse": 0.216
+     }
+    }
+   },
+   "circumferential": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "77/88",
+    "answered": true,
+    "nrmse": 0.308,
+    "studies": {
+     "bass2004": {
+      "in_own_spread": "7/9",
+      "nrmse": 0.148
+     },
+     "ebara1996": {
+      "in_own_spread": "47/50",
+      "nrmse": 0.314
+     },
+     "elliottsetton2001": {
+      "in_own_spread": "6/7",
+      "nrmse": 0.104
+     },
+     "oconnell2009": {
+      "in_own_spread": "1/18",
+      "nrmse": 0.449
+     },
+     "wagnerlotz2004": {
+      "in_own_spread": "0/8",
+      "nrmse": 1.05
+     }
+    }
+   },
+   "axial": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/30",
+    "answered": true,
+    "nrmse": 1.215,
+    "studies": {
+     "bass2004": {
+      "in_own_spread": "0/7",
+      "nrmse": 0.785
+     },
+     "elliottsetton2001": {
+      "in_own_spread": "0/8",
+      "nrmse": 2.889
+     },
+     "oconnell2009": {
+      "in_own_spread": "1/15",
+      "nrmse": 1.63
+     }
+    }
+   },
+   "biaxial": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "17/37",
+    "answered": true,
+    "nrmse": 0.291,
+    "studies": {
+     "bass2004_g21": {
+      "in_own_spread": "5/19",
+      "nrmse": 0.224
+     },
+     "oconnell2012": {
+      "in_own_spread": "3/18",
+      "nrmse": 0.376
+     }
+    }
+   }
+  },
+  "emg_load_holding": {
+   "g20_lg_t11_umbilicus": {
+    "value": 27.94672655882353,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_midfemur": {
+    "value": 27.80822820588235,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_knee": {
+    "value": 25.94311614705882,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_midtibia": {
+    "value": 21.901271441176476,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_umbilicus": {
+    "value": 11.791511833333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_midfemur": {
+    "value": 26.335200166666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_knee": {
+    "value": 35.35375833333333,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_ic_l3_midtibia": {
+    "value": 51.648633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_umbilicus": {
+    "value": 1.795232175,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_midfemur": {
+    "value": 3.1380015250000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_knee": {
+    "value": 4.37636925,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_midtibia": {
+    "value": 7.315178525,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_lg_t10_p1": {
+    "value": 9.535816466666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_lg_t10_p2": {
+    "value": 8.995500866666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_lg_l1_p1": {
+    "value": 8.702040295454546,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_lg_l1_p2": {
+    "value": 8.155214431818184,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_mf_l5_p1": {
+    "value": 4.81888906,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lar19_mf_l5_p2": {
+    "value": 4.7227373,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lar19_ra_p2": {
+    "value": 1.000041,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_ra_p3": {
+    "value": 1.000023,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lar19_eo_p2": {
+    "value": 1.000345625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lar19_eo_p3": {
+    "value": 1.0002356875,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lar19_io_p2": {
+    "value": 7.350110666666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lar19_io_p3": {
+    "value": 9.430569333333333,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_asym_lg_t11_l_0": {
+    "value": 27.79459523529411,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_asym_lg_t11_l_30": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_lg_t11_l_60": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_lg_t11_l_90": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_lg_t11_r_0": {
+    "value": 27.821861176470584,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_asym_lg_t11_r_30": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_lg_t11_r_60": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_lg_t11_r_90": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_l_0": {
+    "value": 3.09470315,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_asym_mf_l4_l_30": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_l_60": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_l_90": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_r_0": {
+    "value": 3.1812998999999995,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_asym_mf_l4_r_30": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_r_60": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g20_asym_mf_l4_r_90": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "lav_ersl_0": {
+    "value": 12.59277745573171,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersl_30": {
+    "value": 12.577273513521,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersl_60": {
+    "value": 8.577894647029522,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersl_90": {
+    "value": 2.1558493032415234,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersl_120": {
+    "value": 0.4546410361234312,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersr_0": {
+    "value": 12.592874008301125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersr_30": {
+    "value": 4.268551323801087,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_ersr_60": {
+    "value": 0.6576634941175045,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lavender1992"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lav_exol_30": {
+    "value": 0.1706957498733808,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lavender1992"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lav_exol_60": {
+    "value": 5.1954749129872075,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_exol_90": {
+    "value": 9.345125317600429,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_exol_120": {
+    "value": 7.224341605300312,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_exol_150": {
+    "value": 3.4725817418591336,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lav_exol_180": {
+    "value": -0.0008125098198789749,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_ra_0": {
+    "value": 1.000088,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_ra_180": {
+    "value": 16.896592333333334,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "granata2005"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "gra_io_0": {
+    "value": 5.670702333333332,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "granata2005"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "gra_io_180": {
+    "value": 14.72979563888889,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_eo_0": {
+    "value": 1.0008190624999997,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_eo_180": {
+    "value": 1.001374604166667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_es_0": {
+    "value": 5.697162561728395,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gra_es_180": {
+    "value": 4.3078279814814815,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_front_0": {
+    "value": 1.751941295454546,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_front_90": {
+    "value": 2.1083851818181816,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_front_180": {
+    "value": 3.1297359772727273,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_front_280": {
+    "value": 4.230999818181819,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_front_380": {
+    "value": 5.2984360909090915,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_sides_0": {
+    "value": 1.751941295454546,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_sides_90": {
+    "value": 2.1083851818181816,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_sides_180": {
+    "value": 3.1297359772727273,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_sides_280": {
+    "value": 4.230999818181819,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_lg_sides_380": {
+    "value": 5.2984360909090915,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_front_0": {
+    "value": 1.000633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_front_90": {
+    "value": 1.001653,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_front_180": {
+    "value": 1.00164,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_front_280": {
+    "value": 1.0014775,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_front_380": {
+    "value": 1.0013265,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_sides_0": {
+    "value": 1.000633,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_sides_90": {
+    "value": 1.001653,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_sides_180": {
+    "value": 1.00164,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_sides_280": {
+    "value": 1.0014775,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ic_sides_380": {
+    "value": 1.0013265,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_front_0": {
+    "value": 3.6799099,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_front_90": {
+    "value": 3.9800461200000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_front_180": {
+    "value": 4.3822149,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_front_280": {
+    "value": 4.834290139999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_front_380": {
+    "value": 5.2947878799999994,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_sides_0": {
+    "value": 3.6799099,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_sides_90": {
+    "value": 3.9800461200000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_sides_180": {
+    "value": 4.3822149,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_sides_280": {
+    "value": 4.834290139999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_mf_sides_380": {
+    "value": 5.2947878799999994,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_front_0": {
+    "value": 1.0019384375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_front_90": {
+    "value": 1.0009078125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_front_180": {
+    "value": 1.000806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_front_280": {
+    "value": 1.00073125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_front_380": {
+    "value": 1.0006682500000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_sides_0": {
+    "value": 1.0019384375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_sides_90": {
+    "value": 1.0009078125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_sides_180": {
+    "value": 1.000806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_sides_280": {
+    "value": 1.00073125,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_eo_sides_380": {
+    "value": 1.0006682500000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_front_0": {
+    "value": 2.1619695,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_front_90": {
+    "value": 1.000097,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_front_180": {
+    "value": 1.000078,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_front_280": {
+    "value": 1.000066,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_front_380": {
+    "value": 1.0000580000000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_sides_0": {
+    "value": 2.1619695,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_sides_90": {
+    "value": 1.000097,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_sides_180": {
+    "value": 1.000078,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_sides_280": {
+    "value": 1.000066,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "er_ra_sides_380": {
+    "value": 1.0000580000000001,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   }
+  },
+  "facet_forces": {
+   "pm_flex": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.58,
+    "studies": {
+     "zhu2008_tekscan": {
+      "in_own_spread": "1/1",
+      "nrmse": 1.0
+     },
+     "sawa2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "schendel1993": {
+      "in_own_spread": "1/1",
+      "nrmse": null
+     },
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     }
+    }
+   },
+   "pm_ext": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/5",
+    "answered": true,
+    "nrmse": 0.58,
+    "studies": {
+     "zhu2008_eas": {
+      "in_own_spread": "1/1",
+      "nrmse": 1.393
+     },
+     "zhu2008_tekscan": {
+      "in_own_spread": "0/1",
+      "nrmse": 2.761
+     },
+     "sawa2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.789
+     },
+     "jaramillo2016": {
+      "in_own_spread": "0/2",
+      "nrmse": 1.019
+     },
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     }
+    }
+   },
+   "pm_lb": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/5",
+    "answered": true,
+    "nrmse": 0.471,
+    "studies": {
+     "zhu2008_eas": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "zhu2008_tekscan": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "sawa2008": {
+      "in_own_spread": "1/1",
+      "nrmse": 1.0
+     },
+     "jaramillo2016": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.451
+     },
+     "popovich2013": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.438
+     }
+    }
+   },
+   "pm_ar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": true,
+    "nrmse": 0.565,
+    "studies": {
+     "zhu2008_eas": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "zhu2008_tekscan": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "sawa2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.877
+     },
+     "jaramillo2016": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.691
+     },
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.403
+     }
+    }
+   },
+   "pelvic_tilt": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "popovich2013": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "ext15_ax700": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "3/3",
+    "answered": true,
+    "nrmse": 0.252,
+    "studies": {
+     "wiseman2005": {
+      "in_own_spread": "3/3",
+      "nrmse": 0.252
+     }
+    }
+   },
+   "fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "sawa2008": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "peak": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schendel1993": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "slope": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schendel1993": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     }
+    }
+   },
+   "compression": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.771,
+    "studies": {
+     "lorenz1983": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "yangking1984": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     }
+    }
+   },
+   "ext_compression": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "lorenz1983": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "shear_sagittal": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "rousseau2006": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "shear_lb": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "rousseau2006": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "rot": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/8",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "botolin2011": {
+      "in_own_spread": "0/8",
+      "nrmse": null
+     }
+    }
+   },
+   "cycle_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "ivicsics2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "cycle_nucleotomy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "ivicsics2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "ecc": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "yangking1984": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "arch_2000": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "pollintine2004": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "arch_1500": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "farooq2005": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "flexion_relaxation": {
+   "g20_lg_t11_18": {
+    "value": 27.62679917647059,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_50": {
+    "value": 25.600939823529405,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_68": {
+    "value": 22.04152873529412,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_lg_t11_92": {
+    "value": 15.006977382352943,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_t11_18": {
+    "value": 15.136083428571428,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_ic_t11_50": {
+    "value": 18.943197142857144,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_t11_68": {
+    "value": 19.56951885714286,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_ic_t11_92": {
+    "value": 14.20563135714286,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_18": {
+    "value": 11.870706333333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_50": {
+    "value": 25.9195805,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g20_ic_l3_68": {
+    "value": 32.3162275,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_ic_l3_92": {
+    "value": 39.51878166666667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_18": {
+    "value": 1.83762365,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_50": {
+    "value": 2.7652156000000003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_68": {
+    "value": 3.65651455,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g20_mf_l4_92": {
+    "value": 5.344193025000001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2020"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_lg_t11_18": {
+    "value": 12.373325705882355,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_lg_t11_50": {
+    "value": 18.395283264705885,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_lg_t11_68": {
+    "value": 17.656281235294117,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_lg_t11_92": {
+    "value": 12.08662873529412,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_ic_t11_18": {
+    "value": 3.599609357142857,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_ic_t11_50": {
+    "value": 11.845295928571431,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_ic_t11_68": {
+    "value": 14.966699928571428,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_ic_t11_92": {
+    "value": 10.47827792857143,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24s_lg_t11_25": {
+    "value": 9.36663517647059,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24s_lg_t11_50": {
+    "value": 11.344468823529413,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24s_lg_t11_95": {
+    "value": 4.325551411764706,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24s_ic_t11_25": {
+    "value": 2.7855501428571428,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24s_ic_t11_50": {
+    "value": 6.739478285714286,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24s_ic_t11_95": {
+    "value": 1.5136154999999996,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024s"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "shin_mu_30": {
+    "value": 1.4933504,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_mu_50": {
+    "value": 2.010188,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_mu_70": {
+    "value": 2.79807345,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_mu_90": {
+    "value": 3.7915232750000007,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "shin_lo_30": {
+    "value": 6.86191545652174,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_lo_50": {
+    "value": 8.658876086956521,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_lo_70": {
+    "value": 8.102327065217391,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_lo_90": {
+    "value": 7.021429652173912,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "shin_il_30": {
+    "value": 9.217531500000002,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_il_50": {
+    "value": 15.054975499999998,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "shin2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "shin_il_70": {
+    "value": 19.152645,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "shin_il_90": {
+    "value": 21.781242,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_il_0": {
+    "value": 1.0022223749999999,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2019"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "koo19_il_66": {
+    "value": 15.868470875000002,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_il_93": {
+    "value": 25.86826175,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_il_113": {
+    "value": 26.638448125000004,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_il_126": {
+    "value": 25.750291625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_lo_0": {
+    "value": 17.661499,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_lo_66": {
+    "value": 37.8760075,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_lo_93": {
+    "value": 60.400788000000006,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_lo_113": {
+    "value": 43.0339447,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo19_lo_126": {
+    "value": 40.6004115,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo20b_back_1": {
+    "value": 10.4428150625,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo20b_back_31": {
+    "value": 30.9854089875,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2020b"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "koo20b_back_42": {
+    "value": 38.1768237875,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo20b_back_55": {
+    "value": 23.779385812500003,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "koopman2020b"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "koo20b_back_64": {
+    "value": 23.779385812500003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "koo20b_back_67": {
+    "value": 23.779385812500003,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "gupta_onset_trunk": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "gupta_onset_vertebral": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "gupta_cessation_trunk": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "gupta_cessation_vertebral": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_onset_l2_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_onset_l2_12": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_onset_l5_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_onset_l5_12": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_cessation_l2_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_cessation_l2_12": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_cessation_l5_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "desc_cessation_l5_12": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "zwam_onset_lumbar": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "zwam_onset_incl": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "g24_ra_18": {
+    "value": 1.000063,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_ra_50": {
+    "value": 1.0000689999999999,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_ra_68": {
+    "value": 1.000115,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_ra_92": {
+    "value": 3.164285,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_eo_18": {
+    "value": 1.0012804375,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_eo_50": {
+    "value": 4.420763437500001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_eo_68": {
+    "value": 5.6757170625,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_eo_92": {
+    "value": 5.0225390625,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_io_18": {
+    "value": 9.020571166666667,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_io_50": {
+    "value": 9.41465608333333,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2024"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "g24_io_68": {
+    "value": 9.103432499999998,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "g24_io_92": {
+    "value": 8.835420416666667,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sarti_onset_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sarti_cessation_0": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sarti_onset_10": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sarti_cessation_10": {
+    "pass": null,
+    "why": "not answered"
+   }
+  },
+  "idp_invitro": {
+   "lum_unloaded": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.774,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.0
+     }
+    }
+   },
+   "lum_flex": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/6",
+    "answered": true,
+    "nrmse": 0.447,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/5",
+      "nrmse": 0.506
+     },
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.728
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "1/1",
+      "nrmse": 2.474
+     }
+    }
+   },
+   "lum_ext": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "5/6",
+    "answered": true,
+    "nrmse": 0.276,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.234
+     },
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.67
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "0/1",
+      "nrmse": 3.174
+     }
+    }
+   },
+   "l45_step1": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.514,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.514
+     }
+    }
+   },
+   "l45_step2": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.532,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.532
+     }
+    }
+   },
+   "l45_step3": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.566,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.566
+     }
+    }
+   },
+   "l45_step4": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.555,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.555
+     }
+    }
+   },
+   "l45_step5": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/2",
+    "answered": true,
+    "nrmse": 0.582,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.582
+     }
+    }
+   },
+   "l45_step6": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/2",
+    "answered": true,
+    "nrmse": 0.607,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.607
+     }
+    }
+   },
+   "l45_step7": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/2",
+    "answered": true,
+    "nrmse": 0.604,
+    "studies": {
+     "heuer2007b": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.604
+     }
+    }
+   },
+   "lum_lb": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/2",
+    "answered": true,
+    "nrmse": 0.643,
+    "studies": {
+     "popovich2013": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.909
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.088
+     }
+    }
+   },
+   "lum_ar": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "2/2",
+    "answered": true,
+    "nrmse": 0.343,
+    "studies": {
+     "popovich2013": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.473
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "1/1",
+      "nrmse": 1.098
+     }
+    }
+   },
+   "lum_flex_ax400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.818,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.818
+     }
+    }
+   },
+   "lum_ext_ax400": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "2/2",
+    "answered": true,
+    "nrmse": 0.153,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "2/2",
+      "nrmse": 0.153
+     }
+    }
+   },
+   "lum_lb_ax400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": true,
+    "nrmse": 0.848,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "0/2",
+      "nrmse": 0.848
+     }
+    }
+   },
+   "lum_ar_ax400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_unloaded": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020b": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_flex": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_ext": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_lb": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_ar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "ribcage_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/10",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "anderson2016": {
+      "in_own_spread": "0/10",
+      "nrmse": null
+     }
+    }
+   },
+   "compression": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "7/7",
+    "answered": true,
+    "nrmse": 0.074,
+    "studies": {
+     "brinckmann1991": {
+      "in_own_spread": "3/3",
+      "nrmse": 0.042
+     },
+     "cannella2008": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.092
+     },
+     "frei2002": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.055
+     },
+     "schultz1979": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.514
+     },
+     "dennison2008": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.108
+     }
+    }
+   },
+   "frei_idp": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "frei2002": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "steffen_posture": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "steffen1998": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "acu_nucleotomy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "cannella2008": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "noribs_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "anderson2016": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_intact_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "anderson2018": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_noribs_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "anderson2018": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "implant_loads_invivo": {
+   "standing": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "walking": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "lie_supine": {
+    "pass": false,
+    "hits": "0/7 subjects"
+   },
+   "lie_prone": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "all_fours": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_unsupported": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "sit_hands": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_flex": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "sit_arms90": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "stand_latbend": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "stand_flex_max": {
+    "value": 970.1170621051817,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lift_max": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "flex_stand_inc": {
+    "value": 474.02250053790436,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "flex_sit_inc": {
+    "value": 522.8737977018388,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "bridging_inc": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "legs_raise_inc": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "allfours_armleg_inc": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "backpack_inc": {
+    "value": 151.23508903855742,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "walk_pct": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_flex15_pct": {
+    "value": 14.205392132237066,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_ext10_pct": {
+    "value": -4.228485422693284,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_backrest_pct": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_office_pct": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_lie_supine": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_lie_prone": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_sit_relaxed": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_sit_erect": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_walk": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_flex": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "fix_ext": {
+    "pass": null,
+    "why": "not answered"
+   }
+  },
+  "ligament_tissue": {
+   "all_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/18",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "pintar1992": {
+      "in_own_spread": "0/15",
+      "nrmse": null
+     }
+    }
+   },
+   "all_thoracic": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/19",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wiczenbach2025": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "pll_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/19",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "pintar1992": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "pll_thoracic": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wiczenbach2025": {
+      "in_own_spread": "0/17",
+      "nrmse": null
+     }
+    }
+   },
+   "lf_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "nachemsonevans1968": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "pintar1992": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "lf_thoracic": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/18",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wiczenbach2025": {
+      "in_own_spread": "0/15",
+      "nrmse": null
+     }
+    }
+   },
+   "isl_ssl_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "isl_ssl_thoracic": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/16",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "chazal1985": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wiczenbach2025": {
+      "in_own_spread": "0/13",
+      "nrmse": null
+     }
+    }
+   },
+   "capsule_lumbar_equilibrium": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "littlekhalsa2005": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "capsule_thoracic": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/16",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wiczenbach2025": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "isl_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/16",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "pintar1992": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "ssl_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/16",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "pintar1992": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   },
+   "capsule_lumbar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/16",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "pintar1992": {
+      "in_own_spread": "0/16",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "lumbar_idp_invivo": {
+   "standing": {
+    "pass": true,
+    "hits": "4/7 subjects"
+   },
+   "standing_l3l4": {
+    "value": 0.2933495336111041,
+    "hits": "3/3 studies",
+    "studies_hit": [
+     "andersson1976",
+     "nachemson1970",
+     "schultz1982"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "stand_10kg_l3l4": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "flex45_10kg_l3l4": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "stand_10kg": {
+    "value": 0.4618594694342019,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "takahashi2006"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex10": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   },
+   "flex10_10kg": {
+    "value": 0.6553946578331596,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "takahashi2006"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex20": {
+    "value": 0.6390136117781506,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "flex20_10kg": {
+    "value": 0.8481357789525142,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "flex30": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "flex30_10kg": {
+    "value": 1.0338975025591424,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "flex50": {
+    "value": 1.0765529572228068,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex_full": {
+    "value": 1.936764203789875,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex_l4l5_5": {
+    "value": 1.2268569651160917,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "sato1999"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "extension": {
+    "value": 0.4736435548354323,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "hold_close": {
+    "value": 1.19217670773492,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "hold_away": {
+    "value": 2.163271142182747,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lift_stoop": {
+    "value": 2.1972808615857464,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "lift_squat": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_relaxed": {
+    "value": 0.8863626297148609,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_erect": {
+    "value": 0.4485589189315004,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sit_flex20": {
+    "value": 1.0091085875825185,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_flex_max": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_backrest": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "lie_prone": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "latbend20": {
+    "value": 0.5019833029310125,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "wilke2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "axial_rot": {
+    "value": 0.44014219098071655,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lie_supine": {
+    "value": 0.18504749106713755,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "lie_side": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "lie_prone_elbows": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "stand_ext_sato": {
+    "value": 0.5686802991174407,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "sato1999"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sit_upright": {
+    "value": 0.9982686178704577,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_flexed_sato": {
+    "value": 1.6182150090471854,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_extended_sato": {
+    "value": 0.5114002923533938,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_elbows_thighs": {
+    "pass": null,
+    "why": "not answered"
+   },
+   "sit_slouched": {
+    "pass": null,
+    "why": "not answered"
+   }
+  },
+  "lumbar_resection": {
+   "fsu_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "5/8",
+    "answered": true,
+    "nrmse": 0.178,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.149
+     },
+     "heuer2008": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.218
+     }
+    }
+   },
+   "fsu_ssl": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.145,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.145
+     }
+    }
+   },
+   "fsu_isl": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.141,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.141
+     }
+    }
+   },
+   "fsu_lf": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.131,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.131
+     }
+    }
+   },
+   "fsu_fc": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.158,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.158
+     }
+    }
+   },
+   "fsu_post": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "4/8",
+    "answered": true,
+    "nrmse": 0.149,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "1/4",
+      "nrmse": 0.174
+     },
+     "heuer2008": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.18
+     }
+    }
+   },
+   "fsu_pll": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/4",
+    "answered": true,
+    "nrmse": 0.172,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "1/4",
+      "nrmse": 0.172
+     }
+    }
+   },
+   "fsu_all": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "4/8",
+    "answered": true,
+    "nrmse": 0.188,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.203
+     },
+     "heuer2008": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.216
+     }
+    }
+   },
+   "fsu_nuc": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/8",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "heuer2007a": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "heuer2008": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "fsu400_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/4",
+    "answered": true,
+    "nrmse": 0.379,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "1/4",
+      "nrmse": 0.379
+     }
+    }
+   },
+   "fsu400_post": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/4",
+    "answered": true,
+    "nrmse": 0.262,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "1/4",
+      "nrmse": 0.262
+     }
+    }
+   },
+   "acu_nucleotomy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "cannella2008": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "lumbar_rom": {
+   "flex_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "19/32",
+    "answered": true,
+    "nrmse": 0.166,
+    "studies": {
+     "oxland1992": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.377
+     },
+     "guan2007": {
+      "in_own_spread": "9/12",
+      "nrmse": 0.234
+     },
+     "heuer2008": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.208
+     },
+     "yamamoto1989": {
+      "in_own_spread": "2/5",
+      "nrmse": 0.297
+     },
+     "heuer2007a": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.071
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.06
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "3/10",
+      "nrmse": 0.28
+     }
+    }
+   },
+   "ext_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "7/32",
+    "answered": true,
+    "nrmse": 0.476,
+    "studies": {
+     "oxland1992": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.33
+     },
+     "guan2007": {
+      "in_own_spread": "3/12",
+      "nrmse": 0.411
+     },
+     "heuer2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.465
+     },
+     "yamamoto1989": {
+      "in_own_spread": "2/5",
+      "nrmse": 0.252
+     },
+     "heuer2007a": {
+      "in_own_spread": "1/5",
+      "nrmse": 0.283
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.64
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "0/10",
+      "nrmse": 0.827
+     }
+    }
+   },
+   "lb_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "21/33",
+    "answered": true,
+    "nrmse": 0.146,
+    "studies": {
+     "oxland1992": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.092
+     },
+     "sawa2008": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.237
+     },
+     "yamamoto1989": {
+      "in_own_spread": "3/5",
+      "nrmse": 0.191
+     },
+     "guan2007": {
+      "in_own_spread": "11/12",
+      "nrmse": 0.199
+     },
+     "heuer2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.293
+     },
+     "heuer2007a": {
+      "in_own_spread": "3/5",
+      "nrmse": 0.151
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.304
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "4/10",
+      "nrmse": 0.248
+     }
+    }
+   },
+   "ar_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "9/23",
+    "answered": true,
+    "nrmse": 0.304,
+    "studies": {
+     "oxland1992": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.068
+     },
+     "sawa2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.51
+     },
+     "yamamoto1989": {
+      "in_own_spread": "4/5",
+      "nrmse": 0.341
+     },
+     "heuer2008": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.024
+     },
+     "heuer2007a": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.117
+     },
+     "rohlmann2001a": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.737
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "0/10",
+      "nrmse": 0.428
+     }
+    }
+   },
+   "fe_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "14/26",
+    "answered": true,
+    "nrmse": 0.126,
+    "studies": {
+     "wilke2025": {
+      "in_own_spread": "2/7",
+      "nrmse": 0.224
+     },
+     "cook2015": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.181
+     },
+     "sawa2008": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.281
+     },
+     "yamamoto1989": {
+      "in_own_spread": "11/20",
+      "nrmse": 0.251
+     },
+     "busscher2009": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.236
+     },
+     "kettler2011": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.001
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.273
+     }
+    }
+   },
+   "lbr_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "12/27",
+    "answered": true,
+    "nrmse": 0.075,
+    "studies": {
+     "wilke2025": {
+      "in_own_spread": "5/7",
+      "nrmse": 0.176
+     },
+     "cook2015": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.134
+     },
+     "yamamoto1989": {
+      "in_own_spread": "7/20",
+      "nrmse": 0.257
+     },
+     "busscher2009": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.103
+     },
+     "kettler2011": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.198
+     },
+     "renner2007": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.271
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.02
+     }
+    }
+   },
+   "arr_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "15/27",
+    "answered": true,
+    "nrmse": 0.167,
+    "studies": {
+     "wilke2025": {
+      "in_own_spread": "2/7",
+      "nrmse": 0.404
+     },
+     "cook2015": {
+      "in_own_spread": "5/5",
+      "nrmse": 0.196
+     },
+     "yamamoto1989": {
+      "in_own_spread": "11/20",
+      "nrmse": 0.264
+     },
+     "busscher2009": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.416
+     },
+     "kettler2011": {
+      "in_own_spread": "1/2",
+      "nrmse": 0.222
+     },
+     "renner2007": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.435
+     },
+     "rohlmann2001s": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.709
+     }
+    }
+   },
+   "fe_8_6_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/17",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "patwardhan2003": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     },
+     "renner2007": {
+      "in_own_spread": "0/12",
+      "nrmse": null
+     },
+     "stanley2004": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     },
+     "gornet2011": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "flex_ax400": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "1/1",
+    "answered": true,
+    "nrmse": 0.004,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.004
+     }
+    }
+   },
+   "ext_ax400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": true,
+    "nrmse": 1.062,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.062
+     }
+    }
+   },
+   "lb_ax400": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "1/1",
+    "answered": true,
+    "nrmse": 0.056,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.056
+     }
+    }
+   },
+   "ar_ax400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": true,
+    "nrmse": 0.699,
+    "studies": {
+     "schultz1979": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.699
+     }
+    }
+   },
+   "flex_ax100": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1994": {
+      "in_own_spread": "0/20",
+      "nrmse": null
+     }
+    }
+   },
+   "ext_ax100": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1994": {
+      "in_own_spread": "0/20",
+      "nrmse": null
+     }
+    }
+   },
+   "lb_ax100": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1994": {
+      "in_own_spread": "0/20",
+      "nrmse": null
+     }
+    }
+   },
+   "ar_ax100": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/20",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1994": {
+      "in_own_spread": "0/20",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "maximal_exertions": {
+   "ss_flex_f_primary": {
+    "value": 82.72125303692752,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_flex_f_coupled_lat": {
+    "value": 1.6014666645279845e-09,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_flex_f_coupled_axial": {
+    "value": -2.975281974825045e-09,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_flex_m_primary": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "ss_flex_m_coupled_lat": {
+    "value": 6.443538448441073e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_flex_m_coupled_axial": {
+    "value": 2.1257085904734718e-10,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_flex_m_primary": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "st_flex_m_abscoupled_lat": {
+    "value": 4.786265547578831e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_flex_m_abscoupled_axial": {
+    "value": 1.0143219543370247e-10,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_ext_f_primary": {
+    "value": 170.68603721397935,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_ext_f_coupled_lat": {
+    "value": 4.132096480983746e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_ext_f_coupled_axial": {
+    "value": -1.0629105435183895e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_ext_m_primary": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   },
+   "ss_ext_m_coupled_lat": {
+    "value": 1.6397141505914714e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_ext_m_coupled_axial": {
+    "value": 1.869915186955483e-11,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_ext_m_primary": {
+    "pass": true,
+    "hits": "3/4 subjects"
+   },
+   "st_ext_m_abscoupled_lat": {
+    "value": 5.554765967477347e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_ext_m_abscoupled_axial": {
+    "value": 1.4432461212187402e-11,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latr_f_primary": {
+    "value": 49.796637443355806,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latr_f_coupled_sag": {
+    "value": -32.81031233370868,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latr_f_coupled_axial": {
+    "value": 12.264131044048554,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latr_m_primary": {
+    "value": 56.60456125276603,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latr_m_coupled_sag": {
+    "value": -43.4879588340209,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latr_m_coupled_axial": {
+    "value": 9.57083798880376,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_latr_m_primary": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "st_latr_m_abscoupled_sag": {
+    "value": 37.79119115421281,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_latr_m_abscoupled_axial": {
+    "value": 26.350564752419814,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latl_f_primary": {
+    "value": 49.79663744334865,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latl_f_coupled_sag": {
+    "value": -32.81031268898005,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latl_f_coupled_axial": {
+    "value": -12.264131044048554,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latl_m_primary": {
+    "value": 56.60456125277202,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_latl_m_coupled_sag": {
+    "value": -43.4879588340209,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_latl_m_coupled_axial": {
+    "value": -9.57083798880376,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_latl_m_primary": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "st_latl_m_abscoupled_sag": {
+    "value": 37.791190443670075,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_latl_m_abscoupled_axial": {
+    "value": 26.350564752419814,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axr_f_primary": {
+    "value": 55.533115548635315,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axr_f_coupled_sag": {
+    "value": -29.88160865413647,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axr_f_coupled_lat": {
+    "value": 21.982537745657282,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axr_m_primary": {
+    "value": 69.0300037722511,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_axr_m_coupled_sag": {
+    "value": -36.832103589290455,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axr_m_coupled_lat": {
+    "value": 22.575213343145606,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axr_f_primary_vert": {
+    "value": 50.69782994420837,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axr_m_primary": {
+    "pass": true,
+    "hits": "2/4 subjects"
+   },
+   "st_axr_m_abscoupled_sag": {
+    "value": 15.953679621816264,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axr_m_abscoupled_lat": {
+    "value": 37.94371572496402,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "lariviere2009"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_axr_m_pctcoupled_sag": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "st_axr_m_pctcoupled_lat": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "st_axr_m_primary_vert": {
+    "value": 68.45545071962735,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "se_axr_f_primary": {
+    "value": 72.64809915330282,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "se_axr_m_primary": {
+    "value": 102.63611467327262,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axl_f_primary": {
+    "value": 55.5331155486281,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axl_f_coupled_sag": {
+    "value": -29.88160865413647,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axl_f_coupled_lat": {
+    "value": -21.982537745657282,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_axl_m_primary": {
+    "value": 69.03000377226095,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "ss_axl_m_coupled_sag": {
+    "value": -36.832103589290455,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ss_axl_m_coupled_lat": {
+    "value": -22.57521352078129,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axl_f_primary_vert": {
+    "value": 50.69782994421097,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "mcgill1991"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_axl_m_primary": {
+    "pass": false,
+    "hits": "1/3 subjects"
+   },
+   "st_axl_m_abscoupled_sag": {
+    "value": 15.953679977087631,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axl_m_abscoupled_lat": {
+    "value": 37.94371572496402,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_axl_m_pctcoupled_sag": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "st_axl_m_pctcoupled_lat": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   },
+   "st_axl_m_primary_vert": {
+    "value": 68.45545071962776,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "se_axl_f_primary": {
+    "value": 72.64809915330481,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "se_axl_m_primary": {
+    "value": 102.6361146732689,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "kumar2001"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "st_ext_m_flexm20": {
+    "value": 190.54807964125348,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "gravel1997"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sl_ext_m_lumbm20": {
+    "value": 171.24023148364688,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sl_ext_m_lumbm10": {
+    "value": 173.7664516334929,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "daggfeldt2003"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sl_ext_m_lumb10": {
+    "value": 177.89510308705007,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_ext_m_flex20": {
+    "value": 200.10345511959846,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sl_ext_m_lumb30": {
+    "value": 178.50064823764566,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_ext_m_flex40": {
+    "value": 201.34851923586237,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sl_ext_m_lumb45": {
+    "value": 177.07308001152919,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "st_ext_m_flex60": {
+    "value": 203.3449962213487,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_flex_lg": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   },
+   "emg_ss_flex_ic": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_flex_mf": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_flex_ra": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "emg_ss_flex_eo": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_flex_io": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "emg_st_flex_rra": {
+    "value": 100.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_flex_reo": {
+    "value": 73.31208239621382,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_flex_rio": {
+    "value": 46.96789484573823,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_flex_resi": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_ext_lg": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_ext_ic": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_ext_mf": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "emg_ss_ext_ra": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_ext_eo": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_ext_io": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_ext_rra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_ext_reo": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_ext_rio": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_ext_resi": {
+    "value": 100.00000000000001,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_ss_latr_lg": {
+    "value": 37.76584732219834,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latr_ic": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latr_mf": {
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latr_ra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latr_eo": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latr_io": {
+    "value": 53.4223014934134,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_latr_rra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_latr_reo": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_latr_rio": {
+    "value": 56.20504724046121,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_latr_resi": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latl_lg": {
+    "value": 1.2282103960739217,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latl_ic": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latl_mf": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latl_ra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_latl_eo": {
+    "value": 27.426340952624614,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_ss_latl_io": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axr_lg": {
+    "value": 26.707459889975432,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_ss_axr_ic": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axr_mf": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axr_ra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axr_eo": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axr_io": {
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_axr_ng_ra": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axr_ng_eo": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axr_ng_io": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   },
+   "emg_st_axr_ng_ic": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axr_ng_mf": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axr_ng_ld": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_ss_axl_lg": {
+    "value": 16.429734220687244,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axl_ic": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axl_mf": {
+    "value": 79.2315012627381,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "ghezelbash2018"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_ss_axl_ra": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axl_eo": {
+    "value": 100.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_ss_axl_io": {
+    "value": 0.0,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "emg_st_axl_reo": {
+    "value": 100.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_axl_resi": {
+    "value": 0.0,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "thelen1995"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "emg_st_axl_ng_ra": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "emg_st_axl_ng_eo": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axl_ng_io": {
+    "pass": false,
+    "hits": "0/3 subjects"
+   },
+   "emg_st_axl_ng_ic": {
+    "pass": true,
+    "hits": "1/2 subjects"
+   },
+   "emg_st_axl_ng_mf": {
+    "pass": false,
+    "hits": "0/2 subjects"
+   },
+   "emg_st_axl_ng_ld": {
+    "pass": true,
+    "hits": "2/2 subjects"
+   }
+  },
+  "ribcage_tissue": {
+   "cc_gradischar": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/7",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gradischar2022": {
+      "in_own_spread": "0/7",
+      "nrmse": null
+     }
+    }
+   },
+   "cc_compression": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "weber2021": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "cc_indentation": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "weber2021": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "rib_3pb": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "yoganandan1998": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "rib_end_compression": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "kindig2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "rib_3pb_granik": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "granik1973": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_torsion": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "lebschy2024": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "lemosse1998": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_cc_flexion": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "lemosse1998": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_vd_flexion": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "lemosse1998": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_lebschy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "lebschy2024": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_rot_x": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_rot_y": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "cvj_rot_z": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "duprey2010": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "rib6_pin_anterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "rib6_pin_inferior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "rib6_pin_lateral": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "rib6_pin_posterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "rib6_pin_superior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "sternum_pin_anterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "sternum_pin_inferior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "sternum_pin_posterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "sternum_pin_superior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "schultz1974b": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "segment_stiffness": {
+   "axial_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "ap_shear_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/7",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "janevic1991": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "lateral_shear_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "axial_rotation_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "janevic1991": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "lateral_bending_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "janevic1991": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "flexion_extension_vs_preload": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/7",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "gardnermorse2004": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "janevic1991": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "pj_six_dof": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/10",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1976": {
+      "in_own_spread": "0/10",
+      "nrmse": null
+     }
+    }
+   },
+   "thor_ap_shear": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "panjabi1976": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     },
+     "yamamoto2022": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "axial_stiffness_preloaded": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "amin2016a": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "amin2016b": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "costi2008": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "amin_six_dof": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/7",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "amin2016b": {
+      "in_own_spread": "0/7",
+      "nrmse": null
+     }
+    }
+   },
+   "costi_six_dof": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/7",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "costi2008": {
+      "in_own_spread": "0/7",
+      "nrmse": null
+     }
+    }
+   },
+   "compression": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/32",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "asano1992": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "berkson1979": {
+      "in_own_spread": "0/7",
+      "nrmse": null
+     },
+     "brown1957": {
+      "in_own_spread": "0/12",
+      "nrmse": null
+     },
+     "cannella2008": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "frei2002": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "jamison2013": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     },
+     "marini2016": {
+      "in_own_spread": "0/15",
+      "nrmse": null
+     },
+     "markolfmorris1974": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     },
+     "tencer1982": {
+      "in_own_spread": "0/7",
+      "nrmse": null
+     }
+    }
+   },
+   "berk_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "berkson1979": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "berk_pe": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "berkson1979": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "frei_shear": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "frei2002": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "acu_cyclic_tension": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "cannella2008": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "l1s1_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "renner2007": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     },
+     "patwardhan2003": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "l1s1_follower_flexed": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "patwardhan2003": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "tencer_six_dof": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/8",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "tencer1982": {
+      "in_own_spread": "0/8",
+      "nrmse": null
+     }
+    }
+   },
+   "edw_flex": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "edwards1987": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "edw_exte": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "edwards1987": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "flexion_moment": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "adamsdolan1991": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     }
+    }
+   },
+   "disc_shear": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "skrzypiec2013": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "thoracic_idp_invivo": {
+   "stand_mid": {
+    "value": 0.8292589600863209,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "stand_lower": {
+    "value": 0.748260801883938,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex30_mid": {
+    "value": 1.1662796155738167,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex30_lower": {
+    "value": 1.0815064859642316,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ext15_mid": {
+    "value": 1.1177105630510034,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "ext15_lower": {
+    "value": 1.0275110030450916,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "latbend20_mid": {
+    "value": 1.0826362670320941,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "latbend20_lower": {
+    "value": 0.8743587913293229,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "twist30_mid": {
+    "value": 1.0856835606312023,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "twist30_lower": {
+    "value": 1.0325755597669075,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "stand_10kg_mid": {
+    "value": 1.3226030228284262,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "stand_10kg_lower": {
+    "value": 1.2477617757795587,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "elbows90_10kg_mid": {
+    "value": 2.442549971672516,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "elbows90_10kg_lower": {
+    "value": 2.8773260136374867,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "flex30_10kg_mid": {
+    "value": 2.118933309810685,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "flex30_10kg_lower": {
+    "value": 2.049639685657711,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "prone_mid": {
+    "value": 0.4364963693850772,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "prone_lower": {
+    "value": 0.356487909526288,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "side_mid": {
+    "value": 0.4364963693850772,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "side_lower": {
+    "value": 0.356487909526288,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sit_mid": {
+    "value": 1.2852589136524843,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_lower": {
+    "value": 1.0963711729242738,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sit_ext15_mid": {
+    "value": 1.4983912150827359,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_ext15_lower": {
+    "value": 1.3262165971948847,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_flex30_mid": {
+    "value": 1.7114360314283164,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_flex30_lower": {
+    "value": 1.5873359697946634,
+    "hits": "0/1 studies",
+    "studies_hit": [],
+    "pass": false,
+    "rule": "studies"
+   },
+   "sit_10kg_e90_mid": {
+    "value": 2.3154564470507166,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "sit_10kg_e90_lower": {
+    "value": 2.752339016169139,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "latbend_left_mid": {
+    "value": 1.0826362670320941,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "latbend_left_lower": {
+    "value": 0.8743587913293229,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "twist_right_mid": {
+    "value": 1.0856835606312023,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   },
+   "twist_right_lower": {
+    "value": 1.0325755597669075,
+    "hits": "1/1 studies",
+    "studies_hit": [
+     "polga2004"
+    ],
+    "pass": true,
+    "rule": "studies"
+   }
+  },
+  "thoracic_resection": {
+   "t67_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.272,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.272
+     }
+    }
+   },
+   "t67_ssl": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.213,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.213
+     }
+    }
+   },
+   "t67_isl": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.219,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.219
+     }
+    }
+   },
+   "t67_lf": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.207,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.207
+     }
+    }
+   },
+   "t67_fc": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/4",
+    "answered": true,
+    "nrmse": 0.152,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "2/4",
+      "nrmse": 0.152
+     }
+    }
+   },
+   "t67_arch": {
+    "pass": true,
+    "sim": true,
+    "points_passed": "4/4",
+    "answered": true,
+    "nrmse": 0.097,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "4/4",
+      "nrmse": 0.097
+     }
+    }
+   },
+   "t67_pll": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.171,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.171
+     }
+    }
+   },
+   "t67_all": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "3/4",
+    "answered": true,
+    "nrmse": 0.211,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "3/4",
+      "nrmse": 0.211
+     }
+    }
+   },
+   "t67_nuc": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "wilke2020esj": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "ribcage_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "liebsch2017": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "liebsch2020": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     },
+     "lubelski2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "watkins2005": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_im": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_sternotomy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_anterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_rh68": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_rh": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/5",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017": {
+      "in_own_spread": "0/5",
+      "nrmse": null
+     }
+    }
+   },
+   "l2nm_wired": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2017esj": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "w2nm_ribs3cm": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "w2nm_fracture": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "ax50_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "ax50_ribs3cm": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "l5nm_anterior": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/6",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "0/6",
+      "nrmse": null
+     }
+    }
+   },
+   "l5nm_stumps": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "l5nm_noribs": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t4t5_lam": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t4t5_fac": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t4t5_ctv": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t8t9_lam": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "lubelski2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t8t9_fac": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "lubelski2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "dec_t8t9_ctv": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/3",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "lubelski2014": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     }
+    }
+   },
+   "fl400_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "sis2016": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     }
+    }
+   },
+   "fl400_noribs": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "mannen2018": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     }
+    }
+   },
+   "ax50_fracture": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_intact": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_sternotomy": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_sternum": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_rib50": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_rib75": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "seg4_noribs": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/4",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "brasiliense2011": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   }
+  },
+  "thoracic_rom": {
+   "fe_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/12",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2017": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2020": {
+      "in_own_spread": "0/8",
+      "nrmse": null
+     },
+     "liebsch2020fb": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     },
+     "lubelski2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "mannen2015": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "watkins2005": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "sis2016": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wilke2025": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     },
+     "rahm2019": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "lbr_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/12",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2017": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2020": {
+      "in_own_spread": "0/8",
+      "nrmse": null
+     },
+     "liebsch2020fb": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     },
+     "lubelski2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "mannen2015": {
+      "in_own_spread": "0/3",
+      "nrmse": null
+     },
+     "watkins2005": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "sis2016": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wilke2025": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     },
+     "rahm2019": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "arr_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/12",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "healy2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2017": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "liebsch2020": {
+      "in_own_spread": "0/8",
+      "nrmse": null
+     },
+     "liebsch2020fb": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     },
+     "lubelski2014": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "mannen2015": {
+      "in_own_spread": "0/2",
+      "nrmse": null
+     },
+     "sis2016": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     },
+     "wilke2025": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     },
+     "rahm2019": {
+      "in_own_spread": "0/4",
+      "nrmse": null
+     }
+    }
+   },
+   "flex_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "mannen2015": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "orbach2023": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "ext_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "mannen2015": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "orbach2023": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "lb_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "orbach2023": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "ar_rc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/2",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "orbach2023": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "arr_rc_ax50": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "watkins2005": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "fe_rc_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "sis2016": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     }
+    }
+   },
+   "lbr_rc_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "sis2016": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     }
+    }
+   },
+   "arr_rc_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/9",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "sis2016": {
+      "in_own_spread": "0/9",
+      "nrmse": null
+     }
+    }
+   },
+   "flex_rc_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "ext_rc_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "lb_rc_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "ar_rc_fl400": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/1",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "liebsch2018": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     }
+    }
+   },
+   "fe_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/9",
+    "answered": true,
+    "nrmse": 0.416,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "1/6",
+      "nrmse": 0.595
+     },
+     "wilke2025": {
+      "in_own_spread": "0/6",
+      "nrmse": 0.353
+     },
+     "busscher2009": {
+      "in_own_spread": "0/3",
+      "nrmse": 0.623
+     }
+    }
+   },
+   "lbr_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/9",
+    "answered": true,
+    "nrmse": 0.426,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "2/6",
+      "nrmse": 0.586
+     },
+     "wilke2025": {
+      "in_own_spread": "1/6",
+      "nrmse": 0.349
+     },
+     "busscher2009": {
+      "in_own_spread": "0/3",
+      "nrmse": 0.604
+     }
+    }
+   },
+   "arr_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "4/9",
+    "answered": true,
+    "nrmse": 0.184,
+    "studies": {
+     "liebsch2020": {
+      "in_own_spread": "4/6",
+      "nrmse": 0.188
+     },
+     "wilke2025": {
+      "in_own_spread": "3/6",
+      "nrmse": 0.149
+     },
+     "busscher2009": {
+      "in_own_spread": "0/3",
+      "nrmse": 0.309
+     }
+    }
+   },
+   "flex_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "1/7",
+    "answered": true,
+    "nrmse": 0.155,
+    "studies": {
+     "liebsch2022": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "wilke2017": {
+      "in_own_spread": "1/6",
+      "nrmse": 0.123
+     },
+     "oxland1992": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.64
+     }
+    }
+   },
+   "ext_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/7",
+    "answered": true,
+    "nrmse": 0.183,
+    "studies": {
+     "liebsch2022": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "wilke2017": {
+      "in_own_spread": "2/6",
+      "nrmse": 0.144
+     },
+     "oxland1992": {
+      "in_own_spread": "0/1",
+      "nrmse": 0.812
+     }
+    }
+   },
+   "lb_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "4/7",
+    "answered": true,
+    "nrmse": 0.133,
+    "studies": {
+     "liebsch2022": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "wilke2017": {
+      "in_own_spread": "4/6",
+      "nrmse": 0.134
+     },
+     "oxland1992": {
+      "in_own_spread": "1/1",
+      "nrmse": 0.216
+     }
+    }
+   },
+   "ar_norc_none": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "2/7",
+    "answered": true,
+    "nrmse": 0.215,
+    "studies": {
+     "liebsch2022": {
+      "in_own_spread": "0/1",
+      "nrmse": null
+     },
+     "wilke2017": {
+      "in_own_spread": "2/6",
+      "nrmse": 0.188
+     },
+     "oxland1992": {
+      "in_own_spread": "0/1",
+      "nrmse": 1.035
+     }
+    }
+   },
+   "fe_8_6_follower": {
+    "pass": false,
+    "sim": true,
+    "points_passed": "0/15",
+    "answered": false,
+    "nrmse": null,
+    "studies": {
+     "stanley2004": {
+      "in_own_spread": "0/15",
+      "nrmse": null
+     }
+    }
+   }
+  }
+ }
+}
