@@ -1149,7 +1149,7 @@
     return String(t).replace(/\s+in vivo$/i, '');
   }
   function heroStats(c) {
-    return '<p class="hero-stats">' + [[c.benchmarks, 'benchmarks'], [c.tasks, 'tasks'], [c.studies, 'studies'], [c.N, 'subjects and specimens']]
+    return '<p class="hero-stats">' + [[c.benchmarks, 'benchmarks'], [c.tasks, 'tasks'], [c.studies, 'studies, selected from over 300 papers'], [c.N, 'subjects and specimens']]
       .map(function (x) { return '<span><b class="num">' + esc(x[0] == null ? '–' : Number(x[0]).toLocaleString('en')) + '</b> ' + x[1] + '</span>'; }).join('') + '</p>';
   }
   function benchTile(b) {
@@ -1176,7 +1176,7 @@
       heroStats(c) + '<p class="byline">By <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a> · for research use only</p></div>' +
       '<ol class="how"><li><b>Pick a benchmark</b><span>one outcome, e.g. lumbar disc pressure</span></li>' +
       '<li><b>Simulate its tasks</b><span>subject, loads and boundary conditions are given</span></li>' +
-      '<li><b>Compare</b><span>with every study (n, year) and the pooled mean, or <a href="#agents">give it to an agent</a></span></li></ol></section>';
+      '<li><b>Or give it to your agent</b><span><a href="#agents">download the dataset</a> and let your agent simulate it</span></li></ol></section>';
     DOMAINS.forEach(function (d) {
       var items = I.benchmarks.filter(function (b) { return b.domain === d.id; });
       if (!items.length) return;
@@ -1674,18 +1674,15 @@
         simulations: [{ id: sim.id, title: sim.title, fixed: sim.fixed, sweep: sim.sweep, outputs: (sim.outputs || []).slice(0, 2),
           studies: sim.studies, answer: sim.answer }], more: 'simulate, inputs, outputs, studies, the other simulations' });
     }
-    var c = S.index.counts || {}, nSim = c.simulations || 0, nTask = c.task_units || 0;
-    var simCards = (S.index.benchmarks || []).filter(function (b) { return b.simulations; }).length;
     main.innerHTML = '<div class="stack prose"><div><h1>For agents</h1>' +
       '<p class="lede">Give an agent the simulations and tasks, keep the answers, then score its reply.</p></div>' +
       '<ul class="lines">' +
-      '<li><b>Simulations</b> (' + esc(simCards) + ' finite element and tissue benchmarks): one simulation is one test a modeller runs once, e.g. a moment sweep of one specimen in one direction, or one stress-strain test of a tissue. All studies of that test are combined: ' +
-        esc(c.simulation_tasks || 0) + ' measured values form ' + esc(nSim) + ' simulations. The agent returns one curve per output, <code>[[x, y], …]</code> over the sweep (one number where there is no sweep).</li>' +
-      '<li><b>Tasks</b> (musculoskeletal benchmarks): ' + esc(nTask) + ' independent conditions (posture, load, subject), one number each, <code>{task id: {output: value}}</code>.</li>' +
+      '<li><b>Simulations</b> (finite element and tissue benchmarks): one simulation is one test a modeller runs once, e.g. a moment sweep of one specimen in one direction, or one stress-strain test of a tissue. All studies of that test are combined. The agent returns one curve per output, <code>[[x, y], …]</code> over the sweep (one number where there is no sweep).</li>' +
+      '<li><b>Tasks</b> (musculoskeletal benchmarks): independent conditions (posture, load, subject), one number each, <code>{task id: {output: value}}</code>.</li>' +
       '<li><b>agent_tasks.jsonl</b>: one line per benchmark with the prompt, subjects, simulations or tasks, and the answer format. No reference values.</li>' +
       '<li><b>answers.json</b>: the hidden answers, <code>{"answers": {benchmark: {task: {refs, pooled}}}, "simulations": {benchmark: {simulation: {band, studies}}}}</code>. Keep it away from the agent.</li>' +
       '<li><b>benchmark.json</b>: every card in one file, tasks and answers together, for analysis.</li>' +
-      '<li>A simulation passes when its curves lie inside the range spanned by the studies (lowest mean − SD to highest mean + SD at each x, with small floors) at ≥ 80 % of the points. A task passes inside the pooled value ± SD, or inside the range of at least half of its studies. Score = passed units / ' + esc(c.units || (nSim + nTask)) + ' units; every value keeps its <code>test_id</code>.</li>' +
+      '<li>A simulation passes when its curves lie inside the range spanned by the studies (lowest mean − SD to highest mean + SD at each x, with small floors) at ≥ 80 % of the points. A task passes inside the pooled value ± SD, or inside the range of at least half of its studies. Score = share of simulations and tasks passed; every value keeps its <code>test_id</code>.</li>' +
       '</ul>' +
       '<div class="btns">' + dlBtn('data/agent_tasks.jsonl', 'agent_tasks.jsonl', true) + dlBtn('data/answers.json', 'answers.json') + dlBtn('data/benchmark.json', 'benchmark.json') + '</div>' +
       (exSimText ? '<div><h2>Example 1: finite element benchmark, the answer is a curve</h2><pre class="code">' + esc(exSimText) + '</pre></div>' : '') +

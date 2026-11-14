@@ -33,7 +33,7 @@ What the agent has to **develop**: a working simulation pipeline for one model f
 | FE (in vitro) | `lumbar_rom`, `thoracic_rom`, `lumbar_resection`, `thoracic_resection`, `idp_invitro`, `facet_forces`, `segment_stiffness` | build the cadaveric specimen (FSU, disc with vertebral bodies, multi-level spine, with/without rib cage), fix the caudal end, sweep the pure moment / preload / displacement, remove structures step by step, and report rotation, nucleus pressure, facet force, force-displacement or stiffness |
 | Tissue | `annulus_tissue`, `ligament_tissue`, `ribcage_tissue` | reproduce a material test (uniaxial / biaxial tension, bone-ligament-bone pull, rib bending, joint moment, dead-weight pin loads) with one parameter set per tissue, and report the stress-strain or load-deflection curve, moduli and failure values |
 
-What is **validated**: the model's predictions against 140 studies. The 1581 FE and tissue values form **199
+What is **validated**: the model's predictions against 137 studies (140 study entries: Bass 2004, Zhu 2008 and Ghezelbash 2024 each appear twice, as two groups or two methods). The 1581 FE and tissue values form **199
 simulations** (one per physical test: e.g. all six directions of one stiffness protocol are one simulation); the 435 MSK
 tasks stay tasks: **634 scoring units** in all.
 An agent may answer only the cards its model covers; unanswered units count as not passed.

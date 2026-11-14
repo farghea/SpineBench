@@ -479,6 +479,39 @@ def card_n(card):
     return sum(comp.values())
 
 
+def distinct_totals(cards):
+    """Papers and people counted once over all cards: study keys with the same DOI are one paper (e.g. two groups or two
+    methods of one paper), and studies linked through a card's `shared` are one sample (largest n)."""
+    n, paper = {}, {}
+    for c in cards:
+        if c.get("example"):
+            continue
+        for s in c["studies"]:
+            v = s.get("n") if isinstance(s.get("n"), int) else 0
+            n[s["key"]] = max(n.get(s["key"], 0), v)
+            paper[s["key"]] = str(s.get("doi") or study_uid(s)).lower().strip()
+    parent = {k: k for k in n}
+    def find(k):
+        while parent[k] != k:
+            k = parent[k]
+        return k
+    first = {}
+    for k, d in paper.items():
+        if d in first:
+            parent[find(k)] = find(first[d])
+        else:
+            first[d] = k
+    for c in cards:
+        for grp in c.get("shared", []):
+            ks = [k for k in grp if k in parent]
+            for k in ks[1:]:
+                parent[find(k)] = find(ks[0])
+    comp = {}
+    for k, v in n.items():
+        comp[find(k)] = max(comp.get(find(k), 0), v)
+    return len(set(paper.values())), sum(comp.values())
+
+
 def study_uid(s):
     return f"{str(s.get('short', s.get('key'))).lower()}|{s.get('year', '')}"
 
@@ -805,8 +838,9 @@ def build_outcomes(real_dir, ex_dir, out):
     n_sims = sum(len(v) for v in sim_answers.values())
     n_sim_tasks = sum(len(sd["task_ids"]) for v in sim_answers.values() for sd in v.values())
     n_task_units = sum(len(c["tasks"]) for c in cards if c["id"] not in sim_answers)
-    counts = {"benchmarks": len(cards), "tasks": sum(len(c["tasks"]) for c in cards), "studies": len(all_studies),
-              "N": int(sum(all_studies.values())), "examples": sum(1 for c in cards if c.get("example")),
+    n_papers, n_people = distinct_totals(cards)
+    counts = {"benchmarks": len(cards), "tasks": sum(len(c["tasks"]) for c in cards), "studies": n_papers,
+              "N": n_people, "examples": sum(1 for c in cards if c.get("example")),
               "simulations": n_sims, "simulation_tasks": n_sim_tasks, "task_units": n_task_units,
               "units": n_sims + n_task_units}
 
