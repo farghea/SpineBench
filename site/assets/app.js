@@ -1168,12 +1168,18 @@
           (b.years && b.years.length ? '<span>' + yearsText(b.years) + '</span>' : '') + '</span>' +
       '</span></a>';
   }
+  var CITE = 'Ghezelbash F. SpineBench: validation benchmarks for spine models. 2026. https://farghea.github.io/SpineBench/';
+  function citeHtml(cls) {
+    return '<div class="cite' + (cls ? ' ' + cls : '') + '"><b>How to cite</b><span class="cite-text">' + esc(CITE) + '</span>' +
+      '<button type="button" class="cite-copy" data-cite="1">Copy</button>' +
+      '<span class="cite-note">Please also cite the original studies behind the values you use.</span></div>';
+  }
   function viewHome() {
     var I = S.index, c = I.counts || {};
     setTitle('');
     var html = '<section class="hero"><div class="hero-main"><h1>Put your spine model on the bench.</h1>' +
       '<p class="lede">Experimental outcomes every spine model should reproduce, from ' + esc(c.studies) + ' studies, each value traced to its table or figure.</p>' +
-      heroStats(c) + '<p class="byline">By <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a> · for research use only</p></div>' +
+      heroStats(c) + '<p class="byline">By <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a> · for research use only</p>' + citeHtml('cite-hero') + '</div>' +
       '<ol class="how"><li><b>Pick a benchmark</b><span>one outcome, e.g. lumbar disc pressure</span></li>' +
       '<li><b>Simulate its tasks</b><span>subject, loads and boundary conditions are given</span></li>' +
       '<li><b>Or give it to your agent</b><span><a href="#agents">download the dataset</a> and let your agent simulate it</span></li></ol></section>';
@@ -1699,7 +1705,6 @@
       '<li>An independent second pass re-checked values against the papers (<code>bench/VERIFICATION.md</code> in the repository).</li>' +
       '<li>Pooled value: n-weighted mean of studies that report a mean; SD combines within- and between-study spread; overlapping samples count once; medians are not pooled; at least two studies.</li>' +
       '<li>Created and maintained by <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a>.</li>' +
-      '<li>How to cite: Ghezelbash F. SpineBench: validation benchmarks for spine models. Please also cite the original studies behind the values you use.</li>' +
       '<li>Licence: research and education use only (<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>). <b>Commercial use is not allowed.</b> For any other use, please <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">contact the author</a>. Downloads require accepting the <a href="#terms">Terms of use</a>.</li></ul>' +
       '<p class="small muted">Build ' + esc(S.index.generated || '') + '</p></div>';
   }
@@ -1795,6 +1800,7 @@
       }
     } catch (e) { showError(e); }
     Promise.resolve(p).then(function () {
+      if (r.page !== 'home' && !$('.cite', main)) main.insertAdjacentHTML('beforeend', citeHtml('cite-page'));
       if (opts.initial) return;
       window.scrollTo(0, 0);
       var h1 = $('h1', main); if (h1) { h1.setAttribute('tabindex', '-1'); h1.focus({ preventScroll: true }); }
@@ -1837,6 +1843,12 @@
       }, 200);
     });
     window.addEventListener('hashchange', function () { route(); });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[data-cite]');
+      if (!b) return;
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); };
+      try { navigator.clipboard.writeText(CITE).then(done, function () {}); } catch (err) {}
+    });
     fetchJSON('data/outcomes.json').then(function (I) {
       I.benchmarks = I.benchmarks || []; I.planned = I.planned || []; I.counts = I.counts || {};
       S.index = I;
