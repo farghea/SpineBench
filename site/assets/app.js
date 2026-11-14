@@ -1176,7 +1176,7 @@
       heroStats(c) + '<p class="byline">By <a href="https://sites.google.com/view/farshidghezelbash/home" target="_blank" rel="noopener">Farshid Ghezelbash</a> · for research use only</p></div>' +
       '<ol class="how"><li><b>Pick a benchmark</b><span>one outcome, e.g. lumbar disc pressure</span></li>' +
       '<li><b>Simulate its tasks</b><span>subject, loads and boundary conditions are given</span></li>' +
-      '<li><b>Compare</b><span>with every study (n, year) and the pooled mean, or <a href="#agents">give the tasks to an agent</a></span></li></ol></section>';
+      '<li><b>Compare</b><span>with every study (n, year) and the pooled mean, or <a href="#agents">give it to an agent</a></span></li></ol></section>';
     DOMAINS.forEach(function (d) {
       var items = I.benchmarks.filter(function (b) { return b.domain === d.id; });
       if (!items.length) return;
@@ -1688,8 +1688,8 @@
       '<li>A simulation passes when its curves lie inside the range spanned by the studies (lowest mean − SD to highest mean + SD at each x, with small floors) at ≥ 80 % of the points. A task passes inside the pooled value ± SD, or inside the range of at least half of its studies. Score = passed units / ' + esc(c.units || (nSim + nTask)) + ' units; every value keeps its <code>test_id</code>.</li>' +
       '</ul>' +
       '<div class="btns">' + dlBtn('data/agent_tasks.jsonl', 'agent_tasks.jsonl', true) + dlBtn('data/answers.json', 'answers.json') + dlBtn('data/benchmark.json', 'benchmark.json') + '</div>' +
-      (exSimText ? '<div><h2>One simulation in agent_tasks.jsonl (shortened)</h2><pre class="code">' + esc(exSimText) + '</pre></div>' : '') +
-      '<div><h2>One task line of agent_tasks.jsonl (shortened)</h2><pre class="code">' + esc(exText) + '</pre></div></div>';
+      (exSimText ? '<div><h2>Example 1: finite element benchmark, the answer is a curve</h2><pre class="code">' + esc(exSimText) + '</pre></div>' : '') +
+      '<div><h2>Example' + (exSimText ? ' 2' : '') + ': musculoskeletal benchmark, the answer is one number per task</h2><pre class="code">' + esc(exText) + '</pre></div></div>';
   }
   function viewAbout() {
     setTitle('About');
