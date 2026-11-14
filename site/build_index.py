@@ -64,7 +64,7 @@ TAXONOMY = [
         ("fe_resection_thoracic", "Thoracic resection", "Stepwise removal of structures", "FE"),
         ("fe_facet", "Facet joint", "Facet forces and contact", "FE"),
         ("fe_instrumented", "Instrumented", "Fixation, fusion, disc replacement", "FE"),
-        ("fe_model_comparison", "Model comparison", "Published model-vs-model results", "FE"),
+        ("fe_model_comparison", "Data from model-comparison papers", "In vitro and in vivo measurements re-plotted in Dreischarf 2014; no model results", "FE"),
     ]),
 ]
 LAYER_OF = {c[0]: layer for layer, _, _, cats in TAXONOMY for c in cats}
