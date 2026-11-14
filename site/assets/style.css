@@ -450,3 +450,7 @@ td.loading-td { font-size: 0.82rem; color: var(--ink-2); min-width: 18ch; }
 .cite-copy:hover { border-color: var(--accent); color: var(--accent); }
 .cite-note { flex-basis: 100%; color: var(--muted); font-size: 0.8rem; }
 .cite-page { margin-top: 28px; }
+
+/* phones: header hides while scrolling down (class set in app.js) */
+.top { transition: transform .2s ease; }
+.top.top-hidden { transform: translateY(-100%); }

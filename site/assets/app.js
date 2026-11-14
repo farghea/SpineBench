@@ -1843,6 +1843,20 @@
       }, 200);
     });
     window.addEventListener('hashchange', function () { route(); });
+    // phones: the header slides away while scrolling down and comes back on any scroll up
+    (function () {
+      var top = $('.top'), lastY = window.scrollY, ticking = false;
+      if (!top) return;
+      window.addEventListener('scroll', function () {
+        if (ticking) return; ticking = true;
+        window.requestAnimationFrame(function () {
+          var y = window.scrollY, small = window.innerWidth < 760;
+          if (!small || y < 60 || y < lastY - 4) top.classList.remove('top-hidden');
+          else if (y > lastY + 4) top.classList.add('top-hidden');
+          lastY = y; ticking = false;
+        });
+      }, { passive: true });
+    })();
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-cite]');
       if (!b) return;
