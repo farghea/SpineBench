@@ -787,6 +787,7 @@ def build_outcomes(real_dir, ex_dir, out):
             "summary": c.get("summary", ""), "agent_prompt": c.get("agent_prompt", ""),
             "answer_format": c["answer_format"],
             "simulate": c["simulate"], "inputs": c["inputs"], "outputs": c["outputs"], "subjects": c["subjects"],
+            **({"patients": c["patients"]} if c.get("patients") else {}),  # demographics and surgery only, no values
             "studies": [{k: s.get(k) for k in ("key", "short", "year", "n", "sample")} for s in c["studies"]],
             **({"simulations": sim_view} if sim_view is not None else {"tasks": [agent_task(t, units) for t in c["tasks"]]}),
             "scoring": AGENT_SCORING,
