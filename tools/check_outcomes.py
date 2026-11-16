@@ -1,7 +1,7 @@
 """Validate outcome benchmark files. Usage: python3 tools/check_outcomes.py [files...] (default: all)"""
 import json, sys, glob, os, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from score_agent import sim_slots, sim_fields, num, transposed_y  # one implementation of the simulation slots
+from score_agent import sim_slots, sim_fields, num, transposed_y, curve_problems  # one implementation of the simulation slots
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 TESTS = {os.path.basename(f)[:-5] for f in glob.glob(f'{ROOT}/bench/tests/*/*.json')}
 def check_view_layout(v, ins, b=None):
@@ -60,7 +60,8 @@ def check_view_layout(v, ins, b=None):
     for m in v.get('models') or []:
         if not isinstance(m, dict) or m.get('test_id') not in TESTS: e.append(f'view {vid}: models entry needs a known test_id')
     return e
-SIM_KEYS = {'id', 'title', 'note', 'sweep', 'fixed', 'outputs', 'task_ids', 'transpose', 'curve_by', 'study_notes'}
+SIM_KEYS = {'id', 'title', 'note', 'sweep', 'fixed', 'outputs', 'task_ids', 'transpose', 'curve_by', 'study_notes',
+            'monotone', 'curve_ok', 'hull'}
 def check_sims(b, ins, outs):
     """agent_sims (bench/OUTCOMES.md, "Simulations"): every task in exactly one simulation, consistent fixed inputs,
     outputs and sweep; answer_format has one entry per simulation."""
@@ -107,6 +108,25 @@ def check_sims(b, ins, outs):
             slots = sim_slots(b, s)
         except (ValueError, KeyError) as x:
             e.append(str(x)); continue
+        mo = s.get('monotone')
+        dirs = list(mo.values()) if isinstance(mo, dict) else [mo]
+        if mo is not None and not all(d is True or d in ('rising', 'falling') for d in dirs):
+            e.append(f'sim {sid}: monotone must be true, "rising", "falling" or {{output: direction}}')
+        if isinstance(mo, dict):
+            known = {sl['id'] for sl in slots} | {sl['key'] for sl in slots}
+            for k in mo:
+                if k not in known: e.append(f'sim {sid}: monotone names unknown output {k}')
+        if s.get('hull') is not None and not isinstance(s['hull'], bool): e.append(f'sim {sid}: hull must be true/false')
+        ok = s.get('curve_ok') or {}
+        if not isinstance(ok, dict) or not all(isinstance(v, str) and v.strip() for v in ok.values()):
+            e.append(f'sim {sid}: curve_ok must be {{curve or study: reason}}'); ok = {}
+        # curve check (score_agent.curve_problems): repeated x inside one curve; for rising / falling outputs a > 40 %
+        # step against the direction (e.g. a point after failure) or a curve ending on the wrong side of its start.
+        # Fix the data, or whitelist the curve (its name as reported, or the study id) in curve_ok with a reason.
+        for sl in slots:
+            for name, msg in curve_problems(sl, s):
+                if name not in ok and name.split(' | ')[0] not in ok:
+                    e.append(f'sim {sid}: curve {name} ({sl["id"]}): {msg}')
         for sl in slots:
             if not sl['tasks']: e.append(f'sim {sid}: output {sl["id"]} has no task')
             if sw and not sl['scalar']:

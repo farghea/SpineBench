@@ -44,6 +44,12 @@
       "key": "stress",
       "label": "Nominal stress F/A0",
       "unit": "MPa"
+    },
+    {
+      "key": "rupture_stress",
+      "label": "Stress at rupture",
+      "unit": "MPa",
+      "definition": "Nominal stress F/A0 at rupture of the ligament in tension (MPa)"
     }
   ],
   "studies": [
@@ -137,7 +143,6 @@
         "lum_LF_ss_chazal_01",
         "lum_LF_ss_chazal_02",
         "lum_LF_ss_chazal_03",
-        "lum_LF_ss_nachemson_00",
         "lum_ISL_SSL_ss_chazal_00",
         "lum_ISL_SSL_ss_chazal_01",
         "lum_ISL_SSL_ss_chazal_02",
@@ -378,6 +383,15 @@
         "th_CL_ss_wicz_pts_01",
         "th_CL_ss_wicz_pts_02"
       ]
+    },
+    {
+      "id": "rupture",
+      "title": "Stress at rupture",
+      "task_ids": [
+        "lum_LF_ss_nachemson_00"
+      ],
+      "x": "task",
+      "group": "Failure"
     }
   ],
   "tasks": [
@@ -1787,15 +1801,14 @@
     },
     {
       "id": "lum_LF_ss_nachemson_00",
-      "label": "LF L3-L4, rupture, 46.8 %",
-      "view": "fig_lum_ss",
+      "label": "LF L3-L4, stress at rupture",
+      "view": "rupture",
       "inputs": {
         "ligament": "LF",
         "level": "L3-L4",
-        "curve": "failure point",
-        "strain": 46.78
+        "curve": "rupture"
       },
-      "output": "stress",
+      "output": "rupture_stress",
       "level": "L3-L4",
       "refs": [
         {
@@ -6306,6 +6319,9 @@
     "lf_lumbar": {
       "stress": "[[%, MPa], ...]"
     },
+    "lf_lumbar_rupture": {
+      "rupture_stress": "MPa"
+    },
     "lf_thoracic": {
       "stress": "[[%, MPa], ...]"
     },
@@ -6368,7 +6384,8 @@
         "lum_ALL_ss_pintar_ALL_L4S1_03",
         "lum_ALL_ss_pintar_ALL_L4S1_04",
         "lum_ALL_ss_pintar_ALL_L4S1_05"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "all_thoracic",
@@ -6405,7 +6422,8 @@
         "th_ALL_ss_chazal_01",
         "th_ALL_ss_chazal_02",
         "th_ALL_ss_chazal_03"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "pll_lumbar",
@@ -6443,7 +6461,8 @@
         "lum_PLL_ss_pintar_PLL_L4S1_03",
         "lum_PLL_ss_pintar_PLL_L4S1_04",
         "lum_PLL_ss_pintar_PLL_L4S1_05"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "pll_thoracic",
@@ -6480,7 +6499,8 @@
         "th_PLL_ss_chazal_01",
         "th_PLL_ss_chazal_02",
         "th_PLL_ss_chazal_03"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lf_lumbar",
@@ -6500,7 +6520,6 @@
         "lum_LF_ss_chazal_01",
         "lum_LF_ss_chazal_02",
         "lum_LF_ss_chazal_03",
-        "lum_LF_ss_nachemson_00",
         "lum_LF_ss_pintar_LF_T12L2_00",
         "lum_LF_ss_pintar_LF_T12L2_01",
         "lum_LF_ss_pintar_LF_T12L2_02",
@@ -6519,6 +6538,24 @@
         "lum_LF_ss_pintar_LF_L4S1_03",
         "lum_LF_ss_pintar_LF_L4S1_04",
         "lum_LF_ss_pintar_LF_L4S1_05"
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "lf_lumbar_rupture",
+      "title": "Ligamentum flavum, lumbar: stress at rupture",
+      "note": "Failure value, kept out of the stress-strain band.",
+      "sweep": null,
+      "fixed": {
+        "ligament": "LF"
+      },
+      "outputs": [
+        {
+          "key": "rupture_stress"
+        }
+      ],
+      "task_ids": [
+        "lum_LF_ss_nachemson_00"
       ]
     },
     {
@@ -6555,7 +6592,8 @@
         "th_LF_ss_chazal_01",
         "th_LF_ss_chazal_02",
         "th_LF_ss_chazal_03"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "isl_ssl_lumbar",
@@ -6572,6 +6610,7 @@
           "key": "stress"
         }
       ],
+      "hull": false,
       "task_ids": [
         "lum_ISL_SSL_ss_chazal_00",
         "lum_ISL_SSL_ss_chazal_01",
@@ -6611,7 +6650,8 @@
         "th_ISL_SSL_ss_chazal_01",
         "th_ISL_SSL_ss_chazal_02",
         "th_ISL_SSL_ss_chazal_03"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "capsule_lumbar_equilibrium",
@@ -6635,7 +6675,8 @@
         "lum_CL_ss_little_03",
         "lum_CL_ss_little_04",
         "lum_CL_ss_little_05"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "capsule_thoracic",
@@ -6668,7 +6709,8 @@
         "th_CL_ss_wicz_pts_00",
         "th_CL_ss_wicz_pts_01",
         "th_CL_ss_wicz_pts_02"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "isl_lumbar",
@@ -6684,6 +6726,7 @@
           "key": "stress"
         }
       ],
+      "hull": false,
       "task_ids": [
         "lum_ISL_SSL_ss_pintar_ISL_T12L2_00",
         "lum_ISL_SSL_ss_pintar_ISL_T12L2_01",
@@ -6738,7 +6781,8 @@
         "lum_ISL_SSL_ss_pintar_SSL_L4S1_03",
         "lum_ISL_SSL_ss_pintar_SSL_L4S1_04",
         "lum_ISL_SSL_ss_pintar_SSL_L4S1_05"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "capsule_lumbar",
@@ -6754,6 +6798,7 @@
           "key": "stress"
         }
       ],
+      "hull": false,
       "task_ids": [
         "lum_CL_ss_pintar_JC_T12L2_00",
         "lum_CL_ss_pintar_JC_T12L2_01",

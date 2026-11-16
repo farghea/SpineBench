@@ -1,3024 +1,3024 @@
 {
- "id": "flexion_relaxation",
- "title": "Flexion-relaxation",
- "domain": "msk",
- "region": "lumbar+thoracic",
- "levels": [
-  "T11-L5 (electrode sites)"
- ],
- "summary": "Simulate static forward bending and report back-muscle activity (%MVC) at each angle, and the angles where it switches off and on.",
- "simulate": [
-  "Scale the model to the study subject (table below).",
-  "Impose the static posture at the task's flexion angle (check angle_def); knees straight.",
-  "Apply the hand load as stated (Ghezelbash 2020: 14 kg held 0.2 x body height ahead; others none, 10 kg hanging or 12 kg at elbows 90°).",
-  "Report activation under each electrode, normalised as the study did (emg_ref).",
-  "FR angle tasks: report the angle where back-muscle activity drops to ~0 (onset) and returns (cessation)."
- ],
- "inputs": [
-  {
-   "key": "flexion_deg",
-   "label": "Flexion angle",
-   "unit": "deg"
+  "id": "flexion_relaxation",
+  "title": "Flexion-relaxation",
+  "domain": "msk",
+  "region": "lumbar+thoracic",
+  "levels": [
+    "T11-L5 (electrode sites)"
+  ],
+  "summary": "Simulate static forward bending and report back-muscle activity (%MVC) at each angle, and the angles where it switches off and on.",
+  "simulate": [
+    "Scale the model to the study subject (table below).",
+    "Impose the static posture at the task's flexion angle (check angle_def); knees straight.",
+    "Apply the hand load as stated (Ghezelbash 2020: 14 kg held 0.2 x body height ahead; others none, 10 kg hanging or 12 kg at elbows 90°).",
+    "Report activation under each electrode, normalised as the study did (emg_ref).",
+    "FR angle tasks: report the angle where back-muscle activity drops to ~0 (onset) and returns (cessation)."
+  ],
+  "inputs": [
+    {
+      "key": "flexion_deg",
+      "label": "Flexion angle",
+      "unit": "deg"
+    },
+    {
+      "key": "angle_def",
+      "label": "Angle definition"
+    },
+    {
+      "key": "load",
+      "label": "Hand load"
+    },
+    {
+      "key": "muscle",
+      "label": "Electrode site"
+    },
+    {
+      "key": "emg_ref",
+      "label": "EMG normalisation"
+    },
+    {
+      "key": "event",
+      "label": "FR event"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "emg",
+      "label": "Muscle EMG",
+      "unit": "%MVC",
+      "definition": "EMG = surface EMG amplitude under the electrode, % of the study's maximal-exertion reference (MVC)"
+    },
+    {
+      "key": "fr_angle",
+      "label": "Flexion-relaxation angle",
+      "unit": "deg",
+      "definition": "Flexion angle at which back-muscle EMG falls silent (onset, flexing) or returns (cessation, extending)"
+    },
+    {
+      "key": "fr_angle_rel",
+      "label": "FR angle, % of max lumbar flexion",
+      "unit": "%",
+      "definition": "Lumbar (T12-S1) flexion at which back-muscle EMG falls silent (onset) or returns (cessation), as % of maximum lumbar flexion"
+    }
+  ],
+  "subjects": {
+    "ghezelbash2020": {
+      "sex": "9 F / 10 M",
+      "age": 27.5,
+      "height_cm": 169.3,
+      "weight_kg": 66.9,
+      "note": "weighted means; F 163.4 cm 61.0 kg, M 174.6 cm 72.2 kg"
+    },
+    "ghezelbash2024": {
+      "sex": "9 F / 10 M",
+      "age": 27.5,
+      "height_cm": 169.3,
+      "weight_kg": 66.9,
+      "note": "same 19 subjects as Ghezelbash 2020"
+    },
+    "ghezelbash2024s": {
+      "sex": "not stated",
+      "age": 27,
+      "height_cm": 169,
+      "weight_kg": 67
+    },
+    "shin2004": {
+      "sex": "male",
+      "age": 27,
+      "height_cm": 174,
+      "weight_kg": 68.5
+    },
+    "koopman2019": {
+      "sex": "male",
+      "age": 24.1,
+      "height_cm": 184,
+      "weight_kg": 74.8
+    },
+    "koopman2020b": {
+      "sex": "male",
+      "age": 46.4,
+      "height_cm": 175,
+      "weight_kg": 83.6
+    },
+    "gupta2001": {
+      "sex": "15 M / 10 F",
+      "age": 27.4,
+      "height_cm": 158,
+      "weight_kg": 52.0,
+      "note": "as printed (Table 1)"
+    },
+    "descarreaux2008": {
+      "sex": "9 M / 11 F",
+      "age": 23.9,
+      "height_cm": 170,
+      "weight_kg": 64.1
+    },
+    "zwambag2016": {
+      "sex": "male",
+      "age": 25,
+      "height_cm": 181,
+      "weight_kg": 82
+    },
+    "sarti2001": {
+      "sex": "10 F / 12 M",
+      "age": 21.45,
+      "height_cm": 168.2,
+      "weight_kg": 64.1,
+      "note": "weighted means; F 162.0 cm 56.9 kg, M 173.3 cm 70.0 kg"
+    }
   },
-  {
-   "key": "angle_def",
-   "label": "Angle definition"
-  },
-  {
-   "key": "load",
-   "label": "Hand load"
-  },
-  {
-   "key": "muscle",
-   "label": "Electrode site"
-  },
-  {
-   "key": "emg_ref",
-   "label": "EMG normalisation"
-  },
-  {
-   "key": "event",
-   "label": "FR event"
+  "studies": [
+    {
+      "key": "ghezelbash2020",
+      "short": "Ghezelbash 2020",
+      "year": 2020,
+      "n": 19,
+      "sample": "19 healthy adults (9 F, 10 M), 14 kg static holds",
+      "doi": "10.1016/j.jbiomech.2019.109550",
+      "secondary": false
+    },
+    {
+      "key": "ghezelbash2024",
+      "short": "Ghezelbash 2024",
+      "year": 2024,
+      "n": 19,
+      "sample": "same 19 adults, 10 kg static holds",
+      "doi": "10.1101/2024.01.06.574467",
+      "secondary": false
+    },
+    {
+      "key": "ghezelbash2024s",
+      "short": "Ghezelbash 2024 (1 subj.)",
+      "year": 2024,
+      "n": 1,
+      "sample": "1 healthy subject, no load",
+      "doi": "10.1101/2024.01.06.574467",
+      "secondary": false
+    },
+    {
+      "key": "shin2004",
+      "short": "Shin 2004",
+      "year": 2004,
+      "n": 8,
+      "sample": "8 healthy males, static postures, no load",
+      "doi": "10.1016/j.jelekin.2003.12.001",
+      "secondary": false
+    },
+    {
+      "key": "koopman2019",
+      "short": "Koopman 2019",
+      "year": 2019,
+      "n": 11,
+      "sample": "11 healthy males, static bending, no exoskeleton",
+      "doi": "10.1016/j.jbiomech.2018.11.033",
+      "secondary": false
+    },
+    {
+      "key": "koopman2020b",
+      "short": "Koopman 2020b",
+      "year": 2020,
+      "n": 10,
+      "sample": "10 male luggage handlers, static bending, no exoskeleton",
+      "doi": "10.1016/j.jbiomech.2020.109795",
+      "secondary": false
+    },
+    {
+      "key": "gupta2001",
+      "short": "Gupta 2001",
+      "year": 2001,
+      "n": 25,
+      "sample": "25 healthy young adults (15 M, 10 F)",
+      "doi": "10.1016/S0021-9290(00)00213-X",
+      "secondary": false
+    },
+    {
+      "key": "descarreaux2008",
+      "short": "Descarreaux 2008",
+      "year": 2008,
+      "n": 20,
+      "sample": "20 healthy adults (9 M, 11 F)",
+      "doi": "10.1186/1471-2474-9-10",
+      "secondary": false
+    },
+    {
+      "key": "zwambag2016",
+      "short": "Zwambag 2016",
+      "year": 2016,
+      "n": 10,
+      "sample": "10 healthy males",
+      "doi": "10.1016/j.jelekin.2016.05.008",
+      "secondary": false
+    },
+    {
+      "key": "sarti2001",
+      "short": "Sarti 2001",
+      "year": 2001,
+      "n": 22,
+      "sample": "22 fit young adults (10 F, 12 M), paced flexion-extension",
+      "doi": "10.1097/00007632-200109150-00019",
+      "secondary": false
+    }
+  ],
+  "shared": [
+    [
+      "ghezelbash2020",
+      "ghezelbash2024"
+    ]
+  ],
+  "views": [
+    {
+      "id": "fig_emg",
+      "title": "Trunk-muscle EMG vs trunk flexion, per muscle",
+      "layout": "panels",
+      "panel_by": "muscle",
+      "x": "input:flexion_deg",
+      "task_ids": [
+        "g20_lg_t11_18",
+        "g20_lg_t11_50",
+        "g20_lg_t11_68",
+        "g20_lg_t11_92",
+        "g20_ic_t11_18",
+        "g20_ic_t11_50",
+        "g20_ic_t11_68",
+        "g20_ic_t11_92",
+        "g24_lg_t11_18",
+        "g24_lg_t11_50",
+        "g24_lg_t11_68",
+        "g24_lg_t11_92",
+        "g24_ic_t11_18",
+        "g24_ic_t11_50",
+        "g24_ic_t11_68",
+        "g24_ic_t11_92",
+        "g24s_lg_t11_25",
+        "g24s_lg_t11_50",
+        "g24s_lg_t11_95",
+        "g24s_ic_t11_25",
+        "g24s_ic_t11_50",
+        "g24s_ic_t11_95",
+        "g20_ic_l3_18",
+        "g20_ic_l3_50",
+        "g20_ic_l3_68",
+        "g20_ic_l3_92",
+        "shin_lo_30",
+        "shin_lo_50",
+        "shin_lo_70",
+        "shin_lo_90",
+        "shin_il_30",
+        "shin_il_50",
+        "shin_il_70",
+        "shin_il_90",
+        "koo19_il_0",
+        "koo19_il_66",
+        "koo19_il_93",
+        "koo19_il_113",
+        "koo19_il_126",
+        "koo19_lo_0",
+        "koo19_lo_66",
+        "koo19_lo_93",
+        "koo19_lo_113",
+        "koo19_lo_126",
+        "koo20b_back_1",
+        "koo20b_back_31",
+        "koo20b_back_42",
+        "koo20b_back_55",
+        "koo20b_back_64",
+        "koo20b_back_67",
+        "g20_mf_l4_18",
+        "g20_mf_l4_50",
+        "g20_mf_l4_68",
+        "g20_mf_l4_92",
+        "shin_mu_30",
+        "shin_mu_50",
+        "shin_mu_70",
+        "shin_mu_90",
+        "g24_ra_18",
+        "g24_ra_50",
+        "g24_ra_68",
+        "g24_ra_92",
+        "g24_eo_18",
+        "g24_eo_50",
+        "g24_eo_68",
+        "g24_eo_92",
+        "g24_io_18",
+        "g24_io_50",
+        "g24_io_68",
+        "g24_io_92"
+      ],
+      "legend_inputs": [
+        "load"
+      ],
+      "panel_map": {
+        "IC(L3)": "IC lumbar",
+        "IC(L2)": "IC lumbar",
+        "IC (site n.s.)": "IC lumbar",
+        "LG(L2)": "LG lumbar",
+        "LL (site n.s.)": "LG lumbar",
+        "MF(L4/L5)": "MF",
+        "MF(L4)": "MF"
+      },
+      "panels": [
+        "LG(T11)",
+        "IC(T11)",
+        "LG lumbar",
+        "IC lumbar",
+        "IC+LL mean (site n.s.)",
+        "MF",
+        "RA",
+        "EO",
+        "IO"
+      ],
+      "panel_labels": {
+        "LG(T11)": "Longissimus, T11",
+        "IC(T11)": "Iliocostalis, T11",
+        "LG lumbar": "Longissimus, lumbar",
+        "IC lumbar": "Iliocostalis, lumbar",
+        "IC+LL mean (site n.s.)": "Lumbar erector (IC + LL mean)",
+        "MF": "Multifidus, L4–L5",
+        "RA": "Rectus abdominis",
+        "EO": "External oblique",
+        "IO": "Internal oblique"
+      },
+      "note": "Flexion angle definitions and EMG normalisation differ between studies (see the Values table); compare shapes and onsets."
+    },
+    {
+      "id": "fr_angle",
+      "title": "Angles where back muscles go silent",
+      "task_ids": [
+        "gupta_onset_trunk",
+        "gupta_onset_vertebral",
+        "gupta_cessation_trunk",
+        "gupta_cessation_vertebral",
+        "desc_onset_l2_0",
+        "desc_onset_l2_12",
+        "desc_onset_l5_0",
+        "desc_onset_l5_12",
+        "desc_cessation_l2_0",
+        "desc_cessation_l2_12",
+        "desc_cessation_l5_0",
+        "desc_cessation_l5_12",
+        "zwam_onset_lumbar",
+        "zwam_onset_incl"
+      ],
+      "x": "task"
+    },
+    {
+      "id": "fr_angle_rel",
+      "title": "Silence onset and cessation, % of maximum lumbar flexion",
+      "task_ids": [
+        "sarti_onset_0",
+        "sarti_cessation_0",
+        "sarti_onset_10",
+        "sarti_cessation_10"
+      ],
+      "x": "task"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "g20_lg_t11_18",
+      "label": "LG(T11), 14 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 26.95,
+          "sd": 12.65,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_50",
+      "label": "LG(T11), 14 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 29.75,
+          "sd": 10.15,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_68",
+      "label": "LG(T11), 14 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 22.9,
+          "sd": 13.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_lg_t11_92",
+      "label": "LG(T11), 14 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.0,
+          "sd": 15.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
+          "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_t11_18",
+      "label": "IC(T11), 14 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 10.35,
+          "sd": 4.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
+          "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_t11_50",
+      "label": "IC(T11), 14 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 13.3,
+          "sd": 5.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
+          "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_t11_68",
+      "label": "IC(T11), 14 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 11.55,
+          "sd": 6.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
+          "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_t11_92",
+      "label": "IC(T11), 14 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 10.1,
+          "sd": 7.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
+          "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_18",
+      "label": "IC(L3), 14 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(L3)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 18.35,
+          "sd": 8.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_50",
+      "label": "IC(L3), 14 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(L3)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 22.8,
+          "sd": 7.35,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_68",
+      "label": "IC(L3), 14 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(L3)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.55,
+          "sd": 9.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_ic_l3_92",
+      "label": "IC(L3), 14 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "IC(L3)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 11.25,
+          "sd": 8.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
+          "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_18",
+      "label": "MF(L4/L5), 14 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "MF(L4/L5)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 28.85,
+          "sd": 13.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_50",
+      "label": "MF(L4/L5), 14 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "MF(L4/L5)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 39.9,
+          "sd": 13.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_68",
+      "label": "MF(L4/L5), 14 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "MF(L4/L5)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 28.3,
+          "sd": 16.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g20_mf_l4_92",
+      "label": "MF(L4/L5), 14 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "14 kg, arms hanging",
+        "muscle": "MF(L4/L5)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2020",
+          "mean": 17.15,
+          "sd": 14.45,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
+          "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
+        }
+      ]
+    },
+    {
+      "id": "g24_lg_t11_18",
+      "label": "LG(T11), 10 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 22.2,
+          "sd": 9.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_lg_t11_50",
+      "label": "LG(T11), 10 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 27.2,
+          "sd": 9.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_lg_t11_68",
+      "label": "LG(T11), 10 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 19.6,
+          "sd": 10.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_lg_t11_92",
+      "label": "LG(T11), 10 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "LG(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 16.2,
+          "sd": 10.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_ic_t11_18",
+      "label": "IC(T11), 10 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 7.0,
+          "sd": 3.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_ic_t11_50",
+      "label": "IC(T11), 10 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 10.0,
+          "sd": 3.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_ic_t11_68",
+      "label": "IC(T11), 10 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 7.4,
+          "sd": 4.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24_ic_t11_92",
+      "label": "IC(T11), 10 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IC(T11)",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 7.3,
+          "sd": 5.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "10 kg (figure caption, confirmed by the author)"
+        }
+      ]
+    },
+    {
+      "id": "g24s_lg_t11_25",
+      "label": "LG(T11), no load, 25°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 25,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "LG(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 11.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "g24s_lg_t11_50",
+      "label": "LG(T11), no load, 50°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "LG(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 14.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "g24s_lg_t11_95",
+      "label": "LG(T11), no load, 95°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 95,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "LG(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 1.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "g24s_ic_t11_25",
+      "label": "IC(T11), no load, 25°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 25,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "IC(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 4.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "g24s_ic_t11_50",
+      "label": "IC(T11), no load, 50°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "IC(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 7.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "g24s_ic_t11_95",
+      "label": "IC(T11), no load, 95°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 95,
+        "angle_def": "trunk flexion",
+        "load": "none",
+        "muscle": "IC(T11)",
+        "emg_ref": "MVC (Ghezelbash 2016)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024s",
+          "mean": 1.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "value",
+          "n": 1,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
+          "note": "single subject, +/-1 %MVC"
+        }
+      ]
+    },
+    {
+      "id": "shin_mu_30",
+      "label": "MF(L4), no load, 30°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 30,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "MF(L4)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 20.9,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_mu_50",
+      "label": "MF(L4), no load, 50°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "MF(L4)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 18.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_mu_70",
+      "label": "MF(L4), no load, 70°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 70,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "MF(L4)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 12.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_mu_90",
+      "label": "MF(L4), no load, 90°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 90,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "MF(L4)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 4.8,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_lo_30",
+      "label": "LG(L2), no load, 30°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 30,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "LG(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 14.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_lo_50",
+      "label": "LG(L2), no load, 50°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "LG(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 12.7,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_lo_70",
+      "label": "LG(L2), no load, 70°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 70,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "LG(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 11.0,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_lo_90",
+      "label": "LG(L2), no load, 90°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 90,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "LG(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 6.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_il_30",
+      "label": "IC(L2), no load, 30°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 30,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "IC(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 13.3,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_il_50",
+      "label": "IC(L2), no load, 50°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "IC(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 12.2,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_il_70",
+      "label": "IC(L2), no load, 70°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 70,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "IC(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 10.4,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "shin_il_90",
+      "label": "IC(L2), no load, 90°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 90,
+        "angle_def": "torso flexion from upright",
+        "load": "none, knees straight",
+        "muscle": "IC(L2)",
+        "emg_ref": "angle-specific extension MVC"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "shin2004",
+          "mean": 5.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 8,
+          "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
+          "note": "fraction x 100; no SD plotted; knee 0 deg"
+        }
+      ]
+    },
+    {
+      "id": "koo19_il_0",
+      "label": "IC (site not stated), no load, 0°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 0,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "IC (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.7-8.8; hand height 100%",
+          "median": 2.7
+        }
+      ]
+    },
+    {
+      "id": "koo19_il_66",
+      "label": "IC (site not stated), no load, 66°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 66,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "IC (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 4.5-17.1; hand height 75%",
+          "median": 12.2
+        }
+      ]
+    },
+    {
+      "id": "koo19_il_93",
+      "label": "IC (site not stated), no load, 93°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 93,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "IC (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.2-11.8; hand height 50%",
+          "median": 4.2
+        }
+      ]
+    },
+    {
+      "id": "koo19_il_113",
+      "label": "IC (site not stated), no load, 113°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 113,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "IC (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.2-6.5; hand height 25%",
+          "median": 1.5
+        }
+      ]
+    },
+    {
+      "id": "koo19_il_126",
+      "label": "IC (site not stated), no load, 126°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 126,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "IC (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.3-3.3; hand height 0%",
+          "median": 1.9
+        }
+      ]
+    },
+    {
+      "id": "koo19_lo_0",
+      "label": "LL (site not stated), no load, 0°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 0,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "LL (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 2.0-11.1; hand height 100%",
+          "median": 2.7
+        }
+      ]
+    },
+    {
+      "id": "koo19_lo_66",
+      "label": "LL (site not stated), no load, 66°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 66,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "LL (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 2.6-26.6; hand height 75%",
+          "median": 8.6
+        }
+      ]
+    },
+    {
+      "id": "koo19_lo_93",
+      "label": "LL (site not stated), no load, 93°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 93,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "LL (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.4-18.9; hand height 50%",
+          "median": 1.6
+        }
+      ]
+    },
+    {
+      "id": "koo19_lo_113",
+      "label": "LL (site not stated), no load, 113°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 113,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "LL (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.4-14.8; hand height 25%",
+          "median": 1.6
+        }
+      ]
+    },
+    {
+      "id": "koo19_lo_126",
+      "label": "LL (site not stated), no load, 126°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 126,
+        "angle_def": "trunk inclination",
+        "load": "none, arms hanging",
+        "muscle": "LL (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2019",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 11,
+          "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
+          "note": "Q1-Q3 1.8-3.8; hand height 0%",
+          "median": 2.5
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_1",
+      "label": "IC+LL mean, no load, 1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 1,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 4.8-11.4; hand height 100%; angle digitised",
+          "median": 5.1
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_31",
+      "label": "IC+LL mean, no load, 31.4°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 31.4,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 14.8-41.7; hand height 95%; angle digitised",
+          "median": 24.8
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_42",
+      "label": "IC+LL mean, no load, 42.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 42.3,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 16.7-37.8; hand height 80%; angle digitised",
+          "median": 24.0
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_55",
+      "label": "IC+LL mean, no load, 54.9°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 54.9,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 12.5-32.8; hand height 60%; angle digitised",
+          "median": 20.6
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_64",
+      "label": "IC+LL mean, no load, 63.7°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 63.7,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 3.0-20.3; hand height 20%; angle digitised",
+          "median": 13.5
+        }
+      ]
+    },
+    {
+      "id": "koo20b_back_67",
+      "label": "IC+LL mean, no load, 67.4°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 67.4,
+        "angle_def": "lumbar flexion",
+        "load": "none, arms hanging",
+        "muscle": "IC+LL mean (site n.s.)",
+        "emg_ref": "supine MVC (McGill 1991)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "koopman2020b",
+          "mean": null,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 10,
+          "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
+          "note": "Q1-Q3 3.4-12.7; hand height 0%; angle digitised",
+          "median": 7.8
+        }
+      ]
+    },
+    {
+      "id": "gupta_onset_trunk",
+      "label": "Onset, ES(L3), trunk angle",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "thigh to T1-hip line",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "gupta2001",
+          "mean": 80.3,
+          "sd": 8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 25,
+          "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
+          "note": "EMG silence on oscilloscope"
+        }
+      ]
+    },
+    {
+      "id": "gupta_onset_vertebral",
+      "label": "Onset, ES(L3), vertebral angle",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "pelvis to T1 line",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "gupta2001",
+          "mean": 47.1,
+          "sd": 5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 25,
+          "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
+          "note": "EMG silence on oscilloscope"
+        }
+      ]
+    },
+    {
+      "id": "gupta_cessation_trunk",
+      "label": "Cessation, ES(L3), trunk angle",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "thigh to T1-hip line",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "gupta2001",
+          "mean": 85.6,
+          "sd": 10,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 25,
+          "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
+          "note": "EMG silence on oscilloscope"
+        }
+      ]
+    },
+    {
+      "id": "gupta_cessation_vertebral",
+      "label": "Cessation, ES(L3), vertebral angle",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "pelvis to T1 line",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "gupta2001",
+          "mean": 50.3,
+          "sd": 4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 25,
+          "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
+          "note": "EMG silence on oscilloscope"
+        }
+      ]
+    },
+    {
+      "id": "desc_onset_l2_0",
+      "label": "Onset, ES(L2), no load",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "total trunk angle",
+        "load": "none",
+        "muscle": "ES(L2)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 79.2,
+          "sd": 4.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-4.1 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_onset_l2_12",
+      "label": "Onset, ES(L2), 12 kg",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "total trunk angle",
+        "load": "12 kg barbell, elbows 90 deg",
+        "muscle": "ES(L2)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 83.1,
+          "sd": 4.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-4.3 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_onset_l5_0",
+      "label": "Onset, ES(L5), no load",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "total trunk angle",
+        "load": "none",
+        "muscle": "ES(L5)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 69.8,
+          "sd": 3.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-3.9 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_onset_l5_12",
+      "label": "Onset, ES(L5), 12 kg",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "total trunk angle",
+        "load": "12 kg barbell, elbows 90 deg",
+        "muscle": "ES(L5)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 75.5,
+          "sd": 4.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-4.4 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_cessation_l2_0",
+      "label": "Cessation, ES(L2), no load",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "total trunk angle",
+        "load": "none",
+        "muscle": "ES(L2)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 88.5,
+          "sd": 3.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-3.6 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_cessation_l2_12",
+      "label": "Cessation, ES(L2), 12 kg",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "total trunk angle",
+        "load": "12 kg barbell, elbows 90 deg",
+        "muscle": "ES(L2)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 90.2,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-3.7 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_cessation_l5_0",
+      "label": "Cessation, ES(L5), no load",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "total trunk angle",
+        "load": "none",
+        "muscle": "ES(L5)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 87.1,
+          "sd": 3.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-3.4 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "desc_cessation_l5_12",
+      "label": "Cessation, ES(L5), 12 kg",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "total trunk angle",
+        "load": "12 kg barbell, elbows 90 deg",
+        "muscle": "ES(L5)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "descarreaux2008",
+          "mean": 90.0,
+          "sd": 3.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 20,
+          "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
+          "note": "+/-3.7 printed, SD/SEM not stated; pooled over fatigue"
+        }
+      ]
+    },
+    {
+      "id": "zwam_onset_lumbar",
+      "label": "Onset, LES(L3), lumbar flexion",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "lumbar flexion T12-S1",
+        "load": "none",
+        "muscle": "LES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "zwambag2016",
+          "mean": 51.8,
+          "sd": 3.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
+          "note": "SD = SEM 1.2 x sqrt(10)"
+        }
+      ]
+    },
+    {
+      "id": "zwam_onset_incl",
+      "label": "Onset, LES(L3), trunk inclination",
+      "view": "fr_angle",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "trunk inclination",
+        "load": "none (pooled 0-6.8 kg counterweight)",
+        "muscle": "LES(L3)"
+      },
+      "output": "fr_angle",
+      "level": "",
+      "refs": [
+        {
+          "study": "zwambag2016",
+          "mean": 100.4,
+          "sd": 2.2,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 10,
+          "test_id": "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
+          "note": "SD = SEM 0.7 x sqrt(10); all counterweights (no effect)"
+        }
+      ]
+    },
+    {
+      "id": "g24_ra_18",
+      "label": "RA, 10 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "RA",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.3,
+          "sd": 2.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_ra_50",
+      "label": "RA, 10 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "RA",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.3,
+          "sd": 2.9,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_ra_68",
+      "label": "RA, 10 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "RA",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.3,
+          "sd": 2.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_ra_92",
+      "label": "RA, 10 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "RA",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.5,
+          "sd": 2.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_eo_18",
+      "label": "EO, 10 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "EO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.8,
+          "sd": 2.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_eo_50",
+      "label": "EO, 10 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "EO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.8,
+          "sd": 2.7,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_eo_68",
+      "label": "EO, 10 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "EO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 4.6,
+          "sd": 2.6,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_eo_92",
+      "label": "EO, 10 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "EO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 5.0,
+          "sd": 2.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_io_18",
+      "label": "IO, 10 kg, 18.3°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 18.3,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 9.3,
+          "sd": 5.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_io_50",
+      "label": "IO, 10 kg, 50.5°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 50.5,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 6.1,
+          "sd": 5.1,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_io_68",
+      "label": "IO, 10 kg, 68.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 68.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 3.5,
+          "sd": 2.0,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "g24_io_92",
+      "label": "IO, 10 kg, 92.1°",
+      "view": "fig_emg",
+      "inputs": {
+        "flexion_deg": 92.1,
+        "angle_def": "trunk flexion (load height)",
+        "load": "10 kg, arms hanging",
+        "muscle": "IO",
+        "emg_ref": "max over 6 MVE directions (semi-seated)"
+      },
+      "output": "emg",
+      "level": "",
+      "refs": [
+        {
+          "study": "ghezelbash2024",
+          "mean": 3.4,
+          "sd": 1.8,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 19,
+          "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
+          "note": "bilateral mean; caption 10 kg, Methods 6 kg"
+        }
+      ]
+    },
+    {
+      "id": "sarti_onset_0",
+      "label": "Onset, ES(L3), no load, % max lumbar",
+      "view": "fr_angle_rel",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "lumbar flexion T12-S1, % of maximum",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle_rel",
+      "level": "",
+      "refs": [
+        {
+          "study": "sarti2001",
+          "mean": 84,
+          "sd": 7.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 22,
+          "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+          "note": "Table 2 slow series S (MS); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
+        }
+      ]
+    },
+    {
+      "id": "sarti_cessation_0",
+      "label": "Cessation, ES(L3), no load, % max lumbar",
+      "view": "fr_angle_rel",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "lumbar flexion T12-S1, % of maximum",
+        "load": "none",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle_rel",
+      "level": "",
+      "refs": [
+        {
+          "study": "sarti2001",
+          "mean": 90,
+          "sd": 1.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 22,
+          "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+          "note": "Table 2 slow series S (MR); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
+        }
+      ]
+    },
+    {
+      "id": "sarti_onset_10",
+      "label": "Onset, ES(L3), 10 kg, % max lumbar",
+      "view": "fr_angle_rel",
+      "inputs": {
+        "event": "onset",
+        "angle_def": "lumbar flexion T12-S1, % of maximum",
+        "load": "10 kg barbell, arms hanging",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle_rel",
+      "level": "",
+      "refs": [
+        {
+          "study": "sarti2001",
+          "mean": 86,
+          "sd": 6.4,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 22,
+          "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+          "note": "Table 2 slow series Sw (MS); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
+        }
+      ]
+    },
+    {
+      "id": "sarti_cessation_10",
+      "label": "Cessation, ES(L3), 10 kg, % max lumbar",
+      "view": "fr_angle_rel",
+      "inputs": {
+        "event": "cessation",
+        "angle_def": "lumbar flexion T12-S1, % of maximum",
+        "load": "10 kg barbell, arms hanging",
+        "muscle": "ES(L3)"
+      },
+      "output": "fr_angle_rel",
+      "level": "",
+      "refs": [
+        {
+          "study": "sarti2001",
+          "mean": 94,
+          "sd": 1.5,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 22,
+          "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
+          "note": "Table 2 slow series Sw (MR); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Angle definitions differ (trunk flexion, trunk inclination, lumbar T12-S1, thigh-T1); each task states its angle_def. Ghezelbash 2020 load heights are mapped to angles (Ghezelbash 2024 Fig 3c).",
+    "EMG references differ: max over 6 maximal exertions (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise the model the same way.",
+    "Left out: passive moments, FR ratios, EMG timing and full-flexion EMG without an angle."
+  ],
+  "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task scale the model to the subject of the study in its `studies` (see `subjects`), impose the static posture with flexion_deg measured as angle_def (trunk flexion / inclination = trunk from upright; lumbar flexion = T12-S1 angle change from upright; the two Gupta angles as named), knees straight, and solve for muscle activation. Report activation (%) of the fascicles under the named electrode (LG longissimus, IC iliocostalis, MF multifidus, ES / LES (lumbar) erector spinae, LL longissimus lumborum; level in brackets), left and right averaged. Loads: Ghezelbash 2020 (g20_*): 14 kg in both hands held 0.2 x body height in front of the feet; the angle stands for the load height (18.3° umbilicus, 50.5° mid-femur, 68.1° knee, 92.1° mid-tibia). Ghezelbash 2024 (g24_*): 10 kg in both hands, arms hanging. Koopman 2019 (koo19_*): trunk inclination 0/66/93/113/126° with hip flexion -3/25/42/61/70° and lumbar flexion ~0/50/61/66/69°, arms hanging; Koopman 2020b (koo20b_*): lumbar flexion as given, output = mean of iliocostalis and longissimus lumborum. Descarreaux 2008: 12 kg barbell held with elbows at 90°, upper arms along the trunk. Zwambag 2016: no hand load; zwam_onset_incl is the mean over upward cable forces of 0, 22.2, 44.5 and 66.7 N at ~T5. Normalise like the study (emg_ref): Ghezelbash = maximum over six maximal exertions (semi-seated triaxial dynamometer); Shin = maximal extension effort in the same posture (angle-specific MVC); Koopman = supine MVC (McGill 1991). FR angle tasks (fr_angle): sweep flexion quasi-statically in 1° steps from upright to full flexion and back, and report the angle (as angle_def) where the named back muscle's activation first falls to ~0 (< 1 %, onset, flexing) or rises above it again (cessation, extending). Sarti 2001 (sarti_*, output fr_angle_rel): same sweep with no load or 10 kg in both hands (arms hanging); report the lumbar (T12-S1) flexion at onset/cessation of the erector spinae under the L3 electrode as % of the model's maximum lumbar flexion. Do not tune the model to these data. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there; use null for tasks you cannot simulate.",
+  "answer_format": {
+    "g20_lg_t11_18": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_50": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_68": {
+      "emg": "%MVC"
+    },
+    "g20_lg_t11_92": {
+      "emg": "%MVC"
+    },
+    "g20_ic_t11_18": {
+      "emg": "%MVC"
+    },
+    "g20_ic_t11_50": {
+      "emg": "%MVC"
+    },
+    "g20_ic_t11_68": {
+      "emg": "%MVC"
+    },
+    "g20_ic_t11_92": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_18": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_50": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_68": {
+      "emg": "%MVC"
+    },
+    "g20_ic_l3_92": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_18": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_50": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_68": {
+      "emg": "%MVC"
+    },
+    "g20_mf_l4_92": {
+      "emg": "%MVC"
+    },
+    "g24_lg_t11_18": {
+      "emg": "%MVC"
+    },
+    "g24_lg_t11_50": {
+      "emg": "%MVC"
+    },
+    "g24_lg_t11_68": {
+      "emg": "%MVC"
+    },
+    "g24_lg_t11_92": {
+      "emg": "%MVC"
+    },
+    "g24_ic_t11_18": {
+      "emg": "%MVC"
+    },
+    "g24_ic_t11_50": {
+      "emg": "%MVC"
+    },
+    "g24_ic_t11_68": {
+      "emg": "%MVC"
+    },
+    "g24_ic_t11_92": {
+      "emg": "%MVC"
+    },
+    "g24s_lg_t11_25": {
+      "emg": "%MVC"
+    },
+    "g24s_lg_t11_50": {
+      "emg": "%MVC"
+    },
+    "g24s_lg_t11_95": {
+      "emg": "%MVC"
+    },
+    "g24s_ic_t11_25": {
+      "emg": "%MVC"
+    },
+    "g24s_ic_t11_50": {
+      "emg": "%MVC"
+    },
+    "g24s_ic_t11_95": {
+      "emg": "%MVC"
+    },
+    "shin_mu_30": {
+      "emg": "%MVC"
+    },
+    "shin_mu_50": {
+      "emg": "%MVC"
+    },
+    "shin_mu_70": {
+      "emg": "%MVC"
+    },
+    "shin_mu_90": {
+      "emg": "%MVC"
+    },
+    "shin_lo_30": {
+      "emg": "%MVC"
+    },
+    "shin_lo_50": {
+      "emg": "%MVC"
+    },
+    "shin_lo_70": {
+      "emg": "%MVC"
+    },
+    "shin_lo_90": {
+      "emg": "%MVC"
+    },
+    "shin_il_30": {
+      "emg": "%MVC"
+    },
+    "shin_il_50": {
+      "emg": "%MVC"
+    },
+    "shin_il_70": {
+      "emg": "%MVC"
+    },
+    "shin_il_90": {
+      "emg": "%MVC"
+    },
+    "koo19_il_0": {
+      "emg": "%MVC"
+    },
+    "koo19_il_66": {
+      "emg": "%MVC"
+    },
+    "koo19_il_93": {
+      "emg": "%MVC"
+    },
+    "koo19_il_113": {
+      "emg": "%MVC"
+    },
+    "koo19_il_126": {
+      "emg": "%MVC"
+    },
+    "koo19_lo_0": {
+      "emg": "%MVC"
+    },
+    "koo19_lo_66": {
+      "emg": "%MVC"
+    },
+    "koo19_lo_93": {
+      "emg": "%MVC"
+    },
+    "koo19_lo_113": {
+      "emg": "%MVC"
+    },
+    "koo19_lo_126": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_1": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_31": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_42": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_55": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_64": {
+      "emg": "%MVC"
+    },
+    "koo20b_back_67": {
+      "emg": "%MVC"
+    },
+    "gupta_onset_trunk": {
+      "fr_angle": "deg"
+    },
+    "gupta_onset_vertebral": {
+      "fr_angle": "deg"
+    },
+    "gupta_cessation_trunk": {
+      "fr_angle": "deg"
+    },
+    "gupta_cessation_vertebral": {
+      "fr_angle": "deg"
+    },
+    "desc_onset_l2_0": {
+      "fr_angle": "deg"
+    },
+    "desc_onset_l2_12": {
+      "fr_angle": "deg"
+    },
+    "desc_onset_l5_0": {
+      "fr_angle": "deg"
+    },
+    "desc_onset_l5_12": {
+      "fr_angle": "deg"
+    },
+    "desc_cessation_l2_0": {
+      "fr_angle": "deg"
+    },
+    "desc_cessation_l2_12": {
+      "fr_angle": "deg"
+    },
+    "desc_cessation_l5_0": {
+      "fr_angle": "deg"
+    },
+    "desc_cessation_l5_12": {
+      "fr_angle": "deg"
+    },
+    "zwam_onset_lumbar": {
+      "fr_angle": "deg"
+    },
+    "zwam_onset_incl": {
+      "fr_angle": "deg"
+    },
+    "g24_ra_18": {
+      "emg": "%MVC"
+    },
+    "g24_ra_50": {
+      "emg": "%MVC"
+    },
+    "g24_ra_68": {
+      "emg": "%MVC"
+    },
+    "g24_ra_92": {
+      "emg": "%MVC"
+    },
+    "g24_eo_18": {
+      "emg": "%MVC"
+    },
+    "g24_eo_50": {
+      "emg": "%MVC"
+    },
+    "g24_eo_68": {
+      "emg": "%MVC"
+    },
+    "g24_eo_92": {
+      "emg": "%MVC"
+    },
+    "g24_io_18": {
+      "emg": "%MVC"
+    },
+    "g24_io_50": {
+      "emg": "%MVC"
+    },
+    "g24_io_68": {
+      "emg": "%MVC"
+    },
+    "g24_io_92": {
+      "emg": "%MVC"
+    },
+    "sarti_onset_0": {
+      "fr_angle_rel": "%"
+    },
+    "sarti_cessation_0": {
+      "fr_angle_rel": "%"
+    },
+    "sarti_onset_10": {
+      "fr_angle_rel": "%"
+    },
+    "sarti_cessation_10": {
+      "fr_angle_rel": "%"
+    }
   }
- ],
- "outputs": [
-  {
-   "key": "emg",
-   "label": "Muscle EMG",
-   "unit": "%MVC",
-   "definition": "EMG = surface EMG amplitude under the electrode, % of the study's maximal-exertion reference (MVC)"
-  },
-  {
-   "key": "fr_angle",
-   "label": "Flexion-relaxation angle",
-   "unit": "deg",
-   "definition": "Flexion angle at which back-muscle EMG falls silent (onset, flexing) or returns (cessation, extending)"
-  },
-  {
-   "key": "fr_angle_rel",
-   "label": "FR angle, % of max lumbar flexion",
-   "unit": "%",
-   "definition": "Lumbar (T12-S1) flexion at which back-muscle EMG falls silent (onset) or returns (cessation), as % of maximum lumbar flexion"
-  }
- ],
- "subjects": {
-  "ghezelbash2020": {
-   "sex": "9 F / 10 M",
-   "age": 27.5,
-   "height_cm": 169.3,
-   "weight_kg": 66.9,
-   "note": "weighted means; F 163.4 cm 61.0 kg, M 174.6 cm 72.2 kg"
-  },
-  "ghezelbash2024": {
-   "sex": "9 F / 10 M",
-   "age": 27.5,
-   "height_cm": 169.3,
-   "weight_kg": 66.9,
-   "note": "same 19 subjects as Ghezelbash 2020"
-  },
-  "ghezelbash2024s": {
-   "sex": "not stated",
-   "age": 27,
-   "height_cm": 169,
-   "weight_kg": 67
-  },
-  "shin2004": {
-   "sex": "male",
-   "age": 27,
-   "height_cm": 174,
-   "weight_kg": 68.5
-  },
-  "koopman2019": {
-   "sex": "male",
-   "age": 24.1,
-   "height_cm": 184,
-   "weight_kg": 74.8
-  },
-  "koopman2020b": {
-   "sex": "male",
-   "age": 46.4,
-   "height_cm": 175,
-   "weight_kg": 83.6
-  },
-  "gupta2001": {
-   "sex": "15 M / 10 F",
-   "age": 27.4,
-   "height_cm": 158,
-   "weight_kg": 52.0,
-   "note": "as printed (Table 1)"
-  },
-  "descarreaux2008": {
-   "sex": "9 M / 11 F",
-   "age": 23.9,
-   "height_cm": 170,
-   "weight_kg": 64.1
-  },
-  "zwambag2016": {
-   "sex": "male",
-   "age": 25,
-   "height_cm": 181,
-   "weight_kg": 82
-  },
-  "sarti2001": {
-   "sex": "10 F / 12 M",
-   "age": 21.45,
-   "height_cm": 168.2,
-   "weight_kg": 64.1,
-   "note": "weighted means; F 162.0 cm 56.9 kg, M 173.3 cm 70.0 kg"
-  }
- },
- "studies": [
-  {
-   "key": "ghezelbash2020",
-   "short": "Ghezelbash 2020",
-   "year": 2020,
-   "n": 19,
-   "sample": "19 healthy adults (9 F, 10 M), 14 kg static holds",
-   "doi": "10.1016/j.jbiomech.2019.109550",
-   "secondary": false
-  },
-  {
-   "key": "ghezelbash2024",
-   "short": "Ghezelbash 2024",
-   "year": 2024,
-   "n": 19,
-   "sample": "same 19 adults, 10 kg static holds",
-   "doi": "10.1101/2024.01.06.574467",
-   "secondary": false
-  },
-  {
-   "key": "ghezelbash2024s",
-   "short": "Ghezelbash 2024 (1 subj.)",
-   "year": 2024,
-   "n": 1,
-   "sample": "1 healthy subject, no load",
-   "doi": "10.1101/2024.01.06.574467",
-   "secondary": false
-  },
-  {
-   "key": "shin2004",
-   "short": "Shin 2004",
-   "year": 2004,
-   "n": 8,
-   "sample": "8 healthy males, static postures, no load",
-   "doi": "10.1016/j.jelekin.2003.12.001",
-   "secondary": false
-  },
-  {
-   "key": "koopman2019",
-   "short": "Koopman 2019",
-   "year": 2019,
-   "n": 11,
-   "sample": "11 healthy males, static bending, no exoskeleton",
-   "doi": "10.1016/j.jbiomech.2018.11.033",
-   "secondary": false
-  },
-  {
-   "key": "koopman2020b",
-   "short": "Koopman 2020b",
-   "year": 2020,
-   "n": 10,
-   "sample": "10 male luggage handlers, static bending, no exoskeleton",
-   "doi": "10.1016/j.jbiomech.2020.109795",
-   "secondary": false
-  },
-  {
-   "key": "gupta2001",
-   "short": "Gupta 2001",
-   "year": 2001,
-   "n": 25,
-   "sample": "25 healthy young adults (15 M, 10 F)",
-   "doi": "10.1016/S0021-9290(00)00213-X",
-   "secondary": false
-  },
-  {
-   "key": "descarreaux2008",
-   "short": "Descarreaux 2008",
-   "year": 2008,
-   "n": 20,
-   "sample": "20 healthy adults (9 M, 11 F)",
-   "doi": "10.1186/1471-2474-9-10",
-   "secondary": false
-  },
-  {
-   "key": "zwambag2016",
-   "short": "Zwambag 2016",
-   "year": 2016,
-   "n": 10,
-   "sample": "10 healthy males",
-   "doi": "10.1016/j.jelekin.2016.05.008",
-   "secondary": false
-  },
-  {
-   "key": "sarti2001",
-   "short": "Sarti 2001",
-   "year": 2001,
-   "n": 22,
-   "sample": "22 fit young adults (10 F, 12 M), paced flexion-extension",
-   "doi": "10.1097/00007632-200109150-00019",
-   "secondary": false
-  }
- ],
- "shared": [
-  [
-   "ghezelbash2020",
-   "ghezelbash2024"
-  ]
- ],
- "views": [
-  {
-   "id": "fig_emg",
-   "title": "Trunk-muscle EMG vs trunk flexion, per muscle",
-   "layout": "panels",
-   "panel_by": "muscle",
-   "x": "input:flexion_deg",
-   "task_ids": [
-    "g20_lg_t11_18",
-    "g20_lg_t11_50",
-    "g20_lg_t11_68",
-    "g20_lg_t11_92",
-    "g20_ic_t11_18",
-    "g20_ic_t11_50",
-    "g20_ic_t11_68",
-    "g20_ic_t11_92",
-    "g24_lg_t11_18",
-    "g24_lg_t11_50",
-    "g24_lg_t11_68",
-    "g24_lg_t11_92",
-    "g24_ic_t11_18",
-    "g24_ic_t11_50",
-    "g24_ic_t11_68",
-    "g24_ic_t11_92",
-    "g24s_lg_t11_25",
-    "g24s_lg_t11_50",
-    "g24s_lg_t11_95",
-    "g24s_ic_t11_25",
-    "g24s_ic_t11_50",
-    "g24s_ic_t11_95",
-    "g20_ic_l3_18",
-    "g20_ic_l3_50",
-    "g20_ic_l3_68",
-    "g20_ic_l3_92",
-    "shin_lo_30",
-    "shin_lo_50",
-    "shin_lo_70",
-    "shin_lo_90",
-    "shin_il_30",
-    "shin_il_50",
-    "shin_il_70",
-    "shin_il_90",
-    "koo19_il_0",
-    "koo19_il_66",
-    "koo19_il_93",
-    "koo19_il_113",
-    "koo19_il_126",
-    "koo19_lo_0",
-    "koo19_lo_66",
-    "koo19_lo_93",
-    "koo19_lo_113",
-    "koo19_lo_126",
-    "koo20b_back_1",
-    "koo20b_back_31",
-    "koo20b_back_42",
-    "koo20b_back_55",
-    "koo20b_back_64",
-    "koo20b_back_67",
-    "g20_mf_l4_18",
-    "g20_mf_l4_50",
-    "g20_mf_l4_68",
-    "g20_mf_l4_92",
-    "shin_mu_30",
-    "shin_mu_50",
-    "shin_mu_70",
-    "shin_mu_90",
-    "g24_ra_18",
-    "g24_ra_50",
-    "g24_ra_68",
-    "g24_ra_92",
-    "g24_eo_18",
-    "g24_eo_50",
-    "g24_eo_68",
-    "g24_eo_92",
-    "g24_io_18",
-    "g24_io_50",
-    "g24_io_68",
-    "g24_io_92"
-   ],
-   "legend_inputs": [
-    "load"
-   ],
-   "panel_map": {
-    "IC(L3)": "IC lumbar",
-    "IC(L2)": "IC lumbar",
-    "IC (site n.s.)": "IC lumbar",
-    "LG(L2)": "LG lumbar",
-    "LL (site n.s.)": "LG lumbar",
-    "MF(L4/L5)": "MF",
-    "MF(L4)": "MF"
-   },
-   "panels": [
-    "LG(T11)",
-    "IC(T11)",
-    "LG lumbar",
-    "IC lumbar",
-    "IC+LL mean (site n.s.)",
-    "MF",
-    "RA",
-    "EO",
-    "IO"
-   ],
-   "panel_labels": {
-    "LG(T11)": "Longissimus, T11",
-    "IC(T11)": "Iliocostalis, T11",
-    "LG lumbar": "Longissimus, lumbar",
-    "IC lumbar": "Iliocostalis, lumbar",
-    "IC+LL mean (site n.s.)": "Lumbar erector (IC + LL mean)",
-    "MF": "Multifidus, L4–L5",
-    "RA": "Rectus abdominis",
-    "EO": "External oblique",
-    "IO": "Internal oblique"
-   },
-   "note": "Flexion angle definitions and EMG normalisation differ between studies (see the Values table); compare shapes and onsets."
-  },
-  {
-   "id": "fr_angle",
-   "title": "Angles where back muscles go silent",
-   "task_ids": [
-    "gupta_onset_trunk",
-    "gupta_onset_vertebral",
-    "gupta_cessation_trunk",
-    "gupta_cessation_vertebral",
-    "desc_onset_l2_0",
-    "desc_onset_l2_12",
-    "desc_onset_l5_0",
-    "desc_onset_l5_12",
-    "desc_cessation_l2_0",
-    "desc_cessation_l2_12",
-    "desc_cessation_l5_0",
-    "desc_cessation_l5_12",
-    "zwam_onset_lumbar",
-    "zwam_onset_incl"
-   ],
-   "x": "task"
-  },
-  {
-   "id": "fr_angle_rel",
-   "title": "Silence onset and cessation, % of maximum lumbar flexion",
-   "task_ids": [
-    "sarti_onset_0",
-    "sarti_cessation_0",
-    "sarti_onset_10",
-    "sarti_cessation_10"
-   ],
-   "x": "task"
-  }
- ],
- "tasks": [
-  {
-   "id": "g20_lg_t11_18",
-   "label": "LG(T11), 14 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 26.95,
-     "sd": 12.65,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
-     "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_lg_t11_50",
-   "label": "LG(T11), 14 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 29.75,
-     "sd": 10.15,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
-     "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_lg_t11_68",
-   "label": "LG(T11), 14 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 22.9,
-     "sd": 13.1,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
-     "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_lg_t11_92",
-   "label": "LG(T11), 14 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 17.0,
-     "sd": 15.9,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_longissimus_T11_14kg_static_lift",
-     "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_t11_18",
-   "label": "IC(T11), 14 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 10.35,
-     "sd": 4.2,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
-     "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_t11_50",
-   "label": "IC(T11), 14 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 13.3,
-     "sd": 5.7,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
-     "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_t11_68",
-   "label": "IC(T11), 14 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 11.55,
-     "sd": 6.35,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
-     "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_t11_92",
-   "label": "IC(T11), 14 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 10.1,
-     "sd": 7.9,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_T11_14kg_static_lift",
-     "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_l3_18",
-   "label": "IC(L3), 14 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(L3)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 18.35,
-     "sd": 8.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
-     "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_l3_50",
-   "label": "IC(L3), 14 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(L3)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 22.8,
-     "sd": 7.35,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
-     "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_l3_68",
-   "label": "IC(L3), 14 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(L3)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 17.55,
-     "sd": 9.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
-     "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_ic_l3_92",
-   "label": "IC(L3), 14 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "IC(L3)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 11.25,
-     "sd": 8.0,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_iliocostalis_L3_14kg_static_lift",
-     "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_mf_l4_18",
-   "label": "MF(L4/L5), 14 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "MF(L4/L5)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 28.85,
-     "sd": 13.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
-     "note": "L/R mean; upright height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_mf_l4_50",
-   "label": "MF(L4/L5), 14 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "MF(L4/L5)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 39.9,
-     "sd": 13.1,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
-     "note": "L/R mean; mid-femur height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_mf_l4_68",
-   "label": "MF(L4/L5), 14 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "MF(L4/L5)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 28.3,
-     "sd": 16.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
-     "note": "L/R mean; knee height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g20_mf_l4_92",
-   "label": "MF(L4/L5), 14 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "14 kg, arms hanging",
-    "muscle": "MF(L4/L5)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2020",
-     "mean": 17.15,
-     "sd": 14.45,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_emg_posture.ghezelbash2020.emg_multifidus_L4_14kg_static_lift",
-     "note": "L/R mean; mid-tibia height; angle from Ghezelbash 2024 Fig 3c"
-    }
-   ]
-  },
-  {
-   "id": "g24_lg_t11_18",
-   "label": "LG(T11), 10 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 22.2,
-     "sd": 9.7,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_lg_t11_50",
-   "label": "LG(T11), 10 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 27.2,
-     "sd": 9.6,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_lg_t11_68",
-   "label": "LG(T11), 10 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 19.6,
-     "sd": 10.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_lg_t11_92",
-   "label": "LG(T11), 10 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "LG(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 16.2,
-     "sd": 10.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_ic_t11_18",
-   "label": "IC(T11), 10 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 7.0,
-     "sd": 3.2,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_ic_t11_50",
-   "label": "IC(T11), 10 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 10.0,
-     "sd": 3.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_ic_t11_68",
-   "label": "IC(T11), 10 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 7.4,
-     "sd": 4.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24_ic_t11_92",
-   "label": "IC(T11), 10 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IC(T11)",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 7.3,
-     "sd": 5.0,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "10 kg (figure caption, confirmed by the author)"
-    }
-   ]
-  },
-  {
-   "id": "g24s_lg_t11_25",
-   "label": "LG(T11), no load, 25°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 25,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "LG(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 11.0,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "g24s_lg_t11_50",
-   "label": "LG(T11), no load, 50°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "LG(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 14.0,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "g24s_lg_t11_95",
-   "label": "LG(T11), no load, 95°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 95,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "LG(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 1.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "g24s_ic_t11_25",
-   "label": "IC(T11), no load, 25°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 25,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "IC(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 4.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "g24s_ic_t11_50",
-   "label": "IC(T11), no load, 50°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "IC(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 7.0,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "g24s_ic_t11_95",
-   "label": "IC(T11), no load, 95°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 95,
-    "angle_def": "trunk flexion",
-    "load": "none",
-    "muscle": "IC(T11)",
-    "emg_ref": "MVC (Ghezelbash 2016)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024s",
-     "mean": 1.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "value",
-     "n": 1,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_noload_single",
-     "note": "single subject, +/-1 %MVC"
-    }
-   ]
-  },
-  {
-   "id": "shin_mu_30",
-   "label": "MF(L4), no load, 30°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 30,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "MF(L4)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 20.9,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_mu_50",
-   "label": "MF(L4), no load, 50°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "MF(L4)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 18.4,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_mu_70",
-   "label": "MF(L4), no load, 70°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 70,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "MF(L4)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 12.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_mu_90",
-   "label": "MF(L4), no load, 90°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 90,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "MF(L4)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 4.8,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_lo_30",
-   "label": "LG(L2), no load, 30°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 30,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "LG(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 14.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_lo_50",
-   "label": "LG(L2), no load, 50°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "LG(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 12.7,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_lo_70",
-   "label": "LG(L2), no load, 70°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 70,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "LG(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 11.0,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_lo_90",
-   "label": "LG(L2), no load, 90°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 90,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "LG(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 6.4,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_il_30",
-   "label": "IC(L2), no load, 30°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 30,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "IC(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 13.3,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_il_50",
-   "label": "IC(L2), no load, 50°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "IC(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 12.2,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_il_70",
-   "label": "IC(L2), no load, 70°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 70,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "IC(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 10.4,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "shin_il_90",
-   "label": "IC(L2), no load, 90°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 90,
-    "angle_def": "torso flexion from upright",
-    "load": "none, knees straight",
-    "muscle": "IC(L2)",
-    "emg_ref": "angle-specific extension MVC"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "shin2004",
-     "mean": 5.5,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 8,
-     "test_id": "msk_flexion_relaxation.shin2004.lumbar_extensor_emg_trunk_knee_angle",
-     "note": "fraction x 100; no SD plotted; knee 0 deg"
-    }
-   ]
-  },
-  {
-   "id": "koo19_il_0",
-   "label": "IC (site not stated), no load, 0°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 0,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "IC (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.7-8.8; hand height 100%",
-     "median": 2.7
-    }
-   ]
-  },
-  {
-   "id": "koo19_il_66",
-   "label": "IC (site not stated), no load, 66°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 66,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "IC (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 4.5-17.1; hand height 75%",
-     "median": 12.2
-    }
-   ]
-  },
-  {
-   "id": "koo19_il_93",
-   "label": "IC (site not stated), no load, 93°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 93,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "IC (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.2-11.8; hand height 50%",
-     "median": 4.2
-    }
-   ]
-  },
-  {
-   "id": "koo19_il_113",
-   "label": "IC (site not stated), no load, 113°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 113,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "IC (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.2-6.5; hand height 25%",
-     "median": 1.5
-    }
-   ]
-  },
-  {
-   "id": "koo19_il_126",
-   "label": "IC (site not stated), no load, 126°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 126,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "IC (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.3-3.3; hand height 0%",
-     "median": 1.9
-    }
-   ]
-  },
-  {
-   "id": "koo19_lo_0",
-   "label": "LL (site not stated), no load, 0°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 0,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "LL (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 2.0-11.1; hand height 100%",
-     "median": 2.7
-    }
-   ]
-  },
-  {
-   "id": "koo19_lo_66",
-   "label": "LL (site not stated), no load, 66°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 66,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "LL (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 2.6-26.6; hand height 75%",
-     "median": 8.6
-    }
-   ]
-  },
-  {
-   "id": "koo19_lo_93",
-   "label": "LL (site not stated), no load, 93°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 93,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "LL (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.4-18.9; hand height 50%",
-     "median": 1.6
-    }
-   ]
-  },
-  {
-   "id": "koo19_lo_113",
-   "label": "LL (site not stated), no load, 113°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 113,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "LL (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.4-14.8; hand height 25%",
-     "median": 1.6
-    }
-   ]
-  },
-  {
-   "id": "koo19_lo_126",
-   "label": "LL (site not stated), no load, 126°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 126,
-    "angle_def": "trunk inclination",
-    "load": "none, arms hanging",
-    "muscle": "LL (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2019",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 11,
-     "test_id": "msk_emg_posture.koopman2019.static_bending_emg_noexo",
-     "note": "Q1-Q3 1.8-3.8; hand height 0%",
-     "median": 2.5
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_1",
-   "label": "IC+LL mean, no load, 1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 1,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 4.8-11.4; hand height 100%; angle digitised",
-     "median": 5.1
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_31",
-   "label": "IC+LL mean, no load, 31.4°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 31.4,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 14.8-41.7; hand height 95%; angle digitised",
-     "median": 24.8
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_42",
-   "label": "IC+LL mean, no load, 42.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 42.3,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 16.7-37.8; hand height 80%; angle digitised",
-     "median": 24.0
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_55",
-   "label": "IC+LL mean, no load, 54.9°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 54.9,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 12.5-32.8; hand height 60%; angle digitised",
-     "median": 20.6
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_64",
-   "label": "IC+LL mean, no load, 63.7°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 63.7,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 3.0-20.3; hand height 20%; angle digitised",
-     "median": 13.5
-    }
-   ]
-  },
-  {
-   "id": "koo20b_back_67",
-   "label": "IC+LL mean, no load, 67.4°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 67.4,
-    "angle_def": "lumbar flexion",
-    "load": "none, arms hanging",
-    "muscle": "IC+LL mean (site n.s.)",
-    "emg_ref": "supine MVC (McGill 1991)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "koopman2020b",
-     "mean": null,
-     "sd": null,
-     "min": null,
-     "max": null,
-     "stat": "median",
-     "n": 10,
-     "test_id": "msk_emg_posture.koopman2020b.static_bending_emg_noexo",
-     "note": "Q1-Q3 3.4-12.7; hand height 0%; angle digitised",
-     "median": 7.8
-    }
-   ]
-  },
-  {
-   "id": "gupta_onset_trunk",
-   "label": "Onset, ES(L3), trunk angle",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "thigh to T1-hip line",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "gupta2001",
-     "mean": 80.3,
-     "sd": 8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 25,
-     "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
-     "note": "EMG silence on oscilloscope"
-    }
-   ]
-  },
-  {
-   "id": "gupta_onset_vertebral",
-   "label": "Onset, ES(L3), vertebral angle",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "pelvis to T1 line",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "gupta2001",
-     "mean": 47.1,
-     "sd": 5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 25,
-     "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
-     "note": "EMG silence on oscilloscope"
-    }
-   ]
-  },
-  {
-   "id": "gupta_cessation_trunk",
-   "label": "Cessation, ES(L3), trunk angle",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "thigh to T1-hip line",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "gupta2001",
-     "mean": 85.6,
-     "sd": 10,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 25,
-     "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
-     "note": "EMG silence on oscilloscope"
-    }
-   ]
-  },
-  {
-   "id": "gupta_cessation_vertebral",
-   "label": "Cessation, ES(L3), vertebral angle",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "pelvis to T1 line",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "gupta2001",
-     "mean": 50.3,
-     "sd": 4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 25,
-     "test_id": "msk_flexion_relaxation.gupta2001.normal_bending",
-     "note": "EMG silence on oscilloscope"
-    }
-   ]
-  },
-  {
-   "id": "desc_onset_l2_0",
-   "label": "Onset, ES(L2), no load",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "total trunk angle",
-    "load": "none",
-    "muscle": "ES(L2)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 79.2,
-     "sd": 4.1,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-4.1 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_onset_l2_12",
-   "label": "Onset, ES(L2), 12 kg",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "total trunk angle",
-    "load": "12 kg barbell, elbows 90 deg",
-    "muscle": "ES(L2)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 83.1,
-     "sd": 4.3,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-4.3 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_onset_l5_0",
-   "label": "Onset, ES(L5), no load",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "total trunk angle",
-    "load": "none",
-    "muscle": "ES(L5)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 69.8,
-     "sd": 3.9,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-3.9 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_onset_l5_12",
-   "label": "Onset, ES(L5), 12 kg",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "total trunk angle",
-    "load": "12 kg barbell, elbows 90 deg",
-    "muscle": "ES(L5)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 75.5,
-     "sd": 4.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-4.4 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_cessation_l2_0",
-   "label": "Cessation, ES(L2), no load",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "total trunk angle",
-    "load": "none",
-    "muscle": "ES(L2)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 88.5,
-     "sd": 3.6,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-3.6 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_cessation_l2_12",
-   "label": "Cessation, ES(L2), 12 kg",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "total trunk angle",
-    "load": "12 kg barbell, elbows 90 deg",
-    "muscle": "ES(L2)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 90.2,
-     "sd": 3.7,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-3.7 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_cessation_l5_0",
-   "label": "Cessation, ES(L5), no load",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "total trunk angle",
-    "load": "none",
-    "muscle": "ES(L5)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 87.1,
-     "sd": 3.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-3.4 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "desc_cessation_l5_12",
-   "label": "Cessation, ES(L5), 12 kg",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "total trunk angle",
-    "load": "12 kg barbell, elbows 90 deg",
-    "muscle": "ES(L5)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "descarreaux2008",
-     "mean": 90.0,
-     "sd": 3.7,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 20,
-     "test_id": "msk_flexion_relaxation.descarreaux2008.frp_angles",
-     "note": "+/-3.7 printed, SD/SEM not stated; pooled over fatigue"
-    }
-   ]
-  },
-  {
-   "id": "zwam_onset_lumbar",
-   "label": "Onset, LES(L3), lumbar flexion",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "lumbar flexion T12-S1",
-    "load": "none",
-    "muscle": "LES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "zwambag2016",
-     "mean": 51.8,
-     "sd": 3.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 10,
-     "test_id": "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
-     "note": "SD = SEM 1.2 x sqrt(10)"
-    }
-   ]
-  },
-  {
-   "id": "zwam_onset_incl",
-   "label": "Onset, LES(L3), trunk inclination",
-   "view": "fr_angle",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "trunk inclination",
-    "load": "none (pooled 0-6.8 kg counterweight)",
-    "muscle": "LES(L3)"
-   },
-   "output": "fr_angle",
-   "level": "",
-   "refs": [
-    {
-     "study": "zwambag2016",
-     "mean": 100.4,
-     "sd": 2.2,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 10,
-     "test_id": "msk_flexion_relaxation.zwambag2016.critical_point_counterweights",
-     "note": "SD = SEM 0.7 x sqrt(10); all counterweights (no effect)"
-    }
-   ]
-  },
-  {
-   "id": "g24_ra_18",
-   "label": "RA, 10 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "RA",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.3,
-     "sd": 2.9,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_ra_50",
-   "label": "RA, 10 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "RA",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.3,
-     "sd": 2.9,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_ra_68",
-   "label": "RA, 10 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "RA",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.3,
-     "sd": 2.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_ra_92",
-   "label": "RA, 10 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "RA",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.5,
-     "sd": 2.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_eo_18",
-   "label": "EO, 10 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "EO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.8,
-     "sd": 2.6,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_eo_50",
-   "label": "EO, 10 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "EO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.8,
-     "sd": 2.7,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_eo_68",
-   "label": "EO, 10 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "EO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 4.6,
-     "sd": 2.6,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_eo_92",
-   "label": "EO, 10 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "EO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 5.0,
-     "sd": 2.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_io_18",
-   "label": "IO, 10 kg, 18.3°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 18.3,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 9.3,
-     "sd": 5.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_io_50",
-   "label": "IO, 10 kg, 50.5°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 50.5,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 6.1,
-     "sd": 5.1,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_io_68",
-   "label": "IO, 10 kg, 68.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 68.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 3.5,
-     "sd": 2.0,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "g24_io_92",
-   "label": "IO, 10 kg, 92.1°",
-   "view": "fig_emg",
-   "inputs": {
-    "flexion_deg": 92.1,
-    "angle_def": "trunk flexion (load height)",
-    "load": "10 kg, arms hanging",
-    "muscle": "IO",
-    "emg_ref": "max over 6 MVE directions (semi-seated)"
-   },
-   "output": "emg",
-   "level": "",
-   "refs": [
-    {
-     "study": "ghezelbash2024",
-     "mean": 3.4,
-     "sd": 1.8,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 19,
-     "test_id": "msk_flexion_relaxation.ghezelbash2024.emg_vs_flexion_10kg",
-     "note": "bilateral mean; caption 10 kg, Methods 6 kg"
-    }
-   ]
-  },
-  {
-   "id": "sarti_onset_0",
-   "label": "Onset, ES(L3), no load, % max lumbar",
-   "view": "fr_angle_rel",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "lumbar flexion T12-S1, % of maximum",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle_rel",
-   "level": "",
-   "refs": [
-    {
-     "study": "sarti2001",
-     "mean": 84,
-     "sd": 7.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 22,
-     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
-     "note": "Table 2 slow series S (MS); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
-    }
-   ]
-  },
-  {
-   "id": "sarti_cessation_0",
-   "label": "Cessation, ES(L3), no load, % max lumbar",
-   "view": "fr_angle_rel",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "lumbar flexion T12-S1, % of maximum",
-    "load": "none",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle_rel",
-   "level": "",
-   "refs": [
-    {
-     "study": "sarti2001",
-     "mean": 90,
-     "sd": 1.3,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 22,
-     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
-     "note": "Table 2 slow series S (MR); max lumbar flexion 55.73±8.0°; paced 8 s per phase"
-    }
-   ]
-  },
-  {
-   "id": "sarti_onset_10",
-   "label": "Onset, ES(L3), 10 kg, % max lumbar",
-   "view": "fr_angle_rel",
-   "inputs": {
-    "event": "onset",
-    "angle_def": "lumbar flexion T12-S1, % of maximum",
-    "load": "10 kg barbell, arms hanging",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle_rel",
-   "level": "",
-   "refs": [
-    {
-     "study": "sarti2001",
-     "mean": 86,
-     "sd": 6.4,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 22,
-     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
-     "note": "Table 2 slow series Sw (MS); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
-    }
-   ]
-  },
-  {
-   "id": "sarti_cessation_10",
-   "label": "Cessation, ES(L3), 10 kg, % max lumbar",
-   "view": "fr_angle_rel",
-   "inputs": {
-    "event": "cessation",
-    "angle_def": "lumbar flexion T12-S1, % of maximum",
-    "load": "10 kg barbell, arms hanging",
-    "muscle": "ES(L3)"
-   },
-   "output": "fr_angle_rel",
-   "level": "",
-   "refs": [
-    {
-     "study": "sarti2001",
-     "mean": 94,
-     "sd": 1.5,
-     "min": null,
-     "max": null,
-     "stat": "mean",
-     "n": 22,
-     "test_id": "msk_flexion_relaxation.sarti2001.fr_relative_lumbar_angle",
-     "note": "Table 2 slow series Sw (MR); max lumbar flexion 56.8±6.7°; paced 8 s per phase"
-    }
-   ]
-  }
- ],
- "notes": [
-  "Angle definitions differ (trunk flexion, trunk inclination, lumbar T12-S1, thigh-T1); each task states its angle_def. Ghezelbash 2020 load heights are mapped to angles (Ghezelbash 2024 Fig 3c).",
-  "EMG references differ: max over 6 maximal exertions (Ghezelbash), angle-specific MVC (Shin), supine MVC (Koopman, medians). Normalise the model the same way.",
-  "Left out: passive moments, FR ratios, EMG timing and full-flexion EMG without an angle."
- ],
- "agent_prompt": "You are validating a trunk musculoskeletal model against flexion-relaxation data. For each task scale the model to the subject of the study in its `studies` (see `subjects`), impose the static posture with flexion_deg measured as angle_def (trunk flexion / inclination = trunk from upright; lumbar flexion = T12-S1 angle change from upright; the two Gupta angles as named), knees straight, and solve for muscle activation. Report activation (%) of the fascicles under the named electrode (LG longissimus, IC iliocostalis, MF multifidus, ES / LES (lumbar) erector spinae, LL longissimus lumborum; level in brackets), left and right averaged. Loads: Ghezelbash 2020 (g20_*): 14 kg in both hands held 0.2 x body height in front of the feet; the angle stands for the load height (18.3° umbilicus, 50.5° mid-femur, 68.1° knee, 92.1° mid-tibia). Ghezelbash 2024 (g24_*): 10 kg in both hands, arms hanging. Koopman 2019 (koo19_*): trunk inclination 0/66/93/113/126° with hip flexion -3/25/42/61/70° and lumbar flexion ~0/50/61/66/69°, arms hanging; Koopman 2020b (koo20b_*): lumbar flexion as given, output = mean of iliocostalis and longissimus lumborum. Descarreaux 2008: 12 kg barbell held with elbows at 90°, upper arms along the trunk. Zwambag 2016: no hand load; zwam_onset_incl is the mean over upward cable forces of 0, 22.2, 44.5 and 66.7 N at ~T5. Normalise like the study (emg_ref): Ghezelbash = maximum over six maximal exertions (semi-seated triaxial dynamometer); Shin = maximal extension effort in the same posture (angle-specific MVC); Koopman = supine MVC (McGill 1991). FR angle tasks (fr_angle): sweep flexion quasi-statically in 1° steps from upright to full flexion and back, and report the angle (as angle_def) where the named back muscle's activation first falls to ~0 (< 1 %, onset, flexing) or rises above it again (cessation, extending). Sarti 2001 (sarti_*, output fr_angle_rel): same sweep with no load or 10 kg in both hands (arms hanging); report the lumbar (T12-S1) flexion at onset/cessation of the erector spinae under the L3 electrode as % of the model's maximum lumbar flexion. Do not tune the model to these data. Return one JSON object following answer_format: {task id: {output key: value}} in the units given there; use null for tasks you cannot simulate.",
- "answer_format": {
-  "g20_lg_t11_18": {
-   "emg": "%MVC"
-  },
-  "g20_lg_t11_50": {
-   "emg": "%MVC"
-  },
-  "g20_lg_t11_68": {
-   "emg": "%MVC"
-  },
-  "g20_lg_t11_92": {
-   "emg": "%MVC"
-  },
-  "g20_ic_t11_18": {
-   "emg": "%MVC"
-  },
-  "g20_ic_t11_50": {
-   "emg": "%MVC"
-  },
-  "g20_ic_t11_68": {
-   "emg": "%MVC"
-  },
-  "g20_ic_t11_92": {
-   "emg": "%MVC"
-  },
-  "g20_ic_l3_18": {
-   "emg": "%MVC"
-  },
-  "g20_ic_l3_50": {
-   "emg": "%MVC"
-  },
-  "g20_ic_l3_68": {
-   "emg": "%MVC"
-  },
-  "g20_ic_l3_92": {
-   "emg": "%MVC"
-  },
-  "g20_mf_l4_18": {
-   "emg": "%MVC"
-  },
-  "g20_mf_l4_50": {
-   "emg": "%MVC"
-  },
-  "g20_mf_l4_68": {
-   "emg": "%MVC"
-  },
-  "g20_mf_l4_92": {
-   "emg": "%MVC"
-  },
-  "g24_lg_t11_18": {
-   "emg": "%MVC"
-  },
-  "g24_lg_t11_50": {
-   "emg": "%MVC"
-  },
-  "g24_lg_t11_68": {
-   "emg": "%MVC"
-  },
-  "g24_lg_t11_92": {
-   "emg": "%MVC"
-  },
-  "g24_ic_t11_18": {
-   "emg": "%MVC"
-  },
-  "g24_ic_t11_50": {
-   "emg": "%MVC"
-  },
-  "g24_ic_t11_68": {
-   "emg": "%MVC"
-  },
-  "g24_ic_t11_92": {
-   "emg": "%MVC"
-  },
-  "g24s_lg_t11_25": {
-   "emg": "%MVC"
-  },
-  "g24s_lg_t11_50": {
-   "emg": "%MVC"
-  },
-  "g24s_lg_t11_95": {
-   "emg": "%MVC"
-  },
-  "g24s_ic_t11_25": {
-   "emg": "%MVC"
-  },
-  "g24s_ic_t11_50": {
-   "emg": "%MVC"
-  },
-  "g24s_ic_t11_95": {
-   "emg": "%MVC"
-  },
-  "shin_mu_30": {
-   "emg": "%MVC"
-  },
-  "shin_mu_50": {
-   "emg": "%MVC"
-  },
-  "shin_mu_70": {
-   "emg": "%MVC"
-  },
-  "shin_mu_90": {
-   "emg": "%MVC"
-  },
-  "shin_lo_30": {
-   "emg": "%MVC"
-  },
-  "shin_lo_50": {
-   "emg": "%MVC"
-  },
-  "shin_lo_70": {
-   "emg": "%MVC"
-  },
-  "shin_lo_90": {
-   "emg": "%MVC"
-  },
-  "shin_il_30": {
-   "emg": "%MVC"
-  },
-  "shin_il_50": {
-   "emg": "%MVC"
-  },
-  "shin_il_70": {
-   "emg": "%MVC"
-  },
-  "shin_il_90": {
-   "emg": "%MVC"
-  },
-  "koo19_il_0": {
-   "emg": "%MVC"
-  },
-  "koo19_il_66": {
-   "emg": "%MVC"
-  },
-  "koo19_il_93": {
-   "emg": "%MVC"
-  },
-  "koo19_il_113": {
-   "emg": "%MVC"
-  },
-  "koo19_il_126": {
-   "emg": "%MVC"
-  },
-  "koo19_lo_0": {
-   "emg": "%MVC"
-  },
-  "koo19_lo_66": {
-   "emg": "%MVC"
-  },
-  "koo19_lo_93": {
-   "emg": "%MVC"
-  },
-  "koo19_lo_113": {
-   "emg": "%MVC"
-  },
-  "koo19_lo_126": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_1": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_31": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_42": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_55": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_64": {
-   "emg": "%MVC"
-  },
-  "koo20b_back_67": {
-   "emg": "%MVC"
-  },
-  "gupta_onset_trunk": {
-   "fr_angle": "deg"
-  },
-  "gupta_onset_vertebral": {
-   "fr_angle": "deg"
-  },
-  "gupta_cessation_trunk": {
-   "fr_angle": "deg"
-  },
-  "gupta_cessation_vertebral": {
-   "fr_angle": "deg"
-  },
-  "desc_onset_l2_0": {
-   "fr_angle": "deg"
-  },
-  "desc_onset_l2_12": {
-   "fr_angle": "deg"
-  },
-  "desc_onset_l5_0": {
-   "fr_angle": "deg"
-  },
-  "desc_onset_l5_12": {
-   "fr_angle": "deg"
-  },
-  "desc_cessation_l2_0": {
-   "fr_angle": "deg"
-  },
-  "desc_cessation_l2_12": {
-   "fr_angle": "deg"
-  },
-  "desc_cessation_l5_0": {
-   "fr_angle": "deg"
-  },
-  "desc_cessation_l5_12": {
-   "fr_angle": "deg"
-  },
-  "zwam_onset_lumbar": {
-   "fr_angle": "deg"
-  },
-  "zwam_onset_incl": {
-   "fr_angle": "deg"
-  },
-  "g24_ra_18": {
-   "emg": "%MVC"
-  },
-  "g24_ra_50": {
-   "emg": "%MVC"
-  },
-  "g24_ra_68": {
-   "emg": "%MVC"
-  },
-  "g24_ra_92": {
-   "emg": "%MVC"
-  },
-  "g24_eo_18": {
-   "emg": "%MVC"
-  },
-  "g24_eo_50": {
-   "emg": "%MVC"
-  },
-  "g24_eo_68": {
-   "emg": "%MVC"
-  },
-  "g24_eo_92": {
-   "emg": "%MVC"
-  },
-  "g24_io_18": {
-   "emg": "%MVC"
-  },
-  "g24_io_50": {
-   "emg": "%MVC"
-  },
-  "g24_io_68": {
-   "emg": "%MVC"
-  },
-  "g24_io_92": {
-   "emg": "%MVC"
-  },
-  "sarti_onset_0": {
-   "fr_angle_rel": "%"
-  },
-  "sarti_cessation_0": {
-   "fr_angle_rel": "%"
-  },
-  "sarti_onset_10": {
-   "fr_angle_rel": "%"
-  },
-  "sarti_cessation_10": {
-   "fr_angle_rel": "%"
-  }
- }
 }

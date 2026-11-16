@@ -19,12 +19,18 @@ Two kinds of scoring unit (rule also in bench/AGENTS.md):
     Band at each x where data exist: lower = min over the studies of (mean - SD, else min, else mean), upper = max of
     (mean + SD, else max, else mean); medians use [min, max] if given, else the median. A study curve also counts at
     the x values of the other studies that fall inside its own measured range (linear interpolation, never
-    extrapolated), so the band is the range spanned by the studies. Floors: each measured curve keeps +-5 % of its
+    extrapolated), so the band is the range spanned by the studies. A study with several curves in one output
+    (layers, regions, specimens) counts as several curves, never as their average. Outputs that only rise (or only
+    fall) with the sweep (sim key "monotone": true | "rising" | "falling" | {output: direction}) use the envelope of all
+    curves: for a rising output upper = running max from the left, lower = running min from the right (mirrored for a
+    falling one), inside the x range the studies cover. Outputs not marked rising/falling are widened to the convex
+    hull of all measured points with their spread and floors (use_hull; sim key "hull" overrides). Floors: each measured curve keeps +-5 % of its
     own largest |value| around its points; the band half-width is at least ABS_FLOOR[unit], and 25 % of |centre| when
     no contributing value has a spread. Force-controlled points in a displacement-swept simulation (sim key
     "transpose") are read as (measured displacement, applied force). PASS if the answer is inside the band at
     >= 80 % of the band points.
     Reported per study: points inside the study's own spread (same floors) and NRMSE (RMS error / largest |mean|).
+    Failed band points are listed per output ("failed_points": [[x, "no answer" | "below" | "above"], ...]).
   MSK cards -> TASKS, unchanged: band of one reference = mean +- SD (else [min, max], else +-25 %), floored; a task
     passes inside the pooled band when it has one, else inside the bands of at least half of its studies.
     Per-subject answers ({study or patient: value}): at least half of the matching references must pass.
@@ -42,6 +48,7 @@ DATA = ROOT / "site" / "data"
 
 REL_NO_SPREAD = 0.25          # half-width for a value with no SD or range
 SIM_PASS = 0.80               # fraction of band points that must pass
+HULL = True                   # convex hull band for outputs not marked rising/falling (see use_hull)
 CURVE_FLOOR = 0.05            # x largest |value| of one measured curve (>= 2 points)
 ABS_FLOOR = {"deg": 0.5, "MPa": 0.02, "kPa": 1.0, "N": 5.0, "Nm": 1.0, "%MVC": 2.0, "%": 2.0,
              "% of standing": 5.0, "mm": 0.05}
@@ -206,12 +213,110 @@ def _floored(vals, floor):
     return min(lo, mid - half), max(hi, mid + half), sum(v[0] for v in vals) / len(vals)
 
 
+def curve_names(ser):
+    """{series key: name}: the study id when the study has one curve in the output, else "study | condition"
+    (the inputs that tell its curves apart, e.g. "holzapfel2005 | VLe, ventro-lateral external")."""
+    per = {}
+    for k in ser:
+        per.setdefault(k[0], []).append(k)
+    names = {}
+    for st, keys in per.items():
+        for k in keys:
+            if len(keys) == 1:
+                names[k] = str(st)
+                continue
+            try:
+                var = json.loads(k[1].split("|")[0])
+            except ValueError:
+                var = {}
+            bits = [str(v) for v in var.values()] + (["force-controlled"] if k[1].endswith("|transposed") else []) \
+                + ([k[2]] if k[2] else [])
+            names[k] = f"{st} | {', '.join(bits) or '?'}"
+    seen = {}
+    for k, n in list(names.items()):  # unique names
+        seen[n] = seen.get(n, 0) + 1
+        if seen[n] > 1:
+            names[k] = f"{n} #{seen[n]}"
+    return names
+
+
+def mono_dir(sim, slot):
+    """"rising", "falling" or None for one output of a simulation. Sim key "monotone": true / "rising" / "falling"
+    for every output, or {slot id or output key: "rising" | "falling"} per output."""
+    m = sim.get("monotone")
+    if isinstance(m, dict):
+        m = m.get(slot["id"], m.get(slot["key"]))
+    return "rising" if m is True or m == "rising" else "falling" if m == "falling" else None
+
+
+def monotone_hull(band, direction="rising"):
+    """Envelope for an output that only rises (or only falls) with the sweep: for "rising", upper = running max from
+    the left and lower = running min from the right; mirrored for "falling". The band then never dips (or bumps)
+    where one curve's measured range ends."""
+    out = [list(b) for b in band]
+    fwd, back = (out, out[::-1]) if direction == "rising" else (out[::-1], out)
+    up = -math.inf
+    for b in fwd:
+        up = max(up, b[2])
+        b[2] = up
+    dn = math.inf
+    for b in back:
+        dn = min(dn, b[1])
+        b[1] = dn
+    return out
+
+
+def use_hull(sim, slot):
+    """Convex hull of all measured points for this output? Sim key "hull" (true/false) decides; by default only for
+    outputs NOT marked rising/falling. For a rising or falling output the convex hull would cut across the shape of the
+    data (the toe of a J-shaped stress-strain curve, the knee of ROM vs moment or vs follower load) and let a straight
+    line pass; its rising/falling envelope already closes the gaps where curves end. Outputs that rise and fall get the
+    hull, which closes the dips scattered studies leave in a per-x band."""
+    h = sim.get("hull")
+    return bool(h) if h is not None else HULL and not mono_dir(sim, slot)
+
+
+def _hull_chains(pts):
+    """Lower and upper chains of the convex hull of (x, y) points (Andrew's monotone chain), each sorted by x."""
+    pts = sorted(set(pts))
+    if len(pts) < 3:
+        return pts, pts
+
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+
+    lower, upper = [], []
+    for p in pts:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+    for p in reversed(pts):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+    return lower, upper[::-1]
+
+
+def _chain_at(chain, x, pick):
+    """y of a hull chain at x (linear between its vertices); pick = min or max where vertices share x."""
+    at = [y for cx, y in chain if cx == x]
+    if at:
+        return pick(at)
+    for (x0, y0), (x1, y1) in zip(chain, chain[1:]):
+        if x0 < x < x1:
+            return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+    return None
+
+
 def slot_band(card_id, slot, sim):
-    """{"band": [[x, lo, hi, centre], ...], "studies": {study: [[x, mean, lo, hi], ...]}} for one output of a
-    simulation. x is null for an output without sweep; centre = mean of the study values that count at x.
+    """{"band": [[x, lo, hi, centre], ...], "studies": {curve: [[x, mean, lo, hi], ...]}, "study_of": {curve: study}}
+    for one output of a simulation. One entry per measured curve: a study with several curves in the output
+    (layers, regions, specimens) gets one entry per curve, never an average across them; study_of maps those curve
+    names back to the study. x is null for an output without sweep; centre = mean of the curve values that count at x.
     Floors: each measured curve (>= 2 points) keeps at least +-5 % of its own largest |value| around each point
     (digitising tolerance, as before); the band keeps at least the absolute floor of the unit, and +-25 % of its
-    centre when no contributing value has a spread."""
+    centre when no contributing value has a spread. Outputs marked rising/falling (sim "monotone", see mono_dir) get
+    the envelope of monotone_hull; the others the convex hull of all of these points, read at each band x (use_hull)."""
     ser = slot_series(slot, sim)
     xs = sorted({x for pts in ser.values() for x, _ in pts}, key=_xkey)
     sfl = {k: CURVE_FLOOR * max(abs(v[0]) for _, v in pts) if len(pts) >= 2 else 0.0 for k, pts in ser.items()}
@@ -230,14 +335,76 @@ def slot_band(card_id, slot, sim):
     band = []
     for x in xs:
         lo, hi, c = _floored(at(ser, x), floor)
-        band.append([x, r6(lo), r6(hi), r6(c)])
-    studies = {}
-    for st in sorted({k[0] for k in ser}, key=str):
-        own = [k for k in ser if k[0] == st]
-        for x in sorted({x for k in own for x, _ in ser[k]}, key=_xkey):
-            lo, hi, c = _floored(at(own, x), floor)
-            studies.setdefault(st, []).append([x, r6(c), r6(lo), r6(hi)])
-    return {"band": band, "studies": studies}
+        band.append([x, lo, hi, c])
+    if use_hull(sim, slot) and not slot["scalar"] and len(band) > 1:
+        # convex hull of everything: every measured point with its spread and floors, and the floored band itself
+        pts = [(x, y) for x, lo, hi, _ in band for y in (lo, hi)]
+        for k, sp in ser.items():
+            for x, v in sp:
+                if x is not None:
+                    pts += [(x, min(v[1], v[0] - sfl[k])), (x, max(v[2], v[0] + sfl[k]))]
+        low, up = _hull_chains(pts)
+        band = [[x, min(lo, _chain_at(low, x, min)), max(hi, _chain_at(up, x, max)), c] for x, lo, hi, c in band]
+    if mono_dir(sim, slot) and not slot["scalar"]:
+        band = monotone_hull(band, mono_dir(sim, slot))
+    band = [[x, r6(lo), r6(hi), r6(c)] for x, lo, hi, c in band]
+    names = curve_names(ser)
+    studies, study_of = {}, {}
+    for k in sorted(ser, key=lambda k: names[k]):
+        if names[k] != str(k[0]):
+            study_of[names[k]] = k[0]
+        for x, _ in ser[k]:
+            lo, hi, c = _floored(at([k], x), floor)
+            studies.setdefault(names[k], []).append([x, r6(c), r6(lo), r6(hi)])
+    return {"band": band, "studies": studies, **({"study_of": study_of} if study_of else {})}
+
+
+def curve_problems(slot, sim, drop=0.40):
+    """Defects of the measured curves of one output: [(curve name, message)]. Every swept output: repeated x within
+    one curve (two values merged into one point). Outputs marked monotone (mono_dir): a step against the marked
+    direction of more than `drop` x |y| between consecutive points (sorted by x, ignoring values within the unit's
+    floor of zero; a rising curve that drops, as after failure, or a falling one that jumps up), and a curve that
+    ends on the wrong side of where it starts. Curves are sorted by x when scored, so task order is not checked.
+    Force-controlled (transposed) points are skipped."""
+    if slot["scalar"] or not sim.get("sweep"):
+        return []
+    sweep, tr = sim.get("sweep"), sim.get("transpose") or {}
+    skip = set(sim.get("fixed") or {}) | set(slot["by"]) | {sweep, tr.get("y_input")}
+    keep = sim.get("curve_by")
+    raw = {}
+    for t in slot["tasks"]:
+        if tr and t.get("output") == tr.get("output"):
+            continue
+        ins = t.get("inputs") or {}
+        x = num(ins.get(sweep))
+        var = json.dumps({k: v for k, v in sorted(ins.items()) if (k in keep if keep is not None else k not in skip)},
+                         ensure_ascii=False)
+        per = {}
+        for r in t.get("refs") or []:
+            per[r.get("study")] = per.get(r.get("study"), 0) + 1
+        for r in t.get("refs") or []:
+            sp = ref_spread(r)
+            if sp and x is not None:
+                raw.setdefault((r.get("study"), var, _tag(r) if per[r.get("study")] > 1 else ""), []).append((x, sp[0]))
+    names = curve_names(raw)
+    fl = ABS_FLOOR.get(slot["unit"], 0.0)
+    out = []
+    for k, pts in raw.items():
+        n = names[k]
+        xs = [p[0] for p in pts]
+        if len(set(xs)) < len(xs):
+            out.append((n, f"x repeats: {sorted({x for x in xs if xs.count(x) > 1})}"))
+        d = mono_dir(sim, slot)
+        if not d:
+            continue
+        sg = 1 if d == "rising" else -1
+        s = sorted(pts)
+        for (x0, y0), (x1, y1) in zip(s, s[1:]):
+            if abs(y0) > fl and sg * (y0 - y1) > drop * abs(y0):
+                out.append((n, f"{'drop' if sg > 0 else 'jump'} {y0:.4g} -> {y1:.4g} between x = {x0:g} and {x1:g}"))
+        if len(s) >= 2 and sg * (s[0][1] - s[-1][1]) > fl:
+            out.append((n, f"{d} output but the curve {'falls' if sg > 0 else 'rises'} ({s[0][1]:.4g} -> {s[-1][1]:.4g})"))
+    return out
 
 
 def interp(pts, x):
@@ -272,7 +439,7 @@ def score_sim(sd, ans):
     nkey = {}
     for o in sd["outputs"]:
         nkey[o["key"]] = nkey.get(o["key"], 0) + 1
-    ok, errs, scale, studies, answered = [], [], 0.0, {}, 0
+    ok, errs, scale, studies, answered, failed = [], [], 0.0, {}, 0, {}
     for o in sd["outputs"]:
         raw = _lookup(ans, o["path"], nkey[o["key"]] == 1)
         nx = len(o["band"])
@@ -287,7 +454,12 @@ def score_sim(sd, ans):
             v = y(x)
             answered += v is not None
             ok.append(v is not None and lo <= v <= hi)
-        for st, pts in o["studies"].items():
+            if not ok[-1]:  # traceable fails: x and why (no answer there, below or above the band)
+                failed.setdefault(o["slot"], []).append(
+                    [x, "no answer" if v is None else ("below" if v < lo else "above")])
+        of = o.get("study_of") or {}
+        for curve, pts in o["studies"].items():
+            st = of.get(curve, curve)
             s = studies.setdefault(st, {"hit": 0, "n": 0, "e": [], "cmax": 0.0})
             for x, c, lo, hi in pts:
                 v = y(x)
@@ -303,7 +475,8 @@ def score_sim(sd, ans):
     return {"pass": bool(ok) and frac >= SIM_PASS, "sim": True, "points_passed": f"{sum(ok)}/{len(ok)}",
             "answered": answered > 0, "nrmse": rms(errs, scale),
             "studies": {st: {"in_own_spread": f"{s['hit']}/{s['n']}", "nrmse": rms(s["e"], s["cmax"])}
-                        for st, s in studies.items()}}
+                        for st, s in studies.items()},
+            **({"failed_points": failed} if failed else {})}
 
 
 # ---------------------------------------------------------------- tasks (MSK cards)
@@ -536,7 +709,7 @@ def main():
         for cid, res in r["results"].items():
             for uid, x in res.items():
                 print(f"  {cid}/{uid}: {'PASS' if x.get('pass') else 'fail'}  "
-                      + ", ".join(f"{k}={v}" for k, v in x.items() if k not in ("pass", "studies_hit", "studies", "sim")))
+                      + ", ".join(f"{k}={v}" for k, v in x.items() if k not in ("pass", "studies_hit", "studies", "sim", "failed_points")))
 
 
 if __name__ == "__main__":

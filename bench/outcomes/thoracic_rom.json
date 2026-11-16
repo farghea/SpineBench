@@ -248,6 +248,26 @@
       "doi": "10.1097/01.brs.0000145417.94357.39",
       "secondary": false,
       "loading": "Load control, FE moments 8 N·m flexion / 6 N·m extension, continuous cycling; follower preload 0-800 N; T2-sacrum spines, no rib cage"
+    },
+    {
+      "key": "wilke2020esj",
+      "short": "Wilke 2020 ESJ",
+      "year": 2020,
+      "n": 6,
+      "sample": "6 T6-T7 FSUs without ribs (18 FSUs, 9 donors in study)",
+      "doi": "10.1007/s00586-019-06196-7",
+      "secondary": false,
+      "loading": "Load control, pure moments ±2.5 N·m (FE, LB, AR) at 1°/s; no preload; 3.5 cycles, last evaluated; T6-T7 FSUs without ribs"
+    },
+    {
+      "key": "brasiliense2011",
+      "short": "Brasiliense 2011",
+      "year": 2011,
+      "n": 6,
+      "sample": "6 (of 8) 4-vertebra T2-T7 segments with rib cage, end ribs tied to vertebrae",
+      "doi": "10.1097/BRS.0b013e318219ce84",
+      "secondary": false,
+      "loading": "Load control, quasi-static pure moments in 1.25 N·m steps to 7.5 N·m (FE, LB, AR), 45 s hold per step; no preload; T2-T7 4-vertebra segments with ribs"
     }
   ],
   "shared": [
@@ -553,6 +573,22 @@
         "T1T12_lbr_5_nz",
         "T1T12_arr_5_nz"
       ]
+    },
+    {
+      "id": "fsu_other",
+      "title": "Single segments at 2.5 and 7.5 Nm (moved from the resection benchmark)",
+      "task_ids": [
+        "T6T7_flex_2p5_norib",
+        "T6T7_ext_2p5_norib",
+        "T6T7_lb_2p5_norib",
+        "T6T7_ar_2p5_norib",
+        "T2T7mid_flex_7p5_rc",
+        "T2T7mid_ext_7p5_rc",
+        "T2T7mid_lb_7p5_rc",
+        "T2T7mid_ar_7p5_rc"
+      ],
+      "x": "task",
+      "group": "Segments"
     }
   ],
   "tasks": [
@@ -3580,18 +3616,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 2.77"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 6.3,
-          "sd": null,
-          "min": 2.2,
-          "max": 13.7,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3622,18 +3646,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.52"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 6.9,
-          "sd": null,
-          "min": 3.6,
-          "max": 9.5,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3664,18 +3676,6 @@
           "n": 13,
           "test_id": "fe_rom_thoracic.wilke2025.T1T2_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.78"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 7.9,
-          "sd": null,
-          "min": 2.9,
-          "max": 12.1,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T1T2_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3706,18 +3706,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.41"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 3.5,
-          "sd": null,
-          "min": 1.3,
-          "max": 7.1,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3748,18 +3736,6 @@
           "n": 13,
           "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 0.71"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 6.2,
-          "sd": null,
-          "min": 3.1,
-          "max": 8.7,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3790,18 +3766,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T3T4_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.37"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 6.5,
-          "sd": null,
-          "min": 1.9,
-          "max": 8.7,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T3T4_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3832,18 +3796,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.07"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 3.9,
-          "sd": null,
-          "min": 1.5,
-          "max": 6.7,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3874,18 +3826,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.2"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 5.1,
-          "sd": null,
-          "min": 2.5,
-          "max": 7.2,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3916,18 +3856,6 @@
           "n": 13,
           "test_id": "fe_rom_thoracic.wilke2025.T5T6_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.86"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 5.7,
-          "sd": null,
-          "min": 1.9,
-          "max": 8.5,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T5T6_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -3958,18 +3886,6 @@
           "n": 16,
           "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 0.82"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 3.9,
-          "sd": null,
-          "min": 1.7,
-          "max": 5.7,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4000,18 +3916,6 @@
           "n": 16,
           "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.77"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 4.2,
-          "sd": null,
-          "min": 0.9,
-          "max": 8.3,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4042,18 +3946,6 @@
           "n": 15,
           "test_id": "fe_rom_thoracic.wilke2025.T7T8_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.15"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 5.6,
-          "sd": null,
-          "min": 1.4,
-          "max": 8.2,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T7T8_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4084,18 +3976,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.09"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 3.0,
-          "sd": null,
-          "min": 1.1,
-          "max": 6.0,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4126,18 +4006,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.93"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 3.9,
-          "sd": null,
-          "min": 1.8,
-          "max": 7.2,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4168,18 +4036,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T9T10_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.18"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 5.7,
-          "sd": null,
-          "min": 2.8,
-          "max": 7.2,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T9T10_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4210,18 +4066,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.56"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 2.8,
-          "sd": null,
-          "min": 2.2,
-          "max": 7.1,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4252,18 +4096,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.3"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 4.2,
-          "sd": null,
-          "min": 2.2,
-          "max": 7.5,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -4294,18 +4126,6 @@
           "n": 14,
           "test_id": "fe_rom_thoracic.wilke2025.T11T12_fsu_costovertebral_rom_5Nm",
           "note": "Ulm pool of FSUs with costovertebral joints; MAD 1.22"
-        },
-        {
-          "study": "liebsch2020",
-          "mean": null,
-          "median": 4.0,
-          "sd": null,
-          "min": 1.8,
-          "max": 8.1,
-          "stat": "median",
-          "n": 8,
-          "test_id": "fe_resection_thoracic.liebsch2020.T11T12_monoseg_with_ribs_rom_5Nm",
-          "note": "monosegment cut from rib cage specimen, rib heads kept"
         }
       ]
     },
@@ -6219,6 +6039,242 @@
           "note": "region inside T2-S1"
         }
       ]
+    },
+    {
+      "id": "T6T7_flex_2p5_norib",
+      "label": "T6-T7 FSU no ribs, flex, 2.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU without ribs)",
+        "moment_nm": 2.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "wilke2020esj",
+          "mean": null,
+          "median": 1.41,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.wilke2020esj.T6T7_fsu_no_ribs_rom_2.5Nm",
+          "note": "bar height, statistic probably median (not stated)"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_ext_2p5_norib",
+      "label": "T6-T7 FSU no ribs, ext, 2.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU without ribs)",
+        "moment_nm": 2.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "wilke2020esj",
+          "mean": null,
+          "median": 1.5,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.wilke2020esj.T6T7_fsu_no_ribs_rom_2.5Nm",
+          "note": "bar height, statistic probably median (not stated)"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_lb_2p5_norib",
+      "label": "T6-T7 FSU no ribs, lb, 2.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU without ribs)",
+        "moment_nm": 2.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "wilke2020esj",
+          "mean": null,
+          "median": 2.61,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.wilke2020esj.T6T7_fsu_no_ribs_rom_2.5Nm",
+          "note": "bar height, statistic probably median (not stated)"
+        }
+      ]
+    },
+    {
+      "id": "T6T7_ar_2p5_norib",
+      "label": "T6-T7 FSU no ribs, ar, 2.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "T6-T7",
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU without ribs)",
+        "moment_nm": 2.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "T6-T7",
+      "refs": [
+        {
+          "study": "wilke2020esj",
+          "mean": null,
+          "median": 2.48,
+          "sd": null,
+          "min": null,
+          "max": null,
+          "stat": "median",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.wilke2020esj.T6T7_fsu_no_ribs_rom_2.5Nm",
+          "note": "bar height, statistic probably median (not stated)"
+        }
+      ]
+    },
+    {
+      "id": "T2T7mid_flex_7p5_rc",
+      "label": "T2-T7 mid-segment, flex, 7.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "rib_cage": "intact (4-vertebra segment, end ribs tied)",
+        "moment_nm": 7.5,
+        "direction": "flexion (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.78,
+          "sd": 0.39,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "T2T7mid_ext_7p5_rc",
+      "label": "T2-T7 mid-segment, ext, 7.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "rib_cage": "intact (4-vertebra segment, end ribs tied)",
+        "moment_nm": 7.5,
+        "direction": "extension (one direction)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.47,
+          "sd": 0.26,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae"
+        }
+      ]
+    },
+    {
+      "id": "T2T7mid_lb_7p5_rc",
+      "label": "T2-T7 mid-segment, lb, 7.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "rib_cage": "intact (4-vertebra segment, end ribs tied)",
+        "moment_nm": 7.5,
+        "direction": "lateral bending (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 2.13,
+          "sd": 1.12,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
+    },
+    {
+      "id": "T2T7mid_ar_7p5_rc",
+      "label": "T2-T7 mid-segment, ar, 7.5 Nm",
+      "view": "fsu_other",
+      "inputs": {
+        "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "rib_cage": "intact (4-vertebra segment, end ribs tied)",
+        "moment_nm": 7.5,
+        "direction": "axial rotation (one side)",
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "output": "rom_segmental",
+      "level": "middle segment (T3-T4/T4-T5/T5-T6)",
+      "refs": [
+        {
+          "study": "brasiliense2011",
+          "mean": 0.47,
+          "sd": 0.3,
+          "min": null,
+          "max": null,
+          "stat": "mean",
+          "n": 6,
+          "test_id": "fe_resection_thoracic.brasiliense2011.T2T7midseg_ribcage_intact_rom_7.5Nm",
+          "note": "digitised (Fig. 3); end rib pairs tied to end vertebrae; LB/AR presumably mean of both sides"
+        }
+      ]
     }
   ],
   "notes": [
@@ -6440,6 +6496,22 @@
         "T2-T11": "[[N, deg], ...]",
         "T11-L1": "[[N, deg], ...]"
       }
+    },
+    "t67_norib_2p5": {
+      "rom_segmental": {
+        "flexion (one direction)": "deg",
+        "extension (one direction)": "deg",
+        "lateral bending (one side)": "deg",
+        "axial rotation (one side)": "deg"
+      }
+    },
+    "seg4_rc_7p5": {
+      "rom_segmental": {
+        "flexion (one direction)": "deg",
+        "extension (one direction)": "deg",
+        "lateral bending (one side)": "deg",
+        "axial rotation (one side)": "deg"
+      }
     }
   },
   "agent_sims": [
@@ -6513,7 +6585,8 @@
         "T9T10_fe_5_rc",
         "T11T12_fe_5_rc",
         "T1T12_fe_5_nz"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lbr_rc_none",
@@ -6585,7 +6658,8 @@
         "T9T10_lbr_5_rc",
         "T11T12_lbr_5_rc",
         "T1T12_lbr_5_nz"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "arr_rc_none",
@@ -6657,7 +6731,8 @@
         "T9T10_arr_5_rc",
         "T11T12_arr_5_rc",
         "T1T12_arr_5_nz"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "flex_rc_none",
@@ -6679,7 +6754,8 @@
       "task_ids": [
         "T1T12_flex_5",
         "T1T12_flex_8"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ext_rc_none",
@@ -6701,7 +6777,8 @@
       "task_ids": [
         "T1T12_ext_5",
         "T1T12_ext_8"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lb_rc_none",
@@ -6723,7 +6800,8 @@
       "task_ids": [
         "T1T12_lb_5",
         "T1T12_lb_8"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ar_rc_none",
@@ -6745,7 +6823,8 @@
       "task_ids": [
         "T1T12_ar_5",
         "T1T12_ar_8"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "arr_rc_ax50",
@@ -6767,7 +6846,8 @@
       ],
       "task_ids": [
         "T1T12_arr_5_ax50"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "fe_rc_follower",
@@ -6805,7 +6885,8 @@
         "T8T12_fe_5",
         "T8T12_fe_5_fl200",
         "T8T12_fe_5_fl400"
-      ]
+      ],
+      "monotone": "falling"
     },
     {
       "id": "lbr_rc_follower",
@@ -6843,7 +6924,8 @@
         "T8T12_lbr_5",
         "T8T12_lbr_5_fl200",
         "T8T12_lbr_5_fl400"
-      ]
+      ],
+      "monotone": "falling"
     },
     {
       "id": "arr_rc_follower",
@@ -6881,7 +6963,8 @@
         "T8T12_arr_5",
         "T8T12_arr_5_fl200",
         "T8T12_arr_5_fl400"
-      ]
+      ],
+      "monotone": "falling"
     },
     {
       "id": "flex_rc_fl400",
@@ -6903,7 +6986,8 @@
       ],
       "task_ids": [
         "T1T12_flex_5_fl400"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ext_rc_fl400",
@@ -6925,7 +7009,8 @@
       ],
       "task_ids": [
         "T1T12_ext_5_fl400"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lb_rc_fl400",
@@ -6947,7 +7032,8 @@
       ],
       "task_ids": [
         "T1T12_lb_5_fl400"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ar_rc_fl400",
@@ -6969,7 +7055,8 @@
       ],
       "task_ids": [
         "T1T12_ar_5_fl400"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "fe_norc_none",
@@ -7029,7 +7116,8 @@
         "T2T3_fe_4_ms",
         "T6T7_fe_4_ms",
         "T10T11_fe_4_ms"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lbr_norc_none",
@@ -7089,7 +7177,8 @@
         "T2T3_lbr_4_ms",
         "T6T7_lbr_4_ms",
         "T10T11_lbr_4_ms"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "arr_norc_none",
@@ -7149,7 +7238,8 @@
         "T2T3_arr_4_ms",
         "T6T7_arr_4_ms",
         "T10T11_arr_4_ms"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "flex_norc_none",
@@ -7201,7 +7291,8 @@
         "T7T8_flex_7p5_fsu",
         "T9T10_flex_7p5_fsu",
         "T11T12_flex_7p5_fsu"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ext_norc_none",
@@ -7253,7 +7344,8 @@
         "T7T8_ext_7p5_fsu",
         "T9T10_ext_7p5_fsu",
         "T11T12_ext_7p5_fsu"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lb_norc_none",
@@ -7305,7 +7397,8 @@
         "T7T8_lb_7p5_fsu",
         "T9T10_lb_7p5_fsu",
         "T11T12_lb_7p5_fsu"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ar_norc_none",
@@ -7357,7 +7450,8 @@
         "T7T8_ar_7p5_fsu",
         "T9T10_ar_7p5_fsu",
         "T11T12_ar_7p5_fsu"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "fe_8_6_follower",
@@ -7401,6 +7495,84 @@
         "T11L1_fe_8_6_fl400",
         "T11L1_fe_8_6_fl600",
         "T11L1_fe_8_6_fl800"
+      ],
+      "monotone": {
+        "rom_total|T2-S1": "falling",
+        "rom_total|T2-T11": "falling"
+      }
+    },
+    {
+      "id": "t67_norib_2p5",
+      "title": "T6-T7 FSU without ribs, 2.5 Nm, no preload: ROM per direction",
+      "sweep": null,
+      "fixed": {
+        "level": "T6-T7",
+        "specimen": "FSU",
+        "rib_cage": "removed (FSU without ribs)",
+        "moment_nm": 2.5,
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "direction": "flexion (one direction)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "extension (one direction)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "lateral bending (one side)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "axial rotation (one side)"
+        }
+      ],
+      "task_ids": [
+        "T6T7_flex_2p5_norib",
+        "T6T7_ext_2p5_norib",
+        "T6T7_lb_2p5_norib",
+        "T6T7_ar_2p5_norib"
+      ]
+    },
+    {
+      "id": "seg4_rc_7p5",
+      "title": "4-vertebra T2-T7 segment with rib cage, 7.5 Nm: middle-segment ROM per direction",
+      "note": "End rib pairs tied to the end vertebrae; report the middle segment.",
+      "sweep": null,
+      "fixed": {
+        "specimen": "4-vertebra T2-T7 segment with rib cage",
+        "rib_cage": "intact (4-vertebra segment, end ribs tied)",
+        "moment_nm": 7.5,
+        "follower_n": 0,
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "rom_segmental",
+          "direction": "flexion (one direction)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "extension (one direction)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "lateral bending (one side)"
+        },
+        {
+          "key": "rom_segmental",
+          "direction": "axial rotation (one side)"
+        }
+      ],
+      "task_ids": [
+        "T2T7mid_flex_7p5_rc",
+        "T2T7mid_ext_7p5_rc",
+        "T2T7mid_lb_7p5_rc",
+        "T2T7mid_ar_7p5_rc"
       ]
     }
   ]

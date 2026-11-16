@@ -125,6 +125,18 @@
       "label": "Shear strength",
       "unit": "kN",
       "definition": "Peak anterior shear force, displacement at 0.5 mm/s to failure, 500 N preload (kN)"
+    },
+    {
+      "key": "disp_pct",
+      "label": "Displacement, % of intact",
+      "unit": "%",
+      "definition": "Displacement after the removal / your intact model's displacement under the same load x 100"
+    },
+    {
+      "key": "k_pct",
+      "label": "Stiffness, % of intact",
+      "unit": "%",
+      "definition": "Stiffness after the removal / your intact model's stiffness x 100"
     }
   ],
   "studies": [
@@ -1972,19 +1984,19 @@
         "load": "to 1.1 MPa-equiv., slope 0.77-1 MPa",
         "preload_n": null
       },
-      "output": "k_lin",
+      "output": "k_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "amin2016a",
-          "mean": 4745.0,
-          "sd": 1330.0,
+          "mean": 103.5,
+          "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 14,
           "test_id": "segment_stiffness.amin2016a.lumbar_FSU_reference_compression_stiffness_sequence",
-          "note": "SD from 95% CI; n=14"
+          "note": "derived: 4745 / 4583 N/mm (intact, same specimens) x 100; ratio of the group means, spread of the ratio not reported; SD from 95% CI; n=14"
         }
       ]
     },
@@ -2514,19 +2526,19 @@
         "preload_n": 0,
         "compression_n": 400
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 0.5,
-          "sd": 0.26,
+          "mean": 98.0,
+          "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "mean (SD); upper body centre, 15 s after load"
+          "note": "derived: 0.5 / 0.51 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; mean (SD); upper body centre, 15 s after load"
         }
       ]
     },
@@ -2541,19 +2553,19 @@
         "load": "145 N at upper body centre (3.4 cm above disc)",
         "preload_n": 400
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 1.42,
-          "sd": 0.46,
+          "mean": 117.4,
+          "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "mean (SD); upper body centre, 15 s after load"
+          "note": "derived: 1.42 / 1.21 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; mean (SD); upper body centre, 15 s after load"
         }
       ]
     },
@@ -2568,19 +2580,19 @@
         "load": "145 N at upper body centre (3.4 cm above disc)",
         "preload_n": 400
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 1.24,
-          "sd": 0.21,
+          "mean": 145.9,
+          "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "mean (SD); upper body centre, 15 s after load"
+          "note": "derived: 1.24 / 0.85 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; mean (SD); upper body centre, 15 s after load"
         }
       ]
     },
@@ -2595,19 +2607,19 @@
         "load": "145 N at upper body centre (3.4 cm above disc)",
         "preload_n": 400
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 1.11,
-          "sd": 0.5,
+          "mean": 111.0,
+          "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "mean (SD); upper body centre, 15 s after load"
+          "note": "derived: 1.11 / 1 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; mean (SD); upper body centre, 15 s after load"
         }
       ]
     },
@@ -6224,19 +6236,19 @@
         "compression_n": 86,
         "preload_n": 0
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 0.1,
+          "mean": 90.9,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+          "note": "derived: 0.1 / 0.11 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
         }
       ]
     },
@@ -6252,19 +6264,19 @@
         "compression_n": 145,
         "preload_n": 0
       },
-      "output": "disp",
+      "output": "disp_pct",
       "level": "L1-L5 FSUs",
       "refs": [
         {
           "study": "berkson1979",
-          "mean": 0.19,
+          "mean": 105.6,
           "sd": null,
           "min": null,
           "max": null,
           "stat": "mean",
           "n": 18,
           "test_id": "segment_stiffness.berkson1979.lumbar_FSU_compression_shear_displacement",
-          "note": "interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
+          "note": "derived: 0.19 / 0.18 mm (intact mean of all 42 segments; 18 of them retested after the removal) x 100; ratio of the group means, spread of the ratio not reported; interpolated value (Table 1 footnote a), no SD; upper body centre, 15 s after load"
         }
       ]
     },
@@ -6600,6 +6612,12 @@
     "axial_stiffness_preloaded": {
       "k_lin": "N/mm"
     },
+    "amin_isolated_disc": {
+      "k_pct": "%"
+    },
+    "axial_stiffness_disc_unit": {
+      "k_lin": "N/mm"
+    },
     "amin_six_dof": {
       "k_lin": {
         "anterior shear": "N/mm",
@@ -6629,6 +6647,9 @@
     "compression": {
       "force": "[[mm, N], ...]"
     },
+    "compression_disc_unit": {
+      "force": "[[mm, N], ...]"
+    },
     "berk_intact": {
       "disp": {
         "anterior shear": {
@@ -6646,15 +6667,20 @@
       }
     },
     "berk_pe": {
-      "disp": {
+      "disp_pct": {
+        "compression": {
+          "400 N": "%",
+          "86 N": "%",
+          "145 N": "%"
+        },
         "anterior shear": {
-          "145 N at upper body centre (3.4 cm above disc)": "mm"
+          "145 N at upper body centre (3.4 cm above disc)": "%"
         },
         "posterior shear": {
-          "145 N at upper body centre (3.4 cm above disc)": "mm"
+          "145 N at upper body centre (3.4 cm above disc)": "%"
         },
         "right lateral shear": {
-          "145 N at upper body centre (3.4 cm above disc)": "mm"
+          "145 N at upper body centre (3.4 cm above disc)": "%"
         }
       }
     },
@@ -6751,7 +6777,8 @@
         "gms_k11_0",
         "gms_k11_250",
         "gms_k11_500"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ap_shear_vs_preload",
@@ -6783,7 +6810,11 @@
         "jan_anterior_2200",
         "jan_posterior_0",
         "jan_posterior_2200"
-      ]
+      ],
+      "monotone": {
+        "k_lin": "rising",
+        "disp": "falling"
+      }
     },
     {
       "id": "lateral_shear_vs_preload",
@@ -6805,7 +6836,8 @@
         "gms_k33_0",
         "gms_k33_250",
         "gms_k33_500"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "axial_rotation_vs_preload",
@@ -6831,7 +6863,11 @@
         "gms_k44_500",
         "jan_axial_0",
         "jan_axial_2200"
-      ]
+      ],
+      "monotone": {
+        "k_rot": "rising",
+        "rot": "falling"
+      }
     },
     {
       "id": "lateral_bending_vs_preload",
@@ -6857,7 +6893,11 @@
         "gms_k55_500",
         "jan_right_0",
         "jan_right_2200"
-      ]
+      ],
+      "monotone": {
+        "k_rot": "rising",
+        "rot": "falling"
+      }
     },
     {
       "id": "flexion_extension_vs_preload",
@@ -6889,7 +6929,11 @@
         "jan_flexion_2200",
         "jan_extension_0",
         "jan_extension_2200"
-      ]
+      ],
+      "monotone": {
+        "k_rot": "rising",
+        "rot": "falling"
+      }
     },
     {
       "id": "pj_six_dof",
@@ -7007,7 +7051,7 @@
     },
     {
       "id": "axial_stiffness_preloaded",
-      "title": "Lumbar FSU or disc unit, ~0.4-0.5 MPa preload, 37 C: axial compression stiffness",
+      "title": "Lumbar FSU, ~0.5 MPa follower preload, 37 C: axial compression stiffness",
       "note": "Motion segments, isolated discs and disc units combined (as for the compression curve).",
       "sweep": null,
       "fixed": {
@@ -7019,8 +7063,40 @@
         }
       ],
       "task_ids": [
-        "amin_axial_compression",
-        "amin_disc_compression",
+        "amin_axial_compression"
+      ]
+    },
+    {
+      "id": "amin_isolated_disc",
+      "title": "Lumbar FSU, facets removed (isolated disc): axial stiffness, % of intact (Amin 2016a)",
+      "note": "Same 14 FSUs before and after removing the facets; report your stiffness / your intact stiffness x 100.",
+      "sweep": null,
+      "fixed": {
+        "dof": "axial compression"
+      },
+      "outputs": [
+        {
+          "key": "k_pct"
+        }
+      ],
+      "task_ids": [
+        "amin_disc_compression"
+      ]
+    },
+    {
+      "id": "axial_stiffness_disc_unit",
+      "title": "Lumbar disc unit, 0.4 MPa preload, 37 C: axial compression stiffness (Costi 2008)",
+      "note": "Motion segments, isolated discs and disc units combined (as for the compression curve).",
+      "sweep": null,
+      "fixed": {
+        "dof": "axial compression"
+      },
+      "outputs": [
+        {
+          "key": "k_lin"
+        }
+      ],
+      "task_ids": [
         "costi_axial_compression"
       ]
     },
@@ -7123,7 +7199,7 @@
     },
     {
       "id": "compression",
-      "title": "Lumbar disc unit or motion segment, axial compression: force vs displacement",
+      "title": "Lumbar motion segment, axial compression: force vs displacement",
       "note": "One test for all studies: disc units and motion segments, any lumbar level, displacement- or force-controlled (force-controlled points are read at their measured displacement).",
       "sweep": "displacement_mm",
       "fixed": {},
@@ -7132,10 +7208,57 @@
           "key": "force"
         }
       ],
+      "hull": true,
       "task_ids": [
         "berk_intact_compression_400",
-        "berk_pe_compression_400",
         "frei_compression",
+        "asn_050",
+        "asn_100",
+        "asn_150",
+        "ten_comp_a_275",
+        "ten_comp_a_530",
+        "ten_comp_a_825",
+        "ten_comp_b_275",
+        "ten_comp_b_540",
+        "ten_comp_b_825",
+        "berk_intact_compression_86",
+        "berk_intact_compression_145",
+        "asn_comp_000",
+        "ten_comp_000",
+        "berk_compression_000"
+      ],
+      "transpose": {
+        "output": "disp",
+        "as": "force",
+        "y_input": "compression_n",
+        "y_values": {
+          "frei_compression": 500
+        }
+      },
+      "curve_by": [
+        "specimen",
+        "condition"
+      ],
+      "study_notes": {
+        "tencer1982": "force-controlled: displacement read 1-2 min after each load",
+        "berkson1979": "force-controlled: intact and with posterior elements cut",
+        "frei2002": "force-controlled: 500 N through the balance point, T12-L1",
+        "asano1992": "secondary source: intact L4-L5 motion segment"
+      }
+    },
+    {
+      "id": "compression_disc_unit",
+      "title": "Lumbar disc unit (posterior elements removed), axial compression: force vs displacement",
+      "note": "One test for all studies: disc units and motion segments, any lumbar level, displacement- or force-controlled (force-controlled points are read at their measured displacement).",
+      "sweep": "displacement_mm",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "force"
+        }
+      ],
+      "hull": true,
+      "task_ids": [
         "cann_acu_compression",
         "mar1_comp_010",
         "mar1_comp_020",
@@ -7212,32 +7335,15 @@
         "mkm_min_140",
         "mkm_min_160",
         "mkm_min_180",
-        "asn_050",
-        "asn_100",
-        "asn_150",
-        "ten_comp_a_275",
-        "ten_comp_a_530",
-        "ten_comp_a_825",
-        "ten_comp_b_275",
-        "ten_comp_b_540",
-        "ten_comp_b_825",
-        "berk_intact_compression_86",
-        "berk_intact_compression_145",
-        "berk_pe_compression_86",
-        "berk_pe_compression_145",
         "mar_comp_000",
         "brn_comp_000",
-        "mkm_comp_000",
-        "asn_comp_000",
-        "ten_comp_000",
-        "berk_compression_000"
+        "mkm_comp_000"
       ],
       "transpose": {
         "output": "disp",
         "as": "force",
         "y_input": "compression_n",
         "y_values": {
-          "frei_compression": 500,
           "cann_acu_compression": 1500
         }
       },
@@ -7248,13 +7354,9 @@
       "study_notes": {
         "marini2016": "six individual disc units, 5 mm/min",
         "jamison2013": "fast loading: triangular impacts of 80-1000 ms (about 1.6 mm/s), 50 N preload",
-        "tencer1982": "force-controlled: displacement read 1-2 min after each load",
-        "berkson1979": "force-controlled: intact and with posterior elements cut",
-        "frei2002": "force-controlled: 500 N through the balance point, T12-L1",
         "cannella2008": "force-controlled cyclic test: 1500 N, 5th cycle at 0.1 Hz, disc unit",
         "brown1957": "secondary source (Ghezelbash 2020a): stiffest and softest disc",
-        "markolfmorris1974": "secondary source: stiffest, average and softest disc",
-        "asano1992": "secondary source: intact L4-L5 motion segment"
+        "markolfmorris1974": "secondary source: stiffest, average and softest disc"
       }
     },
     {
@@ -7309,35 +7411,53 @@
     },
     {
       "id": "berk_pe",
-      "title": "Lumbar FSU, 400 N preload, posterior elements cut: shear displacement (Berkson 1979)",
+      "title": "Lumbar FSU, posterior elements cut: displacement, % of intact (Berkson 1979)",
       "sweep": null,
       "fixed": {
         "specimen": "lumbar FSU (L1-S1 mixed)",
-        "condition": "posterior elements cut",
-        "preload_n": 400
+        "condition": "posterior elements cut"
       },
       "outputs": [
         {
-          "key": "disp",
+          "key": "disp_pct",
+          "dof": "compression",
+          "load": "400 N"
+        },
+        {
+          "key": "disp_pct",
           "dof": "anterior shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
         },
         {
-          "key": "disp",
+          "key": "disp_pct",
           "dof": "posterior shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
         },
         {
-          "key": "disp",
+          "key": "disp_pct",
           "dof": "right lateral shear",
           "load": "145 N at upper body centre (3.4 cm above disc)"
+        },
+        {
+          "key": "disp_pct",
+          "dof": "compression",
+          "load": "86 N"
+        },
+        {
+          "key": "disp_pct",
+          "dof": "compression",
+          "load": "145 N"
         }
       ],
       "task_ids": [
+        "berk_pe_compression_400",
         "berk_pe_anterior_145",
         "berk_pe_posterior_145",
-        "berk_pe_right_145"
-      ]
+        "berk_pe_right_145",
+        "berk_pe_compression_86",
+        "berk_pe_compression_145"
+      ],
+      "note": "Same FSUs before and after cutting the posterior elements; report your displacement / your intact displacement x 100."
     },
     {
       "id": "frei_shear",
@@ -7584,6 +7704,7 @@
           "key": "moment_pct"
         }
       ],
+      "hull": false,
       "task_ids": [
         "ad_l45_10",
         "ad_l45_30",

@@ -3407,6 +3407,10 @@
       "idp": "[[N, MPa], ...]",
       "idp_load_slope": "kPa/N"
     },
+    "compression_disc_unit": {
+      "idp": "[[N, MPa], ...]",
+      "idp_load_slope": "kPa/N"
+    },
     "frei_idp": {
       "idp": {
         "compression 20 mm anterior": {
@@ -3538,7 +3542,8 @@
         "l45_fle_10",
         "pop_flex_10",
         "rohl_chg_flex"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lum_ext",
@@ -3820,7 +3825,8 @@
       "task_ids": [
         "sch_chg_flex_4p7",
         "sch_chg_flex_10p6"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lum_ext_ax400",
@@ -3864,7 +3870,8 @@
       "task_ids": [
         "sch_chg_lb_4p7",
         "sch_chg_lb_10p6"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "lum_ar_ax400",
@@ -3886,7 +3893,8 @@
       "task_ids": [
         "sch_chg_ar_4p7",
         "sch_chg_ar_10p6"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "thor_unloaded",
@@ -3931,7 +3939,8 @@
         "thor_fle_2p5",
         "thor_fle_5",
         "thor_fle_7p5"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "thor_ext",
@@ -4000,7 +4009,8 @@
         "thor_axil_2p5",
         "thor_axil_5",
         "thor_axil_7p5"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "ribcage_follower",
@@ -4042,11 +4052,12 @@
         "and_t8t9_600",
         "and_slope_t4t5_intact",
         "and_slope_t8t9_intact"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "compression",
-      "title": "Lumbar FSU or disc unit, axial compression: IDP vs force",
+      "title": "Lumbar motion segment, axial compression: IDP vs force",
       "note": "FSUs and disc units of any lumbar level in one band; the slope (kPa/N) is read from the same curve.",
       "sweep": "load_n",
       "fixed": {},
@@ -4060,15 +4071,35 @@
         }
       ],
       "task_ids": [
-        "cann_acu_50",
         "sch_400",
         "frei_compression",
         "denn_slope",
-        "cann_slope",
         "brk_0",
         "brk_300",
         "brk_1000"
-      ]
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "compression_disc_unit",
+      "title": "Lumbar disc unit (posterior elements removed), axial compression: IDP vs force",
+      "note": "Disc-only units (Cannella 2008); motion segments are in 'compression'.",
+      "sweep": "load_n",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "idp"
+        },
+        {
+          "key": "idp_load_slope",
+          "scalar": true
+        }
+      ],
+      "task_ids": [
+        "cann_acu_50",
+        "cann_slope"
+      ],
+      "monotone": "rising"
     },
     {
       "id": "frei_idp",
@@ -4168,7 +4199,8 @@
         "cann_rel_100",
         "cann_rel_400",
         "cann_rel_1400"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "noribs_follower",

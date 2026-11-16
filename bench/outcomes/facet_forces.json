@@ -2224,6 +2224,11 @@
       "facet_force": {
         "L3-L4": "[[Nm, N], ...]",
         "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]"
+      }
+    },
+    "pm_ext_nocapsule": {
+      "facet_force": {
         "L4-L5": "[[Nm, N], ...]",
         "L5-S1": "[[Nm, N], ...]"
       }
@@ -2232,6 +2237,11 @@
       "facet_force": {
         "L3-L4": "[[Nm, N], ...]",
         "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]"
+      }
+    },
+    "pm_lb_nocapsule": {
+      "facet_force": {
         "L4-L5": "[[Nm, N], ...]",
         "L5-S1": "[[Nm, N], ...]"
       }
@@ -2240,6 +2250,11 @@
       "facet_force": {
         "L3-L4": "[[Nm, N], ...]",
         "L1-L2": "[[Nm, N], ...]",
+        "L4-L5": "[[Nm, N], ...]"
+      }
+    },
+    "pm_ar_nocapsule": {
+      "facet_force": {
         "L4-L5": "[[Nm, N], ...]",
         "L5-S1": "[[Nm, N], ...]"
       }
@@ -2450,6 +2465,28 @@
         {
           "key": "facet_force",
           "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_ext",
+        "sawa_l12_ext",
+        "pop_l45_ext"
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "pm_ext_nocapsule",
+      "title": "L4-S1 segment, facet capsules removed, extension, no preload: facet force vs moment",
+      "note": "Capsules removed for the pressure film (Jaramillo 2016); not pooled with intact specimens.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "direction": "extension",
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
         },
         {
           "key": "facet_force",
@@ -2457,12 +2494,10 @@
         }
       ],
       "task_ids": [
-        "zhu_l34_ext",
-        "sawa_l12_ext",
-        "pop_l45_ext",
         "jar_l4l5_ext",
         "jar_l5s1_ext"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "pm_lb",
@@ -2484,6 +2519,27 @@
         {
           "key": "facet_force",
           "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_lb",
+        "sawa_l12_lb",
+        "pop_l45_lb"
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "pm_lb_nocapsule",
+      "title": "L4-S1 segment, facet capsules removed, lateral bending, one side, no preload: facet force vs moment",
+      "note": "Capsules removed for the pressure film (Jaramillo 2016); not pooled with intact specimens.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
         },
         {
           "key": "facet_force",
@@ -2491,12 +2547,10 @@
         }
       ],
       "task_ids": [
-        "zhu_l34_lb",
-        "sawa_l12_lb",
-        "pop_l45_lb",
         "jar_l4l5_lb",
         "jar_l5s1_lb"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "pm_ar",
@@ -2518,6 +2572,27 @@
         {
           "key": "facet_force",
           "level": "L4-L5"
+        }
+      ],
+      "task_ids": [
+        "zhu_l34_ar",
+        "sawa_l12_ar",
+        "pop_l45_ar"
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "pm_ar_nocapsule",
+      "title": "L4-S1 segment, facet capsules removed, axial rotation, one side, no preload: facet force vs moment",
+      "note": "Capsules removed for the pressure film (Jaramillo 2016); not pooled with intact specimens.",
+      "sweep": "moment_nm",
+      "fixed": {
+        "axial_n": 0
+      },
+      "outputs": [
+        {
+          "key": "facet_force",
+          "level": "L4-L5"
         },
         {
           "key": "facet_force",
@@ -2525,12 +2600,10 @@
         }
       ],
       "task_ids": [
-        "zhu_l34_ar",
-        "sawa_l12_ar",
-        "pop_l45_ar",
         "jar_l4l5_ar",
         "jar_l5s1_ar"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "pelvic_tilt",
@@ -2721,7 +2794,11 @@
         "lor_l2l3_compression",
         "lor_l4l5_compression",
         "yk_c"
-      ]
+      ],
+      "curve_ok": {
+        "lorenz1983": "L2-L3 and L4-L5 FSUs at the same 1373 N load; the simulation has one curve per facet, so the two levels form one range at that load (Tables 1-2)"
+      },
+      "monotone": "rising"
     },
     {
       "id": "ext_compression",
@@ -2804,7 +2881,8 @@
         "rou_l5s1_lateral_bending",
         "rou_l5s1_lateral_bending_neg"
       ],
-      "note": "+6 deg = the facet on the side the segment bends toward; -6 deg = the opposite facet."
+      "note": "+6 deg = the facet on the side the segment bends toward; -6 deg = the opposite facet.",
+      "monotone": "rising"
     },
     {
       "id": "rot",

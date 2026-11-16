@@ -662,7 +662,9 @@ def study_colors(cards):
 AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md). Simulations: at each x where studies have "
                  "data the band runs from the lowest (mean - SD, else min, else mean) to the highest (mean + SD, else "
                  "max, else mean) over the studies, never narrower than a small floor (+-25 % for a lone value without "
-                 "spread); a simulation passes when its curves lie inside the band at >= 80 % of the band points (x "
+                 "spread); for outputs that only rise (or only fall) with the sweep the band rises (falls) with them, "
+                 "other outputs use the convex hull of all measured points; removal steps are % of your own intact model; "
+                 "a simulation passes when its curves lie inside the band at >= 80 % of the band points (x "
                  "outside your curve fails). Tasks (MSK): inside the pooled mean +- SD, else inside the bands of at least "
                  "half of the studies. Card score = passed units / all units.")
 _PATIENT = re.compile(r"^\s*(WP\d+)\b")

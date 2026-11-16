@@ -6379,12 +6379,21 @@
     "circumferential": {
       "stress": "[[%, MPa], ...]"
     },
+    "circumferential_cruciform": {
+      "stress": "[[%, MPa], ...]"
+    },
     "axial": {
+      "stress": "[[%, MPa], ...]"
+    },
+    "axial_cruciform": {
       "stress": "[[%, MPa], ...]"
     },
     "biaxial": {
       "stress": "[[%, MPa], ...]",
       "transverse_stress": "[[%, MPa], ...]"
+    },
+    "biaxial_square": {
+      "stress": "[[%, MPa], ...]"
     }
   },
   "agent_sims": [
@@ -6467,12 +6476,13 @@
         "lam_sk_04",
         "lam_sk_05",
         "lam_sk_06"
-      ]
+      ],
+      "monotone": "rising"
     },
     {
       "id": "circumferential",
       "title": "Uniaxial circumferential tension: stress vs strain",
-      "note": "Regions (outer/inner, anterior/posterolateral), specimens and studies combined into one band. Strips and cruciform specimens combined.",
+      "note": "Regions (outer/inner, anterior/posterolateral), specimens and studies combined into one band. Strip specimens.",
       "sweep": "strain",
       "fixed": {},
       "outputs": [
@@ -6480,6 +6490,7 @@
           "key": "stress"
         }
       ],
+      "hull": true,
       "task_ids": [
         "circ_wl_00",
         "circ_wl_01",
@@ -6498,15 +6509,6 @@
         "circ_es13_01",
         "circ_es13_02",
         "circ_es13_03",
-        "circ_bass_00",
-        "circ_bass_01",
-        "circ_bass_02",
-        "circ_bass_03",
-        "circ_bass_04",
-        "circ_bass_05",
-        "circ_bass_06",
-        "circ_bass_07",
-        "circ_bass_08",
         "circ_oc_00",
         "circ_oc_01",
         "circ_oc_02",
@@ -6581,9 +6583,9 @@
       ]
     },
     {
-      "id": "axial",
-      "title": "Uniaxial axial tension: stress vs strain",
-      "note": "Regions (outer/inner, anterior/posterolateral), specimens and studies combined into one band. Strips and cruciform specimens combined.",
+      "id": "circumferential_cruciform",
+      "title": "Uniaxial circumferential tension of a cruciform specimen: stress vs strain",
+      "note": "Cruciform specimen pulled in one direction (Bass 2004); not pooled with strips.",
       "sweep": "strain",
       "fixed": {},
       "outputs": [
@@ -6592,13 +6594,31 @@
         }
       ],
       "task_ids": [
-        "ax_bass_00",
-        "ax_bass_01",
-        "ax_bass_02",
-        "ax_bass_03",
-        "ax_bass_04",
-        "ax_bass_05",
-        "ax_bass_06",
+        "circ_bass_00",
+        "circ_bass_01",
+        "circ_bass_02",
+        "circ_bass_03",
+        "circ_bass_04",
+        "circ_bass_05",
+        "circ_bass_06",
+        "circ_bass_07",
+        "circ_bass_08"
+      ],
+      "monotone": "rising"
+    },
+    {
+      "id": "axial",
+      "title": "Uniaxial axial tension: stress vs strain",
+      "note": "Regions (outer/inner, anterior/posterolateral), specimens and studies combined into one band. Strip specimens.",
+      "sweep": "strain",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "hull": false,
+      "task_ids": [
         "ax_es21_00",
         "ax_es21_01",
         "ax_es21_02",
@@ -6625,9 +6645,31 @@
       ]
     },
     {
+      "id": "axial_cruciform",
+      "title": "Uniaxial axial tension of a cruciform specimen: stress vs strain",
+      "note": "Cruciform specimen pulled in one direction (Bass 2004); not pooled with strips.",
+      "sweep": "strain",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "task_ids": [
+        "ax_bass_00",
+        "ax_bass_01",
+        "ax_bass_02",
+        "ax_bass_03",
+        "ax_bass_04",
+        "ax_bass_05",
+        "ax_bass_06"
+      ],
+      "monotone": "rising"
+    },
+    {
       "id": "biaxial",
-      "title": "Biaxial: axial stretch, circumferential direction held: stress vs strain",
-      "note": "Cruciform (circumferential strain held at 0) and square (circumferential grips held) combined.",
+      "title": "Biaxial cruciform: axial stretch, circumferential strain held at 0: stress vs strain",
+      "note": "Cruciform specimen, circumferential strain held at 0 (Bass 2004 typical specimen).",
       "sweep": "strain",
       "fixed": {},
       "outputs": [
@@ -6638,6 +6680,7 @@
           "key": "transverse_stress"
         }
       ],
+      "hull": false,
       "task_ids": [
         "bx_bass_ax_00",
         "bx_bass_ax_01",
@@ -6657,7 +6700,22 @@
         "bx_bass_ci_06",
         "bx_bass_ci_07",
         "bx_bass_ci_08",
-        "bx_bass_ci_09",
+        "bx_bass_ci_09"
+      ]
+    },
+    {
+      "id": "biaxial_square",
+      "title": "Biaxial square: axial stretch, circumferential grips held: stress vs strain",
+      "note": "Square specimen, circumferential grips held (O'Connell 2012); not pooled with cruciform specimens.",
+      "sweep": "strain",
+      "fixed": {},
+      "outputs": [
+        {
+          "key": "stress"
+        }
+      ],
+      "hull": false,
+      "task_ids": [
         "bx_oc12_00",
         "bx_oc12_01",
         "bx_oc12_02",

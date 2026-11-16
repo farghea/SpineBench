@@ -19,8 +19,8 @@ Every reference value keeps its `test_id`, so it stays traceable.
 | `maximal_exertions` | Maximal trunk exertions | MSK | Input: direction of maximal effort (+ posture). Outputs side by side: primary moment, coupled moments, EMG at MVC |
 | `lumbar_rom` | Lumbar range of motion | FE | Input: pure moment, direction, preload. Outputs: total (multi-level) ROM and segmental ROM per level |
 | `thoracic_rom` | Thoracic range of motion | FE | Same, with/without rib cage: T1-T12 total and segmental ROM |
-| `lumbar_resection` | Lumbar stepwise resection | FE | ROM after each removal step, absolute and % of intact |
-| `thoracic_resection` | Thoracic stepwise resection | FE | ROM after each removal step incl. rib cage reduction and costovertebral joints |
+| `lumbar_resection` | Lumbar stepwise resection | FE | ROM after each removal step, % of the model's own intact (intact ROM is in `lumbar_rom`) |
+| `thoracic_resection` | Thoracic stepwise resection | FE | ROM after each removal step incl. rib cage reduction and costovertebral joints, % of the model's own intact (intact ROM is in `thoracic_rom`) |
 | `idp_invitro` | Disc pressure in vitro | FE | IDP vs moment / compression / follower load |
 | `facet_forces` | Facet joint forces | FE | Facet contact force (or load share) per direction and moment |
 | `segment_stiffness` | Segment force-displacement | FE | Compression force-displacement curves and shear/compression stiffness of motion segments and whole discs (disc with vertebral bodies), whole-disc shear strength (human only) |
@@ -115,6 +115,8 @@ their spread is the acceptance band. Tasks and refs stay as they are; the simula
    "task_ids": ["L4L5_flex_1", "..."],
    "transpose": {"output": "disp", "as": "force", "y_input": "compression_n", "y_values": {"task id": 500}},  // optional
    "curve_by": ["specimen", "condition"],      // optional: inputs that name one measured curve (for interpolation)
+   "monotone": "rising",                       // optional: "rising" | "falling" | {output key or slot id: direction}
+   "curve_ok": {"panjabi1994 | FSU, left": "reason"},   // optional: curve check whitelist (curve name or study id)
    "study_notes": {"jamison2013": "fast loading ..."}}                                  // optional, shown to the agent
 ]
 ```
@@ -127,5 +129,14 @@ their spread is the acceptance band. Tasks and refs stay as they are; the simula
 - `answer_format` of an FE/tissue card has one entry per simulation, nested as the agent must answer, e.g.
   `{"flex_none": {"rom_segmental": {"L4-L5": "[[Nm, deg], ...]"}}}`; MSK cards keep one entry per task.
 - Bands and scoring: `tools/score_agent.py` (rule in `bench/AGENTS.md`). The keys are checked by `tools/check_outcomes.py`.
+- Curve check (`tools/check_outcomes.py`, fails the check): within one measured curve, repeated x (two values merged
+  into one point); for `monotone` outputs also a step of more than 40 % against the marked direction between consecutive
+  points (e.g. a point after failure) and a curve that ends on the wrong side of where it starts. Cut tissue and stiffness curves at failure (failure values go in their own scalar output),
+  split merged specimens or layers into separate curves (an input such as `curve` or `region` tells them apart), or
+  whitelist the curve in `curve_ok` with a reason.
+- One physical test, one place: never score the same measurement in two cards or two simulations. Specimen types do
+  not share a simulation (disc unit vs motion segment, strip vs cruciform vs square vs single lamella, capsules removed).
+  Removal steps are outputs in % of the model's own intact state (`rom_pct`, `disp_pct`, `k_pct`); the intact state
+  belongs to the ROM or stiffness card. Failure values are their own outputs (e.g. `rupture_stress`), never curve points.
 
 Check a file: `python3 tools/check_outcomes.py bench/outcomes/<id>.json`
