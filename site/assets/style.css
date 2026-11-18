@@ -303,9 +303,10 @@ pre.code { margin: 8px 0 0; font-family: var(--mono); font-size: 0.8rem; line-he
   .tabs { display: none; }
   .view-select { display: block; }
   .top-in { flex-wrap: wrap; gap: 6px 10px; }
-  .nav { order: 3; flex: 1 1 100%; margin: 0 -10px; }
+  .nav { order: 3; flex: 1 1 100%; margin: 0 -10px; overflow-x: auto; }
   #theme-toggle { margin-left: auto; }
 }
+@media (max-width: 400px) { .nav a { padding: 6px 7px; font-size: 0.88rem; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media print {
   .top, .foot, .btns, .chips, .tabs, .seg, .view-select { display: none !important; }

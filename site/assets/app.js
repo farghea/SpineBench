@@ -1665,7 +1665,7 @@
   }
 
   function viewAgents() {
-    setTitle('For agents');
+    setTitle('For agents & models');
     var cut = function (x, n) { x = String(x || ''); return x.length > n ? x.slice(0, n) + '…' : x; };
     var shortJson = function (o) { return JSON.stringify(o, function (k, v) { return typeof v === 'string' && k !== 'agent_prompt' ? cut(v, 60) : v; }, 1); };
     var ex = S.index.agent_example, exText = '{"id": "...", "agent_prompt": "...", "tasks": [{"id": "...", "inputs": {}}]}';
@@ -1680,7 +1680,7 @@
         simulations: [{ id: sim.id, title: sim.title, fixed: sim.fixed, sweep: sim.sweep, outputs: (sim.outputs || []).slice(0, 2),
           studies: sim.studies, answer: sim.answer }], more: 'simulate, inputs, outputs, studies, the other simulations' });
     }
-    main.innerHTML = '<div class="stack prose"><div><h1>For agents</h1>' +
+    main.innerHTML = '<div class="stack prose"><div><h1>For agents &amp; models</h1>' +
       '<p class="lede">Give an agent the simulations and tasks, keep the answers, then score its reply.</p></div>' +
       '<ul class="lines">' +
       '<li><b>Simulations</b> (finite element and tissue benchmarks): one simulation is one test a modeller runs once, e.g. a moment sweep of one specimen in one direction, or one stress-strain test of a tissue. All studies of that test are combined. The agent returns one curve per output, <code>[[x, y], …]</code> over the sweep (one number where there is no sweep).</li>' +
