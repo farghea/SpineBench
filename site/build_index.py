@@ -668,7 +668,8 @@ AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md). Simu
                  "outside your curve fails). Tasks (MSK): inside the pooled mean +- SD, else inside the bands of at least "
                  "half of the studies. Card score = passed units / all units. Also reported: the same score with every "
                  "mean +- SD widened to +- 2 SD, and for EMG the correlation (Pearson r) between your values and the "
-                 "measured means over all muscles and conditions of each study.")
+                 "measured means over all muscles and conditions of each study. Report results by study as well as by card "
+                 "(score_agent.py --by-study: each study's own values inside its own spread, +-SD and +-2 SD, and its EMG r).")
 _PATIENT = re.compile(r"^\s*(WP\d+)\b")
 
 
@@ -693,11 +694,14 @@ def _distinct(vals):
 
 
 def _bands(card_id, sl, sim):
-    """slot_band, plus "band_2sd" (mean +- 2 SD; the relaxed result) where it differs from the main band."""
+    """slot_band, plus "band_2sd" and "studies_2sd" (mean +- 2 SD; the relaxed result) where they differ."""
     out = SA.slot_band(card_id, sl, sim)
-    b2 = SA.slot_band(card_id, sl, sim, SA.K_RELAXED)["band"]
-    if b2 != out["band"]:
-        out["band_2sd"] = b2
+    wide = SA.slot_band(card_id, sl, sim, SA.K_RELAXED)
+    if wide["band"] != out["band"]:
+        out["band_2sd"] = wide["band"]
+    st2 = {k: v for k, v in wide["studies"].items() if v != out["studies"].get(k)}
+    if st2:
+        out["studies_2sd"] = st2  # per-study spread at +- 2 SD, only the curves that change
     return out
 
 

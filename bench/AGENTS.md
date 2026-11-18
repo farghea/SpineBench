@@ -169,6 +169,18 @@ weighs the same); the plain total is reported too.
   pattern across muscles and tasks right says as much as the hits. Key `emg_r` = `{"all": {"r", "n"}, "by_study":
   {study: {"r", "n"}}}`; r needs at least 3 answered pairs (read r from a handful of pairs with care).
 
+**Report results by study.** A card pools several experiments, and a card score can hide which experiment a model
+gets right and which it misses (e.g. EMG load holding: 47/100 tasks within 2 SD, but Elrich's load magnitudes 35/50
+and Ghezelbash 2020 2/16). So every published result gives, next to the card scores (main and 2 SD), one row per study
+per card: the study's own values hit inside the study's own spread (main rule and 2 SD; simulation points or task
+values), the number of scoring units it appears in, and for EMG its r. The scorer writes this table in the summary
+(`by_study` per card) and prints it with `--by-study`:
+
+```
+python3 tools/score_agent.py answers_from_agent.json --by-study --out report.json
+      lavender1992    inside own spread    2/14 (0.143)  2 SD    2/14 (0.143)  units 14  EMG r 0.719 (n 14)
+```
+
 Example (run_model_v2, 2026-11-18): main score 0.225 (159/628 units); within 2 SD 0.334 (281/628). EMG r: load holding
 0.21 (n 88; Lavender 0.72, Lariviere 0.74, Elrich 0.50), flexion-relaxation 0.04 (n 70; Ghezelbash 2024 0.76,
 Shin -0.48), maximal exertions 0.51 (n 38).
@@ -267,4 +279,5 @@ both specimen types shared one band (before 2026-11-16) the same curve passed 31
 >   studies at >= 80 % of the points; a task passes inside the pooled mean +- SD, or the range of at least half of its
 >   studies. The card score is the share of simulations and tasks passed. Also reported: the score with mean +- 2 SD,
 >   and for EMG the correlation between the model and the measured means across all muscles and conditions.
+>   Results are reported by study as well as by card (`--by-study`).
 > - Every reference keeps its `test_id`, so each pass or fail can be traced to a table or figure in the source paper.

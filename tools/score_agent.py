@@ -44,6 +44,10 @@ Two kinds of scoring unit (rule also in bench/AGENTS.md):
     load magnitudes), and all studies of the card together. Muscle activity has no single right value, so the
     pattern across muscles and tasks is reported next to the hits: summary key "emg_r" = {"all": {"r", "n"},
     "by_study": {study: {"r", "n"}}} (r needs >= 3 answered pairs).
+  Results are reported BY STUDY as well as by card: summary key "by_study" = {study: {"points", "inside",
+  "inside_2sd", "share", "share_2sd", "units", ["emg_r"]}}: how many of the study's own values (simulation points or
+  task values) the answer hits inside that study's own spread (main rule and 2 SD), in how many scoring units the
+  study appears, and its EMG r. CLI: --by-study prints the table.
 """
 import argparse
 import json
@@ -472,16 +476,19 @@ def score_sim(sd, ans):
                 failed.setdefault(o["slot"], []).append(
                     [x, "no answer" if v is None else ("below" if v < lo else "above")])
         of = o.get("study_of") or {}
+        wide = o.get("studies_2sd") or {}
         for curve, pts in o["studies"].items():
             st = of.get(curve, curve)
-            s = studies.setdefault(st, {"hit": 0, "n": 0, "e": [], "cmax": 0.0})
-            for x, c, lo, hi in pts:
+            s = studies.setdefault(st, {"hit": 0, "hit2": 0, "n": 0, "e": [], "cmax": 0.0})
+            for i, (x, c, lo, hi) in enumerate(pts):
                 v = y(x)
+                lo2, hi2 = wide[curve][i][2:4] if curve in wide else (lo, hi)
                 s["n"] += 1
                 s["cmax"] = max(s["cmax"], abs(c))
                 scale = max(scale, abs(c))
                 if v is not None:
                     s["hit"] += lo <= v <= hi
+                    s["hit2"] += lo2 <= v <= hi2
                     s["e"].append(v - c)
                     errs.append(v - c)
     frac = sum(ok) / len(ok) if ok else 0.0
@@ -490,8 +497,8 @@ def score_sim(sd, ans):
     return {"pass": bool(ok) and frac >= SIM_PASS, "sim": True, "points_passed": f"{sum(ok)}/{len(ok)}",
             "pass_2sd": bool(ok2) and frac2 >= SIM_PASS, "points_passed_2sd": f"{sum(ok2)}/{len(ok2)}",
             "answered": answered > 0, "nrmse": rms(errs, scale),
-            "studies": {st: {"in_own_spread": f"{s['hit']}/{s['n']}", "nrmse": rms(s["e"], s["cmax"])}
-                        for st, s in studies.items()},
+            "studies": {st: {"in_own_spread": f"{s['hit']}/{s['n']}", "in_own_spread_2sd": f"{s['hit2']}/{s['n']}",
+                             "nrmse": rms(s["e"], s["cmax"])} for st, s in studies.items()},
             **({"failed_points": failed} if failed else {})}
 
 
@@ -630,6 +637,53 @@ def emg_correlation(card, answers):
             "by_study": {st: pearson(ps) for st, ps in sorted(by.items())}}
 
 
+def task_study_hits(a, val, floor, k=1.0):
+    """{study: inside its own spread?} for one MSK task: any of the study's references holds the answer (per-subject
+    answers: the value given for that subject or study). Unanswered -> False."""
+    out = {}
+    for r in a.get("refs") or []:
+        b = ref_band(r, floor, k)
+        if not b:
+            continue
+        st = r.get("study")
+        if isinstance(val, dict):
+            sk = subject_key(r)
+            v = num(val.get(sk)) if sk and sk in val else num(val.get(st))
+        else:
+            v = num(val)
+        out[st] = out.get(st, False) or (v is not None and b[0] <= v <= b[1])
+    return out
+
+
+def _frac(s):
+    a, b = s.split("/")
+    return int(a), int(b)
+
+
+def by_study(card, res, answers, units_floor, emg):
+    """{study: {"points", "inside", "inside_2sd", "share", "share_2sd", "units", "emg_r"?}} for one card."""
+    acc = {}
+    if card["sims"]:
+        for r in res.values():
+            for st, s in (r.get("studies") or {}).items():
+                h, n = _frac(s["in_own_spread"]); h2, _ = _frac(s.get("in_own_spread_2sd", s["in_own_spread"]))
+                a = acc.setdefault(st, {"points": 0, "inside": 0, "inside_2sd": 0, "units": 0})
+                a["points"] += n; a["inside"] += h; a["inside_2sd"] += h2; a["units"] += 1
+    else:
+        for tid, t in card["tasks"].items():
+            val, fl = unwrap(answers.get(tid), t.get("output")), units_floor(t.get("unit", ""))
+            h1, h2 = task_study_hits(t, val, fl), task_study_hits(t, val, fl, K_RELAXED)
+            for st in h1:
+                a = acc.setdefault(st, {"points": 0, "inside": 0, "inside_2sd": 0, "units": 0})
+                a["points"] += 1; a["inside"] += h1[st]; a["inside_2sd"] += h2.get(st, False); a["units"] += 1
+    for st, a in acc.items():
+        a["share"] = round(a["inside"] / a["points"], 3) if a["points"] else None
+        a["share_2sd"] = round(a["inside_2sd"] / a["points"], 3) if a["points"] else None
+        if emg and st in emg["by_study"]:
+            a["emg_r"] = emg["by_study"][st]
+    return dict(sorted(acc.items()))
+
+
 def score_card(cid, card, answers):
     units_floor = lambda unit: (lambda c: max(ABS_FLOOR.get(unit, 0.0), REL_FLOOR.get(cid, 0.0) * abs(c)))
     res, units, units2, emg = {}, [], [], None
@@ -651,10 +705,11 @@ def score_card(cid, card, answers):
         answered = sum(1 for r in res.values() if r.get("value") is not None or r.get("hits", "").endswith("subjects"))
         emg = emg_correlation(card, answers)
     n = len(units)
+    studies = by_study(card, res, answers, units_floor, emg)
     return res, {"units": n, "kind": "simulations" if card["sims"] else "tasks", "answered": answered,
                  "passed": sum(units), "score": round(sum(units) / n, 3) if n else None,
                  "passed_2sd": sum(units2), "score_2sd": round(sum(units2) / n, 3) if n else None,
-                 **({"emg_r": emg} if emg else {})}
+                 **({"emg_r": emg} if emg else {}), "by_study": studies}
 
 
 def score(sub, cards, card_opt=None):
@@ -737,6 +792,7 @@ def main():
     ap.add_argument("--tasks", help="ignored (kept so old command lines still run)")
     ap.add_argument("--out")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--by-study", action="store_true", help="print the per-study table of every card")
     a = ap.parse_args()
     cards = load(a.answers)
     if a.selftest:
@@ -766,6 +822,12 @@ def main():
             e = s["emg_r"]
             print(f"{'':26s} EMG r = {e['all']['r']} (n {e['all']['n']}); per study: "
                   + ", ".join(f"{st} {v['r']} (n {v['n']})" for st, v in e["by_study"].items()))
+        if a.by_study:
+            for st, b in s["by_study"].items():
+                e = b.get("emg_r")
+                print(f"{'':6s}{st:24s} inside own spread {b['inside']:4d}/{b['points']:<4d} ({b['share']})  "
+                      f"2 SD {b['inside_2sd']:4d}/{b['points']:<4d} ({b['share_2sd']})  units {b['units']}"
+                      + (f"  EMG r {e['r']} (n {e['n']})" if e else ""))
     o = r["overall"]
     print(f"overall: mean card score {o['mean_card_score']}  ({o['passed']}/{o['units']} units)")
     print(f"overall within 2 SD: mean card score {o['mean_card_score_2sd']}  ({o['passed_2sd']}/{o['units']} units)")
