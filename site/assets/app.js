@@ -46,7 +46,7 @@
   function uniq(a) { var seen = {}, out = []; a.forEach(function (x) { var k = String(x); if (!seen[k]) { seen[k] = 1; out.push(x); } }); return out; }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : (many || one + 's')); }
   function yearsText(y) { return !y || !y.length ? '' : y[0] === y[1] ? String(y[0]) : y[0] + '–' + y[1]; }
-  function setTitle(t) { document.title = t ? t + ' · SpineBench' : 'SpineBench'; }
+  function setTitle(t) { document.title = t ? t + ' · SpineBench' : 'SpineBench · Benchmark for spine models and AI agents'; }
   function anyOn(o) { return Object.keys(o).some(function (k) { return o[k]; }); }
   function isWide() { return window.innerWidth >= WIDE_PX; }
   function fetchJSON(url) {
