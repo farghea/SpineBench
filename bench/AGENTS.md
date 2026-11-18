@@ -155,10 +155,28 @@ its studies; per-subject answers: at least half of the matching references must 
 **Card score** = passed units / all units (simulations or tasks). **Overall** = mean of the card scores (each card
 weighs the same); the plain total is reported too.
 
+**Two extra results** (added 2026-11-18), reported next to the score above, which stays the main result:
+
+- **Within 2 SD.** The same rules with every mean +- SD band widened to mean +- 2 SD. Ranges (min-max, used for
+  medians), the +-25 % for values without spread, the curve floors and the unit floors are not widened, so only values
+  that come with an SD gain (e.g. ROM, facet force, EMG, maximal moments, Polga's thoracic IDP). Simulations read
+  `band_2sd` in `answers.json` (missing = same as `band`; 318 of 667 outputs differ). Keys: `pass_2sd`, `passed_2sd`,
+  `score_2sd`, `mean_card_score_2sd`.
+- **EMG correlation.** For the %MVC outputs of the MSK cards (EMG load holding, flexion-relaxation, maximal
+  exertions): Pearson r between the answered EMG and the measured mean, all muscles and conditions of one study
+  together (one experiment, e.g. Lavender's pull directions, Elrich's load magnitudes), and all studies of the card
+  together. Nobody can measure a muscle's force, and EMG varies widely between people, so whether the model gets the
+  pattern across muscles and tasks right says as much as the hits. Key `emg_r` = `{"all": {"r", "n"}, "by_study":
+  {study: {"r", "n"}}}`; r needs at least 3 answered pairs (read r from a handful of pairs with care).
+
+Example (run_model_v2, 2026-11-18): main score 0.225 (159/628 units); within 2 SD 0.334 (281/628). EMG r: load holding
+0.21 (n 88; Lavender 0.72, Lariviere 0.74, Elrich 0.50), flexion-relaxation 0.04 (n 70; Ghezelbash 2024 0.76,
+Shin -0.48), maximal exertions 0.51 (n 38).
+
 Self-test (`--selftest`, current data): (a) the band midpoint passes every simulation (205/205; MSK oracle 423/423);
 (b) the mean of the study values at each x passes every simulation, and every study mean lies inside its simulation's
 band (1808/1808 curve points); (c) an all-null answer scores 0; (d) curves shifted two band widths above the band fail
-205/205.
+205/205. The 2 SD result gives the same: 628/628, 628/628, 0/628, 0/205.
 
 The per-test `pass_rule` strings in `bench/tests` are richer (trend checks, sign of change after resection) and stay the
 reference for a human review; the scorer applies the uniform rule above so that all 16 cards are scored the same way.
@@ -247,5 +265,6 @@ both specimen types shared one band (before 2026-11-16) the same curve passed 31
 >   `answer_format`; `null` where its model cannot run it.
 > - **Score it** with `tools/score_agent.py`: a simulation passes when its curves lie inside the range spanned by the
 >   studies at >= 80 % of the points; a task passes inside the pooled mean +- SD, or the range of at least half of its
->   studies. The card score is the share of simulations and tasks passed.
+>   studies. The card score is the share of simulations and tasks passed. Also reported: the score with mean +- 2 SD,
+>   and for EMG the correlation between the model and the measured means across all muscles and conditions.
 > - Every reference keeps its `test_id`, so each pass or fail can be traced to a table or figure in the source paper.

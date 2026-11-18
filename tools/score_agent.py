@@ -35,6 +35,15 @@ Two kinds of scoring unit (rule also in bench/AGENTS.md):
     passes inside the pooled band when it has one, else inside the bands of at least half of its studies.
     Per-subject answers ({study or patient: value}): at least half of the matching references must pass.
   card score = passed units / all units; overall = mean of the card scores (each card weighs the same) and the plain total.
+  Two extra results, reported next to the main pass/fail (which is unchanged):
+  - 2 SD: the same rules with every mean +- SD band widened to mean +- 2 SD (min-max ranges, the +-25 % for values
+    without spread, the curve floors and the unit floors stay as they are): "pass_2sd", "passed_2sd", "score_2sd",
+    "mean_card_score_2sd". Simulations read the band "band_2sd" in answers.json (absent = same as "band").
+  - EMG correlation (cards with a %MVC output, MSK tasks): Pearson r between the answered EMG and the measured mean,
+    all muscles and conditions of one study together (one experiment, e.g. Lavender's pull directions or Elrich's
+    load magnitudes), and all studies of the card together. Muscle activity has no single right value, so the
+    pattern across muscles and tasks is reported next to the hits: summary key "emg_r" = {"all": {"r", "n"},
+    "by_study": {study: {"r", "n"}}} (r needs >= 3 answered pairs).
 """
 import argparse
 import json
@@ -47,6 +56,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "site" / "data"
 
 REL_NO_SPREAD = 0.25          # half-width for a value with no SD or range
+K_RELAXED = 2.0               # relaxed result: mean +- K_RELAXED * SD
+EMG_UNIT = "%MVC"             # MSK outputs in this unit also get the EMG correlation
 SIM_PASS = 0.80               # fraction of band points that must pass
 HULL = True                   # convex hull band for outputs not marked rising/falling (see use_hull)
 CURVE_FLOOR = 0.05            # x largest |value| of one measured curve (>= 2 points)
@@ -112,8 +123,8 @@ def sim_slots(card, sim):
     return slots
 
 
-def ref_spread(r):
-    """(centre, lo, hi, has_spread) of one reference value, or None."""
+def ref_spread(r, k=1.0):
+    """(centre, lo, hi, has_spread) of one reference value, or None. k = number of SDs (min-max is never widened)."""
     c = next((num(r.get(k)) for k in ("mean", "median") if num(r.get(k)) is not None), None)
     mn, mx = num(r.get("min")), num(r.get("max"))
     if c is None:
@@ -122,7 +133,7 @@ def ref_spread(r):
         c = (mn + mx) / 2
     sd = num(r.get("sd"))
     if r.get("stat") != "median" and sd is not None and sd > 0:
-        return c, c - sd, c + sd, True
+        return c, c - k * sd, c + k * sd, True
     if mn is not None and mx is not None and mx > mn:
         return c, min(mn, c), max(mx, c), True
     return c, c, c, False
@@ -141,7 +152,7 @@ def transposed_y(sim, t):
     return num(v if v is not None else (t.get("inputs") or {}).get(tr.get("y_input")))
 
 
-def slot_series(slot, sim):
+def slot_series(slot, sim, k=1.0):
     """{(study, curve, tag): [(x, (c, lo, hi, spread)), ...]} - one measured curve per study and condition.
     curve = the inputs named in the sim's "curve_by" (default: every input that is not fixed, swept or an output field).
     Transposed (force-controlled) tasks: x = the measured value (e.g. displacement), y = the applied load; their x
@@ -163,7 +174,7 @@ def slot_series(slot, sim):
         for r in t.get("refs") or []:
             per[r.get("study")] = per.get(r.get("study"), 0) + 1
         for r in t.get("refs") or []:
-            sp = ref_spread(r)
+            sp = ref_spread(r, k)
             if not sp or (is_tr and ty is None):
                 continue
             key = (r.get("study"), var + ("|transposed" if is_tr else ""), _tag(r) if per[r.get("study")] > 1 else "")
@@ -308,7 +319,7 @@ def _chain_at(chain, x, pick):
     return None
 
 
-def slot_band(card_id, slot, sim):
+def slot_band(card_id, slot, sim, k=1.0):
     """{"band": [[x, lo, hi, centre], ...], "studies": {curve: [[x, mean, lo, hi], ...]}, "study_of": {curve: study}}
     for one output of a simulation. One entry per measured curve: a study with several curves in the output
     (layers, regions, specimens) gets one entry per curve, never an average across them; study_of maps those curve
@@ -317,7 +328,7 @@ def slot_band(card_id, slot, sim):
     (digitising tolerance, as before); the band keeps at least the absolute floor of the unit, and +-25 % of its
     centre when no contributing value has a spread. Outputs marked rising/falling (sim "monotone", see mono_dir) get
     the envelope of monotone_hull; the others the convex hull of all of these points, read at each band x (use_hull)."""
-    ser = slot_series(slot, sim)
+    ser = slot_series(slot, sim, k)
     xs = sorted({x for pts in ser.values() for x, _ in pts}, key=_xkey)
     sfl = {k: CURVE_FLOOR * max(abs(v[0]) for _, v in pts) if len(pts) >= 2 else 0.0 for k, pts in ser.items()}
 
@@ -439,7 +450,7 @@ def score_sim(sd, ans):
     nkey = {}
     for o in sd["outputs"]:
         nkey[o["key"]] = nkey.get(o["key"], 0) + 1
-    ok, errs, scale, studies, answered, failed = [], [], 0.0, {}, 0, {}
+    ok, ok2, errs, scale, studies, answered, failed = [], [], [], 0.0, {}, 0, {}
     for o in sd["outputs"]:
         raw = _lookup(ans, o["path"], nkey[o["key"]] == 1)
         nx = len(o["band"])
@@ -450,6 +461,9 @@ def score_sim(sd, ans):
             v = num(raw)
             return v if (x is None or nx == 1) else None
 
+        for x, lo, hi, _c in o.get("band_2sd") or o["band"]:
+            v = y(x)
+            ok2.append(v is not None and lo <= v <= hi)
         for x, lo, hi, _c in o["band"]:
             v = y(x)
             answered += v is not None
@@ -471,8 +485,10 @@ def score_sim(sd, ans):
                     s["e"].append(v - c)
                     errs.append(v - c)
     frac = sum(ok) / len(ok) if ok else 0.0
+    frac2 = sum(ok2) / len(ok2) if ok2 else 0.0
     rms = lambda e, m: round(math.sqrt(sum(x * x for x in e) / len(e)) / m, 3) if e and m else None
     return {"pass": bool(ok) and frac >= SIM_PASS, "sim": True, "points_passed": f"{sum(ok)}/{len(ok)}",
+            "pass_2sd": bool(ok2) and frac2 >= SIM_PASS, "points_passed_2sd": f"{sum(ok2)}/{len(ok2)}",
             "answered": answered > 0, "nrmse": rms(errs, scale),
             "studies": {st: {"in_own_spread": f"{s['hit']}/{s['n']}", "nrmse": rms(s["e"], s["cmax"])}
                         for st, s in studies.items()},
@@ -481,7 +497,7 @@ def score_sim(sd, ans):
 
 # ---------------------------------------------------------------- tasks (MSK cards)
 
-def ref_band(r, floor):
+def ref_band(r, floor, k=1.0):
     c = next((num(r.get(k)) for k in ("mean", "median") if num(r.get(k)) is not None), None)
     lo, hi = num(r.get("min")), num(r.get("max"))
     if c is None:
@@ -490,7 +506,7 @@ def ref_band(r, floor):
         c = (lo + hi) / 2
     sd = num(r.get("sd"))
     if sd is not None and sd > 0:
-        lo, hi = c - sd, c + sd
+        lo, hi = c - k * sd, c + k * sd
     elif lo is not None and hi is not None and hi > lo:
         lo, hi = min(lo, c), max(hi, c)
     else:
@@ -504,12 +520,12 @@ def subject_key(r):
     return m.group(1) if m and r.get("n") in (None, 1) else None
 
 
-def score_task(ans, val, floor):
-    """ans: answers.json entry; val: number or {subject: number}. -> dict(pass, ...)."""
+def score_task(ans, val, floor, k=1.0):
+    """ans: answers.json entry; val: number or {subject: number}. -> dict(pass, ...). k = number of SDs."""
     refs = ans.get("refs") or []
     by = {}
     for r in refs:
-        b = ref_band(r, floor)
+        b = ref_band(r, floor, k)
         if b:
             by.setdefault(r.get("study"), []).append((r, b))
     if not by:
@@ -535,7 +551,7 @@ def score_task(ans, val, floor):
     p = ans.get("pooled") or {}
     pm, ps = num(p.get("mean")), num(p.get("sd"))
     if pm is not None:
-        half = max(ps or 0.0, floor(pm))
+        half = max(k * (ps or 0.0), floor(pm))
         out["pooled_band"] = [round(pm - half, 6), round(pm + half, 6)]
         out["z_pooled"] = round((v - pm) / ps, 3) if ps else None
         out["pass"] = pm - half <= v <= pm + half
@@ -581,23 +597,64 @@ def load(answers_path):
     return {cid: {"tasks": t, "sims": sims.get(cid) or {}} for cid, t in raw["answers"].items()}
 
 
+def pearson(pairs):
+    """{"r", "n"} for [(answer, measured), ...]; r is None below 3 pairs or without variance."""
+    n = len(pairs)
+    if n < 3:
+        return {"r": None, "n": n}
+    ma, mm = sum(a for a, _ in pairs) / n, sum(m for _, m in pairs) / n
+    sab = sum((a - ma) * (m - mm) for a, m in pairs)
+    saa, smm = sum((a - ma) ** 2 for a, _ in pairs), sum((m - mm) ** 2 for _, m in pairs)
+    return {"r": round(sab / math.sqrt(saa * smm), 3) if saa > 0 and smm > 0 else None, "n": n}
+
+
+def emg_correlation(card, answers):
+    """EMG pattern: one pair per (task, study) = (answered value, mean of that study's centres for the task)."""
+    by = {}
+    for tid, a in card["tasks"].items():
+        if a.get("unit") != EMG_UNIT:
+            continue
+        v = num(unwrap(answers.get(tid), a.get("output")))
+        if v is None:
+            continue
+        cs = {}
+        for r in a.get("refs") or []:
+            b = ref_band(r, lambda c: 0.0)
+            if b:
+                cs.setdefault(r.get("study"), []).append(b[2])
+        for st, c in cs.items():
+            by.setdefault(st, []).append((v, sum(c) / len(c)))
+    if not by:
+        return None
+    return {"all": pearson([p for ps in by.values() for p in ps]),
+            "by_study": {st: pearson(ps) for st, ps in sorted(by.items())}}
+
+
 def score_card(cid, card, answers):
     units_floor = lambda unit: (lambda c: max(ABS_FLOOR.get(unit, 0.0), REL_FLOOR.get(cid, 0.0) * abs(c)))
-    res, units = {}, []
+    res, units, units2, emg = {}, [], [], None
     if card["sims"]:
         for sid, sd in card["sims"].items():
             r = score_sim(sd, answers.get(sid))
             res[sid] = r
             units.append(r["pass"])
+            units2.append(r["pass_2sd"])
         answered = sum(1 for r in res.values() if r["answered"])
     else:
         for tid, a in card["tasks"].items():
-            r = score_task(a, unwrap(answers.get(tid), a.get("output")), units_floor(a.get("unit", "")))
+            val, fl = unwrap(answers.get(tid), a.get("output")), units_floor(a.get("unit", ""))
+            r = score_task(a, val, fl)
+            r["pass_2sd"] = bool(score_task(a, val, fl, K_RELAXED).get("pass"))
             res[tid] = r
             units.append(bool(r.get("pass")))
+            units2.append(r["pass_2sd"])
         answered = sum(1 for r in res.values() if r.get("value") is not None or r.get("hits", "").endswith("subjects"))
-    return res, {"units": len(units), "kind": "simulations" if card["sims"] else "tasks", "answered": answered,
-                 "passed": sum(units), "score": round(sum(units) / len(units), 3) if units else None}
+        emg = emg_correlation(card, answers)
+    n = len(units)
+    return res, {"units": n, "kind": "simulations" if card["sims"] else "tasks", "answered": answered,
+                 "passed": sum(units), "score": round(sum(units) / n, 3) if n else None,
+                 "passed_2sd": sum(units2), "score_2sd": round(sum(units2) / n, 3) if n else None,
+                 **({"emg_r": emg} if emg else {})}
 
 
 def score(sub, cards, card_opt=None):
@@ -609,9 +666,13 @@ def score(sub, cards, card_opt=None):
         res, s = score_card(cid, cards[cid], per.get(cid, {}))
         report[cid], summary[cid] = res, s
     scored = [s["score"] for s in summary.values() if s["score"] is not None]
+    scored2 = [s["score_2sd"] for s in summary.values() if s["score_2sd"] is not None]
     tot_u = sum(s["units"] for s in summary.values()); tot_p = sum(s["passed"] for s in summary.values())
+    tot_p2 = sum(s["passed_2sd"] for s in summary.values())
     return {"summary": summary, "overall": {"mean_card_score": round(sum(scored) / len(scored), 3) if scored else None,
-                                            "passed": tot_p, "units": tot_u}, "results": report}
+                                            "passed": tot_p, "units": tot_u,
+                                            "mean_card_score_2sd": round(sum(scored2) / len(scored2), 3) if scored2 else None,
+                                            "passed_2sd": tot_p2}, "results": report}
 
 
 # ---------------------------------------------------------------- self-test submissions
@@ -688,7 +749,7 @@ def main():
         for name, sub, cs in runs:
             r = score(sub, cs)
             print(f"{name}: mean card score {r['overall']['mean_card_score']}, "
-                  f"{r['overall']['passed']}/{r['overall']['units']} units")
+                  f"{r['overall']['passed']}/{r['overall']['units']} units; 2 SD: {r['overall']['passed_2sd']}/{r['overall']['units']}")
             for cid, s in r["summary"].items():
                 print(f"   {cid:26s} {s['passed']:4d}/{s['units']:<4d} {s['kind']:11s} {s['score']}")
         n, bad = study_means_in_band(cards)
@@ -699,9 +760,15 @@ def main():
     sub = json.loads(Path(a.submission).read_text(encoding="utf-8"))
     r = score(sub, cards, a.card)
     for cid, s in r["summary"].items():
-        print(f"{cid:26s} passed {s['passed']:4d}/{s['units']:<4d} {s['kind']:11s} answered {s['answered']:4d}  score {s['score']}")
+        print(f"{cid:26s} passed {s['passed']:4d}/{s['units']:<4d} {s['kind']:11s} answered {s['answered']:4d}  "
+              f"score {s['score']}  | 2 SD: {s['passed_2sd']}/{s['units']} score {s['score_2sd']}")
+        if s.get("emg_r"):
+            e = s["emg_r"]
+            print(f"{'':26s} EMG r = {e['all']['r']} (n {e['all']['n']}); per study: "
+                  + ", ".join(f"{st} {v['r']} (n {v['n']})" for st, v in e["by_study"].items()))
     o = r["overall"]
     print(f"overall: mean card score {o['mean_card_score']}  ({o['passed']}/{o['units']} units)")
+    print(f"overall within 2 SD: mean card score {o['mean_card_score_2sd']}  ({o['passed_2sd']}/{o['units']} units)")
     if a.out:
         Path(a.out).write_text(json.dumps(r, indent=1, ensure_ascii=False), encoding="utf-8")
         print(f"per-unit report -> {a.out}")
