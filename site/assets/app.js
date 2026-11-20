@@ -1694,6 +1694,20 @@
       (exSimText ? '<div><h2>Example 1: finite element benchmark, the answer is a curve</h2><pre class="code">' + esc(exSimText) + '</pre></div>' : '') +
       '<div><h2>Example' + (exSimText ? ' 2' : '') + ': musculoskeletal benchmark, the answer is one number per task</h2><pre class="code">' + esc(exText) + '</pre></div></div>';
   }
+  function viewSpineTwin() {
+    setTitle('SpineTwin results');
+    var fig = function (src, alt, cap) {
+      return '<figure class="result-fig"><a href="' + src + '" target="_blank" rel="noopener" title="Open full size">' +
+        '<img src="' + src + '" alt="' + esc(alt) + '" loading="lazy"></a><figcaption>' + cap + '</figcaption></figure>';
+    };
+    main.innerHTML = '<div class="stack"><div class="prose"><h1>SpineTwin results</h1>' +
+      '<p class="lede">SpineTwin (OpenSim musculoskeletal trunk model and FEBio T1&ndash;S1 finite element spine), run blind by its simulation agent on all 628 SpineBench units: <b>170 within 1 SD</b> and <b>333 within 2 SD</b> of the experiments (mean card score 0.257 and 0.449).</p></div>' +
+      fig('assets/results/spinetwin_anatomy.png', 'SpineTwin results mapped onto the spine and trunk',
+        'Results by structure. Each bar holds all units of one benchmark card: within 1 SD, within 2 SD only, outside 2 SD, not answered.') +
+      fig('assets/results/spinetwin_key_results.png', 'Six key SpineTwin results against experiment',
+        'Key results: three strengths (disc pressure across postures, L4&ndash;L5 flexibility, range of motion after resection) and three limitations (axial stiffness with preload, back-muscle activity, facet force).') +
+      '</div>';
+  }
   function viewAbout() {
     setTitle('About');
     var c = S.index.counts || {};
@@ -1793,6 +1807,7 @@
         case 'home': p = viewHome(); break;
         case 'b': p = viewBench(r.arg, r.sub); break;
         case 'agents': p = viewAgents(); break;
+        case 'spinetwin': p = viewSpineTwin(); break;
         case 'about': p = viewAbout(); break;
         case 'terms': p = viewTerms(); break;
         case 'test': case 'group': case 'category': case 'browse': case 'groups': case 'search': p = oldLink(r.page, r.arg); break;

@@ -455,3 +455,9 @@ td.loading-td { font-size: 0.82rem; color: var(--ink-2); min-width: 18ch; }
 /* phones: header hides while scrolling down (class set in app.js) */
 .top { transition: transform .2s ease; }
 .top.top-hidden { transform: translateY(-100%); }
+
+/* ---------- model results page (#spinetwin) ---------- */
+.result-fig { margin: 0; }
+.result-fig a { display: block; border: 1px solid var(--line, #e4e3dd); border-radius: var(--r); overflow: hidden; background: #fff; }
+.result-fig img { display: block; width: 100%; height: auto; }
+.result-fig figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 8px; max-width: 80ch; }
