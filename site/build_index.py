@@ -661,13 +661,14 @@ def study_colors(cards):
 # MSK cards stay task by task.
 AGENT_SCORING = ("Scored by tools/score_agent.py (rule in bench/AGENTS.md). Simulations: at each x where studies have "
                  "data the band runs from the lowest (mean - SD, else min, else mean) to the highest (mean + SD, else "
-                 "max, else mean) over the studies, never narrower than a small floor (+-25 % for a lone value without "
-                 "spread); for outputs that only rise (or only fall) with the sweep the band rises (falls) with them, "
+                 "max, else mean) over the studies, never narrower than a small floor, and always covering each study's own "
+                 "interval (a value without spread: +-25 % of itself); for outputs that only rise (or only fall) with the sweep the band rises (falls) with them, "
                  "other outputs use the convex hull of all measured points; removal steps are % of your own intact model; "
                  "a simulation passes when its curves lie inside the band at >= 80 % of the band points (x "
                  "outside your curve fails). Tasks (MSK): inside the pooled mean +- SD, else inside the bands of at least "
-                 "half of the studies. Card score = passed units / all units. Also reported: the same score with every "
-                 "mean +- SD widened to +- 2 SD, and for EMG the correlation (Pearson r) between your values and the "
+                 "half of the studies. Card score = passed units / all units. Also reported: the same score within 2 SD, "
+                 "every band edge moved out by one more SD (mean +- 2 SD; a min-max range by an SD estimated from the "
+                 "range and n; +-50 % instead of +-25 % for a value without spread; floors doubled), and for EMG the correlation (Pearson r) between your values and the "
                  "measured means over all muscles and conditions of each study. Report results by study as well as by card "
                  "(score_agent.py --by-study: each study's own values inside its own spread, +-SD and +-2 SD, and its EMG r).")
 _PATIENT = re.compile(r"^\s*(WP\d+)\b")
@@ -694,7 +695,7 @@ def _distinct(vals):
 
 
 def _bands(card_id, sl, sim):
-    """slot_band, plus "band_2sd" and "studies_2sd" (mean +- 2 SD; the relaxed result) where they differ."""
+    """slot_band, plus "band_2sd" and "studies_2sd" (every edge one more SD out; the relaxed result) where they differ."""
     out = SA.slot_band(card_id, sl, sim)
     wide = SA.slot_band(card_id, sl, sim, SA.K_RELAXED)
     if wide["band"] != out["band"]:

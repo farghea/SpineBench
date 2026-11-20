@@ -26,7 +26,8 @@ Two kinds of scoring unit (rule also in bench/AGENTS.md):
     falling one), inside the x range the studies cover. Outputs not marked rising/falling are widened to the convex
     hull of all measured points with their spread and floors (use_hull; sim key "hull" overrides). Floors: each measured curve keeps +-5 % of its
     own largest |value| around its points; the band half-width is at least ABS_FLOOR[unit], and 25 % of |centre| when
-    no contributing value has a spread. Force-controlled points in a displacement-swept simulation (sim key
+    no contributing value has a spread; the band always covers each study's own interval (a value without spread:
+    +-25 % of itself, also when other studies at that x have a spread). Force-controlled points in a displacement-swept simulation (sim key
     "transpose") are read as (measured displacement, applied force). PASS if the answer is inside the band at
     >= 80 % of the band points.
     Reported per study: points inside the study's own spread (same floors) and NRMSE (RMS error / largest |mean|).
@@ -36,9 +37,12 @@ Two kinds of scoring unit (rule also in bench/AGENTS.md):
     Per-subject answers ({study or patient: value}): at least half of the matching references must pass.
   card score = passed units / all units; overall = mean of the card scores (each card weighs the same) and the plain total.
   Two extra results, reported next to the main pass/fail (which is unchanged):
-  - 2 SD: the same rules with every mean +- SD band widened to mean +- 2 SD (min-max ranges, the +-25 % for values
-    without spread, the curve floors and the unit floors stay as they are): "pass_2sd", "passed_2sd", "score_2sd",
-    "mean_card_score_2sd". Simulations read the band "band_2sd" in answers.json (absent = same as "band").
+  - 2 SD: the same rules with every band edge moved out by one more SD, so the 2 SD band is wider than the main
+    band at every point: mean +- SD -> mean +- 2 SD; a min-max range -> [min - SD, max + SD], SD estimated from the
+    range and n (Wan et al. 2014, BMC Med Res Methodol 14:135: SD = range / xi(n), xi(n) = 2 Phi^-1((n - 0.375) /
+    (n + 0.25)); range / 4 when n is unknown); the +-25 % for values without spread -> +-50 %; the curve floor (+-5 %)
+    and the unit floors -> doubled: "pass_2sd", "passed_2sd", "score_2sd", "mean_card_score_2sd". Simulations read
+    the band "band_2sd" in answers.json (absent = same as "band").
   - EMG correlation (cards with a %MVC output, MSK tasks): Pearson r between the answered EMG and the measured mean,
     all muscles and conditions of one study together (one experiment, e.g. Lavender's pull directions or Elrich's
     load magnitudes), and all studies of the card together. Muscle activity has no single right value, so the
@@ -60,7 +64,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "site" / "data"
 
 REL_NO_SPREAD = 0.25          # half-width for a value with no SD or range
-K_RELAXED = 2.0               # relaxed result: mean +- K_RELAXED * SD
+K_RELAXED = 2.0               # relaxed result: every half-width x K_RELAXED (mean +- 2 SD, see sd_from_range)
 EMG_UNIT = "%MVC"             # MSK outputs in this unit also get the EMG correlation
 SIM_PASS = 0.80               # fraction of band points that must pass
 HULL = True                   # convex hull band for outputs not marked rising/falling (see use_hull)
@@ -139,8 +143,19 @@ def ref_spread(r, k=1.0):
     if r.get("stat") != "median" and sd is not None and sd > 0:
         return c, c - k * sd, c + k * sd, True
     if mn is not None and mx is not None and mx > mn:
-        return c, min(mn, c), max(mx, c), True
+        s = (k - 1) * sd_from_range(mn, mx, r.get("n")) if k > 1 else 0.0
+        return c, min(mn, c) - s, max(mx, c) + s, True
     return c, c, c, False
+
+
+def sd_from_range(mn, mx, n=None):
+    """SD estimated from a min-max range of n values (Wan et al. 2014): range / xi(n); range / 4 when n is unknown.
+    Used only for the 2 SD result: [min - SD, max + SD] (the main band keeps the range itself)."""
+    from statistics import NormalDist
+    n = num(n)
+    if n is None or n < 2:
+        return (mx - mn) / 4.0
+    return (mx - mn) / (2 * NormalDist().inv_cdf((n - 0.375) / (n + 0.25)))
 
 
 def _tag(r):
@@ -221,10 +236,10 @@ def series_at(pts, x):
     return None
 
 
-def _floored(vals, floor):
+def _floored(vals, floor, k=1.0):
     lo, hi = min(v[1] for v in vals), max(v[2] for v in vals)
     mid = (lo + hi) / 2
-    half = max(floor(mid), 0.0 if any(v[3] for v in vals) else REL_NO_SPREAD * abs(mid))
+    half = k * max(floor(mid), 0.0 if any(v[3] for v in vals) else REL_NO_SPREAD * abs(mid))
     return min(lo, mid - half), max(hi, mid + half), sum(v[0] for v in vals) / len(vals)
 
 
@@ -330,34 +345,46 @@ def slot_band(card_id, slot, sim, k=1.0):
     names back to the study. x is null for an output without sweep; centre = mean of the curve values that count at x.
     Floors: each measured curve (>= 2 points) keeps at least +-5 % of its own largest |value| around each point
     (digitising tolerance, as before); the band keeps at least the absolute floor of the unit, and +-25 % of its
-    centre when no contributing value has a spread. Outputs marked rising/falling (sim "monotone", see mono_dir) get
+    centre when no contributing value has a spread. The band always covers every curve's own interval (the one its
+    per-study check uses), so a value without spread keeps its +-25 % even when other curves at that x have one. Outputs marked rising/falling (sim "monotone", see mono_dir) get
     the envelope of monotone_hull; the others the convex hull of all of these points, read at each band x (use_hull)."""
     ser = slot_series(slot, sim, k)
     xs = sorted({x for pts in ser.values() for x, _ in pts}, key=_xkey)
-    sfl = {k: CURVE_FLOOR * max(abs(v[0]) for _, v in pts) if len(pts) >= 2 else 0.0 for k, pts in ser.items()}
+    sfl = {key: k * CURVE_FLOOR * max(abs(v[0]) for _, v in pts) if len(pts) >= 2 else 0.0
+           for key, pts in ser.items()}
 
     def floor(mid):
         return max(ABS_FLOOR.get(slot["unit"], 0.0), REL_FLOOR.get(card_id, 0.0) * abs(mid))
 
     def at(keys, x):
         out = []
-        for k in keys:
-            v = series_at(ser[k], x)
+        for key in keys:
+            v = series_at(ser[key], x)
             if v:
-                out.append((v[0], min(v[1], v[0] - sfl[k]), max(v[2], v[0] + sfl[k]), v[3]))
+                out.append((v[0], min(v[1], v[0] - sfl[key]), max(v[2], v[0] + sfl[key]), v[3]))
         return out
+
+    def own(key, x):
+        """One curve's own interval at x (the per-study check): its spread, else +-25 %, with the floors."""
+        v = at([key], x)
+        return _floored(v, floor, k) if v else None
 
     band = []
     for x in xs:
-        lo, hi, c = _floored(at(ser, x), floor)
+        lo, hi, c = _floored(at(ser, x), floor, k)
+        for key in ser:  # the band covers every curve's own interval (a value without spread keeps its +-25 %)
+            o = own(key, x)
+            if o:
+                lo, hi = min(lo, o[0]), max(hi, o[1])
         band.append([x, lo, hi, c])
     if use_hull(sim, slot) and not slot["scalar"] and len(band) > 1:
-        # convex hull of everything: every measured point with its spread and floors, and the floored band itself
+        # convex hull of everything: every measured point with its own interval, and the band itself
         pts = [(x, y) for x, lo, hi, _ in band for y in (lo, hi)]
-        for k, sp in ser.items():
+        for key, sp in ser.items():
             for x, v in sp:
                 if x is not None:
-                    pts += [(x, min(v[1], v[0] - sfl[k])), (x, max(v[2], v[0] + sfl[k]))]
+                    o = own(key, x)
+                    pts += [(x, o[0]), (x, o[1])]
         low, up = _hull_chains(pts)
         band = [[x, min(lo, _chain_at(low, x, min)), max(hi, _chain_at(up, x, max)), c] for x, lo, hi, c in band]
     if mono_dir(sim, slot) and not slot["scalar"]:
@@ -365,12 +392,12 @@ def slot_band(card_id, slot, sim, k=1.0):
     band = [[x, r6(lo), r6(hi), r6(c)] for x, lo, hi, c in band]
     names = curve_names(ser)
     studies, study_of = {}, {}
-    for k in sorted(ser, key=lambda k: names[k]):
-        if names[k] != str(k[0]):
-            study_of[names[k]] = k[0]
-        for x, _ in ser[k]:
-            lo, hi, c = _floored(at([k], x), floor)
-            studies.setdefault(names[k], []).append([x, r6(c), r6(lo), r6(hi)])
+    for key in sorted(ser, key=lambda q: names[q]):
+        if names[key] != str(key[0]):
+            study_of[names[key]] = key[0]
+        for x, _ in ser[key]:
+            lo, hi, c = _floored(at([key], x), floor, k)
+            studies.setdefault(names[key], []).append([x, r6(c), r6(lo), r6(hi)])
     return {"band": band, "studies": studies, **({"study_of": study_of} if study_of else {})}
 
 
@@ -515,10 +542,11 @@ def ref_band(r, floor, k=1.0):
     if sd is not None and sd > 0:
         lo, hi = c - k * sd, c + k * sd
     elif lo is not None and hi is not None and hi > lo:
-        lo, hi = min(lo, c), max(hi, c)
+        s = (k - 1) * sd_from_range(lo, hi, r.get("n")) if k > 1 else 0.0
+        lo, hi = min(lo, c) - s, max(hi, c) + s
     else:
-        lo, hi = c - REL_NO_SPREAD * abs(c), c + REL_NO_SPREAD * abs(c)
-    f = floor(c)
+        lo, hi = c - k * REL_NO_SPREAD * abs(c), c + k * REL_NO_SPREAD * abs(c)
+    f = k * floor(c)
     return (min(lo, c - f), max(hi, c + f), c)
 
 
@@ -558,7 +586,7 @@ def score_task(ans, val, floor, k=1.0):
     p = ans.get("pooled") or {}
     pm, ps = num(p.get("mean")), num(p.get("sd"))
     if pm is not None:
-        half = max(k * (ps or 0.0), floor(pm))
+        half = k * max(ps or 0.0, floor(pm))
         out["pooled_band"] = [round(pm - half, 6), round(pm + half, 6)]
         out["z_pooled"] = round((v - pm) / ps, 3) if ps else None
         out["pass"] = pm - half <= v <= pm + half

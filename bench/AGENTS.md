@@ -138,7 +138,10 @@ python3 tools/score_agent.py --selftest
 4. **Floors.** Each measured curve keeps at least +-5 % of its own largest value around its points (digitising
    tolerance). The band is never narrower than the unit's absolute floor (0.5 deg, 0.02 MPa, 5 N, 1 Nm, 1 kPa, 0.05 mm,
    2 %), and where no contributing value has a spread (a lone value, or values without SD or range) it is at least
-   +-25 % of its centre.
+   +-25 % of its centre. The band always covers every study's own interval, the one its per-study check uses (added
+   2026-11-20): a value without spread keeps its +-25 % even where other studies at that x have an SD or range
+   (before, only its single value counted there, so its own bar stuck out of the band, e.g. Liebsch 2020 NZ 9.5 deg
+   with the band ending at 9.5).
 5. **Force-controlled points** in a displacement-swept simulation (Tencer, Berkson, Frei, Cannella in the compression
    test) are read as (measured displacement, applied force); their displacement spread becomes a force spread through
    the slope of the study's own curve.
@@ -157,11 +160,17 @@ weighs the same); the plain total is reported too.
 
 **Two extra results** (added 2026-11-18), reported next to the score above, which stays the main result:
 
-- **Within 2 SD.** The same rules with every mean +- SD band widened to mean +- 2 SD. Ranges (min-max, used for
-  medians), the +-25 % for values without spread, the curve floors and the unit floors are not widened, so only values
-  that come with an SD gain (e.g. ROM, facet force, EMG, maximal moments, Polga's thoracic IDP). Simulations read
-  `band_2sd` in `answers.json` (missing = same as `band`; 318 of 667 outputs differ). Keys: `pass_2sd`, `passed_2sd`,
-  `score_2sd`, `mean_card_score_2sd`.
+- **Within 2 SD.** The same rules with every band edge moved out by one more SD, so the 2 SD band is wider than the
+  main band everywhere (revised 2026-11-20; before, only values with an SD were widened, and the 2 SD band sat on top
+  of the main band wherever a range, a value without spread or a floor set the edge):
+  - mean +- SD -> mean +- 2 SD;
+  - a min-max range (used for medians) -> [min - SD, max + SD], with the SD estimated from the range and n (Wan et
+    al. 2014, BMC Med Res Methodol 14:135: SD = range / xi(n), xi(n) = 2 Phi^-1((n - 0.375) / (n + 0.25)); range / 4
+    when n is unknown);
+  - a value without spread: +-25 % -> +-50 %; the curve floor (+-5 %) and the unit floors are doubled.
+
+  The main band is untouched. Simulations read `band_2sd` in `answers.json` (missing = same as `band`; 666 of 667
+  outputs differ). Keys: `pass_2sd`, `passed_2sd`, `score_2sd`, `mean_card_score_2sd`.
 - **EMG correlation.** For the %MVC outputs of the MSK cards (EMG load holding, flexion-relaxation, maximal
   exertions): Pearson r between the answered EMG and the measured mean, all muscles and conditions of one study
   together (one experiment, e.g. Lavender's pull directions, Elrich's load magnitudes), and all studies of the card
@@ -170,7 +179,7 @@ weighs the same); the plain total is reported too.
   {study: {"r", "n"}}}`; r needs at least 3 answered pairs (read r from a handful of pairs with care).
 
 **Report results by study.** A card pools several experiments, and a card score can hide which experiment a model
-gets right and which it misses (e.g. EMG load holding: 47/100 tasks within 2 SD, but Elrich's load magnitudes 35/50
+gets right and which it misses (e.g. EMG load holding: 56/100 tasks within 2 SD, but Elrich's load magnitudes 35/50
 and Ghezelbash 2020 2/16). So every published result gives, next to the card scores (main and 2 SD), one row per study
 per card: the study's own values hit inside the study's own spread (main rule and 2 SD; simulation points or task
 values), the number of scoring units it appears in, and for EMG its r. The scorer writes this table in the summary
@@ -178,10 +187,10 @@ values), the number of scoring units it appears in, and for EMG its r. The score
 
 ```
 python3 tools/score_agent.py answers_from_agent.json --by-study --out report.json
-      lavender1992    inside own spread    2/14 (0.143)  2 SD    2/14 (0.143)  units 14  EMG r 0.719 (n 14)
+      lavender1992    inside own spread    2/14 (0.143)  2 SD    5/14 (0.357)  units 14  EMG r 0.719 (n 14)
 ```
 
-Example (run_model_v2, 2026-11-18): main score 0.225 (159/628 units); within 2 SD 0.334 (281/628). EMG r: load holding
+Example (run_model_v2, scored 2026-11-20): main score 0.229 (161/628 units); within 2 SD 0.392 (314/628). EMG r: load holding
 0.21 (n 88; Lavender 0.72, Lariviere 0.74, Elrich 0.50), flexion-relaxation 0.04 (n 70; Ghezelbash 2024 0.76,
 Shin -0.48), maximal exertions 0.51 (n 38).
 
@@ -277,7 +286,8 @@ both specimen types shared one band (before 2026-11-16) the same curve passed 31
 >   `answer_format`; `null` where its model cannot run it.
 > - **Score it** with `tools/score_agent.py`: a simulation passes when its curves lie inside the range spanned by the
 >   studies at >= 80 % of the points; a task passes inside the pooled mean +- SD, or the range of at least half of its
->   studies. The card score is the share of simulations and tasks passed. Also reported: the score with mean +- 2 SD,
+>   studies. The card score is the share of simulations and tasks passed. Also reported: the score with mean +- 2 SD
+>   (every band edge one more SD out; for ranges the SD is estimated from the range and n),
 >   and for EMG the correlation between the model and the measured means across all muscles and conditions.
 >   Results are reported by study as well as by card (`--by-study`).
 > - Every reference keeps its `test_id`, so each pass or fail can be traced to a table or figure in the source paper.
